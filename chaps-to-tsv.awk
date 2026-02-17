@@ -1,7 +1,7 @@
 # How to use:
-# mutool clean DEN0137_1.0-rel0_rmm-arch_external.pdf rmm-contents.pdf 9-16
-# docling --to md --image-export-mode placeholder rmm-contents.pdf
-# gawk -f contents-to-cmds.awk rmm-contents.md > rmm-chaps.tsv
+# mutool clean DEN0137_1.0-rel0_rmm-arch_external.pdf rmm-chaps.pdf 9-16
+# docling --to md --image-export-mode placeholder rmm-chaps.pdf
+# gawk -f chaps-to-tsv.awk rmm-chaps.md > rmm-chaps.tsv
 # manually fix rmm-chaps.tsv
 # bash gen_mds.sh rmm-chaps.tsv DEN0137_1.0-rel0_rmm-arch_external.pdf rmm
 

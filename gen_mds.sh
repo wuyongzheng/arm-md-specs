@@ -31,6 +31,9 @@ for i in $(<$tsv) ; do
 
 	# It's a comment
 	if [[ "$START" == "#"* ]]; then
+		START=""
+		END=""
+		NAME=""
 		continue
 	fi
 
