@@ -1,0 +1,51 @@
+## B4.3.5 RMI\_GRANULE\_DELEGATE command
+
+Delegates a Granule.
+
+See also:
+
+- A2.2 Granule
+- B4.3.6 RMI\_GRANULE\_UNDELEGATE command
+- D1.2.1 Realm creation flow
+
+## B4.3.5.1 Interface
+
+## B4.3.5.1.1 Input values
+
+| Name   | Register   | Bits   | Type    | Description              |
+|--------|------------|--------|---------|--------------------------|
+| fid    | X0         | 63:0   | UInt64  | FID, value 0xC4000151    |
+| addr   | X1         | 63:0   | Address | PA of the target Granule |
+
+## B4.3.5.1.2 Output values
+
+| Name   | Register   | Bits   | Type                 | Description           |
+|--------|------------|--------|----------------------|-----------------------|
+| result | X0         | 63:0   | RmiCommandReturnCode | Command return status |
+
+## B4.3.5.2 Failure conditions
+
+| ID         | Condition                                                                          |
+|------------|------------------------------------------------------------------------------------|
+| gran_align | pre: !AddrIsGranuleAligned(addr) post: ResultEqual(result, RMI_ERROR_INPUT)        |
+| gran_bound | pre: !PaIsDelegable(addr) post: ResultEqual(result, RMI_ERROR_INPUT)               |
+| gran_state | pre: Granule(addr).state != UNDELEGATED post: ResultEqual(result, RMI_ERROR_INPUT) |
+| gran_gpt   | pre: Granule(addr).gpt != GPT_NS post: ResultEqual(result, RMI_ERROR_INPUT)        |
+
+## B4.3.5.2.1 Failure condition ordering
+
+The RMI\_GRANULE\_DELEGATE command does not have any failure condition orderings.
+
+## B4.3.5.3 Success conditions
+
+| ID         | Condition                        |
+|------------|----------------------------------|
+| gran_state | Granule(addr).state == DELEGATED |
+| gran_gpt   | Granule(addr).gpt == GPT_REALM   |
+
+## B4.3.5.4 Footprint
+
+| ID         | Value               |
+|------------|---------------------|
+| gran_gpt   | Granule(addr).gpt   |
+| gran_state | Granule(addr).state |
