@@ -1,0 +1,18 @@
+## B1.1 About the Application level programmers' model
+
+This chapter contains the programmers' model information required for application development.
+
+The information in this chapter is distinct from the system information required to service and support application execution under an operating system, or higher level of system software. However, some knowledge of the system information is needed to put the Application level programmers' model into context.
+
+Depending on the implementation choices, the architecture supports multiple levels of execution privilege, indicated by different Exception levels that number upwards from EL0 to EL3. EL0 corresponds to the lowest privilege level and is often described as unprivileged. The Application level programmers' model is the programmers' model for software executing at EL0. For more information, see Exception levels.
+
+System software determines the Exception level, and therefore the level of privilege, at which software runs. When an operating system supports execution at both EL1 and EL0, an application usually runs unprivileged at EL0. This:
+
+- Permits the operating system to allocate system resources to an application in a unique or shared manner.
+- Provides a degree of protection from other processes, and so helps protect the operating system from malfunctioning software.
+
+This chapter indicates where some system level understanding is necessary, and where relevant it gives a reference to the system level description.
+
+Execution at any Exception level above EL0 is often referred to as privileged execution.
+
+For more information on the system level view of the architecture refer to The AArch64 System Level Programmers' Model.

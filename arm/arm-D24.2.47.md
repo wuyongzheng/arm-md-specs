@@ -1,0 +1,3201 @@
+## D24.2.47 ESR\_EL3, Exception Syndrome Register (EL3)
+
+The ESR\_EL3 characteristics are:
+
+## Purpose
+
+Holds syndrome information for an exception taken to EL3.
+
+## Configuration
+
+This register is present only when EL3 is implemented and FEAT\_AA64 is implemented. Otherwise, direct accesses to ESR\_EL3 are UNDEFINED.
+
+## Attributes
+
+ESR\_EL3 is a 64-bit register.
+
+## Field descriptions
+
+<!-- image -->
+
+ESR\_EL3 is made UNKNOWN as a result of an exception return from EL3.
+
+When an UNPREDICTABLE instruction is treated as UNDEFINED, and the exception is taken to EL3, the value of ESR\_EL3 is UNKNOWN. The value written to ESR\_EL3 must be consistent with a value that could be created as a result of an exception from the same Exception level that generated the exception as a result of a situation that is not UNPREDICTABLE at that Exception level, in order to avoid the possibility of a privilege violation.
+
+## Bits [63:56]
+
+Reserved, RES0.
+
+## ISS2, bits [55:32]
+
+ISS2 encoding for an exception, the bit assignments are:
+
+## ISS2 encoding for an exception from a Data Abort
+
+<!-- image -->
+
+## Bits [23:12]
+
+Reserved, RES0.
+
+## HDBSSF, bit [11]
+
+<!-- image -->
+
+Indicates that the fault was caused by the HDBSS.
+
+When DFSC indicates a synchronous External abort on translation table walk or hardware update of translation table, this field indicates whether the fault was caused by a write to the HDBSS.
+
+| HDBSSF   | Meaning                        |
+|----------|--------------------------------|
+| 0b0      | Fault was not caused by HDBSS. |
+| 0b1      | Fault was caused by HDBSS.     |
+
+This field only applies for stage 2 Permission faults.
+
+For any other fault, this field is RES0.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Otherwise:
+
+Reserved, RES0.
+
+## TnD, bit [10]
+
+## When FEAT\_MTE\_CANONICAL\_TAGS is implemented:
+
+Tag not Data.
+
+If a memory access generates a Data Abort for a stage 1 Permission fault, this field indicates whether the fault is due to an Allocation Tag access.
+
+| TnD   | Meaning                                                                                   |
+|-------|-------------------------------------------------------------------------------------------|
+| 0b0   | Permission fault is not due to a write of an Allocation Tag to Canonically Tagged memory. |
+| 0b1   | Permission fault is due to a write of an Allocation Tag to Canonically Tagged memory.     |
+
+For any other fault, this field is RES0.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Otherwise:
+
+Reserved, RES0.
+
+## Bit [9]
+
+Reserved, RES0.
+
+## GCS, bit [8]
+
+## When FEAT\_GCS is implemented:
+
+Guarded Control Stack data access.
+
+If a memory access generates a Data Abort, this field indicates whether the fault is due to a Guarded Control Stack data access.
+
+| GCS   | Meaning                                                                           |
+|-------|-----------------------------------------------------------------------------------|
+| 0b0   | The Data Abort is not due to a Guarded control stack data access.                 |
+| 0b1   | The Data Abort is due to a Guarded control stack data access. The ISV field is 0. |
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Otherwise:
+
+Reserved, RES0.
+
+## Bit [7]
+
+Reserved, RES0.
+
+## Overlay, bit [6]
+
+## When FEAT\_S1POE is implemented:
+
+Overlay flag.
+
+If a memory access generates a Data Abort for a Permission fault, then this field holds information about the fault.
+
+| Overlay   | Meaning                                       |
+|-----------|-----------------------------------------------|
+| 0b0       | Data Abort is not due to Overlay Permissions. |
+| 0b1       | Data Abort is due to Overlay Permissions.     |
+
+For any other fault, this field is RES0.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Otherwise:
+
+Reserved, RES0.
+
+## DirtyBit, bit [5]
+
+## When FEAT\_S1PIE is implemented:
+
+DirtyBit flag.
+
+If a write access to memory generates a Data Abort for a Permission fault using Indirect Permission, then this field holds information about the fault.
+
+| DirtyBit   | Meaning                                     |
+|------------|---------------------------------------------|
+| 0b0        | Permission Fault is not due to dirty state. |
+| 0b1        | Permission Fault is due to dirty state.     |
+
+For any other fault or Access, this field is RES0.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Otherwise:
+
+Reserved, RES0.
+
+## Xs, bits [4:0]
+
+## When FEAT\_LS64 is implemented:
+
+When FEAT\_LS64\_V is implemented, if a memory access generated by an ST64BV instruction generates a Data Abort exception for a Translation fault, Access flag fault, or Permission fault, then this field holds register specifier, Xs.
+
+When FEAT\_LS64\_ACCDATA is implemented, if a memory access generated by an ST64BV0 instruction generates a Data Abort exception for a Translation fault, Access flag fault, or Permission fault, then this field holds register specifier, Xs.
+
+Otherwise, this field is RES0.
+
+## Otherwise:
+
+Reserved, RES0.
+
+## ISS2 encoding for an exception from an Instruction Abort
+
+<!-- image -->
+
+## Bits [23:12]
+
+Reserved, RES0.
+
+## HDBSSF, bit [11]
+
+## When FEAT\_HDBSS is implemented:
+
+Indicates that the fault was caused by the HDBSS.
+
+When IFSC indicates a synchronous External abort on translation table walk or hardware update of translation table, this field indicates whether the fault was caused by a write to the HDBSS.
+
+| HDBSSF   | Meaning                        |
+|----------|--------------------------------|
+| 0b0      | Fault was not caused by HDBSS. |
+| 0b1      | Fault was caused by HDBSS.     |
+
+This field only applies for stage 2 Permission faults.
+
+For any other fault, this field is RES0.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Otherwise:
+
+Reserved, RES0.
+
+## Bits [10:7]
+
+Reserved, RES0.
+
+## Overlay, bit [6]
+
+## When FEAT\_S1POE is implemented:
+
+Overlay flag.
+
+If a memory access generates a Instruction Abort for a Permission fault, then this field holds information about the fault.
+
+| Overlay   | Meaning                                              |
+|-----------|------------------------------------------------------|
+| 0b0       | Instruction Abort is not due to Overlay Permissions. |
+| 0b1       | Instruction Abort is due to Overlay Permissions.     |
+
+For any other fault, this field is RES0.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Otherwise:
+
+Reserved, RES0.
+
+## Bits [5:0]
+
+Reserved, RES0.
+
+## ISS2 encoding for a Granule Protection Check exception
+
+<!-- image -->
+
+## Bits [23:12]
+
+Reserved, RES0.
+
+## HDBSSF, bit [11]
+
+## When FEAT\_HDBSS is implemented and IsSecondStage(Fault):
+
+Indicates that the fault was caused by the HDBSS.
+
+| HDBSSF   | Meaning                        |
+|----------|--------------------------------|
+| 0b0      | Fault was not caused by HDBSS. |
+| 0b1      | Fault was caused by HDBSS.     |
+
+This field only applies for stage 2 Permission faults.
+
+For any other fault, this field is RES0.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Otherwise:
+
+Reserved, RES0.
+
+## Bits [10:9]
+
+Reserved, RES0.
+
+## GCS, bit [8]
+
+## When FEAT\_GCS is implemented:
+
+Guarded control stack data access.
+
+Indicates that the Granule Protection Check Exception is due to a Guarded control stack data access.
+
+| GCS   | Meaning                                                                                   |
+|-------|-------------------------------------------------------------------------------------------|
+| 0b0   | The Granule Protection Check Exception is not due to a Guarded control stack data access. |
+| 0b1   | The Granule Protection Check Exception is due to a Guarded control stack data access.     |
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Otherwise:
+
+Reserved, RES0.
+
+## Bits [7:0]
+
+Reserved, RES0.
+
+## ISS2 encoding for all other exceptions
+
+<!-- image -->
+
+| 23   | 0   |
+|------|-----|
+
+## Bits [23:0]
+
+Reserved, RES0.
+
+EC, bits [31:26]
+
+Exception Class. Indicates the reason for the exception that this register holds information about.
+
+For each EC value, the table references a subsection that gives information about:
+
+- The cause of the exception, for example the configuration required to enable the trap.
+- The encoding of the associated ISS.
+
+Possible values of the EC field are:
+
+| EC       | Meaning                                                                                                                                                                                                                                                                                                                                                 | ISS                                                                                                             | ISS2                                   | Applies when             |
+|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|----------------------------------------|--------------------------|
+| 0b000000 | Unknown reason.                                                                                                                                                                                                                                                                                                                                         | ISS encoding for exceptions with an unknown reason                                                              | ISS2 encoding for all other exceptions |                          |
+| 0b000001 | Trapped WF*instruction execution. Conditional WF*instructions that fail their condition code check do not cause an exception.                                                                                                                                                                                                                           | ISS encoding for an exception from a WF*instruction                                                             | ISS2 encoding for all other exceptions |                          |
+| 0b000011 | Trapped MCRor MRCaccess with (coproc== 0b1111 ) that is not reported using EC value 0b000000 .                                                                                                                                                                                                                                                          | ISS encoding for an exception from an MCRorMRC access                                                           | ISS2 encoding for all other exceptions | FEAT_AA32 is implemented |
+| 0b000100 | TrappedMCRRorMRRC access with (coproc== 0b1111 ) that is not reported using EC value 0b000000 .                                                                                                                                                                                                                                                         | ISS encoding for an exception from an MCRRorMRRC access                                                         | ISS2 encoding for all other exceptions | FEAT_AA32 is implemented |
+| 0b000101 | Trapped MCRor MRCaccess with (coproc== 0b1110 ).                                                                                                                                                                                                                                                                                                        | ISS encoding for an exception from an MCRorMRC access                                                           | ISS2 encoding for all other exceptions | FEAT_AA32 is implemented |
+| 0b000110 | Trapped LDCor STC access. The only architected uses of these instruction are: • An STC to write data to memory from DBGDTRRXint. • An LDCto read data from memory to DBGDTRTXint.                                                                                                                                                                       | ISS encoding for an exception from an LDCor STC instruction                                                     | ISS2 encoding for all other exceptions | FEAT_AA32 is implemented |
+| 0b000111 | Access to SME, SVE, Advanced SIMD or floating-point functionality trapped by CPACR_EL1.FPEN, CPTR_EL2.FPEN, CPTR_EL2.TFP, or CPTR_EL3.TFP control. Excludes exceptions resulting from CPACR_EL1 when the value of HCR_EL2.TGE is 1, or because SVE or Advanced SIMD and floating-point are not implemented. These are reported with EC value 0b000000 . | ISS encoding for an exception from an access to a register or instruction resulting from the FPEN and TFP traps | ISS2 encoding for all other exceptions |                          |
+
+| EC       | Meaning                                                                                                            | ISS                                                                                                     | ISS2                                   | Applies when                                                     |
+|----------|--------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|----------------------------------------|------------------------------------------------------------------|
+| 0b001001 | Trapped use of a Pointer authentication instruction.                                                               | ISS encoding for an exception from a trapped Pointer Authentication instruction                         | ISS2 encoding for all other exceptions | FEAT_PAuth is implemented                                        |
+| 0b001010 | Trapped execution of any instruction not covered by other EC values.                                               | ISS encoding for an exception from any other instruction                                                | ISS2 encoding for all other exceptions | FEAT_LS64 is implemented                                         |
+| 0b001100 | Trapped MRRCaccess with (coproc== 0b1110 ).                                                                        | ISS encoding for an exception from an MCRRorMRRC access                                                 | ISS2 encoding for all other exceptions | FEAT_AA32 is implemented                                         |
+| 0b001101 | Branch Target Exception.                                                                                           | ISS encoding for an exception from Branch Target Identification instruction                             | ISS2 encoding for all other exceptions | FEAT_BTI is implemented                                          |
+| 0b001110 | Illegal Execution state.                                                                                           | ISS encoding for an exception from an Illegal Execution state, or a PC or SP alignment fault            | ISS2 encoding for all other exceptions |                                                                  |
+| 0b010011 | SMCinstruction execution in AArch32 state, when SMCis not disabled.                                                | ISS encoding for an exception from SMCinstruction execution in AArch32 state                            | ISS2 encoding for all other exceptions | FEAT_AA32 is implemented                                         |
+| 0b010100 | Trapped MSRR, MRRSor System instruction execution in AArch64 state, that is not reported using EC value 0b000000 . | ISS encoding for an exception from MSRR, MRRS, or 128-bit System instruction execution in AArch64 state | ISS2 encoding for all other exceptions | FEAT_SYSREG128 is implemented or FEAT_SYSINSTR128 is implemented |
+| 0b010101 | SVC instruction execution in AArch64 state.                                                                        | ISS encoding for an exception from HVCor SVC instruction execution                                      | ISS2 encoding for all other exceptions | FEAT_AA64 is implemented                                         |
+| 0b010110 | HVCinstruction execution in AArch64 state, when HVCis not disabled.                                                | ISS encoding for an exception from HVCor SVC instruction execution                                      | ISS2 encoding for all other exceptions | FEAT_AA64 is implemented                                         |
+| 0b010111 | SMCinstruction execution in AArch64 state, when SMCis not disabled.                                                | ISS encoding for an exception from SMCinstruction execution in AArch64 state                            | ISS2 encoding for all other exceptions | FEAT_AA64 is implemented                                         |
+
+| EC       | Meaning                                                                                                                                                                                                                                                                                                                                                                             | ISS                                                                                                                                        | ISS2                                                     | Applies when             |
+|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------|--------------------------|
+| 0b011000 | Trapped MSR, MRSor System instruction execution in AArch64 state, that is not reported using EC values 0b000000 , 0b000001 or 0b000111 . This includes all instructions that cause exceptions that are part of the encoding space defined in 'System instruction class encoding overview', except for those exceptions reported using EC values 0b000000 , 0b000001 , or 0b000111 . | ISS encoding for an exception from MSR, MRS, or System instruction execution in AArch64 state                                              | ISS2 encoding for all other exceptions                   | FEAT_AA64 is implemented |
+| 0b011001 | Access to SVE functionality trapped as a result of CPACR_EL1.ZEN, CPTR_EL2.ZEN, CPTR_EL2.TZ, or CPTR_EL3.EZ, that is not reported using EC value 0b000000 .                                                                                                                                                                                                                         | ISS encoding for an exception from an access to SVE functionality, resulting from CPACR_EL1.ZEN, CPTR_EL2.ZEN, CPTR_EL2.TZ, or CPTR_EL3.EZ | ISS2 encoding for all other exceptions                   | FEAT_SVE is implemented  |
+| 0b011100 | Exception from a PAC Fail                                                                                                                                                                                                                                                                                                                                                           | ISS encoding for a PAC Fail exception                                                                                                      | ISS2 encoding for all other exceptions                   | FEAT_FPAC is implemented |
+| 0b011101 | Access to SMEfunctionality trapped as a result of CPACR_EL1.SMEN, CPTR_EL2.SMEN, CPTR_EL2.TSM, CPTR_EL3.ESM, or an attempted execution of an instruction that is illegal because of the value of PSTATE.SM or PSTATE.ZA, that is not reported using EC value 0b000000 .                                                                                                             | ISS encoding for an exception due to SMEfunctionality                                                                                      | ISS2 encoding for all other exceptions                   | FEAT_SME is implemented  |
+| 0b011110 | Granule Protection Check exception                                                                                                                                                                                                                                                                                                                                                  | ISS encoding for a Granule Protection Check exception                                                                                      | ISS2 encoding for a Granule Protection Check exception   | FEAT_RME is implemented  |
+| 0b011111 | IMPLEMENTATION DEFINED exception to EL3.                                                                                                                                                                                                                                                                                                                                            | ISS encoding for an IMPLEMENTATION DEFINED exception to EL3                                                                                | ISS2 encoding for all other exceptions                   |                          |
+| 0b100000 | Instruction Abort from a lower Exception level. Used for MMUfaults generated by instruction accesses and synchronous External aborts, including synchronous parity or ECC errors. Not used for debug-related exceptions.                                                                                                                                                            | ISS encoding for an exception from an Instruction Abort                                                                                    | ISS2 encoding for an exception from an Instruction Abort |                          |
+
+| EC       | Meaning                                                                                                                                                                                                                                                                                                    | ISS                                                                                          | ISS2                                             | Applies when             |
+|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|--------------------------------------------------|--------------------------|
+| 0b100001 | Instruction Abort taken without a change in Exception level. Used for MMUfaults generated by instruction accesses and synchronous External aborts, including synchronous parity or ECC errors. Not used for debug-related exceptions.                                                                      | ISS encoding for an exception from an Instruction Abort                                      | ISS2 encoding for all other exceptions           |                          |
+| 0b100010 | PC alignment fault exception.                                                                                                                                                                                                                                                                              | ISS encoding for an exception from an Illegal Execution state, or a PC or SP alignment fault | ISS2 encoding for all other exceptions           |                          |
+| 0b100100 | Data Abort exception from a lower Exception level. Used for MMUfaults generated by data accesses, alignment faults other than those caused by Stack Pointer misalignment, and synchronous External aborts, including synchronous parity or ECC errors. Not used for debug-related exceptions.              | ISS encoding for an exception from a Data Abort                                              | ISS2 encoding for an exception from a Data Abort |                          |
+| 0b100101 | Data Abort exception taken without a change in Exception level. Used for MMUfaults generated by data accesses, alignment faults other than those caused by Stack Pointer misalignment, and synchronous External aborts, including synchronous parity or ECC errors. Not used for debug-related exceptions. | ISS encoding for an exception from a Data Abort                                              | ISS2 encoding for an exception from a Data Abort |                          |
+| 0b100110 | SP alignment fault exception.                                                                                                                                                                                                                                                                              | ISS encoding for an exception from an Illegal Execution state, or a PC or SP alignment fault | ISS2 encoding for all other exceptions           |                          |
+| 0b100111 | Memory Operation Exception.                                                                                                                                                                                                                                                                                | ISS encoding for an exception from the Memory Copy and Memory Set instructions               | ISS2 encoding for all other exceptions           | FEAT_MOPS is implemented |
+| 0b101100 | Trapped floating-point exception taken from AArch64 state. This EC value is valid if the implementation supports trapping of floating-point exceptions, otherwise it is reserved. Whether a floating-point implementation supports trapping of floating-point exceptions is IMPLEMENTATION DEFINED.        | ISS encoding for an exception from a trapped floating-point exception                        | ISS2 encoding for all other exceptions           | FEAT_AA64 is implemented |
+| 0b101101 | GCS exception.                                                                                                                                                                                                                                                                                             | ISS encoding for a GCS exception                                                             | ISS2 encoding for all other exceptions           | FEAT_GCS is implemented  |
+
+| EC       | Meaning                                                                                                                                                                                                  | ISS                                                                      | ISS2                                   | Applies when                                                                              |
+|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|----------------------------------------|-------------------------------------------------------------------------------------------|
+| 0b101111 | SError exception.                                                                                                                                                                                        | ISS encoding for an SError exception                                     | ISS2 encoding for all other exceptions |                                                                                           |
+| 0b111100 | BRKinstruction execution in AArch64 state. This is reported in ESR_EL3 only if a BRKinstruction is executed in EL3. This is the only debug exception that can be taken to EL3 when EL3 is using AArch64. | ISS encoding for an exception from execution of a Breakpoint instruction | ISS2 encoding for all other exceptions | FEAT_AA64 is implemented                                                                  |
+| 0b111101 | Profiling exception                                                                                                                                                                                      | ISS encoding for a Profiling exception                                   | ISS2 encoding for all other exceptions | FEAT_EBEP is implemented, or FEAT_SPE_EXC is implemented, or FEAT_TRBE_EXC is implemented |
+
+## All other EC values are reserved by Arm, and:
+
+- Unused values in the range 0b000000 -0b101100 ( 0x00 -0x2C ) are reserved for future use for synchronous exceptions.
+- Unused values in the range 0b101101 -0b111111 ( 0x2D -0x3F ) are reserved for future use, and might be used for synchronous or asynchronous exceptions.
+
+The effect of programming this field to a reserved value is that behavior is CONSTRAINED UNPREDICTABLE.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## IL, bit [25]
+
+Instruction Length for synchronous exceptions. Possible values of this bit are:
+
+| IL   | Meaning                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+|------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 0b0  | 16-bit instruction trapped.                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| 0b1  | 32-bit instruction trapped. This value is also used when the exception is one of the following: • An SError exception. • An Instruction Abort exception. • APCalignment fault exception. • An SP alignment fault exception. • AData Abort exception for which the value of the ISV bit is 0. • An Illegal Execution state exception. • Any debug exception except for Breakpoint instruction exceptions. • An exception reported using EC value 0b000000 . |
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## ISS, bits [24:0]
+
+Instruction Specific Syndrome. Architecturally, this field can be defined independently for each defined Exception class. However, in practice, some ISS encodings are used for more than one Exception class.
+
+Typically, an ISS encoding has a number of subfields. When an ISS subfield holds a register number, the value returned in that field is the AArch64 view of the register number.
+
+For an exception taken from AArch32 state, see 'Mapping of the general-purpose registers between the Execution states'.
+
+If the AArch32 register descriptor is 0b1111 , then:
+
+- If the instruction that generated the exception was not UNPREDICTABLE, the field takes the value 0b11111 .
+- If the instruction that generated the exception was UNPREDICTABLE, the field takes an UNKNOWN value that must be either:
+- The AArch64 view of the register number of a register that might have been used at the Exception level from which the exception was taken.
+- The value 0b11111 .
+
+## ISS encoding for exceptions with an unknown reason
+
+<!-- image -->
+
+## Bits [24:0]
+
+Reserved, RES0.
+
+## Additional Information for ISS encoding for exceptions with an unknown reason
+
+When an exception is reported using this EC value, the IL field is set to 1.
+
+This EC value is used for all exceptions that are not covered by any other EC value. This includes exceptions that are generated in the following situations:
+
+- The attempted execution of an instruction bit pattern that has no allocated instruction or that is not accessible at the current Exception level and Security state, including:
+- Aread access using a System register pattern that is not allocated for reads or that does not permit reads at the current Exception level and Security state.
+- Awrite access using a System register pattern that is not allocated for writes or that does not permit writes at the current Exception level and Security state.
+- Instruction encodings that are unallocated.
+- Instruction encodings for instructions or System registers that are not implemented in the implementation.
+- In Debug state, the attempted execution of an instruction bit pattern that is not accessible in Debug state.
+- In Non-debug state, the attempted execution of an instruction bit pattern that is not accessible in Non-debug state.
+- In AArch32 state, attempted execution of a short vector floating-point instruction.
+- In an implementation that does not include Advanced SIMD and floating-point functionality, an attempted access to Advanced SIMD or floating-point functionality under conditions where that access would be permitted if that functionality was present. This includes the attempted execution of an Advanced SIMD or floating-point instruction, and attempted accesses to Advanced SIMD and floating-point System registers.
+- An exception generated because of the value of one of the SCTLR\_EL1.{ITD, SED, CP15BEN} control bits.
+- Attempted execution of:
+- An HVC instruction when disabled by HCR\_EL2.HCD or SCR\_EL3.HCE.
+- An SMC instruction when disabled by SCR\_EL3.SMD.
+- An HLT instruction when disabled by EDSCR.HDE.
+- Attempted execution of an MSR or MRS instruction to access SP\_EL0 when the value of SPSel.SP is 0.
+
+- Attempted execution of an MSR or MRS instruction using a \_EL12 register name when the Effective value of HCR\_EL2.E2H is not 1.
+- Attempted execution, in Debug state, of:
+- ADCPS1 instruction when the value of HCR\_EL2.TGE is 1 and EL2 is disabled or not implemented in the current Security state.
+- ADCPS2 instruction from EL1 or EL0 when EL2 is disabled or not implemented in the current Security state.
+- ADCPS3 instruction when the value of EDSCR.SDD is 1, or when EL3 is not implemented.
+- When EL3 is using AArch64, attempted execution from Secure EL1 of an SRS instruction using R13\_mon.
+- In Debug state when the value of EDSCR.SDD is 1, the attempted execution at EL2, EL1, and EL0 of an instruction that is configured to trap to EL3.
+- In AArch32 state, the attempted execution of an MRS (banked register) or an MSR (banked register) instruction to SPSR\_mon, SP\_mon, or LR\_mon.
+- An exception that is taken to EL2 because the value of HCR\_EL2.TGE is 1. If the value of HCR\_EL2.TGE is 0, this exception is reported using an ESR\_EL3.EC value of 0b000111 .
+
+## ISS encoding for an exception from a WF* instruction
+
+<!-- image -->
+
+| 24 23   | 20 19   | 10 9   | 5   | 4 3   | 2   | 1 0   |
+|---------|---------|--------|-----|-------|-----|-------|
+| CV      | COND    | RES0   | RN  | RES0  | RV  | TI    |
+
+## CV, bit [24]
+
+Condition code valid.
+
+| CV   | Meaning                     |
+|------|-----------------------------|
+| 0b0  | The CONDfield is not valid. |
+| 0b1  | The CONDfield is valid.     |
+
+For exceptions taken from AArch64, CV is set to 1.
+
+For exceptions taken from AArch32:
+
+- When an A32 instruction is trapped, CV is set to 1.
+- When a T32 instruction is trapped, it is IMPLEMENTATION DEFINED whether CV is set to 1 or set to 0. See the description of the COND field for more information.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## COND, bits [23:20]
+
+For exceptions taken from AArch64, this field is set to 0b1110 .
+
+The condition code for the trapped instruction. This field is valid only for exceptions taken from AArch32, and only when the value of CV is 1.
+
+For exceptions taken from AArch32:
+
+- When an A32 instruction is trapped, CV is set to 1 and:
+- If the instruction is conditional, COND is set to the condition code field value from the instruction.
+- If the instruction is unconditional, COND is set to 0b1110 .
+- Aconditional A32 instruction that is known to pass its condition code check can be presented either:
+- With COND set to 0b1110 , the value for unconditional.
+
+- With the COND value held in the instruction.
+- When a T32 instruction is trapped, it is IMPLEMENTATION DEFINED whether:
+- CVis set to 0 and COND is set to an UNKNOWN value. Software must examine the SPSR.IT field to determine the condition, if any, of the T32 instruction.
+- CVis set to 1 and COND is set to the condition code for the condition that applied to the instruction.
+- For an implementation that, for both T32 and A32 instructions, takes an exception on a trapped conditional instruction only if the instruction passes its condition code check, these definitions mean that when CV is set to 1 it is IMPLEMENTATION DEFINED whether the COND field is set to 0b1110 , or to the value of any condition that applied to the instruction.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Bits [19:10]
+
+Reserved, RES0.
+
+## RN, bits [9:5]
+
+## When FEAT\_WFxT is implemented:
+
+Register Number. Indicates the register number supplied for a WFET or WFIT instruction.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Otherwise:
+
+Reserved, RES0.
+
+## Bits [4:3]
+
+Reserved, RES0.
+
+## RV, bit [2]
+
+## When FEAT\_WFxT is implemented:
+
+Register field Valid.
+
+If TI[1] == 1, then this field indicates whether RN holds a valid register number for the register argument to the trapped WFET or WFIT instruction.
+
+| RV   | Meaning                 |
+|------|-------------------------|
+| 0b0  | Register field invalid. |
+| 0b1  | Register field valid.   |
+
+If TI[1] == 0, then this field is RES0.
+
+This field is set to 1 on a trap on WFET or WFIT .
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Otherwise:
+
+Reserved, RES0.
+
+## TI, bits [1:0]
+
+Trapped instruction. Possible values of this bit are:
+
+| TI   | Meaning       | Applies when             |
+|------|---------------|--------------------------|
+| 0b00 | WFI trapped.  |                          |
+| 0b01 | WFEtrapped.   |                          |
+| 0b10 | WFIT trapped. | FEAT_WFxT is implemented |
+| 0b11 | WFETtrapped.  | FEAT_WFxT is implemented |
+
+When FEAT\_WFxT is implemented, this is a two bit field as shown. Otherwise, bit[1] is RES0.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Additional Information for ISS encoding for an exception from a WF* instruction
+
+The following fields describe configuration settings for generating this exception:
+
+- HCR.{TWE, TWI}.
+- SCTLR\_EL1.{nTWE, nTWI}.
+- SCTLR\_EL2.{nTWE, nTWI}.
+- HCR\_EL2.{TWE, TWI}.
+- SCR\_EL3.{TWE, TWI}.
+
+ISS encoding for an exception from an MCR or MRC access
+
+<!-- image -->
+
+## CV, bit [24]
+
+Condition code valid.
+
+| CV   | Meaning                     |
+|------|-----------------------------|
+| 0b0  | The CONDfield is not valid. |
+| 0b1  | The CONDfield is valid.     |
+
+For exceptions taken from AArch64, CV is set to 1.
+
+For exceptions taken from AArch32:
+
+- When an A32 instruction is trapped, CV is set to 1.
+- When a T32 instruction is trapped, it is IMPLEMENTATION DEFINED whether CV is set to 1 or set to 0. See the description of the COND field for more information.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## COND, bits [23:20]
+
+For exceptions taken from AArch64, this field is set to 0b1110 .
+
+The condition code for the trapped instruction. This field is valid only for exceptions taken from AArch32, and only when the value of CV is 1.
+
+For exceptions taken from AArch32:
+
+- When an A32 instruction is trapped, CV is set to 1 and:
+- If the instruction is conditional, COND is set to the condition code field value from the instruction.
+- If the instruction is unconditional, COND is set to 0b1110 .
+- Aconditional A32 instruction that is known to pass its condition code check can be presented either:
+- With COND set to 0b1110 , the value for unconditional.
+- With the COND value held in the instruction.
+- When a T32 instruction is trapped, it is IMPLEMENTATION DEFINED whether:
+- CVis set to 0 and COND is set to an UNKNOWN value. Software must examine the SPSR.IT field to determine the condition, if any, of the T32 instruction.
+- CVis set to 1 and COND is set to the condition code for the condition that applied to the instruction.
+- For an implementation that, for both T32 and A32 instructions, takes an exception on a trapped conditional instruction only if the instruction passes its condition code check, these definitions mean that when CV is set to 1 it is IMPLEMENTATION DEFINED whether the COND field is set to 0b1110 , or to the value of any condition that applied to the instruction.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Opc2, bits [19:17]
+
+The Opc2 value from the issued instruction.
+
+For a trapped VMRS access, holds the value 0b000 .
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Opc1, bits [16:14]
+
+The Opc1 value from the issued instruction.
+
+For a trapped VMRS access, holds the value 0b111 .
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## CRn, bits [13:10]
+
+The CRn value from the issued instruction.
+
+For a trapped VMRS access, holds the reg field from the VMRS instruction encoding.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Rt, bits [9:5]
+
+The Rt value from the issued instruction, the general-purpose register used for the transfer.
+
+If the Rt value is not 0b1111 , then the reported value gives the AArch64 view of the register. Otherwise, if the Rt value is 0b1111 :
+
+- If the instruction that generated the exception is not UNPREDICTABLE, then the register specifier takes the value 0b11111 .
+- If the instruction that generated the exception is UNPREDICTABLE, then the register specifier takes an UNKNOWN value, which is restricted to either:
+
+- The AArch64 view of one of the registers that could have been used in AArch32 state at the Exception level that the instruction was executed at.
+- The value 0b11111 .
+
+See 'Mapping of the general-purpose registers between the Execution states'.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## CRm, bits [4:1]
+
+The CRm value from the issued instruction.
+
+For a trapped VMRS access, holds the value 0b0000 .
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Direction, bit [0]
+
+Indicates the direction of the trapped instruction.
+
+| Direction   | Meaning                                                 |
+|-------------|---------------------------------------------------------|
+| 0b0         | Write to System register space. MCRinstruction.         |
+| 0b1         | Read from System register space. MRCorVMRS instruction. |
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Additional Information for ISS encoding for an exception from an MCR or MRC access
+
+The following fields describe configuration settings for generating exceptions from an MCR or MRC access using coproc 0b1111 , that are reported using EC value 0b000011 :
+
+- If FEAT\_TIDCP1 is implemented, SCTLR\_EL1.TIDCP, for EL0 accesses to IMPLEMENTATION DEFINED functionality using AArch32 state, trapped to EL1.
+- CNTKCTL\_EL1.{EL0PTEN, EL0VTEN, EL0PCTEN, EL0VCTEN}, for accesses to the Generic Timer Registers from EL0 using AArch32 state, trapped to EL1 or EL2.
+- PMUSERENR\_EL0.{ER, CR, SW, EN}, for accesses to Performance Monitor registers from EL0 using AArch32 state, trapped to EL1 or EL2.
+- AMUSERENR\_EL0.EN, for accesses to Activity Monitors registers from EL0 using AArch32 state, trapped to EL1 or EL2.
+- HCR.{TRVM, TVM} and HCR\_EL2.{TRVM, TVM}, for accesses to virtual memory control registers from EL1 using AArch32 state, trapped to EL2.
+- HCR.TTLB and HCR\_EL2.TTLB, for execution of TLB maintenance instructions at EL1 using AArch32 state, trapped to EL2.
+- HCR.{TSW, TPC, TPU} and HCR\_EL2.{TSW, TPC, TPU} for execution of cache maintenance instructions at EL0 and EL1 using AArch32 state, trapped to EL2.
+- HCR.TAC and HCR\_EL2.TACR, for accesses to the Auxiliary Control Register at EL1 using AArch32 state, trapped to EL2.
+- HCR.TIDCP and HCR\_EL2.TIDCP, for accesses to lockdown, DMA, and TCM operations at EL0 and EL1 using AArch32 state, trapped to EL2.
+- If FEAT\_TIDCP1 is implemented, SCTLR\_EL2.TIDCP, for EL0 accesses to IMPLEMENTATION DEFINED functionality using AArch32 state, trapped to EL2.
+- HCR.{TID1, TID2, TID3} and HCR\_EL2.{TID1, TID2, TID3}, for accesses to ID registers at EL0 and EL1 using AArch32 state, trapped to EL2.
+- HCR2.TERR, for Non-secure accesses to error record registers at EL1 using AArch32 state, trapped to EL2.
+
+- HCPTR.TCPAC and CPTR\_EL2.TCPAC, for accesses to CPACR\_EL1 or CPACR using AArch32 state, trapped to EL2.
+- HSTR.T&lt;n&gt; and HSTR\_EL2.T&lt;n&gt;, for accesses to System registers using AArch32 state, trapped to EL2.
+- CNTHCTL.PL1PCEN and CNTHCTL\_EL2.EL1PCEN, for accesses to the Generic Timer registers from EL0 and EL1 using AArch32 state, trapped to EL2.
+- HDCR.TTRF, for Non-secure accesses to trace filter control registers from system registers using AArch32 state, trapped to EL2.
+- HDCR.{TPM, TPMCR} and MDCR\_EL2.{TPM, TPMCR}, for accesses to Performance Monitor registers from EL0 and EL1 using AArch32 state, trapped to EL2.
+- HCPTR.TAM and CPTR\_EL2.TAM, for accesses to Activity Monitors registers from EL0 and EL1 using AArch32 state, trapped to EL2.
+- CPTR\_EL3.TCPAC, for accesses to CPACR from EL1 and EL2, and accesses to HCPTR from EL2 using AArch32 state, trapped to EL3.
+- MDCR\_EL3.TPM, for accesses to Performance Monitor registers from EL0, EL1 and EL2 using AArch32 state, trapped to EL3.
+- CPTR\_EL3.TAM, for accesses to Activity Monitors registers from EL0, EL1 and EL2 using AArch32 state, trapped to EL3.
+- If FEAT\_FGT is implemented, access to some registers at EL0, trapped to EL2.
+
+The following fields describe configuration settings for generating exceptions from an MCR or MRC access using coproc 0b1110 , that are reported using EC value 0b000101 :
+
+- CPACR\_EL1.TTA for accesses to trace registers, trapped to EL1 or EL2.
+- MDSCR\_EL1.TDCC, for accesses to the Debug Communications Channel (DCC) registers at EL0 and EL1 using AArch32 state, trapped to EL1 or EL2.
+- If FEAT\_FGT is implemented, MDCR\_EL2.TDCC for accesses to the DCC registers at EL0 and EL1 trapped to EL2, and MDCR\_EL3.TDCC for accesses to the DCC registers at EL0, EL1, and EL2 trapped to EL3.
+- HCR.TID0 and HCR\_EL2.TID0, for accesses to the JIDR register in the ID group 0 at EL0 and EL1 using AArch32, trapped to EL2.
+- HCPTR.TTA and CPTR\_EL2.TTA, for accesses to trace registers using AArch32, trapped to EL2.
+- HDCR.TDRA and MDCR\_EL2.TDRA, for accesses to Debug ROM registers DBGDRAR and DBGDSARusing AArch32, trapped to EL2.
+- HDCR.TDOSA and MDCR\_EL2.TDOSA, for accesses to powerdown debug registers, using AArch32 state, trapped to EL2.
+- HDCR.TDA and MDCR\_EL2.TDA, for accesses to other debug registers, using AArch32 state, trapped to EL2.
+- CPTR\_EL3.TTA, for accesses to trace registers using AArch32, trapped to EL3.
+- MDCR\_EL3.TDOSA, for accesses to powerdown debug registers using AArch32, trapped to EL3.
+- MDCR\_EL3.TDA, for accesses to other debug registers, using AArch32, trapped to EL3.
+
+The following fields describe configuration settings for generating exceptions from a VMSR or VMRS access, that are reported using EC value 0b001000 :
+
+- HCR.TID0 and HCR\_EL2.TID0, for accesses to the FPSID register in ID group 0 at EL1 using AArch32 state, VMRS access trapped to EL2.
+- HCR.TID3 and HCR\_EL2.TID3, for accesses to registers in ID group 3 including MVFR0, MVFR1 and MVFR2, VMRS access trapped to EL2.
+- HCPTR.{TCP10, TCP11}, for Non-secure accesses to FPSCR, FPSID, FPEXC, MVFR0, MVFR1, and MVFR2, trapped to EL2.
+
+## ISS encoding for an exception from any other instruction
+
+ISS
+
+24
+
+0
+
+<!-- image -->
+
+ISS, bits [24:0]
+
+| ISS                         | Meaning                             | Applies when                     |
+|-----------------------------|-------------------------------------|----------------------------------|
+| 0b0000000000000000000000000 | ST64BV instruction trapped.         | FEAT_LS64_V is implemented       |
+| 0b0000000000000000000000001 | ST64BV0 instruction trapped.        | FEAT_LS64_ACCDATA is implemented |
+| 0b0000000000000000000000010 | LD64B or ST64B instruction trapped. | FEAT_LS64 is implemented         |
+
+All other values are reserved.
+
+## ISS encoding for an exception from an MCRR or MRRC access
+
+<!-- image -->
+
+## CV, bit [24]
+
+Condition code valid.
+
+| CV   | Meaning                     |
+|------|-----------------------------|
+| 0b0  | The CONDfield is not valid. |
+| 0b1  | The CONDfield is valid.     |
+
+For exceptions taken from AArch64, CV is set to 1.
+
+For exceptions taken from AArch32:
+
+- When an A32 instruction is trapped, CV is set to 1.
+- When a T32 instruction is trapped, it is IMPLEMENTATION DEFINED whether CV is set to 1 or set to 0. See the description of the COND field for more information.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## COND, bits [23:20]
+
+For exceptions taken from AArch64, this field is set to 0b1110 .
+
+The condition code for the trapped instruction. This field is valid only for exceptions taken from AArch32, and only when the value of CV is 1.
+
+For exceptions taken from AArch32:
+
+- When an A32 instruction is trapped, CV is set to 1 and:
+- If the instruction is conditional, COND is set to the condition code field value from the instruction.
+- If the instruction is unconditional, COND is set to 0b1110 .
+- Aconditional A32 instruction that is known to pass its condition code check can be presented either:
+- With COND set to 0b1110 , the value for unconditional.
+- With the COND value held in the instruction.
+- When a T32 instruction is trapped, it is IMPLEMENTATION DEFINED whether:
+
+- CVis set to 0 and COND is set to an UNKNOWN value. Software must examine the SPSR.IT field to determine the condition, if any, of the T32 instruction.
+- CVis set to 1 and COND is set to the condition code for the condition that applied to the instruction.
+- For an implementation that, for both T32 and A32 instructions, takes an exception on a trapped conditional instruction only if the instruction passes its condition code check, these definitions mean that when CV is set to 1 it is IMPLEMENTATION DEFINED whether the COND field is set to 0b1110 , or to the value of any condition that applied to the instruction.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Opc1, bits [19:16]
+
+The Opc1 value from the issued instruction.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Bit [15]
+
+Reserved, RES0.
+
+## Rt2, bits [14:10]
+
+The Rt2 value from the issued instruction, the second general-purpose register used for the transfer.
+
+If the Rt2 value is not 0b1111 , then the reported value gives the AArch64 view of the register. Otherwise, if the Rt2 value is 0b1111 :
+
+- If the instruction that generated the exception is not UNPREDICTABLE, then the register specifier takes the value 0b11111 .
+- If the instruction that generated the exception is UNPREDICTABLE, then the register specifier takes an UNKNOWN value, which is restricted to either:
+- The AArch64 view of one of the registers that could have been used in AArch32 state at the Exception level that the instruction was executed at.
+- The value 0b11111 .
+
+See 'Mapping of the general-purpose registers between the Execution states'.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Rt, bits [9:5]
+
+The Rt value from the issued instruction, the first general-purpose register used for the transfer.
+
+If the Rt value is not 0b1111 , then the reported value gives the AArch64 view of the register. Otherwise, if the Rt value is 0b1111 :
+
+- If the instruction that generated the exception is not UNPREDICTABLE, then the register specifier takes the value 0b11111 .
+- If the instruction that generated the exception is UNPREDICTABLE, then the register specifier takes an UNKNOWN value, which is restricted to either:
+- The AArch64 view of one of the registers that could have been used in AArch32 state at the Exception level that the instruction was executed at.
+- The value 0b11111 .
+
+See 'Mapping of the general-purpose registers between the Execution states'.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## CRm, bits [4:1]
+
+The CRm value from the issued instruction.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Direction, bit [0]
+
+Indicates the direction of the trapped instruction.
+
+| Direction   | Meaning                                           |
+|-------------|---------------------------------------------------|
+| 0b0         | Write to System register space. MCRRinstruction.  |
+| 0b1         | Read from System register space. MRRCinstruction. |
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Additional Information for ISS encoding for an exception from an MCRR or MRRC access
+
+The following fields describe configuration settings for generating exceptions from an MCRR or MRRC access using coproc 0b1111 , that are reported using EC value 0b000100 :
+
+- CNTKCTL\_EL1.{EL0PTEN, EL0VTEN, EL0PCTEN, EL0VCTEN}, for accesses to the Generic Timer Registers from EL0 using AArch32 state, trapped to EL1 or EL2.
+- PMUSERENR\_EL0.{CR, EN}, for accesses to Performance Monitor registers from EL0 using AArch32 state, trapped to EL1 or EL2.
+- AMUSERENR\_EL0.{EN}, for accesses to Activity Monitors registers AMEVCNTR0&lt;n&gt; and AMEVCNTR1&lt;n&gt; from EL0 using AArch32 state, trapped to EL1 or EL2.
+- HCR.{TRVM, TVM} and HCR\_EL2.{TRVM, TVM}, for accesses to virtual memory control registers from EL1 using AArch32 state, trapped to EL2.
+- HCR2.TERR, for Non-secure accesses to error record registers at EL1 using AArch32 state, trapped to EL2.
+- HSTR.T&lt;n&gt; and HSTR\_EL2.T&lt;n&gt;, for accesses to System registers using AArch32 state, trapped to EL2.
+- CNTHCTL.{PL1PCEN, PL1PCTEN} and CNTHCTL\_EL2.{EL1PCEN, EL1PCTEN}, for accesses to the Generic Timer registers from EL0 and EL1 using AArch32 state, trapped to EL2.
+- HDCR.TPM and MDCR\_EL2.{TPM, TPMCR}, for accesses to Performance Monitor registers from EL0 and EL1 using AArch32 state, trapped to EL2.
+- HCPTR.TAM and CPTR\_EL2.TAM, for accesses to Activity Monitors registers AMEVCNTR0&lt;n&gt; and AMEVCNTR1&lt;n&gt; from EL0 and EL1 using AArch32 state, trapped to EL2.
+- MDCR\_EL3.TPM, for accesses to Performance Monitor registers from EL0, EL1 and EL2 using AArch32 state, trapped to EL3.
+- CPTR\_EL3.TAM, for accesses to Activity Monitors registers from EL0, EL1 and EL2 using AArch32 state, trapped to EL3.
+- If FEAT\_FGT is implemented, HDFGRTR\_EL2.PMCCNTR\_EL0 for MRRC access and HDFGWTR\_EL2.PMCCNTR\_EL0 for MCRR access to PMCCNTR at EL0, trapped to EL2.
+
+The following fields describe configuration settings for generating exceptions from an MCRR or MRRC access using coproc 0b1110 , that are reported using EC value 0b001100 :
+
+- MDSCR\_EL1.TDCC, for accesses to the Debug ROM registers DBGDSAR and DBGDRAR at EL0 using AArch32 state, trapped to EL1 or EL2.
+- HDCR.TDRA and MDCR\_EL2.TDRA, for accesses to Debug ROM registers DBGDRAR and DBGDSARusing AArch32, trapped to EL2.
+- MDCR\_EL3.TDA, for accesses to debug registers, using AArch32, trapped to EL3.
+- CPACR\_EL1.TTA for accesses to trace registers using AArch32, trapped to EL1 or EL2.
+- HCPTR.TTA and CPTR\_EL2.TTA, for accesses to trace registers using AArch32, trapped to EL2.
+- CPTR\_EL3.TTA, for accesses to trace registers using AArch32, trapped to EL3.
+
+Note
+
+If FEAT\_ETMv4 or FEAT\_ETE are implemented, MCRR and MRRC accesses to trace registers are UNDEFINED and the resulting exception is higher priority than an exception due to these traps.
+
+## ISS encoding for an exception from an LDC or STC instruction
+
+<!-- image -->
+
+## CV, bit [24]
+
+Condition code valid.
+
+| CV   | Meaning                     |
+|------|-----------------------------|
+| 0b0  | The CONDfield is not valid. |
+| 0b1  | The CONDfield is valid.     |
+
+For exceptions taken from AArch64, CV is set to 1.
+
+For exceptions taken from AArch32:
+
+- When an A32 instruction is trapped, CV is set to 1.
+- When a T32 instruction is trapped, it is IMPLEMENTATION DEFINED whether CV is set to 1 or set to 0. See the description of the COND field for more information.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## COND, bits [23:20]
+
+For exceptions taken from AArch64, this field is set to 0b1110 .
+
+The condition code for the trapped instruction. This field is valid only for exceptions taken from AArch32, and only when the value of CV is 1.
+
+For exceptions taken from AArch32:
+
+- When an A32 instruction is trapped, CV is set to 1 and:
+- If the instruction is conditional, COND is set to the condition code field value from the instruction.
+- If the instruction is unconditional, COND is set to 0b1110 .
+- Aconditional A32 instruction that is known to pass its condition code check can be presented either:
+- With COND set to 0b1110 , the value for unconditional.
+- With the COND value held in the instruction.
+- When a T32 instruction is trapped, it is IMPLEMENTATION DEFINED whether:
+- CVis set to 0 and COND is set to an UNKNOWN value. Software must examine the SPSR.IT field to determine the condition, if any, of the T32 instruction.
+- CVis set to 1 and COND is set to the condition code for the condition that applied to the instruction.
+- For an implementation that, for both T32 and A32 instructions, takes an exception on a trapped conditional instruction only if the instruction passes its condition code check, these definitions mean that when CV is set to 1 it is IMPLEMENTATION DEFINED whether the COND field is set to 0b1110 , or to the value of any condition that applied to the instruction.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## imm8, bits [19:12]
+
+The immediate value from the issued instruction.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Bits [11:10]
+
+Reserved, RES0.
+
+## Rn, bits [9:5]
+
+The Rn value from the issued instruction, the general-purpose register used for the transfer.
+
+If the Rn value is not 0b1111 , then the reported value gives the AArch64 view of the register. Otherwise, if the Rn value is 0b1111 :
+
+- If the instruction that generated the exception is not UNPREDICTABLE, then the register specifier takes the value 0b11111 .
+- If the instruction that generated the exception is UNPREDICTABLE, then the register specifier takes an UNKNOWN value, which is restricted to either:
+- The AArch64 view of one of the registers that could have been used in AArch32 state at the Exception level that the instruction was executed at.
+- The value 0b11111 .
+
+See 'Mapping of the general-purpose registers between the Execution states'.
+
+This field is valid only when AM[2] is 0, indicating an immediate form of the LDC or STC instruction. When AM[2] is 1, indicating a literal form of the LDC or STC instruction, this field is UNKNOWN.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Offset, bit [4]
+
+Indicates whether the offset is added or subtracted:
+
+| Offset   | Meaning          |
+|----------|------------------|
+| 0b0      | Subtract offset. |
+| 0b1      | Add offset.      |
+
+This bit corresponds to the U bit in the instruction encoding.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## AM, bits [3:1]
+
+Addressing mode. The permitted values of this field are:
+
+| AM    | Meaning                                                                                  |
+|-------|------------------------------------------------------------------------------------------|
+| 0b000 | Immediate unindexed.                                                                     |
+| 0b001 | Immediate post-indexed.                                                                  |
+| 0b010 | Immediate offset.                                                                        |
+| 0b011 | Immediate pre-indexed.                                                                   |
+| 0b100 | For a trapped STC instruction or a trapped T32 LDCinstruction this encoding is reserved. |
+| 0b110 | For a trapped STC instruction, this encoding is reserved.                                |
+
+The values 0b101 and 0b111 are reserved. The effect of programming this field to a reserved value is that behavior is CONSTRAINED UNPREDICTABLE, as described in 'Reserved values in System and memory-mapped registers and translation table entries'.
+
+Bit [2] in this subfield indicates the instruction form, immediate or literal.
+
+Bits [1:0] in this subfield correspond to the bits {P, W} in the instruction encoding.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Direction, bit [0]
+
+Indicates the direction of the trapped instruction.
+
+| Direction   | Meaning                           |
+|-------------|-----------------------------------|
+| 0b0         | Write to memory. STC instruction. |
+| 0b1         | Read from memory. LDCinstruction. |
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Additional Information for ISS encoding for an exception from an LDC or STC instruction
+
+The following fields describe the configuration settings from an LDC or STC access for the traps that are reported using EC value 0b000110 :
+
+- MDSCR\_EL1.TDCC, for accesses to DBGDTRTXint and DBGDTRRXint, using AArch32 state, trapped to EL1 or EL2.
+- HDCR.TDA and MDCR\_EL2.TDA, for accesses to DBGDTRTXint and DBGDTRRXint, using AArch32 state, trapped to EL2.
+- MDCR\_EL3.TDA, for accesses to DBGDTRTXint and DBGDTRRXint, using AArch32 state, trapped to EL3.
+- If FEAT\_FGT is implemented, MDCR\_EL2.TDCC for accesses to the DCC registers at EL0 and EL1 trapped to EL2, and MDCR\_EL3.TDCC for accesses to the DCC registers at EL0, EL1, and EL2 trapped to EL3.
+
+## ISS encoding for an exception from an access to a register or instruction resulting from the FPEN and TFP traps
+
+<!-- image -->
+
+| 24 23   | 20 19   | 0    |
+|---------|---------|------|
+| CV      | COND    | RES0 |
+
+The accesses covered by this trap include:
+
+- Execution of Advanced SIMD and floating-point instructions.
+- Accesses to the Advanced SIMD and floating-point System registers.
+- Execution of SVE instructions.
+- Execution of SME instructions.
+
+For an implementation that does not include either SVE or support for Advanced SIMD and floating-point, the exception is reported using the EC value 0b000000 .
+
+## CV, bit [24]
+
+Condition code valid.
+
+| CV   | Meaning                     |
+|------|-----------------------------|
+| 0b0  | The CONDfield is not valid. |
+| 0b1  | The CONDfield is valid.     |
+
+For exceptions taken from AArch64, CV is set to 1.
+
+For exceptions taken from AArch32:
+
+- When an A32 instruction is trapped, CV is set to 1.
+- When a T32 instruction is trapped, it is IMPLEMENTATION DEFINED whether CV is set to 1 or set to 0. See the description of the COND field for more information.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## COND, bits [23:20]
+
+For exceptions taken from AArch64, this field is set to 0b1110 .
+
+The condition code for the trapped instruction. This field is valid only for exceptions taken from AArch32, and only when the value of CV is 1.
+
+For exceptions taken from AArch32:
+
+- When an A32 instruction is trapped, CV is set to 1 and:
+- If the instruction is conditional, COND is set to the condition code field value from the instruction.
+- If the instruction is unconditional, COND is set to 0b1110 .
+- Aconditional A32 instruction that is known to pass its condition code check can be presented either:
+- With COND set to 0b1110 , the value for unconditional.
+- With the COND value held in the instruction.
+- When a T32 instruction is trapped, it is IMPLEMENTATION DEFINED whether:
+- CVis set to 0 and COND is set to an UNKNOWN value. Software must examine the SPSR.IT field to determine the condition, if any, of the T32 instruction.
+- CVis set to 1 and COND is set to the condition code for the condition that applied to the instruction.
+- For an implementation that, for both T32 and A32 instructions, takes an exception on a trapped conditional instruction only if the instruction passes its condition code check, these definitions mean that when CV is set to 1 it is IMPLEMENTATION DEFINED whether the COND field is set to 0b1110 , or to the value of any condition that applied to the instruction.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Bits [19:0]
+
+Reserved, RES0.
+
+## Additional Information for ISS encoding for an exception from an access to a register or instruction resulting from the FPEN and TFP traps
+
+The following fields describe the configuration settings for the traps that are reported using EC value 0b000111 :
+
+- HCPTR.{TCP10, TCP11}, for Non-secure accesses to Advanced SIMD and floating-point registers and instructions, trapped to EL2.
+- HCPTR.TASE, for Non-secure accesses to Advanced SIMD functionality, trapped to EL2.
+- CPACR\_EL1.FPEN, for accesses to SIMD and floating-point registers trapped to EL1.
+- CPTR\_EL2.FPEN and CPTR\_EL2.TFP, for accesses to SIMD and floating-point registers trapped to EL2.
+- CPTR\_EL3.TFP, for accesses to SIMD and floating-point registers trapped to EL3.
+
+## ISS encoding for an exception from an access to SVE functionality, resulting from CPACR\_EL1.ZEN, CPTR\_EL2.ZEN, CPTR\_EL2.TZ, or CPTR\_EL3.EZ
+
+<!-- image -->
+
+The accesses covered by this trap include:
+
+- Execution of SVE instructions when the PE is not in Streaming SVE mode.
+- Accesses to the SVE System registers, ZCR\_ELx.
+
+For an implementation that does not include SVE, the exception is reported using the EC value 0b000000 .
+
+## Bits [24:0]
+
+Reserved, RES0.
+
+## Additional Information for ISS encoding for an exception from an access to SVE functionality, resulting from CPACR\_EL1.ZEN, CPTR\_EL2.ZEN, CPTR\_EL2.TZ, or CPTR\_EL3.EZ
+
+The following fields describe the configuration settings for the traps that are reported using EC value 0b011001 :
+
+- CPACR\_EL1.ZEN, for execution of SVE instructions and accesses to SVE registers at EL0 or EL1, trapped to EL1.
+- CPTR\_EL2.ZEN and CPTR\_EL2.TZ, for execution of SVE instructions and accesses to SVE registers at EL0, EL1, or EL2, trapped to EL2.
+- CPTR\_EL3.EZ, for execution of SVE instructions and accesses to SVE registers from all Exception levels, trapped to EL3.
+
+## ISS encoding for a Profiling exception
+
+<!-- image -->
+
+## Bits [24:6]
+
+Reserved, RES0.
+
+## FSC, bits [5:1]
+
+Indicates why the Profiling exception was generated.
+
+| FSC     | Meaning                                                                                                                                                                                                                                                                                                                              | Applies when                 |
+|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
+| 0b00000 | PMUProfiling exception. One of the following applies, and ESR_EL3.SYNC describes which: • The exception was generated because at least onePMU counter overflow status flag was 1, and was taken asynchronously. • The exception was generated because FEAT_SEBEP is implemented and PSTATE.PPEND was 1, and was taken synchronously. | FEAT_EBEP is implemented     |
+| 0b00001 | Profiling Buffer management event. The exception was generated because PMBSR_EL3.S was 1.                                                                                                                                                                                                                                            | FEAT_SPE_EXC is implemented  |
+| 0b00010 | Trace buffer management event. The exception was generated because TRBSR_EL3.IRQ was 1.                                                                                                                                                                                                                                              | FEAT_TRBE_EXC is implemented |
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## SYNC, bit [0]
+
+Indicates whether the Profiling exception was taken synchronously or asynchronously.
+
+| SYNC   | Meaning                                 | Applies when              |
+|--------|-----------------------------------------|---------------------------|
+| 0b0    | The exception was taken asynchronously. |                           |
+| 0b1    | The exception was taken synchronously.  | FEAT_SEBEP is implemented |
+
+If ESR\_EL3.FSC does not indicate a PMU Profiling exception, or FEAT\_SEBEP is not implemented, then the only permitted value is 0.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## ISS encoding for an exception from an Illegal Execution state, or a PC or SP alignment fault
+
+<!-- image -->
+
+| 24   | 0   |
+|------|-----|
+
+## Bits [24:0]
+
+Reserved, RES0.
+
+## Additional Information for ISS encoding for an exception from an Illegal Execution state, or a PC or SP alignment fault
+
+There are no configuration settings for generating Illegal Execution state exceptions and PC alignment fault exceptions. For more information about PC alignment fault exceptions, see 'PC alignment checking'.
+
+'SP alignment checking' describes the configuration settings for generating SP alignment fault exceptions.
+
+## ISS encoding for an exception from the Memory Copy and Memory Set instructions
+
+<!-- image -->
+
+## MemInst, bit [24]
+
+Indicates the memory instruction class causing the exception.
+
+| MemInst   | Meaning                                        |
+|-----------|------------------------------------------------|
+| 0b0       | CPYFE*, CPYFM*, CPYE*, andCPYM* instructions.  |
+| 0b1       | SETE*, SETM*, SETGE*, and SETGM* instructions. |
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## isSETG, bit [23]
+
+Indicates whether the instruction belongs to SETGM* or SETGE* class of instruction.
+
+| isSETG   | Meaning                             |
+|----------|-------------------------------------|
+| 0b0      | Not a SETGM* or SETGE* instruction. |
+| 0b1      | SETGM* or SETGE* instruction.       |
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Options, bits [22:19]
+
+Options : the Options field of the instruction.
+
+For Memory Copy instructions, bits[22:19] forms the Options field, which holds the bits[15:12] of the instruction.
+
+For Memory Set instructions:
+
+- Bits[22:21] are RES0.
+- Bits[20:19] form the Options field, which holds the bits[13:12] of the instruction.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## FromEpilogue, bit [18]
+
+Indicates whether the instruction belongs to the epilogue class of Memory Copy or Memory Set instructions.
+
+| FromEpilogue   | Meaning                                      |
+|----------------|----------------------------------------------|
+| 0b0            | Not an epilogue instruction.                 |
+| 0b1            | CPYE*, CPYFE*, SETE*, or SETGE* instruction. |
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## FormatOption, bits [17:16]
+
+Reports the Option used to encode the initial Xs, Xd, and Xn register values provided to the instruction that generated the exception.
+
+| FormatOption   | Meaning   |
+|----------------|-----------|
+| 0b00           | Option B. |
+| 0b01           | Option A. |
+| 0b10           | Option A. |
+| 0b11           | Option B. |
+
+For more information, see Memory Copy and Memory Set exceptions.
+
+<!-- image -->
+
+This field was previously presented as two separate bits, WrongOption, bit[17] and OptionA, bit [16], which were already expected to be used together and not individually.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Bit [15]
+
+Reserved, RES0.
+
+## destreg, bits [14:10]
+
+The destination register value from the issued instruction, containing the destination address.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## srcreg, bits [9:5]
+
+The source register value from the issued instruction, containing either the source address or the source data.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## sizereg, bits [4:0]
+
+The size register value from the issued instruction, containing the number of bytes to be transfered or set.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## ISS encoding for an exception from HVC or SVC instruction execution
+
+<!-- image -->
+
+## Bits [24:16]
+
+Reserved, RES0.
+
+## imm16, bits [15:0]
+
+The value of the immediate field from the HVC or SVC instruction.
+
+For an HVC instruction, and for an A64 SVC instruction, this is the value of the imm16 field of the issued instruction.
+
+For an A32 or T32 SVC instruction:
+
+- If the instruction is unconditional, then:
+- For the T32 instruction, this field is zero-extended from the imm8 field of the instruction.
+- For the A32 instruction, this field is the bottom 16 bits of the imm24 field of the instruction.
+- If the instruction is conditional, this field is UNKNOWN.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Additional Information for ISS encoding for an exception from HVC or SVC instruction execution
+
+In AArch32 state, the HVC instruction is unconditional, and a conditional SVC instruction generates an exception only if it passes its condition code check. Therefore, the syndrome information for these exceptions does not require conditionality information.
+
+For T32 and A32 instructions, see 'SVC' and 'HVC'.
+
+For A64 instructions, see 'SVC' and 'HVC'.
+
+If FEAT\_FGT is implemented, HFGITR\_EL2.{SVC\_EL1, SVC\_EL0} control fine-grained traps on SVC execution.
+
+## ISS encoding for an exception from SMC instruction execution in AArch32 state
+
+<!-- image -->
+
+For an SMC instruction that completes normally and generates an exception that is taken to EL3, the ISS encoding is RES0.
+
+For an SMC instruction that is trapped to EL2 from EL1 because HCR\_EL2.TSC is 1, the ISS encoding is as shown in the diagram.
+
+## CV, bit [24]
+
+Condition code valid.
+
+| CV   | Meaning                     |
+|------|-----------------------------|
+| 0b0  | The CONDfield is not valid. |
+| 0b1  | The CONDfield is valid.     |
+
+For exceptions taken from AArch64, CV is set to 1.
+
+For exceptions taken from AArch32:
+
+- When an A32 instruction is trapped, CV is set to 1.
+- When a T32 instruction is trapped, it is IMPLEMENTATION DEFINED whether CV is set to 1 or set to 0. See the description of the COND field for more information.
+
+This field is valid only if CCKNOWNPASS is 1, otherwise it is RES0.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## COND, bits [23:20]
+
+For exceptions taken from AArch64, this field is set to 0b1110 .
+
+The condition code for the trapped instruction. This field is valid only for exceptions taken from AArch32, and only when the value of CV is 1.
+
+For exceptions taken from AArch32:
+
+- When an A32 instruction is trapped, CV is set to 1 and:
+- If the instruction is conditional, COND is set to the condition code field value from the instruction.
+- If the instruction is unconditional, COND is set to 0b1110 .
+- Aconditional A32 instruction that is known to pass its condition code check can be presented either:
+- With COND set to 0b1110 , the value for unconditional.
+- With the COND value held in the instruction.
+- When a T32 instruction is trapped, it is IMPLEMENTATION DEFINED whether:
+- CVis set to 0 and COND is set to an UNKNOWN value. Software must examine the SPSR.IT field to determine the condition, if any, of the T32 instruction.
+- CVis set to 1 and COND is set to the condition code for the condition that applied to the instruction.
+- For an implementation that, for both T32 and A32 instructions, takes an exception on a trapped conditional instruction only if the instruction passes its condition code check, these definitions mean that when CV is set to 1 it is IMPLEMENTATION DEFINED whether the COND field is set to 0b1110 , or to the value of any condition that applied to the instruction.
+
+This field is valid only if CCKNOWNPASS is 1, otherwise it is RES0.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## CCKNOWNPASS,bit [19]
+
+Indicates whether the instruction might have failed its condition code check.
+
+| CCKNOWNPASS   | Meaning                                                                                    |
+|---------------|--------------------------------------------------------------------------------------------|
+| 0b0           | The instruction was unconditional, or was conditional and passed its condition code check. |
+| 0b1           | The instruction was conditional, and might have failed its condition code check.           |
+
+Note
+
+In an implementation in which an SMC instruction that fails it code check is not trapped, this field can always return the value 0.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Bits [18:0]
+
+Reserved, RES0.
+
+## Additional Information for ISS encoding for an exception from SMC instruction execution in AArch32 state
+
+HCR.TSC describes the configuration settings for trapping SMC instructions to EL2.
+
+HCR\_EL2.TSC describes the configuration settings for trapping SMC instructions to EL2.
+
+ISS encoding for an exception from SMC instruction execution in AArch64 state
+
+<!-- image -->
+
+## Bits [24:16]
+
+Reserved, RES0.
+
+## imm16, bits [15:0]
+
+The value of the immediate field from the issued SMC instruction.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Additional Information for ISS encoding for an exception from SMC instruction execution in AArch64 state
+
+The value of ISS[24:0] described here is used both:
+
+- When an SMC instruction is trapped from EL1 modes.
+- When an SMC instruction is not trapped, so completes normally and generates an exception that is taken to EL3.
+
+HCR\_EL2.TSC describes the configuration settings for trapping SMC from EL1 modes.
+
+## ISS encoding for an exception from MSR, MRS, or System instruction execution in AArch64 state
+
+<!-- image -->
+
+## Bits [24:22]
+
+Reserved, RES0.
+
+## Op0, bits [21:20]
+
+The Op0 value from the issued instruction.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Op2, bits [19:17]
+
+The Op2 value from the issued instruction.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Op1, bits [16:14]
+
+The Op1 value from the issued instruction.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## CRn, bits [13:10]
+
+The CRn value from the issued instruction.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Rt, bits [9:5]
+
+The Rt value from the issued instruction, the general-purpose register used for the transfer.
+
+For system instructions which require that the opcode Rt field is set to 0b11111 , but where the trapped instruction has a different value of Rt, an implementation is permitted to return the value 0b11111 , instead of the value of Rt from the trapped instruction.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## CRm, bits [4:1]
+
+The CRm value from the issued instruction.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Direction, bit [0]
+
+Indicates the direction of the trapped instruction.
+
+| Direction   | Meaning                                  |
+|-------------|------------------------------------------|
+| 0b0         | Write access, including MSRinstructions. |
+| 0b1         | Read access, including MRSinstructions.  |
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+Additional Information for ISS encoding for an exception from MSR, MRS, or System instruction execution in AArch64 state
+
+For exceptions caused by System instructions, see 'System instructions' subsection of 'Branches, exception generating and System instructions' for the encoding values returned by an instruction.
+
+The following fields describe configuration settings for generating the exception that is reported using EC value 0b011000 :
+
+- If FEAT\_TIDCP1 is implemented, SCTLR\_EL1.TIDCP, for EL0 accesses to IMPLEMENTATION DEFINED functionality using AArch64 state, MSR or MRS access trapped to EL1.
+- SCTLR\_EL1.UCI, for execution of cache maintenance instructions using AArch64 state, execution is trapped to EL1 or EL2.
+- SCTLR\_EL1.UCT, for accesses to CTR\_EL0 using AArch64 state, MSR or MRS access trapped to EL1 or EL2.
+- SCTLR\_EL1.DZE, for execution of DC ZVA instructions using AArch64 state, execution is trapped to EL1 or EL2.
+- SCTLR\_EL1.UMA, for accesses to the PSTATE interrupt masks using AArch64 state, MSR or MRS access trapped to EL1 or EL2.
+- CPACR\_EL1.TTA, for accesses to the trace registers using AArch64 state, MSR or MRS access trapped to EL1 or EL2.
+- MDSCR\_EL1.TDCC, for accesses to the Debug Communications Channel (DCC) registers using AArch64 state, MSR or MRS access trapped to EL1 or EL2.
+- If FEAT\_FGT is implemented, MDCR\_EL2.TDCC for accesses to the DCC registers at EL0 and EL1 trapped to EL2, and MDCR\_EL3.TDCC for accesses to the DCC registers at EL0, EL1, and EL2 trapped to EL3.
+- CNTKCTL\_EL1.{EL0PTEN, EL0VTEN, EL0PCTEN, EL0VCTEN} accesses to the Generic Timer registers using AArch64 state, MSR or MRS access trapped to EL1 or EL2.
+- PMUSERENR\_EL0, for accesses to the Performance Monitor registers using AArch64 state, MSR or MRSaccess trapped to EL1 or EL2.
+- AMUSERENR\_EL0.EN, for accesses to Activity Monitors registers using AArch64 state, MSR or MRSaccess trapped to EL1 or EL2.
+- HCR\_EL2.{TRVM, TVM}, for accesses to virtual memory control registers using AArch64 state, MSRor MRS access trapped to EL2.
+- HCR\_EL2.TDZ, for execution of DC ZVA instructions using AArch64 state, execution is trapped to EL2.
+- HCR\_EL2.TTLB, for execution of TLB maintenance instructions using AArch64 state, execution is trapped to EL2.
+- HCR\_EL2.{TSW, TPC, TPU}, for execution of cache maintenance instructions using AArch64 state, execution is trapped to EL2.
+- HCR\_EL2.TACR, for accesses to the Auxiliary Control Register, ACTLR\_EL1, using AArch64 state, MSR or MRS access trapped to EL2.
+- HCR\_EL2.TIDCP, for accesses to lockdown, DMA, and TCM operations using AArch64 state, MSR or MRS access trapped to EL2.
+- If FEAT\_TIDCP1 is implemented, SCTLR\_EL2.TIDCP, for EL0 accesses to IMPLEMENTATION DEFINED functionality using AArch64 state, MSR or MRS access trapped to EL2.
+- HCR\_EL2.{TID1, TID2, TID3}, for accesses to ID group 1, ID group 2 or ID group 3 registers, using AArch64 state, MSR or MRS access trapped to EL2.
+- If FEAT\_MTE2 is implemented, HCR\_EL2.TID5, for accesses to GMID\_EL1, using AArch64 state, MRSor MSR access at EL1, trapped to EL2.
+- If FEAT\_IDTE3 is implemented, SCR\_EL3.TID3, for accesses to ID group 3 registers using AArch64 state, at EL1 and EL2, trapped to EL3.
+- CPTR\_EL2.TCPAC, for accesses to CPACR\_EL1, using AArch64 state, MSR or MRS access trapped to EL2.
+- CPTR\_EL2.TTA, for accesses to the trace registers, using AArch64 state, MSR or MRS access trapped to EL2.
+- MDCR\_EL2.TTRF, for accesses to the trace filter control register, TRFCR\_EL1, using AArch64 state, MSR or MRS access trapped to EL2.
+- MDCR\_EL2.TDRA, for accesses to Debug ROM registers, using AArch64 state, MSR or MRS access trapped to EL2.
+- MDCR\_EL2.TDOSA, for accesses to powerdown debug registers using AArch64 state, MSR or MRSaccess trapped to EL2.
+- CNTHCTL\_EL2.{EL1PCEN, EL1PCTEN}, for accesses to the Generic Timer registers using AArch64 state, MSR or MRS access trapped to EL2.
+- MDCR\_EL2.TDA, for accesses to debug registers using AArch64 state, MSR or MRS access trapped to EL2.
+- MDCR\_EL2.{TPM, TPMCR}, for accesses to Performance Monitor registers, using AArch64 state,
+
+- MSRor MRS access trapped to EL2.
+- CPTR\_EL2.TAM, for accesses to Activity Monitors registers, using AArch64 state, MSR or MRS access trapped to EL2.
+- HCR\_EL2.APK, for accesses to Pointer authentication key registers, using AArch64 state, MSR or MRSaccess trapped to EL2.
+- HCR\_EL2.{NV, NV1}, for Nested virtualization register access, using AArch64 state, MSR or MRS access, trapped to EL2.
+- HCR\_EL2.AT, for execution of AT S1E* instructions, using AArch64 state, execution is trapped to EL2.
+- HCR\_EL2.{TERR, FIEN}, for accesses to RAS registers, using AArch64 state, MSR or MRS access, trapped to EL2.
+- SCR\_EL3.APK, for accesses to Pointer authentication key registers, using AArch64 state, MSR or MRSaccess trapped to EL3.
+- SCR\_EL3.ST, for accesses to the Counter-timer Physical Secure timer registers, using AArch64 state, MSRor MRS access trapped to EL3.
+- SCR\_EL3.{TERR, FIEN}, for accesses to RAS registers, using AArch64 state, MSR or MRS access trapped to EL3.
+- CPTR\_EL3.TCPAC, for accesses to CPTR\_EL2 and CPACR\_EL1 using AArch64 state, MSR or MRSaccess trapped to EL3.
+- CPTR\_EL3.TTA, for accesses to the trace registers, using AArch64 state, MSR or MRS access trapped to EL3.
+- MDCR\_EL3.TTRF, for accesses to the trace filter control registers, TRFCR\_EL1 and TRFCR\_EL2, using AArch64 state, MSR or MRS access trapped to EL3.
+- MDCR\_EL3.TDA, for accesses to debug registers, using AArch64 state, MSR or MRS access trapped to EL3.
+- MDCR\_EL3.TDOSA, for accesses to powerdown debug registers, using AArch64 state, MSR or MRSaccess trapped to EL3.
+- MDCR\_EL3.TPM, for accesses to Performance Monitor registers, using AArch64 state, MSR or MRSaccess trapped to EL3.
+- If FEAT\_SPE is implemented:
+- MDCR\_EL3.NSPB for accesses to Statistical Profiling and Profiling Buffer control registers, using AArch64 state, MSR or MRS access at EL1 and EL2 trapped to EL3.
+- MDCR\_EL2.TPMS for accesses to SPE registers, using AArch64 state, MSR or MRS access at EL1 trapped to EL2.
+- CPTR\_EL3.TAM, for accesses to Activity Monitors registers, using AArch64 state, MSR or MRS access, trapped to EL3.
+- If FEAT\_EVT is implemented, the following registers control traps for EL1 and EL0 Cache controls that use this EC value:
+- HCR\_EL2.{TTLBOS, TTLBIS, TICAB, TOCU, TID4}.
+- HCR2.{TTLBIS, TICAB, TOCU, TID4}.
+- If FEAT\_FGT is implemented:
+- SCR\_EL3.FGTEn, for accesses to the fine-grained trap registers, MSR or MRS access at EL2 trapped to EL3.
+- HFGRTR\_EL2 for reads and HFGWTR\_EL2 for writes of registers, using AArch64 state, MSR or MRSaccess at EL0 and EL1 trapped to EL2.
+- HFGITR\_EL2 for execution of system instructions, MSR or MRS access trapped to EL2.
+- HDFGRTR\_EL2 for reads and HDFGWTR\_EL2 for writes of registers, using AArch64 state, MSRor MRS access at EL0 and EL1 state trapped to EL2.
+- HAFGRTR\_EL2 for reads of Activity Monitor counters, using AArch64 state, MRS access at EL0 and EL1 trapped to EL2.
+- If FEAT\_RNG\_TRAP is implemented, SCR\_EL3.TRNDR for reads of RNDR and RNDRRS using AArch64 state, MRS access trapped to EL3.
+- If FEAT\_SME is implemented:
+- CPTR\_EL3.ESM, for MSR or MRS accesses to SMPRI\_EL1 at EL1, EL2, and EL3, trapped to EL3.
+- CPTR\_EL3.ESM, for MSR or MRS accesses to SMPRIMAP\_EL2 at EL2 and EL3, trapped to EL3.
+- SCTLR\_EL1.EnTP2, for MSR or MRS accesses to TPIDR2\_EL0 at EL0, trapped to EL1 or EL2.
+- SCTLR\_EL2.EnTP2, for MSR or MRS accesses to TPIDR2\_EL0 at EL0, trapped to EL2.
+- SCR\_EL3.EnTP2, for MSR or MRS accesses to TPIDR2\_EL0 at EL0, EL1, and EL2, trapped to EL3.
+- If FEAT\_FPMR is implemented:
+- SCTLR\_EL1.EnFPM, for accesses to FPMR at EL0, trapped to EL1 or EL2.
+
+- SCTLR\_EL2.EnFPM, for accesses to FPMR at EL0, trapped to EL2.
+- HCRX\_EL2.EnFPM, for accesses to FPMR at EL0 and EL1, trapped to EL2.
+- SCR\_EL3.EnFPM, for accesses to FPMR at EL0, EL1, and EL2, trapped to EL3.
+- If FEAT\_NMI is implemented, HCRX\_EL2.TALLINT, for MSR writes of ALLINT at EL1, trapped to EL2.
+- If FEAT\_FGT2 is implemented:
+- SCR\_EL3.FGTEn2, for accesses to the fine-grained trap registers, MSR or MRS access at EL2 trapped to EL3.
+- HFGRTR2\_EL2 for reads and HFGWTR2\_EL2 for writes of registers, using AArch64 state, using MSRor MRS access at EL1 trapped to EL2.
+- HDFGRTR2\_EL2 for reads and HDFGWTR2\_EL2 for writes of registers, using AArch64 state, using MSR or MRS access at EL0 and EL1 trapped to EL2.
+- HFGITR2\_EL2 for execution of system instructions, MSR or MRS access trapped to EL2.
+- If FEAT\_ITE is implemented, MDCR\_EL3.EnITE, for accesses to Instrumentation trace registers, using AArch64 state, MSR or MRS access, trapped to EL3.
+- If FEAT\_MEC is implemented, SCR\_EL3.MECEn, for accesses to MECID registers at EL2, trapped to EL3.
+- If FEAT\_SPE\_FDS is implemented, MDCR\_EL3.EnPMS3 for accesses to SPE registers, using AArch64 state, MSR or MRS access at EL1 and EL2 trapped to EL3.
+- If FEAT\_SPE\_nVM is implemented, MDCR\_EL3.EnPMS4 for accesses to SPE registers, using AArch64 state, MSR or MRS access at EL1 and EL2 trapped to EL3.
+- If FEAT\_RASv2 is implemented, SCR\_EL3.TWERR, for accesses to Error Record registers, MSR access at EL1 and EL2 trapped to EL3.
+- If FEAT\_Debugv8p9 is implemented, MDCR\_EL3.EBWE for accesses of MDSELR\_EL1, using AArch64 state, MRS or MSR access at EL2 and EL1 trapped to EL3.
+- If FEAT\_PMUv3p9, FEAT\_SPMU, FEAT\_EBEP, or FEAT\_PMUv3\_SS is implemented, MDCR\_EL3.EnPM2, for accesses to PMU registers, using AArch64 state, MSR or MRS access at EL2, EL1, and EL0, trapped to EL3.
+- If FEAT\_PMUv3\_SS is implemented, MDCR\_EL3.EnPMSS, for accesses to PMU Snapshot registers, using AArch64 state, MSR or MRS access at EL2 and EL1 trapped to EL3.
+- If FEAT\_THE is implemented, SCR\_EL3.RCWMASKEn for accesses to RCWMASK\_EL1 and RCWSMASK\_EL1, using AArch64 state, MSR or MRS access at EL2 and EL1 trapped to EL3.
+- If FEAT\_AIE is implemented, SCR\_EL3.AIEn for accesses to Extended Memory Attribute registers, MSRor MRS access at EL2 and EL1 trapped to EL3.
+- If FEAT\_S1PIE, FEAT\_S2PIE, FEAT\_S1POE, or FEAT\_S2POE is implemented, SCR\_EL3.PIEn for accesses to Permission Indirection, Overlay registers, MSR or MRS access at EL2, EL1 and EL0 trapped to EL3.
+- If FEAT\_MPAM\_PE\_BW\_CTRL is implemented, MPAMBW2\_EL2.{nTRAP\_MPAMBWIDR\_EL1, nTRAP\_MPAMBW0\_EL1, nTRAP\_MPAMBW1\_EL1} for accesses to MPAMBW*\_EL1 registers, using AArch64 state, MRS or MSR access at EL1, trapped to EL2.
+- If FEAT\_MPAM\_PE\_BW\_CTRL and FEAT\_SME are implemented, MPAMBW2\_EL2.nTRAP\_MPAMBWSM\_EL1, for accesses to MPAMBWSM\_EL1, using AArch64 state, MRS or MSR access at EL1, trapped to EL2.
+- If FEAT\_MPAM\_PE\_BW\_CTRL is implemented, MPAMBW3\_EL3.nTRAPLOWER, for accesses to MPAMBW*\_EL2 registers and MPAMBW*\_EL1 registers, using AArch64 state, MRS or MSR access at EL1, trapped to EL3.
+- If FEAT\_HACDBS is implemented, SCR\_EL3.HACDBSEn, for accesses to HACDBSBR\_EL2 and HACDBSCONS\_EL2, using AArch64 state, MRS or MSR access at EL2, trapped to EL3.
+- If FEAT\_HDBSS is implemented, SCR\_EL3.HDBSSEn, for accesses to HDBSSBR\_EL2 and HDBSSPROD\_EL2, using AArch64 state, MRS or MSR access at EL2, trapped to EL3.
+- If FEAT\_SRMASK is implemented, SCR\_EL3.SRMASKEn, for MSR or MRS accesses at EL1 or EL2 to the MASK registers using AArch64 state, trapped to EL3.
+
+ISS encoding for an exception from MSRR, MRRS, or 128-bit System instruction execution in AArch64 state
+
+<!-- image -->
+
+## Bits [24:22]
+
+Reserved, RES0.
+
+## Op0, bits [21:20]
+
+The Op0 value from the issued instruction.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Op2, bits [19:17]
+
+The Op2 value from the issued instruction.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Op1, bits [16:14]
+
+The Op1 value from the issued instruction.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## CRn, bits [13:10]
+
+The CRn value from the issued instruction.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Rt, bits [9:6]
+
+The Rt value from the issued instruction, the general-purpose register used for the transfer.
+
+Note
+
+This value represents register pair of X[Rt:0], X[Rt:1].
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Bit [5]
+
+Reserved, RES0.
+
+## CRm, bits [4:1]
+
+The CRm value from the issued instruction.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Direction, bit [0]
+
+Indicates the direction of the trapped instruction.
+
+| Direction   | Meaning                         |
+|-------------|---------------------------------|
+| 0b0         | Write access, MSRRinstructions. |
+| 0b1         | Read access, MRRSinstructions.  |
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Additional Information for ISS encoding for an exception from MSRR, MRRS, or 128-bit System instruction execution in AArch64 state
+
+The following fields describe configuration settings for generating exceptions from an MSRR or MRRS access that are reported using EC value 0b010100 :
+
+- If FEAT\_FGT is implemented:
+- HFGRTR\_EL2 for reads and HFGWTR\_EL2 for writes of registers, using AArch64 state, accesses at EL1 trapped to EL2.
+- If FEAT\_FGT2 is implemented:
+- HFGRTR2\_EL2.nRCWSMASK\_EL1 for reads and HFGWTR2\_EL2.nRCWSMASK\_EL1 for writes of RCWSMASK\_EL1, using AArch64 state, accesses at EL1 trapped to EL2.
+- If FEAT\_SYSREG128 is implemented:
+- SCTLR2\_EL1.EnIDCP128 for accesses to 128-bit IMPLEMENTATION DEFINED System registers, accesses at EL0 trapped to EL1.
+- SCTLR2\_EL2.EnIDCP128 for accesses to 128-bit IMPLEMENTATION DEFINED System registers, accesses at EL0 trapped to EL2.
+- HCRX\_EL2.EnIDCP128 for accesses to 128-bit IMPLEMENTATION DEFINED System registers, accesses at EL1 and EL0 trapped to EL2.
+- SCR\_EL3.EnIDCP128 for accesses to 128-bit IMPLEMENTATION DEFINED System registers, accesses at EL2, EL1, and EL0 trapped to EL3.
+- If FEAT\_D128 is implemented:
+- HCR\_EL2.{TRVM, TVM} for accesses to TTBR0\_EL1 and TTBR1\_EL1, accesses at EL1 and EL0 trapped to EL2.
+- HCRX\_EL2.D128En for accesses to 128-bit IMPLEMENTATION DEFINED System registers, accesses at EL1 trapped to EL2.
+- SCR\_EL3.D128En for accesses to 128-bit IMPLEMENTATION DEFINED System registers, accesses at EL2 and EL1 trapped to EL3.
+- If FEAT\_THE is implemented, SCR\_EL3.RCWMASKEn for accesses to RCWMASK\_EL1 and RCWSMASK\_EL1, using AArch64 state, accesses at EL2 and EL1 trapped to EL3.
+
+## ISS encoding for an IMPLEMENTATION DEFINED exception to EL3
+
+<!-- image -->
+
+## IMPLEMENTATIONDEFINED, bits [24:0]
+
+IMPLEMENTATION DEFINED.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## ISS encoding for an exception from an Instruction Abort
+
+<!-- image -->
+
+When FEAT\_S1POE is implemented, if a memory access generates a Instruction Abort due to a Permission fault, the ISS2 encoding for an exception from an Instruction Abort includes further information about the exception.
+
+## Bits [24:15]
+
+Reserved, RES0.
+
+## PFV, bit [14]
+
+When IsFeatureImplemented(FEAT\_PFAR) &amp;&amp; ((IFSC == 0b010000 || IFSC IN { 0b01001x }) || IFSC IN { 0b0101xx }):
+
+PFAR Valid. Describes whether the MFAR\_EL3 register is valid.
+
+| PFV   | Meaning              |
+|-------|----------------------|
+| 0b0   | MFAR_EL3 is UNKNOWN. |
+| 0b1   | MFAR_EL3 is valid.   |
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Otherwise:
+
+Reserved, RES0.
+
+## Bit [13]
+
+Reserved, RES0.
+
+## SET, bits [12:11]
+
+When IsFeatureImplemented(FEAT\_RAS) &amp;&amp; ((IFSC == 0b010000 || IFSC IN { 0b01001x }) || IFSC IN { 0b0101xx }):
+
+Synchronous Error Type. Describes the PE error state after taking the Instruction Abort exception.
+
+| SET   | Meaning                  | Applies when                  |
+|-------|--------------------------|-------------------------------|
+| 0b00  | Recoverable state (UER). |                               |
+| 0b10  | Uncontainable (UC).      | FEAT_RASv2 is not implemented |
+| 0b11  | Restartable state (UEO). |                               |
+
+All other values are reserved.
+
+Note
+
+Software can use this information to determine what recovery might be possible. Taking a synchronous External abort exception might result in a PE state that is not recoverable.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Otherwise:
+
+Reserved, RES0.
+
+## FnV, bit [10]
+
+FAR not Valid, for a synchronous External abort other than a synchronous External abort on a translation table walk.
+
+| FnV   | Meaning                                       |
+|-------|-----------------------------------------------|
+| 0b0   | FAR is valid.                                 |
+| 0b1   | FAR is not valid, and holds an UNKNOWN value. |
+
+This field is valid only if the IFSC code is 0b010000 . It is RES0 for all other aborts.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## EA, bit [9]
+
+External abort type. This bit can provide an IMPLEMENTATION DEFINED classification of External aborts.
+
+For any abort other than an External abort this bit returns a value of 0.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Bit [8]
+
+Reserved, RES0.
+
+## S1PTW, bit [7]
+
+For a stage 2 fault, indicates whether the fault was a stage 2 fault on an access made for a stage 1 translation table walk:
+
+| S1PTW   | Meaning                                                                             |
+|---------|-------------------------------------------------------------------------------------|
+| 0b0     | Fault not on a stage 2 translation for a stage 1 translation table walk.            |
+| 0b1     | Fault on the stage 2 translation of an access for a stage 1 translation table walk. |
+
+For any abort other than a stage 2 fault this bit is RES0.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Bit [6]
+
+Reserved, RES0.
+
+## IFSC, bits [5:0]
+
+Instruction Fault Status Code.
+
+| IFSC     | Meaning                                                                                                 | Applies when             |
+|----------|---------------------------------------------------------------------------------------------------------|--------------------------|
+| 0b000000 | Address size fault, level 0 of translation or translation table base register.                          |                          |
+| 0b000001 | Address size fault, level 1.                                                                            |                          |
+| 0b000010 | Address size fault, level 2.                                                                            |                          |
+| 0b000011 | Address size fault, level 3.                                                                            |                          |
+| 0b000100 | Translation fault, level 0.                                                                             |                          |
+| 0b000101 | Translation fault, level 1.                                                                             |                          |
+| 0b000110 | Translation fault, level 2.                                                                             |                          |
+| 0b000111 | Translation fault, level 3.                                                                             |                          |
+| 0b001001 | Access flag fault, level 1.                                                                             |                          |
+| 0b001010 | Access flag fault, level 2.                                                                             |                          |
+| 0b001011 | Access flag fault, level 3.                                                                             |                          |
+| 0b001000 | Access flag fault, level 0.                                                                             | FEAT_LPA2 is implemented |
+| 0b001100 | Permission fault, level 0.                                                                              | FEAT_LPA2 is implemented |
+| 0b001101 | Permission fault, level 1.                                                                              |                          |
+| 0b001110 | Permission fault, level 2.                                                                              |                          |
+| 0b001111 | Permission fault, level 3.                                                                              |                          |
+| 0b010000 | Synchronous External abort, not on translation table walk or hardware update of translation table.      |                          |
+| 0b010010 | Synchronous External abort on translation table walk or hardware update of translation table, level -2. | FEAT_D128 is implemented |
+| 0b010011 | Synchronous External abort on translation table walk or hardware update of translation table, level -1. | FEAT_LPA2 is implemented |
+| 0b010100 | Synchronous External abort on translation table walk or hardware update of translation table, level 0.  |                          |
+| 0b010101 | Synchronous External abort on translation table walk or hardware update of translation table, level 1.  |                          |
+| 0b010110 | Synchronous External abort on translation table walk or hardware update of translation table, level 2.  |                          |
+| 0b010111 | Synchronous External abort on translation table walk or hardware update of translation table, level 3.  |                          |
+
+| IFSC     | Meaning                                                                                                                       | Applies when                                             |
+|----------|-------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------|
+| 0b011000 | Synchronous parity or ECC error on memory access, not on translation table walk.                                              | FEAT_RAS is not implemented                              |
+| 0b011011 | Synchronous parity or ECC error on memory access on translation table walk or hardware update of translation table, level -1. | FEAT_LPA2 is implemented and FEAT_RAS is not implemented |
+| 0b011100 | Synchronous parity or ECC error on memory access on translation table walk or hardware update of translation table, level 0.  | FEAT_RAS is not implemented                              |
+| 0b011101 | Synchronous parity or ECC error on memory access on translation table walk or hardware update of translation table, level 1.  | FEAT_RAS is not implemented                              |
+| 0b011110 | Synchronous parity or ECC error on memory access on translation table walk or hardware update of translation table, level 2.  | FEAT_RAS is not implemented                              |
+| 0b011111 | Synchronous parity or ECC error on memory access on translation table walk or hardware update of translation table, level 3.  | FEAT_RAS is not implemented                              |
+| 0b100010 | Granule Protection Fault on translation table walk or hardware update of translation table, level -2.                         | FEAT_D128 is implemented and FEAT_RME is implemented     |
+| 0b100011 | Granule Protection Fault on translation table walk or hardware update of translation table, level -1.                         | FEAT_RME is implemented and FEAT_LPA2 is implemented     |
+| 0b100100 | Granule Protection Fault on translation table walk or hardware update of translation table, level 0.                          | FEAT_RME is implemented                                  |
+| 0b100101 | Granule Protection Fault on translation table walk or hardware update of translation table, level 1.                          | FEAT_RME is implemented                                  |
+| 0b100110 | Granule Protection Fault on translation table walk or hardware update of translation table, level 2.                          | FEAT_RME is implemented                                  |
+| 0b100111 | Granule Protection Fault on translation table walk or hardware update of translation table, level 3.                          | FEAT_RME is implemented                                  |
+| 0b101000 | Granule Protection Fault, not on translation table walk or hardware update of translation table.                              | FEAT_RME is implemented                                  |
+| 0b101001 | Address size fault, level -1.                                                                                                 | FEAT_LPA2 is implemented                                 |
+| 0b101010 | Translation fault, level -2.                                                                                                  | FEAT_D128 is implemented                                 |
+| 0b101011 | Translation fault, level -1.                                                                                                  | FEAT_LPA2 is implemented                                 |
+| 0b101100 | Address Size fault, level -2.                                                                                                 | FEAT_D128 is implemented                                 |
+| 0b110000 | TLB conflict abort.                                                                                                           |                                                          |
+| 0b110001 | Unsupported atomic hardware update fault.                                                                                     | FEAT_HAFDBS is implemented                               |
+
+All other values are reserved.
+
+For more information about the lookup level associated with a fault, see 'The lookup level associated with MMUfaults'.
+
+If the S1PTW bit is set, then the level refers the level of the stage2 translation that is translating a stage 1 translation walk.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## ISS encoding for an exception due to SME functionality
+
+<!-- image -->
+
+| 24   | 3 2   |
+|------|-------|
+|      | SMTC  |
+
+The accesses covered by this trap include:
+
+- Execution of SME instructions.
+- Execution of SVE and Advanced SIMD instructions, when the PE is in Streaming SVE mode.
+- Direct accesses of SVCR, SMCR\_EL1, SMCR\_EL2, SMCR\_EL3.
+
+## Bits [24:3]
+
+Reserved, RES0.
+
+## SMTC, bits [2:0]
+
+SMETrap Code. Identifies the reason for instruction trapping.
+
+| SMTC   | Meaning                                                                                                                                                      | Applies when             |
+|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
+| 0b000  | Access to SMEfunctionality trapped as a result of CPACR_EL1.SMEN, CPTR_EL2.SMEN, CPTR_EL2.TSM, or CPTR_EL3.ESM, that is not reported using EC value 0b000000 |                          |
+| 0b001  | Advanced SIMD, SVE, or SVE2 instruction trapped because PSTATE.SM is 1.                                                                                      |                          |
+| 0b010  | SMEinstruction trapped because PSTATE.SM is 0.                                                                                                               |                          |
+| 0b011  | SMEinstruction trapped because PSTATE.ZA is 0.                                                                                                               |                          |
+| 0b100  | Access to the SME2 ZT0 register trapped as a result of SMCR_EL1.EZT0, SMCR_EL2.EZT0, or SMCR_EL3.EZT0.                                                       | FEAT_SME2 is implemented |
+
+All other values are reserved.
+
+## Additional Information for ISS encoding for an exception due to SME functionality
+
+The following fields describe the configuration settings for the traps that are reported using the EC value 0b011101 :
+
+- CPACR\_EL1.SMEN, for execution of SME instructions, SVE instructions when the PE is in Streaming SVE mode, and instructions that directly access SVCR and SMCR\_EL1 System registers at EL1 and EL0, trapped to EL1 or EL2.
+- CPTR\_EL2.SMEN and CPTR\_EL2.TSM, for execution of SME instructions, SVE instructions when the PE is in Streaming SVE mode, and instructions that directly access SVCR, SMCR\_EL1, SMCR\_EL2 at EL2, EL1, and EL0, trapped to EL2.
+- CPTR\_EL3.ESM, for execution of SME instructions, SVE instructions when the PE is in Streaming SVE mode, and instructions that directly access SVCR, SMCR\_EL1, SMCR\_EL2, SMCR\_EL3 from all Exception levels and any Security state, trapped to EL3.
+- If FEAT\_SME2 is implemented:
+- SMCR\_EL1.EZT0, for accesses to ZT0 at EL1 and EL0, trapped to EL1 or EL2.
+- SMCR\_EL2.EZT0, for accesses to ZT0 at EL2, EL1, and EL0, trapped to EL2.
+- SMCR\_EL3.EZT0, for accesses to ZT0 at any Exception level, trapped to EL3.
+
+## ISS encoding for a Granule Protection Check exception
+
+<!-- image -->
+
+## Bits [24:22]
+
+Reserved, RES0.
+
+## S2PTW, bit [21]
+
+Indicates whether the Granule Protection Check exception was on an access made for a stage 2 translation table walk.
+
+| S2PTW   | Meaning                                        |
+|---------|------------------------------------------------|
+| 0b0     | Fault not on a stage 2 translation table walk. |
+| 0b1     | Fault on a stage 2 translation table walk.     |
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## InD, bit [20]
+
+Indicates whether the Granule Protection Check exception was on an instruction or data access.
+
+| InD   | Meaning             |
+|-------|---------------------|
+| 0b0   | Data access.        |
+| 0b1   | Instruction access. |
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## GPCSC, bits [19:14]
+
+Granule Protection Check Status Code.
+
+| GPCSC    | Meaning                              |
+|----------|--------------------------------------|
+| 0b000000 | GPT address size fault at level 0.   |
+| 0b000100 | GPT walk fault at level 0.           |
+| 0b000101 | GPT walk fault at level 1.           |
+| 0b001100 | Granule protection fault at level 0. |
+
+| GPCSC    | Meaning                                             |
+|----------|-----------------------------------------------------|
+| 0b001101 | Granule protection fault at level 1.                |
+| 0b010100 | Synchronous External abort on GPT fetch at level 0. |
+| 0b010101 | Synchronous External abort on GPT fetch at level 1. |
+
+All other values are reserved.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## VNCR, bit [13]
+
+Indicates that the fault came from use of VNCR\_EL2 register by EL1 code.
+
+| VNCR   | Meaning                                                         | Applies when            |
+|--------|-----------------------------------------------------------------|-------------------------|
+| 0b0    | The fault was not generated by the use of VNCR_EL2 by EL1 code. |                         |
+| 0b1    | The fault was generated by the use of VNCR_EL2 by EL1 code.     | FEAT_NV2 is implemented |
+
+When InD is 1, this field is RES0.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Bits [12:9]
+
+Reserved, RES0.
+
+## CM, bit [8]
+
+Cache maintenance. Indicates whether the Data Abort came from a cache maintenance or address translation instruction:
+
+| CM   | Meaning                                                                                                                                                                                                                                                                                                                                        |
+|------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 0b0  | The Data Abort was not generated by the execution of one of the System instructions identified in the description of value 1.                                                                                                                                                                                                                  |
+| 0b1  | The Data Abort was generated by either the execution of a cache maintenance instruction or by a synchronous fault on the execution of an address translation instruction. The DCZVA, DCGVA, and DCGZVAinstructions are not classified as cache maintenance instructions, and therefore their execution cannot cause this field to be set to 1. |
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## S1PTW, bit [7]
+
+Indicates whether the Granule Protection Check exception was on an access for stage 2 translation for a stage 1 translation table walk:
+
+| S1PTW   | Meaning                                                                             |
+|---------|-------------------------------------------------------------------------------------|
+| 0b0     | Fault not on a stage 2 translation for a stage 1 translation table walk.            |
+| 0b1     | Fault on the stage 2 translation of an access for a stage 1 translation table walk. |
+
+For any abort other than a stage 2 fault this bit is RES0.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## WnR, bit [6]
+
+Write not Read. Indicates whether a synchronous abort was caused by an instruction writing to a memory location, or by an instruction reading from a memory location.
+
+| WnR   | Meaning                                                        |
+|-------|----------------------------------------------------------------|
+| 0b0   | Abort caused by an instruction reading from a memory location. |
+| 0b1   | Abort caused by an instruction writing to a memory location.   |
+
+When InD is 1, this field is RES0.
+
+For faults on cache maintenance and address translation instructions, this bit always returns a value of 1.
+
+For faults from an atomic instruction that both reads and writes from a memory location, this bit is set to 0 if a read of the address specified by the instruction would have generated the fault which is being reported, otherwise it is set to 1. The architecture permits, but does not require, a relaxation of this requirement such that for all stage 2 aborts on stage 1 translation table walks for atomic instructions, the WnR bit is always 0.
+
+This field is UNKNOWN for:
+
+- An External abort on an Atomic access.
+- Afault reported using a DFSC value of 0b110101 or 0b110001 , indicating an unsupported Exclusive or atomic access.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## xFSC, bits [5:0]
+
+Instruction or Data Fault Status Code.
+
+| xFSC     | Meaning                                                                                               | Applies when                                         |
+|----------|-------------------------------------------------------------------------------------------------------|------------------------------------------------------|
+| 0b100011 | Granule Protection Fault on translation table walk or hardware update of translation table, level -1. | FEAT_RME is implemented and FEAT_LPA2 is implemented |
+| 0b100100 | Granule Protection Fault on translation table walk or hardware update of translation table, level 0.  | FEAT_RME is implemented                              |
+
+| xFSC     | Meaning                                                                                              | Applies when            |
+|----------|------------------------------------------------------------------------------------------------------|-------------------------|
+| 0b100101 | Granule Protection Fault on translation table walk or hardware update of translation table, level 1. | FEAT_RME is implemented |
+| 0b100110 | Granule Protection Fault on translation table walk or hardware update of translation table, level 2. | FEAT_RME is implemented |
+| 0b100111 | Granule Protection Fault on translation table walk or hardware update of translation table, level 3. | FEAT_RME is implemented |
+| 0b101000 | Granule Protection Fault, not on translation table walk or hardware update of translation table.     | FEAT_RME is implemented |
+
+All other values are reserved.
+
+For more information about the lookup level associated with a fault, see 'The lookup level associated with MMUfaults'.
+
+If the S1PTW bit is set, then the level refers the level of the stage2 translation that is translating a stage 1 translation walk.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## ISS encoding for an exception from a Data Abort
+
+<!-- image -->
+
+The ISS2 encoding for an exception from a Data Abort includes further information about the exception when any of the following features are implemented:
+
+- FEAT\_LS64\_V.
+- FEAT\_LS64\_ACCDATA.
+- FEAT\_S1POE.
+- FEAT\_S1PIE.
+- FEAT\_GCS.
+- FEAT\_MTE\_CANONICAL\_TAGS.
+
+## ISV, bit [24]
+
+Instruction Syndrome Valid. Indicates whether the syndrome information in ISS[23:14] is valid.
+
+| ISV   | Meaning                                             |
+|-------|-----------------------------------------------------|
+| 0b0   | No valid instruction syndrome. ISS[23:14] are RES0. |
+| 0b1   | ISS[23:14] hold a valid instruction syndrome.       |
+
+In ESR\_EL3, ISV is 1 when FEAT\_LS64 is implemented and a memory access generated by an LD64B or ST64B instruction generates a Data Abort for a Translation fault, Access flag fault, or Permission fault.
+
+In ESR\_EL3, ISV is 1 when FEAT\_LS64\_V is implemented and a memory access generated by an ST64BV instruction generates a Data Abort for a Translation fault, Access flag fault, or Permission fault.
+
+In ESR\_EL3, ISV is 1 when FEAT\_LS64\_ACCDATA is implemented and a memory access generated by an ST64BV0 instruction generates a Data Abort for a Translation fault, Access flag fault, or Permission fault.
+
+For other faults reported in ESR\_EL3, ISV is 0 except for the following stage 2 aborts:
+
+- AArch64 loads and stores of a single general-purpose register (including the register specified with 0b11111 , including those with Acquire/Release semantics, but excluding Load Exclusive or Store Exclusive and excluding those with writeback).
+- AArch32 instructions where the instruction:
+- Is an LDR, LDA, LDRT, LDRSH, LDRSHT, LDRH, LDAH, LDRHT, LDRSB, LDRSBT, LDRB, LDAB, LDRBT, STR, STL, STRT, STRH, STLH, STRHT, STRB, STLB, or STRBT instruction.
+- Is not performing register writeback.
+- Is not using R15 as a source or destination register.
+
+For these stage 2 aborts, ISV is UNKNOWN if the exception was generated in Debug state in Memory access mode, and otherwise indicates whether ISS[23:14] hold a valid syndrome.
+
+For faults reported in ESR\_EL1 or ESR\_EL3, ISV is 1 when FEAT\_LS64 is implemented and a memory access generated by an LD64B or ST64B instruction generates a Data Abort for a Translation fault, Access flag fault, or Permission fault.
+
+For faults reported in ESR\_EL1 or ESR\_EL3, ISV is 1 when FEAT\_LS64\_V is implemented and a memory access generated by an ST64BV instruction generates a Data Abort for a Translation fault, Access flag fault, or Permission fault.
+
+For faults reported in ESR\_EL1 or ESR\_EL3, ISV is 1 when FEAT\_LS64\_ACCDATA is implemented and a memory access generated by an ST64BV0 instruction generates a Data Abort for a Translation fault, Access flag fault, or Permission fault.
+
+When FEAT\_RAS is implemented, ISV is 0 for any synchronous External abort.
+
+When FEAT\_RAS is not implemented, it is IMPLEMENTATION DEFINED whether ISV is set to 1 or 0 on a synchronous External abort on a stage 2 translation table walk.
+
+For ISS reporting, a stage 2 abort on a stage 1 translation table walk does not return a valid instruction syndrome, and therefore ISV is 0 for these aborts.
+
+When FEAT\_MTE2 is implemented, for a synchronous Tag Check Fault abort taken to EL3, ESR\_EL3.FnV is 0 and FAR\_EL3 is valid.
+
+When FEAT\_MOPS is implemented, for a synchronous Data Abort on a Memory Copy and Memory Set instruction, ISV is 0.
+
+When FEAT\_MTE is implemented, for a synchronous Data Abort on an instruction that directly accesses Allocation Tags, ISV is 0.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## SAS, bits [23:22]
+
+## When ISV == '1':
+
+Syndrome Access Size. Indicates the size of the access attempted by the faulting operation.
+
+| SAS   | Meaning    |
+|-------|------------|
+| 0b00  | Byte       |
+| 0b01  | Halfword   |
+| 0b10  | Word       |
+| 0b11  | Doubleword |
+
+When FEAT\_LS64 is implemented, if a memory access generated by an LD64B or ST64B instruction generates a Data Abort for a Translation fault, Access flag fault, or Permission fault, then this field is 0b11 .
+
+When FEAT\_LS64\_V is implemented, if a memory access generated by an ST64BV instruction generates a Data Abort for a Translation fault, Access flag fault, or Permission fault, then this field is 0b11 .
+
+When FEAT\_LS64\_ACCDATA is implemented, if a memory access generated by an ST64BV0 instruction generates a Data Abort for a Translation fault, Access flag fault, or Permission fault, then this field is 0b11 .
+
+This field is UNKNOWN when the value of ISV is UNKNOWN.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Otherwise:
+
+Reserved, RES0.
+
+## SSE, bit [21]
+
+## When ISV == '1':
+
+Syndrome Sign Extend. For a byte, halfword, or word load operation, indicates whether the data item must be sign extended.
+
+| SSE   | Meaning                          |
+|-------|----------------------------------|
+| 0b0   | Sign-extension not required.     |
+| 0b1   | Data item must be sign-extended. |
+
+When FEAT\_LS64 is implemented, if a memory access generated by an LD64B or ST64B instruction generates a Data Abort for a Translation fault, Access flag fault, or Permission fault, then this field is 0.
+
+When FEAT\_LS64\_V is implemented, if a memory access generated by an ST64BV instruction generates a Data Abort for a Translation fault, Access flag fault, or Permission fault, then this field is 0.
+
+When FEAT\_LS64\_ACCDATA is implemented, if a memory access generated by an ST64BV0 instruction generates a Data Abort for a Translation fault, Access flag fault, or Permission fault, then this field is 0.
+
+For all other operations, this field is 0.
+
+This field is UNKNOWN when the value of ISV is UNKNOWN.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Otherwise:
+
+Reserved, RES0.
+
+## Bits [20:16]
+
+When ISV == '1':
+
+## SRT, bits [20:16]
+
+Syndrome Register Transfer. The register number of the Wt/Xt/Rt operand of the faulting instruction.
+
+If the exception was taken from an Exception level that is using AArch32, then this is the AArch64 view of the register. See 'Mapping of the general-purpose registers between the Execution states'.
+
+This field is UNKNOWN when the value of ISV is UNKNOWN.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+When ((ISV == '0') &amp;&amp; IsFeatureImplemented(FEAT\_RASv2)) &amp;&amp; ((DFSC == 0b010000 || DFSC IN { 0b01001x }) || DFSC IN { 0b0101xx }):
+
+## WU,bits [1:0] of bits [20:16]
+
+Write Update. Describes whether a store instruction that generated an External abort updated the location.
+
+| WU   | Meaning                                                                                       |
+|------|-----------------------------------------------------------------------------------------------|
+| 0b00 | Not a store instruction or translation table update, or the location might have been updated. |
+| 0b10 | Store instruction or translation table update that did not update the location.               |
+| 0b11 | Store instruction or translation table update that updated the location.                      |
+
+In the description of this field, a store instruction is any memory-writing instruction that explicitly performs a store. This includes instructions that both read and write memory.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Otherwise:
+
+Reserved, RES0.
+
+## Bit [15]
+
+When ISV == '1':
+
+## SF, bit [15]
+
+Sixty Four bit general-purpose register transfer. Width of the register accessed by the instruction is 64-bit.
+
+| SF   | Meaning                                                     |
+|------|-------------------------------------------------------------|
+| 0b0  | Instruction loads/stores a 32-bit general-purpose register. |
+| 0b1  | Instruction loads/stores a 64-bit general-purpose register. |
+
+<!-- image -->
+
+Note
+
+This field specifies the register width identified by the instruction, not the Execution state.
+
+When FEAT\_LS64 is implemented, if a memory access generated by an LD64B or ST64B instruction generates a Data Abort for a Translation fault, Access flag fault, or Permission fault, then this field is 1.
+
+When FEAT\_LS64\_V is implemented, if a memory access generated by an ST64BV instruction generates a Data Abort for a Translation fault, Access flag fault, or Permission fault, then this field is 1.
+
+When FEAT\_LS64\_ACCDATA is implemented, if a memory access generated by an ST64BV0 instruction generates a Data Abort for a Translation fault, Access flag fault, or Permission fault, then this field is 1.
+
+This field is UNKNOWN when the value of ISV is UNKNOWN.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Otherwise:
+
+## FnP, bit [15]
+
+FAR not Precise.
+
+| FnP   | Meaning                                                                                                                                                                                                                                                                                                                                    | Applies when                                       |
+|-------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|
+| 0b0   | The FAR holds the faulting virtual address that generated the Data Abort.                                                                                                                                                                                                                                                                  |                                                    |
+| 0b1   | The FAR holds any virtual address within the naturally-aligned granule that contains the faulting virtual address that generated a Data Abort due to an SVE contiguous vector load/store instruction, or an SMEload/store instruction. For more information about the naturally-aligned fault granule, see FAR_ELx (for example, FAR_EL1). | FEAT_SME is implemented or FEAT_SVE is implemented |
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Bit [14]
+
+When ISV == '1':
+
+## AR, bit [14]
+
+Acquire/Release.
+
+| AR   | Meaning                                             |
+|------|-----------------------------------------------------|
+| 0b0  | Instruction did not have acquire/release semantics. |
+| 0b1  | Instruction did have acquire/release semantics.     |
+
+When FEAT\_LS64 is implemented, if a memory access generated by an LD64B or ST64B instruction generates a Data Abort for a Translation fault, Access flag fault, or Permission fault, then this field is 0.
+
+When FEAT\_LS64\_V is implemented, if a memory access generated by an ST64BV instruction generates a Data Abort for a Translation fault, Access flag fault, or Permission fault, then this field is 0.
+
+When FEAT\_LS64\_ACCDATA is implemented, if a memory access generated by an ST64BV0 instruction generates a Data Abort for a Translation fault, Access flag fault, or Permission fault, then this field is 0.
+
+This field is UNKNOWN when the value of ISV is UNKNOWN.
+
+For a load-acquire instruction that does not have acquire semantics as the result of the destination register being ZR, it is IMPLEMENTATION SPECIFIC whether this field is reported as 0 or 1.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+When IsFeatureImplemented(FEAT\_PFAR) &amp;&amp; ((DFSC == 0b010000 || DFSC IN { 0b01001x }) || DFSC IN { 0b0101xx }):
+
+## PFV, bit [14]
+
+PFAR Valid. Describes whether the MFAR\_EL3 register is valid.
+
+| PFV   | Meaning              |
+|-------|----------------------|
+| 0b0   | MFAR_EL3 is UNKNOWN. |
+| 0b1   | MFAR_EL3 is valid.   |
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Otherwise:
+
+Reserved, RES0.
+
+## VNCR, bit [13]
+
+Indicates that the fault came from use of VNCR\_EL2 register by EL1 code.
+
+| VNCR   | Meaning                                                         | Applies when            |
+|--------|-----------------------------------------------------------------|-------------------------|
+| 0b0    | The fault was not generated by the use of VNCR_EL2 by EL1 code. |                         |
+| 0b1    | The fault was generated by the use of VNCR_EL2 by EL1 code.     | FEAT_NV2 is implemented |
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Bits [12:11]
+
+When (DFSC IN { 0b00xxxx } || DFSC IN { 0b10101x }) &amp;&amp; !(DFSC IN { 0b0000xx }):
+
+## LST, bits [12:11]
+
+Load/Store Type. Used when a Translation fault, Access flag fault, or Permission fault generates a Data Abort.
+
+| LST   | Meaning                                                                       | Applies when                     |
+|-------|-------------------------------------------------------------------------------|----------------------------------|
+| 0b00  | The instruction that generated the Data Abort is not specified by this field. |                                  |
+| 0b01  | An ST64BV instruction generated the Data Abort.                               | FEAT_LS64_V is implemented       |
+| 0b10  | An LD64B or ST64B instruction generated the Data Abort.                       | FEAT_LS64 is implemented         |
+| 0b11  | An ST64BV0 instruction generated the Data Abort.                              | FEAT_LS64_ACCDATA is implemented |
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+When IsFeatureImplemented(FEAT\_RAS) &amp;&amp; ((DFSC == 0b010000 || DFSC IN { 0b01001x }) || DFSC IN { 0b0101xx }):
+
+## SET, bits [12:11]
+
+Synchronous Error Type. Used when a synchronous External abort, not on a Translation table walk or hardware update of the Translation table, generated the Data Abort. Describes the PE error state after taking the Data Abort exception.
+
+| SET   | Meaning                  | Applies when                  |
+|-------|--------------------------|-------------------------------|
+| 0b00  | Recoverable state (UER). |                               |
+| 0b10  | Uncontainable (UC).      | FEAT_RASv2 is not implemented |
+| 0b11  | Restartable state (UEO). |                               |
+
+Note
+
+Software can use this information to determine what recovery might be possible. Taking a synchronous External abort exception might result in a PE state that is not recoverable.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Otherwise:
+
+Reserved, RES0.
+
+## FnV, bit [10]
+
+FAR not Valid, for a synchronous External abort other than a synchronous External abort on a translation table walk.
+
+| FnV   | Meaning                                       |
+|-------|-----------------------------------------------|
+| 0b0   | FAR is valid.                                 |
+| 0b1   | FAR is not valid, and holds an UNKNOWN value. |
+
+This field is valid only if the DFSC code is 0b010000 . It is RES0 for all other aborts.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## EA, bit [9]
+
+External abort type. This bit can provide an IMPLEMENTATION DEFINED classification of External aborts.
+
+For any abort other than an External abort this bit returns a value of 0.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## CM, bit [8]
+
+Cache maintenance. Indicates whether the Data Abort came from a cache maintenance or address translation instruction:
+
+| CM   | Meaning                                                                                                                                                                                                                                                                                                                                        |
+|------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 0b0  | The Data Abort was not generated by the execution of one of the System instructions identified in the description of value 1.                                                                                                                                                                                                                  |
+| 0b1  | The Data Abort was generated by either the execution of a cache maintenance instruction or by a synchronous fault on the execution of an address translation instruction. The DCZVA, DCGVA, and DCGZVAinstructions are not classified as cache maintenance instructions, and therefore their execution cannot cause this field to be set to 1. |
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## S1PTW, bit [7]
+
+For a stage 2 fault, indicates whether the fault was a stage 2 fault on an access made for a stage 1 translation table walk:
+
+| S1PTW   | Meaning                                                                             |
+|---------|-------------------------------------------------------------------------------------|
+| 0b0     | Fault not on a stage 2 translation for a stage 1 translation table walk.            |
+| 0b1     | Fault on the stage 2 translation of an access for a stage 1 translation table walk. |
+
+For any abort other than a stage 2 fault this bit is RES0.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## WnR, bit [6]
+
+Write not Read. Indicates whether a synchronous abort was caused by an instruction writing to a memory location, or by an instruction reading from a memory location.
+
+| WnR   | Meaning                                                        |
+|-------|----------------------------------------------------------------|
+| 0b0   | Abort caused by an instruction reading from a memory location. |
+| 0b1   | Abort caused by an instruction writing to a memory location.   |
+
+For faults on cache maintenance and address translation instructions, this bit always returns a value of 1.
+
+For faults from an atomic instruction that both reads and writes from a memory location, this bit is set to 0 if a read of the address specified by the instruction would have generated the fault which is being reported, otherwise it is set to 1. The architecture permits, but does not require, a relaxation of this requirement such that for all stage 2 aborts on stage 1 translation table walks for atomic instructions, the WnR bit is always 0.
+
+This field is UNKNOWN for:
+
+- If FEAT\_RASv2 is implemented, an External abort on an Atomic access, reported with ESR\_EL3.WU set to 0b00 .
+- Afault reported using a DFSC value of 0b110101 or 0b110001 , indicating an unsupported Exclusive or atomic access.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## DFSC, bits [5:0]
+
+Data Fault Status Code.
+
+| DFSC     | Meaning                                                                                            | Applies when                                                                                       |
+|----------|----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
+| 0b000000 | Address size fault, level 0 of translation or translation table base register.                     | Address size fault, level 0 of translation or translation table base register.                     |
+| 0b000001 | Address size fault, level 1.                                                                       | Address size fault, level 1.                                                                       |
+| 0b000010 | Address size fault, level 2.                                                                       | Address size fault, level 2.                                                                       |
+| 0b000011 | Address size fault, level 3.                                                                       | Address size fault, level 3.                                                                       |
+| 0b000100 | Translation fault, level 0.                                                                        | Translation fault, level 0.                                                                        |
+| 0b000101 | Translation fault, level 1.                                                                        | Translation fault, level 1.                                                                        |
+| 0b000110 | Translation fault, level 2.                                                                        | Translation fault, level 2.                                                                        |
+| 0b000111 | Translation fault, level 3.                                                                        | Translation fault, level 3.                                                                        |
+| 0b001001 | Access flag fault, level 1.                                                                        | Access flag fault, level 1.                                                                        |
+| 0b001010 | Access flag fault, level 2.                                                                        | Access flag fault, level 2.                                                                        |
+| 0b001011 | Access flag fault, level 3.                                                                        | Access flag fault, level 3.                                                                        |
+| 0b001000 | Access flag fault, level 0.                                                                        | FEAT_LPA2 is implemented                                                                           |
+| 0b001100 | Permission fault, level 0.                                                                         | FEAT_LPA2 is implemented                                                                           |
+| 0b001101 | Permission fault, level 1.                                                                         | Permission fault, level 1.                                                                         |
+| 0b001110 | Permission fault, level 2.                                                                         | Permission fault, level 2.                                                                         |
+| 0b001111 | Permission fault, level 3.                                                                         | Permission fault, level 3.                                                                         |
+| 0b010000 | Synchronous External abort, not on translation table walk or hardware update of translation table. | Synchronous External abort, not on translation table walk or hardware update of translation table. |
+| 0b010001 | Synchronous Tag Check Fault.                                                                       | FEAT_MTE2 is implemented                                                                           |
+
+| DFSC     | Meaning                                                                                                                       | Applies when                                             |
+|----------|-------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------|
+| 0b010010 | Synchronous External abort on translation table walk or hardware update of translation table, level -2.                       | FEAT_D128 is implemented                                 |
+| 0b010011 | Synchronous External abort on translation table walk or hardware update of translation table, level -1.                       | FEAT_LPA2 is implemented                                 |
+| 0b010100 | Synchronous External abort on translation table walk or hardware update of translation table, level 0.                        |                                                          |
+| 0b010101 | Synchronous External abort on translation table walk or hardware update of translation table, level 1.                        |                                                          |
+| 0b010110 | Synchronous External abort on translation table walk or hardware update of translation table, level 2.                        |                                                          |
+| 0b010111 | Synchronous External abort on translation table walk or hardware update of translation table, level 3.                        |                                                          |
+| 0b011000 | Synchronous parity or ECC error on memory access, not on translation table walk.                                              | FEAT_RAS is not implemented                              |
+| 0b011011 | Synchronous parity or ECC error on memory access on translation table walk or hardware update of translation table, level -1. | FEAT_LPA2 is implemented and FEAT_RAS is not implemented |
+| 0b011100 | Synchronous parity or ECC error on memory access on translation table walk or hardware update of translation table, level 0.  | FEAT_RAS is not implemented                              |
+| 0b011101 | Synchronous parity or ECC error on memory access on translation table walk or hardware update of translation table, level 1.  | FEAT_RAS is not implemented                              |
+| 0b011110 | Synchronous parity or ECC error on memory access on translation table walk or hardware update of translation table, level 2.  | FEAT_RAS is not implemented                              |
+| 0b011111 | Synchronous parity or ECC error on memory access on translation table walk or hardware update of translation table, level 3.  | FEAT_RAS is not implemented                              |
+| 0b100001 | Alignment fault.                                                                                                              |                                                          |
+| 0b100010 | Granule Protection Fault on translation table walk or hardware update of translation table, level -2.                         | FEAT_D128 is implemented and FEAT_RME is implemented     |
+| 0b100011 | Granule Protection Fault on translation table walk or hardware update of translation table, level -1.                         | FEAT_RME is implemented and FEAT_LPA2 is implemented     |
+| 0b100100 | Granule Protection Fault on translation table walk or hardware update of translation table, level 0.                          | FEAT_RME is implemented                                  |
+| 0b100101 | Granule Protection Fault on translation table walk or hardware update of translation table, level 1.                          | FEAT_RME is implemented                                  |
+| 0b100110 | Granule Protection Fault on translation table walk or hardware update of translation table, level 2.                          | FEAT_RME is implemented                                  |
+| 0b100111 | Granule Protection Fault on translation table walk or hardware update of translation table, level 3.                          | FEAT_RME is implemented                                  |
+| 0b101000 | Granule Protection Fault, not on translation table walk or hardware update of translation table.                              | FEAT_RME is implemented                                  |
+| 0b101001 | Address size fault, level -1.                                                                                                 | FEAT_LPA2 is implemented                                 |
+| 0b101010 | Translation fault, level -2.                                                                                                  | FEAT_D128 is implemented                                 |
+| 0b101011 | Translation fault, level -1.                                                                                                  | FEAT_LPA2 is implemented                                 |
+| 0b101100 | Address Size fault, level -2.                                                                                                 | FEAT_D128 is implemented                                 |
+
+| DFSC     | Meaning                                                                | Applies when               |
+|----------|------------------------------------------------------------------------|----------------------------|
+| 0b110000 | TLB conflict abort.                                                    |                            |
+| 0b110001 | Unsupported atomic hardware update fault.                              | FEAT_HAFDBS is implemented |
+| 0b110100 | IMPLEMENTATION DEFINED fault (Lockdown).                               |                            |
+| 0b110101 | IMPLEMENTATION DEFINED fault (Unsupported Exclusive or Atomic access). |                            |
+
+All other values are reserved.
+
+For more information about the lookup level associated with a fault, see 'The lookup level associated with MMUfaults'.
+
+If the S1PTW bit is set, then the level refers the level of the stage2 translation that is translating a stage 1 translation walk.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## ISS encoding for an exception from a trapped floating-point exception
+
+<!-- image -->
+
+## Bit [24]
+
+Reserved, RES0.
+
+## TFV, bit [23]
+
+Trapped Fault Valid bit. Indicates whether the IDF, IXF, UFF, OFF, DZF, and IOF bits hold valid information about trapped floating-point exceptions.
+
+| TFV   | Meaning                                                                                                                                                                                                                                                                                               |
+|-------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 0b0   | The IDF, IXF, UFF, OFF, DZF, and IOF bits do not hold valid information about trapped floating-point exceptions and are UNKNOWN.                                                                                                                                                                      |
+| 0b1   | One or more floating-point exceptions occurred during an operation performed while executing the reported instruction. The IDF, IXF, UFF, OFF, DZF, and IOF bits indicate trapped floating-point exceptions that occurred. For more information, see 'Floating-point exceptions and exception traps'. |
+
+It is IMPLEMENTATION DEFINED whether this field is set to 0 on an exception generated by a trapped floating-point exception from an instruction that is performing floating-point operations on more than one lane of a vector.
+
+Note
+
+This is not a requirement. Implementations can set this field to 1 on a trapped floating-point exception from an instruction and return valid information in the {IDF, IXF, UFF, OFF, DZF, IOF} fields.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Bits [22:11]
+
+Reserved, RES0.
+
+## VECITR, bits [10:8]
+
+For a trapped floating-point exception from an instruction executed in AArch32 state this field is RES1.
+
+For a trapped floating-point exception from an instruction executed in AArch64 state this field is UNKNOWN.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## IDF, bit [7]
+
+Input Denormal floating-point exception trapped bit. If the TFV field is 0, this bit is UNKNOWN. Otherwise, the possible values of this bit are:
+
+| IDF   | Meaning                                                                                        |
+|-------|------------------------------------------------------------------------------------------------|
+| 0b0   | Input denormal floating-point exception has not occurred.                                      |
+| 0b1   | Input denormal floating-point exception occurred during execution of the reported instruction. |
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Bits [6:5]
+
+Reserved, RES0.
+
+## IXF, bit [4]
+
+Inexact floating-point exception trapped bit. If the TFV field is 0, this bit is UNKNOWN. Otherwise, the possible values of this bit are:
+
+| IXF   | Meaning                                                                                 |
+|-------|-----------------------------------------------------------------------------------------|
+| 0b0   | Inexact floating-point exception has not occurred.                                      |
+| 0b1   | Inexact floating-point exception occurred during execution of the reported instruction. |
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## UFF, bit [3]
+
+Underflow floating-point exception trapped bit. If the TFV field is 0, this bit is UNKNOWN. Otherwise, the possible values of this bit are:
+
+| UFF   | Meaning                                              |
+|-------|------------------------------------------------------|
+| 0b0   | Underflow floating-point exception has not occurred. |
+
+0b1
+
+Underflow floating-point exception occurred during execution of the reported instruction.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## OFF, bit [2]
+
+Overflow floating-point exception trapped bit. If the TFV field is 0, this bit is UNKNOWN. Otherwise, the possible values of this bit are:
+
+| OFF   | Meaning                                                                                  |
+|-------|------------------------------------------------------------------------------------------|
+| 0b0   | Overflow floating-point exception has not occurred.                                      |
+| 0b1   | Overflow floating-point exception occurred during execution of the reported instruction. |
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## DZF, bit [1]
+
+Divide by Zero floating-point exception trapped bit. If the TFV field is 0, this bit is UNKNOWN. Otherwise, the possible values of this bit are:
+
+| DZF   | Meaning                                                                                        |
+|-------|------------------------------------------------------------------------------------------------|
+| 0b0   | Divide by Zero floating-point exception has not occurred.                                      |
+| 0b1   | Divide by Zero floating-point exception occurred during execution of the reported instruction. |
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## IOF, bit [0]
+
+Invalid Operation floating-point exception trapped bit. If the TFV field is 0, this bit is UNKNOWN. Otherwise, the possible values of this bit are:
+
+| IOF   | Meaning                                                                                           |
+|-------|---------------------------------------------------------------------------------------------------|
+| 0b0   | Invalid Operation floating-point exception has not occurred.                                      |
+| 0b1   | Invalid Operation floating-point exception occurred during execution of the reported instruction. |
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Additional Information for ISS encoding for an exception from a trapped floating-point exception
+
+In an implementation that supports the trapping of floating-point exceptions:
+
+- From an Exception level using AArch64, the FPCR.{IDE, IXE, UFE, OFE, DZE, IOE} bits enable each of the floating-point exception traps.
+- From an Exception level using AArch32, the FPSCR.{IDE, IXE, UFE, OFE, DZE, IOE} bits enable each of the floating-point exception traps.
+
+## ISS encoding for a GCS exception
+
+<!-- image -->
+
+## Bit [24]
+
+Reserved, RES0.
+
+## ExType, bits [23:20]
+
+The first level classification of GCS exceptions.
+
+| ExType   | Meaning                                                                                |
+|----------|----------------------------------------------------------------------------------------|
+| 0b0000   | The exception reported is a Guarded Control Stack Data Check Exception.                |
+| 0b0001   | The exception reported is an EXLOCKException.                                          |
+| 0b0010   | The exception reported is a trap exception on GCSSTR or GCSSTTR instruction execution. |
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Bits [19:15]
+
+Reserved, RES0.
+
+## Raddr, bits [14:10]
+
+When ExType == 0b0010 :
+
+Indicates the data address register number supplied in the instruction that has been trapped.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Otherwise:
+
+Reserved, RES0.
+
+## Bits [9:5]
+
+When ExType == 0b0000 :
+
+## Rn, bits [9:5]
+
+Indicates a register number used by the instruction that caused the Guarded Control Stack Data Check Exception.
+
+For a procedure return instruction reported with ESR\_EL3.ISS.IT as 0b00000 , contains the register number for the register which contains the target address of the branch.
+
+For a GCSPOPM instruction reported with ESR\_EL3.ISS.IT as 0b00001 , contains the register number for the register which is the destination register of the instruction.
+
+For a procedure return instruction reported with ESR\_EL3.ISS.IT as 0b00010 or 0b00011 , contains the value 0b11110 , indicating X30.
+
+For a GCSSS1 instruction reported with ESR\_EL3.ISS.IT as 0b00100 , contains the register number for the register which is the input register of the instruction.
+
+If ESR\_EL3.ISS.IT is reported as 0b00101 or 0b01000 , this field is UNKNOWN
+
+If ESR\_EL3.ISS.IT is reported as 0b01001 , this field is 0b11111
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+When ExType == 0b0010 :
+
+## Rvalue, bits [9:5]
+
+Indicates the data value register number supplied in the instruction that has been trapped.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Otherwise:
+
+Reserved, RES0.
+
+## IT, bits [4:0]
+
+When ExType == 0b0000 :
+
+Type of the instruction that caused the Guarded Control Stack Data Check Exception.
+
+| IT      | Meaning                                                                                                                        |
+|---------|--------------------------------------------------------------------------------------------------------------------------------|
+| 0b00000 | Guarded Control Stack Data Check Exception is from a procedure return instruction without Pointer authentication.              |
+| 0b00001 | Guarded Control Stack Data Check Exception is from a GCSPOPMinstruction.                                                       |
+| 0b00010 | Guarded Control Stack Data Check Exception is from a procedure return instruction with Pointer authentication that uses key A. |
+| 0b00011 | Guarded Control Stack Data Check Exception is from a procedure return instruction with Pointer authentication that uses key B. |
+| 0b00100 | Guarded Control Stack Data Check Exception is from a GCSSS1 instruction.                                                       |
+| 0b00101 | Guarded Control Stack Data Check Exception is from a GCSSS2 instruction.                                                       |
+| 0b01000 | Guarded Control Stack Data Check Exception is from a GCSPOPCX instruction.                                                     |
+| 0b01001 | Guarded Control Stack Data Check Exception is from a GCSPOPX instruction.                                                      |
+
+All other values are reserved
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Otherwise:
+
+Reserved, RES0.
+
+Additional Information for ISS encoding for a GCS exception
+
+The following fields describe the configuration settings for the traps that are reported using EC value 0b101101 and ExType value 0b0010 :
+
+- GCSCRE0\_EL1.STREn
+- GCSCR\_EL1.STREn.
+- GCSCR\_EL2.STREn.
+- GCSCR\_EL3.STREn.
+- HFGITR\_EL2.nGCSSTR\_EL1.
+
+## ISS encoding for an SError exception
+
+<!-- image -->
+
+Note
+
+In earlier versions of the architecture, an SError exception is referred to as an SError interrupt or an asynchronous External abort exception.
+
+## IDS, bit [24]
+
+IMPLEMENTATION DEFINED syndrome.
+
+| IDS   | Meaning                                                                                                                                                       |
+|-------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 0b0   | Bits [23:0] of the ISS field holds the fields described in this encoding. Note If FEAT_RAS is not implemented, bits [23:0] of the ISS field are RES0.         |
+| 0b1   | Bits [23:0] of the ISS field holds IMPLEMENTATION DEFINED syndrome information that can be used to provide additional information about the SError exception. |
+
+Note
+
+This field was previously called ISV .
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Bits [23:19]
+
+Reserved, RES0.
+
+## ELS, bit [18]
+
+When FEAT\_RASv2 is implemented and DFSC == 0b010001 :
+
+Meaning of ELR\_ELx.
+
+| ELS   | Meaning                                                                 |
+|-------|-------------------------------------------------------------------------|
+| 0b0   | Asynchronous. Does not indicate the trigger for the exception.          |
+| 0b1   | Synchronous. The exception was triggered by the instruction at ELR_ELx. |
+
+SError exceptions that report this field is 1 are not required to be precise.
+
+The ESR\_EL3.AET field describes whether the exception is precise or imprecise.
+
+Corrected, Recoverable or Restartable exceptions are precise. Unrecoverable or Uncontainable exceptions are imprecise.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Otherwise:
+
+Reserved, RES0.
+
+WU,bits [17:16]
+
+When FEAT\_RASv2 is implemented and DFSC == 0b010001 :
+
+Write Update. Describes whether a store instruction that generated an External abort updated the location.
+
+| WU   | Meaning                                                                                       |
+|------|-----------------------------------------------------------------------------------------------|
+| 0b00 | Not a store instruction or translation table update, or the location might have been updated. |
+| 0b10 | Store instruction or translation table update that did not update the location.               |
+| 0b11 | Store instruction or translation table update that updated the location.                      |
+
+In the description of this field, a store instruction is any memory-writing instruction that explicitly performs a store. This includes instructions that both read and write memory.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Otherwise:
+
+Reserved, RES0.
+
+VFV, bit [15]
+
+When FEAT\_RASv2 is implemented and DFSC == 0b010001 :
+
+FAR Valid. Indicates the FAR\_EL3 register contains a valid virtual address.
+
+| VFV   | Meaning                                                             |
+|-------|---------------------------------------------------------------------|
+| 0b0   | FAR_EL3 is not valid, and holds an UNKNOWN value.                   |
+| 0b1   | FAR_EL3 contains a valid virtual address associated with the error. |
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Otherwise:
+
+Reserved, RES0.
+
+PFV, bit [14]
+
+When FEAT\_PFAR is implemented and DFSC == 0b010001 :
+
+PFAR Valid. Describes whether the MFAR\_EL3 register is valid.
+
+| PFV   | Meaning              |
+|-------|----------------------|
+| 0b0   | MFAR_EL3 is UNKNOWN. |
+| 0b1   | MFAR_EL3 is valid.   |
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Otherwise:
+
+Reserved, RES0.
+
+IESB, bit [13]
+
+When FEAT\_IESB is implemented and DFSC == 0b010001 :
+
+Implicit error synchronization event.
+
+| IESB   | Meaning                                                                                                                |
+|--------|------------------------------------------------------------------------------------------------------------------------|
+| 0b0    | The SError exception was either not synchronized by the implicit error synchronization event or not taken immediately. |
+| 0b1    | The SError exception was synchronized by the implicit error synchronization event and taken immediately.               |
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Otherwise:
+
+Reserved, RES0.
+
+AET, bits [12:10]
+
+When FEAT\_RAS is implemented and DFSC == 0b010001 :
+
+Asynchronous Error Type.
+
+Describes the PE error state after taking the SError exception.
+
+All other values are reserved.
+
+If multiple errors are taken as a single SError exception, the overall PE error state is reported.
+
+Note
+
+Software can use this information to determine what recovery might be possible. The recovery software must also examine any implemented fault records to determine the location and extent of the error.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Otherwise:
+
+Reserved, RES0.
+
+## EA, bit [9]
+
+When FEAT\_RAS is implemented and DFSC == 0b010001 :
+
+External abort type. Provides an IMPLEMENTATION DEFINED classification of External aborts.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Otherwise:
+
+Reserved, RES0.
+
+## Bit [8]
+
+Reserved, RES0.
+
+WnRV, bit [7]
+
+When FEAT\_RASv2 is implemented and DFSC == 0b010001 :
+
+ESR\_EL3.WnR valid.
+
+| WnRV   | Meaning                                            |
+|--------|----------------------------------------------------|
+| 0b0    | ESR_EL3.WnR is not valid and has been set to 0b0 . |
+| 0b1    | ESR_EL3.WnR is valid.                              |
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Otherwise:
+
+Reserved, RES0.
+
+| AET   | Meaning                    |
+|-------|----------------------------|
+| 0b000 | Uncontainable (UC).        |
+| 0b001 | Unrecoverable state (UEU). |
+| 0b010 | Restartable state (UEO).   |
+| 0b011 | Recoverable state (UER).   |
+| 0b110 | Corrected (CE).            |
+
+## WnR, bit [6]
+
+## When FEAT\_RASv2 is implemented and DFSC == 0b010001 :
+
+Write-not-Read. When the WnRV field is 0b1 , indicates whether an exception was caused by an instruction writing to a memory location, or by an instruction reading from a memory location.
+
+| WnR   | Meaning                                                                |
+|-------|------------------------------------------------------------------------|
+| 0b0   | Exception was caused by an instruction reading from a memory location. |
+| 0b1   | Exception was caused by an instruction writing to a memory location.   |
+
+Accessing this bit has the following behavior:
+
+- This bit is RES0 if ESR\_EL3.WnRV== 0b0 .
+- This bit is not valid and reads UNKNOWN if an External abort on a Atomic access, reported with ESR\_EL3.WU == 0b00 .
+- Otherwise RW.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Otherwise:
+
+Reserved, RES0.
+
+## DFSC, bits [5:0]
+
+## When FEAT\_RAS is implemented:
+
+Data Fault Status Code.
+
+All other values are reserved.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Otherwise:
+
+Reserved, RES0.
+
+## ISS encoding for an exception from execution of a Breakpoint instruction
+
+<!-- image -->
+
+| 24   | 16 15   | 0   |
+|------|---------|-----|
+| RES0 | Comment |     |
+
+## Bits [24:16]
+
+Reserved, RES0.
+
+| DFSC     | Meaning                        |
+|----------|--------------------------------|
+| 0b000000 | Uncategorized error.           |
+| 0b010001 | Asynchronous SError exception. |
+
+## Comment, bits [15:0]
+
+Set to the instruction comment field value, zero extended as necessary.
+
+For the AArch32 BKPT instructions, the comment field is described as the immediate field.
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+Additional Information for ISS encoding for an exception from execution of a Breakpoint instruction
+
+For more information about generating these exceptions, see 'Breakpoint instruction exceptions'.
+
+ISS encoding for an exception from Branch Target Identification instruction
+
+<!-- image -->
+
+## Bits [24:2]
+
+Reserved, RES0.
+
+## BTYPE, bits [1:0]
+
+This field is set to the PSTATE.BTYPE value that generated the Branch Target Exception.
+
+Additional Information for ISS encoding for an exception from Branch Target Identification instruction
+
+For more information about generating these exceptions, see 'The AArch64 application level programmers model'.
+
+ISS encoding for an exception from a trapped Pointer Authentication instruction
+
+<!-- image -->
+
+## Bits [24:0]
+
+Reserved, RES0.
+
+## Additional Information for ISS encoding for an exception from a trapped Pointer Authentication instruction
+
+For more information about generating these exceptions, see:
+
+- HCR\_EL2.API, for exceptions from Pointer authentication instructions, using AArch64 state, trapped to EL2.
+- SCR\_EL3.API, for exceptions from Pointer authentication instructions, using AArch64 state, trapped to EL3.
+
+## ISS encoding for a PAC Fail exception
+
+<!-- image -->
+
+## Bits [24:2]
+
+Reserved, RES0.
+
+## DnI, bit [1]
+
+This field indicates whether the exception is as a result of an Instruction key or a Data key.
+
+| DnI   | Meaning          |
+|-------|------------------|
+| 0b0   | Instruction Key. |
+| 0b1   | Data Key.        |
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## BnA, bit [0]
+
+This field indicates whether the exception is as a result of an A key or a B key.
+
+| BnA   | Meaning   |
+|-------|-----------|
+| 0b0   | Akey.     |
+| 0b1   | Bkey.     |
+
+The reset behavior of this field is:
+
+- On a Warm reset, this field resets to an architecturally UNKNOWN value.
+
+## Additional Information for ISS encoding for a PAC Fail exception
+
+The following instructions generate a PAC Fail exception when the Pointer Authentication Code (PAC) is incorrect:
+
+- AUTDA , AUTDZA .
+- AUTDB , AUTDZB .
+- AUTIA , AUTIA1716 , AUTIASP , AUTIAZ , AUTIZA .
+- AUTIB , AUTIB1716 , AUTIBSP , AUTIBZ , AUTIZB .
+- AUTIASPPC , AUTIASPPCR , AUTIA171615 .
+- AUTIBSPPC , AUTIBSPPCR , AUTIB171615 .
+
+If FEAT\_FPACCOMBINE is implemented, the following instructions generate a PAC Fail exception when the Pointer Authentication Code (PAC) is incorrect:
+
+- RETAA , RETAB .
+- RETAASPPC , RETABSPPC .
+- RETAASPPCR , RETABSPPCR .
+- BLRAA , BLRAAZ , BLRAB , BLRABZ .
+- BRAA , BRAB , BRAAZ , BRABZ .
+- ERETAA , ERETAB .
+- LDRAA , LDRAB , whether the authenticated address is written back to the base register or not.
+
+## Accessing ESR\_EL3
+
+Accesses to this register use the following encodings in the System register encoding space:
+
+MRS &lt;Xt&gt;, ESR\_EL3
+
+| op0   | op1   | CRn    | CRm    | op2   |
+|-------|-------|--------|--------|-------|
+| 0b11  | 0b110 | 0b0101 | 0b0010 | 0b000 |
+
+if !(HaveEL(EL3) &amp;&amp; IsFeatureImplemented(FEAT\_AA64)) then
+
+UNDEFINED;
+
+elsif PSTATE.EL == EL0 then UNDEFINED;
+
+elsif PSTATE.EL == EL1 then
+
+UNDEFINED;
+
+elsif PSTATE.EL == EL2 then
+
+UNDEFINED;
+
+elsif PSTATE.EL == EL3 then
+
+X[t, 64] = ESR\_EL3;
+
+MSR ESR\_EL3, &lt;Xt&gt;
+
+| op0   | op1   | CRn    | CRm    | op2   |
+|-------|-------|--------|--------|-------|
+| 0b11  | 0b110 | 0b0101 | 0b0010 | 0b000 |
+
+if !(HaveEL(EL3) &amp;&amp; IsFeatureImplemented(FEAT\_AA64)) then
+
+UNDEFINED;
+
+elsif PSTATE.EL == EL0 then UNDEFINED;
+
+elsif PSTATE.EL == EL1 then
+
+UNDEFINED;
+
+elsif PSTATE.EL == EL2 then
+
+UNDEFINED;
+
+elsif PSTATE.EL == EL3 then
+
+ESR\_EL3 = X[t, 64];

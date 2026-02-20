@@ -1,0 +1,20 @@
+## G7.1 The AArch32 System register encoding space
+
+The T32 and A32 instruction sets includes instructions that access the System register encoding space. These instructions provide:
+
+- Access to System registers , including the debug registers, that provide system control, and system status information.
+- The cache, branch predictor, and TLB maintenance instructions, and address translation instructions.
+
+The AArch32 System register interface describes the instructions that provide access to these registers and instructions. AArch32 System Register Descriptions describes these registers and encodings.
+
+When accessing 32-bit registers, or executing these instructions, entries in the encoding space are characterized by the parameter set { coproc , CRn , opc1 , CRm , opc2 }. This encoding space is defined only for the coproc values 0b1110 and 0b1111 .
+
+## Note
+
+- When accessing 64-bit registers entries in the encoding space are characterized by the parameter set { coproc , CRm , opc1 }, for the coproc values 0b1110 and 0b1111 . A CRm value in this parameter set is equivalent to a CRn value in the parameter set for accessing 32-bit registers.
+- Background to the System register interface gives more information about this encoding model.
+
+The following describe this encoding space:
+
+- Organization of registers in the ( coproc == 0b1110 ) encoding space.
+- Organization of registers in the ( coproc == 0b1111 ) encoding space.

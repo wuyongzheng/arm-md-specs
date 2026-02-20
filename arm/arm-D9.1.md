@@ -1,0 +1,11 @@
+## D9.1 GPC behavior overview
+
+| I BDSNC   | The PA space of an access is determined by all of the following: • The Requester Security state. • If enabled, then the stage 1 and stage 2 translation.                                                                                           |
+|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| R BYRRZ   | If GPCCR_EL3.GPC is 0, disabling granule protection checks, then accesses to all four address spaces are not subject to granule protection checks and cannot generate GPC faults.                                                                  |
+| R GRGXY   | If GPCCR_EL3.GPC is 1, enabling granule protection checks, then all accesses are subject to granule protection checks, except for fetches of Granule Protection Table (GPT) information and accesses governed by the GPCCR_EL3.GPCP control.       |
+| R THJVJ   | GPT walks are made to the Root physical address space and are not subject to granule protection checks.                                                                                                                                            |
+| R XSWYP   | If the PoC is before any cache level and DCinstructions to the PoC do not affect caches past the PoPA, then it is IMPLEMENTATION DEFINED whether a data or unified cache maintenance by VA to the PoC instruction can generate a GPC fault.        |
+| I RLDTY   | If GPCCR_EL3.GPC is 1, enabling granule protection checks, then an access might generate one of the following GPC faults: • Granule Protection Fault (GPF). • GPT walk fault. • GPT address size fault. • Synchronous External abort on GPT fetch. |
+| I QHSZT   | The GPCCR_EL3.GPCP control governs behavior of granule protection checks on fetches of stage 2 Table descriptors.                                                                                                                                  |
+| I WJCYJ   | The granule protection mechanism permits association of a peripheral Resource with a PA space to be performed by a Completer instead of the Requester, at a granularity finer than 4KB.                                                            |

@@ -1,0 +1,119 @@
+## F6.1.251 VSUDOT (by element)
+
+Dot Product index form with signed and unsigned integers (by element)
+
+Dot Product index form with signed and unsigned integers. This instruction performs the dot product of the four signed 8-bit integer values in each 32-bit element of the first source register with the four unsigned 8-bit integer values in an indexed 32-bit element of the second source register, accumulating the result into the corresponding 32-bit element of the destination register.
+
+From Armv8.2, this is an OPTIONAL instruction. ID\_ISAR6.I8MM indicates whether this instruction is supported in the T32 and A32 instruction sets.
+
+It has encodings from the following instruction sets: A32 (A1) and T32 (T1).
+
+A1
+
+(FEAT\_AA32I8MM)
+
+<!-- image -->
+
+## Encoding for the 64-bit SIMD vector variant
+
+```
+Applies when (Q == 0) VSUDOT{<q>}.U8
+```
+
+```
+<Dd>, <Dn>, <Dm>[<index>]
+```
+
+## Encoding for the 128-bit SIMD vector variant
+
+```
+Applies when (Q == 1) VSUDOT{<q>}.U8
+```
+
+```
+<Qd>, <Qn>, <Dm>[<index>]
+```
+
+## Decode for all variants of this encoding
+
+```
+UNDEFINED;
+```
+
+```
+if !IsFeatureImplemented(FEAT_AA32I8MM) then UNDEFINED; if Q == '1' && (Vd<0> == '1' || Vn<0> == '1') then constant boolean op1_unsigned = (U == '0'); constant boolean op2_unsigned = (U == '1'); constant integer d = UInt(D:Vd); constant integer n = UInt(N:Vn); constant integer m = UInt(Vm); constant integer i = UInt(M); constant integer regs = if Q == '1' then 2 else 1;
+```
+
+T1
+
+(FEAT\_AA32I8MM)
+
+<!-- image -->
+
+## Encoding for the 64-bit SIMD vector variant
+
+Applies when (Q == 0)
+
+```
+VSUDOT{<q>}.U8 <Dd>, <Dn>, <Dm>[<index>]
+```
+
+## Encoding for the 128-bit SIMD vector variant
+
+```
+Applies when (Q == 1) VSUDOT{<q>}.U8 <Qd>, <Qn>, <Dm>[<index>]
+```
+
+## Decode for all variants of this encoding
+
+```
+UNDEFINED;
+```
+
+```
+if InITBlock() then UNPREDICTABLE; if !IsFeatureImplemented(FEAT_AA32I8MM) then UNDEFINED; if Q == '1' && (Vd<0> == '1' || Vn<0> == '1') then constant boolean op1_unsigned = (U == '0'); constant boolean op2_unsigned = (U == '1'); constant integer d = UInt(D:Vd); constant integer n = UInt(N:Vn); constant integer m = UInt(Vm); constant integer i = UInt(M); constant integer regs = if Q == '1' then 2 else 1;
+```
+
+## Assembler Symbols
+
+&lt;q&gt;
+
+See Standard assembler syntax fields.
+
+Is the 64-bit name of the SIMD&amp;FP destination register, encoded in the 'D:Vd' field.
+
+## &lt;Dd&gt;
+
+## &lt;Dn&gt;
+
+Is the 64-bit name of the first SIMD&amp;FP source register, encoded in the 'N:Vn' field.
+
+## &lt;Dm&gt;
+
+Is the 64-bit name of the second SIMD&amp;FP source register, encoded in the 'Vm' field.
+
+## &lt;index&gt;
+
+Is the element index in the range 0 to 1, encoded in the 'M' field.
+
+Is the 128-bit name of the SIMD&amp;FP destination register, encoded in the 'D:Vd' field as &lt;Qd&gt;*2.
+
+## &lt;Qd&gt;
+
+- &lt;Qn&gt;
+
+Is the 128-bit name of the first SIMD&amp;FP source register, encoded in the 'N:Vn' field as &lt;Qn&gt;*2.
+
+## Operation
+
+```
+CheckAdvSIMDEnabled(); bits(64) operand1; bits(64) operand2; bits(64) result; operand2 = Din[m]; for r = 0 to regs-1 operand1 = Din[n+r]; result = Din[d+r]; for e = 0 to 1 bits(32) res = Elem[result,
+```
+
+```
+e, 32];
+```
+
+```
+for b = 0 to 3 constant bits(8) op1elt = Elem[operand1, 4 * e + b, 8]; constant bits(8) op2elt = Elem[operand2, 4 * i + b, 8]; constant integer element1 = if op1_unsigned then UInt(op1elt) else SInt(op1elt); constant integer element2 = if op2_unsigned then UInt(op2elt) else SInt(op2elt); res = res + element1 * element2; Elem[result, e, 32] = res; D[d+r] = result;
+```

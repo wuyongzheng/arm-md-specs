@@ -1,0 +1,17 @@
+## H5.3 Cross-triggers on a PE in an Arm A-profile implementation
+
+An A-Profile PE must include a Cross-Trigger interface, and the implementation must include at least the input and output triggers defined in this architecture. The number of channels in the Cross-Trigger matrix is IMPLEMENTATION DEFINED, but there must be a minimum of three. Software can read CTIDEVID.NUMCHAN to discover the number of implemented channels.
+
+The CTM must connect to all PEs in the same Inner Shareability domain as the PE that includes the Cross-Trigger interface, but can also connect to additional PEs. Arm strongly recommends that the CTM connects all PEs implementing a CTI in the system. This includes other PEs that can be connected using a CoreSight CTI module.
+
+Note
+
+In a uniprocessor system the CTM is OPTIONAL. In a multiprocessor system the CTM is required. The CTM might be connected other CTI modules for non-PEs, such as triggers for system visibility components. Arm recommends that the CTMis implemented.
+
+Any CTI connected to a PE that is not an Arm PE must implement at least:
+
+- The Debug request trigger event.
+- The Restart trigger event.
+- The Cross-halt trigger event.
+
+For more information about the CTI, see the CoreSight™ SoC Technical Reference Manual . Arm architecture refines the generic CTI by defining roles for each of the implemented input and output triggers.

@@ -1,0 +1,101 @@
+## F5.1.124 MVN, MVNS (immediate)
+
+Bitwise NOT (immediate) writes the bitwise inverse of an immediate value to the destination register.
+
+If the destination register is not the PC, the MVNS variant of the instruction updates the condition flags based on the result.
+
+The field descriptions for &lt;Rd&gt; identify the encodings where the PC is permitted as the destination register. ARM deprecates any use of these encodings. However, when the destination register is the PC:
+
+- The MVN variant of the instruction is an interworking branch, see Pseudocode description of operations on the AArch32 general-purpose registers and the PC.
+- The MVNS variant of the instruction performs an exception return without the use of the stack. In this case:
+- The PE branches to the address written to the PC, and restores PSTATE from SPSR\_&lt;current\_mode&gt;.
+- The PE checks SPSR\_&lt;current\_mode&gt; for an illegal return event. See Illegal return events from AArch32 state.
+- The instruction is UNDEFINED in Hyp mode.
+- The instruction is CONSTRAINED UNPREDICTABLE in User mode and System mode.
+
+It has encodings from the following instruction sets: A32 (A1) and T32 (T1).
+
+A1
+
+<!-- image -->
+
+## Encoding for the MVN variant
+
+```
+Applies when (S == 0) MVN{<c>}{<q>} <Rd>, #<const>
+```
+
+## Encoding for the MVNS variant
+
+```
+Applies when (S == 1) MVNS{<c>}{<q>} <Rd>, #<const>
+```
+
+## Decode for all variants of this encoding
+
+```
+constant integer d = UInt(Rd); constant boolean setflags = (S == constant boolean a32 = TRUE; constant bits(12) imm = imm12;
+```
+
+T1
+
+<!-- image -->
+
+## Encoding for the MVN variant
+
+Applies when (S == 0)
+
+```
+'1');
+```
+
+```
+MVN{<c>}{<q>} <Rd>, #<const>
+```
+
+## Encoding for the MVNS variant
+
+```
+Applies when (S == 1) MVNS{<c>}{<q>} <Rd>, #<const>
+```
+
+## Decode for all variants of this encoding
+
+```
+constant integer d = UInt(Rd); constant boolean setflags = (S == '1'); constant boolean a32 = FALSE; constant bits(12) imm = i:imm3:imm8; // Armv8-A removes UNPREDICTABLE for R13 if d == 15 then UNPREDICTABLE;
+```
+
+For more information about the CONSTRAINED UNPREDICTABLE behavior of this instruction, see Architectural Constraints on UNPREDICTABLE behaviors.
+
+## Assembler Symbols
+
+<!-- image -->
+
+```
+<c> See Standard assembler syntax fields. <q> See Standard assembler syntax fields.
+```
+
+## &lt;Rd&gt;
+
+For the 'A1 MVN' and 'A1 MVNS' variants: is the general-purpose destination register, encoded in the 'Rd' field. Arm deprecates using the PC as the destination register, but if the PC is used:
+
+- For the MVN variant, the instruction is a branch to the address calculated by the operation. This is an interworking branch, see Pseudocode description of operations on the AArch32 general-purpose registers and the PC.
+- For the MVNS variant, the instruction performs an exception return, that restores PSTATE from SPSR\_&lt;current\_mode&gt;.
+
+For the 'T1 MVN' and 'T1 MVNS' variants: is the general-purpose destination register, encoded in the 'Rd' field.
+
+## &lt;const&gt;
+
+For the 'A1 MVN' and 'A1 MVNS' variants: an immediate value. See Modified immediate constants in A32 instructions for the range of values.
+
+For the 'T1 MVN' and 'T1 MVNS' variants: an immediate value. See Modified immediate constants in T32 instructions for the range of values.
+
+## Operation
+
+```
+if ConditionPassed() then EncodingSpecificOperations(); bits(32) imm32; bit carry; (imm32, carry) = if a32 then A32ExpandImm_C(imm, PSTATE.C) else T32ExpandImm_C(imm, PSTATE.C); constant bits(32) result = NOT(imm32); if d == 15 then // Can only occur for A32 encoding if setflags then ALUExceptionReturn(result); else ALUWritePC(result);
+```
+
+```
+else R[d] = result; if setflags then PSTATE.N = result<31>; PSTATE.Z = IsZeroBit(result); PSTATE.C = carry; // PSTATE.V unchanged
+```

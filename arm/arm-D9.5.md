@@ -1,0 +1,54 @@
+## D9.5 GPT caching and invalidation
+
+| R YJGPL   | All fetches of GPT information use Normal memory types.                                                                                                                                                                                                                                                           |
+|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| R RKFVK   | The Cacheability and Shareability attributes of GPT fetches are configured in GPCCR_EL3.                                                                                                                                                                                                                          |
+| I CDFPQ   | Fetched GPT information might be cached in a data cache, according to the Normal memory Cacheability attributes and allocation hints configured in GPCCR_EL3.                                                                                                                                                     |
+| I ZJYLQ   | The Cacheability of GPT fetches is controlled by GPCCR_EL3.{IRGN, ORGN}and is not affected by the SCTLR_ELx.C or HCR_EL2.{CD, DC} control bits.                                                                                                                                                                   |
+| R XNFGN   | GPT fetches are made with behavior consistent with PBHAbeing disabled or programmed to zero, regardless of the PBHAconfiguration at stage 1 and stage 2. See Page Based Hardware attributes.                                                                                                                      |
+| R YMSWK   | GPT entries are permitted to be cached in TLBs combined with stage 1 and stage 2 information, as long as the requirements of TLB invalidation instructions are met.                                                                                                                                               |
+| R VFKSY   | TLBs containing GPT information are disabled at reset. Any IMPLEMENTATION DEFINED orUNKNOWNGPT information in TLBs has no effect on accesses until granule protection checks, or any stages of translation are enabled.                                                                                           |
+| R YMRVT   | GPT information cached in a TLB is permitted to be shared across multiple PEs, except for PEs with GPCCR_EL3.GPC set to 0 and all translation stages disabled.                                                                                                                                                    |
+| R XLDKK   | For two PEs that are permitted to share GPT information cached in TLBs, if the configuration of GPCCR_EL3, GPTBR_EL3, and the GPT is not consistent across those PEs, then the behavior on one PE is a CONSTRAINED UNPREDICTABLE choice of: • The configuration for that PE. • The configuration of the other PE. |
+| I BSPQD   | To avoid CONSTRAINED UNPREDICTABLE behavior, Root firmware must ensure that both: • Before GPCCR_EL3.GPC is set to 1, GPCCR_EL3 and GPTBR_EL3 are otherwise configured consistently with other PEs. • Before enabling any translation stage, GPCCR_EL3.GPC is set to 1.                                           |
+| R RQCBQ   | Alevel 0 GPT entry is reachable if the entry is in the configured PA range of GPTBR_EL3 and GPCCR_EL3, and GPT configuration does not generate a GPC fault at level 0.                                                                                                                                            |
+| R MGSTK   | Alevel 1 GPT entry is reachable if a reachable or previously cached level 0 GPT entry points to it, and that level 0 GPT entry does not generate a GPC fault.                                                                                                                                                     |
+| R BFQRM   | GPT entries may only be fetched if they are reachable.                                                                                                                                                                                                                                                            |
+| R QBKYP   | GPT entries may only be cached in a TLB if they are reachable and valid.                                                                                                                                                                                                                                          |
+| I JMYRB   | Because GPT entries are permitted to be cached in a TLB if they are reachable and valid, translations that result in a GPF are permitted to be cached in a TLB.                                                                                                                                                   |
+| I DRHKK   | All of the following are the TLB maintenance instructions that invalidate cached GPT entries: • TLBI RPAOS, <Xt> . • TLBI RPALOS, <Xt> . • TLBI PAALLOS . • .                                                                                                                                                     |
+| I YBBZK   | The TLBI *PA* instructions are only present at EL3. They are UNDEFINED at EL2 and below.                                                                                                                                                                                                                          |
+| R NBJFD   | TLBI *PA* instructions invalidate GPT information cached in TLB entries, including in intermediate TLB caching structures, according to the requirements specified in this section.                                                                                                                               |
+
+IJJHVQ
+
+The Arm architecture permits a range of TLB implementation styles, including TLB caching structures that store entries that combine information from stage 1 and stage 2 translation table entries.
+
+GPT information is permitted to be cached in combination with information from stage 1 and stage 2 translation table entries, as long as the requirements for invalidation of GPT information by TLBI *PA* operations are met. For example:
+
+- An implementation that caches GPT information separately from stage 1 and stage 2 information is only required to invalidate GPT information as a result of a TLBI *PA* operation.
+- An implementation that caches entries that combine stage 2 OA information with GPT information must invalidate all such entries in response to a TLBI PAALLOS operation.
+- An implementation that caches entries that combine information from stage 2 level 2 Table descriptors with GPT information must invalidate those entries in response to a TLBI *PA* operation that matches the next-level address of those level 2 Table descriptors. It is not required to invalidate those entries when a TLBI *PA* matches the PA that the level 2 descriptor was fetched from.
+
+IXZTJV A TLBI RPA* instruction applies to TLB entries containing GPT information relating to the supplied PA range.
+
+IZDVNB A TLBI PAALL* instruction applies to all TLB entries containing GPT information.
+
+IBKJTM A TLBI PAALL* instruction also applies to any TLB entry derived from GPC configuration register fields that are permitted to be cached in a TLB.
+
+IJQRVK The remaining instruction syntax is the same as for Armv8-A. This means:
+
+- {R} is a specifier denoting range-based invalidation.
+- {L} is an optional specifier that reduces the scope of the invalidation to cached GPT entries fetched from the final level of the GPT walk.
+- {OS} specifies that the TLBI applies to all the TLBs in the Outer Shareable domain. TLBI *PA* operations without OS are only required to apply to the PE executing the operation.
+- &lt;Xt&gt; specifies that the instruction takes an X register as an argument to pass additional information about the invalidation scope.
+
+| R LRKLF   | For TLBI *PA* instructions, Outer Shareable scope is sufficient to affect all TLBs in the system.                                                                                            |
+|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| I SXTLQ   | The TLBI *PA* operations do not have an nXS qualifier and always behave as though they are issued without an nXS qualifier.                                                                  |
+| I FRSHC   | The Arm architecture has IMPLEMENTATION DEFINED support for TLB lockdown, and the interaction between TLB lockdown and existing data TLB maintenance instructions is IMPLEMENTATION DEFINED. |
+| R BFXRL   | TLBI *PA* operations affect TLB entries containing GPT information regardless of any TLB lockdown configuration.                                                                             |
+| I TMCTS   | The TLBI *PA* operations have the same rules for ordering, observability, and completion as all other TLBI instructions.                                                                     |
+| I PLYZN   | The TLBI RPAOS instruction invalidates TLB entries containing GPT information from any level of the GPT walk relating to the supplied PA range.                                              |
+| I VLLLY   | The TLBI RPALOS instruction invalidates TLB entries containing GPT information from the final level of the GPT walk relating to the supplied PA range.                                       |
+| I ZZJVG   | Consistent with all other TLBI instructions, over-invalidation is permitted, and under-invalidation is not.                                                                                  |

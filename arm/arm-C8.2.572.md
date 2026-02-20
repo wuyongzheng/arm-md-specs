@@ -1,0 +1,67 @@
+## C8.2.572 SDOT (2-way, indexed)
+
+Signed integer dot product by indexed element (two-way)
+
+This instruction computes the dot product of a pair of signed 16-bit integer values held in each 32-bit element of the first source vector multiplied by a pair of signed 16-bit integer values in an indexed 32-bit element of the second source vector, and then destructively adds the widened dot product to the corresponding 32-bit element of the destination vector.
+
+The groups within the second source vector are specified using an immediate index that selects the same group position within each 128-bit vector segment. The index range is from 0 to 3.
+
+This instruction is unpredicated.
+
+```
+16-bit to 32-bit (FEAT_SME2 || FEAT_SVE2p1)
+```
+
+<!-- image -->
+
+U
+
+## Encoding
+
+```
+SDOT <Zda>.S, <Zn>.H,
+```
+
+```
+<Zm>.H[<imm>]
+```
+
+## Decode for this encoding
+
+```
+if !IsFeatureImplemented(FEAT_SME2) && !IsFeatureImplemented(FEAT_SVE2p1) then EndOfDecode(Decode_UNDEF); constant integer esize = 32; constant integer index = UInt(i2); constant integer n = UInt(Zn); constant integer m = UInt(Zm); constant integer da = UInt(Zda);
+```
+
+## Assembler Symbols
+
+## &lt;Zda&gt;
+
+Is the name of the third source and destination scalable vector register, encoded in the 'Zda' field.
+
+## &lt;Zn&gt;
+
+Is the name of the first source scalable vector register, encoded in the 'Zn' field.
+
+## &lt;Zm&gt;
+
+Is the name of the second source scalable vector register Z0-Z7, encoded in the 'Zm' field.
+
+## &lt;imm&gt;
+
+Is the immediate index of a pair of 16-bit elements within each 128-bit vector segment, in the range 0 to 3, encoded in the 'i2' field.
+
+## Operation
+
+```
+CheckSVEEnabled(); constant integer VL = CurrentVL; constant integer elements = VL DIV esize; constant integer eltspersegment = 128 DIV esize; constant bits(VL) operand1 = Z[n, VL]; constant bits(VL) operand2 = Z[m, VL]; constant bits(VL) operand3 = Z[da, VL]; bits(VL) result; for e = 0 to elements-1 constant integer segmentbase = e - (e MOD eltspersegment); constant integer s = segmentbase + index; bits(esize) res = Elem[operand3, e, esize]; for i = 0 to 1 constant integer element1 = SInt(Elem[operand1, 2 * e + i, esize DIV 2]); constant integer element2 = SInt(Elem[operand2, 2 * s + i, esize DIV 2]); res = res + element1 * element2; Elem[result, e, esize] = res; Z[da, VL] = result;
+```
+
+## Operational Information
+
+This instruction is a data-independent-time instruction as described in About PSTATE.DIT.
+
+This instruction might be immediately preceded in program order by a MOVPRFX instruction. The MOVPRFX must conform to all of the following requirements, otherwise the behavior of the MOVPRFX and this instruction is CONSTRAINED UNPREDICTABLE:
+
+- The MOVPRFX must be unpredicated.
+- The MOVPRFX must specify the same destination register as this instruction.
+- The destination register must not refer to architectural register state referenced by any other source operand register of this instruction.

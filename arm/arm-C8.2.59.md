@@ -1,0 +1,55 @@
+## C8.2.59 BFMLALT (vectors)
+
+BFloat16 multiply-add to single-precision (top)
+
+This instruction widens the odd-numbered BFloat16 elements in the first source vector and the corresponding elements in the second source vector to single-precision format and then destructively multiplies and adds these values without intermediate rounding to the single-precision elements of the destination vector that overlap with the corresponding BFloat16 elements in the source vectors. This instruction is unpredicated.
+
+ID\_AA64ZFR0\_EL1.BF16 indicates whether this instruction is implemented.
+
+## SVE
+
+((FEAT\_SVE || FEAT\_SME) &amp;&amp; FEAT\_BF16)
+
+<!-- image -->
+
+## Encoding
+
+```
+BFMLALT <Zda>.S, <Zn>.H, <Zm>.H
+```
+
+## Decode for this encoding
+
+```
+if ((!IsFeatureImplemented(FEAT_SVE) && !IsFeatureImplemented(FEAT_SME)) || !IsFeatureImplemented(FEAT_BF16)) then EndOfDecode(Decode_UNDEF); constant integer n = UInt(Zn); constant integer m = UInt(Zm); constant integer da = UInt(Zda); constant boolean op1_neg = FALSE;
+```
+
+## Assembler Symbols
+
+## &lt;Zda&gt;
+
+Is the name of the third source and destination scalable vector register, encoded in the 'Zda' field.
+
+## &lt;Zn&gt;
+
+Is the name of the first source scalable vector register, encoded in the 'Zn' field.
+
+## &lt;Zm&gt;
+
+Is the name of the second source scalable vector register, encoded in the 'Zm' field.
+
+## Operation
+
+```
+CheckSVEEnabled(); constant integer VL = CurrentVL; constant integer elements = VL DIV 32; constant bits(VL) op1 = Z[n, VL]; constant bits(VL) op2 = Z[m, VL]; constant bits(VL) op3 = Z[da, VL]; bits(VL) result; for e = 0 to elements-1 constant bits(16) elem1 = (if op1_neg then BFNeg(Elem[op1, 2*e + 1, 16]) else Elem[op1, 2*e + 1, 16]); constant bits(16) elem2 = Elem[op2, 2*e + 1, 16]; constant bits(32) elem3 = Elem[op3, e, 32]; Elem[result, e, 32] = BFMulAddH(elem3, elem1, elem2, FPCR);
+```
+
+Z[da, VL] = result;
+
+## Operational Information
+
+This instruction might be immediately preceded in program order by a MOVPRFX instruction. The MOVPRFX must conform to all of the following requirements, otherwise the behavior of the MOVPRFX and this instruction is CONSTRAINED UNPREDICTABLE:
+
+- The MOVPRFX must be unpredicated.
+- The MOVPRFX must specify the same destination register as this instruction.
+- The destination register must not refer to architectural register state referenced by any other source operand register of this instruction.

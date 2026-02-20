@@ -1,0 +1,23 @@
+## D15.1 About the System Performance Monitors
+
+- RXVHSR A System PMU is a PMU other than the PMU implemented by a PE that is accessible to that PE. For more information on the PMU, see The Performance Monitors Extension.
+- RKGSQX ASystem PMU might be accessible to other PEs in the system.
+- IXDHVC The System Performance Monitors Extension is an OPTIONAL feature of an implementation. The architecture does not require that System PMUs are implemented using FEAT\_SPMU. Arm recommends that System PMUs are implemented using FEAT\_SPMU or The CoreSight PMU Architecture . FEAT\_SPMU and The CoreSight PMU Architecture share a conceptual model for performance monitors.
+- IDDTRR The System Performance Monitors Extension supports up to 32 System PMUs.
+- INYCYF The basic form of a System PMU is:
+- Anumber of 64-bit event counters, SPMEVCNTR&lt;n&gt;\_EL0. Each System PMU can support up to 64 event counters.
+- It is IMPLEMENTATION DEFINED whether the event counted by each event counter is fixed or programmable. Event configuration registers, SPMEVTYPER&lt;n&gt;\_EL0, SPMEVFILTR&lt;n&gt;\_EL0, and SPMEVFILT2R&lt;n&gt;\_EL0 are provided for this.
+- Controls for:
+- -Enabling and resetting counters, in the System PMU control register SPMCR\_EL0.
+- -If FEAT\_SPMU2 is implemented, setting individual counters to zero, in SPMZR\_EL0.
+- -Count enable set and clear registers, SPMCNTENSET\_EL0 and SPMCNTENCLR\_EL0, respectively.
+- -Counter overflow set and clear registers, SPMOVSSET\_EL0 and SPMOVSCLR\_EL0, respectively.
+- -Interrupt enable set and clear registers, SPMINTENSET\_EL1 and SPMINTENCLR\_EL1, respectively.
+- -System PMU access control registers SPMACCESSR\_EL3, SPMACCESSR\_EL2, and SPMACCESSR\_EL1.
+- -If Secure EL1 is implemented, an OPTIONAL Secure state observability control register SPMSCR\_EL1.
+- -If FEAT\_RME is implemented, an OPTIONAL Root and Realm state observability control register SPMROOTCR\_EL3.
+- Read-only identification registers:
+- -Implementation and architecture identification registers, SPMIIDR\_EL1 and SPMDEVARCH\_EL1, respectively.
+- -If the System PMU is accessible to other PEs in the system, then affinity register SPMDEV AFF\_EL1.
+- -Implementation configuration register SPMCFGR\_EL1.
+- -If the System PMU implements more than one Counter Group, then Counter Group configuration registers SPMCGCR&lt;n&gt;\_EL1.

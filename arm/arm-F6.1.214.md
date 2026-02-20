@@ -1,0 +1,123 @@
+## F6.1.214 VRSHR (zero)
+
+Vector Rounding Shift Right copies the contents of one SIMD register to another.
+
+This is a pseudo-instruction of VORR (register). This means:
+
+- The encodings in this description are named to match the encodings of VORR (register).
+- The assembler syntax is used only for assembly, and is not used on disassembly.
+- The description of VORR (register) gives the operational pseudocode, any CONSTRAINED UNPREDICTABLE behavior, and any operational information for this instruction.
+
+It has encodings from the following instruction sets: A32 (A1) and T32 (T1).
+
+A1
+
+<!-- image -->
+
+## Encoding for the 64-bit SIMD vector variant
+
+Applies when
+
+(Q == 0)
+
+VRSHR{&lt;c&gt;}{&lt;q&gt;}.&lt;dt&gt;
+
+&lt;Dd&gt;,
+
+## is equivalent to
+
+VORR{&lt;c&gt;}{&lt;q&gt;}{.&lt;dt&gt;}
+
+&lt;Dm&gt;, #0
+
+{&lt;Dd&gt;, }&lt;Dm&gt;, &lt;Dm&gt;
+
+## Encoding for the 128-bit SIMD vector variant
+
+```
+Applies when (Q == 1) VRSHR{<c>}{<q>}.<dt> <Qd>, <Qm>, #0
+```
+
+## is equivalent to
+
+```
+VORR{<c>}{<q>}{.<dt>} {<Qd>, }<Qm>, <Qm>
+```
+
+T1
+
+<!-- image -->
+
+## Encoding for the 64-bit SIMD vector variant
+
+Applies when
+
+(Q == 0)
+
+VRSHR{&lt;c&gt;}{&lt;q&gt;}.&lt;dt&gt;
+
+&lt;Dd&gt;,
+
+## is equivalent to
+
+VORR{&lt;c&gt;}{&lt;q&gt;}{.&lt;dt&gt;}
+
+&lt;Dm&gt;, #0
+
+{&lt;Dd&gt;, }&lt;Dm&gt;, &lt;Dm&gt;
+
+## Encoding for the 128-bit SIMD vector variant
+
+Applies when
+
+```
+(Q == 1) <Qm>, #0
+```
+
+VRSHR{&lt;c&gt;}{&lt;q&gt;}.&lt;dt&gt; &lt;Qd&gt;,
+
+is equivalent to
+
+```
+VORR{<c>}{<q>}{.<dt>} {<Qd>, }<Qm>, <Qm>
+```
+
+## Assembler Symbols
+
+&lt;c&gt;
+
+For the 'A1 128-bit SIMD vector' and 'A1 64-bit SIMD vector' variants: see Standard assembler syntax fields. This encoding must be unconditional.
+
+For the 'T1 128-bit SIMD vector' and 'T1 64-bit SIMD vector' variants: see Standard assembler syntax fields.
+
+See Standard assembler syntax fields.
+
+Is the data type for the elements of the vectors, and must be one of: S8, S16, S32, S64, U8, U16, U32 or U64.
+
+## &lt;q&gt;
+
+## &lt;dt&gt;
+
+## &lt;Dd&gt;
+
+Is the 64-bit name of the SIMD&amp;FP destination register, encoded in the 'D:Vd' field.
+
+## &lt;Dm&gt;
+
+Is the 64-bit name of the SIMD&amp;FP source register, encoded in the 'N:Vn' and 'M:Vm' field.
+
+## &lt;Qd&gt;
+
+Is the 128-bit name of the SIMD&amp;FP destination register, encoded in the 'D:Vd' field as &lt;Qd&gt;*2.
+
+## &lt;Qm&gt;
+
+Is the 128-bit name of the SIMD&amp;FP source register, encoded in the 'N:Vn' and 'M:Vm' field as &lt;Qm&gt;*2.
+
+## Operation
+
+The description of VORR (register) gives the operational pseudocode for this instruction.
+
+## Operational Information
+
+The description of VORR (register) gives the operational information for this instruction.
