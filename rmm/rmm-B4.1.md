@@ -1,6 +1,5 @@
 ## B4.1 RMI version
 
-RNCFDX
 
 This specification defines version 1.0 of the Realm Management Interface.
 
@@ -11,19 +10,14 @@ See also:
 
 ## B4.2 RMI command return codes
 
-IJQMBN
 
 The return code of an RMI command is a tuple which contains status and index fields.
 
-IYCHQV
 
-IPPNST
 
-IMBVPG
 
 <!-- image -->
 
-RXRDYQ
 
 The status field of an RMI command return code indicates whether the command
 

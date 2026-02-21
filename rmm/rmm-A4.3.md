@@ -9,11 +9,11 @@ This section describes REC exit.
 
 ## A4.3.1 RmiRecExit object
 
-- DPBDCB An RmiRecExit object is a data structure used to pass values from the RMM to the Host on REC exit.
-- IVHJTL An RmiRecExit object is stored in the RecRun object which is passed by the Host as an input to the RMI\_REC\_ENTER command.
-- IJKWPB On REC exit, execution state is saved from the PE to the REC object and to the RmiRecExit object.
-- IZSCNM An RmiRecExit object contains attributes which are used to manage Realm virtual interrupts and Realm timers.
-- DFFCMN The attributes of an RmiRecExit object are summarized in the following table.
+- An RmiRecExit object is a data structure used to pass values from the RMM to the Host on REC exit.
+- An RmiRecExit object is stored in the RecRun object which is passed by the Host as an input to the RMI\_REC\_ENTER command.
+- On REC exit, execution state is saved from the PE to the REC object and to the RmiRecExit object.
+- An RmiRecExit object contains attributes which are used to manage Realm virtual interrupts and Realm timers.
+- The attributes of an RmiRecExit object are summarized in the following table.
 
 | Name        | Byte offset   | Type             | Description                           |
 |-------------|---------------|------------------|---------------------------------------|
@@ -76,9 +76,7 @@ This section describes REC exit.
 | gicv3_vmcr    | 0x390         | Bits64 | GICv3 Virtual Machine Control Register value        |
 | cntp_ctl      | 0x400         | Bits64 | Counter-timer Physical Timer Control Register value |
 
-IFQZXZ
 
-RPNWZV
 
 | Name           | Byte offset   | Type                 | Description                                              |
 |----------------|---------------|----------------------|----------------------------------------------------------|
@@ -106,7 +104,7 @@ See also:
 
 ## A4.3.2 Realm exit reason
 
-- IDYWHJ On return from the RMI\_REC\_ENTER command, the reason for the REC exit is indicated by exit.exit\_reason and exit.esr .
+- On return from the RMI\_REC\_ENTER command, the reason for the REC exit is indicated by exit.exit\_reason and exit.esr .
 
 See also:
 
@@ -114,17 +112,16 @@ See also:
 
 ## A4.3.3 General purpose registers saved on REC exit
 
-RPBKVB On REC exit due to PSCI, all of the following are true:
+On REC exit due to PSCI, all of the following are true:
 
 - exit.gprs[0] contains the PSCI FID.
 - exit.gprs[1..3] contain the corresponding PSCI arguments. If the PSCI command has fewer than 3 arguments, the remaining values contain zero.
 - GPR values X7 to X30 are saved from the PE to the REC object.
 
-RFNZKM On REC exit for any reason which is not REC exit due to PSCI, GPR values X0 to X30 are saved from the PE to the REC.
+On REC exit for any reason which is not REC exit due to PSCI, GPR values X0 to X30 are saved from the PE to the REC.
 
-RMZGPT On REC exit for any reason which is neither REC exit due to Host call nor REC exit due to PSCI, exit.gprs is zero.
+On REC exit for any reason which is neither REC exit due to Host call nor REC exit due to PSCI, exit.gprs is zero.
 
-RFRGVT
 
 On REC exit, if RMM access to exit causes a GPF then the RMI\_REC\_ENTER command fails with RMI\_ERROR\_INPUT.
 
@@ -136,8 +133,8 @@ On REC exit, if RMM access to exit causes a GPF then the RMI\_REC\_ENTER command
 
 ## A4.3.4 REC exit due to synchronous exception
 
-- ISNDHF A synchronous exception taken to R-EL2 can cause a REC exit.
-- IRPSNC The following table summarises the behavior of synchronous exceptions taken to R-EL2.
+- A synchronous exception taken to R-EL2 can cause a REC exit.
+- The following table summarises the behavior of synchronous exceptions taken to R-EL2.
 
 | Exception class                                                   | Behavior                                                                                 |
 |-------------------------------------------------------------------|------------------------------------------------------------------------------------------|
@@ -148,7 +145,7 @@ On REC exit, if RMM access to exit causes a GPF then the RMI\_REC\_ENTER command
 | Instruction Abort from a lower Exception level                    | REC exit due to Instruction Abort                                                        |
 | Data Abort from a lower Exception level                           | REC exit due to Data Abort                                                               |
 
-RYLFMD Realm execution of an SMC which is not part of one of the following ABIs results in a return value of SMCCC\_NOT\_SUPPORTED:
+Realm execution of an SMC which is not part of one of the following ABIs results in a return value of SMCCC\_NOT\_SUPPORTED:
 
 - PSCI
 - RSI
@@ -161,24 +158,19 @@ RYLFMD Realm execution of an SMC which is not part of one of the following ABIs 
 
 ## A4.3.4.1 REC exit due to WFI or WFE
 
-- DGLHPX A REC exit due to WFI or WFE is a REC exit due to WFI, WFIT, WFE or WFET instruction execution in a Realm.
-- RVTJQF On WFI or WFIT instruction execution in a Realm, a REC exit due to WFI or WFE is caused if enter.trap\_wfi is RMI\_TRAP.
-- RGBNGW On WFE or WFET instruction execution in a Realm, a REC exit due to WFI or WFE is caused if enter.trap\_wfe is RMI\_TRAP.
-- RYQWST On REC exit due to WFI or WFE, all of the following are true:
+- A REC exit due to WFI or WFE is a REC exit due to WFI, WFIT, WFE or WFET instruction execution in a Realm.
+- On WFI or WFIT instruction execution in a Realm, a REC exit due to WFI or WFE is caused if enter.trap\_wfi is RMI\_TRAP.
+- On WFE or WFET instruction execution in a Realm, a REC exit due to WFI or WFE is caused if enter.trap\_wfe is RMI\_TRAP.
+- On REC exit due to WFI or WFE, all of the following are true:
 - exit.exit\_reason is RMI\_EXIT\_SYNC.
 - exit.esr.EC contains the value of ESR\_EL2.EC at the time of the Realm exit.
 - exit.esr.ISS.TI contains the value of ESR\_EL2.ISS.TI at the time of the Realm exit.
 - All other exit fields except for exit.givc3\_* , exit\_cnt* and exit.pmu\_ovf\_status are zero.
 
-RBPYBC
 
-- RMGWRC
 
-DCYRMT
 
-DMTZMC
 
-RRYVFL
 
 On REC exit due to WFI or WFE, if the exit was caused by WFET or WFIT instruction execution then exit.gprs[0] contains the timeout value.
 
@@ -190,7 +182,7 @@ On REC exit due to WFI or WFE, if the exit was caused by WFET or WFIT instructio
 
 ## A4.3.4.2 REC exit due to Instruction Abort
 
-DGYQXK A REC exit due to Instruction Abort is a REC exit due to a Realm instruction fetch from a Protected IPA for which either of the following is true:
+A REC exit due to Instruction Abort is a REC exit due to a Realm instruction fetch from a Protected IPA for which either of the following is true:
 
 - HIPAS is UNASSIGNED and RIPAS is RAM
 - RIPAS is DESTROYED
@@ -254,12 +246,12 @@ On REC exit due to Non-emulatable Data Abort at an Unprotected IPA, all of the f
 
 On REC exit due to Data Abort, all other exit fields except for exit.givc3\_* , exit\_cnt* and exit.pmu\_ovf\_status are zero.
 
-XXHXJC On REC exit due to Emulatable Data Abort, ESR\_EL2.ISS.SSE is not propagated to the Host. This is because this field is used to emulate sign extension on loads, which must be performed by the RMM so that the Realm can rely on architecturally correct behavior of the virtual execution environment.
+On REC exit due to Emulatable Data Abort, ESR\_EL2.ISS.SSE is not propagated to the Host. This is because this field is used to emulate sign extension on loads, which must be performed by the RMM so that the Realm can rely on architecturally correct behavior of the virtual execution environment.
 
-- XHSWFR On REC exit due to Emulatable Data Abort, the Host can calculate the faulting IPA from the exit.hpfar and exit.far values.
-- RFFNHW On REC exit due to Emulatable Data Abort, if the Realm memory access was a write, exit.gprs[0] contains the value of the register indicated by ESR\_EL2.ISS.SRT at the time of the Realm exit.
+- On REC exit due to Emulatable Data Abort, the Host can calculate the faulting IPA from the exit.hpfar and exit.far values.
+- On REC exit due to Emulatable Data Abort, if the Realm memory access was a write, exit.gprs[0] contains the value of the register indicated by ESR\_EL2.ISS.SRT at the time of the Realm exit.
 
-RQBTPR On REC exit not due to Emulatable Data Abort, rec.emulatable\_abort is NOT\_EMULATABLE\_ABORT.
+On REC exit not due to Emulatable Data Abort, rec.emulatable\_abort is NOT\_EMULATABLE\_ABORT.
 
 See also:
 
@@ -274,9 +266,9 @@ See also:
 
 ## A4.3.5 REC exit due to IRQ
 
-- DYLWXK A REC exit due to IRQ is a REC exit due to an IRQ exception which should be handled by the Host.
-- RTYJSX On REC exit due to IRQ, exit.exit\_reason is RMI\_EXIT\_IRQ.
-- RCSQXV On REC exit due to IRQ, exit.esr is zero.
+- A REC exit due to IRQ is a REC exit due to an IRQ exception which should be handled by the Host.
+- On REC exit due to IRQ, exit.exit\_reason is RMI\_EXIT\_IRQ.
+- On REC exit due to IRQ, exit.esr is zero.
 
 See also:
 
@@ -284,9 +276,9 @@ See also:
 
 ## A4.3.6 REC exit due to FIQ
 
-- DZTYMM A REC exit due to FIQ is a REC exit due to an FIQ exception which should be handled by the Host.
-- RPDSBD On REC exit due to FIQ, exit.exit\_reason is RMI\_EXIT\_FIQ.
-- RGXZRF On REC exit due to FIQ, exit.esr is zero.
+- A REC exit due to FIQ is a REC exit due to an FIQ exception which should be handled by the Host.
+- On REC exit due to FIQ, exit.exit\_reason is RMI\_EXIT\_FIQ.
+- On REC exit due to FIQ, exit.esr is zero.
 
 See also:
 
@@ -294,14 +286,14 @@ See also:
 
 ## A4.3.7 REC exit due to PSCI
 
-IZSGFP A PSCI function executed by a Realm is either:
+A PSCI function executed by a Realm is either:
 
 - handled by the RMM, returning to the Realm, or
 - forwarded by the RMM to the Host via a REC exit due to PSCI .
 
-DRFTQD A REC exit due to PSCI is a REC exit due to Realm PSCI function execution by SMC instruction which was forwarded by the RMM to the Host.
+A REC exit due to PSCI is a REC exit due to Realm PSCI function execution by SMC instruction which was forwarded by the RMM to the Host.
 
-IVBJXY The following table summarises the behavior of PSCI function execution by a Realm.
+The following table summarises the behavior of PSCI function execution by a Realm.
 
 PSCI functions not listed in this table are not supported. Calling a non-supported PSCI function results in a return value of PSCI\_NOT\_SUPPORTED.
 
@@ -316,13 +308,13 @@ PSCI functions not listed in this table are not supported. Calling a non-support
 | PSCI_SYSTEM_OFF    | Yes                                  | No                                        |
 | PSCI_SYSTEM_RESET  | Yes                                  | No                                        |
 
-RNTZNJ On REC exit due to PSCI, exit.exit\_reason is RMI\_EXIT\_PSCI.
+On REC exit due to PSCI, exit.exit\_reason is RMI\_EXIT\_PSCI.
 
-RSXGJK On REC exit due to PSCI, exit.gprs contains sanitised parameters from the PSCI call.
+On REC exit due to PSCI, exit.gprs contains sanitised parameters from the PSCI call.
 
-RYTDGT On REC exit due to PSCI, if the command arguments include an MPIDR value, rec.psci\_pending is set to PSCI\_REQUEST\_PENDING. Otherwise, rec.psci\_pending is set to NO\_PSCI\_REQUEST\_PENDING.
+On REC exit due to PSCI, if the command arguments include an MPIDR value, rec.psci\_pending is set to PSCI\_REQUEST\_PENDING. Otherwise, rec.psci\_pending is set to NO\_PSCI\_REQUEST\_PENDING.
 
-IKKFMQ Following REC exit due to PSCI, if rec.psci\_pending is PSCI\_REQUEST\_PENDING, the Host must complete the request by calling the RMI\_PSCI\_COMPLETE command, prior to re-entering the REC.
+Following REC exit due to PSCI, if rec.psci\_pending is PSCI\_REQUEST\_PENDING, the Host must complete the request by calling the RMI\_PSCI\_COMPLETE command, prior to re-entering the REC.
 
 In the call to RMI\_PSCI\_COMPLETE, the Host provides the target REC, which corresponds to the MPIDR value provided by the Realm. This is necessary because the RMM does not maintain a mapping from MPIDR values to REC addresses. The RMM validates that the REC provided by the Host matches the MPIDR value.
 
@@ -338,16 +330,14 @@ In the call to RMI\_PSCI\_COMPLETE, the Host provides a PSCI status value, which
 - B4.3.7 RMI\_PSCI\_COMPLETE command
 - Chapter B6 Power State Control Interface
 
-IMCKKH
 
-RQRMMN
 
 - D1.4 PSCI flows
 
 ## A4.3.8 REC exit due to RIPAS change pending
 
-- DJGCVY A REC exit due to RIPAS change pending is a REC exit due to the Realm issuing a RIPAS change request .
-- RQSSKK On REC exit due to RIPAS change pending, all of the following are true:
+- A REC exit due to RIPAS change pending is a REC exit due to the Realm issuing a RIPAS change request .
+- On REC exit due to RIPAS change pending, all of the following are true:
 - exit.exit\_reason is RMI\_EXIT\_RIPAS\_CHANGE.
 - exit.ripas\_base is the base address of the region on which a RIPAS change is pending.
 - exit.ripas\_top is the top address of the region on which a RIPAS change is pending.
@@ -373,9 +363,9 @@ On REC exit not due to RIPAS change pending, all of the following are true:
 
 ## A4.3.9 REC exit due to Host call
 
-DWFZXK A REC exit due to Host call is a REC exit due to RSI\_HOST\_CALL execution in a Realm.
+A REC exit due to Host call is a REC exit due to RSI\_HOST\_CALL execution in a Realm.
 
-- RGTJRP On REC exit due to Host call, all of the following are true:
+- On REC exit due to Host call, all of the following are true:
 - rec.host\_call\_pending is HOST\_CALL\_PENDING.
 - exit.exit\_reason is RMI\_EXIT\_HOST\_CALL.
 - exit.imm contains the immediate value passed to the RSI\_HOST\_CALL command.
@@ -392,10 +382,9 @@ DWFZXK A REC exit due to Host call is a REC exit due to RSI\_HOST\_CALL executio
 
 ## A4.3.10 REC exit due to SError
 
-DPGMHP
 
 - A REC exit due to SError is a REC exit due to an SError interrupt during Realm execution.
-- RLRCFP On REC exit due to SError, all of the following occur:
+- On REC exit due to SError, all of the following occur:
 - exit.exit\_reason is RMI\_EXIT\_SERROR.
 
 - exit.esr.EC contains the value of ESR\_EL2.EC at the time of the Realm exit.

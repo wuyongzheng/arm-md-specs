@@ -4,9 +4,9 @@ This section describes the primitives which are used to support remote Realm att
 
 ## A7.2.1 Attestation token
 
-DVRRLN A CCA attestation token is a collection of claims about the state of a Realm and of the CCA platform on which the Realm is running.
+A CCA attestation token is a collection of claims about the state of a Realm and of the CCA platform on which the Realm is running.
 
-- IBXBSD A CCA attestation token consists of two parts:
+- A CCA attestation token consists of two parts:
 - Realm token
 
 Contains attributes of the Realm, including:
@@ -30,19 +30,15 @@ See also:
 
 ## A7.2.2 Attestation token generation
 
-- IKRMRH The process for a Realm to obtain an attestation token is:
+- The process for a Realm to obtain an attestation token is:
 - Call RSI\_ATTESTATION\_TOKEN\_INIT once
 - Call RSI\_ATTESTATION\_TOKEN\_CONTINUE in a loop, until the result is not RSI\_INCOMPLETE
 
 Each call to RSI\_ATTESTATION\_TOKEN\_CONTINUE retrieves up to one Granule of the attestation token.
 
-IJKJCQ
 
-SXMLMF
 
-IZWQCB
 
-ITMJVG
 
 The following pseudocode illustrates the process of a Realm obtaining an attestation token.
 
@@ -54,13 +50,12 @@ Up to one attestation token generation operation may be ongoing on a REC.
 
 On execution of RSI\_ATTESTATION\_TOKEN\_INIT, if an attestation token generation operation is ongoing on the calling REC, it is terminated.
 
-- IWTKDD The challenge value provided to RSI\_ATTESTATION\_TOKEN\_INIT is included in the generated attestation token. This allows the relying party to establish freshness of the attestation token.
+- The challenge value provided to RSI\_ATTESTATION\_TOKEN\_INIT is included in the generated attestation token. This allows the relying party to establish freshness of the attestation token.
 
 If the size of the challenge provided by the relying party is less than 64 bytes, it should be zero-padded prior to calling RSI\_ATTESTATION\_TOKEN\_INIT. Arm recommends that the challenge should contain at least 32 bytes of unique data.
 
-- IGKDJW Generation of an attestation token can be a long-running operation, during which interrupts may need to be handled.
+- Generation of an attestation token can be a long-running operation, during which interrupts may need to be handled.
 
-ICXSJP
 
 If a physical interrupt becomes pending during execution of RSI\_ATTESTATION\_TOKEN\_CONTINUE, a REC exit due to IRQ can occur.
 
@@ -83,15 +78,15 @@ On the next entry to the REC:
 
 ## A7.2.3 Attestation token format
 
-- ITFHGX The CCA attestation token is a profiled IETF Entity Attestation Token (EAT).
-- ILPTVH The CCA attestation token is a Concise Binary Object Representation (CBOR) map, in which the map values are the Realm token and the CCA platform token.
-- IYZPHG The Realm token contains structured data in CBOR, wrapped with a COSE\_Sign1 envelope according to the CBOR Object Signing and Encryption (COSE) standard.
-- IMMQZG The Realm token is signed by the Realm Attestation Key (RAK).
-- IWBGNP The CCA platform token contains structured data in CBOR, wrapped with a COSE\_Sign1 envelope according to the COSE standard.
-- ICGYKX The CCA platform token is signed by the Initial Attestation Key (IAK).
-- ICCGQH The CCA platform token contains a hash of RAK\_pub. This establishes a cryptographic binding between the Realm token and the CCA platform token.
-- IPTKYD The CCA attestation token is defined as follows:
-- IHZNNH The composition of the CCA attestation token is summarised in the following figure.
+- The CCA attestation token is a profiled IETF Entity Attestation Token (EAT).
+- The CCA attestation token is a Concise Binary Object Representation (CBOR) map, in which the map values are the Realm token and the CCA platform token.
+- The Realm token contains structured data in CBOR, wrapped with a COSE\_Sign1 envelope according to the CBOR Object Signing and Encryption (COSE) standard.
+- The Realm token is signed by the Realm Attestation Key (RAK).
+- The CCA platform token contains structured data in CBOR, wrapped with a COSE\_Sign1 envelope according to the COSE standard.
+- The CCA platform token is signed by the Initial Attestation Key (IAK).
+- The CCA platform token contains a hash of RAK\_pub. This establishes a cryptographic binding between the Realm token and the CCA platform token.
+- The CCA attestation token is defined as follows:
+- The composition of the CCA attestation token is summarised in the following figure.
 
 ```
 cca-token = #6.399(cca-token-collection) ; CMW Collection ; (draft-ietf-rats-msg-wrap) cca-platform-token = bstr .cbor COSE_Sign1_Tagged cca-realm-delegated-token = bstr .cbor COSE_Sign1_Tagged cca-token-collection = { 44234 => cca-platform-token ; 44234 = 0xACCA 44241 => cca-realm-delegated-token } ; EAT standard definitions COSE_Sign1_Tagged = #6.18(COSE_Sign1) ; Deliberately shortcut these definitions until EAT is finalised and able to ; pull in the full set of definitions COSE_Sign1 = "COSE-Sign1 placeholder"
@@ -110,7 +105,6 @@ Figure A7.1: Attestation token format
 
 <!-- image -->
 
-## IHKBHC
 
 ## A7.2.3.1 Realm claims
 
@@ -138,21 +132,17 @@ cca-realm-claims = (cca-realm-claim-map) cca-realm-claim-map = { cca-realm-chall
 
 ## A7.2.3.1.1 Realm challenge claim
 
-ITFWXQ The Realm challenge claim is used to carry the challenge provided by the caller to demonstrate freshness of the generated token.
+The Realm challenge claim is used to carry the challenge provided by the caller to demonstrate freshness of the generated token.
 
-IRVLZK
 
 The Realm challenge claim is identified using the EAT nonce label (10).
 
-- IMNVNP The length of the Realm challenge is 64 bytes.
+- The length of the Realm challenge is 64 bytes.
 
-IPXMXF The Realm challenge claim must be present in a Realm token.
+The Realm challenge claim must be present in a Realm token.
 
-- IBXGFN
 
-ICVNNV
 
-ISMSCF
 
 The format of the Realm challenge claim is defined as follows:
 
@@ -173,11 +163,8 @@ The Realm profile claim is identified using the EAT profile label (265).
 
 A7.2. Realm attestation
 
-- IXSSJY
 
-IGQTJT
 
-- ISWDJM
 
 The Realm profile claim is optional in a CCA Realm token.
 
@@ -191,11 +178,11 @@ cca-realm-profile-label = 265 ; EAT profile cca-realm-profile-type = "tag:arm.co
 
 ## A7.2.3.1.3 Realm Personalization Value claim
 
-ISCNXB The Realm Personalization Value claim contains the RPV which was provided at Realm creation.
+The Realm Personalization Value claim contains the RPV which was provided at Realm creation.
 
-IBKZPD The Realm Personalization Value claim must be present in a Realm token.
+The Realm Personalization Value claim must be present in a Realm token.
 
-- IQKNDV The format of the Realm Personalization Value claim is defined as follows:
+- The format of the Realm Personalization Value claim is defined as follows:
 
 ```
 cca-realm-personalization-value-label = 44235 cca-realm-personalization-value-type = bytes .size 64 cca-realm-personalization-value = ( cca-realm-personalization-value-label => cca-realm-personalization-value-type )
@@ -207,15 +194,13 @@ cca-realm-personalization-value-label = 44235 cca-realm-personalization-value-ty
 
 ## A7.2.3.1.4 Realm Initial Measurement claim
 
-IBXKGD
 
 The Realm Initial Measurement claim contains the values of the Realm Initial Measurement.
 
-IFZQSM
 
 The Realm Initial Measurement claim must be present in a Realm token.
 
-- IGGTNH The format of the Realm Initial Measurement claim is defined as follows:
+- The format of the Realm Initial Measurement claim is defined as follows:
 
 ```
 cca-realm-measurement-type = bytes .size 32 / bytes .size 48 / bytes .size 64 cca-realm-initial-measurement-label = 44238 cca-realm-initial-measurement = ( cca-realm-initial-measurement-label => cca-realm-measurement-type )
@@ -228,21 +213,18 @@ cca-realm-measurement-type = bytes .size 32 / bytes .size 48 / bytes .size 64 cc
 
 ## A7.2.3.1.5 Realm Extensible Measurements claim
 
-IKFNMV
 
 The Realm Extensible Measurements claim contains the values of the Realm Extensible Measurements.
 
-- IDSNFB
 
 The Realm Extensible Measurements claim must be present in a Realm token.
 
-- IZKVMN The format of the Realm measurements claim is defined as follows:
+- The format of the Realm measurements claim is defined as follows:
 
 ```
 cca-realm-measurement-type = bytes .size 32 / bytes .size 48 / bytes .size 64 cca-realm-extensible-measurements-label = 44239 cca-realm-extensible-measurements = ( cca-realm-extensible-measurements-label => [ 4*4 cca-realm-measurement-type ]
 ```
 
-IZCFMQ
 
 )
 
@@ -253,16 +235,14 @@ IZCFMQ
 
 ## A7.2.3.1.6 Realm hash algorithm ID claim
 
-IDGCGG The Realm hash algorithm ID claim identifies the algorithm used to calculate all hash values which are present in the Realm token.
+The Realm hash algorithm ID claim identifies the algorithm used to calculate all hash values which are present in the Realm token.
 
-IPVLCJ
 
 Arm recommends that the value of the Realm hash algorithm ID claim is an IANA Hash Function name IANA Named Information Hash Algorithm Registry [10].
 
-IWKVCQ
 
 - The Realm hash algorithm ID claim must be present in a Realm token.
-- IPWPLJ The format of the Realm hash algorithm ID claim is defined as follows:
+- The format of the Realm hash algorithm ID claim is defined as follows:
 
 ```
 cca-realm-hash-algo-id-label = 44236 cca-realm-hash-algo-id = ( cca-realm-hash-algo-id-label => text )
@@ -272,10 +252,10 @@ cca-realm-hash-algo-id-label = 44236 cca-realm-hash-algo-id = ( cca-realm-hash-a
 
 The Realm public key claim identifies the key which is used to sign the Realm token.
 
-IWBNHC The value of the Realm public key claim is a CBOR bstr of a COSE\_Key structure. The parameters used for the COSE\_Key are profile-specific.
+The value of the Realm public key claim is a CBOR bstr of a COSE\_Key structure. The parameters used for the COSE\_Key are profile-specific.
 
-- ILSNPQ The Realm public key claim must be present in a Realm token.
-- INNNDS The format of the Realm public key claim is defined as follows:
+- The Realm public key claim must be present in a Realm token.
+- The format of the Realm public key claim is defined as follows:
 
 ```
 cca-realm-public-key-type
@@ -293,13 +273,11 @@ cca-realm-public-key-label = 44237 cca-realm-public-key-type = bstr .cbor COSE_K
 
 ## A7.2.3.1.8 Realm public key hash algorithm identifier claim
 
-- IWWSLP The Realm public key hash algorithm identifier claim identifies the algorithm used to calculate H(RAK\_pub).
+- The Realm public key hash algorithm identifier claim identifies the algorithm used to calculate H(RAK\_pub).
 
-ITNRBN
 
 The Realm public key hash algorithm identifier claim must be present in a Realm token.
 
-- INNPVX
 
 The format of the Realm public key hash algorithm identifier claim is defined as follows:
 
@@ -317,7 +295,6 @@ cca-realm-public-key-hash-algo-id-label = 44240 cca-realm-public-key-hash-algo-i
 text
 ```
 
-DDCYXZ
 
 ## A7.2.3.1.9 Collated CDDL for Realm claims
 
@@ -331,7 +308,6 @@ cca-realm-claims = (cca-realm-claim-map) cca-realm-claim-map = { cca-realm-chall
 ; See RFC8152 for full definition of COSE_Key COSE_Key = { 1 => tstr / int, ; kty ? 2 => bstr, ; kid ? 3 => tstr / int, ; alg ? 4 => [+ (tstr / int) ], ; key_ops ? 5 => bstr, ; Base IV * COSE_Key-label => COSE_Key-values } cca-realm-public-key-hash-algo-id-label = 44240 cca-realm-public-key-hash-algo-id = ( cca-realm-public-key-hash-algo-id-label => text )
 ```
 
-ICPTFR
 
 ## A7.2.3.1.10 Example Realm claims
 
@@ -345,7 +321,7 @@ An example Realm claim map is shown below in COSE-DIAG format:
 
 This section defines the format of the CCA platform token claim map. The format is described using a combination of Concise Data Definition Language (CDDL) and text description.
 
-## IFJKFY The CCA platform token claim map is defined as follows:
+## The CCA platform token claim map is defined as follows:
 
 ```
 (cca-platform-claim-map)
@@ -372,13 +348,13 @@ cca-platform-claims = cca-platform-claim-map = { cca-platform-profile cca-platfo
 
 ## A7.2.3.2.1 CCA platform profile claim
 
-IFQYTP The CCA platform profile claim identifies the EAT profile to which the CCA platform token conforms. Note that because the platform token is expected to be issued when bound to a Realm token, the profile document should also include the relevant Realm profile or a reference to that profile.
+The CCA platform profile claim identifies the EAT profile to which the CCA platform token conforms. Note that because the platform token is expected to be issued when bound to a Realm token, the profile document should also include the relevant Realm profile or a reference to that profile.
 
-IXMVFR The CCA platform profile claim is identified using the EAT profile label (265).
+The CCA platform profile claim is identified using the EAT profile label (265).
 
-IGMKNR The CCA platform profile claim must be present in a CCA platform token.
+The CCA platform profile claim must be present in a CCA platform token.
 
-- IMHRTD The format of the CCA platform profile claim is defined as follows:
+- The format of the CCA platform profile claim is defined as follows:
 
 ```
 cca-platform-profile-label = 265 ; EAT profile cca-platform-profile-type = "tag:arm.com,2023:cca_platform#1.0.0" cca-platform-profile = ( cca-platform-profile-label => cca-platform-profile-type )
@@ -386,19 +362,17 @@ cca-platform-profile-label = 265 ; EAT profile cca-platform-profile-type = "tag:
 
 ## A7.2.3.2.2 CCA platform challenge claim
 
-ITKTWZ The CCA platform challenge claim contains a hash of the public key used to sign the Realm token.
+The CCA platform challenge claim contains a hash of the public key used to sign the Realm token.
 
-ICLJKK
 
 The CCA platform challenge claim is identified using the EAT nonce label (10).
 
-- IXHLYJ The length of the CCA platform challenge is either 32, 48 or 64 bytes.
+- The length of the CCA platform challenge is either 32, 48 or 64 bytes.
 
-- IGVHNX
 
 The CCA platform challenge claim must be present in a CCA platform token.
 
-- ILRWHR The format of the CCA platform challenge claim is defined as follows:
+- The format of the CCA platform challenge claim is defined as follows:
 
 ```
 cca-hash-type = bytes .size 32 / bytes .size 48 / bytes .size 64 cca-platform-challenge-label = 10 cca-platform-challenge = ( cca-platform-challenge-label => cca-hash-type )
@@ -410,17 +384,17 @@ cca-hash-type = bytes .size 32 / bytes .size 48 / bytes .size 64 cca-platform-ch
 
 ## A7.2.3.2.3 CCA platform Implementation ID claim
 
-ISMWND The CCA platform Implementation ID claim uniquely identifies the implementation of the CCA platform.
+The CCA platform Implementation ID claim uniquely identifies the implementation of the CCA platform.
 
-INDVFB The value of the CCA platform Implementation ID claim can be used by a verification service to locate the details of the CCA platform implementation from an endorser or manufacturer. Such details are used by a verification service to determine the security properties or certification status of the CCA platform implementation.
+The value of the CCA platform Implementation ID claim can be used by a verification service to locate the details of the CCA platform implementation from an endorser or manufacturer. Such details are used by a verification service to determine the security properties or certification status of the CCA platform implementation.
 
-IRXPVW The semantics of the CCA platform Implementation ID value are defined by the manufacturer or a particular certification scheme. For example, the ID could take the form of a product serial number, database ID, or other appropriate identifier.
+The semantics of the CCA platform Implementation ID value are defined by the manufacturer or a particular certification scheme. For example, the ID could take the form of a product serial number, database ID, or other appropriate identifier.
 
-ISRPZY The CCA platform Implementation ID claim does not identify a particular instance of the CCA implementation.
+The CCA platform Implementation ID claim does not identify a particular instance of the CCA implementation.
 
-INTCFY The CCA platform Implementation ID claim must be present in a CCA platform token.
+The CCA platform Implementation ID claim must be present in a CCA platform token.
 
-- IDHYDG The format of the CCA platform Implementation ID claim is defined as follows:
+- The format of the CCA platform Implementation ID claim is defined as follows:
 
 ```
 cca-platform-implementation-id-label = 2396 ; PSA implementation ID cca-platform-implementation-id-type = bytes .size 32 cca-platform-implementation-id = ( cca-platform-implementation-id-label => cca-platform-implementation-id-type )
@@ -433,15 +407,15 @@ cca-platform-implementation-id-label = 2396 ; PSA implementation ID cca-platform
 
 ## A7.2.3.2.4 CCA platform Instance ID claim
 
-IZYRZB The CCA platform Instance ID claim represents the unique identifier of the Initial Attestation Key (IAK) for the CCA platform.
+The CCA platform Instance ID claim represents the unique identifier of the Initial Attestation Key (IAK) for the CCA platform.
 
-IXVLLN The CCA platform Instance ID claim is identified using the EAT ueid label (256).
+The CCA platform Instance ID claim is identified using the EAT ueid label (256).
 
-RHVTNC The first byte of the CCA platform Instance ID value must be 0x01 .
+The first byte of the CCA platform Instance ID value must be 0x01 .
 
-IZNGDF The CCA platform Instance ID claim must be present in a CCA platform token.
+The CCA platform Instance ID claim must be present in a CCA platform token.
 
-- IVPKJN The format of the CCA platform Instance ID claim is defined as follows:
+- The format of the CCA platform Instance ID claim is defined as follows:
 
 ```
 cca-platform-instance-id-label = 256 ; EAT ueid ; TODO: require that the first byte of cca-platform-instance-id-type is 0x01 ; EAT UEIDs need to be 7 -33 bytes cca-platform-instance-id-type = bytes .size 33 cca-platform-instance-id = ( cca-platform-instance-id-label => cca-platform-instance-id-type )
@@ -454,11 +428,11 @@ cca-platform-instance-id-label = 256 ; EAT ueid ; TODO: require that the first b
 
 ## A7.2.3.2.5 CCA platform config claim
 
-IWVQJT The CCA platform config claim describes the set of chosen implementation options of the CCA platform. As an example, these may include a description of the level of physical memory protection which is provided.
+The CCA platform config claim describes the set of chosen implementation options of the CCA platform. As an example, these may include a description of the level of physical memory protection which is provided.
 
-UGPXWX The CCA platform config claim is expected to contain the System Properties field which is present in the Root Non-volatile Storage (RNVS) public parameters.
+The CCA platform config claim is expected to contain the System Properties field which is present in the Root Non-volatile Storage (RNVS) public parameters.
 
-- IMJHQJ The CCA platform config claim must be present in a CCA platform token.
+- The CCA platform config claim must be present in a CCA platform token.
 
 ```
 cca-platform-config-label = 2401 ; PSA platform range ; TBD: add to IANA registration cca-platform-config-type = bytes cca-platform-config = ( cca-platform-config-label => cca-platform-config-type )
@@ -470,21 +444,19 @@ cca-platform-config-label = 2401 ; PSA platform range ; TBD: add to IANA registr
 
 ## A7.2.3.2.6 CCA platform lifecycle claim
 
-- ISYKFY The CCA platform lifecycle claim identifies the lifecycle state of the CCA platform.
+- The CCA platform lifecycle claim identifies the lifecycle state of the CCA platform.
 
-RNBFVV
 
 - The value of the CCA platform lifecycle claim is an integer which is divided as follows:
 - value[15:8]: CCA platform lifecycle state
 - value[7:0]: IMPLEMENTATION DEFINED
 
-IWFZHV The CCA platform lifecycle claim must be present in a CCA platform token.
+The CCA platform lifecycle claim must be present in a CCA platform token.
 
-IQFYLF
 
 A non debugged CCA platform will be in psa-lifecycle-secured state. Realm Management Security Domain debug is always recoverable, and would therefore be represented by psa-lifecycle-non-psa-rot-debug state. Root world debug is recoverable on a HES system and would be represented by psa-lifecycle-recoverable-psa-rot state. On a non-HES system Root world debug is usually non-recoverable, and would be represented by psa-lifecycle-lifecycle-decommissioned state.
 
-## IHMZLL The format of the CCA platform lifecycle claim is defined as follows:
+## The format of the CCA platform lifecycle claim is defined as follows:
 
 ```
 cca-platform-lifecycle-label = 2395 ; PSA lifecycle cca-platform-lifecycle-unknown-type = 0x0000..0x00ff cca-platform-lifecycle-assembly-and-test-type = 0x1000..0x10ff cca-platform-lifecycle-cca-platform-rot-provisioning-type = 0x2000..0x20ff cca-platform-lifecycle-secured-type = 0x3000..0x30ff cca-platform-lifecycle-non-cca-platform-rot-debug-type = 0x4000..0x40ff cca-platform-lifecycle-recoverable-cca-platform-rot-debug-type = 0x5000..0x50ff cca-platform-lifecycle-decommissioned-type = 0x6000..0x60ff cca-platform-lifecycle-type = cca-platform-lifecycle-unknown-type / cca-platform-lifecycle-assembly-and-test-type / cca-platform-lifecycle-cca-platform-rot-provisioning-type / cca-platform-lifecycle-secured-type / cca-platform-lifecycle-non-cca-platform-rot-debug-type / cca-platform-lifecycle-recoverable-cca-platform-rot-debug-type /
@@ -504,15 +476,11 @@ cca-platform-lifecycle-decommissioned-type cca-platform-lifecycle = ( cca-platfo
 
 The CCA platform software components claim is a list of software components which can affect the behavior of the CCA platform. It is expected that an implementation will describe the expected software component values within the profile.
 
-IPJCSC
 
-- ITJTXG The CCA platform software components claim must be present in a CCA platform token.
+- The CCA platform software components claim must be present in a CCA platform token.
 
-IDPSKT
 
-IPDNCF
 
-ITPSYF
 
 - The format of the CCA platform software components claim is defined as follows:
 
@@ -526,23 +494,22 @@ The CCA platform software component type is a string which represents the role o
 
 The CCA platform software component type is intended for use as a hint to help the relying party understand how to evaluate the CCA platform software component measurement value.
 
-RRSNBH The CCA platform software component type is optional in a CCA platform token.
+The CCA platform software component type is optional in a CCA platform token.
 
 ## CCA platform software component measurement value
 
-IRWDKD The CCA platform software component measurement value represents a hash of the state of the software component in memory at the time it was initialized.
+The CCA platform software component measurement value represents a hash of the state of the software component in memory at the time it was initialized.
 
-RTVXRZ The CCA platform software component measurement value must be a hash of 256 bits or stronger.
+The CCA platform software component measurement value must be a hash of 256 bits or stronger.
 
-RLGBCM
 
 The CCA platform software component measurement value must be present in a CCA platform token.
 
 ## CCA platform software component version
 
-IJVJFW The CCA platform software component version is a text string whose meaning is defined by the software component vendor.
+The CCA platform software component version is a text string whose meaning is defined by the software component vendor.
 
-RCZRXB The CCA platform software component version is optional in a CCA platform token.
+The CCA platform software component version is optional in a CCA platform token.
 
 ## CCA platform software component signer ID
 
@@ -552,30 +519,27 @@ The CCA platform software component signer ID value must be a hash of 256 bits o
 
 The CCA platform software signer ID must be present in a CCA platform token.
 
-IDCDMR
 
-RPXRMC
 
-RXPHQC
 
 ## CCA platform software component hash algorithm ID
 
-ITQWZX The CCA platform software component hash algorithm ID identifies the way in which the hash algorithm used to measure the CCA platform software component.
+The CCA platform software component hash algorithm ID identifies the way in which the hash algorithm used to measure the CCA platform software component.
 
-- IHHBHG Arm recommends that the value of the CCA platform software component hash algorithm ID is an IANA Hash Function name IANA Named Information Hash Algorithm Registry [10].
+- Arm recommends that the value of the CCA platform software component hash algorithm ID is an IANA Hash Function name IANA Named Information Hash Algorithm Registry [10].
 
-INJYCM Arm recommends that the hash algorithm used to measure the CCA platform software component is one of the algorithms listed in the Arm CCA Security model [4].
+Arm recommends that the hash algorithm used to measure the CCA platform software component is one of the algorithms listed in the Arm CCA Security model [4].
 
-- IHPHCD The CCA platform software component hash algorithm ID is optional in a CCA platform token.
+- The CCA platform software component hash algorithm ID is optional in a CCA platform token.
 
 ## A7.2.3.2.8 CCA platform verification service claim
 
-INSTDP The CCA platform verification service claim is a hint which can be used by a relying party to locate a verifier for the token.
+The CCA platform verification service claim is a hint which can be used by a relying party to locate a verifier for the token.
 
-- IRZJSQ The value of the CCA platform verification service claim is a text string which can be used to locate the service or a URL specifying the address of the service.
-- IMFYCX The CCA platform verification service claim may be ignored by a relying party in favor of other information.
-- IMRSXY The CCA platform verification service claim is optional in a CCA platform token.
-- IWRJSX The format of the CCA platform verification service claim is defined as follows:
+- The value of the CCA platform verification service claim is a text string which can be used to locate the service or a URL specifying the address of the service.
+- The CCA platform verification service claim may be ignored by a relying party in favor of other information.
+- The CCA platform verification service claim is optional in a CCA platform token.
+- The format of the CCA platform verification service claim is defined as follows:
 
 ```
 cca-platform-verification-service-label = 2400 ; PSA verification service cca-platform-verification-service-type = text cca-platform-verification-service = ( cca-platform-verification-service-label => cca-platform-verification-service-type )
@@ -583,12 +547,12 @@ cca-platform-verification-service-label = 2400 ; PSA verification service cca-pl
 
 ## A7.2.3.2.9 CCA platform hash algorithm ID claim
 
-- IVDZMF The CCA platform hash algorithm ID claim identifies the default algorithm used to calculate measurements in the CCA platform token.
-- IXHJFX The default hash algorithm may be overridden for an individual software component, by the CCA platform software component hash algorithm ID claim.
-- IYRPYY Arm recommends that the value of the CCA platform hash algorithm ID claim is an IANA Hash Function name IANA Named Information Hash Algorithm Registry [10].
-- ITQSTK The CCA platform hash algorithm ID claim must be present in a CCA platform token.
+- The CCA platform hash algorithm ID claim identifies the default algorithm used to calculate measurements in the CCA platform token.
+- The default hash algorithm may be overridden for an individual software component, by the CCA platform software component hash algorithm ID claim.
+- Arm recommends that the value of the CCA platform hash algorithm ID claim is an IANA Hash Function name IANA Named Information Hash Algorithm Registry [10].
+- The CCA platform hash algorithm ID claim must be present in a CCA platform token.
 
-## IRKZJT The format of the CCA platform hash algorithm ID claim is defined as follows:
+## The format of the CCA platform hash algorithm ID claim is defined as follows:
 
 ```
 cca-platform-hash-algo-id-label = 2402 ; PSA platform range ; TBD: add to IANA registration cca-platform-hash-algo-id = ( cca-platform-hash-algo-id-label => text )
@@ -596,7 +560,7 @@ cca-platform-hash-algo-id-label = 2402 ; PSA platform range ; TBD: add to IANA r
 
 ## A7.2.3.2.10 Collated CDDL for CCA platform claims
 
-## DDVMJZ The format of the CCA platform token claim map is defined as follows:
+## The format of the CCA platform token claim map is defined as follows:
 
 ```
 cca-platform-claims = (cca-platform-claim-map) cca-platform-claim-map = { cca-platform-profile cca-platform-challenge cca-platform-implementation-id cca-platform-instance-id cca-platform-config cca-platform-lifecycle cca-platform-sw-components ? cca-platform-verification-service cca-platform-hash-algo-id } cca-platform-profile-label = 265 ; EAT profile cca-platform-profile-type = "tag:arm.com,2023:cca_platform#1.0.0" cca-platform-profile = ( cca-platform-profile-label => cca-platform-profile-type ) cca-hash-type = bytes .size 32 / bytes .size 48 / bytes .size 64 cca-platform-challenge-label = 10 cca-platform-challenge = ( cca-platform-challenge-label => cca-hash-type ) cca-platform-implementation-id-label = 2396 ; PSA implementation ID cca-platform-implementation-id-type = bytes .size 32 cca-platform-implementation-id = ( cca-platform-implementation-id-label => cca-platform-implementation-id-type ) cca-platform-instance-id-label = 256 ; EAT ueid ; TODO: require that the first byte of cca-platform-instance-id-type is 0x01 ; EAT UEIDs need to be 7 -33 bytes cca-platform-instance-id-type = bytes .size 33 cca-platform-instance-id = ( cca-platform-instance-id-label => cca-platform-instance-id-type ) cca-platform-config-label = 2401 ; PSA platform range ; TBD: add to IANA registration cca-platform-config-type = bytes cca-platform-config = ( cca-platform-config-label => cca-platform-config-type ) cca-platform-lifecycle-label = 2395 ; PSA lifecycle cca-platform-lifecycle-unknown-type = 0x0000..0x00ff cca-platform-lifecycle-assembly-and-test-type = 0x1000..0x10ff cca-platform-lifecycle-cca-platform-rot-provisioning-type = 0x2000..0x20ff cca-platform-lifecycle-secured-type = 0x3000..0x30ff cca-platform-lifecycle-non-cca-platform-rot-debug-type = 0x4000..0x40ff cca-platform-lifecycle-recoverable-cca-platform-rot-debug-type = 0x5000..0x50ff cca-platform-lifecycle-decommissioned-type = 0x6000..0x60ff
@@ -606,7 +570,6 @@ cca-platform-claims = (cca-platform-claim-map) cca-platform-claim-map = { cca-pl
 cca-platform-lifecycle-type = cca-platform-lifecycle-unknown-type / cca-platform-lifecycle-assembly-and-test-type / cca-platform-lifecycle-cca-platform-rot-provisioning-type / cca-platform-lifecycle-secured-type / cca-platform-lifecycle-non-cca-platform-rot-debug-type / cca-platform-lifecycle-recoverable-cca-platform-rot-debug-type / cca-platform-lifecycle-decommissioned-type cca-platform-lifecycle = ( cca-platform-lifecycle-label => cca-platform-lifecycle-type ) cca-platform-sw-components-label = 2399 ; PSA software components cca-platform-sw-component = { ? 1 => text, ; component type 2 => cca-hash-type, ; measurement value ? 4 => text, ; version 5 => cca-hash-type, ; signer id ? 6 => text, ; hash algorithm identifier } cca-platform-sw-components = ( cca-platform-sw-components-label => [ + cca-platform-sw-component ] ) cca-platform-verification-service-label = 2400 ; PSA verification service cca-platform-verification-service-type = text cca-platform-verification-service = ( cca-platform-verification-service-label => cca-platform-verification-service-type ) cca-platform-hash-algo-id-label = 2402 ; PSA platform range ; TBD: add to IANA registration cca-platform-hash-algo-id = ( cca-platform-hash-algo-id-label => text )
 ```
 
-ITVHKL
 
 ## A7.2.3.2.11 Example CCA platform claims
 

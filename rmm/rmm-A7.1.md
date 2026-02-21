@@ -2,11 +2,11 @@
 
 This section describes how Realm measurement values are calculated.
 
-DSJWWS A Realm measurement value is a rolling hash.
+A Realm measurement value is a rolling hash.
 
-DYKDBY A Realm Hash Algorithm (RHA) is an algorithm which is used to extend a Realm measurement value.
+A Realm Hash Algorithm (RHA) is an algorithm which is used to extend a Realm measurement value.
 
-INRKWB The RHA used by a Realm is selected via the hash\_algo attribute.
+The RHA used by a Realm is selected via the hash\_algo attribute.
 
 See also:
 
@@ -19,25 +19,25 @@ See also:
 
 This section describes how the Realm Initial Measurement (RIM) is calculated.
 
-- IXKSBZ The initial RIM value for a Realm is calculated from a subset of the Realm parameters.
-- INCNDK A RIM is extended by applying the RHA to the inputs of RMM operations which are executed during Realm construction.
+- The initial RIM value for a Realm is calculated from a subset of the Realm parameters.
+- A RIM is extended by applying the RHA to the inputs of RMM operations which are executed during Realm construction.
 
-INQQTF The following operations cause a RIM to be extended:
+The following operations cause a RIM to be extended:
 
 - Creation of a DATA Granule during Realm construction
 - Creation of a runnable REC
 - Changes to RIPAS of Protected IPA during Realm construction
-- RVMPZG On execution of an operation which requires extension of a RIM, the RMM first constructs a measurement descriptor structure. The measurement descriptor contents include the current RIM value. The new RIM value is computed by applying the RHA to the measurement descriptor.
+- On execution of an operation which requires extension of a RIM, the RMM first constructs a measurement descriptor structure. The measurement descriptor contents include the current RIM value. The new RIM value is computed by applying the RHA to the measurement descriptor.
 
 <!-- formula-not-decoded -->
 
-- IFQHFC A RIM is immutable while the state of the Realm is REALM\_ACTIVE. This implies that a RIM reflects the configuration and contents of the Realm at the moment when it transitioned from the REALM\_NEW to the REALM\_ACTIVE state.
+- A RIM is immutable while the state of the Realm is REALM\_ACTIVE. This implies that a RIM reflects the configuration and contents of the Realm at the moment when it transitioned from the REALM\_NEW to the REALM\_ACTIVE state.
 
-IDQGPT A RIM depends upon the order of the RMM operations which are executed during Realm construction.
+A RIM depends upon the order of the RMM operations which are executed during Realm construction.
 
-SVZNCW The order in which RMM operations are executed during Realm construction must be agreed between the Realm owner (or a delegate of the Realm owner which will receive and validate the RIM) and the Host which executes the RMMcommands. This ensures that a correctly-constructed Realm will have the expected measurement.
+The order in which RMM operations are executed during Realm construction must be agreed between the Realm owner (or a delegate of the Realm owner which will receive and validate the RIM) and the Host which executes the RMMcommands. This ensures that a correctly-constructed Realm will have the expected measurement.
 
-ILTWBL The value of a RIM can be read using the RSI\_MEASUREMENT\_READ command.
+The value of a RIM can be read using the RSI\_MEASUREMENT\_READ command.
 
 See also:
 
@@ -51,9 +51,9 @@ See also:
 
 This section describes the behavior of a Realm Extensible Measurement (REM).
 
-- IQJDWM A REM is extended using the RSI\_MEASUREMENT\_EXTEND command.
-- ICTMBT The value of a REM can be read using the RSI\_MEASUREMENT\_READ command.
-- IMDQRP The initial value of a REM is zero.
+- A REM is extended using the RSI\_MEASUREMENT\_EXTEND command.
+- The value of a REM can be read using the RSI\_MEASUREMENT\_READ command.
+- The initial value of a REM is zero.
 
 See also:
 

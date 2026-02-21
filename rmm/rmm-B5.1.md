@@ -1,6 +1,5 @@
 ## B5.1 RSI version
 
-RQKLGZ
 
 This specification defines version 1.0 of the Realm Services Interface.
 
@@ -11,7 +10,6 @@ See also:
 
 ## B5.2 RSI command return codes
 
-ICYQDJ
 
 - An RSI command return code indicates whether the command
 
@@ -19,13 +17,12 @@ ICYQDJ
 
 - failed, and the reason for the failure.
 
-IDQJSP
 
 If an RSI command succeeds then it returns RSI\_SUCCESS.
 
-IYMHKC Multiple failure conditions in an RSI command may return the same return code.
+Multiple failure conditions in an RSI command may return the same return code.
 
-RMLBDM If an input to an RSI command uses an invalid encoding then the command fails and returns RSI\_ERROR\_INPUT.
+If an input to an RSI command uses an invalid encoding then the command fails and returns RSI\_ERROR\_INPUT.
 
 Command inputs include registers and in-memory data structures.
 

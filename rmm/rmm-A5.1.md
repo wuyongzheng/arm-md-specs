@@ -17,10 +17,10 @@ This section describes memory management from the Realm's point of view.
 
 ## A5.2.1 Realm IPA space
 
-- IDLRZF The IPA space of a Realm is divided into two halves: Protected IPA space and Unprotected IPA space.
-- SLZHXC Software in a Realm should treat the most significant bit of an IPA as a protection attribute.
-- DKXGDV A Protected IPA is an address in the lower half of a Realm's IPA space. The most significant bit of a Protected IPA is 0 .
-- DMRWGM An Unprotected IPA is an address in the upper half of a Realm's IPA space. The most significant bit of an Unprotected IPA is 1 .
+- The IPA space of a Realm is divided into two halves: Protected IPA space and Unprotected IPA space.
+- Software in a Realm should treat the most significant bit of an IPA as a protection attribute.
+- A Protected IPA is an address in the lower half of a Realm's IPA space. The most significant bit of a Protected IPA is 0 .
+- An Unprotected IPA is an address in the upper half of a Realm's IPA space. The most significant bit of an Unprotected IPA is 1 .
 
 See also:
 
@@ -29,7 +29,7 @@ See also:
 
 ## A5.2.2 Realm IPA state
 
-- DWWCBD A Protected IPA has an associated Realm IPA state (RIPAS).
+- A Protected IPA has an associated Realm IPA state (RIPAS).
 
 The RIPAS values are shown in the following table.
 
@@ -40,4 +40,4 @@ The RIPAS values are shown in the following table.
 | EMPTY     | Address where no Realm resources are mapped.                                   |
 | RAM       | Address where private code or data owned by the Realm is mapped.               |
 
-IVZCZV RIPAS values are stored in an RTT.
+RIPAS values are stored in an RTT.

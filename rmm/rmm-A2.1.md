@@ -4,20 +4,20 @@ This section describes the concept of a Realm.
 
 ## A2.1.1 Overview
 
-- DDLRSR A Realm is an execution environment which is protected from agents in the Non-secure and Secure Security states, and from other Realms.
+- A Realm is an execution environment which is protected from agents in the Non-secure and Secure Security states, and from other Realms.
 
 ## A2.1.2 Realm execution environment
 
-- ILQYLY The execution environment of a Realm is an EL0 + EL1 environment, as described in Arm Architecture Reference Manual for A-Profile architecture [3].
+- The execution environment of a Realm is an EL0 + EL1 environment, as described in Arm Architecture Reference Manual for A-Profile architecture [3].
 
 ## A2.1.2.1 Realm registers
 
-- RNJHQK On first entry to a Realm VPE, PE state is initialized according to 'PE state on reset to AArch64 state' in Arm Architecture Reference Manual for A-Profile architecture [3], except for GPR and PC values which are specified by the Host during Realm creation.
-- GZFCQX Confidentiality is guaranteed for a Realm VPE's general purpose and SIMD / floating point registers.
-- GQHZCS Confidentiality is guaranteed for other Realm VPE register state (including stack pointer, program counter and EL0 / EL1 system registers).
-- GXRMHP Integrity is guaranteed for a Realm VPE's general purpose and SIMD / floating point registers.
-- GYKRWG Integrity is guaranteed for other Realm VPE register state (including stack pointer, program counter and EL0 / EL1 system registers).
-- IGPGFB A Realm can use a Host call to pass arguments to the Host and receive results from the Host.
+- On first entry to a Realm VPE, PE state is initialized according to 'PE state on reset to AArch64 state' in Arm Architecture Reference Manual for A-Profile architecture [3], except for GPR and PC values which are specified by the Host during Realm creation.
+- Confidentiality is guaranteed for a Realm VPE's general purpose and SIMD / floating point registers.
+- Confidentiality is guaranteed for other Realm VPE register state (including stack pointer, program counter and EL0 / EL1 system registers).
+- Integrity is guaranteed for a Realm VPE's general purpose and SIMD / floating point registers.
+- Integrity is guaranteed for other Realm VPE register state (including stack pointer, program counter and EL0 / EL1 system registers).
+- A Realm can use a Host call to pass arguments to the Host and receive results from the Host.
 
 See also:
 
@@ -27,9 +27,9 @@ See also:
 
 ## A2.1.2.2 Realm memory
 
-- ITQMMZ A Realm is able to determine whether a given IPA is protected or unprotected .
-- GLQFQH Confidentiality is guaranteed for memory contents accessed via a protected address. Informally, this means that a change to the contents of such a memory location is not observable by any agent outside the CCA platform .
-- GQMLCJ Integrity is guaranteed for memory contents accessed via a protected address. Informally, this means that the Realm does not observe the contents of the location to change unless the Realm itself has either written a different value to the location, or provided consent to the RMM for integrity of the location to be violated.
+- A Realm is able to determine whether a given IPA is protected or unprotected .
+- Confidentiality is guaranteed for memory contents accessed via a protected address. Informally, this means that a change to the contents of such a memory location is not observable by any agent outside the CCA platform .
+- Integrity is guaranteed for memory contents accessed via a protected address. Informally, this means that the Realm does not observe the contents of the location to change unless the Realm itself has either written a different value to the location, or provided consent to the RMM for integrity of the location to be violated.
 
 See also:
 
@@ -37,8 +37,8 @@ See also:
 
 ## A2.1.2.3 Realm processor features
 
-- RJGHYJ The value returned to a Realm from reading a feature register is architecturally valid and describes the set of features which are present in the Realm's execution environment.
-- IKKBDP The RMM may suppress a feature which is supported by the underlying hardware platform, if exposing that feature to a Realm could lead to a security vulnerability.
+- The value returned to a Realm from reading a feature register is architecturally valid and describes the set of features which are present in the Realm's execution environment.
+- The RMM may suppress a feature which is supported by the underlying hardware platform, if exposing that feature to a Realm could lead to a security vulnerability.
 
 See also:
 
@@ -46,15 +46,15 @@ See also:
 
 ## A2.1.2.4 IMPDEF system registers
 
-- RFQCKH A Realm read from or write to an IMPLEMENTATION DEFINED system register causes an Unknown exception taken to the Realm.
+- A Realm read from or write to an IMPLEMENTATION DEFINED system register causes an Unknown exception taken to the Realm.
 
 ## A2.1.3 Realm attributes
 
 This section describes the attributes of a Realm.
 
-- DJSGFY A Realm attribute is a property of a Realm whose value can be observed or modified either by the Host or by the Realm.
-- ITTDVX An example of a way in which a Realm attribute may be observable is the outcome of an RMM command.
-- DMHJCK The attributes of a Realm are summarized in the following table.
+- A Realm attribute is a property of a Realm whose value can be observed or modified either by the Host or by the Realm.
+- An example of a way in which a Realm attribute may be observable is the outcome of an RMM command.
+- The attributes of a Realm are summarized in the following table.
 
 | Name            | Type                   | Description                                         |
 |-----------------|------------------------|-----------------------------------------------------|
@@ -79,14 +79,14 @@ This section describes the attributes of a Realm.
 | I QRVTT   | The VMID of a Realm is chosen by the Host. The VMID must be within the range supported by the hardware platform. The RMMensures that every Realm on the system has a unique VMID.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | D FTWBK   | A Realm Personalization Value (RPV) is a provided by the Host, to distinguish between Realms which have the same Realm Initial Measurement, but different behavior.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 
-SFCNBF Possible uses of the RPV include:
+Possible uses of the RPV include:
 
 - A GUID
 - Hash of Realm Owner public key
 - Hash of a 'personalisation document' which is provided to the Realm via a side-band (for example, via NS memory) and contains configuration information used by Realm software.
-- IZFSWC The RMM treats the RPV as an opaque value.
-- IBFSRK The RPV is included in the Realm attestation report as a separate claim.
-- IMFRXD The RPV is included in the output of the RSI\_REALM\_CONFIG command.
+- The RMM treats the RPV as an opaque value.
+- The RPV is included in the Realm attestation report as a separate claim.
+- The RPV is included in the output of the RSI\_REALM\_CONFIG command.
 
 See also:
 
@@ -103,12 +103,12 @@ See also:
 
 ## A2.1.4 Realm liveness
 
-- DWTXTJ Realm liveness is a property which means that there exists one or more Granules, other than the RD and the starting level RTTs, which are owned by the Realm.
-- IPVPQB If a Realm is live, it cannot be destroyed.
-- DPCKRN A Realm is live if any of the following is true:
+- Realm liveness is a property which means that there exists one or more Granules, other than the RD and the starting level RTTs, which are owned by the Realm.
+- If a Realm is live, it cannot be destroyed.
+- A Realm is live if any of the following is true:
 - The number of RECs owned by the Realm is not zero
 - A starting level RTT of the Realm is live
-- IVKKPJ If a Realm owns a non-zero number of Data Granules, this implies that it has a starting level RTT which is live, and therefore that the Realm itself is live.
+- If a Realm owns a non-zero number of Data Granules, this implies that it has a starting level RTT which is live, and therefore that the Realm itself is live.
 
 See also:
 
@@ -133,7 +133,6 @@ The states of a Realm are listed below.
 
 <!-- image -->
 
-IRRHFG
 
 <!-- image -->
 
@@ -177,7 +176,6 @@ Figure A2.1: Realm state transitions
 
 ## A2.1.6 Realm parameters
 
-DTGMVZ
 
 A Realm parameter is a value which is provided by the Host during Realm creation.
 
@@ -191,8 +189,8 @@ See also:
 
 ## A2.1.7 Realm Descriptor
 
-- DTNSBY A Realm Descriptor (RD) is an RMM data structure which stores attributes of a Realm.
-- DGGKWX The size of an RD is one Granule.
+- A Realm Descriptor (RD) is an RMM data structure which stores attributes of a Realm.
+- The size of an RD is one Granule.
 
 See also:
 

@@ -4,7 +4,6 @@ This section describes how the RMI and RSI interfaces are versioned, and how the
 
 Other interfaces exposed by the RMM, such as PSCI, may define their own versioning schemes which differ from that used by RMI and RSI. For details, refer to the specification of the interface concerned.
 
-ILZVQR
 
 Revisions of the RMI and the RSI are identified by a (major, minor) version tuple.
 
@@ -25,9 +24,9 @@ The semantics of this version tuple are as follows. For two revisions of the int
 - P is less than Q if one of the following conditions is true:
 - -majP &lt; majQ -majP == majQ and minP &lt; minQ
 
-IZCPBC For each interface, an RMM implementation supports a set of revisions. The size of this set is at least one.
+For each interface, an RMM implementation supports a set of revisions. The size of this set is at least one.
 
-- IRMSLZ If an RMM implementation supports a given interface revision (x, y) then Arm expects that it will also supports all earlier revisons with the same major version number. That is:
+- If an RMM implementation supports a given interface revision (x, y) then Arm expects that it will also supports all earlier revisons with the same major version number. That is:
 
 <!-- formula-not-decoded -->
 
@@ -35,13 +34,13 @@ Apossible exception to this may occur if a security vulnerability is discovered 
 
 <!-- formula-not-decoded -->
 
-- IGLDQG The set of interface revisions supported by an RMM implementation may include revisons with different major version numbers, for example:
+- The set of interface revisions supported by an RMM implementation may include revisons with different major version numbers, for example:
 
 <!-- formula-not-decoded -->
 
 <!-- formula-not-decoded -->
 
-- IJNVXJ The RMI\_VERSION and RSI\_VERSION commands allow the caller and the RMM to determine whether there exists a mutually acceptable revision of the interface via which the two components can communicate.
+- The RMI\_VERSION and RSI\_VERSION commands allow the caller and the RMM to determine whether there exists a mutually acceptable revision of the interface via which the two components can communicate.
 
 In each case:
 

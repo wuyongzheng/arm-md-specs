@@ -4,7 +4,7 @@ This section describes memory management from the Host's point of view.
 
 ## A5.3.1 Host IPA state
 
-DYZTZJ A Realm IPA has an associated Host IPA state (HIPAS).
+A Realm IPA has an associated Host IPA state (HIPAS).
 
 The HIPAS values are shown in the following table.
 
@@ -15,13 +15,12 @@ The HIPAS values are shown in the following table.
 | HIPAS_UNASSIGNED    | Protected IPA which is not associated with any Granule.   |
 | HIPAS_UNASSIGNED_NS | Unprotected IPA which is not associated with any Granule. |
 
-ITRSKJ HIPAS values are stored in a Realm Translation Table (RTT).
+HIPAS values are stored in a Realm Translation Table (RTT).
 
-IGZMKQ HIPAS transitions are caused by execution of RMI commands.
+HIPAS transitions are caused by execution of RMI commands.
 
-INQCGS A mapping at a Protected IPA is valid if the HIPAS is ASSIGNED and the RIPAS is RAM.
+A mapping at a Protected IPA is valid if the HIPAS is ASSIGNED and the RIPAS is RAM.
 
-IYMNSR
 
 The following table summarizes, for each combination of RIPAS and HIPAS for a Protected IPA:
 
@@ -47,7 +46,7 @@ Each TTD.X column refers to the value of the corresponding 'X' field in the arch
 
 This section describes how the HIPAS of a Protected IPA can change while the Realm state is REALM\_NEW.
 
-- IYNFGD The following diagram summarizes HIPAS changes at a Protected IPA which can occur when the Realm state is REALM\_NEW.
+- The following diagram summarizes HIPAS changes at a Protected IPA which can occur when the Realm state is REALM\_NEW.
 
 <!-- image -->
 
@@ -62,7 +61,7 @@ This section describes how the HIPAS of a Protected IPA can change while the Rea
 
 This section describes how the HIPAS of a Protected IPA can change while the Realm state is REALM\_ACTIVE.
 
-IWKZXY The following diagram summarizes HIPAS changes at a Protected IPA which can occur when the Realm state is REALM\_ACTIVE.
+The following diagram summarizes HIPAS changes at a Protected IPA which can occur when the Realm state is REALM\_ACTIVE.
 
 <!-- image -->
 
@@ -74,11 +73,11 @@ IWKZXY The following diagram summarizes HIPAS changes at a Protected IPA which c
 
 ## A5.3.4 Summary of changes to HIPAS and RIPAS of a Protected IPA
 
-ITJMCP The following diagram summarizes HIPAS and RIPAS changes at a Protected IPA which can occur when the Realm state is NEW.
+The following diagram summarizes HIPAS and RIPAS changes at a Protected IPA which can occur when the Realm state is NEW.
 
 <!-- image -->
 
-IVGKNJ The following diagram summarizes HIPAS and RIPAS changes at a Protected IPA which can occur when the Realm state is REALM\_ACTIVE.
+The following diagram summarizes HIPAS and RIPAS changes at a Protected IPA which can occur when the Realm state is REALM\_ACTIVE.
 
 <!-- image -->
 
@@ -95,7 +94,7 @@ IVGKNJ The following diagram summarizes HIPAS and RIPAS changes at a Protected I
 
 ## A5.3.5 Dependency of RMI command execution on RIPAS and HIPAS values
 
-IHLHZS The following table summarizes dependencies on RMI command execution on the current Protected IPA.
+The following table summarizes dependencies on RMI command execution on the current Protected IPA.
 
 | Command                 | Dependency on RIPAS                                       | Dependency on HIPAS                | New RIPAS             | New HIPAS   |
 |-------------------------|-----------------------------------------------------------|------------------------------------|-----------------------|-------------|
@@ -109,19 +108,16 @@ IHLHZS The following table summarizes dependencies on RMI command execution on t
 | RMI_RTT_INIT_RIPAS      | None                                                      | HIPAS is UNASSIGNED                | RAM                   | Unchanged   |
 | RMI_RTT_SET_RIPAS       | Optionally, Realm may specify that RIPAS is not DESTROYED | None                               | As specified by Realm | Unchanged   |
 
-IWBRCN
 
 Successful execution of RMI\_DATA\_CREATE\_UNKNOWN does not depend on the RIPAS value of the target IPA.
 
-ILCSVH
 
-IMMSBL
 
 Successful execution of RMI\_DATA\_DESTROY does not depend on the RIPAS value of the target IPA.
 
 Successful execution of RMI\_RTT\_DESTROY does not depend on the RIPAS values of entries in the target RTT.
 
-ITJCGT Successful execution of RMI\_RTT\_FOLD does depend on the RIPAS values of entries in the target RTT. See also:
+Successful execution of RMI\_RTT\_FOLD does depend on the RIPAS values of entries in the target RTT. See also:
 
 - B4.3.1 RMI\_DATA\_CREATE command
 - B4.3.2 RMI\_DATA\_CREATE\_UNKNOWN command
@@ -134,7 +130,7 @@ ITJCGT Successful execution of RMI\_RTT\_FOLD does depend on the RIPAS values of
 
 ## A5.3.6 Changes to HIPAS of an Unprotected IPA
 
-IYNYBY The following diagram summarises HIPAS transitions for an Unprotected IPA.
+The following diagram summarises HIPAS transitions for an Unprotected IPA.
 
 <!-- image -->
 

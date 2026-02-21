@@ -9,11 +9,11 @@ This section describes REC entry.
 
 ## A4.2.1 RmiRecEnter object
 
-- DSVSJM An RmiRecEnter object is a data structure used to pass values from the Host to the RMM on REC entry.
-- IYSKDN An RmiRecEnter object is stored in the RecRun object which is passed by the Host as an input to the RMI\_REC\_ENTER command.
-- ITRKKX On REC entry, execution state is restored from the REC object and from the RmiRecEnter object to the PE.
-- IGHDLM An RmiRecEnter object contains attributes which are used to manage Realm virtual interrupts.
-- DCLNLW The attributes of an RmiRecEnter object are summarized in the following table.
+- An RmiRecEnter object is a data structure used to pass values from the Host to the RMM on REC entry.
+- An RmiRecEnter object is stored in the RecRun object which is passed by the Host as an input to the RMI\_REC\_ENTER command.
+- On REC entry, execution state is restored from the REC object and from the RmiRecEnter object to the PE.
+- An RmiRecEnter object contains attributes which are used to manage Realm virtual interrupts.
+- The attributes of an RmiRecEnter object are summarized in the following table.
 
 | Name     | Byte offset   | Type             | Description   |
 |----------|---------------|------------------|---------------|
@@ -40,9 +40,7 @@ This section describes REC entry.
 | gprs[19] | 0x298         | Bits64           | Registers     |
 | gprs[20] | 0x2a0         | Bits64           | Registers     |
 
-IZWRQP
 
-ILFYDV
 
 | Name          | Byte offset   | Type   | Description                             |
 |---------------|---------------|--------|-----------------------------------------|
@@ -87,14 +85,14 @@ See also:
 
 ## A4.2.2 General purpose registers restored on REC entry
 
-- RNMSFT On REC entry, if the most recent exit from the target REC was a REC exit due to PSCI, then all of the following occur:
+- On REC entry, if the most recent exit from the target REC was a REC exit due to PSCI, then all of the following occur:
 - X0 to X6 contain the PSCI return code and PSCI output values.
 - GPR values X7 to X30 are restored from the REC object to the PE.
-- RRZRRM On REC entry, if either this is the first entry to this REC, or the most recent exit from the target REC was not a REC exit due to PSCI, then GPR values X0 to X30 are restored from the REC object to the PE.
-- RYSNYQ On REC entry, if rec.host\_call\_pending is HOST\_CALL\_PENDING, then GPR values X0 to X30 are copied from enter.gprs[0..30] to the RsiHostCall data structure.
-- RYWHKC On REC entry, if writing to the RsiHostCall data structure fails due to the target IPA not being mapped then a REC exit to Data Abort results.
-- RTZVNK On REC entry, if writing to the RsiHostCall data structure succeeds then rec.host\_call\_pending is NO\_HOST\_CALL\_PENDING.
-- RNLVXB On REC entry, if RMM access to enter causes a GPF then the RMI\_REC\_ENTER command fails with RMI\_ERROR\_INPUT.
+- On REC entry, if either this is the first entry to this REC, or the most recent exit from the target REC was not a REC exit due to PSCI, then GPR values X0 to X30 are restored from the REC object to the PE.
+- On REC entry, if rec.host\_call\_pending is HOST\_CALL\_PENDING, then GPR values X0 to X30 are copied from enter.gprs[0..30] to the RsiHostCall data structure.
+- On REC entry, if writing to the RsiHostCall data structure fails due to the target IPA not being mapped then a REC exit to Data Abort results.
+- On REC entry, if writing to the RsiHostCall data structure succeeds then rec.host\_call\_pending is NO\_HOST\_CALL\_PENDING.
+- On REC entry, if RMM access to enter causes a GPF then the RMI\_REC\_ENTER command fails with RMI\_ERROR\_INPUT.
 
 See also:
 
@@ -106,11 +104,11 @@ See also:
 
 ## A4.2.3 REC entry following REC exit due to Data Abort
 
-- RTWMDB On REC entry, if enter.flags.inject\_sea == RMI\_INJECT\_SEA then the value of enter.flags. ↪ → emul\_mmio is ignored.
-- RBWZKH On REC entry, if the most recent exit from the target REC was a REC exit due to Emulatable Data Abort and enter.flags.emul\_mmio == RMI\_EMULATED\_MMIO , then the return address is the next instruction following the faulting instruction.
-- RSCJWG On REC entry, if the most recent exit from the target REC was a REC exit due to Emulatable Data Abort and the Realm memory access was a read and enter.flags.emul\_mmio == RMI\_EMULATED\_MMIO , then the register indicated by ESR\_EL2.ISS.SRT is set to enter.gprs[0] .
-- IKNFDT On execution of RMI\_REC\_ENTER, if the most recent exit from the target REC was not a REC exit due to Emulatable Data Abort and enter.flags.emul\_mmio == RMI\_EMULATED\_MMIO , then the RMI\_REC\_ENTER command fails.
-- RLJWRK On REC entry, if the most recent exit from the target REC was a REC exit due to Data Abort at an Unprotected IPA and enter.flags.inject\_sea == RMI\_INJECT\_SEA , then a Synchronous External Abort is taken to the Realm.
+- On REC entry, if enter.flags.inject\_sea == RMI\_INJECT\_SEA then the value of enter.flags. ↪ → emul\_mmio is ignored.
+- On REC entry, if the most recent exit from the target REC was a REC exit due to Emulatable Data Abort and enter.flags.emul\_mmio == RMI\_EMULATED\_MMIO , then the return address is the next instruction following the faulting instruction.
+- On REC entry, if the most recent exit from the target REC was a REC exit due to Emulatable Data Abort and the Realm memory access was a read and enter.flags.emul\_mmio == RMI\_EMULATED\_MMIO , then the register indicated by ESR\_EL2.ISS.SRT is set to enter.gprs[0] .
+- On execution of RMI\_REC\_ENTER, if the most recent exit from the target REC was not a REC exit due to Emulatable Data Abort and enter.flags.emul\_mmio == RMI\_EMULATED\_MMIO , then the RMI\_REC\_ENTER command fails.
+- On REC entry, if the most recent exit from the target REC was a REC exit due to Data Abort at an Unprotected IPA and enter.flags.inject\_sea == RMI\_INJECT\_SEA , then a Synchronous External Abort is taken to the Realm.
 
 See also:
 
