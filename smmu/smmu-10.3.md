@@ -1,0 +1,52 @@
+## 10.3 Monitor events
+
+Performance events are indicated by a numeric ID, in the following ranges:
+
+- 0x0000 to 0x007F : Architected events
+- 0x0080 to 0xFFFF : IMPLEMENTATION DEFINED events
+
+The architecture defines the following event types and their causes. Unless otherwise specified, 'translation request' includes both ATS Translation Requests and non-ATS translation requests.
+
+|   Event ID | Description                                                    | Notes                                                                                                                                                                                                                                                                                                                                                                                                                                                | Mandatory   | Can filter on StreamID   |
+|------------|----------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|--------------------------|
+|          0 | Clock cycle                                                    | The period between these events is IMPLEMENTATION DEFINED. It is IMPLEMENTATION DEFINED whether this event is derived from a continuous time base or an SMMUclock which might be subject to IMPLEMENTATION SPECIFIC gating based on SMMUactivity.                                                                                                                                                                                                    | Y           | N                        |
+|          1 | Translation or request                                         | For a component processing client device transactions, this event counts once for each transaction. For a component performing translation services, this event counts once for each translation request received from another component. This event includes transactions or translation requests that lead to TLB or cache misses. This event may include any or all of the following: - terminated transactions, - prefetch transactions, - CMOs, | Y           | Y                        |
+|          2 | TLB miss caused by incoming transaction or translation request | This event is counted once when translation for an incoming transaction or translation request cannot be satisfied from internal TLB caching, and depends on a translation table access procedure or translation request to a different component. This event may include any or all of the following: - terminated transactions, - prefetch transactions, - CMOs, - ATOS requests. (1) (2)                                                          | Y           | Y                        |
+
+|   Event ID | Description                                                           | Notes                                                                                                                                                                                                                                                                                                                                                                                                                                             | Mandatory        | Can filter on StreamID   |
+|------------|-----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|--------------------------|
+|          3 | Configuration cache miss caused by transaction or translation request | This event is counted once when translation for an incoming transaction or translation request cannot be satisfied from internal configuration caching, and depends on a configuration table access procedure or request to a different component that provides configuration structure access services. This event may include any or all of the following: - terminated transactions, - prefetch transactions, - CMOs, - ATOS requests. (1) (2) | Y                | Y                        |
+|          4 | Translation table walk accesses                                       | External transactions performed by a translation table walker, including accesses performed speculatively. This applies to translation table walks performed for any reason (transactions, non-ATS translation requests, ATS Translation Requests, ATOS, HTTU or prefetch operations).                                                                                                                                                            | Y                | Y                        |
+|          5 | Configuration structure access                                        | External transactions performed by a configuration table walker, including accesses performed speculatively. This applies to configuration fetches performed for any reason.                                                                                                                                                                                                                                                                      | Y                | Y                        |
+|          6 | PCIe ATS Translation Request received                                 | Independent of success/failure of response. Note: ATS translation failures are visible at the endpoint, either through an error or because of the endpoint causing a software-visible PRI Page Request.                                                                                                                                                                                                                                           | If ATS supported | Y                        |
+|          7 | PCIe ATS Translated Transaction passed throughSMMU                    | An ATS Translated transaction was received by the component. This event includes both ATS Translated transactions subject to further Stage 2 translation because EATS= 0b10 , whether TLB/cache misses occurred or not, and those that bypass translation. This event may include terminated transactions (1). Note: Translated transactions might bypass or be subject to further translation, as STE.EATS dictates.                             | If ATS supported | Y                        |
+
+- (1) It is IMPLEMENTATION DEFINED whether events 1, 2, 3 and 7 include transactions terminated by the SMMU. Arm recommends that terminated transactions are included in all of, or none of, events 1, 2, 3 and 7.
+- (2) For each of the following, it is IMPLEMENTATION DEFINED whether they are included in events 1, 2 and 3:
+- Speculative transactions, prefetch transactions or prefetch commands from client devices or other components.
+- ATOS requests.
+- Cache Maintenance Operations (CMOs).
+
+Arm recommends that each of these options are either included in all of, or none of, events 1, 2 and 3.
+
+If granule protection checks are enabled, Event IDs 2 and 4 count accesses to the GPT, when a GPT access is performed. See also: 3.25 Granule Protection Checks . The other architected PMCG events do not count accesses to the GPT. IMPLEMENTATION DEFINED events are permitted to count GPT accesses, GPT-related TLB hits or GPT-related TLB misses for the appropriate Security state.
+
+If DPT is enabled, Event IDs 2 and 4 count DPT lookups for components that support DPT checks. See also: 3.24.3 DPT format and lookup process .
+
+Note: In the case where the SMMU is not permitted to generate a Device Access fault based on an existing DPT TLB entry and a DPT walk is required, event 2 is counted. See also: 3.24.2.1 DPT TLB caching and Device Access faults .
+
+PMCG events for configuration cache hits, misses and fetches for the STE lookups required by the DPT check are counted in the same manner as any other configuration-related event.
+
+IMPLEMENTATION DEFINED events are permitted to count DPT accesses, DPT-related TLB hits or DPT-related TLB misses.
+
+Counting of DPT lookups and accesses to the GPT is subject to the general filtering requirements in section 10.4 StreamIDs and filtering .
+
+It is IMPLEMENTATION DEFINED whether a transaction that is retried (for any reason) is re-counted. If it is re-counted, it appears exactly like a new transaction and all relevant events are re-counted. If it is not re-counted, no counters are triggered.
+
+When an event is mandatory, the following are both true:
+
+- The event is supported in at least one counter group.
+- The event is supported in as many groups as required to make the event countable for all possible StreamIDs in use.
+- Note: In a component that only caches TLB and configuration data in a single combined cache, events 2 and 3 count the same occurrence (a miss of the combined cache is a miss of both configuration and translation).
+
+Note: As an example, a distributed implementation might have different roles for different components (and therefore different PMCGs), so that one component might translate transactions from client devices and another component handles translation requests for the former. The first component has no table walker so it is not required to count events 4 and 5. These events are instead counted by the second component, which performs configuration and translation table walks. The second component could still include TLBs and configuration caches, in which case it would also count events 2 and 3.

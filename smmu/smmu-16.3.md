@@ -1,0 +1,5 @@
+## 16.3 Programming implications of bus address sizing
+
+If pointers are programmed into a device from the PE that would, on the PE, cause translation faults due to failing sign-extension checks, the SMMU will also raise a translation fault because of the sign-extension checks on input. However, if a system cannot convey all 64 address bits from a device, or a device lacks the ability to register upper address bits, the SMMU does not have enough information to perform these checks. In this case, Arm recommends that if detection of such errors is required, software (or the device, if it has the facility to hold the full address) checks the validity of upper bits.
+
+On Armv8-A PEs, the TBI facility allows the top byte of addresses to contain tags that are ignored when checking address sign-extension validity. If an address is truncated to &lt;= 56 bits on the flow through device DMA registers to device DMA accesses to I/O interconnect to the SMMU, the SMMU cannot check the validity of the top byte so effectively TBI is always used. In such a system, another entity (device, software) must check addresses if required.

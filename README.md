@@ -7,6 +7,7 @@ They are converted from the PDF files.
 
 * [Realm Management Monitor specification](rmm/rmm-contents.md) DEN0137\_1.0-rel0\_rmm-arch\_external.pdf
 * [Arm® Architecture Reference Manual for A-profile architecture](arm/arm-contents.md) DDI0487\_M.a.a\_a-profile\_architecture\_reference\_manual.pdf
+* [Arm System Memory Management Unit Architecture Specification SMMU architecture version 3](smmu/smmu-contents.md) IHI0070G\_b-System\_Memory\_Management\_Unit\_Architecture\_Specification.pdf
 
 ## The Backstage
 
