@@ -28,6 +28,6 @@ software, such as the Realm Management Monitor (RMM) and SMMU.
 * bash gen\_mds.sh rmm-chaps.tsv DEN0137\_1.0-rel0\_rmm-arch\_external.pdf rmm
 
 ## Credits & Legal
-* Arm Limited: All original specifications, diagrams, and technical content are the intellectual property of Arm Limited. These Markdown files are derivative works intended for development efficiency.
+* Arm Limited: All original specifications, diagrams, and technical content are the intellectual property of Arm Limited. These Markdown files are derivative works intended for development efficiency. Please refer to the official  website for the authoritative versions of these documents.
 * [docling](https://www.docling.ai/) is used for PDF to MD conversion.
 * [MuPDF](https://mupdf.com/) is used for PDF page and contents extraction.
