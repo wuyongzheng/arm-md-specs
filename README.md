@@ -8,9 +8,12 @@ software, such as the Realm Management Monitor (RMM) and SMMU.
 
 ## Markdown Specifications
 
-* [Realm Management Monitor specification](rmm/rmm-contents.md)
+* [Realm Management Monitor specification v1.0](rmm-v1/rmm-contents.md)
   * Version 1.0-rel0
   * DEN0137\_1.0-rel0\_rmm-arch\_external.pdf
+* [Realm Management Monitor specification v2.1](rmm-v2/rmm-contents.md)
+  * Version 2.1-alp0
+  * DEN0137\_2.1-alp0\_rmm-arch\_external.pdf
 * [Arm® Architecture Reference Manual for A-profile architecture](arm/arm-contents.md)
   * Version M.a.a
   * DDI0487\_M.a.a\_a-profile\_architecture\_reference\_manual.pdf

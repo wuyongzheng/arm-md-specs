@@ -1,6 +1,4 @@
-## Chapter C3
-
-## Generic types
+## Chapter C3 Generic types
 
 This section defines types which are shared between RMM interfaces and descriptions of RMM abstract state.
 

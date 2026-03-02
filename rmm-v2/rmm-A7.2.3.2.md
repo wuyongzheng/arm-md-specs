@@ -1,5 +1,3 @@
-
-
 ## A7.2.3.2 CCA device claims
 
 This section defines the format of the CCA device token claim map. The format is described using a combination of Concise Data Definition Language (CDDL) and text description.

@@ -1,6 +1,4 @@
-## Chapter C2
-
-## RMM types
+## Chapter C2 RMM types
 
 This section describes types which are used to model the abstract state of the RMM.
 

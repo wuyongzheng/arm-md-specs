@@ -1,4 +1,3 @@
-
 ## A7.2.3.1 Realm claims
 
 This section defines the format of the Realm token claim map. The format is described using a combination of Concise Data Definition Language (CDDL) and text description.

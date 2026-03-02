@@ -1,6 +1,4 @@
-## Chapter C1
-
-## RMM constants
+## Chapter C1 RMM constants
 
 This section describes constants which are used in the definition of RMM commands or RMM abstract state.
 
