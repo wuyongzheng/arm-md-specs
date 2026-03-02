@@ -29,7 +29,6 @@ The RMI\_PDEV\_STOP command operates on the following context.
 |--------|------------|--------|-----------|----------------|
 | result | X0         | 63:0   | RmiResult | Command result |
 
-DRAFT
 
 ## B4.5.32.2 Failure conditions
 
@@ -62,4 +61,3 @@ DRAFT
 | op         | pdev.op         |
 | comm_state | pdev.comm_state |
 
-DRAFT

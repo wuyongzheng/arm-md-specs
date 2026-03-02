@@ -31,7 +31,6 @@ The RSI\_MEM\_GET\_PERM\_VALUE command operates on the following context.
 | result | X0         | 63:0   | RsiCommandReturnCode | Command result          |
 | value  | X1         | 63:0   | Bits64               | Memory permission value |
 
-DRAFT
 
 ## B5.4.10.2 Failure conditions
 

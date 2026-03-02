@@ -1,6 +1,6 @@
 ## Chapter A1 Overview
 
-DRAFT The RMM is a software component which forms part of a system which implements the Arm Confidential Compute Architecture (Arm CCA). Arm CCA is an architecture which provides protected execution environments called Realms . The threat model which Arm CCA is designed to address is described in Introducing Arm CCA [1].
+The RMM is a software component which forms part of a system which implements the Arm Confidential Compute Architecture (Arm CCA). Arm CCA is an architecture which provides protected execution environments called Realms . The threat model which Arm CCA is designed to address is described in Introducing Arm CCA [1].
 
 The hardware architecture of Arm CCA is called the Realm Management Extension (RME), and is described in Arm Architecture Reference Manual Supplement, The Realm Management Extension (RME), for Armv9-A [2].
 
@@ -26,7 +26,7 @@ Figure A1.1: System software architecture
 
 <!-- image -->
 
-DRAFT Description
+Description
 
 The components shown in the diagram are listed below.
 
@@ -71,4 +71,3 @@ See also:
 - Chapter B5 Realm Services Interface
 - Chapter B6 Power State Control Interface
 
-DRAFT

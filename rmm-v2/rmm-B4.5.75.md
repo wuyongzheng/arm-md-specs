@@ -33,7 +33,6 @@ The RMI\_RTT\_SET\_RIPAS command operates on the following context.
 | ripas_pre    | RmmRipas         | walk.rtte.ripas                                                                                                                                    | true     | RIPAS before the command executed                                                                           |
 | walk_top_pre | Address          | RttSkipEntriesWithRipas( RttAt(walk.rtt_addr), walk.level, base, top, (rec.ripas_value == RIPAS_RAM) && (rec.ripas_destroyed != CHANGE_DESTROYED)) | true     | Top IPA of entries which have associated RIPAS values, starting from entry at which the RTT walk terminated |
 
-DRAFT
 
 ## B4.5.75.1.3 Output values
 
@@ -51,7 +50,7 @@ The out\_top output value is valid only when the command result is RMI\_SUCCESS.
 Condition
 
 ```
-DRAFT rd_align pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPUT rd_bound pre: !PaIsTracked(rd) post: result.status == RMI_ERROR_INPUT rd_state pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_INPUT rec_align pre: !AddrIsRmiGranuleAligned(rec_ptr) post: result.status == RMI_ERROR_INPUT rec_bound pre: !PaIsTracked(rec_ptr) post: result.status == RMI_ERROR_INPUT rec_gran_state pre: GranuleAt(rec_ptr).state != GRAN_REC post: result.status == RMI_ERROR_INPUT rec_state pre: rec.state == REC_RUNNING post: result.status == RMI_ERROR_REC rec_owner pre: rec.owner != rd post: result.status == RMI_ERROR_REC size_valid pre: UInt(top) <= UInt(base) post: result.status == RMI_ERROR_INPUT base_bound pre: base != rec.ripas_addr post: result.status == RMI_ERROR_INPUT top_bound pre: UInt(top) > UInt(rec.ripas_top) post: result.status == RMI_ERROR_INPUT base_align pre: (!AddrIsRttLevelAligned(base, walk.level) && ripas_pre != rec.ripas_value) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) top_gran_align pre: !AddrIsRmiGranuleAligned(top) post: result.status == RMI_ERROR_INPUT no_progress pre: (UInt(base) == UInt(walk_top_pre) && ripas_pre != rec.ripas_value) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) aux_live pre: AddrRangeIsAuxLive(base, top, realm_pre) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level)
+rd_align pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPUT rd_bound pre: !PaIsTracked(rd) post: result.status == RMI_ERROR_INPUT rd_state pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_INPUT rec_align pre: !AddrIsRmiGranuleAligned(rec_ptr) post: result.status == RMI_ERROR_INPUT rec_bound pre: !PaIsTracked(rec_ptr) post: result.status == RMI_ERROR_INPUT rec_gran_state pre: GranuleAt(rec_ptr).state != GRAN_REC post: result.status == RMI_ERROR_INPUT rec_state pre: rec.state == REC_RUNNING post: result.status == RMI_ERROR_REC rec_owner pre: rec.owner != rd post: result.status == RMI_ERROR_REC size_valid pre: UInt(top) <= UInt(base) post: result.status == RMI_ERROR_INPUT base_bound pre: base != rec.ripas_addr post: result.status == RMI_ERROR_INPUT top_bound pre: UInt(top) > UInt(rec.ripas_top) post: result.status == RMI_ERROR_INPUT base_align pre: (!AddrIsRttLevelAligned(base, walk.level) && ripas_pre != rec.ripas_value) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) top_gran_align pre: !AddrIsRmiGranuleAligned(top) post: result.status == RMI_ERROR_INPUT no_progress pre: (UInt(base) == UInt(walk_top_pre) && ripas_pre != rec.ripas_value) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) aux_live pre: AddrRangeIsAuxLive(base, top, realm_pre) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level)
 ```
 
 ID
@@ -78,7 +77,7 @@ rec_owner]
 
 <!-- image -->
 
-## DRAFT B4.5.75.3 Success conditions ID Condition rtte\_ripas post: RttEntriesInRangeRipas( RttAt(walk.rtt\_addr), walk.level, base, walk\_top\_pre, rec.ripas\_value) ripas\_addr post: rec.ripas\_addr == MinAddress(top, walk\_top\_pre) out\_top post: out\_top == MinAddress(top, walk\_top\_pre)
+## B4.5.75.3 Success conditions ID Condition rtte\_ripas post: RttEntriesInRangeRipas( RttAt(walk.rtt\_addr), walk.level, base, walk\_top\_pre, rec.ripas\_value) ripas\_addr post: rec.ripas\_addr == MinAddress(top, walk\_top\_pre) out\_top post: out\_top == MinAddress(top, walk\_top\_pre)
 
 ## B4.5.75.4 Footprint
 

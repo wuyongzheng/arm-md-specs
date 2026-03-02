@@ -35,7 +35,6 @@ The RMI\_RTT\_CREATE command operates on the following context.
 | walk_pre  | RmmRttWalkResult | RttWalk( realm, ipa, level - 1, RMM_RTT_TREE_PRIMARY) | true     | RTT walk result before command execution |
 | rtte_pre  | RmmRttEntry      | walk_pre.rtte                                         | true     | RTTE before command execution            |
 
-DRAFT
 
 ## B4.5.64.1.3 Output values
 
@@ -47,7 +46,7 @@ DRAFT
 
 <!-- image -->
 
-## DRAFT ID Condition rd\_align pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI\_ERROR\_INPUT rd\_bound pre: !PaIsTracked(rd) post: result.status == RMI\_ERROR\_INPUT rd\_state pre: GranuleAt(rd).state != GRAN\_RD post: result.status == RMI\_ERROR\_INPUT level\_bound pre: (!RttLevelIsValid(realm, level) || RttLevelIsStarting(realm, level)) post: result.status == RMI\_ERROR\_INPUT ipa\_align pre: !AddrIsRttLevelAligned(ipa, level -1) post: result.status == RMI\_ERROR\_INPUT ipa\_bound pre: UInt(ipa) &gt;= (2 ^ realm.ipa\_width) post: result.status == RMI\_ERROR\_INPUT rtt\_align pre: !AddrIsRmiGranuleAligned(rtt) post: result.status == RMI\_ERROR\_INPUT rtt\_bound pre: !PaIsDelegableConventionalFine(rtt) post: result.status == RMI\_ERROR\_INPUT rtt\_state pre: GranuleAt(rtt).state != GRAN\_DELEGATED post: result.status == RMI\_ERROR\_INPUT rtt\_bound2 pre: ((realm.feat\_lpa2 == FEATURE\_FALSE) &amp;&amp; (UInt(rtt) &gt;= 2^48)) post: result.status == RMI\_ERROR\_INPUT rtt\_walk pre: walk.level &lt; level -1 post: (result.status == RMI\_ERROR\_RTT &amp;&amp; result.data.level.level == walk.level) rtte\_state pre: walk.rtte.state == RTTE\_TABLE post: (result.status == RMI\_ERROR\_RTT &amp;&amp; result.data.level.level == walk.level) B4.5.64.2.1 Failure condition ordering [rd\_bound, rd\_state] &lt; [rtt\_walk, rtte\_state] [level\_bound, ipa\_bound] &lt; [rtt\_walk, rtte\_state] rd\_align rd\_bound rtt\_walk rd\_state level\_bound ipa\_bound ipa\_align rtt\_align rtt\_bound rtt\_state rtt\_bound2 rtte\_state B4.5.64.3 Success conditions ID Condition
+## ID Condition rd\_align pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI\_ERROR\_INPUT rd\_bound pre: !PaIsTracked(rd) post: result.status == RMI\_ERROR\_INPUT rd\_state pre: GranuleAt(rd).state != GRAN\_RD post: result.status == RMI\_ERROR\_INPUT level\_bound pre: (!RttLevelIsValid(realm, level) || RttLevelIsStarting(realm, level)) post: result.status == RMI\_ERROR\_INPUT ipa\_align pre: !AddrIsRttLevelAligned(ipa, level -1) post: result.status == RMI\_ERROR\_INPUT ipa\_bound pre: UInt(ipa) &gt;= (2 ^ realm.ipa\_width) post: result.status == RMI\_ERROR\_INPUT rtt\_align pre: !AddrIsRmiGranuleAligned(rtt) post: result.status == RMI\_ERROR\_INPUT rtt\_bound pre: !PaIsDelegableConventionalFine(rtt) post: result.status == RMI\_ERROR\_INPUT rtt\_state pre: GranuleAt(rtt).state != GRAN\_DELEGATED post: result.status == RMI\_ERROR\_INPUT rtt\_bound2 pre: ((realm.feat\_lpa2 == FEATURE\_FALSE) &amp;&amp; (UInt(rtt) &gt;= 2^48)) post: result.status == RMI\_ERROR\_INPUT rtt\_walk pre: walk.level &lt; level -1 post: (result.status == RMI\_ERROR\_RTT &amp;&amp; result.data.level.level == walk.level) rtte\_state pre: walk.rtte.state == RTTE\_TABLE post: (result.status == RMI\_ERROR\_RTT &amp;&amp; result.data.level.level == walk.level) B4.5.64.2.1 Failure condition ordering [rd\_bound, rd\_state] &lt; [rtt\_walk, rtte\_state] [level\_bound, ipa\_bound] &lt; [rtt\_walk, rtte\_state] rd\_align rd\_bound rtt\_walk rd\_state level\_bound ipa\_bound ipa\_align rtt\_align rtt\_bound rtt\_state rtt\_bound2 rtte\_state B4.5.64.3 Success conditions ID Condition
 
 ```
 rtt_state post: GranuleAt(rtt).state == GRAN_RTT
@@ -68,4 +67,3 @@ rtte_addr post: walk.rtte.addr == rtt result post: result.status == RMI_SUCCESS 
 | rtt_state | GranuleAt(rtt).state                        |
 | rtte      | RttEntryAt(RttAt(walk.rtt_addr), entry_idx) |
 
-DRAFT

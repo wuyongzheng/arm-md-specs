@@ -35,7 +35,6 @@ The RMI\_CMEM\_DESTROY command operates on the following context.
 |--------|------------|--------|-----------|----------------|
 | result | X0         | 63:0   | RmiResult | Command result |
 
-DRAFT
 
 ## B4.5.4.2 Failure conditions
 
@@ -74,7 +73,6 @@ cmem\_state]
 
 ## Condition
 
-DRAFT
 
 ID
 

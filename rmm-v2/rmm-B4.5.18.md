@@ -29,7 +29,6 @@ The RMI\_GRANULE\_RANGE\_UNDELEGATE command may initiate a Stateful RMI Operatio
 
 If result is RMI\_INCOMPLETE then the value of out\_top is UNKNOWN.
 
-DRAFT
 
 ## B4.5.18.2 Failure conditions
 
@@ -42,7 +41,6 @@ Condition
 | tracking     | pre: post:   | While processing the target range, the RMM was unable to proceed due to the state of a tracking region. result.status == RMI_ERROR_INPUT |
 | state        | pre: post:   | While processing the target range, the RMM encountered a Granule whose state is not GRAN_DELEGATED. result.status == RMI_ERROR_INPUT     |
 
-IGYZHH
 
 ID
 
@@ -64,4 +62,3 @@ The RMI\_GRANULE\_RANGE\_UNDELEGATE command does not have any failure condition 
 |------------|----------------------------------------|
 | gran_state | State of Granules in range [base, top) |
 
-DRAFT

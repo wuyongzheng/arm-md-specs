@@ -29,7 +29,6 @@ The RMI\_CMEM\_REMOVE\_PDEV command operates on the following context.
 |--------|------------|--------|-----------|----------------|
 | result | X0         | 63:0   | RmiResult | Command result |
 
-DRAFT
 
 ## B4.5.6.2 Failure conditions
 
@@ -62,7 +61,6 @@ pdev_gran_state pre: GranuleAt(pdev_ptr).state != GRAN_PDEV post: result.status 
 
 ## Condition
 
-DRAFT
 
 ## ID
 

@@ -31,7 +31,6 @@ The RMI\_VSMMU\_CMD\_GET command operates on the following context.
 | msi_addr | X3         | 63:0   | Address          | Address of virtual MSI to be injected into the Realm. This is valid if flags.irq == RMI_TRUE. |
 | msi_data | X4         | 63:0   | Bits64           | Data of virtual MSI to be injected into the Realm. This is valid if flags.irq == RMI_TRUE.    |
 
-DRAFT
 
 ## B4.5.94.2 Failure conditions
 
@@ -57,7 +56,6 @@ vsmmu_state pre: GranuleAt(vsmmu_ptr).state != GRAN_VSMMU post: result.status ==
 
 <!-- image -->
 
-DRAFT
 
 ## B4.5.94.3 Success conditions
 

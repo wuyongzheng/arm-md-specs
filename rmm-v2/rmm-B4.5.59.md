@@ -34,7 +34,6 @@ The RMI\_RTT\_AUX\_FOLD command operates on the following context.
 | entry_idx | UInt64           | RttEntryIndex( ipa, walk.level)        | false    | RTTE index            |
 | fold_pre  | RmmRttEntry      | RttFold( RttAt(walk.rtte.addr))        | true     | Result of folding RTT |
 
-DRAFT
 
 ## B4.5.59.1.3 Output values
 
@@ -50,7 +49,7 @@ DRAFT
 ## Condition
 
 ```
-DRAFT rd_align pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPUT rd_bound pre: !PaIsTracked(rd) post: result.status == RMI_ERROR_INPUT rd_state pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_INPUT level_bound pre: (!RttLevelIsValid(realm, level) || RttLevelIsStarting(realm, level)) post: result.status == RMI_ERROR_INPUT ipa_align pre: !AddrIsRttLevelAligned(ipa, level -1) post: result.status == RMI_ERROR_INPUT ipa_bound pre: !AddrIsProtected(ipa, realm) post: result.status == RMI_ERROR_INPUT index_bound pre: (realm.rtt_tree_per_plane == FEATURE_FALSE || index == RMM_RTT_TREE_PRIMARY || index > realm.num_aux_planes) post: result.status == RMI_ERROR_INPUT rtt_walk pre: walk.level < level -1 post: (result.status == RMI_ERROR_RTT_AUX && result.data.level.level == walk.level) rtte_state pre: walk.rtte.state != RTTE_TABLE post: (result.status == RMI_ERROR_RTT_AUX && result.data.level.level == walk.level) rtt_homo pre: !RttIsHomogeneous(RttAt(walk.rtte.addr)) post: (result.status == RMI_ERROR_RTT_AUX && result.data.level.level == level)
+rd_align pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPUT rd_bound pre: !PaIsTracked(rd) post: result.status == RMI_ERROR_INPUT rd_state pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_INPUT level_bound pre: (!RttLevelIsValid(realm, level) || RttLevelIsStarting(realm, level)) post: result.status == RMI_ERROR_INPUT ipa_align pre: !AddrIsRttLevelAligned(ipa, level -1) post: result.status == RMI_ERROR_INPUT ipa_bound pre: !AddrIsProtected(ipa, realm) post: result.status == RMI_ERROR_INPUT index_bound pre: (realm.rtt_tree_per_plane == FEATURE_FALSE || index == RMM_RTT_TREE_PRIMARY || index > realm.num_aux_planes) post: result.status == RMI_ERROR_INPUT rtt_walk pre: walk.level < level -1 post: (result.status == RMI_ERROR_RTT_AUX && result.data.level.level == walk.level) rtte_state pre: walk.rtte.state != RTTE_TABLE post: (result.status == RMI_ERROR_RTT_AUX && result.data.level.level == walk.level) rtt_homo pre: !RttIsHomogeneous(RttAt(walk.rtte.addr)) post: (result.status == RMI_ERROR_RTT_AUX && result.data.level.level == level)
 ```
 
 ## B4.5.59.2.1 Failure condition ordering
@@ -83,5 +82,4 @@ result post: result.status == RMI_SUCCESS rtte_state post: walk.rtte.state == fo
 | rtte      | RttEntry(walk.rtt_addr, entry_idx) |
 
 ```
-DRAFT
 ```

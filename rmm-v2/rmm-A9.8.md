@@ -1,16 +1,16 @@
 ## A9.8 Virtual SMMU
 
-- DLWQCC A Virtual SMMU (VSMMU) object stores the state of a Arm VSMMU which is emulated by the RMM.
-- ITQGHJ For every PSMMU used by one or more device functions which are assigned to a Realm, if one or more of those device functions require stage 1 translation then a corresponding VSMMU must be created.
-- IKTGRM A VSMMU can only be created while the Realm state is NEW.
-- IPSVBC A VSMMU is created and bound to a Realm by execution of RMI\_VSMMU\_CREATE. This command only permits VSMMU creation while the Realm state is NEW.
-- IGGQGB Supported VSMMU features can be discovered by calling RMI\_VSMMU\_FEATURES.
-- IZMGHD The Host provides the VSMMU AIDR and IDR values when executing RMI\_VSMMU\_CREATE.
-- IGTPMC RMI\_VSMMU\_CREATE fails if the provided AIDR or IDR values are not supported.
-- ITGPSW The encoding of the AIDR and IDR values is as specified by the Non-secure world SMMU architecture, which in some cases differ from the corresponding Realm world encodings.
-- IJWYQR A VSMMU is destroyed by execution of RMI\_VSMMU\_DESTROY.
-- IRQKHQ A VSMMU is bound to a VDEV by execution of RMI\_VDEV\_CREATE, with RmiVdevFlags::VSMMU set.
-- DRAFT ISBCYG A VSMMU is unbound from a VDEV by execution of RMI\_VDEV\_DESTROY. IQWBJH Mappings from Realm Protected IPA space to a VSMMU object are created by execution of RMI\_RTT\_ARCH\_DEV\_MAP. This command only permits such mappings to be created within the register IPA range specified on creation of the VSMMU object. This causes the HIPAS to change from HIPAS\_VOID to HIPAS\_ARCH\_DEV. IHZHZY Mappings from Realm Protected IPA space to a VSMMU object are removed by execution of RMI\_RTT\_ARCH\_DEV\_UNMAP. See also: · Arm System Memory Management Unit Architecture Specification [22] · A9.8.3 VSMMU liveness · A9.8.4 VSMMU validation
+- A Virtual SMMU (VSMMU) object stores the state of a Arm VSMMU which is emulated by the RMM.
+- For every PSMMU used by one or more device functions which are assigned to a Realm, if one or more of those device functions require stage 1 translation then a corresponding VSMMU must be created.
+- A VSMMU can only be created while the Realm state is NEW.
+- A VSMMU is created and bound to a Realm by execution of RMI\_VSMMU\_CREATE. This command only permits VSMMU creation while the Realm state is NEW.
+- Supported VSMMU features can be discovered by calling RMI\_VSMMU\_FEATURES.
+- The Host provides the VSMMU AIDR and IDR values when executing RMI\_VSMMU\_CREATE.
+- RMI\_VSMMU\_CREATE fails if the provided AIDR or IDR values are not supported.
+- The encoding of the AIDR and IDR values is as specified by the Non-secure world SMMU architecture, which in some cases differ from the corresponding Realm world encodings.
+- A VSMMU is destroyed by execution of RMI\_VSMMU\_DESTROY.
+- A VSMMU is bound to a VDEV by execution of RMI\_VDEV\_CREATE, with RmiVdevFlags::VSMMU set.
+- A VSMMU is unbound from a VDEV by execution of RMI\_VDEV\_DESTROY. IQWBJH Mappings from Realm Protected IPA space to a VSMMU object are created by execution of RMI\_RTT\_ARCH\_DEV\_MAP. This command only permits such mappings to be created within the register IPA range specified on creation of the VSMMU object. This causes the HIPAS to change from HIPAS\_VOID to HIPAS\_ARCH\_DEV. IHZHZY Mappings from Realm Protected IPA space to a VSMMU object are removed by execution of RMI\_RTT\_ARCH\_DEV\_UNMAP. See also: · Arm System Memory Management Unit Architecture Specification [22] · A9.8.3 VSMMU liveness · A9.8.4 VSMMU validation
 - B4.5.55 RMI\_RTT\_ARCH\_DEV\_MAP command
 - B4.5.56 RMI\_RTT\_ARCH\_DEV\_UNMAP command
 - B4.5.82 RMI\_VDEV\_CREATE command
@@ -21,7 +21,7 @@
 
 ## A9.8.1 VSMMU attributes
 
-- DPXJLR The attributes of a VSMMU are summarized in the following table.
+- The attributes of a VSMMU are summarized in the following table.
 
 | Name     | Type          | Description                                              |
 |----------|---------------|----------------------------------------------------------|
@@ -30,7 +30,6 @@
 | reg_base | Address       | Base IPA of register base in Realm's Protected IPA space |
 | reg_top  | Address       | Top IPA of register base in Realm's Protected IPA space  |
 
-ILKMSG
 
 | Name       | Type             | Description              |
 |------------|------------------|--------------------------|
@@ -48,28 +47,27 @@ See also:
 
 ## A9.8.2.1 States
 
-DRLWKJ The states of a VSMMU are listed below.
+The states of a VSMMU are listed below.
 
 | State          | Description                                |
 |----------------|--------------------------------------------|
 | VSMMU_INACTIVE | VSMMU has not been activated by the Realm. |
 | VSMMU_ACTIVE   | VSMMU has been activated by the Realm.     |
 
-RLBXWV Realm access to a VSMMU whose state is not VSMMU\_ACTIVE results in an UNKNOWN exception taken to the Realm.
+Realm access to a VSMMU whose state is not VSMMU\_ACTIVE results in an UNKNOWN exception taken to the Realm.
 
 ## A9.8.2.2 State transitions
 
-IYFWWL On creation by execution of RMI\_VSMMU\_CREATE, the initial state of a VSMMU is VSMMU\_INACTIVE.
+On creation by execution of RMI\_VSMMU\_CREATE, the initial state of a VSMMU is VSMMU\_INACTIVE.
 
-IRTHHQ Successful execution of RSI\_ARCH\_DEV\_ACTIVATE with the base input value matching the base IPA of the VSMMU register space causes the state of the VSMMU to transition to VSMMU\_ACTIVE.
+Successful execution of RSI\_ARCH\_DEV\_ACTIVATE with the base input value matching the base IPA of the VSMMU register space causes the state of the VSMMU to transition to VSMMU\_ACTIVE.
 
-DRAFT
 
-RQQQKK Successful execution of RSI\_ARCH\_DEV\_ACTIVATE with the base input value matching the base IPA of the VSMMU register space causes the RIPAS of all IPAs within its MMIO interface to transition to RIPAS\_DEV.
+Successful execution of RSI\_ARCH\_DEV\_ACTIVATE with the base input value matching the base IPA of the VSMMU register space causes the RIPAS of all IPAs within its MMIO interface to transition to RIPAS\_DEV.
 
-IWYTDS Successful execution of RMI\_RTT\_ARCH\_DEV\_UNMAP causes the state of the VSMMU to transition to VSMMU\_INACTIVE.
+Successful execution of RMI\_RTT\_ARCH\_DEV\_UNMAP causes the state of the VSMMU to transition to VSMMU\_INACTIVE.
 
-IDYYJM Permitted VSMMU state transitions are shown in the following table. The rightmost column lists the events which can cause the corresponding state transition.
+Permitted VSMMU state transitions are shown in the following table. The rightmost column lists the events which can cause the corresponding state transition.
 
 A transition from the pseudo-state NULL represents creation of a VSMMU object. A transition to the pseudo-state NULL represents destruction of a VSMMU object.
 
@@ -90,11 +88,9 @@ A transition from the pseudo-state NULL represents creation of a VSMMU object. A
 
 ## A9.8.3 VSMMU liveness
 
-DHJFFC
 
 VSMMU liveness is a property which means that there exists one or more mappings from Realm Protected IPA space to the VSMMU object.
 
-- IDTTJF
 
 If a VSMMU is live, it cannot be destroyed.
 
@@ -106,14 +102,13 @@ If a VSMMU is live, it cannot be destroyed.
 
 ## A9.8.4 VSMMU validation
 
-- ICWBCX The Realm queries whether an IPA is the base address of a VSMMU by execution of RSI\_VSMMU\_GET\_INFO.
-- IDJHHW The Realm activates the register interface of a VSMMU by execution of RSI\_ARCH\_DEV\_ACTIVATE. This causes the RIPAS of the IPA range to change from RIPAS\_EMPTY to RIPAS\_DEV.
+- The Realm queries whether an IPA is the base address of a VSMMU by execution of RSI\_VSMMU\_GET\_INFO.
+- The Realm activates the register interface of a VSMMU by execution of RSI\_ARCH\_DEV\_ACTIVATE. This causes the RIPAS of the IPA range to change from RIPAS\_EMPTY to RIPAS\_DEV.
 
-RDVFYY On execution of RSI\_ARCH\_DEV\_ACTIVATE, if the RMM reaches an RTTE within the IPA range whose HIPAS is not HIPAS\_ARCH\_DEV then the command fails with RSI\_ERROR\_DEVICE.
+On execution of RSI\_ARCH\_DEV\_ACTIVATE, if the RMM reaches an RTTE within the IPA range whose HIPAS is not HIPAS\_ARCH\_DEV then the command fails with RSI\_ERROR\_DEVICE.
 
-IPNHPB The attributes of a VSMMU are guaranteed not to change between execution of RSI\_VSMMU\_GET\_INFO and RSI\_ARCH\_DEV\_ACTIVATE.
+The attributes of a VSMMU are guaranteed not to change between execution of RSI\_VSMMU\_GET\_INFO and RSI\_ARCH\_DEV\_ACTIVATE.
 
-IBYDXH
 
 The programming model for validating and activating a VSMMU is shown in the following pseudocode:
 
@@ -122,10 +117,10 @@ int realm_validate_vsmmu(uint64_t base, uint64_t top) { uint64_t new_base; RsiRe
 ```
 
 ```
-DRAFT &new_base);
+&new_base);
 ```
 
-IPWPXX Setup of an VSMMU is illustrated in the following sequence diagram.
+Setup of an VSMMU is illustrated in the following sequence diagram.
 
 Figure A9.17: VSMMU setup
 
@@ -137,7 +132,6 @@ See also:
 
 - A9.8.2 VSMMU lifecycle
 
-IJZBBJ
 
 - B5.4.1 RSI\_ARCH\_DEV\_ACTIVATE command
 - B5.4.19 RSI\_VDEV\_GET\_INFO command
@@ -147,8 +141,8 @@ IJZBBJ
 
 This section describes how commands provided to a VSMMU via the virtual Command Queue are handled.
 
-- IMNMTM When a VSMMU Command Queue becomes non-empty due to the Realm enqueuing a command, a REC exit due to VSMMU command results.
-- ITGGMH Handling of a VSMMU command is described below.
+- When a VSMMU Command Queue becomes non-empty due to the Realm enqueuing a command, a REC exit due to VSMMU command results.
+- Handling of a VSMMU command is described below.
 
 ## 1. Realm enqueues command to VSMMU Command Queue
 
@@ -172,9 +166,8 @@ If the PSMMU Command Queue is full then a 'busy' error is returned to the Host.
 
 If the 'irq' flag is set then the Host injects a vIRQ into the Realm.
 
-- IHFBND Handling of a VSMMU command is illustrated in the following sequence diagram.
+- Handling of a VSMMU command is illustrated in the following sequence diagram.
 
-DRAFT
 
 ## See also:
 
@@ -184,13 +177,12 @@ DRAFT
 
 ## A9.8.6 Page Request Interface events
 
-DRAFT
 
 This section describes how Page Request Interface (PRI) events are delivered to a Realm which has an assigned VSMMU.
 
 ## A9.8.6.1 Page Request Interface flow
 
-IRPWPB Delivery and handling of a PRI event is described below.
+Delivery and handling of a PRI event is described below.
 
 ## 1. Device sends page request to PSMMU
 
@@ -234,7 +226,7 @@ The RMM then attempts to copy the PPR into the virtual SMMU PRI queue (vPRIQ), w
 
 The RMM returns the faulting IPA to the Host.
 
-DRAFT (b) The vPRIQ is not accessible because RIPAS is not RIPAS\_RAM, or S2AP does not permit write access The RMM sets SMMU\_R\_GERROR.PRIQ\_ABT\_ERR in the VSMMU. The RMM returns control to the Host, passing a flag which indicates that a virtual IRQ should be injected into the Realm, with the MSI address and data values for the GERROR interrupt which the Realm programmed into the VSMMU. (c) The vPRIQ has not been configured The RMM silently drops the PPR. The RMM returns control to the Host with no flag set. (d) The vPRIQ is full
+(b) The vPRIQ is not accessible because RIPAS is not RIPAS\_RAM, or S2AP does not permit write access The RMM sets SMMU\_R\_GERROR.PRIQ\_ABT\_ERR in the VSMMU. The RMM returns control to the Host, passing a flag which indicates that a virtual IRQ should be injected into the Realm, with the MSI address and data values for the GERROR interrupt which the Realm programmed into the VSMMU. (c) The vPRIQ has not been configured The RMM silently drops the PPR. The RMM returns control to the Host with no flag set. (d) The vPRIQ is full
 
 The RMM reads STE.PPAR to determine whether it should send a PASID value to the PSMMU.
 
@@ -278,9 +270,8 @@ If the PPR write was successful, the PSMMU consumes the command from the pCMDQ. 
 
 The device reissues the ATS request, which the SMMU completes with success, returning the translated address to the device.
 
-IRPRGP Delivery and handling of a PRI event is illustrated in the following sequence diagram.
+Delivery and handling of a PRI event is illustrated in the following sequence diagram.
 
-DRAFT
 
 Figure A9.19: Delivery and handling of a PRI event (part 1 of 2)
 

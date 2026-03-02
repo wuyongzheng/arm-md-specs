@@ -4,4 +4,3 @@ This section describes how Realms are executed, and how exceptions which cause e
 
 - A2.2.2 Realm execution environment
 
-DRAFT

@@ -7,4 +7,3 @@ This chapter introduces the following concepts which are central to the RMM arch
 - A2.3 Physical memory
 - A2.4 Realm Execution Context
 
-DRAFT

@@ -40,7 +40,6 @@ Figure D1.4: RTT creation flow
 
 <!-- image -->
 
-DRAFT
 
 See also:
 
@@ -62,7 +61,6 @@ The following diagram shows the flow for initializing the RIPAS without providin
 
 <!-- image -->
 
-DRAFT
 
 Figure D1.5: RIPAS initialization flow
 
@@ -82,7 +80,6 @@ Once the Data Granule has been created, the src Granule can be reallocated by th
 - A2.3.6 Granule state
 - A5.2.2 Realm IPA state
 
-DRAFT
 
 - A7.1.1 Realm Initial Measurement
 - B4.5.17 RMI\_GRANULE\_RANGE\_DELEGATE command
@@ -138,7 +135,6 @@ Steps 1 and 2 above can be performed in either order.
 
 Once each object (DATA, REC, RTT and RD) has been destroyed, the corresponding Granules can be undelegated and reallocated by the Host.
 
-DRAFT
 
 Figure D1.8: Realm destruction flow (part 1 of 2)
 

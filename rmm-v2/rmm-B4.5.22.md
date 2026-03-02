@@ -30,7 +30,6 @@ See also:
 | complete | pre: !OperationIncomplete(handle) post: result.status == RMI_ERROR_INPUT                                                 |
 | fail     | pre: The resumed command fails. post: Output values are populated according to the specification of the resumed command. |
 
-DRAFT
 
 ## B4.5.22.2.1 Failure condition ordering
 

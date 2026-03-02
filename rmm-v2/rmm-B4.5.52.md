@@ -32,7 +32,6 @@ The RMI\_RMM\_ACTIVATE command operates on the following context.
 |--------|------------|--------|-----------|----------------|
 | result | X0         | 63:0   | RmiResult | Command result |
 
-DRAFT
 
 ## B4.5.52.2 Failure conditions
 

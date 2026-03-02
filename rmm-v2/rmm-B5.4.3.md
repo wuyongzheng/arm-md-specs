@@ -33,7 +33,6 @@ The RSI\_ATTESTATION\_TOKEN\_INIT command operates on the following context.
 | realm  | RmmRealm | CurrentRealm() | false    | Current Realm |
 | rec    | RmmRec   | CurrentRec()   | false    | Current REC   |
 
-DRAFT
 
 ## B5.4.3.1.3 Output values
 
@@ -60,4 +59,3 @@ state post: rec.attest_state == ATTEST_IN_PROGRESS challenge post: rec.attest_ch
 
 <!-- image -->
 
-DRAFT

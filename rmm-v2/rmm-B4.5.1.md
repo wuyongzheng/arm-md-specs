@@ -30,7 +30,6 @@ The RMI\_ATTEST\_PLAT\_TOKEN\_REFRESH command operates on the following context.
 
 ## B4.5.1.2 Failure conditions
 
-DRAFT
 
 | ID        | Condition                                                                          |
 |-----------|------------------------------------------------------------------------------------|

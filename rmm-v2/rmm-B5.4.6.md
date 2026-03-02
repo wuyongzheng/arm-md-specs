@@ -33,7 +33,6 @@ The RSI\_IPA\_STATE\_GET command operates on the following context.
 | out_top | X1         | 63:0   | Address              | Top of IPA region which has the reported RIPAS value |
 | ripas   | X2         | 7:0    | RsiRipas             | RIPAS value                                          |
 
-DRAFT
 
 The following unused bits of RSI\_IPA\_STATE\_GET output values MBZ: X2[63:8].
 
@@ -73,4 +72,3 @@ ripas post: Value of out_top is such that RIPAS of address [base, out_top) is eq
 
 The RSI\_IPA\_STATE\_GET command does not have any footprint.
 
-DRAFT

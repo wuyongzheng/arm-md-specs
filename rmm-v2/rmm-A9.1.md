@@ -1,10 +1,10 @@
 ## A9.1 Realm device assignment overview
 
-- IDKBCY The RMM allows a device to be assigned to a Realm in a trustworthy manner, allowing the Realm to attest the identity and configuration of the device before it is permitted to access the Realm's memory.
+- The RMM allows a device to be assigned to a Realm in a trustworthy manner, allowing the Realm to attest the identity and configuration of the device before it is permitted to access the Realm's memory.
 
 ## A9.1.1 Device objects
 
-- IWQVRH From the Host point of view, devices are managed using the following RMM objects:
+- From the Host point of view, devices are managed using the following RMM objects:
 - Physical Device (PDEV)
 
 Represents a communication channel between the RMM and a physical device, for example a PCIe device.
@@ -32,21 +32,20 @@ See also:
 
 ## A9.1.2 Device properties
 
-DRAFT
 
-- DPTXBK The trust model of a PDEV determines the actions which are necessary for the whole device, or one of its interfaces, to be admitted into the TCB of a Realm. A device trust model is one of the following:
+- The trust model of a PDEV determines the actions which are necessary for the whole device, or one of its interfaces, to be admitted into the TCB of a Realm. A device trust model is one of the following:
 - Selective trust : a Realm makes a decision whether to trust a given VDEV which has been assigned to it. Until and unless the Realm informs the RMM that it trusts the VDEV, the device is not granted access to the Realm's memory.
 - Comprehensive trust : all Realms implicitly trust the entire device.
 
 In this version of the specification, the only supported type of comprehensive trust device is a coherent memory device.
 
-- DGRWDX The communication model of a PDEV determines how the RMM communicates management requests to the device. The communication model also constrains the form of device identity evidence used during device assignment. A device communication model is one of the following:
+- The communication model of a PDEV determines how the RMM communicates management requests to the device. The communication model also constrains the form of device identity evidence used during device assignment. A device communication model is one of the following:
 - SPDM communication : communication consists of Security Protocol and Data Model (SPDM) messages, transported via Non-secure memory.
 - -Device identity evidence : the device certificate chain.
 - Platform communication : communication is performed via a secure IMPLEMENTATION DEFINED channel.
 - -Device identity evidence : IMPLEMENTATION DEFINED.
 
-DBKVYM The traffic protection model of a PDEV determines how the confidentiality and integrity of traffic between the SoC and the device is protected. A device traffic protection model is one of the following:
+The traffic protection model of a PDEV determines how the confidentiality and integrity of traffic between the SoC and the device is protected. A device traffic protection model is one of the following:
 
 - IDE protection : traffic is protected using the Integrity and Data Encryption (IDE) standard.
 - Platform protection : traffic is protected via system construction, for example by restricting physical access to the transport.
@@ -64,7 +63,7 @@ See also:
 
 ## A9.1.3.1 Assignment of a selective-trust device
 
-- ISZYSK Assignment of a selective-trust device to a Realm involves the following steps:
+- Assignment of a selective-trust device to a Realm involves the following steps:
 1. The Host creates and initializes a PDEV object, associated with the target physical device. This causes the following to happen:
 - A secure communication channel is established between the RMM and the device. Details depend on the device communication model .
 - Protection is configured for traffic between the SoC and the device. Details depend on the device traffic protection model .
@@ -72,7 +71,6 @@ See also:
 - A digest of the device identity evidence is stored by the RMM. This is used later to check integrity of the attestation evidence provided by the Host to the Realm.
 2. If communication between the RMM and the device uses SPDM, the Host extracts the public key from the device certificate chain and provides it to the RMM. The RMM verifies that the device to which it has a secure communication channel holds the corresponding private key. The RMM stores a digest of the public key.
 
-DRAFT
 
 3. The Host creates a VDEV object, which represents a binding between a function of the target device, and a Realm. At this stage, the target device is not granted access to the Realm-owned memory.
 4. Optionally, the Host maps memory regions of the target device function into the Protected IPA space of the Realm. At this stage, the mappings are invalid, so the Realm cannot yet access the device's memory regions.
@@ -99,7 +97,6 @@ Chapter A9. Realm device assignment A9.1. Realm device assignment overview
 
 <!-- image -->
 
-RPYHYC
 
 For a selective-trust device which uses SPDM communication, all of the following are true:
 
@@ -109,7 +106,7 @@ For a selective-trust device which uses SPDM communication, all of the following
 
 ## A9.1.3.2 Initialization of a comprehensive-trust device
 
-IKLRYY Initialization of a comprehensive-trust device is illustrated in the following sequence diagram.
+Initialization of a comprehensive-trust device is illustrated in the following sequence diagram.
 
 Figure A9.2: Initialization of a comprehensive-trust device
 

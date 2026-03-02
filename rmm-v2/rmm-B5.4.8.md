@@ -30,7 +30,6 @@ The RSI\_MEASUREMENT\_EXTEND command operates on the following context.
 | realm_pre | RmmRealm                                   | CurrentRealm()                             | true     | Current Realm              |
 | meas_pre  | RmmRealmMeasurement realm_pre.rem[[index]] | RmmRealmMeasurement realm_pre.rem[[index]] | true     | Previous measurement value |
 
-DRAFT
 
 ## B5.4.8.1.3 Output values
 
@@ -74,4 +73,3 @@ realm.rem[[index
 
 1]]
 
-DRAFT

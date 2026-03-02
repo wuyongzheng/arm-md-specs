@@ -32,7 +32,6 @@ The PSCI\_AFFINITY\_INFO command operates on the following context.
 |------------|--------|--------------------------------|----------|---------------|
 | target_rec | RmmRec | RecFromMpidr( target_affinity) | false    | Target REC    |
 
-DRAFT
 
 ## B6.3.1.1.3 Output values
 
@@ -72,4 +71,3 @@ runnable pre: target_rec.flags.runnable == RUNNABLE post: result == PSCI_SUCCESS
 
 The PSCI\_AFFINITY\_INFO command does not have any footprint.
 
-DRAFT

@@ -28,7 +28,6 @@ The RMI\_VDEV\_UNLOCK command operates on the following context.
 | vdev   | RmmVdev           | VdevAt(vdev_ptr)     | false    | VDEV                                   |
 | mapped | RmmVdevAddrResult | VdevFindMapped(vdev) | false    | Result of scanning for mapped Granules |
 
-DRAFT
 
 ## B4.5.91.1.3 Output values
 
@@ -59,7 +58,7 @@ DRAFT
 | vdev_gran_state | pre: post:   | GranuleAt(vdev_ptr).state != GRAN_VDEV result.status == RMI_ERROR_INPUT                                                                      |
 | vdev_realm      | pre: post:   | vdev.realm != rd result.status == RMI_ERROR_INPUT                                                                                            |
 | vdev_pdev       | pre: post:   | vdev.pdev != pdev_ptr result.status == RMI_ERROR_DEVICE                                                                                      |
-| vdev_state      | pre: post:   | DRAFT (vdev.vdev_state != VDEV_LOCKED && vdev.vdev_state != VDEV_STARTED && vdev.vdev_state != VDEV_ERROR) result.status == RMI_ERROR_DEVICE |
+| vdev_state      | pre: post:    (vdev.vdev_state != VDEV_LOCKED && vdev.vdev_state != VDEV_STARTED && vdev.vdev_state != VDEV_ERROR) result.status == RMI_ERROR_DEVICE |
 | comm_state      | pre: post:   | vdev.comm_state != DEV_COMM_IDLE result.status == RMI_ERROR_DEVICE                                                                           |
 | gran_mapped     | pre: post:   | mapped.valid == RMM_TRUE (result.status == RMI_ERROR_GRANULE && addr == mapped.addr)                                                         |
 

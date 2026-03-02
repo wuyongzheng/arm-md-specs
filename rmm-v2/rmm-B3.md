@@ -8,7 +8,6 @@ See also:
 
 - B1.4 Command condition expressions
 
-DRAFT
 
 ## B3.1 AddrInRange function
 
@@ -60,7 +59,7 @@ boolean
 
 ## B3.6 AddrIsRmiGranuleAligned function
 
-DRAFT Returns TRUE if address addr is a Protected IPA for realm pure func AddrIsProtected( addr : Address, realm : RmmRealm) =&gt; boolean begin return UInt(addr) &lt; 2^(realm.ipa\_width -1); end; Returns TRUE if address addr is aligned to the size of an RMI Granule.
+Returns TRUE if address addr is a Protected IPA for realm pure func AddrIsProtected( addr : Address, realm : RmmRealm) =&gt; boolean begin return UInt(addr) &lt; 2^(realm.ipa\_width -1); end; Returns TRUE if address addr is aligned to the size of an RMI Granule.
 
 ```
 readonly func AddrIsRmiGranuleAligned( addr : Address) => boolean begin var rmm : RmmGlobal = Rmm(); return AddrIsAligned(addr, rmm.dynamic.rmi_granule_size); end;
@@ -119,7 +118,7 @@ pure func AddrIsWithin( addr : Address, base : Address, top : Address) => boolea
 ```
 
 ```
-DRAFT UInt(addr); UInt(base);
+UInt(addr); UInt(base);
 ```
 
 ## B3.11 AddrRangeIsAuxLive function
@@ -152,7 +151,7 @@ Returns TRUE if all addresses in the inner range [inner\_base, inner\_top) are w
 pure func AddrRangeIsWithin( inner_base : Address, inner_top : Address, outer_base : Address, outer_top : Address) => boolean begin return (AddrIsWithin(inner_base, outer_base, outer_top) && AddrIsWithin(inner_top, outer_base, outer_top)); end;
 ```
 
-DRAFT B3.14 AddrSetAllDelegableCohDevMem function Returns TRUE if the first size bytes of the Address Set identified by set\_addr and set\_addr\_type are delegable coherent device memory. readonly func AddrSetAllDelegableCohDevMem( set\_desc : RmiAddrSetDesc, set\_addr\_type : RmiRttAddrType, size : integer) =&gt; boolean begin var rmm : RmmGlobal = Rmm(); var offset : integer = 0; while offset &lt; size do var addr : Address = AddrSetEntry(set\_desc, set\_addr\_type, offset); if !PaIsDelegableCohDevMem(addr) then return FALSE; end; offset = offset + rmm.dynamic.rmi\_granule\_size; end; return TRUE; end;
+B3.14 AddrSetAllDelegableCohDevMem function Returns TRUE if the first size bytes of the Address Set identified by set\_addr and set\_addr\_type are delegable coherent device memory. readonly func AddrSetAllDelegableCohDevMem( set\_desc : RmiAddrSetDesc, set\_addr\_type : RmiRttAddrType, size : integer) =&gt; boolean begin var rmm : RmmGlobal = Rmm(); var offset : integer = 0; while offset &lt; size do var addr : Address = AddrSetEntry(set\_desc, set\_addr\_type, offset); if !PaIsDelegableCohDevMem(addr) then return FALSE; end; offset = offset + rmm.dynamic.rmi\_granule\_size; end; return TRUE; end;
 
 ## B3.15 AddrSetAllDelegableNonCohDevMem function
 
@@ -189,7 +188,7 @@ readonly func addr : Address, level : integer) => Address
 Round up addr to align to the size of the address range described by an RTTE in a level level RTT.
 
 ```
-DRAFT AlignDownToRttLevel(
+AlignDownToRttLevel(
 ```
 
 ```
@@ -268,7 +267,7 @@ Returns TRUE if PDEV MEC refresh has been completed for Realm realm on all PDEVs
 
 - The PDEV is a member of a CMEM Interleave Set.
 
-DRAFT integer
+integer
 
 - Per-Realm encryption is enabled on the CMEM Interleave Set.
 
@@ -329,7 +328,7 @@ readonly func DptEntryCanDescribe( addr : Address, size : integer) => boolean be
 ```
 
 ```
-DRAFT readonly func DeviceCommunicate( pdev : RmmPdev, data : RmiDevCommData) => RmmDevCommState readonly func DeviceCommunicate( vdev : RmmVdev, data : RmiDevCommData) => RmmDevCommState readonly func DeviceCommunicate( vdev : RmmVdev) => RmmDevCommState size .
+readonly func DeviceCommunicate( pdev : RmmPdev, data : RmiDevCommData) => RmmDevCommState readonly func DeviceCommunicate( vdev : RmmVdev, data : RmiDevCommData) => RmmDevCommState readonly func DeviceCommunicate( vdev : RmmVdev) => RmmDevCommState size .
 ```
 
 ## B3.30 DptL0 function
@@ -357,7 +356,7 @@ RmmDptL0Entry
 Check whether concrete and abstract values are equal
 
 ```
-DRAFT pure func Equal( abstract : RmmFeature, concrete : RmiFeature) => boolean pure func Equal( concrete : RmiFeature, abstract : RmmFeature) => boolean pure func Equal( abstract : RmmHashAlgorithm, concrete : RmiHashAlgorithm) => boolean pure func Equal( concrete : RmiHashAlgorithm, abstract : RmmHashAlgorithm) => boolean pure func Equal( abstract : RmmLfaPolicy, concrete : RmiLfaPolicy) => boolean pure func Equal( concrete : RmiLfaPolicy, abstract : RmmLfaPolicy) => boolean pure func Equal( abstract : RmmMecPolicy, concrete : RmiMecPolicy) => boolean pure func Equal( concrete : RmiMecPolicy, abstract : RmmMecPolicy) => boolean pure func Equal( abstract : RmmMemCategory, concrete : RmiMemCategory) => boolean pure func Equal( concrete : RmiMemCategory, abstract : RmmMemCategory) => boolean pure func Equal( abstract : RmmOpCanCancel, concrete : RmiOpCanCancel) => boolean pure func Equal( concrete : RmiOpCanCancel,
+pure func Equal( abstract : RmmFeature, concrete : RmiFeature) => boolean pure func Equal( concrete : RmiFeature, abstract : RmmFeature) => boolean pure func Equal( abstract : RmmHashAlgorithm, concrete : RmiHashAlgorithm) => boolean pure func Equal( concrete : RmiHashAlgorithm, abstract : RmmHashAlgorithm) => boolean pure func Equal( abstract : RmmLfaPolicy, concrete : RmiLfaPolicy) => boolean pure func Equal( concrete : RmiLfaPolicy, abstract : RmmLfaPolicy) => boolean pure func Equal( abstract : RmmMecPolicy, concrete : RmiMecPolicy) => boolean pure func Equal( concrete : RmiMecPolicy, abstract : RmmMecPolicy) => boolean pure func Equal( abstract : RmmMemCategory, concrete : RmiMemCategory) => boolean pure func Equal( concrete : RmiMemCategory, abstract : RmmMemCategory) => boolean pure func Equal( abstract : RmmOpCanCancel, concrete : RmiOpCanCancel) => boolean pure func Equal( concrete : RmiOpCanCancel,
 ```
 
 | abstract                               | : RmmOpCanCancel) => boolean                                      |
@@ -369,7 +368,7 @@ DRAFT pure func Equal( abstract : RmmFeature, concrete : RmiFeature) => boolean 
 | pure func abstract : concrete :        | Equal( RmmPdevState, RmiPdevState) => boolean                     |
 | pure func concrete abstract            | Equal( : RmiPdevState, : RmmPdevState) => boolean                 |
 | pure func abstract concrete            | Equal( : RmmPdevStreamType, : RmiPdevStreamType) => boolean       |
-| pure func concrete abstract            | DRAFT Equal( : RmiPdevStreamType, : RmmPdevStreamType) => boolean |
+| pure func concrete abstract             Equal( : RmiPdevStreamType, : RmmPdevStreamType) => boolean |
 | pure func abstract concrete            | Equal( : RmmRecRunnable, : RmiRecRunnable) => boolean             |
 | pure func concrete : abstract :        | Equal( RmiRecRunnable, RmmRecRunnable) => boolean                 |
 | pure func Equal( abstract : concrete : | RmmRipas, RmiRipas) => boolean                                    |
@@ -385,7 +384,7 @@ DRAFT pure func Equal( abstract : RmmFeature, concrete : RmiFeature) => boolean 
 | pure func Equal( abstract concrete       | : RmmTrackingRegionState, : RmiTrackingRegionState) => boolean |
 | pure func Equal( concrete : abstract :   | RmiTrackingRegionState, RmmTrackingRegionState) => boolean     |
 | pure func abstract concrete              | Equal( : RmmVdevState, : RmiVdevState) => boolean              |
-| pure func Equal( concrete : abstract : : | DRAFT RmiVdevState, RmmVdevState) => boolean                   |
+| pure func Equal( concrete : abstract : :  RmiVdevState, RmmVdevState) => boolean                   |
 | pure func Equal( abstract : concrete     | RmmFeature, RsiFeature) => boolean                             |
 | pure func Equal( concrete : abstract :   | RsiFeature, RmmFeature) => boolean                             |
 | pure func abstract concrete              | Equal( : RmmHashAlgorithm, : RsiHashAlgorithm) => boolean      |
@@ -425,7 +424,7 @@ See also:
 - B4.6.64 RmiRecEnter type
 
 ```
-DRAFT RSI_FEATURE_FALSE;
+RSI_FEATURE_FALSE;
 ```
 
 ## B3.36 GptL0Walk function
@@ -495,7 +494,7 @@ readonly func GranuleSizeToRmi( size : integer) => RmiGranuleSize begin case siz
 ```
 
 ```
-DRAFT boolean
+boolean
 ```
 
 ```
@@ -540,7 +539,7 @@ See also:
 
 ## B3.46 MemCategoryIsCompatible function
 
-DRAFT boolean
+boolean
 
 Returns TRUE if the specified memory category is compatible with the system memory layout view for the specified address.
 
@@ -580,7 +579,7 @@ Returns TRUE if the specified MPIDR values are logically equivalent.
 
 ## B3.51 MsiAddrIsValid function
 
-DRAFT pure func MpidrEqual( rmm\_mpidr : bits(64), rmi\_mpidr : RmiRecMpidr) =&gt; boolean begin return (rmm\_mpidr[ 3: 0] == rmi\_mpidr.aff0 &amp;&amp; rmm\_mpidr[15: 8] == rmi\_mpidr.aff1 &amp;&amp; rmm\_mpidr[23:16] == rmi\_mpidr.aff2 &amp;&amp; rmm\_mpidr[31:24] == rmi\_mpidr.aff3); end; Returns TRUE if the specified MPIDR value identifies a REC in the current Realm. readonly func MpidrIsUsed( mpidr : bits(64)) =&gt; boolean Returns TRUE if addr is a valid MSI address.
+pure func MpidrEqual( rmm\_mpidr : bits(64), rmi\_mpidr : RmiRecMpidr) =&gt; boolean begin return (rmm\_mpidr[ 3: 0] == rmi\_mpidr.aff0 &amp;&amp; rmm\_mpidr[15: 8] == rmi\_mpidr.aff1 &amp;&amp; rmm\_mpidr[23:16] == rmi\_mpidr.aff2 &amp;&amp; rmm\_mpidr[31:24] == rmi\_mpidr.aff3); end; Returns TRUE if the specified MPIDR value identifies a REC in the current Realm. readonly func MpidrIsUsed( mpidr : bits(64)) =&gt; boolean Returns TRUE if addr is a valid MSI address.
 
 ```
 readonly func MsiAddrIsValid( addr : Address) => boolean
@@ -643,7 +642,7 @@ readonly func PaAllDelegableConventional32( addr : array [[32]] of Address, coun
 ```
 
 ```
-DRAFT then
+then
 ```
 
 ## B3.57 PaIsCohDevMem function
@@ -690,7 +689,7 @@ Returns TRUE if the Granule located at physical address addr is delegable conven
 readonly func PaIsDelegableConventional( addr : Address) => boolean begin var region : RmmTrackingRegion = TrackingRegionAt(addr); return (PaIsDram(addr) && PaIsTracked(addr)) || (PaIsDelegableCohDevMem(addr) && region.category == MEM_CATEGORY_CONVENTIONAL); end;
 ```
 
-- DRAFT readonly func PaIsDelegableCohDevMem( addr : Address) =&gt; boolean begin return (PaIsCohDevMem(addr) &amp;&amp; PaIsPopulated(addr) &amp;&amp; PaIsTracked(addr)); end; See also: · A2.3.5 Delegable physical memory
+- readonly func PaIsDelegableCohDevMem( addr : Address) =&gt; boolean begin return (PaIsCohDevMem(addr) &amp;&amp; PaIsPopulated(addr) &amp;&amp; PaIsTracked(addr)); end; See also: · A2.3.5 Delegable physical memory
 
 ## See also:
 
@@ -737,7 +736,7 @@ readonly func addr : Address) => boolean begin return (PaIsNonCohDevMem(addr) &&
 ## B3.64 PaIsDram function
 
 ```
-DRAFT PaIsDelegableNonCohDevMem(
+PaIsDelegableNonCohDevMem(
 ```
 
 Returns TRUE if the Granule located at physical address addr is within a region of the system memory map which is backed by DRAM.
@@ -787,7 +786,7 @@ Returns TRUE if the tracking region which includes address addr is tracked.
 
 Note that a TRUE return value does not indicate whether the address is backed by a resource which has been verified by the RMM.
 
-- DRAFT readonly func PaIsTracked( addr : Address) =&gt; boolean begin var region : RmmTrackingRegion = TrackingRegionAt(addr); return (region.state == TRACKING\_COARSE || region.state == TRACKING\_FINE); end; See also: · A2.3.4 Granule tracking region · B3.66 PaIsPopulated function
+- readonly func PaIsTracked( addr : Address) =&gt; boolean begin var region : RmmTrackingRegion = TrackingRegionAt(addr); return (region.state == TRACKING\_COARSE || region.state == TRACKING\_FINE); end; See also: · A2.3.4 Granule tracking region · B3.66 PaIsPopulated function
 
 ## B3.68 PaIsTrackedFine function
 
@@ -852,7 +851,7 @@ readonly func PdevFlags( pdev : RmmPdev) => RmiPdevFlags begin var flags : RmiPd
 ```
 
 ```
-DRAFT RmmPdev RMI_SPDM_FALSE;
+RmmPdev RMI_SPDM_FALSE;
 ```
 
 ## B3.73 PdevIsBusy function
@@ -909,7 +908,7 @@ RmmPdevStreamResult RmmPdevStreamResult
 
 ## B3.78 PdevStreamLive function
 
-DRAFT Query whether the specified PDEV(s) have a stream of type stream\_type . readonly func PdevStreamFromType( pdev : RmmPdev, stream\_type : RmmPdevStreamType) =&gt; RmmPdevStreamResult readonly func PdevStreamFromType( pdev\_1 : RmmPdev, pdev\_2 : RmmPdev, stream\_type : RmmPdevStreamType) =&gt; RmmPdevStreamResult
+Query whether the specified PDEV(s) have a stream of type stream\_type . readonly func PdevStreamFromType( pdev : RmmPdev, stream\_type : RmmPdevStreamType) =&gt; RmmPdevStreamResult readonly func PdevStreamFromType( pdev\_1 : RmmPdev, pdev\_2 : RmmPdev, stream\_type : RmmPdevStreamType) =&gt; RmmPdevStreamResult
 
 Returns TRUE if pdev has any connected PDEV streams.
 
@@ -949,7 +948,6 @@ See also:
 
 Convert stream type enumeration.
 
-DRAFT
 
 ```
 readonly func PdevStreamTypeFromRmi( stream_type : RmiPdevStreamType) => RmmPdevStreamType begin case stream_type of when RMI_PDEV_STREAM_NON_TEE => return PDEV_STREAM_NON_TEE; when RMI_PDEV_STREAM_NCOH => return PDEV_STREAM_NCOH; when RMI_PDEV_STREAM_COH => return PDEV_STREAM_COH; when RMI_PDEV_STREAM_COH_CMEM => return PDEV_STREAM_COH_CMEM; when RMI_PDEV_STREAM_NCOH_P2P => return PDEV_STREAM_NCOH_P2P; when RMI_PDEV_STREAM_NCOH_SYS => return PDEV_STREAM_NCOH_SYS; when RMI_PDEV_STREAM_COH_SYS => return PDEV_STREAM_COH_SYS; end; end;
@@ -1012,7 +1010,7 @@ readonly func PsciReturnCodePermitted( calling_rec : RmmRec, target_rec : RmmRec
 
 - A4.3.7 REC exit due to PSCI
 
-DRAFT bits(64)
+bits(64)
 
 - B4.5.38 RMI\_PSCI\_COMPLETE command
 
@@ -1066,7 +1064,6 @@ Returns the PSMMU which handles transactions from pdev .
 readonly func PsmmuFromPdev( pdev : RmmPdev) => RmmPsmmu
 ```
 
-DRAFT
 
 ## B3.93 PsmmuL1StIsLive function
 
@@ -1137,7 +1134,7 @@ RmmRealm
 ```
 
 ```
-DRAFT RealmIpaRangeAllRipasIf(
+RealmIpaRangeAllRipasIf(
 ```
 
 ## B3.99 RealmIsLive function
@@ -1173,11 +1170,11 @@ bits(64)
 Returns TRUE if the Realm parameters are supported by the implementation.
 
 ```
-DRAFT readonly func RealmParamsSupported( params : RmiRealmParams) => boolean begin var rmm : RmmGlobal = Rmm(); if (params.flags0.lpa2 == RMI_FEATURE_TRUE && rmm.static.feat_lpa2 != FEATURE_TRUE) then return FALSE; end; if (params.flags0.sve == RMI_FEATURE_TRUE && rmm.static.feat_sve != FEATURE_TRUE) then return FALSE; end; if (params.flags0.pmu == RMI_FEATURE_TRUE && rmm.static.feat_pmu != FEATURE_TRUE) then return FALSE; end; if (params.flags0.da == RMI_FEATURE_TRUE && rmm.static.feat_da != FEATURE_TRUE) then return FALSE; end; if (params.flags1.ats == RMI_FEATURE_TRUE && rmm.static.feat_ats != FEATURE_TRUE) then return FALSE; end; if (params.s2sz > rmm.static.max_ipa_width) then return FALSE; end; if (params.sve_vl > rmm.static.max_sve_vl) then return FALSE; end; if (params.num_bps == 0 || params.num_bps + 1 > rmm.static.num_bps) then return FALSE; end; if (params.num_wps == 0 || params.num_wps + 1 > rmm.static.num_wps) then return FALSE; end; if (params.pmu_num_ctrs > rmm.static.pmu_num_ctrs) then return FALSE; end; if (params.hash_algo == RMI_HASH_SHA_256 && rmm.static.feat_sha_256 != FEATURE_TRUE) then return FALSE; end;
+readonly func RealmParamsSupported( params : RmiRealmParams) => boolean begin var rmm : RmmGlobal = Rmm(); if (params.flags0.lpa2 == RMI_FEATURE_TRUE && rmm.static.feat_lpa2 != FEATURE_TRUE) then return FALSE; end; if (params.flags0.sve == RMI_FEATURE_TRUE && rmm.static.feat_sve != FEATURE_TRUE) then return FALSE; end; if (params.flags0.pmu == RMI_FEATURE_TRUE && rmm.static.feat_pmu != FEATURE_TRUE) then return FALSE; end; if (params.flags0.da == RMI_FEATURE_TRUE && rmm.static.feat_da != FEATURE_TRUE) then return FALSE; end; if (params.flags1.ats == RMI_FEATURE_TRUE && rmm.static.feat_ats != FEATURE_TRUE) then return FALSE; end; if (params.s2sz > rmm.static.max_ipa_width) then return FALSE; end; if (params.sve_vl > rmm.static.max_sve_vl) then return FALSE; end; if (params.num_bps == 0 || params.num_bps + 1 > rmm.static.num_bps) then return FALSE; end; if (params.num_wps == 0 || params.num_wps + 1 > rmm.static.num_wps) then return FALSE; end; if (params.pmu_num_ctrs > rmm.static.pmu_num_ctrs) then return FALSE; end; if (params.hash_algo == RMI_HASH_SHA_256 && rmm.static.feat_sha_256 != FEATURE_TRUE) then return FALSE; end;
 ```
 
 ```
-DRAFT if (params.hash_algo == RMI_HASH_SHA_384 && rmm.static.feat_sha_384 != FEATURE_TRUE) then return FALSE; end; if (params.hash_algo == RMI_HASH_SHA_512 && rmm.static.feat_sha_512 != FEATURE_TRUE) then return FALSE; end; if (params.num_aux_planes > rmm.static.max_num_aux_planes) then return FALSE; end; if (params.flags1.rtt_s2ap_encoding == RMI_S2AP_INDIRECT && rmm.static.rtt_s2ap_indirect == FEATURE_FALSE) then return FALSE; end; if (params.num_aux_planes > 0) then if (params.flags1.rtt_tree_per_plane == RMI_FEATURE_FALSE && rmm.static.rtt_plane == RTT_PLANE_AUX) then return FALSE; end; if (params.flags1.rtt_tree_per_plane == RMI_FEATURE_TRUE && rmm.static.rtt_plane == RTT_PLANE_SINGLE) then return FALSE; end; if ((params.flags1.rtt_tree_per_plane == RMI_FEATURE_TRUE && params.flags1.rtt_s2ap_encoding != RMI_S2AP_DIRECT) || (params.flags1.rtt_tree_per_plane == RMI_FEATURE_FALSE && params.flags1.rtt_s2ap_encoding != RMI_S2AP_INDIRECT )) then return FALSE; end; end; return TRUE; end;
+if (params.hash_algo == RMI_HASH_SHA_384 && rmm.static.feat_sha_384 != FEATURE_TRUE) then return FALSE; end; if (params.hash_algo == RMI_HASH_SHA_512 && rmm.static.feat_sha_512 != FEATURE_TRUE) then return FALSE; end; if (params.num_aux_planes > rmm.static.max_num_aux_planes) then return FALSE; end; if (params.flags1.rtt_s2ap_encoding == RMI_S2AP_INDIRECT && rmm.static.rtt_s2ap_indirect == FEATURE_FALSE) then return FALSE; end; if (params.num_aux_planes > 0) then if (params.flags1.rtt_tree_per_plane == RMI_FEATURE_FALSE && rmm.static.rtt_plane == RTT_PLANE_AUX) then return FALSE; end; if (params.flags1.rtt_tree_per_plane == RMI_FEATURE_TRUE && rmm.static.rtt_plane == RTT_PLANE_SINGLE) then return FALSE; end; if ((params.flags1.rtt_tree_per_plane == RMI_FEATURE_TRUE && params.flags1.rtt_s2ap_encoding != RMI_S2AP_DIRECT) || (params.flags1.rtt_tree_per_plane == RMI_FEATURE_FALSE && params.flags1.rtt_s2ap_encoding != RMI_S2AP_INDIRECT )) then return FALSE; end; end; return TRUE; end;
 ```
 
 ## See also:
@@ -1235,7 +1232,7 @@ readonly impdef func rd : Address) => integer
 
 ## B3.105 RecDevMemResponseToRsi function
 
-DRAFT RecAuxCount(
+RecAuxCount(
 
 Returns response to VDEV mapping validation request.
 
@@ -1275,7 +1272,7 @@ See also:
 
 Returns response to RIPAS change request.
 
-- DRAFT readonly func RecRipasResponseToRsi( rec : RmmRec) =&gt; RsiResponse begin if ((rec.ripas\_value == RIPAS\_RAM) &amp;&amp; (rec.ripas\_addr != rec.ripas\_top) &amp;&amp; (rec.ripas\_response == RESPONSE\_REJECT)) then return RSI\_RESPONSE\_REJECT; end; return RSI\_RESPONSE\_ACCEPT; end; See also: · A5.4 RIPAS change
+- readonly func RecRipasResponseToRsi( rec : RmmRec) =&gt; RsiResponse begin if ((rec.ripas\_value == RIPAS\_RAM) &amp;&amp; (rec.ripas\_addr != rec.ripas\_top) &amp;&amp; (rec.ripas\_response == RESPONSE\_REJECT)) then return RSI\_RESPONSE\_REJECT; end; return RSI\_RESPONSE\_ACCEPT; end; See also: · A5.4 RIPAS change
 
 ## B3.109 RecS2APResponseToRsi function
 
@@ -1344,7 +1341,7 @@ readonly func RipasToRmi( ripas : RmmRipas) => RmiRipas begin case ripas of when
 ```
 
 ```
-DRAFT RmmRealmMeasurement
+RmmRealmMeasurement
 ```
 
 ```
@@ -1372,7 +1369,7 @@ RttLevelSize(level))
 ```
 
 ```
-DRAFT readonly func RmiAddrRangeDescDecode( desc : RmiAddrRangeDesc) => RmmAddrRange begin var rmm : RmmGlobal = Rmm(); var base : integer; var count : integer; var level : integer; case rmm.dynamic.rmi_granule_size of when 4 * KB => base = UInt(desc.data.granule_4kb.addr); count = desc.data.granule_4kb.count; level = RmiAddrBlockSizeToLevel( desc.data.granule_4kb.size); when 16 * KB => base = UInt(desc.data.granule_16kb.addr); count = desc.data.granule_16kb.count; level = RmiAddrBlockSizeToLevel( desc.data.granule_16kb.size); when 64 * KB => base = UInt(desc.data.granule_64kb.addr); count = desc.data.granule_64kb.count; level = RmiAddrBlockSizeToLevel( desc.data.granule_64kb.size); otherwise => unreachable; end; return RmmAddrRange { base = ToAddress(base), top = ToAddress(base + count * }; end;
+readonly func RmiAddrRangeDescDecode( desc : RmiAddrRangeDesc) => RmmAddrRange begin var rmm : RmmGlobal = Rmm(); var base : integer; var count : integer; var level : integer; case rmm.dynamic.rmi_granule_size of when 4 * KB => base = UInt(desc.data.granule_4kb.addr); count = desc.data.granule_4kb.count; level = RmiAddrBlockSizeToLevel( desc.data.granule_4kb.size); when 16 * KB => base = UInt(desc.data.granule_16kb.addr); count = desc.data.granule_16kb.count; level = RmiAddrBlockSizeToLevel( desc.data.granule_16kb.size); when 64 * KB => base = UInt(desc.data.granule_64kb.addr); count = desc.data.granule_64kb.count; level = RmiAddrBlockSizeToLevel( desc.data.granule_64kb.size); otherwise => unreachable; end; return RmmAddrRange { base = ToAddress(base), top = ToAddress(base + count * }; end;
 ```
 
 ## B3.116 RmiAddrRangesEqual function
@@ -1396,7 +1393,7 @@ then
 ```
 
 ```
-DRAFT pure func RmiAddrRangesEqual16( ranges1 : array [[16]] of RmmAddrRange, ranges2 : array [[16]] of RmiAddrRange, count : integer) => boolean begin assert 0 <= count && count <= 16; for i = 0 to count -1 do if ranges1[[i]].base != ranges2[[i]].base return FALSE; end; if ranges1[[i]].top != ranges2[[i]].top then return FALSE; end; end; return TRUE; end;
+pure func RmiAddrRangesEqual16( ranges1 : array [[16]] of RmmAddrRange, ranges2 : array [[16]] of RmiAddrRange, count : integer) => boolean begin assert 0 <= count && count <= 16; for i = 0 to count -1 do if ranges1[[i]].base != ranges2[[i]].base return FALSE; end; if ranges1[[i]].top != ranges2[[i]].top then return FALSE; end; end; return TRUE; end;
 ```
 
 ## B3.118 RmiAddrRangesEqual8 function
@@ -1437,7 +1434,7 @@ Returns CMEM parameters stored at physical address addr .
 
 If the PAS of addr is not NS, the return value is UNKNOWN.
 
-DRAFT RmiCmemFlagsSupported(
+RmiCmemFlagsSupported(
 
 ```
 readonly func RmiCmemParamsAt( addr : Address) =>
@@ -1517,10 +1514,10 @@ Encode feature register.
 readonly func RmiFeatureRegisterEncode( index : integer) => bits(64) begin var rmm : RmmGlobal = Rmm(); var result : bits(64) = Zeros{64}(); if (index == 0) then var reg : RmiFeatureRegister0; reg.S2SZ = rmm.static.max_ipa_width; reg.LPA2 = FeatureToRmi(rmm.static.feat_lpa2); reg.SVE = FeatureToRmi(rmm.static.feat_sve); reg.SVE_VL = rmm.static.max_sve_vl; assert rmm.static.num_bps >= 2 && rmm.static.num_bps <= 2^6; reg.NUM_BPS = rmm.static.num_bps -1; assert rmm.static.num_wps >= 2 && rmm.static.num_wps <= 2^6; reg.NUM_WPS = rmm.static.num_wps -1;
 ```
 
-DRAFT RmiDevCommData RmiFeatureRegister0
+RmiDevCommData RmiFeatureRegister0
 
 ```
-DRAFT reg.PMU = FeatureToRmi(rmm.static.feat_pmu); reg.PMU_NUM_CTRS = rmm.static.pmu_num_ctrs; // Omitted: encode reg into bits(64) value end; if (index == 1) then var reg : RmiFeatureRegister1; reg.RMI_GRAN_SZ_4KB = FeatureToRmi(rmm.static.rmi_granule_size_4kb); reg.RMI_GRAN_SZ_16KB = FeatureToRmi(rmm.static.rmi_granule_size_16kb); reg.RMI_GRAN_SZ_64KB = FeatureToRmi(rmm.static.rmi_granule_size_64kb); reg.HASH_SHA_256 = FeatureToRmi(rmm.static.feat_sha_256); reg.HASH_SHA_384 = FeatureToRmi(rmm.static.feat_sha_384); reg.HASH_SHA_512 = FeatureToRmi(rmm.static.feat_sha_512); reg.MAX_RECS_ORDER = rmm.static.max_recs_order; // Omitted: set reg.L0GPTSZ // Omitted: set reg.PPS // Omitted: encode reg into bits(64) value end; if (index == 2) then var reg : RmiFeatureRegister2; reg.DA = FeatureToRmi(rmm.static.feat_da); reg.DA_COH = FeatureToRmi(rmm.static.feat_da_coh); reg.P2P = FeatureToRmi(rmm.static.feat_p2p); reg.VSMMU = FeatureToRmi(rmm.static.feat_vsmmu); reg.ATS = FeatureToRmi(rmm.static.feat_ats); reg.CMEM_CXL = FeatureToRmi(rmm.static.feat_cmem_cxl); reg.NON_TEE_STREAM = FeatureToRmi(rmm.static.feat_non_tee_stream); reg.MAX_VDEVS_ORDER = rmm.static.max_vdevs_order; reg.VDEV_KROU = FeatureToRmi(rmm.static.feat_vdev_krou); reg.MAX_CMEM = rmm.static.max_cmem; reg.CMEM_TSE_REQ = FeatureToRmi(rmm.static.feat_cmem_tse_req); // Omitted: encode reg into bits(64) value end; if (index == 3) then var reg : RmiFeatureRegister3; reg.MAX_NUM_AUX_PLANES = rmm.static.max_num_aux_planes; case rmm.static.rtt_plane of when RTT_PLANE_AUX => reg.RTT_PLANE = RMI_RTT_PLANE_AUX; when RTT_PLANE_AUX_SINGLE => reg.RTT_PLANE = RMI_RTT_PLANE_AUX_SINGLE; when RTT_PLANE_SINGLE => reg.RTT_PLANE = RMI_RTT_PLANE_SINGLE; end; reg.RTT_S2AP_INDIRECT = FeatureToRmi(rmm.static.rtt_s2ap_indirect); // Omitted: encode reg into bits(64) value end;
+reg.PMU = FeatureToRmi(rmm.static.feat_pmu); reg.PMU_NUM_CTRS = rmm.static.pmu_num_ctrs; // Omitted: encode reg into bits(64) value end; if (index == 1) then var reg : RmiFeatureRegister1; reg.RMI_GRAN_SZ_4KB = FeatureToRmi(rmm.static.rmi_granule_size_4kb); reg.RMI_GRAN_SZ_16KB = FeatureToRmi(rmm.static.rmi_granule_size_16kb); reg.RMI_GRAN_SZ_64KB = FeatureToRmi(rmm.static.rmi_granule_size_64kb); reg.HASH_SHA_256 = FeatureToRmi(rmm.static.feat_sha_256); reg.HASH_SHA_384 = FeatureToRmi(rmm.static.feat_sha_384); reg.HASH_SHA_512 = FeatureToRmi(rmm.static.feat_sha_512); reg.MAX_RECS_ORDER = rmm.static.max_recs_order; // Omitted: set reg.L0GPTSZ // Omitted: set reg.PPS // Omitted: encode reg into bits(64) value end; if (index == 2) then var reg : RmiFeatureRegister2; reg.DA = FeatureToRmi(rmm.static.feat_da); reg.DA_COH = FeatureToRmi(rmm.static.feat_da_coh); reg.P2P = FeatureToRmi(rmm.static.feat_p2p); reg.VSMMU = FeatureToRmi(rmm.static.feat_vsmmu); reg.ATS = FeatureToRmi(rmm.static.feat_ats); reg.CMEM_CXL = FeatureToRmi(rmm.static.feat_cmem_cxl); reg.NON_TEE_STREAM = FeatureToRmi(rmm.static.feat_non_tee_stream); reg.MAX_VDEVS_ORDER = rmm.static.max_vdevs_order; reg.VDEV_KROU = FeatureToRmi(rmm.static.feat_vdev_krou); reg.MAX_CMEM = rmm.static.max_cmem; reg.CMEM_TSE_REQ = FeatureToRmi(rmm.static.feat_cmem_tse_req); // Omitted: encode reg into bits(64) value end; if (index == 3) then var reg : RmiFeatureRegister3; reg.MAX_NUM_AUX_PLANES = rmm.static.max_num_aux_planes; case rmm.static.rtt_plane of when RTT_PLANE_AUX => reg.RTT_PLANE = RMI_RTT_PLANE_AUX; when RTT_PLANE_AUX_SINGLE => reg.RTT_PLANE = RMI_RTT_PLANE_AUX_SINGLE; when RTT_PLANE_SINGLE => reg.RTT_PLANE = RMI_RTT_PLANE_SINGLE; end; reg.RTT_S2AP_INDIRECT = FeatureToRmi(rmm.static.rtt_s2ap_indirect); // Omitted: encode reg into bits(64) value end;
 ```
 
 Chapter B3. Command condition functions B3.128. RmiPdevFlagsDecode function
@@ -1546,7 +1543,7 @@ RmiPdevFlags
 Returns TRUE if the provided PDEV flags are supported by the implementation.
 
 ```
-DRAFT readonly func RmiPdevFlagsSupported( flags : RmiPdevFlags) => boolean begin var rmm : RmmGlobal = Rmm(); if (rmm.static.feat_da != FEATURE_TRUE) then return FALSE; end; if (rmm.static.feat_p2p != FEATURE_TRUE && flags.p2p == RMI_FEATURE_TRUE) then return FALSE; end; // Omitted: IMPDEF check for whether the PDEV category is // supported. // Omitted: IMPDEF checks for whether the following flags // are supported: // -spdm return TRUE; end;
+readonly func RmiPdevFlagsSupported( flags : RmiPdevFlags) => boolean begin var rmm : RmmGlobal = Rmm(); if (rmm.static.feat_da != FEATURE_TRUE) then return FALSE; end; if (rmm.static.feat_p2p != FEATURE_TRUE && flags.p2p == RMI_FEATURE_TRUE) then return FALSE; end; // Omitted: IMPDEF check for whether the PDEV category is // supported. // Omitted: IMPDEF checks for whether the following flags // are supported: // -spdm return TRUE; end;
 ```
 
 ## See also:
@@ -1611,7 +1608,6 @@ Returns TRUE if the memory location contains a valid encoding of the RmiPdevStre
 RmiPdevStreamParamsIsValid(
 ```
 
-DRAFT
 
 ```
 readonly func addr : Address) => boolean
@@ -1700,7 +1696,7 @@ readonly func RmiRecRunAt( addr : Address) =>
 
 ## B3.140 RmiRmmConfigAt function
 
-DRAFT RmiRecRun
+RmiRecRun
 
 Returns system configuration stored at physical address addr .
 
@@ -1813,7 +1809,7 @@ Returns TRUE if the RMM supports an RMI revision which is compatible with versio
 
 readonly func RmiVersionIsSupported(
 
-DRAFT boolean
+boolean
 
 ```
 version : RmiInterfaceVersion) => boolean
@@ -1855,7 +1851,7 @@ See also:
 
 Returns TRUE if the memory location contains a valid encoding of the RmiVsmmuParams type and all the following are true:
 
-DRAFT RmiVsmmuParams
+RmiVsmmuParams
 
 - aidr value is set to an architecturally valid value.
 - aidr value does not define any features which are unsupported by the RMM.
@@ -1895,7 +1891,7 @@ boolean
 System configuration is supported.
 
 ```
-DRAFT readonly func RmmConfigIsSupported( cfg : RmiRmmConfig) => boolean begin var rmm : RmmGlobal = Rmm(); case cfg.rmi_granule_size of when RMI_GRANULE_SIZE_4KB => if rmm.static.rmi_granule_size_4kb != FEATURE_TRUE then return FALSE; end; when RMI_GRANULE_SIZE_16KB => if rmm.static.rmi_granule_size_16kb != FEATURE_TRUE then return FALSE; end; when RMI_GRANULE_SIZE_64KB => if rmm.static.rmi_granule_size_64kb != FEATURE_TRUE then return FALSE; end; end; if (TrackingRegionSizeFromRmi( cfg.rmi_granule_size, cfg.tracking_region_size) == 0) then return FALSE; end; return TRUE; end;
+readonly func RmmConfigIsSupported( cfg : RmiRmmConfig) => boolean begin var rmm : RmmGlobal = Rmm(); case cfg.rmi_granule_size of when RMI_GRANULE_SIZE_4KB => if rmm.static.rmi_granule_size_4kb != FEATURE_TRUE then return FALSE; end; when RMI_GRANULE_SIZE_16KB => if rmm.static.rmi_granule_size_16kb != FEATURE_TRUE then return FALSE; end; when RMI_GRANULE_SIZE_64KB => if rmm.static.rmi_granule_size_64kb != FEATURE_TRUE then return FALSE; end; end; if (TrackingRegionSizeFromRmi( cfg.rmi_granule_size, cfg.tracking_region_size) == 0) then return FALSE; end; return TRUE; end;
 ```
 
 ## B3.154 RsiFeatureRegisterEncode function
@@ -1949,7 +1945,7 @@ readonly func RsiRealmMeasurement( realm : RmmRealm, index : integer) => begin i
 ```
 
 ```
-DRAFT RmmRealmMeasurement
+RmmRealmMeasurement
 ```
 
 ## B3.159 RsiVdevInfoAt function
@@ -2027,7 +2023,7 @@ readonly func RsiVersionIsSupported( version : RsiInterfaceVersion) =>
 RsiInterfaceVersion
 ```
 
-DRAFT boolean
+boolean
 
 ## B3.164 RsiVersionLowerIsSupported function
 
@@ -2125,7 +2121,7 @@ boolean
 ```
 
 ```
-DRAFT boolean
+boolean
 ```
 
 - A5.6 Realm Translation Table
@@ -2161,7 +2157,7 @@ pure func desc : bits(64)) => boolean
 
 Returns TRUE if all entries in the RTT at address rtt at level level , within Protected IPA range [base, top), have output addresses which map to coherent device memory.
 
-## DRAFT · A5.6.12.3 Memory attributes for RTTE\_MAPPED\_NS mappings B3.174 RttEntriesInRangeCohDevMem function readonly func RttEntriesInRangeCohDevMem( rtt : RmmRtt, level : integer, base : Address, top : Address) =&gt; boolean begin var addr : Address = base; var size : integer = RttLevelSize(level); while (UInt(addr) &lt; UInt(top)) do var index : integer = RttEntryIndex(addr, level); var rtte : RmmRttEntry = RttEntryAt(rtt, index); if (!PaIsDelegableCohDevMem(rtte.addr)) then return FALSE; end; addr = ToAddress(UInt(addr) + size); end; return TRUE; end;
+## · A5.6.12.3 Memory attributes for RTTE\_MAPPED\_NS mappings B3.174 RttEntriesInRangeCohDevMem function readonly func RttEntriesInRangeCohDevMem( rtt : RmmRtt, level : integer, base : Address, top : Address) =&gt; boolean begin var addr : Address = base; var size : integer = RttLevelSize(level); while (UInt(addr) &lt; UInt(top)) do var index : integer = RttEntryIndex(addr, level); var rtte : RmmRttEntry = RttEntryAt(rtt, index); if (!PaIsDelegableCohDevMem(rtte.addr)) then return FALSE; end; addr = ToAddress(UInt(addr) + size); end; return TRUE; end;
 
 ## B3.175 RttEntriesInRangeMemAttr function
 
@@ -2182,7 +2178,7 @@ readonly func RttEntriesInRangeNonCohDevMem( rtt : RmmRtt, level : integer, base
 ```
 
 ```
-DRAFT level);
+level);
 ```
 
 ## B3.177 RttEntriesInRangeOutputContiguous function
@@ -2206,7 +2202,7 @@ readonly func RttEntriesInRangeRipas( rtt : RmmRtt, level : integer, base : Addr
 ```
 
 ```
-DRAFT level);
+level);
 ```
 
 ## B3.179 RttEntryAt function
@@ -2244,7 +2240,7 @@ readonly func RttEntryIndex( addr : Address, level : integer) =>
 Encodes the state of an RTTE.
 
 ```
-DRAFT readonly func RttEntryStateToRmi( state : RmmRttEntryState) => RmiRttEntryState begin case state of when RTTE_VOID => return RMI_RTTE_VOID; when RTTE_DATA => return RMI_RTTE_DATA; when RTTE_UNMAPPED_NS => return RMI_RTTE_VOID; when RTTE_MAPPED_NS => return RMI_RTTE_DATA; when RTTE_TABLE => return RMI_RTTE_TABLE; when RTTE_NARCH_DEV => return RMI_RTTE_NARCH_DEV; when RTTE_AUX_DESTROYED => return RMI_RTTE_AUX_DESTROYED; when RTTE_ARCH_DEV => return RMI_RTTE_ARCH_DEV; end; end;
+readonly func RttEntryStateToRmi( state : RmmRttEntryState) => RmiRttEntryState begin case state of when RTTE_VOID => return RMI_RTTE_VOID; when RTTE_DATA => return RMI_RTTE_DATA; when RTTE_UNMAPPED_NS => return RMI_RTTE_VOID; when RTTE_MAPPED_NS => return RMI_RTTE_DATA; when RTTE_TABLE => return RMI_RTTE_TABLE; when RTTE_NARCH_DEV => return RMI_RTTE_NARCH_DEV; when RTTE_AUX_DESTROYED => return RMI_RTTE_AUX_DESTROYED; when RTTE_ARCH_DEV => return RMI_RTTE_ARCH_DEV; end; end;
 ```
 
 ## B3.182 RttFold function
@@ -2329,7 +2325,7 @@ boolean
 ```
 
 ```
-DRAFT boolean
+boolean
 ```
 
 Returns the size of the address space described by each entry in an RTT at level.
@@ -2379,7 +2375,7 @@ readonly func rtt_base : Address, rtt_num_start : integer, ripas : RmmRipas) => 
 ```
 
 ```
-DRAFT rtte2.s2ap_indirect.overlay_index)); RttsAllProtectedEntriesRipas(
+rtte2.s2ap_indirect.overlay_index)); RttsAllProtectedEntriesRipas(
 ```
 
 ## B3.191 RttsAllProtectedEntriesState function
@@ -2437,7 +2433,7 @@ readonly func rtt : RmmRtt, level : integer, ipa : Address, ripas : RmmRipas) =>
 ```
 
 ```
-DRAFT Address RttSkipEntriesUnlessRipas(
+Address RttSkipEntriesUnlessRipas(
 ```
 
 ## B3.196 RttSkipEntriesUnlessState function
@@ -2487,7 +2483,7 @@ readonly func RttSkipEntriesWithRipas( rtt : RmmRtt, level : integer, base : Add
 ```
 
 ```
-DRAFT RttSkipEntriesUnlessState(
+RttSkipEntriesUnlessState(
 ```
 
 ## B3.199 RttSkipNonLiveEntries function
@@ -2504,7 +2500,7 @@ readonly func RttSkipNonLiveEntries( rtt : RmmRtt, level : integer, ipa : Addres
 
 ## B3.200 RttsStateEqual function
 
-DRAFT See also: · A5.6.8 RTTE liveness and RTT liveness Returns TRUE if the state of all of the starting-level RTT Granules is equal to state . readonly func RttsStateEqual( rtt\_base : Address, rtt\_num\_start : integer, state : RmmGranuleState) =&gt; boolean begin var rmm : RmmGlobal = Rmm(); for i = 0 to rtt\_num\_start -1 do var addr = (UInt(rtt\_base) + i * rmm.dynamic.rmi\_granule\_size)[(ADDRESS\_WIDTH-1):0]; if (!PaIsTracked(addr) || GranuleAt(addr).state != state) then return FALSE; end; end; return TRUE; end;
+See also: · A5.6.8 RTTE liveness and RTT liveness Returns TRUE if the state of all of the starting-level RTT Granules is equal to state . readonly func RttsStateEqual( rtt\_base : Address, rtt\_num\_start : integer, state : RmmGranuleState) =&gt; boolean begin var rmm : RmmGlobal = Rmm(); for i = 0 to rtt\_num\_start -1 do var addr = (UInt(rtt\_base) + i * rmm.dynamic.rmi\_granule\_size)[(ADDRESS\_WIDTH-1):0]; if (!PaIsTracked(addr) || GranuleAt(addr).state != state) then return FALSE; end; end; return TRUE; end;
 
 ## B3.201 RttTreeRangeAllMemAttr function
 
@@ -2555,7 +2551,7 @@ readonly func realm : RmmRealm, tree : integer, base : Address, top : Address, a
 ## B3.204 RttTreeRangeAllOaddrContig function
 
 ```
-DRAFT RttTreeRangeAllOaddr(
+RttTreeRangeAllOaddr(
 ```
 
 Returns TRUE if RTT entries for RTT tree tree in Realm realm within IPA range [base, top) have output addresses which map linearly to PA range [obase, obase + size).
@@ -2613,7 +2609,7 @@ readonly func RttTreeRangeAllShareability( realm : RmmRealm, tree : integer, bas
 ```
 
 ```
-DRAFT RttTreeRangeAllS2AP(
+RttTreeRangeAllS2AP(
 ```
 
 ```
@@ -2666,7 +2662,6 @@ If one of the walks performed terminates earlier than level then the return valu
 
 If none of the walks performed terminates earlier than level then the result's 'valid' value is FALSE.
 
-DRAFT
 
 ```
 readonly func RttWalkAnyNotAligned( realm : RmmRealm, base : Address, top : Address, level : integer) => RmmRttWalkNotAligned
@@ -2739,7 +2734,6 @@ readonly func TrackingRegionGranularity( region : RmmTrackingRegion) => integer 
 Returns TRUE if the tracking region is tracked.
 
 ```
-DRAFT
 ```
 
 ```
@@ -2769,7 +2763,7 @@ otherwise => return 0; end; when RMI_GRANULE_SIZE_16KB => case tracking_region_s
 ## B3.220 TrackingRegionSizeToRmi function
 
 ```
-DRAFT Encodes a block size. readonly func TrackingRegionSizeToRmi( granule_size : integer, tracking_region_size : integer) => integer begin case granule_size of when 4 * KB => case tracking_region_size of when 1 * GB => return 0; // Level 1 block size otherwise => unreachable; end; when 16 * KB => case tracking_region_size of when 32 * MB => return 0; // Level 2 block size when 64 * GB => return 1; // Level 1 block size otherwise => unreachable; end; when 64 * KB => case tracking_region_size of when 512 * MB => return 0; // Level 2 block size when 4 * TB => return 1; // Level 1 block size otherwise => unreachable; end; end; end;
+Encodes a block size. readonly func TrackingRegionSizeToRmi( granule_size : integer, tracking_region_size : integer) => integer begin case granule_size of when 4 * KB => case tracking_region_size of when 1 * GB => return 0; // Level 1 block size otherwise => unreachable; end; when 16 * KB => case tracking_region_size of when 32 * MB => return 0; // Level 2 block size when 64 * GB => return 1; // Level 1 block size otherwise => unreachable; end; when 64 * KB => case tracking_region_size of when 512 * MB => return 0; // Level 2 block size when 4 * TB => return 1; // Level 1 block size otherwise => unreachable; end; end; end;
 ```
 
 ## B3.221 VdevAddrInRange function
@@ -2805,7 +2799,7 @@ RmmVdev
 Returns TRUE if the VDEV attestation info matches.
 
 ```
-DRAFT pure func VdevAttestInfoEqual( lock_nonce : integer, meas_nonce : integer, report_nonce : integer, attest_info : RmmVdevAttestInfo) => boolean begin return (lock_nonce == attest_info.lock_nonce && meas_nonce == attest_info.meas_nonce && report_nonce == attest_info.report_nonce); end; pure func VdevAttestInfoEqual( attest_info_1 : RmmVdevAttestInfo, attest_info_2 : RmmVdevAttestInfo) => boolean begin return (attest_info_1.lock_nonce == attest_info_2.lock_nonce && attest_info_1.meas_nonce == attest_info_2.meas_nonce && attest_info_1.report_nonce == attest_info_2.report_nonce); end;
+pure func VdevAttestInfoEqual( lock_nonce : integer, meas_nonce : integer, report_nonce : integer, attest_info : RmmVdevAttestInfo) => boolean begin return (lock_nonce == attest_info.lock_nonce && meas_nonce == attest_info.meas_nonce && report_nonce == attest_info.report_nonce); end; pure func VdevAttestInfoEqual( attest_info_1 : RmmVdevAttestInfo, attest_info_2 : RmmVdevAttestInfo) => boolean begin return (attest_info_1.lock_nonce == attest_info_2.lock_nonce && attest_info_1.meas_nonce == attest_info_2.meas_nonce && attest_info_1.report_nonce == attest_info_2.report_nonce); end;
 ```
 
 ## B3.224 VdevFindMapped function
@@ -2883,7 +2877,7 @@ pure func VersionEqual(
 ```
 
 ```
-DRAFT boolean bits(64)
+boolean bits(64)
 ```
 
 B3.231. VmidsAvailable function
@@ -2919,7 +2913,7 @@ readonly func VsidIsFree( vsmmu : RmmVsmmu, vsid : bits(64)) =>
 ## B3.233 VsmmuAt function
 
 ```
-DRAFT boolean
+boolean
 ```
 
 Returns the VSMMU object located at physical address addr .
@@ -2960,4 +2954,3 @@ See also:
 
 - A9.8.3 VSMMU liveness
 
-DRAFT

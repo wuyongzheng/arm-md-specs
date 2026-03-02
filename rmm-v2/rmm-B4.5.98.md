@@ -32,7 +32,6 @@ The RMI\_VSMMU\_EVENT\_NOTIFY command operates on the following context.
 | pdev   | RmmPdev  | PdevAt(pdev_ptr)   | false    | PDEV          |
 | vdev   | RmmVdev  | VdevAt(vdev_ptr)   | false    | VDEV          |
 
-DRAFT
 
 ## B4.5.98.1.3 Output values
 
@@ -57,7 +56,7 @@ DRAFT
 | psmmu_valid     | pre: post:   | !PsmmuAddrIsValid(psmmu_ptr) result.status == RMI_ERROR_INPUT                      |
 | rd_align        | pre: post:   | !AddrIsRmiGranuleAligned(rd) result.status == RMI_ERROR_INPUT                      |
 | rd_bound        | pre: post:   | !PaIsTracked(rd) result.status == RMI_ERROR_INPUT                                  |
-| rd_state        | pre: post:   | DRAFT GranuleAt(rd).state != GRAN_RD result.status == RMI_ERROR_INPUT              |
+| rd_state        | pre: post:    GranuleAt(rd).state != GRAN_RD result.status == RMI_ERROR_INPUT              |
 | realm_state     | pre: post:   | realm.state != REALM_NEW result.status == RMI_ERROR_REALM                          |
 | vsmmu_align     | pre: post:   | !AddrIsRmiGranuleAligned(vsmmu_ptr) result.status == RMI_ERROR_INPUT               |
 | vsmmu_bound     | pre: post:   | !PaIsTracked(vsmmu_ptr) result.status == RMI_ERROR_INPUT                           |
@@ -97,4 +96,3 @@ gerr_irq pre: VSMMU has asserted GERROR interrupt. post: (flags.irq == RMI_TRUE 
 
 The RMI\_VSMMU\_EVENT\_NOTIFY command does not have any footprint.
 
-DRAFT

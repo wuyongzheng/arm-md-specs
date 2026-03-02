@@ -28,7 +28,7 @@ See also:
 | complete   | pre: !OperationIncomplete(handle) post: result.status == RMI_ERROR_INPUT                    |
 | can_cancel | pre: OperationCanCancel(handle) != RMM_OP_CAN_CANCEL post: result.status == RMI_ERROR_INPUT |
 
-DRAFT !OperationIncomplete(handle)
+!OperationIncomplete(handle)
 
 ## B4.5.21.2.1 Failure condition ordering
 

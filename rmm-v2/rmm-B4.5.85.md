@@ -18,7 +18,7 @@ See also:
 | vdev_ptr   | X3         | 63:0   | Address | PA of the VDEV        |
 | params_ptr | X4         | 63:0   | Address | PA of VDEV parameters |
 
-- DRAFT If pdev.spdm == true and the device supports signed measurement, then: · The final SPDM GET\_MEASUREMENTS request issued by the RMM in reponse to this command includes a request for a signature. · The RMM first requests the Host to cache the request, and then requests the Host to cache the response. As a result, Host concatenates the request and the response within its cache. The cached data in turn includes any opaque data, and the signature. B4.5.85.1.2 Context The RMI\_VDEV\_GET\_MEASUREMENTS command operates on the following context.
+- If pdev.spdm == true and the device supports signed measurement, then: · The final SPDM GET\_MEASUREMENTS request issued by the RMM in reponse to this command includes a request for a signature. · The RMM first requests the Host to cache the request, and then requests the Host to cache the response. As a result, Host concatenates the request and the response within its cache. The cached data in turn includes any opaque data, and the signature. B4.5.85.1.2 Context The RMI\_VDEV\_GET\_MEASUREMENTS command operates on the following context.
 
 | Name   | Type                                                     | Value                                                    | Before   | Description            |
 |--------|----------------------------------------------------------|----------------------------------------------------------|----------|------------------------|
@@ -35,14 +35,13 @@ See also:
 
 ## B4.5.85.2 Failure conditions
 
-RTJPLJ
 
 ID
 
 ## Condition
 
 ```
-DRAFT feat pre: Rmm().static.feat_da != FEATURE_TRUE post: result.status == RMI_ERROR_NOT_SUPPORTED rd_align pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPUT rd_bound pre: !PaIsTracked(rd) post: result.status == RMI_ERROR_INPUT rd_state pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_INPUT pdev_align pre: !AddrIsRmiGranuleAligned(pdev_ptr) post: result.status == RMI_ERROR_INPUT pdev_bound pre: !PaIsTracked(pdev_ptr) post: result.status == RMI_ERROR_INPUT pdev_gran_state pre: GranuleAt(pdev_ptr).state != GRAN_PDEV post: result.status == RMI_ERROR_INPUT vdev_align pre: !AddrIsRmiGranuleAligned(vdev_ptr) post: result.status == RMI_ERROR_INPUT vdev_bound pre: !PaIsTracked(vdev_ptr) post: result.status == RMI_ERROR_INPUT vdev_gran_state pre: GranuleAt(vdev_ptr).state != GRAN_VDEV post: result.status == RMI_ERROR_INPUT vdev_realm pre: vdev.realm != rd post: result.status == RMI_ERROR_INPUT vdev_pdev pre: vdev.pdev != pdev_ptr post: result.status == RMI_ERROR_DEVICE comm_state pre: vdev.comm_state != DEV_COMM_IDLE post: result.status == RMI_ERROR_DEVICE params_align pre: !AddrIsRmiGranuleAligned(params_ptr) post: result.status == RMI_ERROR_INPUT params_pas pre: !NonSecureAccessPermitted(params_ptr) post: result.status == RMI_ERROR_INPUT
+feat pre: Rmm().static.feat_da != FEATURE_TRUE post: result.status == RMI_ERROR_NOT_SUPPORTED rd_align pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPUT rd_bound pre: !PaIsTracked(rd) post: result.status == RMI_ERROR_INPUT rd_state pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_INPUT pdev_align pre: !AddrIsRmiGranuleAligned(pdev_ptr) post: result.status == RMI_ERROR_INPUT pdev_bound pre: !PaIsTracked(pdev_ptr) post: result.status == RMI_ERROR_INPUT pdev_gran_state pre: GranuleAt(pdev_ptr).state != GRAN_PDEV post: result.status == RMI_ERROR_INPUT vdev_align pre: !AddrIsRmiGranuleAligned(vdev_ptr) post: result.status == RMI_ERROR_INPUT vdev_bound pre: !PaIsTracked(vdev_ptr) post: result.status == RMI_ERROR_INPUT vdev_gran_state pre: GranuleAt(vdev_ptr).state != GRAN_VDEV post: result.status == RMI_ERROR_INPUT vdev_realm pre: vdev.realm != rd post: result.status == RMI_ERROR_INPUT vdev_pdev pre: vdev.pdev != pdev_ptr post: result.status == RMI_ERROR_DEVICE comm_state pre: vdev.comm_state != DEV_COMM_IDLE post: result.status == RMI_ERROR_DEVICE params_align pre: !AddrIsRmiGranuleAligned(params_ptr) post: result.status == RMI_ERROR_INPUT params_pas pre: !NonSecureAccessPermitted(params_ptr) post: result.status == RMI_ERROR_INPUT
 ```
 
 ## B4.5.85.2.1 Failure condition ordering

@@ -30,7 +30,6 @@ The RMI\_REC\_ENTER command operates on the following context.
 
 ## B4.5.51.1.3 Output values
 
-DRAFT
 
 | Name   | Register   | Bits   | Type      | Description    |
 |--------|------------|--------|-----------|----------------|
@@ -185,7 +184,6 @@ RMI\_ERROR\_REC
 
 <!-- image -->
 
-DRAFT
 
 ## B4.5.51.3 Success conditions
 

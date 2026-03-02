@@ -31,7 +31,6 @@ The RMI\_CMEM\_START command operates on the following context.
 |--------|------------|--------|-----------|----------------|
 | result | X0         | 63:0   | RmiResult | Command result |
 
-DRAFT
 
 ## B4.5.7.2 Failure conditions
 
@@ -73,7 +72,6 @@ pre: CmemNumPdevs(cmem) != post: result.status == RMI_ERROR_DEVICE
 
 I0074
 
-DRAFT
 
 Following successful execution of RMI\_CMEM\_START, the number of MECs supported by the platform (reported by RMI\_FEATURES) may change.
 

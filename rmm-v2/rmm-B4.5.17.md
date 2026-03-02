@@ -35,7 +35,6 @@ The RMI\_GRANULE\_RANGE\_DELEGATE command operates on the following context.
 | result  | X0         | 63:0   | RmiResult | Command result                                |
 | out_top | X1         | 63:0   | Address   | Top PA of range whose state is GRAN_DELEGATED |
 
-DRAFT
 
 If result is RMI\_INCOMPLETE then the value of out\_top is UNKNOWN.
 
@@ -47,7 +46,6 @@ If result is RMI\_INCOMPLETE then the value of out\_top is UNKNOWN.
 | base_align | pre: !AddrIsRmiGranuleAligned(base) post: result.status == RMI_ERROR_INPUT         |
 | top_align  | pre: !AddrIsRmiGranuleAligned(top) post: result.status == RMI_ERROR_INPUT          |
 
-IDWGNJ
 
 | ID        | Condition                                                                                                                                           |
 |-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -64,7 +62,7 @@ The RMI\_GRANULE\_RANGE\_DELEGATE command does not have any failure condition or
 
 | ID         | Condition                                                   |
 |------------|-------------------------------------------------------------|
-| state      | DRAFT post: GranulesAllState(base, out_top, GRAN_DELEGATED) |
+| state       post: GranulesAllState(base, out_top, GRAN_DELEGATED) |
 | result     | post: result.status == RMI_SUCCESS                          |
 | B4.5.17.4  | Footprint                                                   |
 | ID         | Value                                                       |

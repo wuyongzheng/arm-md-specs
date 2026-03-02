@@ -30,7 +30,6 @@ The status code and lower revision output values indicate which of the following
 
 ## B4.5.92.1.1 Input values
 
-DRAFT
 
 | Name   | Register   | Bits   | Type                | Description                  |
 |--------|------------|--------|---------------------|------------------------------|
@@ -64,4 +63,4 @@ The RMI\_VERSION command does not have any failure condition orderings.
 | lower  | post: VersionEqual(lower, req)                  |
 | higher | post: VersionEqual(higher, RmiVersionHighest()) |
 
-DRAFT B4.5.92.3 Success conditions ID Condition lower post: VersionEqual(lower, req) higher post: VersionEqual(higher, RmiVersionHighest()) B4.5.92.4 Footprint The RMI\_VERSION command does not have any footprint.
+B4.5.92.3 Success conditions ID Condition lower post: VersionEqual(lower, req) higher post: VersionEqual(higher, RmiVersionHighest()) B4.5.92.4 Footprint The RMI\_VERSION command does not have any footprint.

@@ -33,7 +33,6 @@ The RMI\_RTT\_FOLD command operates on the following context.
 | entry_idx | UInt64           | RttEntryIndex( ipa, walk.level)                       | false    | RTTE index            |
 | fold_pre  | RmmRttEntry      | RttFold( RttAt(walk.rtte.addr))                       | true     | Result of folding RTT |
 
-DRAFT
 
 ## B4.5.72.1.3 Output values
 
@@ -57,7 +56,7 @@ rd_align pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPU
 ## B4.5.72.2.1 Failure condition ordering
 
 ```
-DRAFT walk.level) walk.level) walk.level)
+walk.level) walk.level) walk.level)
 ```
 
 ```
@@ -84,5 +83,5 @@ rtt post: rtt == walk.rtte.addr result post: result.status == RMI_SUCCESS rtte_s
 | rtte      | RttEntryAt(RttAt(walk.rtt_addr), entry_idx) |
 
 ```
-DRAFT GRAN_DELEGATED
+GRAN_DELEGATED
 ```

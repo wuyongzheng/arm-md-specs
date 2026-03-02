@@ -1,6 +1,6 @@
 ## B5.1 RSI version
 
-- RQKLGZ This specification defines version 1.1 of the Realm Services Interface.
+- This specification defines version 1.1 of the Realm Services Interface.
 
 See also:
 
@@ -9,7 +9,7 @@ See also:
 
 ## B5.2 Programming models for RSI operations
 
-- DMQDGF An RSI operation is an operation which is performed by execution of RSI commands.
+- An RSI operation is an operation which is performed by execution of RSI commands.
 
 See also:
 
@@ -17,11 +17,11 @@ See also:
 
 ## B5.2.1 Properties of RSI operations
 
-- DFFJRY A range RSI operation is an operation which modifies the state of a set of objects, which are identified by a contiguous range of addresses.
+- A range RSI operation is an operation which modifies the state of a set of objects, which are identified by a contiguous range of addresses.
 
-DRAFT DGFMHC A non-range RSI operation is an operation which modifies a single object or a set of objects, each of which is identified separately. DTVFKK A long-running RSI operation is an operation which may require multiple RSI calls in order to complete the operation. Specifying that an RSI operation is long-running allows the implementation to guarantee that execution of the command will not cause delivery of interrupts to be delayed by more than an IMPLEMENTATION DEFINED upper bound. DTDQKB A non-long-running RSI operation is an operation which does not require multiple RSI calls in order to complete the operation. IDZTZF A range RSI operation is a long-running RSI operation.
+A non-range RSI operation is an operation which modifies a single object or a set of objects, each of which is identified separately. DTVFKK A long-running RSI operation is an operation which may require multiple RSI calls in order to complete the operation. Specifying that an RSI operation is long-running allows the implementation to guarantee that execution of the command will not cause delivery of interrupts to be delayed by more than an IMPLEMENTATION DEFINED upper bound. DTDQKB A non-long-running RSI operation is an operation which does not require multiple RSI calls in order to complete the operation. IDZTZF A range RSI operation is a long-running RSI operation.
 
-- IQSBZN A non-range RSI operation can be either long-running or non-long-running.
+- A non-range RSI operation can be either long-running or non-long-running.
 
 ## B5.2.2 Progress of long-running RSI operations
 
@@ -29,7 +29,7 @@ The information returned to the caller regarding the amount of progress which ha
 
 ## B5.2.2.1 Long-running non-range RSI operation
 
-- IBWRWH This pattern has the following characteristics:
+- This pattern has the following characteristics:
 - The operation is a non-range operation.
 - The caller initiates the operation by calling an RSI 'init' command. The input values to this command fully describe the requested operation.
 - The caller continues the operation by calling an RSI 'continue' command. The input values to this command include a handle which the implementation uses to retrieve a description of the operation.
@@ -42,7 +42,6 @@ The following pseudocode illustrate the programming model for this pattern.
 int rsi_long_running_non_range( uint64_t in_value_1, uint64_t in_value_2,
 ```
 
-INDRGM
 
 ```
 ... uint64_t *out_value_1, uint64_t *out_value_2, ...) { int result; result = RSI_OPERATION_INIT( in_value_1, in_value_2, ..., out_value_1, out_value_2, ...); if (result == RSI_SUCCESS) { do { result = RSI_OPERATION_CONTINUE(in_value_1); } while (result == RSI_INCOMPLETE); } return result; }
@@ -63,7 +62,6 @@ This pattern has the following characteristics:
 - In order to continue an incomplete operation, the call invokes the same command repeatedly, each time adjusting using the previous out\_top as the new base value. This process is repeated until out\_top == top .
 - While the operation is incomplete, changes in state are observable by the caller and are explicitly reported in the out\_top value.
 
-DRAFT
 
 The following pseudocode illustrate the programming model for this pattern.
 
@@ -71,9 +69,7 @@ The following pseudocode illustrate the programming model for this pattern.
 int rsi_range_progress( uint64_t base, // input value 1 uint64_t top, // input value 2 uint64_t in_value_3, ... uint64_t *out_top, // output value 1 uint64_t *out_value_2, ...) { int result; do { result = RSI_DO_OPERATION( base, top, in_value_3, ..., out_top, out_value_2, ...); base = *out_top; // If result == RSI_SUCCESS then the requested state change has been // applied to the range [base, *out_top).
 ```
 
-IGSLYM
 
-IXZZKG
 
 ```
 } while (result == RSI_SUCCESS && *out_top != top) // If result == RSI_SUCCESS && *out_top == top then the requested state change // has been applied to the entire range [base, top). return result; }
@@ -91,7 +87,6 @@ See also:
 
 ## B5.3 RSI command return codes
 
-ICYQDJ
 
 An RSI command return code indicates whether the command
 
@@ -99,13 +94,11 @@ An RSI command return code indicates whether the command
 
 - failed, and the reason for the failure.
 
-IDQJSP If an RSI command succeeds then it returns RSI\_SUCCESS.
+If an RSI command succeeds then it returns RSI\_SUCCESS.
 
-IYMHKC
 
 Multiple failure conditions in an RSI command may return the same return code.
 
-RMLBDM
 
 If an input to an RSI command uses an invalid encoding then the command fails and returns RSI\_ERROR\_INPUT.
 
@@ -119,4 +112,3 @@ Invalid encodings include:
 
 - B5.5.3 RsiCommandReturnCode type
 
-DRAFT

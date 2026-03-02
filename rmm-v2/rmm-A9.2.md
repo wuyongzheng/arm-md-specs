@@ -1,10 +1,9 @@
 ## A9.2 Physical device object
 
-- DLHTXR A Physical Device
+- A Physical Device
 
 (PDEV) represents a communication channel between the RMM and a physical device.
 
-- IHDVMG
 
 The physical device represented by a PDEV is one of the following:
 
@@ -14,7 +13,6 @@ The physical device represented by a PDEV is one of the following:
 
 ## A9.2.1 Physical device attributes
 
-- DWKMVW
 
 <!-- image -->
 
@@ -25,7 +23,7 @@ The attributes of a PDEV are summarized in the following table.
 | category                     | RmmPdevCategory              | Device category                                                               |
 | pdev_id                      | Bits64                       | Device identifier                                                             |
 | routing_id                   | Bits64                       | Routing identifier                                                            |
-| rid_base                     | Bits16                       | DRAFT Base of requester ID range (inclusive). The value is in PCI BDF format. |
+| rid_base                     | Bits16                        Base of requester ID range (inclusive). The value is in PCI BDF format. |
 | rid_top                      | Bits16                       | Top of requester ID range (exclusive). The value is in PCI BDF format.        |
 | spdm                         | RmmPdevSpdm                  | Whether communication with the device uses SPDM                               |
 | signed_meas                  | RmmFeature                   | Whether device supports signed measurements                                   |
@@ -43,9 +41,7 @@ The attributes of a PDEV are summarized in the following table.
 
 For a device which uses SPDM communication, negotiation\_data\_digest field corresponds to the VCA digest. VCA is a concatenation of the following SPDM requests and responses:
 
-IJJSKC
 
-IRQCKC
 
 - VERSION\_REQ
 - VERSION\_RESP
@@ -87,15 +83,13 @@ This section lists invariants which are enforced via checks performed by the RMM
 |-----------|--------------------------------------------------------------------------------------------------------------------------|
 | U YJXZG   | The latest point when the implementation may set TDISP_EN=1 is on creation of the first PDEV attached to that Root Port. |
 
-DRAFT
 
-RDFZJC
 
 pdev.max\_num\_vdevs is not greater than ((2 ˆ rmm.static.max\_vdevs\_order) - 1).
 
-RJZKQM Once the state of a PDEV has transitioned to PDEV\_READY, the RMM has established secure communication with the device, which remains in place until the PDEV transitions to PDEV\_STOPPED.
+Once the state of a PDEV has transitioned to PDEV\_READY, the RMM has established secure communication with the device, which remains in place until the PDEV transitions to PDEV\_STOPPED.
 
-RRZLHW For an integrated PDEV the range (pdev.rid\_base, pdev.rid\_top] falls within the platform-assigned RID range for the corresponding device.
+For an integrated PDEV the range (pdev.rid\_base, pdev.rid\_top] falls within the platform-assigned RID range for the corresponding device.
 
 ## See also:
 
@@ -108,7 +102,7 @@ RRZLHW For an integrated PDEV the range (pdev.rid\_base, pdev.rid\_top] falls wi
 
 ## A9.2.3.1 States
 
-DGJRWJ The states of a PDEV are listed below.
+The states of a PDEV are listed below.
 
 | State          | Description                                                                |
 |----------------|----------------------------------------------------------------------------|
@@ -116,7 +110,7 @@ DGJRWJ The states of a PDEV are listed below.
 | PDEV_NEEDS_KEY | RMMneeds device public key.                                                |
 | PDEV_HAS_KEY   | RMMhas device public key.                                                  |
 | PDEV_READY     | Secure connection between the RMMand the device has been established.      |
-| PDEV_STOPPED   | DRAFT Secure connection between the RMMand the device has been terminated. |
+| PDEV_STOPPED    Secure connection between the RMMand the device has been terminated. |
 | PDEV_ERROR     | Device has reported a fatal error.                                         |
 
 ## A9.2.3.2 State transitions
@@ -138,11 +132,11 @@ Figure A9.3: PDEV state transitions
 
 ## A9.2.3.2.1 State transitions for a device which uses SPDM communication
 
-IFLKXB While a PDEV which uses SPDM communication is in PDEV\_NEW state, execution of RMI\_PDEV\_COMMUNICATE causes the RMM to fetch the device certificate chain. The RMM stores a digest of the device certificate chain for later retrieval by the Realm. The Host is expected to cache the device certificate chain for later retrieval by the Realm.
+While a PDEV which uses SPDM communication is in PDEV\_NEW state, execution of RMI\_PDEV\_COMMUNICATE causes the RMM to fetch the device certificate chain. The RMM stores a digest of the device certificate chain for later retrieval by the Realm. The Host is expected to cache the device certificate chain for later retrieval by the Realm.
 
 Once device certificate chain retrieval is complete, the PDEV moves to PDEV\_NEEDS\_KEY state.
 
-IZJNMR While a PDEV which uses SPDM communication is in PDEV\_HAS\_KEY state, execution of RMI\_PDEV\_COMMUNICATE causes the RMM to perform secure SPDM session establishment.
+While a PDEV which uses SPDM communication is in PDEV\_HAS\_KEY state, execution of RMI\_PDEV\_COMMUNICATE causes the RMM to perform secure SPDM session establishment.
 
 Secure SPDM session establishment includes verification of the signature in the SPDM KEY\_EXCHANGE response.
 
@@ -150,7 +144,6 @@ Once secure SPDM session establishment is complete, the PDEV moves to PDEV\_READ
 
 A9.2.3.2.2 State transitions for a device which uses platform communication
 
-ITSVNW
 
 While a PDEV which uses platform communication is in PDEV\_NEW state, execution of RMI\_PDEV\_COMMUNICATE causes the RMM to establish a communication channel with the device.
 
@@ -158,11 +151,11 @@ Once device identity evidence retrieval is complete, the PDEV moves to PDEV\_REA
 
 ## A9.2.3.2.3 State transitions for all devices
 
-- IWLWSH While a device transaction is active for the PDEV, the Host can either:
+- While a device transaction is active for the PDEV, the Host can either:
 - Transfer device requests and device responses by executing RMI\_PDEV\_COMMUNICATE. If the return value indicates that the device transaction is complete then the PDEV moves to PDEV\_READY state.
 - Abort the device transaction by executing RMI\_PDEV\_ABORT. On successful execution of this command, the PDEV moves to either PDEV\_READY state or PDEV\_ERROR state.
-- ISPTHK On execution of RMI\_PDEV\_COMMUNICATE, if the RMM detects a fatal error (such as an unexpected response or a protocol error) then the PDEV moves to PDEV\_ERROR state.
-- ISRKJH While a PDEV is in any of the following states, the Host can request the RMM to stop the device by executing RMI\_PDEV\_STOP:
+- On execution of RMI\_PDEV\_COMMUNICATE, if the RMM detects a fatal error (such as an unexpected response or a protocol error) then the PDEV moves to PDEV\_ERROR state.
+- While a PDEV is in any of the following states, the Host can request the RMM to stop the device by executing RMI\_PDEV\_STOP:
 - PDEV\_NEW
 - PDEV\_NEEDS\_KEY
 - PDEV\_HAS\_KEY
@@ -171,21 +164,20 @@ Once device identity evidence retrieval is complete, the PDEV moves to PDEV\_REA
 
 A device transaction is initiated for the PDEV, with the operation set to PDEV\_OP\_STOP.
 
-- IYZJTQ While a PDEV has its operation set to PDEV\_OP\_STOP, the Host can enact the 'stop' device transaction by executing RMI\_PDEV\_COMMUNICATE.
+- While a PDEV has its operation set to PDEV\_OP\_STOP, the Host can enact the 'stop' device transaction by executing RMI\_PDEV\_COMMUNICATE.
 
 If the return value indicates that the device transaction is complete then the PDEV moves to PDEV\_STOPPED state.
 
-- ICTRHZ While a PDEV has its operation set to PDEV\_OP\_STOP, if the device fails to respond or reports an error then the Host can call RMI\_PDEV\_COMMUNICATE, passing RMI\_DEV\_COMM\_ERROR.
+- While a PDEV has its operation set to PDEV\_OP\_STOP, if the device fails to respond or reports an error then the Host can call RMI\_PDEV\_COMMUNICATE, passing RMI\_DEV\_COMM\_ERROR.
 
 On successful execution of this command, the PDEV moves to PDEV\_STOPPED state.
 
-- IVKLQW While a PDEV is in PDEV\_STOPPED state, the Host can reclaim resources by executing RMI\_PDEV\_DESTROY.
+- While a PDEV is in PDEV\_STOPPED state, the Host can reclaim resources by executing RMI\_PDEV\_DESTROY.
 
-DRAFT
 
 This command will fail if the PDEV is associated with any VDEVs.
 
-- IJFRWD Permitted PDEV state transitions are shown in the following table. The rightmost column lists the events which can cause the corresponding state transition.
+- Permitted PDEV state transitions are shown in the following table. The rightmost column lists the events which can cause the corresponding state transition.
 
 A transition from the pseudo-state NULL represents creation of a PDEV object. A transition to the pseudo-state NULL represents destruction of a PDEV object.
 
@@ -221,13 +213,12 @@ A transition from the pseudo-state NULL represents creation of a PDEV object. A 
 - PCI Express 6.0 specification [16]
 - A9.5 Communication between RMM and a device
 
-DRAFT
 
 ## A9.2.4 Physical device flows
 
 ## A9.2.4.1 Physical device setup flow
 
-ITPVTS Setup of a PDEV is illustrated in the following sequence diagram.
+Setup of a PDEV is illustrated in the following sequence diagram.
 
 Figure A9.4: Setup of a PDEV
 
@@ -235,9 +226,8 @@ Figure A9.4: Setup of a PDEV
 
 Establishment of a Secure SPDM session means that the requester (the RMM) has verified that the responder holds the private key which corresponds to the public key in the device leaf certificate. The identity and trustworthiness of the responder are not evaluated until the Realm receives attestation evidence for the device.
 
-IPJSQG
 
-ISPGYF Mapping of the PDEV setup flow onto SPDM communication with a TDISP PCIe device is illustrated in the following sequence diagram.
+Mapping of the PDEV setup flow onto SPDM communication with a TDISP PCIe device is illustrated in the following sequence diagram.
 
 Figure A9.5: Mapping of the PDEV setup flow onto SPDM communication with a TDISP PCIe device
 

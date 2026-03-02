@@ -34,7 +34,6 @@ The RMI\_PSMMU\_DEACTIVATE command operates on the following context.
 |--------|------------|--------|-----------|----------------|
 | result | X0         | 63:0   | RmiResult | Command result |
 
-DRAFT
 
 ## B4.5.40.2 Failure conditions
 

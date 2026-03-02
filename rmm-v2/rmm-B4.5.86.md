@@ -30,7 +30,6 @@ The RMI\_VDEV\_GET\_STATE command operates on the following context.
 | result | X0         | 63:0   | RmiResult    | Command result |
 | state  | X1         | 7:0    | RmiVdevState | VDEV state     |
 
-DRAFT
 
 The following unused bits of RMI\_VDEV\_GET\_STATE output values MBZ: X1[63:8].
 
@@ -61,4 +60,3 @@ Condition post: Equal(state, vdev.vdev\_state)
 
 The RMI\_VDEV\_GET\_STATE command does not have any footprint.
 
-DRAFT

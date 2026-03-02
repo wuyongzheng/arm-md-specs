@@ -31,7 +31,6 @@ The RMI\_CMEM\_STOP command operates on the following context.
 |--------|------------|--------|-----------|----------------|
 | result | X0         | 63:0   | RmiResult | Command result |
 
-DRAFT
 
 ## B4.5.8.2 Failure conditions
 
@@ -75,7 +74,6 @@ post: cmem.state == CMEM_STOPPED post: rmm.dynamic.pat_valid == RMM_FALSE
 | state     | cmem.state            |
 | pat_valid | rmm.dynamic.pat_valid |
 
-DRAFT
 
 ## ID
 

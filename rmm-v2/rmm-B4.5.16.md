@@ -31,7 +31,6 @@ The RMI\_GPT\_L1\_DESTROY command operates on the following context.
 
 ## B4.5.16.1.3 Output values
 
-DRAFT
 
 | Name   | Register   | Bits   | Type      | Description    |
 |--------|------------|--------|-----------|----------------|

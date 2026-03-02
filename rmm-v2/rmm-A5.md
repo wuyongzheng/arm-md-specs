@@ -12,4 +12,3 @@ See also:
 - D1.5 Realm memory management flows
 - Chapter D2 Realm shared memory protocol
 
-DRAFT

@@ -2,4 +2,3 @@
 
 This section describes how the initial state of a Realm is measured and can be attested.
 
-DRAFT

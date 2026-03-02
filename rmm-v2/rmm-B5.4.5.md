@@ -24,7 +24,7 @@ The RSI\_HOST\_CALL command operates on the following context.
 |--------|----------------------------------------------------------------------------------------------|----------|--------------------------|
 | realm  | RmmRealm CurrentRealm()                                                                      | false    | Current Realm            |
 | rec    | RmmRec CurrentRec()                                                                          | false    | Current REC              |
-| data   | DRAFT RsiHostCall RsiHostCallAt(addr) realm, addr, RMM_RTT_PAGE_LEVEL, RMM_RTT_TREE_PRIMARY) | false    | Host call data structure |
+| data    RsiHostCall RsiHostCallAt(addr) realm, addr, RMM_RTT_PAGE_LEVEL, RMM_RTT_TREE_PRIMARY) | false    | Host call data structure |
 | walk   | RmmRttWalkResult RttWalk(                                                                    | false    | RTT walk result          |
 
 ## B5.4.5.1.3 Output values

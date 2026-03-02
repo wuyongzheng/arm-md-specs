@@ -43,7 +43,6 @@ The PSCI\_CPU\_ON command operates on the following context.
 
 ## B6.3.3.2 Failure conditions
 
-DRAFT
 
 ```
 ID Condition entry pre: !AddrIsProtected(entry_point_address, realm) post: result == PSCI_INVALID_ADDRESS mpidr pre: !MpidrIsUsed(target_cpu) post: result == PSCI_INVALID_PARAMETERS runnable pre: target_rec.flags.runnable == RUNNABLE post: result == PSCI_ALREADY_ON
@@ -67,4 +66,3 @@ The PSCI\_CPU\_ON command does not have any failure condition orderings.
 | runnable | target_rec.flags.runnable |
 | pc       | target_rec.pc             |
 
-DRAFT

@@ -31,7 +31,6 @@ The RSI\_VSMMU\_GET\_INFO command operates on the following context.
 | result | X0         | 63:0   | RsiCommandReturnCode | Command result       |
 | top    | X1         | 63:0   | Address              | Top IPA of the VSMMU |
 
-DRAFT
 
 ## B5.4.23.2 Failure conditions
 

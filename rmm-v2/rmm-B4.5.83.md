@@ -37,7 +37,6 @@ The RMI\_VDEV\_DESTROY command operates on the following context.
 | st_walk        | RmmPsmmuStWalkResult PsmmuStWalk( psmmu, VdevSid( | RmmPsmmuStWalkResult PsmmuStWalk( psmmu, VdevSid( | false          | Result of PSMMU Stream Table walk |
 | ↪ → vdev_pre)) | ↪ → vdev_pre))                                    | ↪ → vdev_pre))                                    | ↪ → vdev_pre)) | ↪ → vdev_pre))                    |
 
-DRAFT
 
 ## B4.5.83.1.3 Output values
 
@@ -52,7 +51,7 @@ ID
 ## Condition
 
 ```
-DRAFT feat pre: Rmm().static.feat_da != FEATURE_TRUE post: result.status == RMI_ERROR_NOT_SUPPORTED rd_align pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPUT rd_bound pre: !PaIsTracked(rd) post: result.status == RMI_ERROR_INPUT rd_gran_state pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_INPUT pdev_align pre: !AddrIsRmiGranuleAligned(pdev_ptr) post: result.status == RMI_ERROR_INPUT pdev_bound pre: !PaIsTracked(pdev_ptr) post: result.status == RMI_ERROR_INPUT pdev_gran_state pre: GranuleAt(pdev_ptr).state != GRAN_PDEV post: result.status == RMI_ERROR_INPUT vdev_align pre: !AddrIsRmiGranuleAligned(vdev_ptr) post: result.status == RMI_ERROR_INPUT vdev_tracking pre: !PaIsTrackedFine(vdev_ptr) post: result.status == RMI_ERROR_INPUT vdev_gran_state pre: GranuleAt(vdev_ptr).state != GRAN_VDEV post: result.status == RMI_ERROR_INPUT vdev_realm pre: vdev_pre.realm != rd post: result.status == RMI_ERROR_DEVICE vdev_pdev pre: vdev_pre.pdev != pdev_ptr post: result.status == RMI_ERROR_DEVICE vdev_state pre: (vdev_pre.vdev_state != VDEV_NEW && vdev_pre.vdev_state != VDEV_UNLOCKED && vdev_pre.vdev_state != VDEV_ERROR) post: result.status == RMI_ERROR_DEVICE
+feat pre: Rmm().static.feat_da != FEATURE_TRUE post: result.status == RMI_ERROR_NOT_SUPPORTED rd_align pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPUT rd_bound pre: !PaIsTracked(rd) post: result.status == RMI_ERROR_INPUT rd_gran_state pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_INPUT pdev_align pre: !AddrIsRmiGranuleAligned(pdev_ptr) post: result.status == RMI_ERROR_INPUT pdev_bound pre: !PaIsTracked(pdev_ptr) post: result.status == RMI_ERROR_INPUT pdev_gran_state pre: GranuleAt(pdev_ptr).state != GRAN_PDEV post: result.status == RMI_ERROR_INPUT vdev_align pre: !AddrIsRmiGranuleAligned(vdev_ptr) post: result.status == RMI_ERROR_INPUT vdev_tracking pre: !PaIsTrackedFine(vdev_ptr) post: result.status == RMI_ERROR_INPUT vdev_gran_state pre: GranuleAt(vdev_ptr).state != GRAN_VDEV post: result.status == RMI_ERROR_INPUT vdev_realm pre: vdev_pre.realm != rd post: result.status == RMI_ERROR_DEVICE vdev_pdev pre: vdev_pre.pdev != pdev_ptr post: result.status == RMI_ERROR_DEVICE vdev_state pre: (vdev_pre.vdev_state != VDEV_NEW && vdev_pre.vdev_state != VDEV_UNLOCKED && vdev_pre.vdev_state != VDEV_ERROR) post: result.status == RMI_ERROR_DEVICE
 ```
 
 ## B4.5.83.2.1 Failure condition ordering
@@ -81,4 +80,3 @@ DRAFT feat pre: Rmm().static.feat_da != FEATURE_TRUE post: result.status == RMI_
 |------------------------------------------------|----------------------------------------------------------------------------|
 | state realm_num_vdevs pdev_num_vdevs ste_state | GranuleAt(vdev_ptr).state realm.num_vdevs pdev.num_vdevs st_walk.ste.state |
 
-DRAFT

@@ -8,10 +8,10 @@ See also:
 
 ## A9.5.1 Device requests and responses
 
-- DYTBZW Communication between the RMM and a device consists of a series of device requests sent from the RMM to the device and device responses returned by the device to the RMM.
-- DYWVZH A device transaction is a series of one or more (device request, device response) tuples.
-- IFXWLY A device transaction is initiated by Host execution of an RMI command.
-- ISQSLN At the requester side (that is, at the RMM), a device transaction is associated with either a PDEV or a VDEV, depending on the event which triggered the device transaction:
+- Communication between the RMM and a device consists of a series of device requests sent from the RMM to the device and device responses returned by the device to the RMM.
+- A device transaction is a series of one or more (device request, device response) tuples.
+- A device transaction is initiated by Host execution of an RMI command.
+- At the requester side (that is, at the RMM), a device transaction is associated with either a PDEV or a VDEV, depending on the event which triggered the device transaction:
 - If the device transaction was triggered by one of the following RMI commands then the device transaction is associated with the PDEV.
 - -RMI\_PDEV\_CREATE
 - -RMI\_PDEV\_SET\_PUBKEY
@@ -27,12 +27,11 @@ See also:
 - -RMI\_VDEV\_START
 - -RMI\_VDEV\_UNLOCK
 
-DRAFT
 
-- IRQRQF A Realm is expected to request the Host to initiate device transactions (for both state changes and for requesting measurements and interface report) via an RSI\_HOST\_CALL interface. For details, refer to Realm Host Interface specification [20].
-- IFHBLL A PDEV is associated with at most one device transaction at a time.
-- ILPSZW A VDEV is associated with at most one device transaction at a time.
-- DNLVBV The states of a Device communication are listed below.
+- A Realm is expected to request the Host to initiate device transactions (for both state changes and for requesting measurements and interface report) via an RSI\_HOST\_CALL interface. For details, refer to Realm Host Interface specification [20].
+- A PDEV is associated with at most one device transaction at a time.
+- A VDEV is associated with at most one device transaction at a time.
+- The states of a Device communication are listed below.
 
 | State            | Description                                                                                                                                                                                                                                                 |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -40,13 +39,9 @@ DRAFT
 | DEV_COMM_PENDING | The RMMhas a device request which is ready to be sent to the device.                                                                                                                                                                                        |
 | DEV_COMM_ACTIVE  | The RMMhas initiated a device transaction. One or more device requests associated with this device transaction have been sent from the RMMto the device. The RMMhas not received all the expected device responses associated with this device transaction. |
 
-IBDHSP
 
-IMXRWH
 
-IGCYRR
 
-SSRHCJ
 
 ## See also:
 
@@ -61,13 +56,12 @@ DEV\_COMM\_ERROR
 
 The RMM encountered an error during communication with the device.
 
-IPSRPH Device communication state transitions are shown in the following figure. Each arc is labeled with the events which can cause the corresponding state transition.
+Device communication state transitions are shown in the following figure. Each arc is labeled with the events which can cause the corresponding state transition.
 
 Figure A9.12: Device communication state transitions
 
 <!-- image -->
 
-DRAFT
 
 - Abort the device transaction by executing RMI\_PDEV\_ABORT.
 
@@ -106,7 +100,7 @@ The attributes of an RmiDevCommExit object tell the Host the following:
 - Whether the device transaction contains more than one (device request, device response) tuple. This is indicated by the RmiDevCommExitFlags::multi flag.
 - Whether the device transaction is waiting for a transaction on another device, to which this device is connected via a PDEV stream, to proceed. This is indicated by the RmiDevCommExitFlags::stream\_wait flag.
 
-DMDBXD Device communication is complete means that none of the following flags are set:
+Device communication is complete means that none of the following flags are set:
 
 - RmiDevCommExitFlags::req\_send
 - RmiDevCommExitFlags::req\_cache
@@ -114,13 +108,11 @@ DMDBXD Device communication is complete means that none of the following flags a
 - RmiDevCommExitFlags::rsp\_reset
 - RmiDevCommExitFlags::rsp\_wait
 - RmiDevCommExitFlags::stream\_wait
-- IXZSST RmiDevCommExitFlags::req\_send and RmiDevCommExitFlags::rsp\_wait are never set together.
+- RmiDevCommExitFlags::req\_send and RmiDevCommExitFlags::rsp\_wait are never set together.
 
-DRAFT
 
-IRRCLW RmiDevCommExitFlags::multi is only set when RmiDevCommExitFlags::req\_send is set.
+RmiDevCommExitFlags::multi is only set when RmiDevCommExitFlags::req\_send is set.
 
-- UYYVZK
 
 A device which uses SPDM communication is permitted to respond with ResponseNotReady and a token and timeout value (RDTExponent and RDTM). In this case, the RMM is expected to do the following:
 
@@ -129,17 +121,15 @@ A device which uses SPDM communication is permitted to respond with ResponseNotR
 
 As a result, the Host is expected to wait for the specified amount of time, before it sends the RespondIfReady request to the device.
 
-USPLZZ When initiating a new SPDM request, the RMM is expected to set the RmiDevCommExitFlags::rsp\_reset flag. On subsequent RMI\_xDEV\_COMMUNICATE calls while the SPDM request is still outstanding, the RMM is expected to clear the RmiDevCommExitFlags::rsp\_reset flag.
+When initiating a new SPDM request, the RMM is expected to set the RmiDevCommExitFlags::rsp\_reset flag. On subsequent RMI\_xDEV\_COMMUNICATE calls while the SPDM request is still outstanding, the RMM is expected to clear the RmiDevCommExitFlags::rsp\_reset flag.
 
 As a result, the Host is expected to measure the time taken by the SPDM request from the first call in the sequence, when the RmiDevCommExitFlags::rsp\_reset flag was set.
 
-- IRZMWC During communication between the RMM and a device which uses SPDM:
+- During communication between the RMM and a device which uses SPDM:
 - RmiDevCommExitFlags::req\_send indicates that the Host is requested to send a device request to the device.
 - RmiDevCommExitFlags::rsp\_wait indicates that the Host is requested to return a device response to the RMM.
 
-DZJTGD
 
-ICFHJY
 
 ## Chapter A9. Realm device assignment
 
@@ -155,7 +145,7 @@ ICFHJY
 | flags            | 0x0           | RmiDevCommExitFlags | Flags indicating action(s) which the Host is requested to perform                                                                 |
 | req_cache_offset | 0x8           | UInt64              | If flags.req_cache is true, offset in the device request buffer to the start of data to be cached, in bytes                       |
 | req_cache_len    | 0x10          | UInt64              | If flags.req_cache is true, amount of device request data to be cached, in bytes                                                  |
-| rsp_cache_offset | 0x18          | DRAFT UInt64        | If flags.rsp_cache is true, offset in the device response buffer to the start of data to be cached, in bytes                      |
+| rsp_cache_offset | 0x18           UInt64        | If flags.rsp_cache is true, offset in the device response buffer to the start of data to be cached, in bytes                      |
 | rsp_cache_len    | 0x20          | UInt64              | If flags.rsp_cache is true, amount of device response data to be cached, in bytes                                                 |
 | cache_object_id  | 0x28          | RmiDevCommObject    | If flags.req_cache is true and / or flags.rsp_cache is true, identifier for the object to be cached                               |
 | protocol         | 0x30          | RmiDevCommProtocol  | If flags.req_send is true, protocol to use                                                                                        |
@@ -174,9 +164,8 @@ ICFHJY
 
 ## A9.5.2.2 Device communication enter data structure
 
-DPPHJZ An RmiDevCommEnter object is a data structure which is passed from the Host to the RMM during a device transaction.
+An RmiDevCommEnter object is a data structure which is passed from the Host to the RMM during a device transaction.
 
-IWXGVT
 
 <!-- image -->
 
@@ -207,20 +196,19 @@ The attributes of an RmiDevCommEnter object are summarized in the following tabl
 
 ## A9.5.3 Host-side device communication flow
 
-DRAFT
 
-- IZVQLX The RMI\_PDEV\_COMMUNICATE command is used to send a PDEV-associated device request from the RMM to a device, and / or to return a device response from the device to the RMM.
-- INCQHB The RMI\_VDEV\_COMMUNICATE command is used to send a VDEV-associated device request from the RMM to a device, and / or to return a device response from the device to the RMM.
-- ITJCNW The RMI\_PDEV\_COMMUNICATE and RMI\_VDEV\_COMMUNICATE commands have identical programming models. Hereafter, they are referred to collectively as 'device communication commands'.
+- The RMI\_PDEV\_COMMUNICATE command is used to send a PDEV-associated device request from the RMM to a device, and / or to return a device response from the device to the RMM.
+- The RMI\_VDEV\_COMMUNICATE command is used to send a VDEV-associated device request from the RMM to a device, and / or to return a device response from the device to the RMM.
+- The RMI\_PDEV\_COMMUNICATE and RMI\_VDEV\_COMMUNICATE commands have identical programming models. Hereafter, they are referred to collectively as 'device communication commands'.
 
-RVZMZN For a given physical device, at most one device transaction can be active.
+For a given physical device, at most one device transaction can be active.
 
-- IKFKHW The RMI\_PDEV\_ABORTcommandor RMI\_VDEV\_ABORTcommandisused to abort an DEV\_COMM\_ACTIVE device transaction.
-- IFNCJS At the responder side (that is, at the device), device transactions associated with a PDEV and device transactions associated with its child VDEVs all terminate at the same physical device.
+- The RMI\_PDEV\_ABORTcommandor RMI\_VDEV\_ABORTcommandisused to abort an DEV\_COMM\_ACTIVE device transaction.
+- At the responder side (that is, at the device), device transactions associated with a PDEV and device transactions associated with its child VDEVs all terminate at the same physical device.
 
 ## A9.5.3.1 Communication flow for devices which use SPDM
 
-- INZLCF The overall flow for communication between the RMM and a device which uses SPDM is as follows:
+- The overall flow for communication between the RMM and a device which uses SPDM is as follows:
 1. The Host executes an RMI command which causes a device transaction, associated with a specified PDEV or VDEV, to become pending.
 
 The output values of the command include an indication of whether the pending transaction will contain more than one (device request, device response) tuple.
@@ -252,17 +240,16 @@ The Host copies the device response to a device response buffer in NS memory. As
 - SPDM key update is not supported
 11. UKPPFB In order for its functions to be assignable to Realms, a device must provide the following functionality:
 
-DRAFT
 
 - SPDM version required by PCIe TDISP and IDE\_KM specifications.
 - Identity and authentication including key exchange.
-- INLNKJ The following sequence illustrates communication with a device which uses SPDM, taking RMI\_VDEV\_LOCK as the example which initiates the communication.
+- The following sequence illustrates communication with a device which uses SPDM, taking RMI\_VDEV\_LOCK as the example which initiates the communication.
 
 Figure A9.13: Communication with a device which uses SPDM
 
 <!-- image -->
 
-UTMZQY The implementation should set the SPDM DataTransferSize to a value which allows the largest possible secure SPDM payload to fit within an RMI Granule.
+The implementation should set the SPDM DataTransferSize to a value which allows the largest possible secure SPDM payload to fit within an RMI Granule.
 
 See also:
 
@@ -272,7 +259,7 @@ See also:
 
 ## A9.5.3.2 Communication flow for devices which do not use SPDM
 
-IXHVYW The overall flow for communication between the RMM and a device which does not use SPDM is as follows:
+The overall flow for communication between the RMM and a device which does not use SPDM is as follows:
 
 1. The Host executes an RMI command which causes a device transaction, associated with a specified PDEV or VDEV, to become pending.
 
@@ -292,21 +279,21 @@ Figure A9.14: Communication with a device which does not use SPDM
 
 <!-- image -->
 
-IKQKBY For details of communication with the device via the platform, refer to Firmware Interfaces for RME (FIRME) specification [19].
+For details of communication with the device via the platform, refer to Firmware Interfaces for RME (FIRME) specification [19].
 
 ## A9.5.4 Host caching of device attestation evidence
 
-- INWBPX On execution of a device communication command, the RMM can indicate to the Host that the Host should cache data from the request buffer and / or response buffer, for later retrieval by the Realm.
-- IHBYJL If RmiDevCommExitFlags::req\_cache is set then the Host should cache data from the request buffer, with the extent identified by the RmiDevCommExit::req\_cache\_offset and RmiDevCommExit::req\_cache\_len fields.
-- IMPJXV If RmiDevCommExitFlags::rsp\_cache is set then the Host should cache data from the response buffer, with the extent identified by the RmiDevCommExit::rsp\_cache\_offset and RmiDevCommExit::rsp\_cache\_len fields.
-- IMSHSD The identity of the data which the Host is requested to cache is identified by the RmiDevCommExit::cache\_object\_id field.
-- ISMMYY If the device transaction was triggered while the PDEV state was PDEV\_NEW then the RMM may indicate that the Host should cache the following objects:
+- On execution of a device communication command, the RMM can indicate to the Host that the Host should cache data from the request buffer and / or response buffer, for later retrieval by the Realm.
+- If RmiDevCommExitFlags::req\_cache is set then the Host should cache data from the request buffer, with the extent identified by the RmiDevCommExit::req\_cache\_offset and RmiDevCommExit::req\_cache\_len fields.
+- If RmiDevCommExitFlags::rsp\_cache is set then the Host should cache data from the response buffer, with the extent identified by the RmiDevCommExit::rsp\_cache\_offset and RmiDevCommExit::rsp\_cache\_len fields.
+- The identity of the data which the Host is requested to cache is identified by the RmiDevCommExit::cache\_object\_id field.
+- If the device transaction was triggered while the PDEV state was PDEV\_NEW then the RMM may indicate that the Host should cache the following objects:
 - Anegotiation data object, indicated by RmiDevCommExit::cache\_object\_id == RMI\_DEV\_NEGOTIATION\_DATA.
 - A device identity evidence, indicated by RmiDevCommExit::cache\_object\_id == RMI\_DEV\_IDENTITY.
 - Device measurement data, indicated by RmiDevCommExit::cache\_object\_id == RMI\_DEV\_MEASUREMENTS.
-- IQTSCD If the device transaction was triggered by RMI\_VDEV\_GET\_MEASUREMENTS then the RMM may indicate that the Host should cache device measurement data, indicated by RmiDevCommExit::cache\_object\_id == RMI\_DEV\_MEASUREMENTS.
+- If the device transaction was triggered by RMI\_VDEV\_GET\_MEASUREMENTS then the RMM may indicate that the Host should cache device measurement data, indicated by RmiDevCommExit::cache\_object\_id == RMI\_DEV\_MEASUREMENTS.
 
-DRAFT For a device which uses SPDM communication, this data consists of the SPDM GET\_MEASUREMENTS request and the corresponding MEASUREMENTS response message, stored in the same sequence used to construct the SPDM measurement transcript. Note that this data does not include the VCA exchange. For a device which uses platform communication, the format of this data is IMPLEMENTATION DEFINED. ITYCWV If the device transaction was triggered by RMI\_VDEV\_GET\_INTERFACE\_REPORT then the RMM may indicate that the Host should cache a device interface report, indicated by RmiDevCommExit::cache\_object\_id == RMI\_DEV\_INTERFACE\_REPORT. See also: · A9.6.1 Realm retrieval of device attestation evidence · B4.5.27 RMI\_PDEV\_CREATE command · B4.5.84 RMI\_VDEV\_GET\_INTERFACE\_REPORT command · B4.5.85 RMI\_VDEV\_GET\_MEASUREMENTS command
+For a device which uses SPDM communication, this data consists of the SPDM GET\_MEASUREMENTS request and the corresponding MEASUREMENTS response message, stored in the same sequence used to construct the SPDM measurement transcript. Note that this data does not include the VCA exchange. For a device which uses platform communication, the format of this data is IMPLEMENTATION DEFINED. ITYCWV If the device transaction was triggered by RMI\_VDEV\_GET\_INTERFACE\_REPORT then the RMM may indicate that the Host should cache a device interface report, indicated by RmiDevCommExit::cache\_object\_id == RMI\_DEV\_INTERFACE\_REPORT. See also: · A9.6.1 Realm retrieval of device attestation evidence · B4.5.27 RMI\_PDEV\_CREATE command · B4.5.84 RMI\_VDEV\_GET\_INTERFACE\_REPORT command · B4.5.85 RMI\_VDEV\_GET\_MEASUREMENTS command
 
 - B4.6.19 RmiDevCommExit type
 
@@ -314,15 +301,15 @@ DRAFT For a device which uses SPDM communication, this data consists of the SPDM
 
 ## A9.5.5.1 Device measurement retrieval overview
 
-- IPKVPT Device measurement retrieval is initiated by execution of RMI\_VDEV\_GET\_MEASUREMENTS.
-- IRJNBG Following initiation of device measurement retrieval, the Host is expected to call RMI\_VDEV\_COMMUNICATE in order to exchange device requests and device responses with the RMM.
-- IGLMYC During all variants of the device measurement retrieval flow, on return from RMI\_VDEV\_COMMUNICATE the RMMmay request the Host to cache measurement data, for later retrieval by the Realm via RHI.
+- Device measurement retrieval is initiated by execution of RMI\_VDEV\_GET\_MEASUREMENTS.
+- Following initiation of device measurement retrieval, the Host is expected to call RMI\_VDEV\_COMMUNICATE in order to exchange device requests and device responses with the RMM.
+- During all variants of the device measurement retrieval flow, on return from RMI\_VDEV\_COMMUNICATE the RMMmay request the Host to cache measurement data, for later retrieval by the Realm via RHI.
 
 During a device measurement retrieval flow, the Host is expected to concatenate this data into a single 'cached measurement buffer'.
 
 The RMM stores a digest of the measurement data which it requests the Host to cache, which the Realm can request via RSI\_VDEV\_GET\_INFO.
 
-- IHPBJC Device measurement retrieval is permitted regardless of the state of the VDEV. The Realm can use the RsiVdevInfo::lock\_nonce and RsiVdevInfo::meas\_nonce fields to check measurement freshness.
+- Device measurement retrieval is permitted regardless of the state of the VDEV. The Realm can use the RsiVdevInfo::lock\_nonce and RsiVdevInfo::meas\_nonce fields to check measurement freshness.
 
 See also:
 
@@ -333,11 +320,11 @@ See also:
 
 ## A9.5.5.2 Retrieval of device measurements from a device which uses SPDM
 
-RSCKYM During retrieval of device measurements from a device which uses SPDM, the data which the RMM requests the Host to cache is the SPDM measurement request and response messages.
+During retrieval of device measurements from a device which uses SPDM, the data which the RMM requests the Host to cache is the SPDM measurement request and response messages.
 
-RLXDFR During retrieval of device measurements from a device which uses SPDM, if the device supports signed measurements then the SPDM\_MEASUREMENTS response includes a device-generated signature over the SPDM measurement transcript, as specified in the SPDM specification; see Security Protocol and Data Model (SPDM) [21].
+During retrieval of device measurements from a device which uses SPDM, if the device supports signed measurements then the SPDM\_MEASUREMENTS response includes a device-generated signature over the SPDM measurement transcript, as specified in the SPDM specification; see Security Protocol and Data Model (SPDM) [21].
 
-IBBVNW The following sequence illustrates retrieval of device measurements from a device which uses SPDM.
+The following sequence illustrates retrieval of device measurements from a device which uses SPDM.
 
 <!-- image -->
 
@@ -355,7 +342,6 @@ Figure A9.15: Retrieval of measurements from a device which uses SPDM
 
 Copyright © 2022-2026 Arm Limited or its affiliates. All rights reserved.
 
-IZHJZK
 
 ## A9.5.5.3 Retrieval of device measurements from a device which does not use SPDM
 

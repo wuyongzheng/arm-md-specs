@@ -32,7 +32,6 @@ The RMI\_VDEV\_COMPLETE command operates on the following context.
 |--------|------------|--------|-----------|----------------|
 | result | X0         | 63:0   | RmiResult | Command result |
 
-DRAFT
 
 ## B4.5.81.2 Failure conditions
 
@@ -72,4 +71,3 @@ The RMI\_VDEV\_COMPLETE command does not have any failure condition orderings.
 | vdev_pa    | rec.vdev_pa_1   |
 | comm_state | vdev.comm_state |
 
-DRAFT

@@ -2,7 +2,6 @@
 
 This section describes how the RMM manages the usage within Realm PAS of physically memory-mapped resources.
 
-IDJGZW
 
 Physically memory-mapped resources may be used within Realm PAS for the following purposes:
 
@@ -14,17 +13,17 @@ Physically memory-mapped resources may be used within Realm PAS for the followin
 
 This section describes the granularities at which physical memory may be addressed by the RMM, and via RMM interfaces.
 
-- DRFGXP Physical Granule size is the smallest unit of physical memory which can be described in a Granule Protection Table (GPT) entry.
-- DPQBNY RMI Granule size is the smallest unit of physical memory for which the RMM manages usage within Realm PAS.
-- RFVRPQ At platform boot, RMI Granule size is equal to Physical Granule size.
-- IYHZZY The current RMI Granule size can be discovered by execution of RMI\_RMM\_CONFIG\_GET.
-- IRDXRC The set of supported RMI Granule sizes can be discovered by execution of RMI\_FEATURES.
-- RCSXGJ The set of supported RMI Granule sizes does not include any value which is not a supported translation granule size.
-- RRVZCL The set of supported RMI Granule sizes does not include any value which is smaller than the Physical Granule size.
-- ILXSCG RMI Granule size can be modified by execution of RMI\_RMM\_CONFIG\_SET.
-- IHJRFP Modification of RMI Granule size fails if any tracking region has been transitioned from untracked to tracked.
-- DVDXKJ RSI Granule size is the smallest unit of physical memory which can be referred to by the input values of an RSI command.
-- RPJWPJ RSI Granule size is equal to 4KB.
+- Physical Granule size is the smallest unit of physical memory which can be described in a Granule Protection Table (GPT) entry.
+- RMI Granule size is the smallest unit of physical memory for which the RMM manages usage within Realm PAS.
+- At platform boot, RMI Granule size is equal to Physical Granule size.
+- The current RMI Granule size can be discovered by execution of RMI\_RMM\_CONFIG\_GET.
+- The set of supported RMI Granule sizes can be discovered by execution of RMI\_FEATURES.
+- The set of supported RMI Granule sizes does not include any value which is not a supported translation granule size.
+- The set of supported RMI Granule sizes does not include any value which is smaller than the Physical Granule size.
+- RMI Granule size can be modified by execution of RMI\_RMM\_CONFIG\_SET.
+- Modification of RMI Granule size fails if any tracking region has been transitioned from untracked to tracked.
+- RSI Granule size is the smallest unit of physical memory which can be referred to by the input values of an RSI command.
+- RSI Granule size is equal to 4KB.
 
 See also:
 
@@ -36,18 +35,15 @@ See also:
 
 ## A2.3.2 Views of physical memory
 
-- ISZPKM The RMM manages the usage within Realm PAS of physically memory-mapped resources by combining the following views:
+- The RMM manages the usage within Realm PAS of physically memory-mapped resources by combining the following views:
 - The memory layout view , which is a static description of how regions of physical address space are reserved for specific purposes.
 - The memory population view , which is a dynamic record of the regions of physical address space which are backed by resources which have been verified by the RMM.
 - The memory tracking view , which is a dynamic record of the regions of physical address space for which the RMMis tracking usage within Realm PAS.
 
 The memory layout view consists of information about the system memory map which is known to the RMM at platform boot:
 
-DRAFT
 
-INJQRV
 
-ISLDFL
 
 - The physical address size
 - Configuration of the Granule Protection Table (GPT)
@@ -68,7 +64,7 @@ For each such device, the memory population view records the following informati
 - The physical address regions which are associated with the device. The RMM checks that these lie within the appropriate regions of the system memory map, and that they do not overlap with those associated with any other device.
 - Arm Architecture Reference Manual for A-Profile architecture [3]
 
-DRAFT · Whether the RMM has verified the identity and configuration of the device. In order to track the usage within Realm PAS of physically memory-mapped resources, the RMM requires memory for storage of Granule metadata. This metadata includes Granule state, and may also include additional IMPLEMENTATION DEFINED information. To enable tracking for a given region of physical address space, the Host specifies the granularity at which Granule state should be tracked for that region, and provides sufficient memory to the RMM for storage of the metadata. For each region of physical address space, the memory tracking view records whether tracking has been enabled, and if so at which granularity. See also:
+· Whether the RMM has verified the identity and configuration of the device. In order to track the usage within Realm PAS of physically memory-mapped resources, the RMM requires memory for storage of Granule metadata. This metadata includes Granule state, and may also include additional IMPLEMENTATION DEFINED information. To enable tracking for a given region of physical address space, the Host specifies the granularity at which Granule state should be tracked for that region, and provides sufficient memory to the RMM for storage of the metadata. For each region of physical address space, the memory tracking view records whether tracking has been enabled, and if so at which granularity. See also:
 
 - A2.3.3 Populated physical memory
 - A2.3.4 Granule tracking region
@@ -80,14 +76,13 @@ DRAFT · Whether the RMM has verified the identity and configuration of the devi
 
 ## A2.3.3 Populated physical memory
 
-- DHGSSR A physical address is populated if it is backed by a resource which has been verified by the RMM.
-- RKGHRC An address which is within a region of the system memory map that is reserved for DRAM is populated . DRAM hot-plug is not supported.
-- RFFWHK Device memory is populated if the state of the corresponding PDEV is PDEV\_READY.
-- INSJLW The following diagram shows an example of how the memory population view is updated following attestation of the identity and configuration of devices.
+- A physical address is populated if it is backed by a resource which has been verified by the RMM.
+- An address which is within a region of the system memory map that is reserved for DRAM is populated . DRAM hot-plug is not supported.
+- Device memory is populated if the state of the corresponding PDEV is PDEV\_READY.
+- The following diagram shows an example of how the memory population view is updated following attestation of the identity and configuration of devices.
 
 <!-- image -->
 
-IRPDVX
 
 Figure A2.4: Example memory population view
 
@@ -100,10 +95,10 @@ Figure A2.4: Example memory population view
 
 ## A2.3.4 Granule tracking region
 
-- DDFYKK A Granule tracking region is a naturally-aligned region of physical address space.
-- IMGKPN The Granule tracking region size can be discovered by execution of RMI\_RMM\_CONFIG\_GET.
-- IVBKCK The Granule tracking region size can be modified by execution of RMI\_RMM\_CONFIG\_SET.
-- RFQBJD The valid combinations of RMI Granule size and Granule tracking region size are listed in the following table.
+- A Granule tracking region is a naturally-aligned region of physical address space.
+- The Granule tracking region size can be discovered by execution of RMI\_RMM\_CONFIG\_GET.
+- The Granule tracking region size can be modified by execution of RMI\_RMM\_CONFIG\_SET.
+- The valid combinations of RMI Granule size and Granule tracking region size are listed in the following table.
 
 | RMI Granule size   | Granule tracking region sizes   |
 |--------------------|---------------------------------|
@@ -111,16 +106,15 @@ Figure A2.4: Example memory population view
 | 16KB               | 32MB, 64GB                      |
 | 64KB               | 512MB, 4TB                      |
 
-DWBKYM The attributes of a Granule tracking region are summarized in the following table.
+The attributes of a Granule tracking region are summarized in the following table.
 
-DRAFT
 
 | Name     | Type                   | Description            |
 |----------|------------------------|------------------------|
 | state    | RmmTrackingRegionState | Tracking region state. |
 | category | RmmMemCategory         | Memory category.       |
 
-DPRNVF The states of a Granule tracking region are listed below.
+The states of a Granule tracking region are listed below.
 
 | Name              | Description                                                       |
 |-------------------|-------------------------------------------------------------------|
@@ -129,37 +123,37 @@ DPRNVF The states of a Granule tracking region are listed below.
 | TRACKING_NONE     | Region is not tracked.                                            |
 | TRACKING_RESERVED | Region is reserved for use by the platform.                       |
 
-RXKVBY At platform boot, the state of all tracking regions within the physical address range(s) which are reserved for DRAM is either TRACKING\_READY or TRACKING\_NOT\_READY.
+At platform boot, the state of all tracking regions within the physical address range(s) which are reserved for DRAM is either TRACKING\_READY or TRACKING\_NOT\_READY.
 
-RTSWBY At platform boot, the state of all tracking regions within the physical address range(s) which are reserved for coherent device memory is either TRACKING\_READY or TRACKING\_NOT\_READY.
+At platform boot, the state of all tracking regions within the physical address range(s) which are reserved for coherent device memory is either TRACKING\_READY or TRACKING\_NOT\_READY.
 
-RPNXFP At platform boot, the state of all tracking regions within the physical address range(s) which are reserved for device memory is either TRACKING\_READY or TRACKING\_NOT\_READY.
+At platform boot, the state of all tracking regions within the physical address range(s) which are reserved for device memory is either TRACKING\_READY or TRACKING\_NOT\_READY.
 
-DYMQRF A physical address is tracked if it is within a tracking region whose state is TRACKING\_READY.
+A physical address is tracked if it is within a tracking region whose state is TRACKING\_READY.
 
-ITFTXL Attributes of a Granule tracking region can be read by execution of RMI\_GRANULE\_TRACKING\_GET.
+Attributes of a Granule tracking region can be read by execution of RMI\_GRANULE\_TRACKING\_GET.
 
-IYJHVZ Attributes of a Granule tracking region can be modified by execution of RMI\_GRANULE\_TRACKING\_SET.
+Attributes of a Granule tracking region can be modified by execution of RMI\_GRANULE\_TRACKING\_SET.
 
-IYNZTP Execution of RMI\_GRANULE\_TRACKING\_SET fails with RMI\_ERROR\_GLOBAL unless the RMM state is RMM\_STATE\_ACTIVE.
+Execution of RMI\_GRANULE\_TRACKING\_SET fails with RMI\_ERROR\_GLOBAL unless the RMM state is RMM\_STATE\_ACTIVE.
 
-IJXKKB Changing the granularity of a tracking region for which tracking is enabled is permitted only if all Granules within the region have the same state.
+Changing the granularity of a tracking region for which tracking is enabled is permitted only if all Granules within the region have the same state.
 
-IWZFYF Permitted Granule tracking region state transitions are shown in the following figure. Each arc is labeled with the events which can cause the corresponding state transition.
+Permitted Granule tracking region state transitions are shown in the following figure. Each arc is labeled with the events which can cause the corresponding state transition.
 
 Figure A2.5: Granule tracking region state transitions
 
 <!-- image -->
 
-RCZHXN The Granule tracking metadata which describes an address range which is populated by DRAM must be located in DRAM.
+The Granule tracking metadata which describes an address range which is populated by DRAM must be located in DRAM.
 
 R0001 The Granule tracking metadata which describes an address range which is populated by a CMEM Interleave Set must be located either in DRAM, or within the address range of that CMEM Interleave Set.
 
-IXRDYF Granule tracking metadata is permitted to be located within the tracking region that it describes.
+Granule tracking metadata is permitted to be located within the tracking region that it describes.
 
-RHZXDR On execution of RMI\_GRANULE\_TRACKING\_SET, if the implementation requires memory to be donated then the 'donating memory to a Stateful RMI Operation (SRO)' flow is followed. Prior to donation, the state of the memory must be GRAN\_DELEGATED.
+On execution of RMI\_GRANULE\_TRACKING\_SET, if the implementation requires memory to be donated then the 'donating memory to a Stateful RMI Operation (SRO)' flow is followed. Prior to donation, the state of the memory must be GRAN\_DELEGATED.
 
-RKWHDD On execution of RMI\_GRANULE\_TRACKING\_SET, if the implementation requires memory to be reclaimed then the 'reclaiming memory from a Stateful RMI Operation (SRO)' flow is followed. Following reclamation, the state of the memory is GRAN\_DELEGATED.
+On execution of RMI\_GRANULE\_TRACKING\_SET, if the implementation requires memory to be reclaimed then the 'reclaiming memory from a Stateful RMI Operation (SRO)' flow is followed. Following reclamation, the state of the memory is GRAN\_DELEGATED.
 
 See also:
 
@@ -174,7 +168,6 @@ See also:
 
 ## A2.3.5 Delegable physical memory
 
-DZVRXC
 
 A physical address is delegable
 
@@ -182,23 +175,23 @@ A physical address is delegable
 - The address is populated .
 - The address is not within a region which is reserved for use by the platform. For example, all or part of a tracking region may be reserved for use by RMSD or by the RMM. Discovery of such reserved regions is out of scope of this specification.
 
-IMMRVR Delegable memory can be delegated by the Host for use to store RMM data, or to be mapped into a Realm.
+Delegable memory can be delegated by the Host for use to store RMM data, or to be mapped into a Realm.
 
-ILWPPL RMMobjects can only be stored in Delegable conventional memory.
+RMMobjects can only be stored in Delegable conventional memory.
 
-IZBGJV Non-delegable memory cannot be used to store RMM data and cannot be mapped into the Protected IPA space of a Realm.
+Non-delegable memory cannot be used to store RMM data and cannot be mapped into the Protected IPA space of a Realm.
 
-DJPZBG Delegable device memory is the union of Delegable non-coherent device memory and Delegable coherent device memory.
+Delegable device memory is the union of Delegable non-coherent device memory and Delegable coherent device memory.
 
-DCBFMJ Delegable memory is the union of Delegable conventional memory and Delegable device memory.
+Delegable memory is the union of Delegable conventional memory and Delegable device memory.
 
-IFHLPF The following diagram summarizes the relationship between categories of delegable memory.
+The following diagram summarizes the relationship between categories of delegable memory.
 
 Figure A2.6: Delegable memory
 
 <!-- image -->
 
-IWJCMJ The following diagram shows an example of how delegability of memory changes as a result of allocation of tracking metadata storage.
+The following diagram shows an example of how delegability of memory changes as a result of allocation of tracking metadata storage.
 
 if all of the following are true:
 
@@ -220,9 +213,9 @@ U = UNDELEGATED
 
 ## A2.3.6 Granule state
 
-DFZNXZ A Granule state indicates whether a delegable Granule has been delegated to Realm PAS, and if so whether it is in use by the RMM or by a Realm.
+A Granule state indicates whether a delegable Granule has been delegated to Realm PAS, and if so whether it is in use by the RMM or by a Realm.
 
-DMPLGT The states of a Granule are listed below.
+The states of a Granule are listed below.
 
 | Name           | Description                               |
 |----------------|-------------------------------------------|
@@ -235,7 +228,6 @@ DMPLGT The states of a Granule are listed below.
 | GRAN_RD        | Realm Descriptor object                   |
 | GRAN_REC       | Realm Execution Context object.           |
 
-DRAFT
 
 | Name             | Description                       |
 |------------------|-----------------------------------|
@@ -244,9 +236,9 @@ DRAFT
 | GRAN_VDEV        | Virtual device object.            |
 | GRAN_VSMMU       | Virtual SMMUobject.               |
 
-IMPGJV If the state of a Granule is GRAN\_UNDELEGATED then the RMM does not prevent the GPT entry of the Granule from being changed by another agent to any value except GPT\_REALM.
+If the state of a Granule is GRAN\_UNDELEGATED then the RMM does not prevent the GPT entry of the Granule from being changed by another agent to any value except GPT\_REALM.
 
-DVRSKZ An NS Granule is a Granule whose GPT entry is GPT\_NS.
+An NS Granule is a Granule whose GPT entry is GPT\_NS.
 
 See also:
 
@@ -254,11 +246,11 @@ See also:
 
 ## A2.3.6.1 Granule state transitions
 
-- IXZNHY The initial state of all Granules of Delegable memory is GRAN\_UNDELEGATED.
+- The initial state of all Granules of Delegable memory is GRAN\_UNDELEGATED.
 
-IBWCNY The set of reachable states depends on the Granule category.
+The set of reachable states depends on the Granule category.
 
-- IZJBTT Permitted Granule state transitions are shown in the following table. The rightmost column lists the events which can cause the corresponding state transition.
+- Permitted Granule state transitions are shown in the following table. The rightmost column lists the events which can cause the corresponding state transition.
 
 | From state       | To state         | Events                                 |
 |------------------|------------------|----------------------------------------|
@@ -279,7 +271,6 @@ IBWCNY The set of reachable states depends on the Granule category.
 | GRAN_DELEGATED   | GRAN_DEV         | RMI_RTT_DEV_MAP                        |
 | GRAN_DEV         | GRAN_DELEGATED   | RMI_RTT_DEV_UNMAP                      |
 
-DRAFT
 
 | From state     | To state       | Events            |
 |----------------|----------------|-------------------|
@@ -288,7 +279,7 @@ DRAFT
 | GRAN_DELEGATED | GRAN_CMEM      | RMI_CMEM_CREATE   |
 | GRAN_CMEM      | GRAN_DELEGATED | RMI_CMEM_DESTROY  |
 
-IVVGVM Permitted Granule state transitions are shown in the following figures. Each arc is labeled with the events which can cause the corresponding state transition.
+Permitted Granule state transitions are shown in the following figures. Each arc is labeled with the events which can cause the corresponding state transition.
 
 Figure A2.9: Granule state transitions for Delegable device memory
 
@@ -320,14 +311,13 @@ See also:
 
 ## A2.3.6.2 Granule delegation
 
-- DZGVYY Transition of Granules from GRAN\_UNDELEGATED to GRAN\_DELEGATED state is called Granule delegation .
-- DTRDLJ Transition of Granules from GRAN\_DELEGATED to GRAN\_UNDELEGATED state is called Granule undelegation .
-- IWFWGV Granule delegation and undelegation implement the Range RMI operation which returns progress address programming model.
-- IMVQHM Granule delegation and undelegation implement the RMI operations which can lead to an intermediate state programming model.
+- Transition of Granules from GRAN\_UNDELEGATED to GRAN\_DELEGATED state is called Granule delegation .
+- Transition of Granules from GRAN\_DELEGATED to GRAN\_UNDELEGATED state is called Granule undelegation .
+- Granule delegation and undelegation implement the Range RMI operation which returns progress address programming model.
+- Granule delegation and undelegation implement the RMI operations which can lead to an intermediate state programming model.
 
-DRAFT
 
-- IGTLRC The amount of progress made by a Granule delegation or undelegation operation during a single RMI call is determined by a combination of constraints imposed by the RMM architecture, and IMPLEMENTATION DEFINED properties of the RMM implementation.
+- The amount of progress made by a Granule delegation or undelegation operation during a single RMI call is determined by a combination of constraints imposed by the RMM architecture, and IMPLEMENTATION DEFINED properties of the RMM implementation.
 
 The following architectural constraints apply to the tracking region which includes the start of the target PA range:
 
@@ -347,25 +337,24 @@ If none of the above checks failed then the operation starts to operate on the t
 - The operation reaches a tracking region which passes the above checks, but whose size is too large to process for an IMPLEMENTATION DEFINED reason. For example, an implementation may limit the maximum size of the address space which can be processed during a single RMI command, either to ensure that the command's execution time does not exceed an IMPLEMENTATION DEFINED budget, or to limit complexity of the implementation. The command returns RMI\_SUCCESS with out\_top indicating the amount of progress made. If no changes of system state occur before the operation is resumed then the next command will fail with RMI\_ERROR\_TRACKING. This indicates that in order to progress the operation, the Host must first transition the tracking region to fine granularity.
 - The operation neither encounters a failing check, nor reaches the end of the target PA range, but yields for an IMPLEMENTATION DEFINED reason. For example, this could be due to the command's execution time having exceeded an IMPLEMENTATION DEFINED budget. The command returns RMI\_SUCCESS with out\_top indicating the amount of progress made.
 - The operation reaches the end of the target PA range. The command returns RMI\_SUCCESS with out\_top == top .
-- ILGWLL On successful execution of a Granule delegation or undelegation command, all of the following are true:
+- On successful execution of a Granule delegation or undelegation command, all of the following are true:
 - out\_top &gt; base
 - The state of all Granules in the PA range [base, out\_top) transition from the source state to the destination state.
-- ILPZRM On failed execution of a Granule delegation or undelegation command, if the result is not RMI\_INCOMPLETE then no Granules in the PA range [base, top) transition from the source state to the destination state.
-- IJXDYB Execution of RMI\_GRANULE\_RANGE\_DELEGATE fails with RMI\_ERROR\_GLOBAL unless the RMM state is RMM\_STATE\_ACTIVE.
+- On failed execution of a Granule delegation or undelegation command, if the result is not RMI\_INCOMPLETE then no Granules in the PA range [base, top) transition from the source state to the destination state.
+- Execution of RMI\_GRANULE\_RANGE\_DELEGATE fails with RMI\_ERROR\_GLOBAL unless the RMM state is RMM\_STATE\_ACTIVE.
 
 See also:
 
 - B4.3.2 Stateful RMI operations
 - B4.3.5 Range RMI operations
 
-DRAFT
 
 - B4.5.17 RMI\_GRANULE\_RANGE\_DELEGATE command
 - B4.5.18 RMI\_GRANULE\_RANGE\_UNDELEGATE command
 
 ## A2.3.7 Granule ownership
 
-- IDMVQM A Granule whose state is one of the following is owned by a Realm:
+- A Granule whose state is one of the following is owned by a Realm:
 - GRAN\_DATA
 - GRAN\_DEV
 - GRAN\_RD
@@ -373,21 +362,21 @@ DRAFT
 - GRAN\_RTT
 - GRAN\_VDEV
 - GRAN\_VSMMU
-- IPRNTM The owner of a Granule is identified by the address of a Realm Descriptor (RD).
-- IZXBZM For a Granule whose state is GRAN\_RD, the ownership relation is recursive: the owning Realm is identified by the address of the RD itself.
-- ITYHTD A Granule whose state is GRAN\_RTT is one of the following:
+- The owner of a Granule is identified by the address of a Realm Descriptor (RD).
+- For a Granule whose state is GRAN\_RD, the ownership relation is recursive: the owning Realm is identified by the address of the RD itself.
+- A Granule whose state is GRAN\_RTT is one of the following:
 - A starting level RTT. The address of this RTT is stored in the RD of the owning Realm.
 
 - A non-starting level RTT. The address of this RTT is stored in its parent RTT, in an RTT entry whose state is RTTE\_TABLE. Recursively following the parent relationship leads to the RD of the owning Realm.
-- IQCNRM AGranule whose state is GRAN\_DATA is mapped at a Protected IPA, in an RTT entry whose state is RTTE\_DATA. The Realm which owns the RTT is the owner of the DATA Granule.
+- AGranule whose state is GRAN\_DATA is mapped at a Protected IPA, in an RTT entry whose state is RTTE\_DATA. The Realm which owns the RTT is the owner of the DATA Granule.
 
-IHHPVB A REC has an 'owner' attribute which points to the RD of the owning Realm.
+A REC has an 'owner' attribute which points to the RD of the owning Realm.
 
-XNDNHG A REC is not mapped at a Protected IPA. Its ownership therefore needs to be recorded explicitly.
+A REC is not mapped at a Protected IPA. Its ownership therefore needs to be recorded explicitly.
 
-IHMWQB A VDEV has an 'owner' attribute which points to the RD of the owning Realm.
+A VDEV has an 'owner' attribute which points to the RD of the owning Realm.
 
-- XLQRHS A VDEV is not mapped at a Protected IPA. Its ownership therefore needs to be recorded explicitly.
+- A VDEV is not mapped at a Protected IPA. Its ownership therefore needs to be recorded explicitly.
 
 See also:
 
@@ -399,14 +388,14 @@ See also:
 - Chapter A9 Realm device assignment
 - B4.5.49 RMI\_REC\_CREATE command
 - B4.5.64 RMI\_RTT\_CREATE command
-- DWTWJR Wiping is an operation which changes the observable value of a memory location from X to Y , such that the value X cannot be determined from the value Y .
-- DRAFT · B4.5.65 RMI\_RTT\_DATA\_MAP command · B4.5.66 RMI\_RTT\_DATA\_MAP\_INIT command A2.3.8 Granule wiping RTMGSL When the state of a Granule has transitioned from P to GRAN\_DELEGATED and then to any other state, any content associated with P has been wiped . XCTGQZ Any sequence of Granule state transitions which passes through the GRAN\_DELEGATED state causes the Granule contents to be wiped. This is necessary to ensure that information does not leak from one Realm to another, or from a Realm to the Host. Note that no agent can observe the contents of a Granule while its state is GRAN\_DELEGATED.
-- RBSXXV Wiping of a memory location does not reveal, directly or indirectly, any confidential Realm data.
-- IMRPCQ Possible implementations of wiping include:
+- Wiping is an operation which changes the observable value of a memory location from X to Y , such that the value X cannot be determined from the value Y .
+- · B4.5.65 RMI\_RTT\_DATA\_MAP command · B4.5.66 RMI\_RTT\_DATA\_MAP\_INIT command A2.3.8 Granule wiping RTMGSL When the state of a Granule has transitioned from P to GRAN\_DELEGATED and then to any other state, any content associated with P has been wiped . XCTGQZ Any sequence of Granule state transitions which passes through the GRAN\_DELEGATED state causes the Granule contents to be wiped. This is necessary to ensure that information does not leak from one Realm to another, or from a Realm to the Host. Note that no agent can observe the contents of a Granule while its state is GRAN\_DELEGATED.
+- Wiping of a memory location does not reveal, directly or indirectly, any confidential Realm data.
+- Possible implementations of wiping include:
 - The RMM (or other platform firmware) writing either random data or zeroes to the memory location
 - The MEC of the memory location being changed
 - The state of a device, which is observable via MMIO to the memory location, being reset
-- SVJWYH Realm software should not assume that the initial contents of uninitialized memory (that is, Realm IPA space which is backed by DATA Granules created using RMI\_RTT\_DATA\_MAP) are zero.
+- Realm software should not assume that the initial contents of uninitialized memory (that is, Realm IPA space which is backed by DATA Granules created using RMI\_RTT\_DATA\_MAP) are zero.
 
 See also:
 
@@ -416,7 +405,6 @@ See also:
 
 ## A2.3.9 Granule Protection Table management
 
-DVJQHR
 
 GPT unfolding is the operation of creating an L1GPT, by applying the following process:
 
@@ -427,27 +415,26 @@ GPT unfolding is the operation of creating an L1GPT, by applying the following p
 4. Populate all entries of the L1GPT with the GPI value taken from the L0GPT Block descriptor.
 5. Replace the L0GPT Block descriptor with an L0GPT Table descriptor whose output address points to the L1GPT.
 
-IDWPCQ GPT unfolding is performed by execution of RMI\_GPT\_L1\_CREATE.
+GPT unfolding is performed by execution of RMI\_GPT\_L1\_CREATE.
 
-DMZMPP An L1GPT is homogeneous if all its entries have the same GPI value.
+An L1GPT is homogeneous if all its entries have the same GPI value.
 
-- IPMTSD The function GptL1IsHomogeneous() is used to evaluate whether an L1GPT is homogeneous.
-- DMPRKL An L1GPT is self-describing if it is stored within the physical address range which it describes.
-- DDZCYR GPT folding is the operation of destroying an L1GPT, by applying the following process:
+- The function GptL1IsHomogeneous() is used to evaluate whether an L1GPT is homogeneous.
+- An L1GPT is self-describing if it is stored within the physical address range which it describes.
+- GPT folding is the operation of destroying an L1GPT, by applying the following process:
 1. Check that the L1GPT is homogeneous. If the L1GPT is self-describing then this check excludes the GPIs which describe the memory which stores the L1GPT itself.
 2. Replace the parent L0GPT Table descriptor with an L0GPT Block descriptor, copying the GPI value from the L1GPT.
 3. Transition the state of all Granules in the L1GPT from GPT\_L1 to GRAN\_UNDELEGATED.
-- IZXZPC GPT folding is performed by execution of RMI\_GPT\_L1\_DESTROY.
-- RNYJMZ On execution of RMI\_GPT\_L1\_CREATE, the memory which constitutes the L1GPT is provided via the 'donate memory to a Stateful RMI Operation (SRO)' flow.
-- IQJLXM If RMI\_GPT\_L1\_CREATE fails then the Granules which constitute the L1GPT remain in the Non-secure PAS.
-- IWSZDT If RMI\_GPT\_L1\_CREATE returns RMI\_INCOMPLETE then the creation operation must be completed before the L1GPT can be destroyed.
-- RWGJGX On execution of RMI\_GPT\_L1\_DESTROY, the memory which constitutes the L1GPT is returned via the 'reclaim memory from a Stateful RMI Operation (SRO)' flow.
-- ILBWFT If RMI\_GPT\_L1\_DESTROY returns RMI\_INCOMPLETE then the destruction operation must be completed before a new L1GPT which describes the same physical address region can be created.
-- SQQDMX Creation or destruction of L1GPTs which describes different physical address regions may be performed concurrently.
+- GPT folding is performed by execution of RMI\_GPT\_L1\_DESTROY.
+- On execution of RMI\_GPT\_L1\_CREATE, the memory which constitutes the L1GPT is provided via the 'donate memory to a Stateful RMI Operation (SRO)' flow.
+- If RMI\_GPT\_L1\_CREATE fails then the Granules which constitute the L1GPT remain in the Non-secure PAS.
+- If RMI\_GPT\_L1\_CREATE returns RMI\_INCOMPLETE then the creation operation must be completed before the L1GPT can be destroyed.
+- On execution of RMI\_GPT\_L1\_DESTROY, the memory which constitutes the L1GPT is returned via the 'reclaim memory from a Stateful RMI Operation (SRO)' flow.
+- If RMI\_GPT\_L1\_DESTROY returns RMI\_INCOMPLETE then the destruction operation must be completed before a new L1GPT which describes the same physical address region can be created.
+- Creation or destruction of L1GPTs which describes different physical address regions may be performed concurrently.
 
 See also:
 
-DRAFT
 
 - A5.6.6 RTT folding
 - A5.6.7 RTT unfolding

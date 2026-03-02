@@ -35,7 +35,6 @@ The RMI\_GRANULE\_TRACKING\_SET command operates on the following context.
 | region_pre | RmmTrackingRegion | TrackingRegionAt(addr) | true     | Tracking region |
 | region     | RmmTrackingRegion | TrackingRegionAt(addr) | false    | Tracking region |
 
-DRAFT
 
 ## B4.5.20.1.3 Output values
 
@@ -54,7 +53,7 @@ ID
 ## Condition
 
 ```
-DRAFT state_valid pre: (state != RMI_TRACKING_NONE && state != RMI_TRACKING_FINE && state != RMI_TRACKING_COARSE) post: result.status == RMI_ERROR_INPUT addr_align pre: !AddrIsTrackingRegionAligned(addr) post: result.status == RMI_ERROR_INPUT addr_bound pre: UInt(addr) > rmm.static.pasz post: result.status == RMI_ERROR_INPUT category pre: !MemCategoryIsCompatible(category, addr) post: result.status == RMI_ERROR_INPUT reserved pre: region.state == TRACKING_RESERVED post: result.status == RMI_ERROR_INPUT in_state pre: State of a Granule in input list is not GRAN_DELEGATED. post: result.status == RMI_ERROR_INPUT in_loc_dram pre: Tracking region is backed by DRAM and a Granule in input list is not located in DRAM. post: result.status == RMI_ERROR_INPUT in_loc_cmem pre: Tracking region is backed by a CMEM Interleave Set and a Granule in input list is located neither in DRAM nor in that CMEM Interleave Set. post: result.status == RMI_ERROR_INPUT B4.5.20.2.1 Failure condition ordering The RMI_GRANULE_TRACKING_SET command does not have any failure condition orderings. B4.5.20.3 Success conditions
+state_valid pre: (state != RMI_TRACKING_NONE && state != RMI_TRACKING_FINE && state != RMI_TRACKING_COARSE) post: result.status == RMI_ERROR_INPUT addr_align pre: !AddrIsTrackingRegionAligned(addr) post: result.status == RMI_ERROR_INPUT addr_bound pre: UInt(addr) > rmm.static.pasz post: result.status == RMI_ERROR_INPUT category pre: !MemCategoryIsCompatible(category, addr) post: result.status == RMI_ERROR_INPUT reserved pre: region.state == TRACKING_RESERVED post: result.status == RMI_ERROR_INPUT in_state pre: State of a Granule in input list is not GRAN_DELEGATED. post: result.status == RMI_ERROR_INPUT in_loc_dram pre: Tracking region is backed by DRAM and a Granule in input list is not located in DRAM. post: result.status == RMI_ERROR_INPUT in_loc_cmem pre: Tracking region is backed by a CMEM Interleave Set and a Granule in input list is located neither in DRAM nor in that CMEM Interleave Set. post: result.status == RMI_ERROR_INPUT B4.5.20.2.1 Failure condition ordering The RMI_GRANULE_TRACKING_SET command does not have any failure condition orderings. B4.5.20.3 Success conditions
 ```
 
 ```

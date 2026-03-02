@@ -34,4 +34,3 @@ The PSCI\_VERSION command does not have any failure conditions.
 
 The PSCI\_VERSION command does not have any footprint.
 
-DRAFT

@@ -13,4 +13,3 @@ The following table summarizes the FIDs of commands in the PSCI interface.
 | 0xC4000009 | PSCI_SYSTEM_RESET  |
 | 0xC400000A | PSCI_FEATURES      |
 
-DRAFT

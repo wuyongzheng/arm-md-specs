@@ -2,4 +2,3 @@
 
 See Chapter A9 Realm device assignment .
 
-DRAFT

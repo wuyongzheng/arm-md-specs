@@ -31,7 +31,6 @@ The RMI\_GPT\_L1\_CREATE command operates on the following context.
 
 ## B4.5.15.1.3 Output values
 
-DRAFT
 
 | Name   | Register   | Bits   | Type      | Description    |
 |--------|------------|--------|-----------|----------------|
@@ -68,4 +67,3 @@ The RMI\_GPT\_L1\_CREATE command does not have any failure condition orderings.
 | l0gpt_entry_state | l0gpt_entry.state |
 | l0gpt_entry_addr  | l0gpt_entry.addr  |
 
-DRAFT

@@ -8,7 +8,6 @@ The Host is able to inject virtual interrupts using the GIC virtual CPU interfac
 
 The vGIC presented to a Realm is expected to be implemented via a combination of Host emulation and RMM mediation, as follows:
 
-DRAFT
 
 - Management of Non-secure physical interrupts is performed by the Host, via the GIC Interrupt Routing Infrastructure (IRI).
 - The Host is responsible for emulating a GICv3 distributor MMIO interface.

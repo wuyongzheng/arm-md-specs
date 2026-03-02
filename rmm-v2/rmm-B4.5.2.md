@@ -30,7 +30,6 @@ The RMI\_CMEM\_ADD\_PDEV command operates on the following context.
 | pdev     | RmmPdev           | PdevAt(pdev_ptr) false                 | PDEV                 |
 | params   | RmiCmemPdevParams | RmiCmemPdevParamsAt( params_ptr) false | CMEM_PDEV parameters |
 
-DRAFT
 
 ## B4.5.2.1.3 Output values
 
@@ -61,7 +60,7 @@ ID
 | tse             | pre: post:   | (Rmm().static.feat_cmem_tse_req == FEATURE_TRUE && pdev.feat_tse != FEATURE_TRUE) result.status == RMI_ERROR_DEVICE |
 | dev_hdm_dec     | pre: post:   | !HdmDecoderIsFree(pdev, params.dev_hdm_id) result.status == RMI_ERROR_DEVICE                                        |
 | cmem_state      | pre: post:   | cmem.state != CMEM_STOPPED result.status == RMI_ERROR_DEVICE                                                        |
-| index_free      | pre: post:   | DRAFT cmem.pdev[[index]].valid != RMM_FALSE result.status == RMI_ERROR_DEVICE                                       |
+| index_free      | pre: post:    cmem.pdev[[index]].valid != RMM_FALSE result.status == RMI_ERROR_DEVICE                                       |
 | pdev_attr       | pre: post:   | PDEV attributes are not consistent with CMEM attributes. result.status == RMI_ERROR_DEVICE                          |
 | cxl_attr        | pre: post:   | Parameters are not consistent with CMEM attributes. result.status == RMI_ERROR_DEVICE                               |
 

@@ -14,7 +14,6 @@
 
 I0020 The following diagram illustrates Host-routed P2P communication.
 
-DRAFT
 
 Figure A9.21: Host-routed P2P communication
 
@@ -48,7 +47,6 @@ Figure A9.22: Direct P2P communication
 
 <!-- image -->
 
-DRAFT
 
 ## See also:
 
@@ -101,7 +99,7 @@ Between a given pair of PDEVs, there can exist at most one P2P IDE stream.
 1. P2P IDE stream programming
 - The Host programs IDE selective stream assocation registers at each physical device.
 2. P2P IDE stream validation and enablement
-- DRAFT · The Host requests the RMM to enable the IDE stream, by executing RMI\_PDEV\_STREAM\_CONNECT with a stream type of NCOH\_P2P. The input values of this command include the ID of the IDE stream configured in the previous step. · The RMM checks that the address ranges for the IDE stream fall within the appropriate regions of the system address map. · The RMM checks that the address range programmed in IDE stream for PDEV1 covers the address range of PDEV2 and vice versa. · The RMM checks that the RID range programmed in IDE stream for PDEV1 covers the RID range of PDEV2 and vice versa. · A device transaction is initiated for each of the two PDEVs. · IDE key programming and stream enablement at each physical device are driven by Host execution of RMI\_PDEV\_COMMUNICATE for each PDEV.
+- · The Host requests the RMM to enable the IDE stream, by executing RMI\_PDEV\_STREAM\_CONNECT with a stream type of NCOH\_P2P. The input values of this command include the ID of the IDE stream configured in the previous step. · The RMM checks that the address ranges for the IDE stream fall within the appropriate regions of the system address map. · The RMM checks that the address range programmed in IDE stream for PDEV1 covers the address range of PDEV2 and vice versa. · The RMM checks that the RID range programmed in IDE stream for PDEV1 covers the RID range of PDEV2 and vice versa. · A device transaction is initiated for each of the two PDEVs. · IDE key programming and stream enablement at each physical device are driven by Host execution of RMI\_PDEV\_COMMUNICATE for each PDEV.
 3. P2P TDI binding
 - The Realm requests the RMM to create a P2P binding between two VDEVs, by executing RSI\_VDEV\_P2P\_BIND. The input values of this command include attestation information for each VDEV.
 - This causes a REC exit due to device P2P binding, which identifies the two VDEVs.
@@ -128,7 +126,6 @@ Chapter A9. Realm device assignment
 
 I0040 The following sequence diagram shows the flow for creation of a P2P binding. In this diagram, attest\_info is shorthand for the tuple (lock\_nonce, meas\_nonce, report\_nonce) .
 
-DRAFT
 
 Chapter A9. Realm device assignment A9.10. Peer-to-peer device communication
 
@@ -158,4 +155,3 @@ See also:
 - A9.5 Communication between RMM and a device
 - B4.5.89 RMI\_VDEV\_P2P\_UNBIND command
 
-DRAFT

@@ -16,7 +16,7 @@ The following table summarizes the FIDs of commands in the RSI interface.
 | 0xC4000199       | RSI_HOST_CALL                  |
 | 0xC400019A       | RSI_VSMMU_GET_INFO             |
 | 0xC400019B       | RSI_ARCH_DEV_ACTIVATE          |
-| DRAFT 0xC400019C | RSI_VDEV_DMA_ENABLE            |
+ 0xC400019C | RSI_VDEV_DMA_ENABLE            |
 | 0xC400019D       | RSI_VDEV_GET_INFO              |
 | 0xC400019E       | RSI_VDEV_P2P_BIND              |
 | 0xC400019F       | RSI_VDEV_VALIDATE_MAPPING      |

@@ -33,7 +33,6 @@ The RSI\_PLANE\_SYSREG\_WRITE command operates on the following context.
 | realm  | RmmRealm | CurrentRealm() | false    | Current Realm |
 | rec    | RmmRec   | CurrentRec()   | false    | Current REC   |
 
-DRAFT
 
 ## B5.4.15.1.3 Output values
 
@@ -68,4 +67,3 @@ value_low post: PlaneSysregValue(rec, plane_idx, addr)[63:0] == value_low value_
 |-------------|-------------|
 | rec_sysregs | rec.sysregs |
 
-DRAFT

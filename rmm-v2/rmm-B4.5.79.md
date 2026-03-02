@@ -29,7 +29,6 @@ The RMI\_VDEV\_ABORT command operates on the following context.
 
 ## B4.5.79.1.3 Output values
 
-DRAFT
 
 | Name   | Register   | Bits   | Type      | Description    |
 |--------|------------|--------|-----------|----------------|
@@ -61,7 +60,7 @@ DRAFT
 
 <!-- image -->
 
-## DRAFT pre: post: B4.5.79.2.1 Failure condition ordering [feat] &lt; [rd\_align, rd\_bound, rd\_state, pdev\_align, pdev\_bound, pdev\_gran\_state, vdev\_align, vdev\_bound, vdev\_gran\_state, vdev\_realm] [vdev\_gran\_state] &lt; [vdev\_pdev, comm\_state]
+## pre: post: B4.5.79.2.1 Failure condition ordering [feat] &lt; [rd\_align, rd\_bound, rd\_state, pdev\_align, pdev\_bound, pdev\_gran\_state, vdev\_align, vdev\_bound, vdev\_gran\_state, vdev\_realm] [vdev\_gran\_state] &lt; [vdev\_pdev, comm\_state]
 
 ## B4.5.79.3 Success conditions
 

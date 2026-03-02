@@ -32,7 +32,6 @@ See also:
 | list_align | pre: !AddrIsAligned(list_addr, 8) post: result.status == RMI_ERROR_INPUT         |
 | list_pas   | pre: !NonSecureAccessPermitted(list_addr) post: result.status == RMI_ERROR_INPUT |
 
-DRAFT
 
 ## B4.5.24.2.1 Failure condition ordering
 

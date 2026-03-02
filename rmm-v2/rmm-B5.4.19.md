@@ -33,7 +33,6 @@ The RSI\_VDEV\_GET\_INFO command operates on the following context.
 | cfg    | RsiVdevInfo      | RsiVdevInfoAt(addr)             | false    | Device configuration |
 | walk   | RmmRttWalkResult | RttWalk( realm, addr,           | false    | RTT walk result      |
 
-DRAFT
 
 ## B5.4.19.1.3 Output values
 
@@ -60,7 +59,6 @@ DRAFT
 [da_en] < [vdev_id, addr_align, addr_bound]
 ```
 
-DRAFT
 
 <!-- image -->
 

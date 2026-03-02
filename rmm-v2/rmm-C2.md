@@ -8,7 +8,6 @@ This section describes types which are used to model the abstract state of the R
 
 The RmmAddrRange structure contains address range.
 
-DRAFT
 
 The RmmAddrRange structure is an abstract type.
 
@@ -67,7 +66,6 @@ The members of the RmmCmem structure are shown in the following table.
 | state      | RmmCmemState   | CMEMstate                                       |
 | pdev       | RmmCmemPdev[8] | Bound PDEV objects                              |
 
-DRAFT
 
 ## C2.4 RmmCmemPdev type
 
@@ -108,7 +106,6 @@ The RmmCmemState enumeration is used in the following types:
 
 The RmmDataFlags fieldset contains flags provided by the Host during DATA Granule creation.
 
-DRAFT
 
 The RmmDataFlags fieldset is a concrete type.
 
@@ -154,7 +151,6 @@ The RmmDataMeasureContent enumeration is used in the following types:
 
 The RmmDevCommState enumeration represents the state of communication between an RMM device object and a device.
 
-DRAFT
 
 The RmmDevCommState enumeration is an abstract type.
 
@@ -203,7 +199,6 @@ The members of the RmmDevMemFlags structure are shown in the following table.
 | coh    | RmmDevMemCoherent | Whether the output address of the device memory mapping is within the system coherent memory space. |
 | order  | RmmDevMemOrdering | Ordering properties of the device memory location.                                                  |
 
-DRAFT
 
 The RmmDevMemFlags structure is used in the following types:
 
@@ -253,7 +248,6 @@ The members of the RmmDptL0Entry structure are shown in the following table.
 |--------|--------------------|--------------------|
 | state  | RmmDptL0EntryState | State of the entry |
 
-DRAFT
 
 ## C2.14 RmmDptL0EntryState type
 
@@ -306,7 +300,6 @@ The values of the RmmFeature enumeration are shown in the following table.
 | FEATURE_FALSE | • During discovery: Feature is not supported. • During selection: Feature is not enabled. |
 | FEATURE_TRUE  | • During discovery: Feature is supported. • During selection: Feature is enabled.         |
 
-DRAFT
 
 The RmmFeature enumeration is used in the following types:
 
@@ -345,7 +338,6 @@ The RmmGlobalDynamic structure is used in the following types:
 
 - RmmGlobal
 
-DRAFT
 
 ## C2.19 RmmGlobalStatic type
 
@@ -386,7 +378,7 @@ The members of the RmmGlobalStatic structure are shown in the following table.
 | feat_ats                        | RmmFeature                      | Whether ATS is supported                                                 |
 | max_num_aux_planes UInt64       | max_num_aux_planes UInt64       | Maximum number of auxiliary Planes                                       |
 | rtt_plane                       | RmmRttPlaneFeature              | RTT usage models supported for multi-Plane Realms                        |
-| rtt_s2ap_indirect               | RmmFeature                      | DRAFT Whether S2AP indirect encoding is supported for multi-Plane Realms |
+| rtt_s2ap_indirect               | RmmFeature                       Whether S2AP indirect encoding is supported for multi-Plane Realms |
 | mec_count                       | UInt64                          | Number of MECs                                                           |
 | max_recs_order                  | UInt64                          | Order of the maximum number of RECs which can be created per Realm       |
 | max_vdevs_order                 | UInt64                          | Order of the maximum number of VDEVs which can be created per PDEV       |
@@ -449,7 +441,6 @@ The members of the RmmGranule structure are shown in the following table.
 
 The RmmGranuleState enumeration represents the state of a granule.
 
-DRAFT
 
 The RmmGranuleState enumeration is an abstract type.
 
@@ -480,7 +471,6 @@ The RmmHashAlgorithm enumeration represents hash algorithm.
 
 The RmmHashAlgorithm enumeration is an abstract type.
 
-DRAFT
 
 The values of the RmmHashAlgorithm enumeration are shown in the following table.
 
@@ -529,7 +519,6 @@ The RmmLfaPolicy enumeration is used in the following types:
 
 - RmmRealm
 
-DRAFT
 
 ## C2.27 RmmMeasurementDescriptorData type
 
@@ -580,7 +569,6 @@ The members of the RmmMeasurementDescriptorRec structure are shown in the follow
 | rim       | 0x10          | RmmRealmMeasurement | Current RIM value                                                                                  |
 | content   | 0x50          | RmmRealmMeasurement | Hash of an RMI Granule which contains REC parameters data structure. Unused bytes are zero-filled. |
 
-DRAFT
 
 Unused bits of the RmmMeasurementDescriptorRec structure MBZ.
 
@@ -626,7 +614,6 @@ The RmmMemCategory enumeration is used in the following types:
 
 The RmmMemPermLocked enumeration represents whether a memory permission value is locked.
 
-DRAFT
 
 The RmmMemPermLocked enumeration is an abstract type.
 
@@ -692,7 +679,6 @@ The members of the RmmPdev structure are shown in the following table.
 | state       | RmmPdevState     | Lifecycle state                                                         |
 | op          | RmmPdevOperation | Operation performed on this PDEV                                        |
 
-DRAFT
 
 | Name                         | Type                         | Description                                                        |
 |------------------------------|------------------------------|--------------------------------------------------------------------|
@@ -719,7 +705,6 @@ The values of the RmmPdevCategory enumeration are shown in the following table.
 | PDEV_ENDPOINT_CMEM           | Coherent memory endpoint device      |
 | PDEV_ROOT_PORT               | Root Port                            |
 
-DRAFT
 
 The RmmPdevCategory enumeration is used in the following types:
 
@@ -770,7 +755,6 @@ The values of the RmmPdevSpdm enumeration are shown in the following table.
 | SPDM_FALSE | Communication with the device does not use SPDM. |
 | SPDM_TRUE  | Communication with the device uses SPDM.         |
 
-DRAFT
 
 The RmmPdevSpdm enumeration is used in the following types:
 
@@ -812,7 +796,7 @@ The members of the RmmPdevStream structure are shown in the following table.
 |----------------|-------------------------|---------------------------------|
 | handle         | Bits64                  | Stream handle                   |
 | state          | RmmPdevStreamState      | Stream state                    |
-| stream_type    | DRAFT RmmPdevStreamType | Stream type                     |
+| stream_type     RmmPdevStreamType | Stream type                     |
 | ide_sid        | UInt64                  | IDE stream identifier           |
 | num_addr_range | UInt64                  | Number of device address ranges |
 | addr_range     | RmmAddrRange[16]        | Device address range            |
@@ -857,7 +841,6 @@ The RmmPdevStreamState enumeration is used in the following types:
 
 ## C2.42 RmmPdevStreamType type
 
-DRAFT
 
 The RmmPdevStreamType enumeration represents type of a PDEV stream.
 
@@ -874,7 +857,6 @@ The values of the RmmPdevStreamType enumeration are shown in the following table
 | PDEV_STREAM_NCOH_P2P | Non-coherent traffic between two endpoint devices.                                    |
 | PDEV_STREAM_NCOH_SYS | Non-coherent traffic to an endpoint device which is protected by system construction. |
 
-UWJWQP
 
 | Name                | Description      |
 |---------------------|------------------|
@@ -895,7 +877,7 @@ The members of the RmmPsmmu structure are shown in the following table.
 | Name        | Type             | Description                                                                          |
 |-------------|------------------|--------------------------------------------------------------------------------------|
 | state       | RmmPsmmuState    | State of the PSMMU                                                                   |
-| sid_size    | UInt64           | DRAFT StreamID size in bits. This is read from the SMMU_IDR1.SIDSIZE register field. |
+| sid_size    | UInt64            StreamID size in bits. This is read from the SMMU_IDR1.SIDSIZE register field. |
 | feat_msi    | RmmFeature       | Whether the PSMMU supports MSI                                                       |
 | feat_ats    | RmmFeature       | Whether the PSMMU supports ATS                                                       |
 | feat_pri    | RmmFeature       | Whether the PSMMU supports PRI                                                       |
@@ -955,7 +937,6 @@ The values of the RmmPsmmuStEntryState enumeration are shown in the following ta
 | PSMMU_ST_ENTRY_TABLE PSMMU Level 1 Stream Table                    | entry is a table entry.                                            |
 | PSMMU_ST_ENTRY_VALID                                               | PSMMU Level 1 Stream Table entry is valid.                         |
 
-DRAFT
 
 The RmmPsmmuStEntryState enumeration is used in the following types:
 
@@ -1004,7 +985,7 @@ The members of the RmmRealm structure are shown in the following table.
 | feat_lpa2          | RmmFeature                   | Whether LPA2 is enabled for this Realm                                                                                                                                                                              |
 | ipa_width          | UInt8                        | IPA width in bits                                                                                                                                                                                                   |
 | rim                | RmmRealmMeasurement          | Realm Initial Measurement                                                                                                                                                                                           |
-| rem                | DRAFT RmmRealmMeasurement[4] | Realm Extensible Measurement                                                                                                                                                                                        |
+| rem                 RmmRealmMeasurement[4] | Realm Extensible Measurement                                                                                                                                                                                        |
 | hash_algo          | RmmHashAlgorithm             | Algorithm used to compute Realm measurements                                                                                                                                                                        |
 | rec_index          | UInt64                       | Index of next REC to be created                                                                                                                                                                                     |
 | rtt_base           | Address[4]                   | Realm Translation Table base addresses If rtt_tree_per_plane is FEATURE_FALSE then only the first entry is valid. If rtt_tree_per_plane is FEATURE_TRUE then only the first (num_aux_planes + 1) entries are valid. |
@@ -1052,7 +1033,6 @@ The values of the RmmRealmState enumeration are shown in the following table.
 | REALM_SYSTEM_OFF | System has been turned off. Not eligible for execution. |
 | REALM_ZOMBIE     | Ready for destruction. Not eligible for execution.      |
 
-DRAFT
 
 The RmmRealmState enumeration is used in the following types:
 
@@ -1087,7 +1067,7 @@ The members of the RmmRec structure are shown in the following table.
 | ripas_addr                      | Address                         | Next IPA to be processed in RIPAS change                                       |
 | ripas_top                       | Address                         | Top IPA of pending RIPAS change                                                |
 | ripas_value                     | RmmRipas                        | RIPAS value of pending RIPAS change                                            |
-| ripas_destroyed                 | DRAFT RmmRipasChangeDestroyed   | Whether a RIPAS change from RIPAS_DESTROYED to RIPAS_RAM should be permitted   |
+| ripas_destroyed                  RmmRipasChangeDestroyed   | Whether a RIPAS change from RIPAS_DESTROYED to RIPAS_RAM should be permitted   |
 | ripas_response                  | RmmRecResponse                  | Host response to RIPAS change request                                          |
 | dev_mem_addr                    | Address                         | Next IPA to be processed in VDEV mapping validation                            |
 | dev_mem_top                     | Address                         | Top IPA of pending VDEV mapping validation                                     |
@@ -1134,7 +1114,6 @@ The RmmRecEmulatableAbort enumeration represents whether the most recent exit fr
 
 The RmmRecEmulatableAbort enumeration is an abstract type.
 
-DRAFT
 
 The values of the RmmRecEmulatableAbort enumeration are shown in the following table.
 
@@ -1179,7 +1158,6 @@ The RmmRecPending enumeration is used in the following types:
 
 - RmmRec
 
-DRAFT
 
 ## C2.57 RmmRecResponse type
 
@@ -1249,7 +1227,6 @@ The values of the RmmRipas enumeration are shown in the following table.
 
 The RmmRipas enumeration is used in the following types:
 
-DRAFT
 
 - RmmRec
 - RmmRttEntry
@@ -1281,7 +1258,6 @@ The RmmRtt structure is an abstract type.
 
 The RmmRttEntry structure contains attributes of an RTT Entry.
 
-DRAFT
 
 The RmmRttEntry structure is an abstract type.
 
@@ -1303,7 +1279,7 @@ The members of the RmmRttEntry structure are shown in the following table.
 | attr_unprot   | Bits3              | Memory type and cacheability attributes for an Unprotected IPA This attribute and attr_prot are aliased views of the underlying MemAttr field in the RTT descriptor. This view is valid if the RTT entry describes an address in Unprotected IPA space. The Host controls memory type and cacheability attributes by setting the value of the MemAttr[2:0] field in the RTT descriptor.                                                 |
 | sh            | RmmRttShareability | Shareability attributes.                                                                                                                                                                                                                                                                                                                                                                                                                |
 | s2ap_direct   | RmmRttS2APDirect   | Directly-encoded S2AP This attribute is valid if the RTT entry describes an address in Unprotected IPA space and the Realm uses direct S2AP encoding.                                                                                                                                                                                                                                                                                   |
-| s2ap_indirect | RmmRttS2APIndirect | DRAFT Indirectly-encoded S2AP This attribute is valid if either of the following is true: • The RTT entry describes an address in Protected IPA space. • The RTT entry describes an address in Unprotected IPA space and the Realm uses indirect S2AP encoding.                                                                                                                                                                         |
+| s2ap_indirect | RmmRttS2APIndirect  Indirectly-encoded S2AP This attribute is valid if either of the following is true: • The RTT entry describes an address in Protected IPA space. • The RTT entry describes an address in Unprotected IPA space and the Realm uses indirect S2AP encoding.                                                                                                                                                                         |
 
 The RmmRttEntry structure is used in the following types:
 
@@ -1349,7 +1325,6 @@ The values of the RmmRttMemAttr enumeration are shown in the following table.
 | MEMATTR_NON_CACHEABLE | Memory type and cacheability attributes for a mapping to a non-cacheable location. |
 | MEMATTR_PASSTHROUGH   | Pass through memory type and cacheability attributes from stage 1 translation.     |
 
-DRAFT
 
 The RmmRttMemAttr enumeration is used in the following types:
 
@@ -1392,7 +1367,6 @@ The values of the RmmRttProtected enumeration are shown in the following table.
 
 ## C2.68 RmmRttS2APBase type
 
-DRAFT
 
 The RmmRttS2APBase enumeration represents S2AP base value.
 
@@ -1446,7 +1420,6 @@ The values of the RmmRttS2APEncoding enumeration are shown in the following tabl
 | S2AP_DIRECT   | S2AP is encoded directly in the RTT entry.                    |
 | S2AP_INDIRECT | RTT entry includes indices which indirectly specify the S2AP. |
 
-DRAFT
 
 The RmmRttS2APEncoding enumeration is used in the following types:
 
@@ -1501,7 +1474,6 @@ The members of the RmmRttWalkNotAligned structure are shown in the following tab
 | addr   | Address          | Address                                                                              |
 | walk   | RmmRttWalkResult | Walk result                                                                          |
 
-DRAFT
 
 ## C2.74 RmmRttWalkResult type
 
@@ -1539,7 +1511,7 @@ The members of the RmmSmmuMsiConfig structure are shown in the following table.
 | Name        | Type    | Description                                                                   |
 |-------------|---------|-------------------------------------------------------------------------------|
 | gerr_addr   | Address | MSI address of the GERROR interrupt (programmed to SMMU_R_GERROR_IRQ_CFG0)    |
-| gerr_data   | Bits64  | DRAFT MSI data of the GERROR interrupt (programmed to SMMU_R_GERROR_IRQ_CFG1) |
+| gerr_data   | Bits64   MSI data of the GERROR interrupt (programmed to SMMU_R_GERROR_IRQ_CFG1) |
 | eventq_addr | Address | MSI address of the EVENTQ interrupt (programmed to SMMU_R_EVENTQ_IRQ_CFG0)    |
 | eventq_data | Bits64  | MSI data of the EVENTQ interrupt (programmed to SMMU_R_EVENTQ_IRQ_CFG1)       |
 | priq_addr   | Address | MSI address of the PRIQ interrupt (programmed to SMMU_R_PRIQ_IRQ_CFG0)        |
@@ -1599,7 +1571,6 @@ The RmmTrackingRegionState enumeration is an abstract type.
 
 The values of the RmmTrackingRegionState enumeration are shown in the following table.
 
-DRAFT
 
 | Name              | Description                                                       |
 |-------------------|-------------------------------------------------------------------|
@@ -1633,7 +1604,7 @@ The members of the RmmVdev structure are shown in the following table.
 | comm_state     | RmmDevCommState   | Device communication state                                                                 |
 | vsmmu          | RmmFeature        | Whether device uses a VSMMU                                                                |
 | vsmmu_addr     | Address           | PA of VSMMU. This field is valid if vsmmu is FEATURE_TRUE.                                 |
-| vsid           | Bits64            | DRAFT Virtual Stream Identifier. This field is valid if vsmmu is FEATURE_TRUE.             |
+| vsid           | Bits64             Virtual Stream Identifier. This field is valid if vsmmu is FEATURE_TRUE.             |
 | attest_info    | RmmVdevAttestInfo | Attestation information                                                                    |
 | meas_digest    | Bits512           | Measurement digest                                                                         |
 | report_digest  | Bits512           | Interface report digest                                                                    |
@@ -1687,7 +1658,6 @@ The values of the RmmVdevDmaState enumeration are shown in the following table.
 | VDEV_DMA_DISABLED | DMAis disabled. |
 | VDEV_DMA_ENABLED  | DMAis enabled.  |
 
-DRAFT
 
 The RmmVdevDmaState enumeration is used in the following types:
 
@@ -1732,7 +1702,7 @@ The values of the RmmVdevState enumeration are shown in the following table.
 | Name             | Description                                                                                                   |
 |------------------|---------------------------------------------------------------------------------------------------------------|
 | VDEV_ERROR       | Device interface has reported a fatal error.                                                                  |
-| VDEV_KEY_PURGE   | DRAFT Waiting for purge of inactive keys to be performed on all streams associated with the device interface. |
+| VDEV_KEY_PURGE    Waiting for purge of inactive keys to be performed on all streams associated with the device interface. |
 | VDEV_KEY_REFRESH | Waiting for key refresh to be performed on all streams associated with the device interface.                  |
 | VDEV_LOCKED      | Device interface is locked.                                                                                   |
 | VDEV_NEW         | Initial state of the device interface.                                                                        |
@@ -1781,4 +1751,3 @@ The RmmVsmmuState enumeration is used in the following types:
 
 - RmmVsmmu
 
-DRAFT

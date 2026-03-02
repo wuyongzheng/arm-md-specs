@@ -27,7 +27,6 @@ The RSI\_VDEV\_DMA\_ENABLE command operates on the following context.
 | realm  | RmmRealm | CurrentRealm()                  | false    | Current Realm |
 | vdev   | RmmVdev  | VdevFromVdevId( realm, vdev_id) | false    | Realm device  |
 
-DRAFT
 
 ## B5.4.18.1.3 Output values
 

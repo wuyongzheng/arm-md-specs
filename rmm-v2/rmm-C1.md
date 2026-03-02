@@ -8,7 +8,6 @@ This section describes constants which are used in the definition of RMM command
 
 Number of permission overlay indices.
 
-DRAFT
 
 The value of RMM\_NUM\_PERM\_OVERLAY\_INDICES is 15.
 

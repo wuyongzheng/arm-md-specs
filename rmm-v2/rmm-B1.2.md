@@ -1,6 +1,6 @@
 ## B1.2 Command definition
 
-IWBMVP The definition of an RMM command consists of:
+The definition of an RMM command consists of:
 
 - A function identifier (FID)
 - A set of input values (referred to as 'arguments' in SMCCC)
@@ -10,11 +10,11 @@ IWBMVP The definition of an RMM command consists of:
 - A set of success conditions
 - A set of footprint items
 
-IGCVWC Each failure condition, success condition and footprint item has an associated identifier. Identifiers are unique within each of the above groups, within each command.
+Each failure condition, success condition and footprint item has an associated identifier. Identifiers are unique within each of the above groups, within each command.
 
 An identifier has no meaning. It is only a label by which a given condition or footprint item can be referred to.
 
-SSTJHR On calling an RMI or RSI command, any of X1 - X16 which are not specified as input values in the command definition SBZ.
+On calling an RMI or RSI command, any of X1 - X16 which are not specified as input values in the command definition SBZ.
 
 See also:
 
@@ -22,7 +22,7 @@ See also:
 
 ## B1.2.1 Example command
 
-INFVGF The following command, EXAMPLE\_ADD, is an example of how the components of an RMM command definition are presented in this document.
+The following command, EXAMPLE\_ADD, is an example of how the components of an RMM command definition are presented in this document.
 
 This command takes as an input value the address params\_ptr of an NS Granule which contains two integer values x and y . On successful execution of the command:
 
@@ -52,7 +52,6 @@ The EXAMPLE\_ADD command operates on the following context.
 |--------|---------------|--------------------|----------|---------------|
 | params | ExampleParams | Params(params_ptr) | false    | Parameters    |
 
-DRAFT
 
 ## Output values
 
@@ -77,27 +76,26 @@ DRAFT
 
 ## B1.3 Command registers
 
-DZDGNM An FID is a value which identifies a particular RMM command.
+An FID is a value which identifies a particular RMM command.
 
-IMJQGK The FID of an RMM command is unique among the RMM commands in an RMM interface.
+The FID of an RMM command is unique among the RMM commands in an RMM interface.
 
-IRVPGY An FID is read from general-purpose register X0.
+An FID is read from general-purpose register X0.
 
-DXLSFS An input value is a value read by an RMM command from general-purpose registers.
+An input value is a value read by an RMM command from general-purpose registers.
 
-DVCDCW An output value is a value written by an RMM command to general-purpose registers.
+An output value is a value written by an RMM command to general-purpose registers.
 
-DCZLVJ A command return code is a value which specifies whether an RMM command succeeded or failed.
+A command return code is a value which specifies whether an RMM command succeeded or failed.
 
-IFRZFT A command return code is written to general-purpose register X0.
+A command return code is written to general-purpose register X0.
 
-DRAFT
 
 ## B1.4 Command condition expressions
 
-DCHRYB A condition expression is an expression which evaluates to a boolean value.
+A condition expression is an expression which evaluates to a boolean value.
 
-IBNPKQ Following expansion of macros, a condition expression
+Following expansion of macros, a condition expression
 
 ## See also:
 
@@ -108,13 +106,9 @@ IBNPKQ Following expansion of macros, a condition expression
 
 is a valid expression in Arm Specification Language (ASL).
 
-DDLBYC
 
-- IVKKKY
 
-DQDFNW
 
-ILTLQN
 
 A context value is a value which is derived from the value of a command input register or command output register and which is used by a command condition expression.
 
@@ -148,15 +142,14 @@ A context value is defined as follows:
 |----------|---------|--------------------|----------|------------------|
 | rtt_base | Address | Realm(rd).rtt_base | true     | RTT base address |
 
-DRAFT
 
 ## The state change of the RTT Granule can then be expressed as:
 
 Granule(rtt\_base).state == GRAN\_DELEGATED
 
-- IYNDGD The before property of a context value has no effect if the value is only used in command failure conditions.
-- DXBHPB An in-memory value is a value passed to a command via an in-memory data structure, the address of which is passed in an input register.
-- IZTYSS An in-memory value is a context value.
+- The before property of a context value has no effect if the value is only used in command failure conditions.
+- An in-memory value is a value passed to a command via an in-memory data structure, the address of which is passed in an input register.
+- An in-memory value is a context value.
 
 See also:
 
@@ -164,21 +157,21 @@ See also:
 
 ## B1.6 Command failure conditions
 
-- DDNQQC An RMM command failure condition defines a way in which the command can fail.
-- IGVBBZ A failure condition consists of a pre-condition and a post-condition .
-- IWTSZH A failure pre-condition can be thought of as the 'trigger' of the failure: if the pre-condition is true then the command fails.
+- An RMM command failure condition defines a way in which the command can fail.
+- A failure condition consists of a pre-condition and a post-condition .
+- A failure pre-condition can be thought of as the 'trigger' of the failure: if the pre-condition is true then the command fails.
 
 ## Chapter B1. Commands
 
 ## B1.6. Command failure conditions
 
-IKJHNX A failure post-condition can be thought of as the 'effect' of the failure: if the command failed due to a particular trigger, then the post-condition defines the error code which is returned.
+A failure post-condition can be thought of as the 'effect' of the failure: if the command failed due to a particular trigger, then the post-condition defines the error code which is returned.
 
-ICVTGY A failure pre-condition is a condition expression whose terms can include input values and context values.
+A failure pre-condition is a condition expression whose terms can include input values and context values.
 
-IHNDNN A failure post-condition is a condition expression whose terms can include input values and context values.
+A failure post-condition is a condition expression whose terms can include input values and context values.
 
-IKHJDY Observability of the checking of command failure conditions is subject to a partial order.
+Observability of the checking of command failure conditions is subject to a partial order.
 
 An ordering relation ' A precedes B ' means either of the following:
 
@@ -197,53 +190,49 @@ The same information is also presented graphically, with failure conditions repr
 
 The specification does not state whether an individual ordering relation is a well-formedness ordering or a behavioral ordering.
 
-IJMTTY A given implementation of the RMM is expected to have deterministic behavior. That is, for a runtime instance of the RMM in a particular state, two executions of a command without an interleaving of other commands, with the same input values, results in the same outcome (either success, or the same failure condition.)
+A given implementation of the RMM is expected to have deterministic behavior. That is, for a runtime instance of the RMM in a particular state, two executions of a command without an interleaving of other commands, with the same input values, results in the same outcome (either success, or the same failure condition.)
 
-RWXZJJ If a failure pre-condition evaluates to true then the corresponding failure post-condition evaluates to true.
+If a failure pre-condition evaluates to true then the corresponding failure post-condition evaluates to true.
 
-RDDGDW If a failure pre-condition evaluates to true then the command is aborted.
+If a failure pre-condition evaluates to true then the command is aborted.
 
-RTFZMS If a command fails then all output values except for X0 are UNDEFINED, unless stated otherwise.
+If a command fails then all output values except for X0 are UNDEFINED, unless stated otherwise.
 
-DRAFT
 
-RVHFHD
 
 If no failure pre-condition evaluates to true then the command succeeds.
 
 ## B1.7 Command success conditions
 
-- DSZGNZ An RMM command success condition defines an observable effect of a successful execution of the command.
-- IFWCRJ A success condition consists of a post-condition and an optional pre-condition . If the pre-condition is omitted then it is interpreted as being true.
-- IKDFKT A success pre-condition is a condition expression whose terms can include input values and context values.
-- ILZXHB A success post-condition is a condition expression whose terms can include input values, context values and output values.
-- INMCSF The order in which success conditions are listed has no architectural significance.
-- INJQFG If an RMM command succeeds then the return code is &lt;Interface&gt;\_SUCCESS.
-- RMKRVV If an RMM command succeeds then for every success conditions whose pre-condition evaluates to true, the corresponding post-condition evaluates to true.
+- An RMM command success condition defines an observable effect of a successful execution of the command.
+- A success condition consists of a post-condition and an optional pre-condition . If the pre-condition is omitted then it is interpreted as being true.
+- A success pre-condition is a condition expression whose terms can include input values and context values.
+- A success post-condition is a condition expression whose terms can include input values, context values and output values.
+- The order in which success conditions are listed has no architectural significance.
+- If an RMM command succeeds then the return code is &lt;Interface&gt;\_SUCCESS.
+- If an RMM command succeeds then for every success conditions whose pre-condition evaluates to true, the corresponding post-condition evaluates to true.
 
 ## B1.8 Concrete and abstract types
 
-- DNXQWV A concrete type is a type which has a defined encoding.
+- A concrete type is a type which has a defined encoding.
 
 Examples of concrete types include:
 
 - An integer which has a defined bit width.
 - An enumeration within which each label is associated with a unique binary value.
 - A struct which has a defined width, and within which each member has a defined position. The type of each member of a concrete struct is a concrete type.
-- IWDGMW Concrete types are used to define command input values and output values.
-- DWTCVJ An abstract type is a type which does not have a defined encoding.
+- Concrete types are used to define command input values and output values.
+- An abstract type is a type which does not have a defined encoding.
 
 Examples of abstract types include:
 
 - An integer which does not have a defined bit width.
 
-DRAFT
 
 - An enumeration which has a set of labels, but which does not define a binary value for each label.
 - A struct which has a set of members, but which does not define a struct width nor a position for each member. The type of each member of an abstract struct is an abstract type.
-- IQZRGY Abstract types are used to model the internal state of the RMM.
+- Abstract types are used to model the internal state of the RMM.
 
-ILMKGP
 
 A command failure condition or success condition may need to test for logical equality between a concrete type and a corresponding abstract type. For example, the command may set the value of an internal RMM variable to match the value of a command input. To enable such comparisons, the specification defines an Equal() function for each pair of corresponding concrete and abstract types.
 
@@ -253,16 +242,16 @@ See also:
 
 ## B1.9 Command footprint
 
-- DZDJDB The footprint of an RMM command defines the set of state items which successful execution of the command can modify.
-- IXMZYS The footprint of an RMM command may include state items which are not modified by successful execution of the command.
+- The footprint of an RMM command defines the set of state items which successful execution of the command can modify.
+- The footprint of an RMM command may include state items which are not modified by successful execution of the command.
 
 ## Chapter B1. Commands B1.9. Command footprint
 
-IRWQMJ If an RMM command changes the state of a Granule then the footprint typically does not include all attributes of the object which is created or destroyed.
+If an RMM command changes the state of a Granule then the footprint typically does not include all attributes of the object which is created or destroyed.
 
 For example, the footprint of RMI\_REALM\_CREATE includes the state of the RD Granule, but does not include attributes of the newly-created Realm.
 
-RWZYBV Execution of an RMM command does not have any observable effects except for the following:
+Execution of an RMM command does not have any observable effects except for the following:
 
 - Items in the footprint of an RMM command
 - Registers in the output values of the RMM command

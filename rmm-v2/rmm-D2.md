@@ -1,6 +1,6 @@
 ## Chapter D2 Realm shared memory protocol
 
-DRAFT This section describes a protocol for management of memory which is shared between a Realm and the Host. This protocol makes use of the primitives described in this specification. However, the protocol itself is not part of the RMMarchitecture. Use of this protocol is subject to a contract between the Realm and Host software agents. See also:
+This section describes a protocol for management of memory which is shared between a Realm and the Host. This protocol makes use of the primitives described in this specification. However, the protocol itself is not part of the RMMarchitecture. Use of this protocol is subject to a contract between the Realm and Host software agents. See also:
 
 - Chapter A5 Realm memory management
 
@@ -19,7 +19,7 @@ The choice of whether a given page is private or shared at a given time is expre
 
 The initial RIPAS for every page in the Realm's memory footprint is described to the Realm, for example via firmware tables. The Host agrees that during Realm execution, it will accept a RIPAS change request on any page within the Realm's memory footprint.
 
-- DRAFT Based on the private / shared status of the page, the Host agrees to the following behaviour regarding the Unprotected IPA alias: · If the page is private, the Host does not create a valid mapping at the Unprotected IPA alias. Realm access to the Unprotected IPA alias causes a REC exit due to Data Abort. In response, the Host sets the 'inject\_sea' flag on the next REC entry, which causes a Synchronous External Abort to be taken to the Realm. · If the page is shared, the Host creates (either eagerly, or in response to a REC exit due to Data Abort) a valid mapping at the Unprotected IPA alias. Realm access to the Unprotected IPA alias does not cause a Synchronous External Abort taken to the Realm. For device access to shared memory which is mapped in a Realm's IPA space, an Unprotected IPA should be used as the DMA address. See also:
+- Based on the private / shared status of the page, the Host agrees to the following behaviour regarding the Unprotected IPA alias: · If the page is private, the Host does not create a valid mapping at the Unprotected IPA alias. Realm access to the Unprotected IPA alias causes a REC exit due to Data Abort. In response, the Host sets the 'inject\_sea' flag on the next REC entry, which causes a Synchronous External Abort to be taken to the Realm. · If the page is shared, the Host creates (either eagerly, or in response to a REC exit due to Data Abort) a valid mapping at the Unprotected IPA alias. Realm access to the Unprotected IPA alias does not cause a Synchronous External Abort taken to the Realm. For device access to shared memory which is mapped in a Realm's IPA space, an Unprotected IPA should be used as the DMA address. See also:
 - A5.2.1 Realm IPA space
 - A5.2.2 Realm IPA state
 - A5.4 RIPAS change
@@ -28,7 +28,6 @@ The initial RIPAS for every page in the Realm's memory footprint is described to
 
 The following diagram illustrates how the protocol is used to set up and tear down a shared memory buffer.
 
-SZBPXF
 
 Chapter D2. Realm shared memory protocol D2.2. Realm shared memory protocol flow
 
@@ -36,7 +35,6 @@ Chapter D2. Realm shared memory protocol D2.2. Realm shared memory protocol flow
 
 Figure D2.1: Realm shared memory protocol flow
 
-DRAFT
 
 See also:
 

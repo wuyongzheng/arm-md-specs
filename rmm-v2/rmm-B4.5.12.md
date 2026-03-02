@@ -31,7 +31,6 @@ The RMI\_DPT\_L1\_CREATE command operates on the following context.
 
 ## B4.5.12.1.3 Output values
 
-DRAFT
 
 | Name   | Register   | Bits   | Type      | Description    |
 |--------|------------|--------|-----------|----------------|
@@ -75,4 +74,3 @@ The RMI\_DPT\_L1\_CREATE command does not have any failure condition orderings.
 |-------------------|-------------------|
 | l0dpt_entry_state | l0dpt_entry.state |
 
-DRAFT

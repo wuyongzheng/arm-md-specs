@@ -66,7 +66,6 @@ Figure D1.12: REC exit due to Data Abort flow
 
 <!-- image -->
 
-DRAFT
 
 ## See also:
 

@@ -27,7 +27,6 @@ The RMI\_VSMMU\_CMD\_COMPLETE command operates on the following context.
 
 ## B4.5.93.1.3 Output values
 
-DRAFT
 
 | Name     | Register   | Bits   | Type             | Description                                                                                   |
 |----------|------------|--------|------------------|-----------------------------------------------------------------------------------------------|
@@ -54,7 +53,7 @@ ID
 | vsmmu_state     | pre: post:   | GranuleAt(vsmmu_ptr).state != GRAN_VSMMU result.status == RMI_ERROR_INPUT          |
 | pdev_align      | pre: post:   | !AddrIsRmiGranuleAligned(pdev_ptr) result.status == RMI_ERROR_INPUT                |
 | pdev_bound      | pre: post:   | !PaIsTracked(pdev_ptr) result.status == RMI_ERROR_INPUT                            |
-| pdev_gran_state | pre: post:   | DRAFT GranuleAt(pdev_ptr).state != GRAN_PDEV result.status == RMI_ERROR_INPUT      |
+| pdev_gran_state | pre: post:    GranuleAt(pdev_ptr).state != GRAN_PDEV result.status == RMI_ERROR_INPUT      |
 | vdev_align      | pre: post:   | !AddrIsRmiGranuleAligned(vdev_ptr) result.status == RMI_ERROR_INPUT                |
 | vdev_bound      | pre: post:   | !PaIsTracked(vdev_ptr) result.status == RMI_ERROR_INPUT                            |
 | vdev_gran_state | pre: post:   | GranuleAt(vdev_ptr).state != GRAN_VDEV result.status == RMI_ERROR_INPUT            |
@@ -81,4 +80,3 @@ Chapter B4. Realm Management Interface B4.5. RMI commands
 
 The RMI\_VSMMU\_CMD\_COMPLETE command does not have any footprint.
 
-DRAFT

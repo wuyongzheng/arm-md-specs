@@ -33,7 +33,6 @@ The values of the RsiBoolean enumeration are shown in the following table.
 |          0 | RSI_FALSE | False         |
 |          1 | RSI_TRUE  | True          |
 
-DRAFT
 
 The RsiBoolean enumeration is used in the following types:
 
@@ -82,7 +81,6 @@ The values of the RsiDevMemCoherent enumeration are shown in the following table
 |          0 | RSI_DEV_MEM_NON_COHERENT | A device memory location is not within the system coherent memory space |
 |          1 | RSI_DEV_MEM_COHERENT     | A device memory location is within the system coherent memory space     |
 
-DRAFT
 
 The RsiDevMemCoherent enumeration is used in the following types:
 
@@ -114,7 +112,6 @@ The RsiDevMemOrdering enumeration is a concrete type.
 
 The width of the RsiDevMemOrdering enumeration is 1 bits.
 
-DRAFT
 
 The values of the RsiDevMemOrdering enumeration are shown in the following table.
 
@@ -158,7 +155,6 @@ The width of the RsiFeatureRegister0 fieldset is 64 bits.
 
 The fields of the RsiFeatureRegister0 fieldset are shown in the following diagram.
 
-DRAFT
 
 The fields of the RsiFeatureRegister0 fieldset are shown in the following table.
 
@@ -208,7 +204,6 @@ The values of the RsiHashAlgorithm enumeration are shown in the following table.
 |          1 | RSI_HASH_SHA_512 | SHA-512 ( Secure Hash Standard (SHS) [25]) |
 |          2 | RSI_HASH_SHA_384 | SHA-384 ( Secure Hash Standard (SHS) [25]) |
 
-DRAFT
 
 Unused encodings for the RsiHashAlgorithm enumeration are reserved for use by future versions of this specification.
 
@@ -282,7 +277,6 @@ The members of the RsiPlaneEnter structure are shown in the following table.
 | pc     | 0x8           | Bits64             | Program counter |
 | pstate | 0x10          | Bits64             | PSTATE          |
 
-DRAFT
 
 | Name          | Byte offset   | Type   | Description                             |
 |---------------|---------------|--------|-----------------------------------------|
@@ -309,7 +303,6 @@ The fields of the RsiPlaneEnterFlags fieldset are shown in the following diagram
 
 <!-- image -->
 
-DRAFT
 
 The fields of the RsiPlaneEnterFlags fieldset are shown in the following table.
 
@@ -342,7 +335,7 @@ The members of the RsiPlaneExit structure are shown in the following table.
 
 | Name          | Byte offset   | Type                     | Description                                              |
 |---------------|---------------|--------------------------|----------------------------------------------------------|
-| reason        | 0x0           | DRAFT RsiPlaneExitReason | Exit reason                                              |
+| reason        | 0x0            RsiPlaneExitReason | Exit reason                                              |
 | pc            | 0x8           | Bits64                   | Program counter                                          |
 | pstate        | 0x10          | Bits64                   | PSTATE                                                   |
 | gprs[31]      | 0x100         | Bits64                   | Registers                                                |
@@ -408,7 +401,6 @@ The members of the RsiPlaneRun structure are shown in the following table.
 | enter  | 0x0           | RsiPlaneEnter | Entry information |
 | exit   | 0x800         | RsiPlaneExit  | Exit information  |
 
-DRAFT
 
 ## B5.5.18 RsiPmuOverflowStatus type
 
@@ -454,7 +446,6 @@ The members of the RsiRealmConfig structure are shown in the following table.
 | ats_plane      | 0x20          | UInt64           | Index of Plane whose stage 2 permissions are observed by ATS requests from devices assigned to the Realm |
 | rpv            | 0x200         | Bits512          | Realm Personalization Value                                                                              |
 
-DRAFT
 
 Unused bits of the RsiRealmConfig structure MBZ.
 
@@ -496,7 +487,6 @@ The values of the RsiRipas enumeration are shown in the following table.
 |          2 | RSI_RIPAS_DESTROYED | Address which is inaccessible to the Realm due to an action taken by the Host. |
 |          3 | RSI_RIPAS_DEV       | Address where memory of an assigned Realm device is mapped.                    |
 
-DRAFT
 
 Unused encodings for the RsiRipas enumeration are reserved for use by future versions of this specification.
 
@@ -538,7 +528,6 @@ The fields of the RsiRipasChangeFlags fieldset are shown in the following table.
 | destroyed | 0      | Whether a RIPAS change from RIPAS_DESTROYED to RIPAS_RAM should be permitted | RsiRipasChangeDestroyed |
 |           | 63:1   | Reserved                                                                     | SBZ                     |
 
-DRAFT
 
 ## B5.5.24 RsiSysregAddress type
 
@@ -566,7 +555,6 @@ The fields of the RsiSysregAddress fieldset are shown in the following table.
 
 The RsiTrap enumeration represents whether a trap is enabled.
 
-DRAFT
 
 The RsiTrap enumeration is a concrete type.
 
@@ -612,7 +600,6 @@ The width of the RsiVdevFlags fieldset is 64 bits.
 
 The fields of the RsiVdevFlags fieldset are shown in the following diagram.
 
-DRAFT
 
 <!-- image -->
 
@@ -657,7 +644,6 @@ The members of the RsiVdevInfo structure are shown in the following table.
 | state                | 0x40          | RsiVdevState            | State of the device                                                                                                                                                                        |
 | negotiation_data_dig | 0x80          | Bits512                 | Negotiation data digest                                                                                                                                                                    |
 
-DRAFT
 
 est
 
@@ -687,7 +673,6 @@ The values of the RsiVdevReportFormatType enumeration are shown in the following
 |          0 | RSI_VDEV_REPORT_FORMAT_IMPDEF | The report format is IMPLEMENTATION DEFINED. |
 |          1 | RSI_VDEV_REPORT_FORMAT_TDISP  | The report format is TDISP.                  |
 
-DRAFT
 
 Unused encodings for the RsiVdevReportFormatType enumeration are reserved for use by future versions of this specification.
 

@@ -32,7 +32,6 @@ The following unused bits of PSCI\_FEATURES input values SBZ: X1[63:32].
 
 The PSCI\_FEATURES command does not have any failure conditions.
 
-DRAFT
 
 ## B6.3.5.3 Success conditions
 

@@ -34,7 +34,6 @@ Following execution of PSCI\_SYSTEM\_RESET, control does not return to the calle
 
 ## B6.3.7.2 Failure conditions
 
-DRAFT
 
 The PSCI\_SYSTEM\_RESET command does not have any failure conditions.
 

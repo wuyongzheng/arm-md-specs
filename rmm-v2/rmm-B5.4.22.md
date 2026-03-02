@@ -30,7 +30,6 @@ The status code and lower revision output values indicate which of the following
 
 ## B5.4.22.1.1 Input values
 
-DRAFT
 
 | Name   | Register   | Bits   | Type                | Description                  |
 |--------|------------|--------|---------------------|------------------------------|
@@ -61,4 +60,4 @@ The RSI\_VERSION command does not have any failure condition orderings.
 
 ## B5.4.22.3 Success conditions
 
-DRAFT ID Condition lower post: VersionEqual(lower, req) higher post: VersionEqual(higher, RsiVersionHighest()) B5.4.22.4 Footprint The RSI\_VERSION command does not have any footprint.
+ID Condition lower post: VersionEqual(lower, req) higher post: VersionEqual(higher, RsiVersionHighest()) B5.4.22.4 Footprint The RSI\_VERSION command does not have any footprint.

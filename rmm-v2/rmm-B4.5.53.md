@@ -30,7 +30,6 @@ The RMI\_RMM\_CONFIG\_GET command operates on the following context.
 |--------|------------|--------|-----------|----------------|
 | result | X0         | 63:0   | RmiResult | Command result |
 
-DRAFT
 
 ## B4.5.53.2 Failure conditions
 

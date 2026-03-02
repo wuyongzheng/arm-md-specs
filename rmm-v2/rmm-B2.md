@@ -4,9 +4,7 @@ This section describes how the RMI and RSI interfaces are versioned, and how the
 
 Other interfaces exposed by the RMM, such as PSCI, may define their own versioning schemes which differ from that used by RMI and RSI. For details, refer to the specification of the interface concerned.
 
-DRAFT
 
-- ILZVQR
 
 Revisions of the RMI and the RSI are identified by a (major, minor) version tuple.
 
@@ -25,17 +23,17 @@ The semantics of this version tuple are as follows. For two revisions of the int
 * Encodings which were specified as reserved in P.
 - -Q may contain additional commands which are not present in P.
 
-DRAFT · P is less than Q if one of the following conditions is true: -majP &lt; majQ -majP == majQ and minP &lt; minQ IZCPBC For each interface, an RMM implementation supports a set of revisions. The size of this set is at least one. IRMSLZ If an RMM implementation supports a given interface revision (x, y) then Arm expects that it will also supports all earlier revisons with the same major version number. That is: (x, 0) , (x, 1) . . . (x, y-1) , (x, y) . Apossible exception to this may occur if a security vulnerability is discovered in a particular revision of the interface. For example, if interface revision (x, bad) is found to contain a vulnerability then an RMM implementation may choose to support the following set of revisions:
+· P is less than Q if one of the following conditions is true: -majP &lt; majQ -majP == majQ and minP &lt; minQ IZCPBC For each interface, an RMM implementation supports a set of revisions. The size of this set is at least one. IRMSLZ If an RMM implementation supports a given interface revision (x, y) then Arm expects that it will also supports all earlier revisons with the same major version number. That is: (x, 0) , (x, 1) . . . (x, y-1) , (x, y) . Apossible exception to this may occur if a security vulnerability is discovered in a particular revision of the interface. For example, if interface revision (x, bad) is found to contain a vulnerability then an RMM implementation may choose to support the following set of revisions:
 
 <!-- formula-not-decoded -->
 
-- IGLDQG The set of interface revisions supported by an RMM implementation may include revisons with different major version numbers, for example:
+- The set of interface revisions supported by an RMM implementation may include revisons with different major version numbers, for example:
 
 <!-- formula-not-decoded -->
 
 <!-- formula-not-decoded -->
 
-- IJNVXJ The RMI\_VERSION and RSI\_VERSION commands allow the caller and the RMM to determine whether there exists a mutually acceptable revision of the interface via which the two components can communicate.
+- The RMI\_VERSION and RSI\_VERSION commands allow the caller and the RMM to determine whether there exists a mutually acceptable revision of the interface via which the two components can communicate.
 
 In each case:
 
@@ -67,7 +65,7 @@ The following table shows how each of a set of example scenarios maps onto the a
 |          4 | (1, 0)                         | (1, 1)                         | Failure ( b ) | (1, 0)                          | (1, 0)                           |
 |          5 | (1, 0) , (1, 1)                | (1, 2)                         | Failure ( b ) | (1, 1)                          | (1, 1)                           |
 |          6 | (1, 0) , (1, 1)                | (2, 0)                         | Failure ( b ) | (1, 1)                          | (1, 1)                           |
-|          7 | DRAFT (1, 0) , (1, 1) , (1, 3) | (1, 2)                         | Failure ( b ) | (1, 1)                          | (1, 3)                           |
+|          7  (1, 0) , (1, 1) , (1, 3) | (1, 2)                         | Failure ( b ) | (1, 1)                          | (1, 3)                           |
 |          8 | (1, 0)                         | (2, 0)                         | Failure ( b ) | (1, 0)                          | (1, 0)                           |
 |          9 | (1, 0)                         | (2, 1)                         | Failure ( b ) | (1, 0)                          | (1, 0)                           |
 |         10 | (1, 0) , (1, 1)                | (2, 0)                         | Failure ( b ) | (1, 1)                          | (1, 1)                           |

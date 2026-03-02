@@ -33,7 +33,6 @@ The RMI\_DPT\_L0\_CREATE command operates on the following context.
 |--------|------------|--------|-----------|----------------|
 | result | X0         | 63:0   | RmiResult | Command result |
 
-DRAFT
 
 ## B4.5.10.2 Failure conditions
 

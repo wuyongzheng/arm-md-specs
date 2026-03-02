@@ -34,7 +34,6 @@ The RMI\_DPT\_L1\_DESTROY command operates on the following context.
 |--------|------------|--------|-----------|----------------|
 | result | X0         | 63:0   | RmiResult | Command result |
 
-DRAFT
 
 ## B4.5.13.2 Failure conditions
 

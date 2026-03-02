@@ -9,7 +9,6 @@ See also:
 - B4.6 RMI types
 - B5.5 RSI types
 
-DRAFT
 
 - B6.4 PSCI types
 - Chapter C2 RMMtypes
@@ -48,4 +47,4 @@ The width of the UIntN type is N bits.
 
 <!-- image -->
 
-## DRAFT Part D Usage
+## Part D Usage

@@ -36,4 +36,3 @@ Figure D1.2: Granule undelegation flow
 
 <!-- image -->
 
-DRAFT

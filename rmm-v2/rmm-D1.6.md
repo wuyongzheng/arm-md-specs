@@ -8,7 +8,6 @@ Figure D1.19: Interrupt injection flow
 
 <!-- image -->
 
-DRAFT
 
 See also:
 

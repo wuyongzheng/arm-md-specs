@@ -31,7 +31,6 @@ The RMI\_PSMMU\_ACTIVATE command operates on the following context.
 | psmmu  | RmmPsmmu       | PsmmuAt(psmmu_ptr)            | false    | PSMMU            |
 | params | RmiPsmmuParams | RmiPsmmuParamsAt( params_ptr) | false    | PSMMU parameters |
 
-DRAFT
 
 ## B4.5.39.1.3 Output values
 
@@ -71,7 +70,7 @@ DRAFT
 
 ## B4.5.39.3 Success conditions
 
-DRAFT params\_align pre: !AddrIsRmiGranuleAligned(params\_ptr) post: result.status == RMI\_ERROR\_INPUT params\_pas pre: !NonSecureAccessPermitted(params\_ptr) post: result.status == RMI\_ERROR\_INPUT msi\_supp pre: (params.flags.msi == RMI\_FEATURE\_TRUE &amp;&amp; psmmu.feat\_msi != FEATURE\_TRUE) post: result.status == RMI\_ERROR\_INPUT gerror\_valid pre: (params.flags.msi == RMI\_FEATURE\_TRUE &amp;&amp; !MsiAddrIsValid(params.gerr\_addr)) post: result.status == RMI\_ERROR\_INPUT eventq\_valid pre: (params.flags.msi == RMI\_FEATURE\_TRUE &amp;&amp; !MsiAddrIsValid(params.eventq\_addr)) post: result.status == RMI\_ERROR\_INPUT priq\_valid pre: (params.flags.msi == RMI\_FEATURE\_TRUE &amp;&amp; !MsiAddrIsValid(params.priq\_addr)) post: result.status == RMI\_ERROR\_INPUT ats\_supp pre: (params.flags.ats == RMI\_FEATURE\_TRUE &amp;&amp; psmmu.feat\_ats != FEATURE\_TRUE) post: result.status == RMI\_ERROR\_INPUT pri\_supp pre: (params.flags.pri == RMI\_FEATURE\_TRUE &amp;&amp; psmmu.feat\_pri != FEATURE\_TRUE) post: result.status == RMI\_ERROR\_INPUT dpt pre: (params.flags.ats == RMI\_FEATURE\_TRUE &amp;&amp; DptL0().state != DPT\_L0\_VALID) post: result.status == RMI\_ERROR\_DEVICE B4.5.39.2.1 Failure condition ordering The RMI\_PSMMU\_ACTIVATE command does not have any failure condition orderings.
+params\_align pre: !AddrIsRmiGranuleAligned(params\_ptr) post: result.status == RMI\_ERROR\_INPUT params\_pas pre: !NonSecureAccessPermitted(params\_ptr) post: result.status == RMI\_ERROR\_INPUT msi\_supp pre: (params.flags.msi == RMI\_FEATURE\_TRUE &amp;&amp; psmmu.feat\_msi != FEATURE\_TRUE) post: result.status == RMI\_ERROR\_INPUT gerror\_valid pre: (params.flags.msi == RMI\_FEATURE\_TRUE &amp;&amp; !MsiAddrIsValid(params.gerr\_addr)) post: result.status == RMI\_ERROR\_INPUT eventq\_valid pre: (params.flags.msi == RMI\_FEATURE\_TRUE &amp;&amp; !MsiAddrIsValid(params.eventq\_addr)) post: result.status == RMI\_ERROR\_INPUT priq\_valid pre: (params.flags.msi == RMI\_FEATURE\_TRUE &amp;&amp; !MsiAddrIsValid(params.priq\_addr)) post: result.status == RMI\_ERROR\_INPUT ats\_supp pre: (params.flags.ats == RMI\_FEATURE\_TRUE &amp;&amp; psmmu.feat\_ats != FEATURE\_TRUE) post: result.status == RMI\_ERROR\_INPUT pri\_supp pre: (params.flags.pri == RMI\_FEATURE\_TRUE &amp;&amp; psmmu.feat\_pri != FEATURE\_TRUE) post: result.status == RMI\_ERROR\_INPUT dpt pre: (params.flags.ats == RMI\_FEATURE\_TRUE &amp;&amp; DptL0().state != DPT\_L0\_VALID) post: result.status == RMI\_ERROR\_DEVICE B4.5.39.2.1 Failure condition ordering The RMI\_PSMMU\_ACTIVATE command does not have any failure condition orderings.
 
 ID
 

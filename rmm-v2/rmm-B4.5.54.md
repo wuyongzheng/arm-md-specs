@@ -30,7 +30,6 @@ The RMI\_RMM\_CONFIG\_SET command operates on the following context.
 |--------|------------|--------|-----------|----------------|
 | result | X0         | 63:0   | RmiResult | Command result |
 
-DRAFT
 
 ## B4.5.54.2 Failure conditions
 

@@ -38,7 +38,6 @@ The RMI\_PSMMU\_IRQ\_NOTIFY command operates on the following context.
 | fipa       | X6         | 63:0   | Address           | Faulting IPA, as specified bySMMU                            |
 | syndrome   | X7         | 63:0   | Bits64            | RnW[0], S2[1] and Class[3:2] attributes, as specified bySMMU |
 
-DRAFT
 
 ## B4.5.42.2 Failure conditions
 

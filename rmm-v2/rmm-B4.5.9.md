@@ -33,7 +33,6 @@ The RMI\_CMEM\_UNPOPULATE command operates on the following context.
 | result  | X0         | 63:0   | RmiResult | Command result                                  |
 | out_top | X1         | 63:0   | Address   | Top PA of range which was marked as unpopulated |
 
-DRAFT
 
 ## B4.5.9.2 Failure conditions
 
@@ -60,7 +59,6 @@ cmem_state pre: cmem.state != CMEM_STARTED post: result.status == RMI_ERROR_DEVI
 
 <!-- image -->
 
-DRAFT
 
 ## B4.5.9.3 Success conditions
 

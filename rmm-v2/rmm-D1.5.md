@@ -22,7 +22,6 @@ Figure D1.15: Add memory to active Realm flow
 
 <!-- image -->
 
-DRAFT
 
 ## See also:
 

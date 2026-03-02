@@ -28,7 +28,6 @@ The RSI\_ARCH\_DEV\_ACTIVATE command operates on the following context.
 
 ## B5.4.1.1.3 Output values
 
-DRAFT
 
 | Name   | Register   | Bits   | Type                 | Description    |
 |--------|------------|--------|----------------------|----------------|

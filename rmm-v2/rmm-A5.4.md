@@ -1,7 +1,6 @@
 ## A5.4 RIPAS change
 
-- DBTSQY A RIPAS change is a process via which the RIPAS of a region of Protected IPA space is changed, for a Realm whose state is REALM\_ACTIVE.
-- IKXXBV
+- A RIPAS change is a process via which the RIPAS of a region of Protected IPA space is changed, for a Realm whose state is REALM\_ACTIVE.
 
 A RIPAS change consists of actions taken first by the Realm, and then by the Host:
 
@@ -23,19 +22,18 @@ Output values from the RSI command indicate:
 
 ## A5.4.1 Realm view of RIPAS change
 
-- ICKBLH The RSI commands which can initiate a RIPAS change request are:
+- The RSI commands which can initiate a RIPAS change request are:
 - RSI\_IPA\_STATE\_SET
 - -The target RIPAS value, either RIPAS\_EMPTY or RIPAS\_RAM, is provided as an input value.
 - -If the target RIPAS value is RIPAS\_RAM, a flag indicates whether a change from RIPAS\_DESTROYED should be permitted.
 - RSI\_VDEV\_VALIDATE\_MAPPING
 - -The target RIPAS value is RIPAS\_DEV.
-- IHXKPB On REC entry following a REC exit due to a RIPAS change request, GPR values are updated to indicate for how much of the target IPA range the RIPAS change has been applied.
+- On REC entry following a REC exit due to a RIPAS change request, GPR values are updated to indicate for how much of the target IPA range the RIPAS change has been applied.
 
-DRAFT
 
-- STZYZV To complete a RIPAS change for a given target IPA range, a Realm should execute the initiating command in a loop, until the value of X1 reaches the top of the target IPA range.
-- SBZWWC Receipt of a rejection for a RIPAS change request whose parameters were valid is expected to be fatal for the Realm.
-- SCTTQV Output values from the initiating RSI command are expected to be handled by the Realm as follows:
+- To complete a RIPAS change for a given target IPA range, a Realm should execute the initiating command in a loop, until the value of X1 reaches the top of the target IPA range.
+- Receipt of a rejection for a RIPAS change request whose parameters were valid is expected to be fatal for the Realm.
+- Output values from the initiating RSI command are expected to be handled by the Realm as follows:
 
 | new_base              | response            | Meaning                        | Expected Realm action                                                                  |
 |-----------------------|---------------------|--------------------------------|----------------------------------------------------------------------------------------|
@@ -48,7 +46,6 @@ DRAFT
 |-----------------|---------------------|----------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
 | base < new_base | RSI_RESPONSE_REJECT | RIPAS change to partial region [base, new_base) . Host rejected request to change RIPAS for region [new_base, top) . | Depends on protocol agreed between Realm and Host, out of scope of this specification. |
 
-IRFVTG
 
 The RIPAS change process, together with the Realm Initial Measurement ensures that a Realm can always reliably determine the RIPAS of any Protected IPA.
 
@@ -60,15 +57,14 @@ The RIPAS change process, together with the Realm Initial Measurement ensures th
 
 ## A5.4.2 Host view of RIPAS change to RIPAS\_EMPTY or RIPAS\_RAM
 
-- IWBCJL A RIPAS change request whose target is RIPAS\_EMPTY or RIPAS\_RAM results in a REC exit due to RIPAS change.
-- ILPZWK A RIPAS change whose target is RIPAS\_EMPTY or RIPAS\_RAM is applied by one or more calls to the RMI\_RTT\_SET\_RIPAS command.
-- IMMHMZ Successful execution of RMI\_RTT\_SET\_RIPAS targets an RTTE at address rec.ripas\_addr .
-- IJHJGZ On successful execution of RMI\_RTT\_SET\_RIPAS, both of the following are set to the address of the next page whose RIPAS is to be modified:
+- A RIPAS change request whose target is RIPAS\_EMPTY or RIPAS\_RAM results in a REC exit due to RIPAS change.
+- A RIPAS change whose target is RIPAS\_EMPTY or RIPAS\_RAM is applied by one or more calls to the RMI\_RTT\_SET\_RIPAS command.
+- Successful execution of RMI\_RTT\_SET\_RIPAS targets an RTTE at address rec.ripas\_addr .
+- On successful execution of RMI\_RTT\_SET\_RIPAS, both of the following are set to the address of the next page whose RIPAS is to be modified:
 - rec.ripas\_addr
 - The command output value
-- IGXDDX If all of the following are true on successful execution of RMI\_RTT\_SET\_RIPAS
+- If all of the following are true on successful execution of RMI\_RTT\_SET\_RIPAS
 
-DRAFT
 
 - The target RIPAS is RIPAS\_RAM
 - The RIPAS change request indicated that a change from RIPAS\_DESTROYED to RIPAS\_RAM should not be permitted
@@ -76,8 +72,8 @@ DRAFT
 
 then rec.ripas\_addr and the command output value are both set to P .
 
-- RLDMLC On REC entry following a REC exit due to RIPAS change, rec.ripas\_response is set to the value of enter.flags.ripas\_response .
-- IDRPPK If all of the following are true then the output value of RSI\_IPA\_STATE\_SET indicates 'Host rejected the request':
+- On REC entry following a REC exit due to RIPAS change, rec.ripas\_response is set to the value of enter.flags.ripas\_response .
+- If all of the following are true then the output value of RSI\_IPA\_STATE\_SET indicates 'Host rejected the request':
 - rec.ripas\_value is RIPAS\_RAM.
 - rec.ripas\_addr is not equal to rec.ripas\_top .
 - rec.ripas\_response is REJECT.
@@ -93,8 +89,8 @@ Otherwise, the output value of RSI\_IPA\_STATE\_SET indicates 'Host accepted the
 
 ## A5.4.3 Host view of RIPAS change to RIPAS\_DEV
 
-- ITLZWR A RIPAS change request whose target is RIPAS\_DEV results in a REC exit due to VDEV mapping validation.
-- IBJBJB A RIPAS change whose target is RIPAS\_DEV is applied by one or more calls to the RMI\_RTT\_DEV\_VALIDATE command.
+- A RIPAS change request whose target is RIPAS\_DEV results in a REC exit due to VDEV mapping validation.
+- A RIPAS change whose target is RIPAS\_DEV is applied by one or more calls to the RMI\_RTT\_DEV\_VALIDATE command.
 
 See also:
 

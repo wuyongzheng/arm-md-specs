@@ -16,7 +16,7 @@ The following table summarizes the FIDs of commands in the RMI interface.
 | 0xC400015E       | RMI_RTT_DESTROY               |
 | 0xC4000161       | RMI_RTT_READ_ENTRY            |
 | 0xC4000163       | RMI_RTT_DEV_VALIDATE          |
-| DRAFT 0xC4000164 | RMI_PSCI_COMPLETE             |
+ 0xC4000164 | RMI_PSCI_COMPLETE             |
 | 0xC4000165       | RMI_FEATURES                  |
 | 0xC4000166       | RMI_RTT_FOLD                  |
 | 0xC4000168       | RMI_RTT_INIT_RIPAS            |
@@ -54,7 +54,7 @@ The following table summarizes the FIDs of commands in the RMI interface.
 | 0xC40001D3       | RMI_VDEV_START                |
 | 0xC40001D4       | RMI_VDEV_P2P_BIND             |
 | 0xC40001D5       | RMI_VDEV_P2P_UNBIND           |
-| DRAFT 0xC40001D6 | RMI_VSMMU_EVENT_NOTIFY        |
+ 0xC40001D6 | RMI_VSMMU_EVENT_NOTIFY        |
 | 0xC40001D7       | RMI_PSMMU_ACTIVATE            |
 | 0xC40001D8       | RMI_PSMMU_DEACTIVATE          |
 | 0xC40001DB       | RMI_PSMMU_ST_L2_CREATE        |
@@ -92,7 +92,7 @@ The following table summarizes the FIDs of commands in the RMI interface.
 | 0xC40001FA       | RMI_RTT_ARCH_DEV_UNMAP       |
 | 0xC40001FB       | RMI_RTT_UNPROT_MAP           |
 | 0xC40001FC       | RMI_RTT_UNPROT_UNMAP         |
-| DRAFT 0xC40001FD | RMI_RTT_AUX_PROT_MAP         |
+ 0xC40001FD | RMI_RTT_AUX_PROT_MAP         |
 | 0xC40001FE       | RMI_RTT_AUX_PROT_UNMAP       |
 | 0xC40001FF       | RMI_RTT_AUX_UNPROT_MAP       |
 | 0xC4000200       | RMI_RTT_AUX_UNPROT_UNMAP     |

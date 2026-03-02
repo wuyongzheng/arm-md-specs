@@ -29,7 +29,6 @@ The RMI\_VSMMU\_EVENT\_COMPLETE command operates on the following context.
 | realm  | RmmRealm | RealmAt(rd) false        | Realm                |
 | rec    | RmmRec   | RecAt(rec_ptr) false     | REC                  |
 
-DRAFT
 
 ## B4.5.97.1.3 Output values
 
@@ -63,7 +62,7 @@ ID
 
 <!-- image -->
 
-## DRAFT rd\_bound pre: !PaIsTracked(rd) post: result.status == RMI\_ERROR\_INPUT rd\_state pre: GranuleAt(rd).state != GRAN\_RD post: result.status == RMI\_ERROR\_INPUT realm\_state pre: realm.state != REALM\_NEW post: result.status == RMI\_ERROR\_REALM rec\_align pre: !AddrIsRmiGranuleAligned(rec\_ptr) post: result.status == RMI\_ERROR\_INPUT rec\_bound pre: !PaIsTracked(rec\_ptr) post: result.status == RMI\_ERROR\_INPUT rec\_gran\_state pre: GranuleAt(rec\_ptr).state != GRAN\_REC post: result.status == RMI\_ERROR\_INPUT rec\_realm pre: rec.owner != rd post: result.status == RMI\_ERROR\_INPUT rec\_state pre: rec.state == REC\_RUNNING post: result.status == RMI\_ERROR\_REC pending pre: rec.pending != REC\_PENDING\_VSMMU\_COMMAND post: result.status == RMI\_ERROR\_INPUT q\_full pre: PsmmuCmdQueueFull(psmmu) post: result.status == RMI\_BUSY B4.5.97.2.1 Failure condition ordering [rd\_bound, rd\_state] &lt; [realm\_state] feat psmmu\_valid
+## rd\_bound pre: !PaIsTracked(rd) post: result.status == RMI\_ERROR\_INPUT rd\_state pre: GranuleAt(rd).state != GRAN\_RD post: result.status == RMI\_ERROR\_INPUT realm\_state pre: realm.state != REALM\_NEW post: result.status == RMI\_ERROR\_REALM rec\_align pre: !AddrIsRmiGranuleAligned(rec\_ptr) post: result.status == RMI\_ERROR\_INPUT rec\_bound pre: !PaIsTracked(rec\_ptr) post: result.status == RMI\_ERROR\_INPUT rec\_gran\_state pre: GranuleAt(rec\_ptr).state != GRAN\_REC post: result.status == RMI\_ERROR\_INPUT rec\_realm pre: rec.owner != rd post: result.status == RMI\_ERROR\_INPUT rec\_state pre: rec.state == REC\_RUNNING post: result.status == RMI\_ERROR\_REC pending pre: rec.pending != REC\_PENDING\_VSMMU\_COMMAND post: result.status == RMI\_ERROR\_INPUT q\_full pre: PsmmuCmdQueueFull(psmmu) post: result.status == RMI\_BUSY B4.5.97.2.1 Failure condition ordering [rd\_bound, rd\_state] &lt; [realm\_state] feat psmmu\_valid
 
 ## B4.5.97.3 Success conditions
 

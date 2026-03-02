@@ -33,7 +33,6 @@ The RMI\_RTT\_INIT\_RIPAS command operates on the following context.
 | walk      | RmmRttWalkResult | RttWalk( realm, base, RMM_RTT_PAGE_LEVEL, RMM_RTT_TREE_PRIMARY)                        | false                                                                                  | RTT walk result                                                                    |
 | walk_top  | Address          | RttSkipEntriesUnlessVoidOrData( ↪ → RttAt(walk.rtt_addr), walk.level, base, top) false | RttSkipEntriesUnlessVoidOrData( ↪ → RttAt(walk.rtt_addr), walk.level, base, top) false | Top IPA of RTTE_VOID entries, starting from entry at which the RTT walk terminated |
 
-DRAFT
 
 ## B4.5.73.1.3 Output values
 
@@ -53,7 +52,7 @@ When the out\_top output value is valid, it is aligned to the size of the addres
 ## Condition
 
 ```
-DRAFT rd_align pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPUT rd_bound pre: !PaIsTracked(rd) post: result.status == RMI_ERROR_INPUT rd_state pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_INPUT size_valid pre: UInt(top) <= UInt(base) post: result.status == RMI_ERROR_INPUT top_bound pre: !AddrIsProtected( ToAddress(UInt(top) -rmm.dynamic.rmi_granule_size), realm_pre) post: result.status == RMI_ERROR_INPUT realm_state pre: realm_pre.state != REALM_NEW post: result.status == RMI_ERROR_REALM base_align pre: !AddrIsRttLevelAligned(base, walk.level) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) rtte_state pre: (walk.rtte.state != RTTE_VOID && walk.rtte.state != RTTE_DATA) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) top_gran_align pre: !AddrIsRmiGranuleAligned(top) post: result.status == RMI_ERROR_INPUT no_progress pre: UInt(base) == UInt(walk_top) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) not_unassigned pre: Command encounters RTT entry whose state is neither RTTE_VOID nor RTTE_DATA. post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level)
+rd_align pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPUT rd_bound pre: !PaIsTracked(rd) post: result.status == RMI_ERROR_INPUT rd_state pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_INPUT size_valid pre: UInt(top) <= UInt(base) post: result.status == RMI_ERROR_INPUT top_bound pre: !AddrIsProtected( ToAddress(UInt(top) -rmm.dynamic.rmi_granule_size), realm_pre) post: result.status == RMI_ERROR_INPUT realm_state pre: realm_pre.state != REALM_NEW post: result.status == RMI_ERROR_REALM base_align pre: !AddrIsRttLevelAligned(base, walk.level) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) rtte_state pre: (walk.rtte.state != RTTE_VOID && walk.rtte.state != RTTE_DATA) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) top_gran_align pre: !AddrIsRmiGranuleAligned(top) post: result.status == RMI_ERROR_INPUT no_progress pre: UInt(base) == UInt(walk_top) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) not_unassigned pre: Command encounters RTT entry whose state is neither RTTE_VOID nor RTTE_DATA. post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level)
 ```
 
 ## B4.5.73.2.1 Failure condition ordering
@@ -80,7 +79,6 @@ Value
 
 RttAt(walk.rtt\_addr)
 
-DRAFT
 
 ID
 

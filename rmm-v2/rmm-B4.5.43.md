@@ -30,7 +30,6 @@ The RMI\_PSMMU\_ST\_L2\_CREATE command operates on the following context.
 | psmmu  | RmmPsmmu PsmmuAt(psmmu_ptr)                   | false    | PSMMU                             |
 | walk   | RmmPsmmuStWalkResult PsmmuStWalk( psmmu, sid) | false    | Result of PSMMU Stream Table walk |
 
-DRAFT
 
 ## B4.5.43.1.3 Output values
 
@@ -76,4 +75,3 @@ ID
 
 ste\_state
 
-DRAFT

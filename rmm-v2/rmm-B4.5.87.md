@@ -29,7 +29,6 @@ The RMI\_VDEV\_LOCK command operates on the following context.
 
 ## B4.5.87.1.3 Output values
 
-DRAFT
 
 | Name   | Register   | Bits   | Type      | Description    |
 |--------|------------|--------|-----------|----------------|
@@ -61,7 +60,7 @@ DRAFT
 | comm_state      | pre: post:   | vdev.comm_state != DEV_COMM_IDLE result.status == RMI_ERROR_DEVICE      |
 
 ```
-DRAFT pre: post: pre: post: B4.5.87.2.1 Failure condition ordering [rd_bound, rd_state, vdev_bound, vdev_gran_state] < [vdev_realm] [feat] < [rd_align, rd_bound, rd_state, pdev_align, pdev_bound, pdev_gran_state, vdev_align, vdev_bound, vdev_gran_state, vdev_realm] [vdev_gran_state] < [vdev_pdev, vdev_state, comm_state]
+pre: post: pre: post: B4.5.87.2.1 Failure condition ordering [rd_bound, rd_state, vdev_bound, vdev_gran_state] < [vdev_realm] [feat] < [rd_align, rd_bound, rd_state, pdev_align, pdev_bound, pdev_gran_state, vdev_align, vdev_bound, vdev_gran_state, vdev_realm] [vdev_gran_state] < [vdev_pdev, vdev_state, comm_state]
 ```
 
 <!-- image -->

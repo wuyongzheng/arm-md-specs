@@ -33,7 +33,6 @@ The PSCI\_CPU\_OFF command does not have any output values.
 
 Following execution of PSCI\_CPU\_OFF, control does not return to the caller.
 
-DRAFT
 
 ## B6.3.2.2 Failure conditions
 

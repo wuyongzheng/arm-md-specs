@@ -30,7 +30,6 @@ The RMI\_PDEV\_ABORT command operates on the following context.
 |--------|------------|--------|-----------|----------------|
 | result | X0         | 63:0   | RmiResult | Command result |
 
-DRAFT
 
 ## B4.5.25.2 Failure conditions
 
@@ -58,7 +57,6 @@ Condition post: pdev.comm\_state == DEV\_COMM\_IDLE
 
 ## B4.5.25.4 Footprint
 
-DRAFT
 
 | ID         | Value           |
 |------------|-----------------|

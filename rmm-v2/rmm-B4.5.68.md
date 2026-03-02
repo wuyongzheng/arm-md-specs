@@ -33,7 +33,6 @@ The RMI\_RTT\_DESTROY command operates on the following context.
 | entry_idx | UInt64           | RttEntryIndex( ipa, walk.level)                               | false    | RTTE index                                                                   |
 | walk_top  | Address          | RttSkipNonLiveEntries( RttAt(walk.rtt_addr), walk.level, ipa) | false    | Top IPA of non-live RTT entries, from entry at which the RTT walk terminated |
 
-DRAFT
 
 ## B4.5.68.1.3 Output values
 
@@ -75,7 +74,6 @@ Condition
 | rtt_walk    | pre: post:   | walk.level < level - 1 (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level && top == walk_top)        |
 | rtte_state  | pre: post:   | walk.rtte.state != RTTE_TABLE (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level && top == walk_top) |
 
-DRAFT
 
 ## ID
 
@@ -105,7 +103,6 @@ rtt post: rtt == walk.rtte.addr top post: top == walk_top result post: result.st
 
 ## B4.5.68.4 Footprint
 
-DRAFT
 
 | ID        | Value                                       |
 |-----------|---------------------------------------------|

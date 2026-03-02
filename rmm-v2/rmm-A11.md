@@ -2,21 +2,20 @@
 
 This section describes encryption of physical memory which is accessible via Realm PAS. This encryption is transparent to Realm software, but has an impact on the security posture of a Realm.
 
-DRAFT
 
 ## A11.1 Realm memory encryption overview
 
-- DGGPSY A Memory Encryption Context (MEC) is an encryption regime used to protect the memory owned by a Realm.
+- A Memory Encryption Context (MEC) is an encryption regime used to protect the memory owned by a Realm.
 
 The memory protected by a Realm's MEC includes all memory which can be accessed by the Realm, and the RTTs which are owned by the Realm.
 
-UXCZYB Other Granules owned by the Realm, such as REC and RD, are protected with the RMM's MEC.
+Other Granules owned by the Realm, such as REC and RD, are protected with the RMM's MEC.
 
-IXFMFV The number of MECs supported by an implementation is reported by the RMI\_FEATURES command in RmiFeatureRegister1::MEC\_COUNT.
+The number of MECs supported by an implementation is reported by the RMI\_FEATURES command in RmiFeatureRegister1::MEC\_COUNT.
 
-RPGNWN If FEAT\_MEC is either not implemented or not enabled, MEC\_COUNT is zero.
+If FEAT\_MEC is either not implemented or not enabled, MEC\_COUNT is zero.
 
-UVGNBP On a platform which implements FEAT\_MEC, MEC\_COUNT is expected to be computed as follows:
+On a platform which implements FEAT\_MEC, MEC\_COUNT is expected to be computed as follows:
 
 - Determine the minimum MECID width supported across all system components capable of initiating Realm PAS transactions.
 - Determine the number of MECIDs which the platform needs to reserve for its own use. This is expected to be at least one, for protection of the RMM's memory.
@@ -30,16 +29,15 @@ UVGNBP On a platform which implements FEAT\_MEC, MEC\_COUNT is expected to be co
 
 ## A11.1.1 MEC and Realms
 
-- IHDHLC RMI\_REALM\_CREATE fails if the system does not have an available MECID which satisfies the requested MEC policy.
-- INPVPN On a platform which reports MEC\_COUNT to be zero, all Realms use a Shared MEC.
-- INSRHY On a platform which reports MEC\_COUNT to be non-zero, the Host can choose between the following approaches:
+- RMI\_REALM\_CREATE fails if the system does not have an available MECID which satisfies the requested MEC policy.
+- On a platform which reports MEC\_COUNT to be zero, all Realms use a Shared MEC.
+- On a platform which reports MEC\_COUNT to be non-zero, the Host can choose between the following approaches:
 - Use the Shared MEC for all Realms.
 - Assign a Private MEC to each Realm, with the total number of Realms not exceeding MEC\_COUNT.
 
-DRAFT
 
 - Use the Shared MEC for some Realms; for the remaining Realms, assign a Private MEC to each, with the total number of this latter set of Realms not exceeding MEC\_COUNT.
-- IMNGFR The Realm attestation token includes a claim which describes the MEC policy of the Realm.
+- The Realm attestation token includes a claim which describes the MEC policy of the Realm.
 
 ## See also:
 
@@ -59,7 +57,7 @@ DRAFT
 I0073 The following pseudocode illustrate the programming model for destroying a Realm, on a platform with CMEM devices.
 
 ```
-DRAFT // Destroy the Realm whose RD is located at rd_addr. // This function assumes that the Realm has already been made non-live. // // The pdev_addrs array contains the addresses of all CMEM PDEV objects. // // Checking of RmiResult returned by most commands is omitted // for brevity. int destroy_realm(uint64_t rd_addr, uint64_t *pdev_addrs, unsigned num_pdevs) { RmiResult result; uint64_t handle; // Move Realm into zombie state result = RMI_REALM_TERMINATE(rd_addr); for (unsigned i=0; i<num_pdevs; ++i) { uint64_t pdev = pdev_addrs[i]; struct RmiDevCommData data; // Initiate PDEV MEC refresh result = RMI_PDEV_MEC_REFRESH(pdev, rd); // Complete PDEV MEC refresh // Note that the first RMI_PDEV_COMMUNICATE is permitted // to return with no flags set, indicating that no // maintenance is required for this device. result = RMI_PDEV_COMMUNICATE(pdev, &data); while (data.flags) { if (data.exit.flags.req_send) { // Send request to device, wait for response, // and copy response into data.entry.resp_buf } result = RMI_PDEV_COMMUNICATE(pdev, &data); } } // Complete Realm destruction do { result = RMI_REALM_DESTROY(rd); } while (result.status == RMI_BUSY); while (result.status == RMI_BUSY || result.status == RMI_INCOMPLETE) { result = RMI_OP_CONTINUE(handle, flags=RMI_CONTINUE_KEEP_GOING); } return (int)result; }
+// Destroy the Realm whose RD is located at rd_addr. // This function assumes that the Realm has already been made non-live. // // The pdev_addrs array contains the addresses of all CMEM PDEV objects. // // Checking of RmiResult returned by most commands is omitted // for brevity. int destroy_realm(uint64_t rd_addr, uint64_t *pdev_addrs, unsigned num_pdevs) { RmiResult result; uint64_t handle; // Move Realm into zombie state result = RMI_REALM_TERMINATE(rd_addr); for (unsigned i=0; i<num_pdevs; ++i) { uint64_t pdev = pdev_addrs[i]; struct RmiDevCommData data; // Initiate PDEV MEC refresh result = RMI_PDEV_MEC_REFRESH(pdev, rd); // Complete PDEV MEC refresh // Note that the first RMI_PDEV_COMMUNICATE is permitted // to return with no flags set, indicating that no // maintenance is required for this device. result = RMI_PDEV_COMMUNICATE(pdev, &data); while (data.flags) { if (data.exit.flags.req_send) { // Send request to device, wait for response, // and copy response into data.entry.resp_buf } result = RMI_PDEV_COMMUNICATE(pdev, &data); } } // Complete Realm destruction do { result = RMI_REALM_DESTROY(rd); } while (result.status == RMI_BUSY); while (result.status == RMI_BUSY || result.status == RMI_INCOMPLETE) { result = RMI_OP_CONTINUE(handle, flags=RMI_CONTINUE_KEEP_GOING); } return (int)result; }
 ```
 
 See also:
@@ -72,4 +70,4 @@ See also:
 
 <!-- image -->
 
-## DRAFT Part B Interface
+## Part B Interface

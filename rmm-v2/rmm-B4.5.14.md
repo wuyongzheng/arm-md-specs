@@ -32,7 +32,6 @@ The following table indicates which feature register is returned depending on th
 | result | X0         | 63:0   | RmiResult | Command result         |
 | value  | X1         | 63:0   | Bits64    | Feature register value |
 
-DRAFT
 
 ## B4.5.14.2 Failure conditions
 

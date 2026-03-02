@@ -28,7 +28,6 @@ The RMI\_REC\_DESTROY command operates on the following context.
 
 <!-- image -->
 
-DRAFT
 
 | Name      | Type     | Value                | Before   | Description   |
 |-----------|----------|----------------------|----------|---------------|
@@ -67,7 +66,6 @@ rec\_gran\_state pre: GranuleAt(rec\_ptr).state != GRAN\_REC post: result.status
 
 ## Condition
 
-DRAFT
 
 ## ID
 

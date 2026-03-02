@@ -32,7 +32,6 @@ The RmiAddrBlockSize enumeration is used in the following types:
 
 The RmiAddrRange structure contains address range.
 
-DRAFT
 
 The RmiAddrRange structure is a concrete type.
 
@@ -81,7 +80,6 @@ Encodings for field data:
 | granule_16kb | RmmGlobal().static.rmm_granule_size == RMI_GRANULE_SIZE_16KB | RmiAddrRangeDesc16KB |
 | granule_64kb | RmmGlobal().static.rmm_granule_size == RMI_GRANULE_SIZE_64KB | RmiAddrRangeDesc64KB |
 
-DRAFT
 
 The RmiAddrRangeDesc fieldset is used in the following types:
 
@@ -118,7 +116,6 @@ The RmiAddrRangeDesc16KB fieldset is used in the following types:
 
 ## B4.6.5 RmiAddrRangeDesc4KB type
 
-DRAFT
 
 The RmiAddrRangeDesc4KB fieldset contains a descriptor which identifies a contiguous address range, when RMI Granule Size is 4KB.
 
@@ -147,7 +144,6 @@ The RmiAddrRangeDesc4KB fieldset is used in the following types:
 
 ## B4.6.6 RmiAddrRangeDesc64KB type
 
-DRAFT
 
 The RmiAddrRangeDesc64KB fieldset contains a descriptor which identifies a contiguous address range, when RMI Granule Size is 64KB.
 
@@ -176,7 +172,6 @@ The RmiAddrRangeDesc64KB fieldset is used in the following types:
 
 ## B4.6.7 RmiAddrSetDesc type
 
-DRAFT
 
 The RmiAddrSetDesc fieldset contains a descriptor which identifies an address set.
 
@@ -223,7 +218,6 @@ The RmiAddrSetList fieldset is used in the following types:
 
 ## B4.6.9 RmiBoolean type
 
-DRAFT
 
 The RmiBoolean enumeration represents a boolean value.
 
@@ -287,7 +281,6 @@ The members of the RmiCmemParams structure are shown in the following table.
 | ilv_gran   | 0x28          | UInt64       | Interleave granularity in bytes                 |
 | ilv_ways   | 0x30          | UInt64       | Number of interleave ways                       |
 
-DRAFT
 
 Unused bits of the RmiCmemParams structure SBZ.
 
@@ -327,7 +320,6 @@ The RmiContinueBeyond enumeration is used in the following types:
 
 - RmiContinueFlags
 
-DRAFT
 
 ## B4.6.14 RmiContinueFlags type
 
@@ -356,7 +348,6 @@ The width of the RmiDataFlags fieldset is 64 bits.
 
 The fields of the RmiDataFlags fieldset are shown in the following diagram.
 
-DRAFT
 
 The fields of the RmiDataFlags fieldset are shown in the following table.
 
@@ -394,7 +385,6 @@ The width of the RmiDevCommData structure is 4096 ( 0x1000 ) bytes.
 
 The members of the RmiDevCommData structure are shown in the following table.
 
-DRAFT
 
 | Name   | Byte offset   | Type            | Description       |
 |--------|---------------|-----------------|-------------------|
@@ -455,7 +445,6 @@ The members of the RmiDevCommExit structure are shown in the following table.
 | protocol         | 0x30          | RmiDevCommProtocol  | If flags.req_send is true, protocol to use                                                                   |
 | req_delay        | 0x38          | UInt64              | If flags.req_send is true, amount of time to wait before sending the request, in microseconds.               |
 
-DRAFT
 
 | Name        | Byte offset   | Type   | Description                                                                                                                       |
 |-------------|---------------|--------|-----------------------------------------------------------------------------------------------------------------------------------|
@@ -480,7 +469,6 @@ The fields of the RmiDevCommExitFlags fieldset are shown in the following diagra
 
 <!-- image -->
 
-DRAFT
 
 The fields of the RmiDevCommExitFlags fieldset are shown in the following table.
 
@@ -519,7 +507,6 @@ The values of the RmiDevCommObject enumeration are shown in the following table.
 |          2 | RMI_DEV_MEASUREMENTS     | Device measurements associated with a VDEV     |
 |          3 | RMI_DEV_INTERFACE_REPORT | Device interface report associated with a VDEV |
 
-DRAFT
 
 Unused encodings for the RmiDevCommObject enumeration are reserved for use by future versions of this specification.
 
@@ -564,7 +551,6 @@ The values of the RmiDevCommStatus enumeration are shown in the following table.
 |          1 | RMI_DEV_COMM_RESPONSE | received from the device. Either: • The device did not provide a device response within the expected time period, or                                                                                                                                               |
 |          2 | RMI_DEV_COMM_ERROR    | • The device indicated an error.                                                                                                                                                                                                                                   |
 
-DRAFT
 
 Unused encodings for the RmiDevCommStatus enumeration are reserved for use by future versions of this specification.
 
@@ -632,13 +618,12 @@ See also:
 
 The fields of the RmiFeatureRegister0 fieldset are shown in the following diagram.
 
-DRAFT
 
 The fields of the RmiFeatureRegister0 fieldset are shown in the following table.
 
 | Name         | Bits   | Description                                                                                                                                                                                                                                 | Value      |
 |--------------|--------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
-| S2SZ         | 7:0    | DRAFT Maximum Realm IPA width supported by the RMM. Specifies the input address size for stage 2 translation to be 2 ^ S2SZ . Note this format expresses the IPA width directly and is therefore different from the VTCR_EL2.T0SZ encoding. | UInt8      |
+| S2SZ         | 7:0     Maximum Realm IPA width supported by the RMM. Specifies the input address size for stage 2 translation to be 2 ^ S2SZ . Note this format expresses the IPA width directly and is therefore different from the VTCR_EL2.T0SZ encoding. | UInt8      |
 | LPA2         | 8      | Whether LPA2 is supported.                                                                                                                                                                                                                  | RmiFeature |
 | SVE          | 9      | Whether SVE is supported.                                                                                                                                                                                                                   | RmiFeature |
 | SVE_VL       | 13:10  | Maximum SVE vector length supported by the RMM. The effective vector length supported by the RMMis (SVE_VL + 1)*128 , similar to the value of ZCR_ELx.LEN .                                                                                 | UInt4      |
@@ -670,7 +655,7 @@ The fields of the RmiFeatureRegister1 fieldset are shown in the following table.
 | Name             | Bits   | Description                                                                                                                                               | Value      |
 |------------------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
 | RMI_GRAN_SZ_4KB  | 0      | Whether an RMI Granule size of 4KB is supported                                                                                                           | RmiFeature |
-| RMI_GRAN_SZ_16KB | 1      | DRAFT Whether an RMI Granule size of 16KB is supported                                                                                                    | RmiFeature |
+| RMI_GRAN_SZ_16KB | 1       Whether an RMI Granule size of 16KB is supported                                                                                                    | RmiFeature |
 | RMI_GRAN_SZ_64KB | 2      | Whether an RMI Granule size of 64KB is supported                                                                                                          | RmiFeature |
 | HASH_SHA_256     | 3      | Whether SHA-256 is supported                                                                                                                              | RmiFeature |
 | HASH_SHA_384     | 4      | Whether SHA-384 is supported                                                                                                                              | RmiFeature |
@@ -708,7 +693,6 @@ The fields of the RmiFeatureRegister2 fieldset are shown in the following table.
 | NON_TEE_STREAM  | 9      | Whether NON_TEE PDEV stream type is supported                                                                                                              | RmiFeature |
 | P2P             | 10     | Whether peer-to-peer device communication is supported. If DA == RMI_FEATURE_FALSE, this flag should also be RMI_FEATURE_FALSE.                            | RmiFeature |
 
-DRAFT
 
 | Name         | Bits   | Description                                                | Value      |
 |--------------|--------|------------------------------------------------------------|------------|
@@ -734,7 +718,6 @@ The fields of the RmiFeatureRegister3 fieldset are shown in the following diagra
 
 <!-- image -->
 
-DRAFT
 
 The fields of the RmiFeatureRegister3 fieldset are shown in the following table.
 
@@ -783,7 +766,6 @@ The values of the RmiForceP0 enumeration are shown in the following table.
 |          0 | RMI_NO_FORCE_P0 | Do not affect the Plane to which control is returned. |
 |          1 | RMI_FORCE_P0    | Force control to return to Plane 0.                   |
 
-DRAFT
 
 The RmiForceP0 enumeration is used in the following types:
 
@@ -853,7 +835,6 @@ The RmiInjectSea enumeration is used in the following types:
 
 - RmiRecEnterFlags
 
-DRAFT
 
 ## B4.6.35 RmiInterfaceVersion type
 
@@ -886,7 +867,6 @@ The RmiLfaPolicy enumeration represents a Live Firmware Activation policy.
 
 The RmiLfaPolicy enumeration is a concrete type.
 
-DRAFT
 
 The width of the RmiLfaPolicy enumeration is 2 bits.
 
@@ -942,7 +922,6 @@ The values of the RmiMemCategory enumeration are shown in the following table.
 |          1 | RMI_MEM_CATEGORY_DEV_NCOH     | Device non-coherent memory. |
 |          2 | RMI_MEM_CATEGORY_DEV_COH      | Device coherent memory.     |
 
-DRAFT
 
 Unused encodings for the RmiMemCategory enumeration are reserved for use by future versions of this specification.
 
@@ -992,7 +971,6 @@ The RmiOpMemContig enumeration is used in the following types:
 
 - RmiOpMemDonateReq
 
-DRAFT
 
 ## B4.6.41 RmiOpMemDonateReq type
 
@@ -1049,7 +1027,6 @@ The RmiOpMemReq enumeration is used in the following types:
 - RmiResult
 - RmiResultDataIncomplete
 
-DRAFT
 
 ## B4.6.43 RmiOpMemState type
 
@@ -1092,7 +1069,6 @@ The values of the RmiPdevCategory enumeration are shown in the following table.
 |          2 | RMI_PDEV_ENDPOINT_ACCEL_ON_CHIP  | On-chip accelerator endpoint device  |
 |          3 | RMI_PDEV_ENDPOINT_CMEM           | Coherent memory endpoint device      |
 
-DRAFT
 
 The RmiPdevCategory enumeration is used in the following types:
 
@@ -1145,7 +1121,6 @@ The members of the RmiPdevParams structure are shown in the following table.
 | routing_id | 0x10          | Bits64       | • The value is in PCI BDF Routing identifier                                        |
 | id_index   | 0x18          | UInt64       | Device identity index                                                               |
 
-DRAFT
 
 | Name            | Byte offset   | Type             | Description                                                                                                                                                     |
 |-----------------|---------------|------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1175,7 +1150,6 @@ The values of the RmiPdevSpdm enumeration are shown in the following table.
 |          0 | RMI_SPDM_FALSE | Communication with the device does not use SPDM. |
 |          1 | RMI_SPDM_TRUE  | Communication with the device uses SPDM.         |
 
-DRAFT
 
 The RmiPdevSpdm enumeration is used in the following types:
 
@@ -1223,7 +1197,6 @@ The fields of the RmiPdevStreamFlags fieldset are shown in the following table.
 |--------|--------|---------------|---------|
 |        | 63:0   | Reserved      | SBZ     |
 
-DRAFT
 
 The RmiPdevStreamFlags fieldset is used in the following types:
 
@@ -1268,7 +1241,7 @@ The values of the RmiPdevStreamType enumeration are shown in the following table
 |------------|--------------------------|---------------------------------------------------------------------------------------|
 |          0 | RMI_PDEV_STREAM_NON_TEE  | Non-TEE traffic.                                                                      |
 |          1 | RMI_PDEV_STREAM_NCOH     | Non-coherent traffic between an upstream port and an endpoint device.                 |
-|          2 | RMI_PDEV_STREAM_COH      | DRAFT Coherent traffic between an upstream port and an accelerator endpoint device.   |
+|          2 | RMI_PDEV_STREAM_COH       Coherent traffic between an upstream port and an accelerator endpoint device.   |
 |          3 | RMI_PDEV_STREAM_NCOH_SYS | Non-coherent traffic to an endpoint device which is protected by system construction. |
 |          4 | RMI_PDEV_STREAM_COH_SYS  | Coherent traffic to an endpoint device which is protected by system construction.     |
 |          5 | RMI_PDEV_STREAM_NCOH_P2P | Non-coherent traffic between two endpoint devices.                                    |
@@ -1324,7 +1297,6 @@ The RmiPsmmuFlags fieldset is a concrete type.
 
 The width of the RmiPsmmuFlags fieldset is 64 bits.
 
-DRAFT
 
 The fields of the RmiPsmmuFlags fieldset are shown in the following diagram.
 
@@ -1364,7 +1336,6 @@ The values of the RmiPsmmuIrq enumeration are shown in the following table.
 
 The RmiPsmmuIrqResult fieldset contains flags which describe the result of triaging a PSMMU IRQ.
 
-DRAFT
 
 The RmiPsmmuIrqResult fieldset is a concrete type.
 
@@ -1394,7 +1365,6 @@ The fields of the RmiPsmmuIrqSet fieldset are shown in the following diagram.
 
 <!-- image -->
 
-DRAFT
 
 The fields of the RmiPsmmuIrqSet fieldset are shown in the following table.
 
@@ -1446,7 +1416,6 @@ The members of the RmiPublicKeyParams structure are shown in the following table
 | metadata_len   | 0x808         | UInt64                | Length of key metadata in bytes |
 | algo           | 0x810         | RmiSignatureAlgorithm | Signature algorithm             |
 
-DRAFT
 
 Unused bits of the RmiPublicKeyParams structure SBZ.
 
@@ -1473,7 +1442,7 @@ The fields of the RmiRealmFlags0 fieldset are shown in the following table.
 | pmu        | 2      | Whether PMU is enabled                                                      | RmiFeature   |
 | da         | 3      | Whether Realm device assignment is enabled                                  | RmiFeature   |
 |            | 4      | Reserved                                                                    | SBZ          |
-| lfa_policy | 6:5    | DRAFT Live Firmware Activation policy for components within the Realm's TCB | RmiLfaPolicy |
+| lfa_policy | 6:5     Live Firmware Activation policy for components within the Realm's TCB | RmiLfaPolicy |
 | mec_policy | 8:7    | MEC policy                                                                  | RmiMecPolicy |
 |            | 63:9   | Reserved                                                                    | SBZ          |
 
@@ -1497,7 +1466,7 @@ The fields of the RmiRealmFlags1 fieldset are shown in the following table.
 
 | Name               | Bits   | Description                                                                                                                                                                       | Value              |
 |--------------------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
-| rtt_tree_per_plane | 0      | DRAFT RMI_FEATURE_FALSE: all Planes share a single RTT tree RMI_FEATURE_TRUE: each Plane has a separate RTT tree If the Realm has no auxiliary Planes then this field is ignored. | RmiFeature         |
+| rtt_tree_per_plane | 0       RMI_FEATURE_FALSE: all Planes share a single RTT tree RMI_FEATURE_TRUE: each Plane has a separate RTT tree If the Realm has no auxiliary Planes then this field is ignored. | RmiFeature         |
 | rtt_s2ap_encoding  | 1      | S2AP encoding                                                                                                                                                                     | RmiRttS2APEncoding |
 | ats                | 2      | Whether Address Translation Service is supported for devices assigned to the Realm                                                                                                | RmiFeature         |
 |                    | 63:3   | Reserved                                                                                                                                                                          | SBZ                |
@@ -1532,7 +1501,7 @@ The members of the RmiRealmParams structure are shown in the following table.
 | num_bps         | 0x18          | UInt8                  | Number of breakpoints, minus one. The value 0 is reserved.                                                                                                                                         |
 | num_wps         | 0x20          | UInt8                  | Number of watchpoints, minus one. The value 0 is reserved.                                                                                                                                         |
 | pmu_num_ctrs    | 0x28          | UInt8                  | Number of PMU counters                                                                                                                                                                             |
-| hash_algo       | 0x30          | DRAFT RmiHashAlgorithm | Algorithm used to measure the initial state of the Realm                                                                                                                                           |
+| hash_algo       | 0x30           RmiHashAlgorithm | Algorithm used to measure the initial state of the Realm                                                                                                                                           |
 | num_aux_planes  | 0x38          | UInt64                 | Number of auxiliary Planes                                                                                                                                                                         |
 | rpv             | 0x400         | Bits512                | Realm Personalization Value                                                                                                                                                                        |
 | ats_plane       | 0x440         | UInt64                 | Index of Plane whose stage 2 permissions are observed by ATS requests from devices assigned to the Realm                                                                                           |
@@ -1594,7 +1563,6 @@ The RmiRecEnter structure is used in the following types:
 
 - RmiRecRun
 
-DRAFT
 
 ## B4.6.65 RmiRecEnterFlags type
 
@@ -1620,7 +1588,6 @@ The fields of the RmiRecEnterFlags fieldset are shown in the following table.
 | force_p0         | 7      | Whether to force control to return Plane 0                            | RmiForceP0      |
 |                  | 63:8   | Reserved                                                              | SBZ             |
 
-DRAFT
 
 The RmiRecEnterFlags fieldset is used in the following types:
 
@@ -1655,7 +1622,7 @@ The members of the RmiRecExit structure are shown in the following table.
 | cntv_ctl       | 0x410         | Bits64               | Counter-timer Virtual Timer Control Register value       |
 | cntv_cval      | 0x418         | Bits64               | Counter-timer Virtual Timer CompareValue Register value  |
 | ripas_base     | 0x500         | Bits64               | Base IPA of target region for pending RIPAS change       |
-| ripas_top      | 0x508         | DRAFT Bits64         | Top IPA of target region for pending RIPAS change        |
+| ripas_top      | 0x508          Bits64         | Top IPA of target region for pending RIPAS change        |
 | ripas_value    | 0x510         | RmiRipas             | RIPAS value of pending RIPAS change                      |
 | s2ap_base      | 0x520         | Bits64               | Base IPA of target region for pending S2AP change        |
 | s2ap_top       | 0x528         | Bits64               | Top IPA of target region for pending S2AP change         |
@@ -1696,7 +1663,7 @@ The values of the RmiRecExitReason enumeration are shown in the following table.
 |          6 | RMI_EXIT_SERROR                      | REC exit due to SError                  |
 |          7 | RMI_EXIT_S2AP_CHANGE                 | REC exit due to S2AP change pending     |
 |          8 | RMI_EXIT_VDEV_REQUEST                | REC exit due to VDEV request            |
-|          9 | DRAFT RMI_EXIT_VDEV_VALIDATE_MAPPING | REC exit due to VDEV mapping validation |
+|          9  RMI_EXIT_VDEV_VALIDATE_MAPPING | REC exit due to VDEV mapping validation |
 |         10 | RMI_EXIT_VSMMU_COMMAND               | REC exit due to VSMMU command           |
 |         11 | RMI_EXIT_VDEV_P2P_BINDING            | REC exit due to VDEV P2P binding        |
 
@@ -1755,7 +1722,6 @@ The members of the RmiRecParams structure are shown in the following table.
 | pc      | 0x200         | Bits64            | Program counter           |
 | gprs[8] | 0x300         | Bits64            | General-purpose registers |
 
-DRAFT
 
 Unused bits of the RmiRecParams structure SBZ.
 
@@ -1806,7 +1772,6 @@ The RmiResponse enumeration represents whether the Host accepted or rejected a R
 
 The RmiResponse enumeration is a concrete type.
 
-DRAFT
 
 The width of the RmiResponse enumeration is 1 bits.
 
@@ -1850,7 +1815,7 @@ Encodings for field data:
 
 | Name             | Condition                                                                                                                     | Fieldset                                   |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------|
-| incomplete level | DRAFT status == RMI_INCOMPLETE status IN { RMI_ERROR_DPT, RMI_ERROR_RTT, RMI_ERROR_RTT_AUX, RMI_ERROR_PSMMU_ST } !status IN { | RmiResultDataIncomplete RmiResultDataLevel |
+| incomplete level  status == RMI_INCOMPLETE status IN { RMI_ERROR_DPT, RMI_ERROR_RTT, RMI_ERROR_RTT_AUX, RMI_ERROR_PSMMU_ST } !status IN { | RmiResultDataIncomplete RmiResultDataLevel |
 | null             | RMI_ERROR_DPT, RMI_ERROR_RTT, RMI_ERROR_RTT_AUX, RMI_ERROR_PSMMU_ST, RMI_INCOMPLETE }                                         | RmiResultDataNull                          |
 
 ## B4.6.74 RmiResultDataIncomplete type
@@ -1896,7 +1861,6 @@ The fields of the RmiResultDataLevel fieldset are shown in the following table.
 | level  | 7:0    | Level at which access to a table or other data structure terminated | UInt8   |
 |        | 55:8   | Reserved                                                            | MBZ     |
 
-DRAFT
 
 The RmiResultDataLevel fieldset is used in the following types:
 
@@ -1955,7 +1919,6 @@ The RmiRmmConfig structure is a concrete type.
 
 The width of the RmiRmmConfig structure is 4096 ( 0x1000 ) bytes.
 
-DRAFT
 
 The members of the RmiRmmConfig structure are shown in the following table.
 
@@ -2000,7 +1963,6 @@ The width of the RmiRttAuxBlock enumeration is 1 bits.
 
 The values of the RmiRttAuxBlock enumeration are shown in the following table.
 
-DRAFT
 
 |   Encoding | Name                        | Description                                             |
 |------------|-----------------------------|---------------------------------------------------------|
@@ -2078,7 +2040,6 @@ The RmiRttEntryState enumeration is a concrete type.
 
 The width of the RmiRttEntryState enumeration is 8 bits.
 
-DRAFT
 
 The values of the RmiRttEntryState enumeration are shown in the following table.
 
@@ -2127,7 +2088,6 @@ The RmiRttProtMapFlags fieldset is a concrete type.
 
 The width of the RmiRttProtMapFlags fieldset is 64 bits.
 
-DRAFT
 
 The fields of the RmiRttProtMapFlags fieldset are shown in the following diagram.
 
@@ -2163,7 +2123,6 @@ The values of the RmiRttS2APBase enumeration are shown in the following table.
 
 Unused encodings for the RmiRttS2APBase enumeration are reserved for use by future versions of this specification.
 
-DRAFT
 
 ## B4.6.88 RmiRttS2APEncoding type
 
@@ -2211,7 +2170,6 @@ The fields of the RmiRttUnmapFlags fieldset are shown in the following table.
 
 ## B4.6.90 RmiRttUnprotMapFlags type
 
-DRAFT
 
 The RmiRttUnprotMapFlags fieldset contains flags provided by the Host to commands which create mappings in Unprotected IPA space.
 
@@ -2251,7 +2209,6 @@ The values of the RmiSignatureAlgorithm enumeration are shown in the following t
 |          1 | RMI_SIG_ECDSA_P256  | ECDSA-P256 ( Deterministic Usage of the Digital Signature Algorithm (DSA) and Elliptic Curve Digital Signature Algorithm (ECDSA) [27]) |
 |          2 | RMI_SIG_ECDSA_P384  | ECDSA-P384 ( Deterministic Usage of the Digital Signature Algorithm (DSA) and Elliptic Curve Digital Signature Algorithm (ECDSA) [27]) |
 
-DRAFT
 
 Unused encodings for the RmiSignatureAlgorithm enumeration are reserved for use by future versions of this specification.
 
@@ -2286,7 +2243,7 @@ The values of the RmiStatusCode enumeration are shown in the following table.
 |          7 | RMI_ERROR_RTT_AUX       | RTTE in an auxiliary RTT contained an unexpected value                                                                                                                                                                                                                      |
 |          8 | RMI_ERROR_PSMMU_ST      | An PSMMU Stream Table walk terminated before reaching the target level, or reached an entry with an unexpected value                                                                                                                                                        |
 |          9 | RMI_ERROR_DPT           | A DPT walk terminated before reaching the target level, or reached an entry with an unexpected value                                                                                                                                                                        |
-|         10 | RMI_BUSY                | DRAFT The command failed to make progress, for an IMPLEMENTATION DEFINED reason. The reason for the lack of progress may be temporary, and may be resolved without requiring any action to be taken by the Host. The command did not result in any changes of system state. |
+|         10 | RMI_BUSY                 The command failed to make progress, for an IMPLEMENTATION DEFINED reason. The reason for the lack of progress may be temporary, and may be resolved without requiring any action to be taken by the Host. The command did not result in any changes of system state. |
 |         11 | RMI_ERROR_GLOBAL        | An attribute of RMMglobal state does not match the expected value                                                                                                                                                                                                           |
 |         12 | RMI_ERROR_TRACKING      | The state of a tracking region does not match the expected value                                                                                                                                                                                                            |
 |         13 | RMI_INCOMPLETE          | The command initiated a state transition but did not complete, leaving an object in an intermediate state. The target object cannot be the subject of any other RMI command, until this one has been completed.                                                             |
@@ -2334,7 +2291,6 @@ The values of the RmiTrap enumeration are shown in the following table.
 |          0 | RMI_NO_TRAP | Trap is disabled. |
 |          1 | RMI_TRAP    | Trap is enabled.  |
 
-DRAFT
 
 The RmiTrap enumeration is used in the following types:
 
@@ -2383,7 +2339,6 @@ The fields of the RmiVdevMeasureFlags fieldset are shown in the following diagra
 
 The fields of the RmiVdevMeasureFlags fieldset are shown in the following table.
 
-DRAFT
 
 | Name   | Bits   | Description                                  | Value             |
 |--------|--------|----------------------------------------------|-------------------|
@@ -2417,7 +2372,6 @@ Unused bits of the RmiVdevMeasureParams structure MBZ.
 
 ## B4.6.98 RmiVdevMeasureRaw type
 
-DRAFT
 
 The RmiVdevMeasureRaw enumeration represents whether a device measurement is a raw bitstream.
 
@@ -2464,7 +2418,6 @@ Unused bits of the RmiVdevParams structure SBZ.
 
 ## B4.6.100 RmiVdevState type
 
-DRAFT
 
 The RmiVdevState enumeration represents the state of a VDEV.
 
@@ -2510,7 +2463,6 @@ The fields of the RmiVsmmuCmdFlags fieldset are shown in the following table.
 | irq          | 2      | Whether VSMMU event requires an IRQ to be injected into the Realm | RmiBoolean |
 |              | 63:3   | Reserved                                                          | SBZ        |
 
-DRAFT
 
 ## B4.6.102 RmiVsmmuEventFlags type
 
@@ -2538,7 +2490,6 @@ The RmiVsmmuFeatures structure is a concrete type.
 
 The width of the RmiVsmmuFeatures structure is 256 ( 0x100 ) bytes.
 
-DRAFT
 
 The members of the RmiVsmmuFeatures structure are shown in the following table.
 
@@ -2589,6 +2540,5 @@ The members of the RmiVsmmuParams structure are shown in the following table.
 | aidr     | 0x18          | Bits64        | SMMU_AIDR register value                                 |
 | idr[7]   | 0x20          | Bits64        | SMMU_IDR register values                                 |
 
-DRAFT
 
 Unused bits of the RmiVsmmuParams structure SBZ.

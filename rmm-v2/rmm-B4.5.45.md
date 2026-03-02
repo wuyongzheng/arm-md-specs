@@ -30,7 +30,6 @@ The RMI\_REALM\_ACTIVATE command operates on the following context.
 |--------|------------|--------|-----------|----------------|
 | result | X0         | 63:0   | RmiResult | Command result |
 
-DRAFT
 
 ## B4.5.45.2 Failure conditions
 
@@ -57,4 +56,3 @@ DRAFT
 | ID          | Value                             |
 | realm_state | realm.state                       |
 
-DRAFT

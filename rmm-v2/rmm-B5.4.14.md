@@ -31,7 +31,6 @@ The RSI\_PLANE\_SYSREG\_READ command operates on the following context.
 | realm  | RmmRealm | CurrentRealm() | false    | Current Realm |
 | rec    | RmmRec   | CurrentRec()   | false    | Current REC   |
 
-DRAFT
 
 ## B5.4.14.1.3 Output values
 

@@ -28,7 +28,6 @@ The PsciReturnCode enumeration represents the return code of a PSCI command.
 
 The PsciReturnCode enumeration is a concrete type.
 
-DRAFT
 
 The width of the PsciReturnCode enumeration is 64 bits.
 
@@ -55,6 +54,5 @@ Unused encodings for the PsciReturnCode enumeration are reserved for use by futu
 
 <!-- image -->
 
-DRAFT
 
 ## Part C Constants and types

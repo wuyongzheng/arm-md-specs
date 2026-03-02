@@ -24,7 +24,6 @@ D0046 The attributes of a CMEM are summarized in the following table.
 |--------------------------------------------------------------|---------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | chbcr_addr hb_hdm_id addr_range ilv_gran ilv_ways state pdev | Bits64 Bits8 RmmAddrRange UInt64 UInt64 RmmCmemState RmmCmemPdev[8] | Address of CHBCR register in the Host Bridge Host Bridge HDMdecider identifier CMEMwindow. Base and size are aligned to 256MB. Interleave granularity in bytes Number of interleave ways CMEMstate Bound PDEV objects |
 
-DRAFT
 
 ## A9.11.3 Coherent memory device invariants
 
@@ -99,7 +98,6 @@ A transition from the pseudo-state NULL represents creation of a CMEM object. A 
 
 ## A9.11.5.1 Coherent memory device setup flow
 
-DRAFT
 
 I0058
 
@@ -149,7 +147,6 @@ To mark a PA range within the address range of a CMEM as populated, the Host exe
 - B4.5.3 RMI\_CMEM\_CREATE command
 - B4.5.5 RMI\_CMEM\_POPULATE command
 
-DRAFT
 
 - B4.5.26 RMI\_PDEV\_COMMUNICATE command
 - B4.5.27 RMI\_PDEV\_CREATE command
@@ -177,7 +174,6 @@ Figure A9.27: CMEM PAT refresh
 
 <!-- image -->
 
-DRAFT
 
 For details of extending PAT with CMEM devices, refer to Firmware Interfaces for RME (FIRME) specification [19].
 
@@ -196,4 +192,3 @@ I0068
 
 This section describes how a Realm can be divided into multiple mutually isolated execution environments, called Planes.
 
-DRAFT

@@ -33,7 +33,6 @@ The RMI\_GRANULE\_TRACKING\_GET command operates on the following context.
 | category | X1         | 1:0    | RmiMemCategory         | Memory category       |
 | state    | X2         | 2:0    | RmiTrackingRegionState | Tracking region state |
 
-DRAFT
 
 The following unused bits of RMI\_GRANULE\_TRACKING\_GET output values MBZ: X1[63:2], X2[63:3].
 

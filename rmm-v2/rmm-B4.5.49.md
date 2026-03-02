@@ -37,7 +37,6 @@ The RMI\_REC\_CREATE command operates on the following context.
 | params    | RmiRecParams | RmiRecParamsAt(params_ptr) | false    | REC parameters  |
 | rec       | RmmRec       | RecAt(rec_ptr)             | false    | REC             |
 
-DRAFT
 
 ## B4.5.49.1.3 Output values
 
@@ -52,7 +51,7 @@ DRAFT
 ## Condition
 
 ```
-DRAFT params_align pre: !AddrIsRmiGranuleAligned(params_ptr) post: result.status == RMI_ERROR_INPUT params_pas pre: !NonSecureAccessPermitted(params_ptr) post: result.status == RMI_ERROR_INPUT rec_align pre: !AddrIsRmiGranuleAligned(rec_ptr) post: result.status == RMI_ERROR_INPUT rec_bound pre: !PaIsDelegableConventionalFine(rec_ptr) post: result.status == RMI_ERROR_INPUT rec_state pre: GranuleAt(rec_ptr).state != GRAN_DELEGATED post: result.status == RMI_ERROR_INPUT rd_align pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPUT rd_bound pre: !PaIsTracked(rd) post: result.status == RMI_ERROR_INPUT rd_state pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_INPUT realm_state pre: realm_pre.state != REALM_NEW post: result.status == RMI_ERROR_REALM num_recs pre: realm_pre.num_recs == (2 ^ rmm.static.max_recs_order) -1 post: result.status == RMI_ERROR_REALM mpidr_index pre: RecIndex(params.mpidr) != realm_pre.rec_index post: result.status == RMI_ERROR_INPUT B4.5.49.2.1 Failure condition ordering [rd_bound, rd_state] < [realm_state, num_recs]
+params_align pre: !AddrIsRmiGranuleAligned(params_ptr) post: result.status == RMI_ERROR_INPUT params_pas pre: !NonSecureAccessPermitted(params_ptr) post: result.status == RMI_ERROR_INPUT rec_align pre: !AddrIsRmiGranuleAligned(rec_ptr) post: result.status == RMI_ERROR_INPUT rec_bound pre: !PaIsDelegableConventionalFine(rec_ptr) post: result.status == RMI_ERROR_INPUT rec_state pre: GranuleAt(rec_ptr).state != GRAN_DELEGATED post: result.status == RMI_ERROR_INPUT rd_align pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPUT rd_bound pre: !PaIsTracked(rd) post: result.status == RMI_ERROR_INPUT rd_state pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_INPUT realm_state pre: realm_pre.state != REALM_NEW post: result.status == RMI_ERROR_REALM num_recs pre: realm_pre.num_recs == (2 ^ rmm.static.max_recs_order) -1 post: result.status == RMI_ERROR_REALM mpidr_index pre: RecIndex(params.mpidr) != realm_pre.rec_index post: result.status == RMI_ERROR_INPUT B4.5.49.2.1 Failure condition ordering [rd_bound, rd_state] < [realm_state, num_recs]
 ```
 
 <!-- image -->
@@ -73,7 +72,7 @@ DRAFT params_align pre: !AddrIsRmiGranuleAligned(params_ptr) post: result.status
 ## Condition
 
 ```
-DRAFT runnable pre: params.flags.runnable == RMI_RUNNABLE post: rec.flags.runnable == RUNNABLE not_runnable pre: params.flags.runnable == RMI_NOT_RUNNABLE post: rec.flags.runnable == NOT_RUNNABLE rec_gprs post: (rec.gprs[[0]] == params.gprs[[0]] && rec.gprs[[1]] == params.gprs[[1]] && rec.gprs[[2]] == params.gprs[[2]] && rec.gprs[[3]] == params.gprs[[3]] && rec.gprs[[4]] == params.gprs[[4]] && rec.gprs[[5]] == params.gprs[[5]] && rec.gprs[[6]] == params.gprs[[6]] && rec.gprs[[7]] == params.gprs[[7]] && rec.gprs[[8]] == Zeros{64}() && rec.gprs[[9]] == Zeros{64}() && rec.gprs[[10]] == Zeros{64}() && rec.gprs[[11]] == Zeros{64}() && rec.gprs[[12]] == Zeros{64}() && rec.gprs[[13]] == Zeros{64}() && rec.gprs[[14]] == Zeros{64}() && rec.gprs[[15]] == Zeros{64}() && rec.gprs[[16]] == Zeros{64}() && rec.gprs[[17]] == Zeros{64}() && rec.gprs[[18]] == Zeros{64}() && rec.gprs[[19]] == Zeros{64}() && rec.gprs[[20]] == Zeros{64}() && rec.gprs[[21]] == Zeros{64}() && rec.gprs[[22]] == Zeros{64}() && rec.gprs[[23]] == Zeros{64}() && rec.gprs[[24]] == Zeros{64}() && rec.gprs[[25]] == Zeros{64}() && rec.gprs[[26]] == Zeros{64}() && rec.gprs[[27]] == Zeros{64}() && rec.gprs[[28]] == Zeros{64}() && rec.gprs[[29]] == Zeros{64}() && rec.gprs[[30]] == Zeros{64}() && rec.gprs[[31]] == Zeros{64}()) rec_pc post: rec.pc == params.pc rim pre: params.flags.runnable == RMI_RUNNABLE post: realm.rim == RimExtendRec(realm_pre, ripas_addr post: rec.ripas_addr == Zeros{ADDRESS_WIDTH}() ripas_top post: rec.ripas_top == Zeros{ADDRESS_WIDTH}() pending post: rec.pending == REC_PENDING_NONE num_recs post: realm.num_recs == realm_pre.num_recs + 1 gic_owner post: rec.gic_owner == 0
+runnable pre: params.flags.runnable == RMI_RUNNABLE post: rec.flags.runnable == RUNNABLE not_runnable pre: params.flags.runnable == RMI_NOT_RUNNABLE post: rec.flags.runnable == NOT_RUNNABLE rec_gprs post: (rec.gprs[[0]] == params.gprs[[0]] && rec.gprs[[1]] == params.gprs[[1]] && rec.gprs[[2]] == params.gprs[[2]] && rec.gprs[[3]] == params.gprs[[3]] && rec.gprs[[4]] == params.gprs[[4]] && rec.gprs[[5]] == params.gprs[[5]] && rec.gprs[[6]] == params.gprs[[6]] && rec.gprs[[7]] == params.gprs[[7]] && rec.gprs[[8]] == Zeros{64}() && rec.gprs[[9]] == Zeros{64}() && rec.gprs[[10]] == Zeros{64}() && rec.gprs[[11]] == Zeros{64}() && rec.gprs[[12]] == Zeros{64}() && rec.gprs[[13]] == Zeros{64}() && rec.gprs[[14]] == Zeros{64}() && rec.gprs[[15]] == Zeros{64}() && rec.gprs[[16]] == Zeros{64}() && rec.gprs[[17]] == Zeros{64}() && rec.gprs[[18]] == Zeros{64}() && rec.gprs[[19]] == Zeros{64}() && rec.gprs[[20]] == Zeros{64}() && rec.gprs[[21]] == Zeros{64}() && rec.gprs[[22]] == Zeros{64}() && rec.gprs[[23]] == Zeros{64}() && rec.gprs[[24]] == Zeros{64}() && rec.gprs[[25]] == Zeros{64}() && rec.gprs[[26]] == Zeros{64}() && rec.gprs[[27]] == Zeros{64}() && rec.gprs[[28]] == Zeros{64}() && rec.gprs[[29]] == Zeros{64}() && rec.gprs[[30]] == Zeros{64}() && rec.gprs[[31]] == Zeros{64}()) rec_pc post: rec.pc == params.pc rim pre: params.flags.runnable == RMI_RUNNABLE post: realm.rim == RimExtendRec(realm_pre, ripas_addr post: rec.ripas_addr == Zeros{ADDRESS_WIDTH}() ripas_top post: rec.ripas_top == Zeros{ADDRESS_WIDTH}() pending post: rec.pending == REC_PENDING_NONE num_recs post: realm.num_recs == realm_pre.num_recs + 1 gic_owner post: rec.gic_owner == 0
 ```
 
 ## B4.5.49.4 RMI\_REC\_CREATE extension of RIM
@@ -115,4 +114,3 @@ params)
 | rim       | realm.rim            |
 | num_recs  | realm.num_recs       |
 
-DRAFT

@@ -25,7 +25,6 @@ The RSI\_REALM\_CONFIG command operates on the following context.
 
 ## B5.4.16.1.3 Output values
 
-DRAFT
 
 | Name   | Register   | Bits   | Type                 | Description    |
 |--------|------------|--------|----------------------|----------------|

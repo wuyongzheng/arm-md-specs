@@ -30,7 +30,6 @@ The RSI\_VDEV\_DMA\_DISABLE command operates on the following context.
 |--------|------------|--------|----------------------|----------------|
 | result | X0         | 63:0   | RsiCommandReturnCode | Command result |
 
-DRAFT
 
 ## B5.4.17.2 Failure conditions
 
@@ -54,6 +53,5 @@ DRAFT
 
 The RSI\_VDEV\_DMA\_DISABLE command does not have any footprint.
 
-DRAFT
 
 <!-- image -->

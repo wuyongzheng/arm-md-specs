@@ -2,7 +2,6 @@
 
 ASL
 
-DRAFT
 
 Arm Specification Language Language used to express pseudocode implementations. Formal language definition can be found in tion Language Reference Manual [24].
 
@@ -79,7 +78,7 @@ EAT
 | GPF        |                                                                                                                                                                                          |
 |            | Granule Protection Fault                                                                                                                                                                 |
 | GPT        |                                                                                                                                                                                          |
-| HIPAS Host | DRAFT Granule Protection Table Table which determines the Physical Address Space of each Granule. Software executing in Non-secure Security state which manages resources used by Realms |
+| HIPAS Host  Granule Protection Table Table which determines the Physical Address Space of each Granule. Software executing in Non-secure Security state which manages resources used by Realms |
 | HDM        |                                                                                                                                                                                          |
 |            | Host-managed Device memory                                                                                                                                                               |
 | HDM-H      |                                                                                                                                                                                          |
@@ -98,7 +97,7 @@ EAT
 |            | Interrupt Translation Service A service provided by the GIC.                                                                                                                             |
 | LFA        |                                                                                                                                                                                          |
 
-DRAFT Non-secure Peer-to-peer (device communication) Physical Address Space Physical Device Object which represents a communication channel between the RMM and a physical device, for example a PCIe device.
+Non-secure Peer-to-peer (device communication) Physical Address Space Physical Device Object which represents a communication channel between the RMM and a physical device, for example a PCIe device.
 
 LOR
 
@@ -167,7 +166,7 @@ PSMMU
 | Realm           | A protected execution environment                                                                              |
 | REM             | Realm Execution Context Object which stores PE state associated with a thread of execution within a Realm.     |
 |                 | Realm Extensible Measurement Measurement value which can be extended during the lifetime of a Realm.           |
-| RHA RHI RIM RME | DRAFT Realm Hash Algorithm Realm Host Interface Realm Management Extension                                     |
+| RHA RHI RIM RME  Realm Hash Algorithm Realm Host Interface Realm Management Extension                                     |
 |                 | Realm Initial Measurement Measurement of the state of a Realm at the time of activation.                       |
 | RIPAS           |                                                                                                                |
 |                 | Realm IPA state                                                                                                |
@@ -196,7 +195,7 @@ PSMMU
 |            | System Memory Management Unit See Arm System Memory Management                                                                              |
 |            | Unit Architecture Specification [22]                                                                                                        |
 | SPDM       |                                                                                                                                             |
-|            | DRAFT Security Protocol and Data Model See Security Protocol and Data Model (SPDM) [21] and Secured Messages 1.1.0 [17] Trusted Application |
+|             Security Protocol and Data Model See Security Protocol and Data Model (SPDM) [21] and Secured Messages 1.1.0 [17] Trusted Application |
 | SPM        |                                                                                                                                             |
 |            | Secure Partition Manager                                                                                                                    |
 | TA         |                                                                                                                                             |

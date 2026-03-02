@@ -34,7 +34,6 @@ The RSI\_IPA\_STATE\_SET command operates on the following context.
 | realm  | RmmRealm | CurrentRealm() | false    | Current Realm |
 | rec    | RmmRec   | CurrentRec()   | false    | Current REC   |
 
-DRAFT
 
 ## B5.4.7.1.3 Output values
 
@@ -66,4 +65,4 @@ base_align pre: !AddrIsRsiGranuleAligned(base) post: result == RSI_ERROR_INPUT t
 
 The RSI\_IPA\_STATE\_SET command does not have any failure condition orderings.
 
-DRAFT B5.4.7.3 Success conditions ID Condition ripas post: RIPAS of address range [base, new\_base) is equal to ripas. new\_base post: new\_base == rec.ripas\_addr response post: response == RecRipasResponseToRsi(rec) B5.4.7.4 Footprint The RSI\_IPA\_STATE\_SET command does not have any footprint.
+B5.4.7.3 Success conditions ID Condition ripas post: RIPAS of address range [base, new\_base) is equal to ripas. new\_base post: new\_base == rec.ripas\_addr response post: response == RecRipasResponseToRsi(rec) B5.4.7.4 Footprint The RSI\_IPA\_STATE\_SET command does not have any footprint.

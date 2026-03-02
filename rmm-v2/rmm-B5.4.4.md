@@ -31,7 +31,6 @@ The RSI\_FEATURES command operates on the following context.
 
 ## B5.4.4.1.3 Output values
 
-DRAFT
 
 | Name   | Register   | Bits   | Type                 | Description            |
 |--------|------------|--------|----------------------|------------------------|

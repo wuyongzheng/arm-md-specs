@@ -28,7 +28,6 @@ The RMI\_PDEV\_STREAM\_DISCONNECT command operates on the following context.
 | stream_result | RmmPdevStreamResult PdevStreamFromHandle( pdev_1, pdev_2, | false    | Result of looking up PDEV stream |
 | stream        | RmmPdevStream stream_result.stream                        | false    | PDEV stream                      |
 
-DRAFT
 
 ## B4.5.35.1.3 Output values
 
@@ -49,7 +48,7 @@ DRAFT
 ## Condition
 
 ```
-DRAFT pdev_1_gran_sta te pre: GranuleAt(pdev_1_ptr).state != GRAN_PDEV post: result.status == RMI_ERROR_INPUT pdev_1_state pre: (pdev_1.state != PDEV_READY && pdev_1.state != PDEV_ERROR) post: result.status == RMI_ERROR_INPUT pdev_1_comm_sta te pre: pdev_1.comm_state != DEV_COMM_IDLE post: result.status == RMI_ERROR_INPUT pdev_1_num_vdev s pre: pdev_1.num_vdevs != 0 post: result.status == RMI_ERROR_DEVICE pdev_2_align pre: (PdevStreamPdev2Required(stream.stream_type) && !AddrIsRmiGranuleAligned(pdev_2_ptr)) post: result.status == RMI_ERROR_INPUT pdev_2_bound pre: (PdevStreamPdev2Required(stream.stream_type) && !PaIsTracked(pdev_2_ptr)) post: result.status == RMI_ERROR_INPUT pdev_2_gran_sta te pre: (PdevStreamPdev2Required(stream.stream_type) && GranuleAt(pdev_2_ptr).state != GRAN_PDEV) post: result.status == RMI_ERROR_INPUT pdev_2_state pre: (PdevStreamPdev2Required(stream.stream_type) && (pdev_2.state != PDEV_READY && pdev_2.state != PDEV_ERROR)) post: result.status == RMI_ERROR_INPUT pdev_2_comm_sta te pre: (PdevStreamPdev2Required(stream.stream_type) && pdev_2.comm_state != DEV_COMM_IDLE) post: result.status == RMI_ERROR_INPUT stream_valid pre: stream_result.valid != RMM_TRUE post: result.status == RMI_ERROR_INPUT stream_state pre: stream.state != PDEV_STREAM_CONNECTED post: result.status == RMI_ERROR_DEVICE
+pdev_1_gran_sta te pre: GranuleAt(pdev_1_ptr).state != GRAN_PDEV post: result.status == RMI_ERROR_INPUT pdev_1_state pre: (pdev_1.state != PDEV_READY && pdev_1.state != PDEV_ERROR) post: result.status == RMI_ERROR_INPUT pdev_1_comm_sta te pre: pdev_1.comm_state != DEV_COMM_IDLE post: result.status == RMI_ERROR_INPUT pdev_1_num_vdev s pre: pdev_1.num_vdevs != 0 post: result.status == RMI_ERROR_DEVICE pdev_2_align pre: (PdevStreamPdev2Required(stream.stream_type) && !AddrIsRmiGranuleAligned(pdev_2_ptr)) post: result.status == RMI_ERROR_INPUT pdev_2_bound pre: (PdevStreamPdev2Required(stream.stream_type) && !PaIsTracked(pdev_2_ptr)) post: result.status == RMI_ERROR_INPUT pdev_2_gran_sta te pre: (PdevStreamPdev2Required(stream.stream_type) && GranuleAt(pdev_2_ptr).state != GRAN_PDEV) post: result.status == RMI_ERROR_INPUT pdev_2_state pre: (PdevStreamPdev2Required(stream.stream_type) && (pdev_2.state != PDEV_READY && pdev_2.state != PDEV_ERROR)) post: result.status == RMI_ERROR_INPUT pdev_2_comm_sta te pre: (PdevStreamPdev2Required(stream.stream_type) && pdev_2.comm_state != DEV_COMM_IDLE) post: result.status == RMI_ERROR_INPUT stream_valid pre: stream_result.valid != RMM_TRUE post: result.status == RMI_ERROR_INPUT stream_state pre: stream.state != PDEV_STREAM_CONNECTED post: result.status == RMI_ERROR_DEVICE
 ```
 
 ## B4.5.35.2.1 Failure condition ordering

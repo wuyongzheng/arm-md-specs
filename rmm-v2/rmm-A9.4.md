@@ -1,10 +1,9 @@
 ## A9.4 Virtual device object
 
-DLVVJK A virtual device (VDEV) represents the binding between a device function and a Realm.
+A virtual device (VDEV) represents the binding between a device function and a Realm.
 
 ## A9.4.1 Virtual device attributes
 
-DNQNVQ
 
 The attributes of a VDEV are summarized in the following table.
 
@@ -21,7 +20,7 @@ The attributes of a VDEV are summarized in the following table.
 | comm_state     | RmmDevCommState   | Device communication state                                                                 |
 | vsmmu          | RmmFeature        | Whether device uses a VSMMU                                                                |
 | vsmmu_addr     | Address           | PA of VSMMU. This field is valid if vsmmu is FEATURE_TRUE.                                 |
-| vsid           | Bits64            | DRAFT Virtual Stream Identifier. This field is valid if vsmmu is FEATURE_TRUE.             |
+| vsid           | Bits64             Virtual Stream Identifier. This field is valid if vsmmu is FEATURE_TRUE.             |
 | attest_info    | RmmVdevAttestInfo | Attestation information                                                                    |
 | meas_digest    | Bits512           | Measurement digest                                                                         |
 | report_digest  | Bits512           | Interface report digest                                                                    |
@@ -30,15 +29,14 @@ The attributes of a VDEV are summarized in the following table.
 | num_addr_range | UInt64            | Number of device address ranges                                                            |
 | addr_range     | RmmAddrRange[8]   | Device address ranges. These ranges include both coherent and non- coherent device memory. |
 
-DTJGDD A Device identifier is a value which identifies a VDEV within a Realm, and is agreed between the Host and the Realm to which the VDEV is assigned.
+A Device identifier is a value which identifies a VDEV within a Realm, and is agreed between the Host and the Realm to which the VDEV is assigned.
 
-IHHLFB The choice of device identifier depends upon the interface provided by the Host to the Realm. For example, if the Host provides a PCIe interface, then identifier is a PCIe (bus, device, function) tuple.
+The choice of device identifier depends upon the interface provided by the Host to the Realm. For example, if the Host provides a PCIe interface, then identifier is a PCIe (bus, device, function) tuple.
 
-ICSJMF The Host provides the device identifier when executing RMI\_VDEV\_CREATE.
+The Host provides the device identifier when executing RMI\_VDEV\_CREATE.
 
-IWKCHQ The Realm provides the device identifier when executing any RSI\_VDEV command. See also:
+The Realm provides the device identifier when executing any RSI\_VDEV command. See also:
 
-XBZHJD
 
 - A9.4.4 Mapping from virtual device ID to VDEV object
 - A9.6 Realm management of an assigned virtual device
@@ -48,7 +46,7 @@ XBZHJD
 
 This section lists invariants which are enforced via checks performed by the RMM on execution of RMI\_VDEV\_CREATE.
 
-RKXPQP Execution of RMI\_VDEV\_CREATE fails if the required Level 2 Stream Table is not present
+Execution of RMI\_VDEV\_CREATE fails if the required Level 2 Stream Table is not present
 
 RFQHHK pdev.num\_vdevs is not greater than pdev.max\_num\_vdevs.
 
@@ -56,13 +54,13 @@ RCVHND vdev.vdev\_id is unique among VDEVs assigned to a Realm.
 
 RLBQZT vdev.tdi\_id is unique among VDEVs within the same segment.
 
-UFSQLB The RMM can track usage of tdi\_id values within a segment either using SW\_RESERVED bits in the SMMU Stream Table Entry, or using an IMPLEMENTATION DEFINED data structure stored within the PDEV object.
+The RMM can track usage of tdi\_id values within a segment either using SW\_RESERVED bits in the SMMU Stream Table Entry, or using an IMPLEMENTATION DEFINED data structure stored within the PDEV object.
 
 RHJYPM vdev.tdi\_id is within the RID range of the parent PDEV.
 
-RZKBPH All entries in vdev.addr\_range are disjoint.
+All entries in vdev.addr\_range are disjoint.
 
-RWMZNP All entries in vdev.addr\_range have the following properties:
+All entries in vdev.addr\_range have the following properties:
 
 - Fall within the union of address ranges for NCOH and COH PDEV streams associated with the parent PDEV.
 - Not used by any other VDEV with the same parent PDEV.
@@ -77,9 +75,8 @@ RWMZNP All entries in vdev.addr\_range have the following properties:
 
 ## A9.4.3.1 States
 
-DMTZBM The states of a VDEV are listed below.
+The states of a VDEV are listed below.
 
-DRAFT
 
 | State            | Description                                                                                             |
 |------------------|---------------------------------------------------------------------------------------------------------|
@@ -104,7 +101,7 @@ See also:
 
 ## A9.4.3.2 State transitions
 
-IRJKJZ Permitted VDEV state transitions are shown in the following figure. Each arc is labeled with the events which can cause the corresponding state transition.
+Permitted VDEV state transitions are shown in the following figure. Each arc is labeled with the events which can cause the corresponding state transition.
 
 A transition from the pseudo-state NULL represents creation of a VDEV. A transition to the pseudo-state NULL represents destruction of a VDEV.
 
@@ -121,20 +118,20 @@ While a VDEV is in VDEV\_NEW state, execution of RMI\_VDEV\_COMMUNICATE causes t
 
 Once device initialization is complete, the VDEV moves to VDEV\_UNLOCKED state.
 
-- IHJMXW On execution of RMI\_VDEV\_UNLOCK, if the state of any Granule within the VDEV's PA ranges is GRAN\_DEV then the command fails with RMI\_ERROR\_GRANULE and returns the PA of the Granule.
-- IXXRMT While a VDEV is in VDEV\_UNLOCKED state, execution of RMI\_VDEV\_LOCK causes the RMM to initiate a request to lock the device. The request is sent to the device via subsequent execution of RMI\_VDEV\_COMMUNICATE.
+- On execution of RMI\_VDEV\_UNLOCK, if the state of any Granule within the VDEV's PA ranges is GRAN\_DEV then the command fails with RMI\_ERROR\_GRANULE and returns the PA of the Granule.
+- While a VDEV is in VDEV\_UNLOCKED state, execution of RMI\_VDEV\_LOCK causes the RMM to initiate a request to lock the device. The request is sent to the device via subsequent execution of RMI\_VDEV\_COMMUNICATE.
 
 Once the RMI\_VDEV\_LOCK request is complete, the VDEV moves to VDEV\_LOCKED state.
 
-- IFMPCY While a VDEV is in VDEV\_LOCKED state, execution of RMI\_VDEV\_START causes the RMM to initiate a request to start the device. The request is sent to the device via subsequent execution of RMI\_VDEV\_COMMUNICATE.
+- While a VDEV is in VDEV\_LOCKED state, execution of RMI\_VDEV\_START causes the RMM to initiate a request to start the device. The request is sent to the device via subsequent execution of RMI\_VDEV\_COMMUNICATE.
 
 Once the RMI\_VDEV\_START request is complete, the VDEV moves to VDEV\_STARTED state.
 
-- ISSXFB While a VDEV is in VDEV\_LOCKED state, execution of RMI\_VDEV\_UNLOCK causes the RMM to initiate a request to unlock the device. The request is sent to the device via subsequent execution of RMI\_VDEV\_COMMUNICATE.
+- While a VDEV is in VDEV\_LOCKED state, execution of RMI\_VDEV\_UNLOCK causes the RMM to initiate a request to unlock the device. The request is sent to the device via subsequent execution of RMI\_VDEV\_COMMUNICATE.
 
 Once the RMI\_VDEV\_UNLOCK request is complete, the VDEV moves to VDEV\_UNLOCKED state.
 
-- ITNQHL While a VDEV is in VDEV\_STARTED state, execution of RMI\_VDEV\_UNLOCK causes the RMM to initiate a request to unlock the device. The request is sent to the device via subsequent execution of RMI\_VDEV\_COMMUNICATE.
+- While a VDEV is in VDEV\_STARTED state, execution of RMI\_VDEV\_UNLOCK causes the RMM to initiate a request to unlock the device. The request is sent to the device via subsequent execution of RMI\_VDEV\_COMMUNICATE.
 
 Once the RMI\_VDEV\_UNLOCK request is complete:
 
@@ -143,27 +140,25 @@ Once the RMI\_VDEV\_UNLOCK request is complete:
 
 The requirement for key refresh on VDEV unlock is discoverable via RMI\_FEATURES.
 
-- ICZTPN While a VDEV is in VDEV\_KEY\_REFRESH state, the Host is expected to perform a key refresh on all PDEV streams which are associated with the VDEV.
+- While a VDEV is in VDEV\_KEY\_REFRESH state, the Host is expected to perform a key refresh on all PDEV streams which are associated with the VDEV.
 
 Once the key refreshes are complete, execution of RMI\_VDEV\_COMMUNICATE causes the VDEV moves to VDEV\_KEY\_PURGE state.
 
-- IPHYDK While a VDEV is in VDEV\_KEY\_PURGE state, the Host is expected to purge inactive keys from all PDEV streams which are associated with the VDEV.
+- While a VDEV is in VDEV\_KEY\_PURGE state, the Host is expected to purge inactive keys from all PDEV streams which are associated with the VDEV.
 
-DRAFT
 
 Once the key purges are complete, execution of RMI\_VDEV\_COMMUNICATE causes the RMM to initiate a request to unlock the device. The request is sent to the device via subsequent execution of RMI\_VDEV\_COMMUNICATE.
 
 Once the unlock request is complete, the VDEV moves to VDEV\_UNLOCKED state.
 
-- IYQNQN On execution of RMI\_VDEV\_COMMUNICATE, if the RMM detects a fatal error (such as an unexpected response or a protocol error) then the VDEV moves to VDEV\_ERROR state.
-- IHWZMR While a VDEV is in VDEV\_ERROR state, execution of RMI\_VDEV\_UNLOCK causes the RMM to initiate a request to unlock the device. The request is sent to the device via subsequent execution of RMI\_VDEV\_COMMUNICATE.
+- On execution of RMI\_VDEV\_COMMUNICATE, if the RMM detects a fatal error (such as an unexpected response or a protocol error) then the VDEV moves to VDEV\_ERROR state.
+- While a VDEV is in VDEV\_ERROR state, execution of RMI\_VDEV\_UNLOCK causes the RMM to initiate a request to unlock the device. The request is sent to the device via subsequent execution of RMI\_VDEV\_COMMUNICATE.
 
 Once the lock request is complete, the VDEV moves to VDEV\_UNLOCKED state.
 
-- IYTLFV Execution of RMI\_VDEV\_UNLOCK fails if the VDEV has associated device memory mappings.
-- IGMJRG While the state of a VDEV is VDEV\_NEW, VDEV\_UNLOCKED or VDEV\_ERROR, the Host can reclaim resources by executing RMI\_VDEV\_DESTROY.
+- Execution of RMI\_VDEV\_UNLOCK fails if the VDEV has associated device memory mappings.
+- While the state of a VDEV is VDEV\_NEW, VDEV\_UNLOCKED or VDEV\_ERROR, the Host can reclaim resources by executing RMI\_VDEV\_DESTROY.
 
-IZGDVQ
 
 Permitted VDEV state transitions are shown in the following table. The rightmost column lists the events which can cause the corresponding state transition.
 
@@ -203,12 +198,11 @@ A transition from the pseudo-state NULL represents creation of a VDEV object. A 
 
 ## A9.4.4 Mapping from virtual device ID to VDEV object
 
-- IXSMCJ The RMM does not maintain a mapping from virtual device ID to VDEV object. Conseqeuntly, when a Realm executes an RSI\_VDEV command, passing a virtual device ID, the RMM must request the Host to provide a corresponding VDEV object.
-- IGGZRX The following sequence diagram shows how the virtual device ID passed by a Realm is mapped to the corresponding VDEV object.
+- The RMM does not maintain a mapping from virtual device ID to VDEV object. Conseqeuntly, when a Realm executes an RSI\_VDEV command, passing a virtual device ID, the RMM must request the Host to provide a corresponding VDEV object.
+- The following sequence diagram shows how the virtual device ID passed by a Realm is mapped to the corresponding VDEV object.
 
 If the mapping is not completed (because either the Host provided the incorrect VDEV object, or provided no VDEV object), an error is returned to the Realm following the next REC entry.
 
-DRAFT
 
 Figure A9.9: Mapping from virtual device ID to VDEV
 
@@ -222,10 +216,10 @@ See also:
 
 ## A9.4.4.1 Relationship between VDEV state and TDISP TDI state
 
-- IWRCVK The lifecycle of a VDEV closely resembles the lifecycle of a TDISP TDI. There cannot exist a direct mapping between the two, because changes in TDI state (for example due to Host action) may not be immediately observed by either the RMM or the Realm. However, the two states are sufficiently closely coupled to provide the Realm with important guarantees regarding the TDI state.
-- RWZVWY On transition of a VDEV to VDEV\_LOCKED state, the corresponding TDI transitions to CONFIG\_LOCKED state.
-- RKVJKM On transition of a VDEV to VDEV\_STARTED state, the corresponding TDI transitions to RUN state.
-- RZQHFS On detection by the RMM that a TDI is in ERROR state, the corresponding VDEV transitions to VDEV\_ERROR state.
+- The lifecycle of a VDEV closely resembles the lifecycle of a TDISP TDI. There cannot exist a direct mapping between the two, because changes in TDI state (for example due to Host action) may not be immediately observed by either the RMM or the Realm. However, the two states are sufficiently closely coupled to provide the Realm with important guarantees regarding the TDI state.
+- On transition of a VDEV to VDEV\_LOCKED state, the corresponding TDI transitions to CONFIG\_LOCKED state.
+- On transition of a VDEV to VDEV\_STARTED state, the corresponding TDI transitions to RUN state.
+- On detection by the RMM that a TDI is in ERROR state, the corresponding VDEV transitions to VDEV\_ERROR state.
 
 See also:
 
@@ -233,17 +227,16 @@ See also:
 
 ## A9.4.4.2 Relationship between VDEV state and SMMU enablement
 
-- RYDQTT When the DMA state of a VDEV is VDEV\_DMA\_ENABLED, the SMMU permits traffic from the device to the Realm's Protected IPA space.
-- RJHFMS When the DMA state of a VDEV is VDEV\_DMA\_DISABLED, the SMMU blocks traffic from the device to the Realm's Protected IPA space.
-- INMPHQ Execution of RMI\_VDEV\_UNLOCK caused the DMA state of the VDEV to become VDEV\_DMA\_DISABLED.
+- When the DMA state of a VDEV is VDEV\_DMA\_ENABLED, the SMMU permits traffic from the device to the Realm's Protected IPA space.
+- When the DMA state of a VDEV is VDEV\_DMA\_DISABLED, the SMMU blocks traffic from the device to the Realm's Protected IPA space.
+- Execution of RMI\_VDEV\_UNLOCK caused the DMA state of the VDEV to become VDEV\_DMA\_DISABLED.
 
-DRAFT
 
 ## A9.4.5 Virtual device flows
 
 ## A9.4.5.1 Virtual device teardown flow
 
-IYSHKG Teardown of a VDEV is illustrated in the following sequence diagram.
+Teardown of a VDEV is illustrated in the following sequence diagram.
 
 Figure A9.10: VDEV teardown (part 1 of 2)
 

@@ -28,7 +28,6 @@ The RMI\_VSMMU\_DESTROY command operates on the following context.
 
 <!-- image -->
 
-DRAFT
 
 | Name      | Type     | Value              | Before   | Description   |
 |-----------|----------|--------------------|----------|---------------|
@@ -82,7 +81,6 @@ gran_state post: GranuleAt(vsmmu_ptr).state == GRAN_DELEGATED num_vsmmus post: r
 
 GranuleAt(vsmmu\_ptr).state realm.num\_vsmmus
 
-DRAFT
 
 ## ID
 

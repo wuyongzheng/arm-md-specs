@@ -30,7 +30,6 @@ The RSI\_ATTESTATION\_TOKEN\_CONTINUE command operates on the following context.
 | rec    | RmmRec           | CurrentRec() false   | Current REC     |
 | walk   | RmmRttWalkResult | RttWalk( false       | RTT walk result |
 
-DRAFT
 
 ## B5.4.2.1.3 Output values
 
@@ -55,7 +54,7 @@ The RSI\_ATTESTATION\_TOKEN\_CONTINUE command does not have any failure conditio
 len post: len == AttestationTokenWrite(addr, offset, size) incomplete pre: Token generation is not complete. post: result == RSI_INCOMPLETE complete pre: Token generation is complete. post: rec.attest_state == NO_ATTEST_IN_PROGRESS
 ```
 
-## DRAFT B5.4.2.2.1 Failure condition ordering B5.4.2.3 Success conditions ID Condition
+## B5.4.2.2.1 Failure condition ordering B5.4.2.3 Success conditions ID Condition
 
 ## B5.4.2.4 Footprint
 

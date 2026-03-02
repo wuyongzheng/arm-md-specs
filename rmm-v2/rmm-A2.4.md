@@ -4,7 +4,6 @@ This section describes the concept of a Realm Execution Context (REC).
 
 ## A2.4.1 Overview
 
-- DLRFCP
 
 A Realm Execution Context (REC) is an R-EL0&amp;1 execution context which is associated with a Realm VPE.
 
@@ -19,9 +18,9 @@ A REC object is an RMM data structure which is used to store the register state 
 
 This section describes the attributes of a REC.
 
-- DZLGLT A REC attribute is a property of a REC whose value can be observed or modified either by the Host or by the Realm which owns the REC.
-- ICSGGT Examples of ways in which a REC attribute may be observable include the outcome of an RMM command, and the PE state following Realm entry.
-- DLQSFT The attributes of a REC are summarized in the following table.
+- A REC attribute is a property of a REC whose value can be observed or modified either by the Host or by the Realm which owns the REC.
+- Examples of ways in which a REC attribute may be observable include the outcome of an RMM command, and the PE state following Realm entry.
+- The attributes of a REC are summarized in the following table.
 
 | Name             | Type                    | Description                                                                    |
 |------------------|-------------------------|--------------------------------------------------------------------------------|
@@ -44,7 +43,6 @@ This section describes the attributes of a REC.
 | ripas_response   | RmmRecResponse          | Host response to RIPAS change request                                          |
 | dev_mem_addr     | Address                 | Next IPA to be processed in VDEV mapping validation                            |
 
-DRAFT
 
 | Name                            | Type                            | Description                                                              |
 |---------------------------------|---------------------------------|--------------------------------------------------------------------------|
@@ -76,7 +74,6 @@ DRAFT
 | D CDXDZ   | The sysregs attribute of a REC is the set of system register values which are saved by the RMMon exit from the REC and restored by the RMMon entry to the REC.                                                                        |
 | D RWKGW   | The gic_owner attribute of a REC is the index of the Plane which is the GIC owner for the REC.                                                                                                                                        |
 
-DRAFT
 
 - A2.4.3 REC index and MPIDR value
 - A2.4.4 REC lifecycle
@@ -90,7 +87,7 @@ DRAFT
 
 ## A2.4.3 REC index and MPIDR value
 
-DKQVHN The REC index is the unsigned integer value generated from MPIDR fields as follows:
+The REC index is the unsigned integer value generated from MPIDR fields as follows:
 
 ```
 index = aff0 + 16 * aff1 + 16 * 256 * aff2 + 16 * 256 * 256 * aff3
@@ -98,7 +95,6 @@ index = aff0 + 16 * aff1 + 16 * 256 * aff2 + 16 * 256 * 256 * aff3
 
 This is illustrated by the following table.
 
-DRAFT
 
 | REC index   | Aff3   | Aff2   | Aff1   | Aff0[3:0]   |
 |-------------|--------|--------|--------|-------------|
@@ -112,9 +108,8 @@ DRAFT
 | 1048576     | 1      | 0      | 0      | 0           |
 | . . .       | . . .  | . . .  | . . .  | . . .       |
 
-IPVLZY The Aff0[7:4] field of a REC MPIDR value is RES0 for compatibility with GICv3.
+The Aff0[7:4] field of a REC MPIDR value is RES0 for compatibility with GICv3.
 
-ITTWVM
 
 When creating the n th REC in a Realm, the Host is required to use the MPIDR corresponding to REC index n .
 
@@ -128,7 +123,7 @@ When creating the n th REC in a Realm, the Host is required to use the MPIDR cor
 
 ## A2.4.4.1 States
 
-DHTXQY The states of a REC are listed below.
+The states of a REC are listed below.
 
 | State       | Description                   |
 |-------------|-------------------------------|
@@ -137,7 +132,7 @@ DHTXQY The states of a REC are listed below.
 
 ## A2.4.4.2 State transitions
 
-IPHMWT Permitted REC state transitions are shown in the following table. The rightmost column lists the events which can cause the corresponding state transition.
+Permitted REC state transitions are shown in the following table. The rightmost column lists the events which can cause the corresponding state transition.
 
 A transition from the pseudo-state NULL represents creation of a REC object. A transition to the pseudo-state NULL represents destruction of a REC object.
 
@@ -148,9 +143,7 @@ A transition from the pseudo-state NULL represents creation of a REC object. A t
 | REC_READY    | REC_RUNNING | RMI_REC_ENTER             |
 | REC_RUNNING  | REC_READY   | Return from RMI_REC_ENTER |
 
-IFNSTJ
 
-ILYXCN
 
 Permitted REC state transitions are shown in the following figure. Each arc is labeled with the events which can cause the corresponding state transition.
 
@@ -158,7 +151,6 @@ A transition from the pseudo-state NULL represents creation of a REC. A transiti
 
 <!-- image -->
 
-DRAFT
 
 Figure A2.10: REC state transitions
 

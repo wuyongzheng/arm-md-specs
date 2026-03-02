@@ -33,7 +33,6 @@ The RMI\_REALM\_TERMINATE command operates on the following context.
 |--------|------------|--------|-----------|----------------|
 | result | X0         | 63:0   | RmiResult | Command result |
 
-DRAFT
 
 ## B4.5.48.2 Failure conditions
 
@@ -59,7 +58,6 @@ DRAFT
 
 ## B4.5.48.4 Footprint
 
-DRAFT
 
 | ID          | Value       |
 |-------------|-------------|

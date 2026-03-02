@@ -32,7 +32,6 @@ The RMI\_VSMMU\_FEATURES command operates on the following context.
 | features_align | pre: !AddrIsAligned(features_ptr, 0x100) post: result.status == RMI_ERROR_INPUT     |
 | features_pas   | pre: !NonSecureAccessPermitted(features_ptr) post: result.status == RMI_ERROR_INPUT |
 
-DRAFT
 
 ## B4.5.99.2.1 Failure condition ordering
 

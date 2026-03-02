@@ -19,7 +19,7 @@ The RMI\_RTT\_UNPROT\_MAP command may initiate a Stateful RMI Operation.
 | rd     | X1         | 63:0   | Address                    | PA of the RD for the target Realm                                                                                                                                                                                                                                                                                                                                   |
 | base   | X2         | 63:0   | Address                    | Base of the target IPA range                                                                                                                                                                                                                                                                                                                                        |
 | top    | X3         | 63:0   | Address                    | Top of the target IPA range                                                                                                                                                                                                                                                                                                                                         |
-| flags  | X4         | 63:0   | DRAFT RmiRttUnprotMapFlags | Flags                                                                                                                                                                                                                                                                                                                                                               |
+| flags  | X4         | 63:0    RmiRttUnprotMapFlags | Flags                                                                                                                                                                                                                                                                                                                                                               |
 | oaddr  | X5         | 63:0   | RmiAddrSetDesc             | Output address set descriptor. If flags.oaddr_type == RMI_ADDR_TYPE_SINGLE then this describes a contiguous PA range which will be mapped into the target IPA range. If flags.oaddr_type == RMI_ADDR_TYPE_LIST then this is the PA of a Granule that holds an RMI Address List. This describes a list of PA regions which will be mapped into the target IPA range. |
 
 ## B4.5.77.1.2 Context
@@ -54,7 +54,7 @@ Condition
 | top_align      | pre: post:   | !AddrIsRmiGranuleAligned(top) result.status == RMI_ERROR_INPUT                                                                              |
 | size_valid     | pre: post:   | UInt(top) <= UInt(base) result.status == RMI_ERROR_INPUT                                                                                    |
 | ipa_bound      | pre: post:   | AddrIsProtected(base, realm) result.status == RMI_ERROR_INPUT                                                                               |
-| oaddr_type     | pre: post:   | DRAFT (flags.oaddr_type != RMI_ADDR_TYPE_SINGLE && flags.oaddr_type != RMI_ADDR_TYPE_LIST) result.status == RMI_ERROR_INPUT                 |
+| oaddr_type     | pre: post:    (flags.oaddr_type != RMI_ADDR_TYPE_SINGLE && flags.oaddr_type != RMI_ADDR_TYPE_LIST) result.status == RMI_ERROR_INPUT                 |
 | oaddr_align    | pre: post:   | (flags.oaddr_type == RMI_ADDR_TYPE_LIST && !AddrIsAligned(oaddr.data.list_addr.addr, 8)) result.status == RMI_ERROR_INPUT                   |
 | oaddr_list_pas | pre: post:   | (flags.oaddr_type == RMI_ADDR_TYPE_LIST && !NonSecureAccessPermitted( oaddr.data.list_addr.addr)) result.status == RMI_ERROR_INPUT          |
 | rtte_state     | pre: post:   | walk.rtte.state != RTTE_UNMAPPED_NS (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level)                               |
@@ -79,5 +79,5 @@ state post: RttTreeRangeAllState( realm, RMM_RTT_TREE_PRIMARY, base, out_top, RT
 The RMI\_RTT\_UNPROT\_MAP command does not have any footprint.
 
 ```
-DRAFT RmiAddrRangeDescDecode(oaddr.data.single).base,
+RmiAddrRangeDescDecode(oaddr.data.single).base,
 ```

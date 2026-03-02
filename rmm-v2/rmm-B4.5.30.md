@@ -31,7 +31,6 @@ The RMI\_PDEV\_MEC\_REFRESH command operates on the following context.
 |--------|------------|--------|-----------|----------------|
 | result | X0         | 63:0   | RmiResult | Command result |
 
-DRAFT
 
 ## B4.5.30.2 Failure conditions
 
@@ -61,7 +60,6 @@ comm_state pre: pdev.comm_state != DEV_COMM_IDLE post: result.status == RMI_ERRO
 
 <!-- image -->
 
-DRAFT
 
 ## B4.5.30.3 Success conditions
 

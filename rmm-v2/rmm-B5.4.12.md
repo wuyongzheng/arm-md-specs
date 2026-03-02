@@ -31,7 +31,6 @@ The RSI\_MEM\_SET\_PERM\_VALUE command operates on the following context.
 |--------|------------|--------|----------------------|----------------|
 | result | X0         | 63:0   | RsiCommandReturnCode | Command result |
 
-DRAFT
 
 ## B5.4.12.2 Failure conditions
 

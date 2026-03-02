@@ -34,7 +34,6 @@ Following execution of PSCI\_SYSTEM\_OFF, control does not return to the caller.
 
 ## B6.3.6.2 Failure conditions
 
-DRAFT
 
 The PSCI\_SYSTEM\_OFF command does not have any failure conditions.
 

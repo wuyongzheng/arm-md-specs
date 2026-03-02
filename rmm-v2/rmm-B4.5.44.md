@@ -30,7 +30,6 @@ The RMI\_PSMMU\_ST\_L2\_DESTROY command operates on the following context.
 | psmmu  | RmmPsmmu PsmmuAt(psmmu_ptr)                   | false    | PSMMU                             |
 | walk   | RmmPsmmuStWalkResult PsmmuStWalk( psmmu, sid) | false    | Result of PSMMU Stream Table walk |
 
-DRAFT
 
 ## B4.5.44.1.3 Output values
 
@@ -68,4 +67,3 @@ The RMI\_PSMMU\_ST\_L2\_DESTROY command does not have any failure condition orde
 | ID        | Value                                          |
 | ste_state | walk.ste.state                                 |
 
-DRAFT

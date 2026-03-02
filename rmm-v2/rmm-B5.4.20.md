@@ -18,7 +18,7 @@ See also:
 | meas_nonce_1   | X3         | 63:0   | UInt64       | For device 1, GET_MEASUREMENT request sequence number                   |
 | report_nonce_1 | X4         | 63:0   | UInt64       | For device 1, GET_INTERFACE_REPORT request sequence number              |
 | vdev_id_2      | X5         | 63:0   | Bits64       | Realm device identifier 2                                               |
-| lock_nonce_2   | X6         | 63:0   | DRAFT UInt64 | For device 2, nonce generated on most recent transition to LOCKED state |
+| lock_nonce_2   | X6         | 63:0    UInt64 | For device 2, nonce generated on most recent transition to LOCKED state |
 | meas_nonce_2   | X7         | 63:0   | UInt64       | For device 2, GET_MEASUREMENT request sequence number                   |
 | report_nonce_2 | X8         | 63:0   | UInt64       | For device 2, GET_INTERFACE_REPORT request sequence number              |
 
@@ -52,7 +52,6 @@ ID Condition da_en pre: realm.feat_da != FEATURE_TRUE post: result == RSI_ERROR_
 
 <!-- image -->
 
-DRAFT
 
 ## B5.4.20.3 Success conditions
 

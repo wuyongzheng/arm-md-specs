@@ -29,7 +29,6 @@ The RMM treats all target power states as suspend requests, and therefore the en
 
 The PSCI\_CPU\_SUSPEND command does not have any output values.
 
-DRAFT
 
 Following execution of PSCI\_CPU\_SUSPEND, control does not return to the caller.
 

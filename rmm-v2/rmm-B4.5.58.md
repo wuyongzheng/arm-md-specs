@@ -33,7 +33,6 @@ The RMI\_RTT\_AUX\_DESTROY command operates on the following context.
 | entry_idx | UInt64           | RttEntryIndex( ipa, walk.level)                               | false    | RTTE index                                                                   |
 | walk_top  | Address          | RttSkipNonLiveEntries( RttAt(walk.rtt_addr), walk.level, ipa) | false    | Top IPA of non-live RTT entries, from entry at which the RTT walk terminated |
 
-DRAFT
 
 ## B4.5.58.1.3 Output values
 
@@ -53,7 +52,7 @@ ID
 Condition
 
 ```
-DRAFT rd_align pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPUT rd_bound pre: !PaIsTracked(rd) post: result.status == RMI_ERROR_INPUT rd_state pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_INPUT level_bound pre: (!RttLevelIsValid(realm, level) || RttLevelIsStarting(realm, level)) post: result.status == RMI_ERROR_INPUT ipa_align pre: !AddrIsRttLevelAligned(ipa, level -1) post: result.status == RMI_ERROR_INPUT ipa_bound pre: !AddrIsProtected(ipa, realm) post: result.status == RMI_ERROR_INPUT index_bound pre: (realm.rtt_tree_per_plane == FEATURE_FALSE || index == RMM_RTT_TREE_PRIMARY || index > realm.num_aux_planes) post: result.status == RMI_ERROR_INPUT rtt_walk pre: walk.level < level -1 post: (result.status == RMI_ERROR_RTT_AUX && result.data.level.level == && top == walk_top) rtte_state pre: walk.rtte.state != RTTE_TABLE post: (result.status == RMI_ERROR_RTT_AUX && result.data.level.level == && top == walk_top) rtt_live pre: RttIsLive(RttAt(walk.rtte.addr)) post: (result.status == RMI_ERROR_RTT_AUX && result.data.level.level == level && top == ipa)
+rd_align pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPUT rd_bound pre: !PaIsTracked(rd) post: result.status == RMI_ERROR_INPUT rd_state pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_INPUT level_bound pre: (!RttLevelIsValid(realm, level) || RttLevelIsStarting(realm, level)) post: result.status == RMI_ERROR_INPUT ipa_align pre: !AddrIsRttLevelAligned(ipa, level -1) post: result.status == RMI_ERROR_INPUT ipa_bound pre: !AddrIsProtected(ipa, realm) post: result.status == RMI_ERROR_INPUT index_bound pre: (realm.rtt_tree_per_plane == FEATURE_FALSE || index == RMM_RTT_TREE_PRIMARY || index > realm.num_aux_planes) post: result.status == RMI_ERROR_INPUT rtt_walk pre: walk.level < level -1 post: (result.status == RMI_ERROR_RTT_AUX && result.data.level.level == && top == walk_top) rtte_state pre: walk.rtte.state != RTTE_TABLE post: (result.status == RMI_ERROR_RTT_AUX && result.data.level.level == && top == walk_top) rtt_live pre: RttIsLive(RttAt(walk.rtte.addr)) post: (result.status == RMI_ERROR_RTT_AUX && result.data.level.level == level && top == ipa)
 ```
 
 ## B4.5.58.2.1 Failure condition ordering
@@ -113,4 +112,4 @@ GranuleAt(walk.rtte.addr).state == GRAN\_DELEGATED
 | rtt_state | GranuleAt(walk.rtte.addr).state    |
 | rtte      | RttEntry(walk.rtt_addr, entry_idx) |
 
-DRAFT post: walk.rtte.state == RTTE\_AUX\_DESTROYED post: Value GranuleAt(walk.rtte.addr).state RttEntry(walk.rtt\_addr, entry\_idx)
+post: walk.rtte.state == RTTE\_AUX\_DESTROYED post: Value GranuleAt(walk.rtte.addr).state RttEntry(walk.rtt\_addr, entry\_idx)

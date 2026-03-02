@@ -30,7 +30,6 @@ The RSI\_MEM\_SET\_PERM\_INDEX command operates on the following context.
 
 ## B5.4.11.1.3 Output values
 
-DRAFT
 
 | Name       | Register   | Bits   | Type                 | Description                                              |
 |------------|------------|--------|----------------------|----------------------------------------------------------|
@@ -51,7 +50,7 @@ base_align pre: !AddrIsRsiGranuleAligned(base) post: result == RSI_ERROR_INPUT t
 
 ## B5.4.11.2.1 Failure condition ordering
 
-DRAFT The RSI\_MEM\_SET\_PERM\_INDEX command does not have any failure condition orderings. B5.4.11.3 Success conditions ID Condition locked post: realm.overlay\_locked[[perm\_index]] == MEM\_PERM\_LOCKED new\_base post: new\_base == rec.s2ap\_addr response post: response == RecS2APResponseToRsi(rec) new\_handle post: New handle is generated
+The RSI\_MEM\_SET\_PERM\_INDEX command does not have any failure condition orderings. B5.4.11.3 Success conditions ID Condition locked post: realm.overlay\_locked[[perm\_index]] == MEM\_PERM\_LOCKED new\_base post: new\_base == rec.s2ap\_addr response post: response == RecS2APResponseToRsi(rec) new\_handle post: New handle is generated
 
 ## B5.4.11.4 Footprint
 

@@ -31,7 +31,6 @@ The RMI\_CMEM\_CREATE command operates on the following context.
 | cmem   | RmmCmem       | CmemAt(cmem_ptr) | false    | CMEM           |
 | params | RmiCmemParams | RmiCmemParamsAt( | false    | CMEMparameters |
 
-DRAFT
 
 ## B4.5.3.1.3 Output values
 
@@ -65,7 +64,6 @@ cmem_state pre: GranuleAt(cmem_ptr).state != GRAN_DELEGATED post: result.status 
 
 ## B4.5.3.3 Success conditions
 
-DRAFT
 
 ```
 ID Condition gran_state post: GranuleAt(cmem_ptr).state == GRAN_CMEM chbcr_addr post: cmem.chbcr_addr == params.chbcr_addr hb_hdm_id post: cmem.hb_hdm_id == params.hb_hdm_id addr_range post: RmiAddrRangesEqual(cmem.addr_range, params.addr_range) ilv_gran post: cmem.ilv_gran == params.ilv_gran ilv_ways post: cmem.ilv_ways == params.ilv_ways state post: cmem.state == CMEM_STOPPED num_pdevs post: CmemNumPdevs(cmem) == 0 hb_hdm_dec post: !HdmDecoderIsFree(cmem, params.hb_hdm_id) hb_addr_range post: !HdmAddressRangeIsFree(cmem, params.addr_range)

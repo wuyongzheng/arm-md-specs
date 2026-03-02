@@ -39,7 +39,6 @@ The RMI\_RTT\_DEV\_VALIDATE command operates on the following context.
 | walk         | RmmRttWalkResult | RttWalk( realm, base, RMM_RTT_PAGE_LEVEL, RMM_RTT_TREE_PRIMARY)              | false    | RTT walk result                                                                                             |
 | walk_top_pre | Address          | RttSkipEntriesWithRipas( RttAt(walk.rtt_addr), walk.level, base, top, FALSE) | true     | Top IPA of entries which have associated RIPAS values, starting from entry at which the RTT walk terminated |
 
-DRAFT
 
 ## B4.5.71.1.3 Output values
 
@@ -60,7 +59,7 @@ The out\_top output value is valid only when the command result is RMI\_SUCCESS.
 | rd_state        | pre: post:   | GranuleAt(rd).state != GRAN_RD result.status == RMI_ERROR_INPUT             |
 | rec_align       | pre: post:   | !AddrIsRmiGranuleAligned(rec_ptr) result.status == RMI_ERROR_INPUT          |
 | rec_bound       | pre: post:   | !PaIsTracked(rec_ptr) result.status == RMI_ERROR_INPUT                      |
-| rec_gran_state  | pre: post:   | DRAFT GranuleAt(rec_ptr).state != GRAN_REC result.status == RMI_ERROR_INPUT |
+| rec_gran_state  | pre: post:    GranuleAt(rec_ptr).state != GRAN_REC result.status == RMI_ERROR_INPUT |
 | rec_state       | pre: post:   | rec.state == REC_RUNNING result.status == RMI_ERROR_REC                     |
 | rec_owner       | pre: post:   | rec.owner != rd result.status == RMI_ERROR_REC                              |
 | pdev_align      | pre: post:   | !AddrIsRmiGranuleAligned(pdev_ptr) result.status == RMI_ERROR_INPUT         |
@@ -78,7 +77,7 @@ ID Condition
 ```
 
 ```
-DRAFT top_bound pre: UInt(top) > UInt(rec.dev_mem_top) post: result.status == RMI_ERROR_INPUT base_align pre: !AddrIsRttLevelAligned(base, walk.level) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) top_gran_align pre: !AddrIsRmiGranuleAligned(top) post: result.status == RMI_ERROR_INPUT no_progress pre: UInt(base) == UInt(walk_top_pre) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) ncoh_attr pre: (rec.dev_mem_flags.coh == DEV_MEM_NON_COHERENT && !RttEntriesInRangeMemAttr( RttAt(walk.rtt_addr), walk.level, base, walk_top_pre, MEMATTR_NON_CACHEABLE)) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) ncoh_pa pre: (rec.dev_mem_flags.coh == DEV_MEM_NON_COHERENT && !RttEntriesInRangeNonCohDevMem( RttAt(walk.rtt_addr), walk.level, base, walk_top_pre)) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) coh_attr pre: (rec.dev_mem_flags.coh == DEV_MEM_COHERENT && !RttEntriesInRangeMemAttr( RttAt(walk.rtt_addr), walk.level, base, walk_top_pre, MEMATTR_PASSTHROUGH)) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) coh_pa pre: (rec.dev_mem_flags.coh == DEV_MEM_COHERENT && !RttEntriesInRangeCohDevMem( RttAt(walk.rtt_addr), walk.level, base, walk_top_pre)) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) linear_map pre: !RttEntriesInRangeOutputContiguous( RttAt(walk.rtt_addr), walk.level, base, walk_top_pre, rec.dev_mem_pa) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) aux_live pre: AddrRangeIsAuxLive(base, top, realm_pre) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level)
+top_bound pre: UInt(top) > UInt(rec.dev_mem_top) post: result.status == RMI_ERROR_INPUT base_align pre: !AddrIsRttLevelAligned(base, walk.level) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) top_gran_align pre: !AddrIsRmiGranuleAligned(top) post: result.status == RMI_ERROR_INPUT no_progress pre: UInt(base) == UInt(walk_top_pre) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) ncoh_attr pre: (rec.dev_mem_flags.coh == DEV_MEM_NON_COHERENT && !RttEntriesInRangeMemAttr( RttAt(walk.rtt_addr), walk.level, base, walk_top_pre, MEMATTR_NON_CACHEABLE)) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) ncoh_pa pre: (rec.dev_mem_flags.coh == DEV_MEM_NON_COHERENT && !RttEntriesInRangeNonCohDevMem( RttAt(walk.rtt_addr), walk.level, base, walk_top_pre)) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) coh_attr pre: (rec.dev_mem_flags.coh == DEV_MEM_COHERENT && !RttEntriesInRangeMemAttr( RttAt(walk.rtt_addr), walk.level, base, walk_top_pre, MEMATTR_PASSTHROUGH)) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) coh_pa pre: (rec.dev_mem_flags.coh == DEV_MEM_COHERENT && !RttEntriesInRangeCohDevMem( RttAt(walk.rtt_addr), walk.level, base, walk_top_pre)) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) linear_map pre: !RttEntriesInRangeOutputContiguous( RttAt(walk.rtt_addr), walk.level, base, walk_top_pre, rec.dev_mem_pa) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) aux_live pre: AddrRangeIsAuxLive(base, top, realm_pre) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level)
 ```
 
 ## B4.5.71.2.1 Failure condition ordering
@@ -111,5 +110,5 @@ rtte_ripas post: RttEntriesInRangeRipas( RttAt(walk.rtt_addr), walk.level, base,
 | dev_mem_pa   | rec.dev_mem_pa         |
 
 ```
-DRAFT UInt(base)))
+UInt(base)))
 ```

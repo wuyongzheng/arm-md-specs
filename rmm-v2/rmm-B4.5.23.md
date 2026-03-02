@@ -27,7 +27,6 @@ The contents of the RMI Address List are not modified by execution of RMI\_OP\_M
 | donated_count | X1         | 63:0   | UInt64            | Number of Granules consumed from RMI Address List                                                            |
 | donate_req    | X2         | 63:0   | RmiOpMemDonateReq | Memory donation requirements RES0 unless result.status == RMI_INCOMPLETE and result.mem == RMI_OP_MEM_DONATE |
 
-DRAFT
 
 ## B4.5.23.2 Failure conditions
 
@@ -39,7 +38,6 @@ DRAFT
 | mem_gt     | pre: Amount of memory described by RMI Address List is greater than amount required by the RMI operation. post: result.status == RMI_ERROR_INPUT |
 | mem_contig | pre: Memory described by RMI Address List does not meet contiguity requirement. post: result.status == RMI_ERROR_INPUT                           |
 
-IPMFDY
 
 | ID        | Condition                                                                                                                   |
 |-----------|-----------------------------------------------------------------------------------------------------------------------------|
@@ -60,4 +58,3 @@ The RMI\_OP\_MEM\_DONATE command does not have any failure condition orderings.
 
 The RMI\_OP\_MEM\_DONATE command does not have any footprint.
 
-DRAFT

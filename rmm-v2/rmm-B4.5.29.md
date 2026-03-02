@@ -30,7 +30,6 @@ The RMI\_PDEV\_GET\_STATE command operates on the following context.
 | result | X0         | 63:0   | RmiResult    | Command result |
 | state  | X1         | 7:0    | RmiPdevState | PDEV state     |
 
-DRAFT
 
 The following unused bits of RMI\_PDEV\_GET\_STATE output values MBZ: X1[63:8].
 
@@ -63,4 +62,3 @@ post: Equal(state, pdev.state)
 
 The RMI\_PDEV\_GET\_STATE command does not have any footprint.
 
-DRAFT

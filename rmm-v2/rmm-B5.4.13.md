@@ -27,7 +27,6 @@ The RSI\_PLANE\_ENTER command operates on the following context.
 | run    | RsiPlaneRun               | RsiPlaneRunAt( false | PlaneRun object |
 | walk   | RmmRttWalkResult RttWalk( | false                | RTT walk result |
 
-DRAFT
 
 ## B5.4.13.1.3 Output values
 
@@ -65,4 +64,3 @@ The RSI\_PLANE\_ENTER command does not have any failure condition orderings.
 
 The RSI\_PLANE\_ENTER command does not have any footprint.
 
-DRAFT

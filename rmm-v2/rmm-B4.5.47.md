@@ -28,7 +28,6 @@ The RMI\_REALM\_DESTROY command operates on the following context.
 
 <!-- image -->
 
-DRAFT
 
 | Name      | Type      | Value       | Before   | Description     |
 |-----------|-----------|-------------|----------|-----------------|
@@ -73,7 +72,6 @@ rd_state pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_IN
 
 ## Condition
 
-DRAFT
 
 ID
 

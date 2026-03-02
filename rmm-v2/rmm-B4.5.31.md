@@ -31,7 +31,6 @@ The RMI\_PDEV\_SET\_PUBKEY command operates on the following context.
 |--------|------------|--------|-----------|----------------|
 | result | X0         | 63:0   | RmiResult | Command result |
 
-DRAFT
 
 ## B4.5.31.2 Failure conditions
 
@@ -66,7 +65,7 @@ ID
 ## B4.5.31.3 Success conditions
 
 ```
-DRAFT params_align, metadata_len_oflow,
+params_align, metadata_len_oflow,
 ```
 
 ## Condition

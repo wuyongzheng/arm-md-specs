@@ -15,4 +15,3 @@ See also:
 - B4.5.38 RMI\_PSCI\_COMPLETE command
 - B6.3.3 PSCI\_CPU\_ON command
 
-DRAFT
