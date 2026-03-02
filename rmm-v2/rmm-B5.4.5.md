@@ -1,0 +1,58 @@
+## B5.4.5 RSI\_HOST\_CALL command
+
+Make a Host call.
+
+See also:
+
+- A4.5 Host call
+- A5.2.4 RSI command access to a Protected IPA
+
+## B5.4.5.1 Interface
+
+## B5.4.5.1.1 Input values
+
+| Name   | Register   | Bits   | Type    | Description                         |
+|--------|------------|--------|---------|-------------------------------------|
+| fid    | X0         | 63:0   | UInt64  | FID, value 0xC4000199               |
+| addr   | X1         | 63:0   | Address | IPA of the Host call data structure |
+
+## B5.4.5.1.2 Context
+
+The RSI\_HOST\_CALL command operates on the following context.
+
+| Name   | Type Value                                                                                   | Before   | Description              |
+|--------|----------------------------------------------------------------------------------------------|----------|--------------------------|
+| realm  | RmmRealm CurrentRealm()                                                                      | false    | Current Realm            |
+| rec    | RmmRec CurrentRec()                                                                          | false    | Current REC              |
+| data   | DRAFT RsiHostCall RsiHostCallAt(addr) realm, addr, RMM_RTT_PAGE_LEVEL, RMM_RTT_TREE_PRIMARY) | false    | Host call data structure |
+| walk   | RmmRttWalkResult RttWalk(                                                                    | false    | RTT walk result          |
+
+## B5.4.5.1.3 Output values
+
+| Name   | Register   | Bits   | Type                 | Description    |
+|--------|------------|--------|----------------------|----------------|
+| result | X0         | 63:0   | RsiCommandReturnCode | Command result |
+
+## B5.4.5.2 Failure conditions
+
+| ID         | Condition                                                           |
+|------------|---------------------------------------------------------------------|
+| addr_align | pre: !AddrIsAligned(addr, 256) post: result == RSI_ERROR_INPUT      |
+| addr_bound | pre: !AddrIsProtected(addr, realm) post: result == RSI_ERROR_INPUT  |
+| addr_empty | pre: walk.rtte.ripas == RIPAS_EMPTY post: result == RSI_ERROR_INPUT |
+
+## B5.4.5.2.1 Failure condition ordering
+
+The RSI\_HOST\_CALL command does not have any failure condition orderings.
+
+## B5.4.5.3 Success conditions
+
+The RSI\_HOST\_CALL command does not have any success conditions.
+
+## B5.4.5.4 Footprint
+
+| ID   | Value     |
+|------|-----------|
+| gprs | data.gprs |
+
+<!-- image -->

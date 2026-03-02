@@ -1,0 +1,63 @@
+## B5.4.20 RSI\_VDEV\_P2P\_BIND command
+
+Creates a P2P binding between two VDEVs.
+
+See also:
+
+- A9.10 Peer-to-peer device communication
+
+## B5.4.20.1 Interface
+
+## B5.4.20.1.1 Input values
+
+| Name           | Register   | Bits   | Type         | Description                                                             |
+|----------------|------------|--------|--------------|-------------------------------------------------------------------------|
+| fid            | X0         | 63:0   | UInt64       | FID, value 0xC400019E                                                   |
+| vdev_id_1      | X1         | 63:0   | Bits64       | Realm device identifier 1                                               |
+| lock_nonce_1   | X2         | 63:0   | UInt64       | For device 1, nonce generated on most recent transition to LOCKED state |
+| meas_nonce_1   | X3         | 63:0   | UInt64       | For device 1, GET_MEASUREMENT request sequence number                   |
+| report_nonce_1 | X4         | 63:0   | UInt64       | For device 1, GET_INTERFACE_REPORT request sequence number              |
+| vdev_id_2      | X5         | 63:0   | Bits64       | Realm device identifier 2                                               |
+| lock_nonce_2   | X6         | 63:0   | DRAFT UInt64 | For device 2, nonce generated on most recent transition to LOCKED state |
+| meas_nonce_2   | X7         | 63:0   | UInt64       | For device 2, GET_MEASUREMENT request sequence number                   |
+| report_nonce_2 | X8         | 63:0   | UInt64       | For device 2, GET_INTERFACE_REPORT request sequence number              |
+
+## B5.4.20.1.2 Context
+
+The RSI\_VDEV\_P2P\_BIND command operates on the following context.
+
+| Name   | Type     | Value                             | Before   | Description       |
+|--------|----------|-----------------------------------|----------|-------------------|
+| realm  | RmmRealm | CurrentRealm()                    | false    | Current Realm     |
+| vdev_1 | RmmVdev  | VdevFromVdevId( realm, vdev_id_1) | false    | Realm device 1    |
+| pdev_1 | RmmPdev  | PdevAt(vdev_1.pdev)               | false    | Physical device 1 |
+| vdev_2 | RmmVdev  | VdevFromVdevId( realm, vdev_id_2) | false    | Realm device 2    |
+| pdev_2 | RmmPdev  | PdevAt(vdev_2.pdev)               | false    | Physical device 2 |
+
+## B5.4.20.1.3 Output values
+
+| Name   | Register   | Bits   | Type                 | Description    |
+|--------|------------|--------|----------------------|----------------|
+| result | X0         | 63:0   | RsiCommandReturnCode | Command result |
+
+## B5.4.20.2 Failure conditions
+
+```
+ID Condition da_en pre: realm.feat_da != FEATURE_TRUE post: result == RSI_ERROR_STATE vdev_id_1 pre: VdevIdIsFree(realm, vdev_id_1) post: result == RSI_ERROR_INPUT vdev_id_2 pre: VdevIdIsFree(realm, vdev_id_2) post: result == RSI_ERROR_INPUT p2p_stream_exis ts pre: PdevStreamFromType( pdev_1, pdev_2, PDEV_STREAM_NCOH_P2P).valid != RMM_TRUE post: result == RSI_ERROR_INPUT
+```
+
+## B5.4.20.2.1 Failure condition ordering
+
+[da\_en] &lt; [vdev\_id\_1, vdev\_id\_2, p2p\_stream\_exists]
+
+<!-- image -->
+
+DRAFT
+
+## B5.4.20.3 Success conditions
+
+The RSI\_VDEV\_P2P\_BIND command does not have any success conditions.
+
+## B5.4.20.4 Footprint
+
+The RSI\_VDEV\_P2P\_BIND command does not have any footprint.

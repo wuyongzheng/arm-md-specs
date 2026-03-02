@@ -1,0 +1,210 @@
+2	54	A1 Overview
+2	57	A2 Concepts
+3	58	A2.1 RMM
+3	60	A2.2 Realm
+3	66	A2.3 Physical memory
+3	78	A2.4 Realm Execution Context
+2	82	A3 Feature discovery and configuration
+2	89	A4 Realm exception model
+3	90	A4.1 Realm exception model overview
+3	92	A4.2 REC entry
+3	94	A4.3 REC exit
+3	105	A4.4 Emulated Data Aborts
+2	106	A5 Realm memory management
+3	107	A5.1 Realm memory management overview
+3	113	A5.3 Host view of memory management
+3	131	A5.4 RIPAS change
+3	134	A5.5 VDEV mapping validation
+3	136	A5.6 Realm Translation Table
+2	146	A6 Realm interrupts and timers
+3	148	A6.1 Realm interrupts
+3	149	A6.2 Realm timers
+2	151	A7 Realm measurement and attestation
+3	152	A7.1 Realm measurements
+3	154	A7.2 Realm attestation
+5	159	A7.2.3.1 Realm claims
+5	168	A7.2.3.2 CCA device claims
+5	172	A7.2.3.3 CCA platform claims
+2	185	A8 Realm debug and performance monitoring
+3	189	A9.1 Realm device assignment overview
+3	194	A9.2 Physical device object
+3	203	A9.3 Physical device stream object
+3	211	A9.4 Virtual device object
+3	220	A9.5 Communication between RMM and a device
+3	233	A9.6 Realm management of an assigned virtual device
+3	238	A9.7 Physical SMMU
+3	242	A9.8 Virtual SMMU
+3	252	A9.9 Device memory access
+3	253	A9.10 Peer-to-peer device communication
+3	260	A9.11 Coherent memory devices
+3	267	A10.1 Planes overview
+3	268	A10.2 Planes exception model
+3	273	A10.3 Planes memory management
+3	278	A10.4 Planes interrupts
+3	279	A10.5 Planes timers
+3	280	A10.6 Planes debug and performance monitoring
+2	281	A11 Realm memory encryption
+2	286	B1 Commands
+3	287	B1.1 Overview
+3	288	B1.2 Command definition
+3	294	B1.10 Command testing
+2	295	B2 Interface versioning
+2	298	B3 Command condition functions
+2	359	B4 Realm Management Interface
+3	360	B4.1 RMI version
+3	361	B4.2 RMI command return codes
+3	363	B4.3 RMI operations
+3	378	B4.5 RMI commands
+4	381	B4.5.1 RMI_ATTEST_PLAT_TOKEN_REFRESH command
+4	382	B4.5.2 RMI_CMEM_ADD_PDEV command
+4	385	B4.5.3 RMI_CMEM_CREATE command
+4	388	B4.5.4 RMI_CMEM_DESTROY command
+4	390	B4.5.5 RMI_CMEM_POPULATE command
+4	392	B4.5.6 RMI_CMEM_REMOVE_PDEV command
+4	394	B4.5.7 RMI_CMEM_START command
+4	396	B4.5.8 RMI_CMEM_STOP command
+4	398	B4.5.9 RMI_CMEM_UNPOPULATE command
+4	400	B4.5.10 RMI_DPT_L0_CREATE command
+4	402	B4.5.11 RMI_DPT_L0_DESTROY command
+4	404	B4.5.12 RMI_DPT_L1_CREATE command
+4	406	B4.5.13 RMI_DPT_L1_DESTROY command
+4	408	B4.5.14 RMI_FEATURES command
+4	409	B4.5.15 RMI_GPT_L1_CREATE command
+4	411	B4.5.16 RMI_GPT_L1_DESTROY command
+4	413	B4.5.17 RMI_GRANULE_RANGE_DELEGATE command
+4	415	B4.5.18 RMI_GRANULE_RANGE_UNDELEGATE command
+4	417	B4.5.19 RMI_GRANULE_TRACKING_GET command
+4	419	B4.5.20 RMI_GRANULE_TRACKING_SET command
+4	421	B4.5.21 RMI_OP_CANCEL command
+4	422	B4.5.22 RMI_OP_CONTINUE command
+4	424	B4.5.23 RMI_OP_MEM_DONATE command
+4	426	B4.5.24 RMI_OP_MEM_RECLAIM command
+4	427	B4.5.25 RMI_PDEV_ABORT command
+4	429	B4.5.26 RMI_PDEV_COMMUNICATE command
+4	432	B4.5.27 RMI_PDEV_CREATE command
+4	435	B4.5.28 RMI_PDEV_DESTROY command
+4	437	B4.5.29 RMI_PDEV_GET_STATE command
+4	439	B4.5.30 RMI_PDEV_MEC_REFRESH command
+4	441	B4.5.31 RMI_PDEV_SET_PUBKEY command
+4	443	B4.5.32 RMI_PDEV_STOP command
+4	445	B4.5.33 RMI_PDEV_STREAM_COMPLETE command
+4	448	B4.5.34 RMI_PDEV_STREAM_CONNECT command
+4	451	B4.5.35 RMI_PDEV_STREAM_DISCONNECT command
+4	453	B4.5.36 RMI_PDEV_STREAM_KEY_PURGE command
+4	456	B4.5.37 RMI_PDEV_STREAM_KEY_REFRESH command
+4	459	B4.5.38 RMI_PSCI_COMPLETE command
+4	463	B4.5.39 RMI_PSMMU_ACTIVATE command
+4	466	B4.5.40 RMI_PSMMU_DEACTIVATE command
+4	468	B4.5.41 RMI_PSMMU_EVENT_DISCARD command
+4	469	B4.5.42 RMI_PSMMU_IRQ_NOTIFY command
+4	471	B4.5.43 RMI_PSMMU_ST_L2_CREATE command
+4	473	B4.5.44 RMI_PSMMU_ST_L2_DESTROY command
+4	475	B4.5.45 RMI_REALM_ACTIVATE command
+4	477	B4.5.46 RMI_REALM_CREATE command
+4	481	B4.5.47 RMI_REALM_DESTROY command
+4	483	B4.5.48 RMI_REALM_TERMINATE command
+4	485	B4.5.49 RMI_REC_CREATE command
+4	489	B4.5.50 RMI_REC_DESTROY command
+4	491	B4.5.51 RMI_REC_ENTER command
+4	493	B4.5.52 RMI_RMM_ACTIVATE command
+4	494	B4.5.53 RMI_RMM_CONFIG_GET command
+4	496	B4.5.54 RMI_RMM_CONFIG_SET command
+4	498	B4.5.55 RMI_RTT_ARCH_DEV_MAP command
+4	501	B4.5.56 RMI_RTT_ARCH_DEV_UNMAP command
+4	504	B4.5.57 RMI_RTT_AUX_CREATE command
+4	507	B4.5.58 RMI_RTT_AUX_DESTROY command
+4	510	B4.5.59 RMI_RTT_AUX_FOLD command
+4	513	B4.5.60 RMI_RTT_AUX_PROT_MAP command
+4	516	B4.5.61 RMI_RTT_AUX_PROT_UNMAP command
+4	519	B4.5.62 RMI_RTT_AUX_UNPROT_MAP command
+4	522	B4.5.63 RMI_RTT_AUX_UNPROT_UNMAP command
+4	525	B4.5.64 RMI_RTT_CREATE command
+4	528	B4.5.65 RMI_RTT_DATA_MAP command
+4	532	B4.5.66 RMI_RTT_DATA_MAP_INIT command
+4	536	B4.5.67 RMI_RTT_DATA_UNMAP command
+4	540	B4.5.68 RMI_RTT_DESTROY command
+4	544	B4.5.69 RMI_RTT_DEV_MAP command
+4	548	B4.5.70 RMI_RTT_DEV_UNMAP command
+4	552	B4.5.71 RMI_RTT_DEV_VALIDATE command
+4	556	B4.5.72 RMI_RTT_FOLD command
+4	559	B4.5.73 RMI_RTT_INIT_RIPAS command
+4	562	B4.5.74 RMI_RTT_READ_ENTRY command
+4	565	B4.5.75 RMI_RTT_SET_RIPAS command
+4	568	B4.5.76 RMI_RTT_SET_S2AP command
+4	571	B4.5.77 RMI_RTT_UNPROT_MAP command
+4	574	B4.5.78 RMI_RTT_UNPROT_UNMAP command
+4	577	B4.5.79 RMI_VDEV_ABORT command
+4	580	B4.5.80 RMI_VDEV_COMMUNICATE command
+4	584	B4.5.81 RMI_VDEV_COMPLETE command
+4	586	B4.5.82 RMI_VDEV_CREATE command
+4	591	B4.5.83 RMI_VDEV_DESTROY command
+4	594	B4.5.84 RMI_VDEV_GET_INTERFACE_REPORT command
+4	597	B4.5.85 RMI_VDEV_GET_MEASUREMENTS command
+4	600	B4.5.86 RMI_VDEV_GET_STATE command
+4	602	B4.5.87 RMI_VDEV_LOCK command
+4	605	B4.5.88 RMI_VDEV_P2P_BIND command
+4	609	B4.5.89 RMI_VDEV_P2P_UNBIND command
+4	613	B4.5.90 RMI_VDEV_START command
+4	616	B4.5.91 RMI_VDEV_UNLOCK command
+4	619	B4.5.92 RMI_VERSION command
+4	621	B4.5.93 RMI_VSMMU_CMD_COMPLETE command
+4	624	B4.5.94 RMI_VSMMU_CMD_GET command
+4	626	B4.5.95 RMI_VSMMU_CREATE command
+4	629	B4.5.96 RMI_VSMMU_DESTROY command
+4	631	B4.5.97 RMI_VSMMU_EVENT_COMPLETE command
+4	633	B4.5.98 RMI_VSMMU_EVENT_NOTIFY command
+4	636	B4.5.99 RMI_VSMMU_FEATURES command
+3	637	B4.6 RMI types
+2	698	B5 Realm Services Interface
+3	699	B5.1 RSI version
+3	702	B5.4 RSI commands
+4	703	B5.4.1 RSI_ARCH_DEV_ACTIVATE command
+4	705	B5.4.2 RSI_ATTESTATION_TOKEN_CONTINUE command
+4	707	B5.4.3 RSI_ATTESTATION_TOKEN_INIT command
+4	709	B5.4.4 RSI_FEATURES command
+4	710	B5.4.5 RSI_HOST_CALL command
+4	712	B5.4.6 RSI_IPA_STATE_GET command
+4	714	B5.4.7 RSI_IPA_STATE_SET command
+4	716	B5.4.8 RSI_MEASUREMENT_EXTEND command
+4	718	B5.4.9 RSI_MEASUREMENT_READ command
+4	720	B5.4.10 RSI_MEM_GET_PERM_VALUE command
+4	722	B5.4.11 RSI_MEM_SET_PERM_INDEX command
+4	724	B5.4.12 RSI_MEM_SET_PERM_VALUE command
+4	726	B5.4.13 RSI_PLANE_ENTER command
+4	728	B5.4.14 RSI_PLANE_SYSREG_READ command
+4	730	B5.4.15 RSI_PLANE_SYSREG_WRITE command
+4	732	B5.4.16 RSI_REALM_CONFIG command
+4	734	B5.4.17 RSI_VDEV_DMA_DISABLE command
+4	736	B5.4.18 RSI_VDEV_DMA_ENABLE command
+4	738	B5.4.19 RSI_VDEV_GET_INFO command
+4	741	B5.4.20 RSI_VDEV_P2P_BIND command
+4	743	B5.4.21 RSI_VDEV_VALIDATE_MAPPING command
+4	746	B5.4.22 RSI_VERSION command
+4	748	B5.4.23 RSI_VSMMU_GET_INFO command
+3	750	B5.5 RSI types
+2	767	B6 Power State Control Interface
+3	768	B6.1 PSCI overview
+3	769	B6.3 PSCI commands
+4	770	B6.3.1 PSCI_AFFINITY_INFO command
+4	772	B6.3.2 PSCI_CPU_OFF command
+4	773	B6.3.3 PSCI_CPU_ON command
+4	775	B6.3.4 PSCI_CPU_SUSPEND command
+4	776	B6.3.5 PSCI_FEATURES command
+4	777	B6.3.6 PSCI_SYSTEM_OFF command
+4	778	B6.3.7 PSCI_SYSTEM_RESET command
+4	779	B6.3.8 PSCI_VERSION command
+3	780	B6.4 PSCI types
+2	783	C1 RMM constants
+2	784	C2 RMM types
+2	823	C3 Generic types
+2	826	D1 Flows
+3	827	D1.1 Granule delegation flows
+3	829	D1.2 Realm lifecycle flows
+3	837	D1.3 Realm exception model flows
+3	841	D1.4 PSCI flows
+3	844	D1.5 Realm memory management flows
+3	847	D1.6 Realm interrupts and timers flows
+3	849	D1.7 Realm attestation flows
+3	852	D1.8 Realm device assignment flows
+2	853	D2 Realm shared memory protocol
+2	856	Glossary

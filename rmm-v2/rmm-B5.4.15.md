@@ -1,0 +1,71 @@
+## B5.4.15 RSI\_PLANE\_SYSREG\_WRITE command
+
+Write a Plane register.
+
+See also:
+
+- A10.2.6 Pn system registers
+
+## B5.4.15.1 Interface
+
+## B5.4.15.1.1 Input values
+
+| Name       | Register   | Bits   | Type             | Description                            |
+|------------|------------|--------|------------------|----------------------------------------|
+| fid        | X0         | 63:0   | UInt64           | FID, value 0xC40001AF                  |
+| plane_idx  | X1         | 63:0   | UInt64           | Index of target Plane                  |
+| addr       | X2         | 63:0   | RsiSysregAddress | System register address                |
+| value_low  | X3         | 63:0   | Bits64           | Lower 64 bits of system register value |
+| value_high | X4         | 63:0   | Bits64           | Upper 64 bits of system register value |
+
+The encoding value is an architecturally-defined system register encoding.
+
+See also:
+
+- Arm Architecture Reference Manual for A-Profile architecture [3]
+
+## B5.4.15.1.2 Context
+
+The RSI\_PLANE\_SYSREG\_WRITE command operates on the following context.
+
+| Name   | Type     | Value          | Before   | Description   |
+|--------|----------|----------------|----------|---------------|
+| realm  | RmmRealm | CurrentRealm() | false    | Current Realm |
+| rec    | RmmRec   | CurrentRec()   | false    | Current REC   |
+
+DRAFT
+
+## B5.4.15.1.3 Output values
+
+| Name   | Register   | Bits   | Type                 | Description    |
+|--------|------------|--------|----------------------|----------------|
+| result | X0         | 63:0   | RsiCommandReturnCode | Command result |
+
+## B5.4.15.2 Failure conditions
+
+| ID           | Condition                                                                    |
+|--------------|------------------------------------------------------------------------------|
+| idx_bound    | pre: plane_idx > realm.num_aux_planes post: result == RSI_ERROR_INPUT        |
+| sysreg_valid | pre: !PlaneSysregValid(rec, addr, RMM_WRITE) post: result == RSI_ERROR_INPUT |
+
+ID
+
+## B5.4.15.2.1 Failure condition ordering
+
+The RSI\_PLANE\_SYSREG\_WRITE command does not have any failure condition orderings.
+
+## B5.4.15.3 Success conditions
+
+## Condition
+
+```
+value_low post: PlaneSysregValue(rec, plane_idx, addr)[63:0] == value_low value_high pre: addr.d128 == RSI_TRUE post: PlaneSysregValue(rec, plane_idx, addr)[127:64] == value_high
+```
+
+## B5.4.15.4 Footprint
+
+| ID          | Value       |
+|-------------|-------------|
+| rec_sysregs | rec.sysregs |
+
+DRAFT
