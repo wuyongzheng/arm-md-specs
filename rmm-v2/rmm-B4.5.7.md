@@ -4,8 +4,8 @@ Start a CMEM.
 
 See also:
 
-- A9.11 Coherent memory devices
-- B4.5.8 RMI\_CMEM\_STOP command
+- [A9.11 Coherent memory devices](rmm-A9.11.md)
+- [B4.5.8 RMI\_CMEM\_STOP command](rmm-B4.5.8.md)
 
 ## B4.5.7.1 Interface
 

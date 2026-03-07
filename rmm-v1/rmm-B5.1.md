@@ -5,8 +5,8 @@ This specification defines version 1.0 of the Realm Services Interface.
 
 See also:
 
-- Chapter B2 Interface versioning
-- B5.3.10 RSI\_VERSION command
+- [Chapter B2 Interface versioning](rmm-B2.md)
+- [B5.3.10 RSI\_VERSION command](rmm-B5.3.10.md)
 
 ## B5.2 RSI command return codes
 
@@ -32,4 +32,4 @@ Invalid encodings include:
 
 See also:
 
-- B5.4.1 RsiCommandReturnCode type
+- [B5.4.1 RsiCommandReturnCode type](rmm-B5.4.md#b541-rsicommandreturncode-type)

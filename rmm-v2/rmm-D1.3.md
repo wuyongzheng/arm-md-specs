@@ -22,9 +22,9 @@ Figure D1.10: Realm entry and exit flow
 ## See also:
 
 - Chapter A4 Realm exception model
-- D1.3.2 Host call flow
-- D1.3.3 REC exit due to Data Abort fault flow
-- D1.3.4 MMIO emulation flow
+- [D1.3.2 Host call flow](rmm-D1.3.md#d132-host-call-flow)
+- [D1.3.3 REC exit due to Data Abort fault flow](rmm-D1.3.md#d133-rec-exit-due-to-data-abort-fault-flow)
+- [D1.3.4 MMIO emulation flow](rmm-D1.3.md#d134-mmio-emulation-flow)
 
 ## D1.3.2 Host call flow
 
@@ -43,7 +43,7 @@ Figure D1.11: Host call flow
 
 See also:
 
-- A4.5 Host call
+- [A4.5 Host call](rmm-A4.4.md#a45-host-call)
 
 ## D1.3.3 REC exit due to Data Abort fault flow
 

@@ -16,7 +16,7 @@ Construction of a Realm, and allocation of resources to a Realm at runtime, are 
 
 See also:
 
-- A2.2 Realm
+- [A2.2 Realm](rmm-A2.2.md)
 
 ## A1.2 System software components
 
@@ -66,7 +66,7 @@ The RMM operates by manipulating data structures which are stored in memory acce
 
 See also:
 
-- Chapter A9 Realm device assignment
+- [Chapter A9 Realm device assignment](rmm-A8.md#chapter-a9-realm-device-assignment)
 - Chapter B4 Realm Management Interface
 - Chapter B5 Realm Services Interface
 - Chapter B6 Power State Control Interface

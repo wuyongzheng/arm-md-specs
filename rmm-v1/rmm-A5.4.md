@@ -65,13 +65,13 @@ Receipt of a rejection for a RIPAS change request whose parameters were valid is
 
 See also:
 
-- A2.3.2 REC attributes
-- A4.2 REC entry
-- A4.3.8 REC exit due to RIPAS change pending
-- A5.2.2 Realm IPA state
-- A7.1.1 Realm Initial Measurement
-- B3.40 RecRipasChangeResponse function
-- B4.3.14 RMI\_REC\_ENTER command
-- B4.3.21 RMI\_RTT\_SET\_RIPAS command
-- B5.3.6 RSI\_IPA\_STATE\_SET command
-- D1.5.3 RIPAS change flow
+- [A2.3.2 REC attributes](rmm-A2.3.md#a232-rec-attributes)
+- [A4.2 REC entry](rmm-A4.2.md)
+- [A4.3.8 REC exit due to RIPAS change pending](rmm-A4.3.md#a438-rec-exit-due-to-ripas-change-pending)
+- [A5.2.2 Realm IPA state](rmm-A5.1.md#a522-realm-ipa-state)
+- [A7.1.1 Realm Initial Measurement](rmm-A7.1.md#a711-realm-initial-measurement)
+- [B3.40 RecRipasChangeResponse function](rmm-B3.md#b340-recripaschangeresponse-function)
+- [B4.3.14 RMI\_REC\_ENTER command](rmm-B4.3.14.md)
+- [B4.3.21 RMI\_RTT\_SET\_RIPAS command](rmm-B4.3.21.md)
+- [B5.3.6 RSI\_IPA\_STATE\_SET command](rmm-B5.3.6.md)
+- [D1.5.3 RIPAS change flow](rmm-D1.5.md#d153-ripas-change-flow)

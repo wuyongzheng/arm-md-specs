@@ -4,9 +4,9 @@ Enter a REC.
 
 See also:
 
-- A2.3 Realm Execution Context
-- Chapter A4 Realm exception model
-- D1.3.1 Realm entry and exit flow
+- [A2.3 Realm Execution Context](rmm-A2.3.md)
+- [Chapter A4 Realm exception model](rmm-A4.md)
+- [D1.3.1 Realm entry and exit flow](rmm-D1.3.md#d131-realm-entry-and-exit-flow)
 
 ## B4.3.14.1 Interface
 
@@ -22,7 +22,7 @@ The number of GICv3 List Register values which can be provided by the Host in Rm
 
 ## See also:
 
-- A3.1.9 Number of GICv3 List Registers
+- [A3.1.9 Number of GICv3 List Registers](rmm-A3.md#a319-number-of-gicv3-list-registers)
 
 ## B4.3.14.1.2 Context
 

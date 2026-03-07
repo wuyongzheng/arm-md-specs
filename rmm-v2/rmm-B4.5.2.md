@@ -4,8 +4,8 @@ Establishes a binding between a CMEM and a PDEV.
 
 See also:
 
-- A9.11 Coherent memory devices
-- B4.5.6 RMI\_CMEM\_REMOVE\_PDEV command
+- [A9.11 Coherent memory devices](rmm-A9.11.md)
+- [B4.5.6 RMI\_CMEM\_REMOVE\_PDEV command](rmm-B4.5.6.md)
 
 ## B4.5.2.1 Interface
 

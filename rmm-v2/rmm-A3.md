@@ -14,13 +14,13 @@ This section describes how the Host discovers features which are supported by th
 
 See also:
 
-- A2.2.6 Realm parameters
-- A7.1.1 Realm Initial Measurement
-- B3.101 RealmParamsSupported function
-- B4.5.14 RMI\_FEATURES command
-- B4.5.46 RMI\_REALM\_CREATE command
-- B5.4.4 RSI\_FEATURES command
-- C2.19 RmmGlobalStatic type
+- [A2.2.6 Realm parameters](rmm-A2.2.md#a226-realm-parameters)
+- [A7.1.1 Realm Initial Measurement](rmm-A7.1.md#a711-realm-initial-measurement)
+- [B3.101 RealmParamsSupported function](rmm-B3.md#b3101-realmparamssupported-function)
+- [B4.5.14 RMI\_FEATURES command](rmm-B4.5.14.md)
+- [B4.5.46 RMI\_REALM\_CREATE command](rmm-B4.5.46.md)
+- [B5.4.4 RSI\_FEATURES command](rmm-B5.4.4.md)
+- [C2.19 RmmGlobalStatic type](rmm-C2.md#c219-rmmglobalstatic-type)
 
 ## A3.2 Realm hash algorithm
 
@@ -32,10 +32,10 @@ See also:
 
 See also:
 
-- A7.1 Realm measurements
-- B3.101 RealmParamsSupported function
-- B4.5.46 RMI\_REALM\_CREATE command
-- B4.6.27 RmiFeatureRegister1 type
+- [A7.1 Realm measurements](rmm-A7.1.md)
+- [B3.101 RealmParamsSupported function](rmm-B3.md#b3101-realmparamssupported-function)
+- [B4.5.46 RMI\_REALM\_CREATE command](rmm-B4.5.46.md)
+- [B4.6.27 RmiFeatureRegister1 type](rmm-B4.6.md#b4627-rmifeatureregister1-type)
 
 ## A3.3 Realm LPA2 and IPA width
 
@@ -58,11 +58,11 @@ See also:
 
 See also:
 
-- A5.2.1 Realm IPA space
-- B3.101 RealmParamsSupported function
-- B4.5.46 RMI\_REALM\_CREATE command
-- B4.6.26 RmiFeatureRegister0 type
-- B5.4.16 RSI\_REALM\_CONFIG command
+- [A5.2.1 Realm IPA space](rmm-A5.1.md#a521-realm-ipa-space)
+- [B3.101 RealmParamsSupported function](rmm-B3.md#b3101-realmparamssupported-function)
+- [B4.5.46 RMI\_REALM\_CREATE command](rmm-B4.5.46.md)
+- [B4.6.26 RmiFeatureRegister0 type](rmm-B4.6.md#b4626-rmifeatureregister0-type)
+- [B5.4.16 RSI\_REALM\_CONFIG command](rmm-B5.4.16.md)
 - A3.4 Realm support for Scalable Vector Extension IKJVLJ Support by the implementation for the Scalable Vector Extension (FEAT\_SVE) is reported by the RMI\_FEATURES command in RmiFeatureRegister1::SVE. IZJSMJ Availability of SVE to a Realm is configured by the Host when calling RMI\_REALM\_CREATE. IVNLNH SVE vector length for a Realm is provided by the Host when calling RMI\_REALM\_CREATE. RFZZDS Providing a larger-than-supported SVE vector length causes execution of RMI\_REALM\_CREATE to fail. This is different from the behaviour of the hardware architecture, in which a larger-than-supported SVE vector length value is silently truncated.
 - The RMI ABI provides a natural mechanism to signal an invalid feature selection, via the return code of RMI\_REALM\_CREATE. The analog in the hardware architecture would be to generate an illegal exception return, which would cause undesirable coupling between two disparate parts of the architecture, namely the exception model and the SVE feature.
 - Providing a larger-than-supported SVE vector length causes execution of RMI\_REALM\_CREATE to fail prepares the architecture for addition of Realm live migration support in future. Assuming that the live migration flow starts with creation of an empty destination Realm, configured identically to the source Realm, this provides a point where the necessary feature support can be checked on the destination platform.
@@ -72,9 +72,9 @@ See also:
 
 See also:
 
-- B3.101 RealmParamsSupported function
-- B4.5.46 RMI\_REALM\_CREATE command
-- B4.6.27 RmiFeatureRegister1 type
+- [B3.101 RealmParamsSupported function](rmm-B3.md#b3101-realmparamssupported-function)
+- [B4.5.46 RMI\_REALM\_CREATE command](rmm-B4.5.46.md)
+- [B4.6.27 RmiFeatureRegister1 type](rmm-B4.6.md#b4627-rmifeatureregister1-type)
 
 ## A3.5 Realm support for self-hosted debug
 
@@ -87,9 +87,9 @@ See also:
 
 See also:
 
-- B3.101 RealmParamsSupported function
-- B4.5.46 RMI\_REALM\_CREATE command
-- B4.6.26 RmiFeatureRegister0 type
+- [B3.101 RealmParamsSupported function](rmm-B3.md#b3101-realmparamssupported-function)
+- [B4.5.46 RMI\_REALM\_CREATE command](rmm-B4.5.46.md)
+- [B4.6.26 RmiFeatureRegister0 type](rmm-B4.6.md#b4626-rmifeatureregister0-type)
 
 ## A3.6 Realm support for Performance Monitors Extension
 
@@ -103,10 +103,10 @@ See also:
 
 See also:
 
-- A8.1 Realm PMU
-- B3.101 RealmParamsSupported function
-- B4.5.46 RMI\_REALM\_CREATE command
-- B4.6.26 RmiFeatureRegister0 type
+- [A8.1 Realm PMU](rmm-A8.md#a81-realm-pmu)
+- [B3.101 RealmParamsSupported function](rmm-B3.md#b3101-realmparamssupported-function)
+- [B4.5.46 RMI\_REALM\_CREATE command](rmm-B4.5.46.md)
+- [B4.6.26 RmiFeatureRegister0 type](rmm-B4.6.md#b4626-rmifeatureregister0-type)
 
 ## A3.7 Realm support for Activity Monitors Extension
 
@@ -138,8 +138,8 @@ The Statistical Profiling Extension (FEAT\_SPE) is not available to a Realm.
 
 See also:
 
-- A9.11 Coherent memory devices
-- B4.6.28 RmiFeatureRegister2 type
+- [A9.11 Coherent memory devices](rmm-A9.11.md)
+- [B4.6.28 RmiFeatureRegister2 type](rmm-B4.6.md#b4628-rmifeatureregister2-type)
 
 
 ## A3.12 Support for auxiliary Planes
@@ -157,13 +157,13 @@ Whether a Realm has an RTT tree per Plane is configured by the Host when calling
 
 ## See also:
 
-- Chapter A10 Planes
+- [Chapter A10 Planes](rmm-A9.11.md#chapter-a10-planes)
 
 
-- B3.101 RealmParamsSupported function
-- B4.5.46 RMI\_REALM\_CREATE command
-- B4.6.29 RmiFeatureRegister3 type
-- C2.19 RmmGlobalStatic type
+- [B3.101 RealmParamsSupported function](rmm-B3.md#b3101-realmparamssupported-function)
+- [B4.5.46 RMI\_REALM\_CREATE command](rmm-B4.5.46.md)
+- [B4.6.29 RmiFeatureRegister3 type](rmm-B4.6.md#b4629-rmifeatureregister3-type)
+- [C2.19 RmmGlobalStatic type](rmm-C2.md#c219-rmmglobalstatic-type)
 
 ## A3.13 Support for Stage 2 Access Permissions indirect encoding
 
@@ -194,9 +194,9 @@ Whether a Realm has an RTT tree per Plane is configured by the Host when calling
 See also:
 
 - Live Firmware Activation SMC Interface [5]
-- A7.2.3.3.8 CCA platform software components claim
-- B4.5.46 RMI\_REALM\_CREATE command
-- B4.6.36 RmiLfaPolicy type
+- [A7.2.3.3.8 CCA platform software components claim](rmm-A7.2.3.3.md#a72338-cca-platform-software-components-claim)
+- [B4.5.46 RMI\_REALM\_CREATE command](rmm-B4.5.46.md)
+- [B4.6.36 RmiLfaPolicy type](rmm-B4.6.md#b4636-rmilfapolicy-type)
 
 ## A3.15 Support for Realm memory encryption
 
@@ -211,7 +211,7 @@ Chapter A3. Feature discovery and configuration A3.15. Support for Realm memory 
 
 See also:
 
-- A7.2.3.1 Realm claims
-- Chapter A11 Realm memory encryption
+- [A7.2.3.1 Realm claims](rmm-A7.2.3.1.md)
+- [Chapter A11 Realm memory encryption](rmm-A11.md)
 
 <!-- image -->

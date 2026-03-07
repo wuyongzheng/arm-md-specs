@@ -4,7 +4,7 @@ Reads an entry from a primary RTT.
 
 See also:
 
-- A5.6 Realm Translation Table
+- [A5.6 Realm Translation Table](rmm-A5.6.md)
 
 ## B4.5.74.1 Interface
 
@@ -45,7 +45,7 @@ The layout and encoding of fields in the desc output value match 'Attribute fiel
 See also:
 
 - Arm Architecture Reference Manual for A-Profile architecture [3]
-- A5.6.12 Memory attributes
+- [A5.6.12 Memory attributes](rmm-A5.6.md#a5612-memory-attributes)
 
 ## B4.5.74.2 Failure conditions
 

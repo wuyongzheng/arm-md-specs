@@ -8,7 +8,7 @@ The following diagram shows how a virtual interrupt is injected into a Realm by 
 
 ## See also:
 
-- A6.1 Realm interrupts
+- [A6.1 Realm interrupts](rmm-A6.1.md)
 
 ## D1.6.2 Timer interrupt delivery flow
 

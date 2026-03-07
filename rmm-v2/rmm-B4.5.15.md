@@ -8,8 +8,8 @@ The RMI\_GPT\_L1\_CREATE command may initiate a memory-transferring RMI Operatio
 
 ## See also:
 
-- A2.3.9 Granule Protection Table management
-- B4.5.16 RMI\_GPT\_L1\_DESTROY command
+- [A2.3.9 Granule Protection Table management](rmm-A2.3.md#a239-granule-protection-table-management)
+- [B4.5.16 RMI\_GPT\_L1\_DESTROY command](rmm-B4.5.16.md)
 
 ## B4.5.15.1 Interface
 

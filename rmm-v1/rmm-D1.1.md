@@ -12,9 +12,9 @@ It is anticipated that the Monitor software will be required to use synchronizat
 
 ## See also:
 
-- A2.2.1 Granule attributes
-- B4.3.5 RMI\_GRANULE\_DELEGATE command
-- D1.1.2 Granule undelegation flow
+- [A2.2.1 Granule attributes](rmm-A2.2.md#a221-granule-attributes)
+- [B4.3.5 RMI\_GRANULE\_DELEGATE command](rmm-B4.3.5.md)
+- [D1.1.2 Granule undelegation flow](rmm-D1.1.md#d112-granule-undelegation-flow)
 
 ## D1.1.2 Granule undelegation flow
 
@@ -26,8 +26,8 @@ It is anticipated that the Monitor software will be required to use synchronizat
 
 ## See also:
 
-- A2.2.1 Granule attributes
-- B4.3.6 RMI\_GRANULE\_UNDELEGATE command
-- D1.1.1 Granule delegation flow
+- [A2.2.1 Granule attributes](rmm-A2.2.md#a221-granule-attributes)
+- [B4.3.6 RMI\_GRANULE\_UNDELEGATE command](rmm-B4.3.6.md)
+- [D1.1.1 Granule delegation flow](rmm-D1.1.md#d111-granule-delegation-flow)
 
 <!-- image -->

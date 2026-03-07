@@ -8,9 +8,9 @@ The RMI\_PDEV\_CREATE command may initiate a memory-transferring RMI Operation.
 
 ## See also:
 
-- Chapter A9 Realm device assignment
-- A9.2.2 Physical device invariants
-- B4.3.4 Object creation and destruction
+- [Chapter A9 Realm device assignment](rmm-A8.md#chapter-a9-realm-device-assignment)
+- [A9.2.2 Physical device invariants](rmm-A9.2.md#a922-physical-device-invariants)
+- [B4.3.4 Object creation and destruction](rmm-B4.3.md#b434-object-creation-and-destruction)
 
 ## B4.5.27.1 Interface
 

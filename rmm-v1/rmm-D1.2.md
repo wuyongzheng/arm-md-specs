@@ -4,7 +4,7 @@ This section contains flows which relate to the Realm lifecycle.
 
 See also:
 
-- A2.1.5 Realm lifecycle
+- [A2.1.5 Realm lifecycle](rmm-A2.1.md#a215-realm-lifecycle)
 
 ## D1.2.1 Realm creation flow
 
@@ -21,9 +21,9 @@ The Host also provides an NS Granule ( params ) containing Realm creation parame
 
 ## See also:
 
-- B4.3.5 RMI\_GRANULE\_DELEGATE command
-- B4.3.9 RMI\_REALM\_CREATE command
-- D1.2.5 Realm destruction flow
+- [B4.3.5 RMI\_GRANULE\_DELEGATE command](rmm-B4.3.5.md)
+- [B4.3.9 RMI\_REALM\_CREATE command](rmm-B4.3.9.md)
+- [D1.2.5 Realm destruction flow](rmm-D1.2.md#d125-realm-destruction-flow)
 
 ## D1.2.2 Realm Translation Table creation flow
 
@@ -35,10 +35,10 @@ Subsequent levels of RTT are added using the RMI\_RTT\_CREATE command. This can 
 
 ## See also:
 
-- Chapter A5 Realm memory management
-- B4.3.15 RMI\_RTT\_CREATE command
-- D1.2.1 Realm creation flow
-- D1.2.3 Initialize memory of New Realm flow
+- [Chapter A5 Realm memory management](rmm-A5.md)
+- [B4.3.15 RMI\_RTT\_CREATE command](rmm-B4.3.15.md)
+- [D1.2.1 Realm creation flow](rmm-D1.2.md#d121-realm-creation-flow)
+- [D1.2.3 Initialize memory of New Realm flow](rmm-D1.2.md#d123-initialize-memory-of-new-realm-flow)
 
 ## D1.2.3 Initialize memory of New Realm flow
 
@@ -68,15 +68,15 @@ Once the Data Granule has been created, the src Granule can be reallocated by th
 
 ## See also:
 
-- A2.2.1 Granule attributes
-- A5.2.2 Realm IPA state
-- A7.1.1 Realm Initial Measurement
-- B4.3.1 RMI\_DATA\_CREATE command
-- B4.3.5 RMI\_GRANULE\_DELEGATE command
-- B4.3.18 RMI\_RTT\_INIT\_RIPAS command
-- D1.2.1 Realm creation flow
-- D1.2.2 Realm Translation Table creation flow
-- D1.2.5 Realm destruction flow
+- [A2.2.1 Granule attributes](rmm-A2.2.md#a221-granule-attributes)
+- [A5.2.2 Realm IPA state](rmm-A5.1.md#a522-realm-ipa-state)
+- [A7.1.1 Realm Initial Measurement](rmm-A7.1.md#a711-realm-initial-measurement)
+- [B4.3.1 RMI\_DATA\_CREATE command](rmm-B4.3.1.md)
+- [B4.3.5 RMI\_GRANULE\_DELEGATE command](rmm-B4.3.5.md)
+- [B4.3.18 RMI\_RTT\_INIT\_RIPAS command](rmm-B4.3.18.md)
+- [D1.2.1 Realm creation flow](rmm-D1.2.md#d121-realm-creation-flow)
+- [D1.2.2 Realm Translation Table creation flow](rmm-D1.2.md#d122-realm-translation-table-creation-flow)
+- [D1.2.5 Realm destruction flow](rmm-D1.2.md#d125-realm-destruction-flow)
 
 ## D1.2.4 REC creation flow
 
@@ -119,11 +119,11 @@ Once each of these objects has been destroyed, the corresponding Granules can be
 
 ## See also:
 
-- A2.1.4 Realm liveness
-- B4.3.3 RMI\_DATA\_DESTROY command
-- B4.3.6 RMI\_GRANULE\_UNDELEGATE command
-- B4.3.10 RMI\_REALM\_DESTROY command
-- B4.3.13 RMI\_REC\_DESTROY command
-- D1.2.1 Realm creation flow
+- [A2.1.4 Realm liveness](rmm-A2.1.md#a214-realm-liveness)
+- [B4.3.3 RMI\_DATA\_DESTROY command](rmm-B4.3.3.md)
+- [B4.3.6 RMI\_GRANULE\_UNDELEGATE command](rmm-B4.3.6.md)
+- [B4.3.10 RMI\_REALM\_DESTROY command](rmm-B4.3.10.md)
+- [B4.3.13 RMI\_REC\_DESTROY command](rmm-B4.3.13.md)
+- [D1.2.1 Realm creation flow](rmm-D1.2.md#d121-realm-creation-flow)
 
 <!-- image -->

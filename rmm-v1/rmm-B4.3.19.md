@@ -4,8 +4,8 @@ Creates a mapping from an Unprotected IPA to a Non-secure PA.
 
 ## See also:
 
-- A5.5 Realm Translation Table
-- B4.3.22 RMI\_RTT\_UNMAP\_UNPROTECTED command
+- [A5.5 Realm Translation Table](rmm-A5.5.md)
+- [B4.3.22 RMI\_RTT\_UNMAP\_UNPROTECTED command](rmm-B4.3.22.md)
 
 ## B4.3.19.1 Interface
 
@@ -24,8 +24,8 @@ The layout and encoding of fields in the desc input value match 'Attribute field
 ## See also:
 
 - Arm Architecture Reference Manual for A-Profile architecture [3]
-- A5.5.11 RTT entry attributes
-- B3.56 RttDescriptorIsValidForUnprotected function
+- [A5.5.11 RTT entry attributes](rmm-A5.5.md#a5511-rtt-entry-attributes)
+- [B3.56 RttDescriptorIsValidForUnprotected function](rmm-B3.md#b356-rttdescriptorisvalidforunprotected-function)
 
 ## B4.3.19.1.2 Context
 

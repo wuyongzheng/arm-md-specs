@@ -4,8 +4,8 @@ Notify RMM of an SMMU interrupt.
 
 See also:
 
-- A9.7.6 PSMMU interrupts
-- A9.8.6 Page Request Interface events
+- [A9.7.6 PSMMU interrupts](rmm-A9.7.md#a976-psmmu-interrupts)
+- [A9.8.6 Page Request Interface events](rmm-A9.8.md#a986-page-request-interface-events)
 
 ## B4.5.42.1 Interface
 

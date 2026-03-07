@@ -135,15 +135,15 @@ Figure A9.24: Creation of a P2P binding
 
 See also:
 
-- A2.3.2 Views of physical memory
-- A4.3.14 REC exit due to VDEV P2P binding
-- A9.3 Physical device stream object
-- A9.5 Communication between RMM and a device
-- B4.5.26 RMI\_PDEV\_COMMUNICATE command
-- B4.5.34 RMI\_PDEV\_STREAM\_CONNECT command
-- B4.5.88 RMI\_VDEV\_P2P\_BIND command
-- B5.4.19 RSI\_VDEV\_GET\_INFO command
-- B5.4.20 RSI\_VDEV\_P2P\_BIND command
+- [A2.3.2 Views of physical memory](rmm-A2.3.md#a232-views-of-physical-memory)
+- [A4.3.14 REC exit due to VDEV P2P binding](rmm-A4.3.md#a4314-rec-exit-due-to-vdev-p2p-binding)
+- [A9.3 Physical device stream object](rmm-A9.3.md)
+- [A9.5 Communication between RMM and a device](rmm-A9.5.md)
+- [B4.5.26 RMI\_PDEV\_COMMUNICATE command](rmm-B4.5.26.md)
+- [B4.5.34 RMI\_PDEV\_STREAM\_CONNECT command](rmm-B4.5.34.md)
+- [B4.5.88 RMI\_VDEV\_P2P\_BIND command](rmm-B4.5.88.md)
+- [B5.4.19 RSI\_VDEV\_GET\_INFO command](rmm-B5.4.19.md)
+- [B5.4.20 RSI\_VDEV\_P2P\_BIND command](rmm-B5.4.20.md)
 
 ## A9.10.2.3 Teardown of Direct P2P communication
 
@@ -152,6 +152,6 @@ See also:
 
 See also:
 
-- A9.5 Communication between RMM and a device
-- B4.5.89 RMI\_VDEV\_P2P\_UNBIND command
+- [A9.5 Communication between RMM and a device](rmm-A9.5.md)
+- [B4.5.89 RMI\_VDEV\_P2P\_UNBIND command](rmm-B4.5.89.md)
 

@@ -35,6 +35,6 @@ Management of EL1 timer state for a Realm with multiple Planes can be implemente
 
 ## See also:
 
-- A6.2 Realm timers
-- A10.2.3 Plane exit
-- B5.5.15 RsiPlaneExit type
+- [A6.2 Realm timers](rmm-A6.2.md)
+- [A10.2.3 Plane exit](rmm-A10.2.md#a1023-plane-exit)
+- [B5.5.15 RsiPlaneExit type](rmm-B5.5.md#b5515-rsiplaneexit-type)

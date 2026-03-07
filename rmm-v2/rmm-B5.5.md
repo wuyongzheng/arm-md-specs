@@ -194,7 +194,7 @@ The width of the RsiHashAlgorithm enumeration is 8 bits.
 
 See also:
 
-- B5.4.16 RSI\_REALM\_CONFIG command
+- [B5.4.16 RSI\_REALM\_CONFIG command](rmm-B5.4.16.md)
 
 The values of the RsiHashAlgorithm enumeration are shown in the following table.
 
@@ -222,8 +222,8 @@ The width of the RsiHostCall structure is 256 ( 0x100 ) bytes.
 
 See also:
 
-- A4.5 Host call
-- B5.4.5 RSI\_HOST\_CALL command
+- [A4.5 Host call](rmm-A4.4.md#a45-host-call)
+- [B5.4.5 RSI\_HOST\_CALL command](rmm-B5.4.5.md)
 
 The members of the RsiHostCall structure are shown in the following table.
 
@@ -244,8 +244,8 @@ The width of the RsiInterfaceVersion fieldset is 64 bits.
 
 See also:
 
-- B5.1 RSI version
-- B5.4.22 RSI\_VERSION command
+- [B5.1 RSI version](rmm-B5.1.md)
+- [B5.4.22 RSI\_VERSION command](rmm-B5.4.22.md)
 
 The fields of the RsiInterfaceVersion fieldset are shown in the following diagram.
 
@@ -433,7 +433,7 @@ The width of the RsiRealmConfig structure is 4096 ( 0x1000 ) bytes.
 
 See also:
 
-- B5.4.16 RSI\_REALM\_CONFIG command
+- [B5.4.16 RSI\_REALM\_CONFIG command](rmm-B5.4.16.md)
 
 The members of the RsiRealmConfig structure are shown in the following table.
 
@@ -474,9 +474,9 @@ The width of the RsiRipas enumeration is 8 bits.
 
 See also:
 
-- A5.4 RIPAS change
-- B5.4.6 RSI\_IPA\_STATE\_GET command
-- B5.4.7 RSI\_IPA\_STATE\_SET command
+- [A5.4 RIPAS change](rmm-A5.4.md)
+- [B5.4.6 RSI\_IPA\_STATE\_GET command](rmm-B5.4.6.md)
+- [B5.4.7 RSI\_IPA\_STATE\_SET command](rmm-B5.4.7.md)
 
 The values of the RsiRipas enumeration are shown in the following table.
 
@@ -626,8 +626,8 @@ The width of the RsiVdevInfo structure is 512 ( 0x200 ) bytes.
 
 See also:
 
-- A9.6 Realm management of an assigned virtual device
-- B5.4.19 RSI\_VDEV\_GET\_INFO command
+- [A9.6 Realm management of an assigned virtual device](rmm-A9.6.md)
+- [B5.4.19 RSI\_VDEV\_GET\_INFO command](rmm-B5.4.19.md)
 
 The members of the RsiVdevInfo structure are shown in the following table.
 

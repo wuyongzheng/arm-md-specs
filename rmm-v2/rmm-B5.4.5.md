@@ -4,8 +4,8 @@ Make a Host call.
 
 See also:
 
-- A4.5 Host call
-- A5.2.4 RSI command access to a Protected IPA
+- [A4.5 Host call](rmm-A4.4.md#a45-host-call)
+- [A5.2.4 RSI command access to a Protected IPA](rmm-A5.1.md#a524-rsi-command-access-to-a-protected-ipa)
 
 ## B5.4.5.1 Interface
 

@@ -14,7 +14,7 @@ The following table indicates which feature register is returned depending on th
 
 ## See also:
 
-- Chapter A3 Feature discovery and configuration
+- [Chapter A3 Feature discovery and configuration](rmm-A3.md)
 
 ## B4.5.14.1 Interface
 

@@ -6,7 +6,7 @@ This chapter describes functions which are used in command condition expressions
 
 See also:
 
-- B1.4 Command condition expressions
+- [B1.4 Command condition expressions](rmm-B1.md#b14-command-condition-expressions)
 
 ## B3.1 AddrInRange function
 
@@ -42,7 +42,7 @@ func AddrIsGranuleAligned( addr : Address) => boolean func AddrIsGranuleAligned(
 
 ## See also:
 
-- A2.2 Granule
+- [A2.2 Granule](rmm-A2.2.md)
 
 ## B3.4 AddrIsProtected function
 
@@ -228,8 +228,8 @@ func Gicv3ConfigIsValid( gicv3_hcr : bits(64), gicv3_lrs : array [16] of bits(64
 
 ## See also:
 
-- A6.1 Realm interrupts
-- B4.4.14 RmiRecEnter type
+- [A6.1 Realm interrupts](rmm-A6.1.md)
+- [B4.4.14 RmiRecEnter type](rmm-B4.4.md#b4414-rmirecenter-type)
 
 ## B3.19 Granule function
 
@@ -241,7 +241,7 @@ func Granule( addr : Address) =>
 
 ## See also:
 
-- A2.2 Granule
+- [A2.2 Granule](rmm-A2.2.md)
 
 ## B3.20 GranuleAccessPermitted function
 
@@ -345,8 +345,8 @@ end return FALSE; end
 
 ## See also:
 
-- A4.3.7 REC exit due to PSCI
-- B4.3.7 RMI\_PSCI\_COMPLETE command
+- [A4.3.7 REC exit due to PSCI](rmm-A4.3.md#a437-rec-exit-due-to-psci)
+- [B4.3.7 RMI\_PSCI\_COMPLETE command](rmm-B4.3.7.md)
 
 ## B3.28 ReadMemory function
 
@@ -368,7 +368,7 @@ func Realm( addr : Address) =>
 
 ## See also:
 
-- A2.1 Realm
+- [A2.1 Realm](rmm-A2.1.md)
 
 ## B3.30 RealmConfig function
 
@@ -404,7 +404,7 @@ func RealmIsLive( addr : Address) =>
 
 ## See also:
 
-- A2.1.4 Realm liveness
+- [A2.1.4 Realm liveness](rmm-A2.1.md#a214-realm-liveness)
 
 ```
 boolean
@@ -430,7 +430,7 @@ func RealmParams( addr : Address) => RmiRealmParams
 
 ## See also:
 
-- A2.1.6 Realm parameters
+- [A2.1.6 Realm parameters](rmm-A2.1.md#a216-realm-parameters)
 
 ## B3.34 RealmParamsSupported function
 
@@ -458,7 +458,7 @@ RmmRec
 
 ## See also:
 
-- A2.3 Realm Execution Context
+- [A2.3 Realm Execution Context](rmm-A2.3.md)
 
 ## B3.36 RecAuxCount function
 
@@ -504,7 +504,7 @@ B3.39. RecParams function
 
 See also:
 
-- A2.3.3 REC index and MPIDR value
+- [A2.3.3 REC index and MPIDR value](rmm-A2.3.md#a233-rec-index-and-mpidr-value)
 
 ## B3.39 RecParams function
 
@@ -534,7 +534,7 @@ func RecRipasChangeResponse( rec : RmmRec) => RsiResponse begin if ((rec.ripas_v
 
 ## See also:
 
-- A5.4 RIPAS change
+- [A5.4 RIPAS change](rmm-A5.4.md)
 
 ## B3.41 RecRun function
 
@@ -546,8 +546,8 @@ func RecRun( addr : Address) => RmiRecRun
 
 ## See also:
 
-- A4.2 REC entry
-- A4.3 REC exit
+- [A4.2 REC entry](rmm-A4.2.md)
+- [A4.3 REC exit](rmm-A4.3.md)
 
 ## B3.42 RemExtend function
 
@@ -591,7 +591,7 @@ func RimExtendData( realm : RmmRealm, ipa : Address, data : Address, flags : Rmi
 
 See also:
 
-- B4.3.1.4 RMI\_DATA\_CREATE extension of RIM
+- [B4.3.1.4 RMI\_DATA\_CREATE extension of RIM](rmm-B4.3.1.md#b4314-rmi_data_create-extension-of-rim)
 
 ## B3.45 RimExtendRec function
 
@@ -603,7 +603,7 @@ func RimExtendRec( realm : RmmRealm, params : RmiRecParams) => RmmRealmMeasureme
 
 See also:
 
-- B4.3.12.4 RMI\_REC\_CREATE extension of RIM
+- [B4.3.12.4 RMI\_REC\_CREATE extension of RIM](rmm-B4.3.12.md#b43124-rmi_rec_create-extension-of-rim)
 
 ## B3.46 RimExtendRipas function
 
@@ -625,7 +625,7 @@ return rim; end
 
 ## See also:
 
-- B4.3.18.4 RMI\_RTT\_INIT\_RIPAS extension of RIM
+- [B4.3.18.4 RMI\_RTT\_INIT\_RIPAS extension of RIM](rmm-B4.3.18.md#b43184-rmi_rtt_init_ripas-extension-of-rim)
 
 ## B3.47 RimExtendRipasForEntry function
 
@@ -649,7 +649,7 @@ func RimInit( hash_algo : RmmHashAlgorithm, params : RmiRealmParams) =>
 
 ## See also:
 
-- B4.3.9.4 RMI\_REALM\_CREATE initialization of RIM
+- [B4.3.9.4 RMI\_REALM\_CREATE initialization of RIM](rmm-B4.3.9.md#b4394-rmi_realm_create-initialization-of-rim)
 
 ## B3.49 RipasToRmi function
 
@@ -697,7 +697,7 @@ func RttAllEntriesContiguous( rtt : RmmRtt, addr : Address, level : integer) =>
 
 See also:
 
-- A5.5 Realm Translation Table
+- [A5.5 Realm Translation Table](rmm-A5.5.md)
 
 ## B3.53 RttAllEntriesRipas function
 
@@ -721,7 +721,7 @@ func RttAllEntriesState( rtt : RmmRtt, state : RmmRttEntryState) =>
 
 See also:
 
-- A5.5 Realm Translation Table
+- [A5.5 Realm Translation Table](rmm-A5.5.md)
 
 ## B3.55 RttConfigIsValid function
 
@@ -733,7 +733,7 @@ func RttConfigIsValid( ipa_width : integer, rtt_level_start : integer, rtt_num_s
 
 See also:
 
-- A5.5 Realm Translation Table
+- [A5.5 Realm Translation Table](rmm-A5.5.md)
 
 ## B3.56 RttDescriptorIsValidForUnprotected function
 
@@ -788,7 +788,7 @@ func RttEntry( rtt : Address, i : integer) => RmmRttEntry
 
 See also:
 
-- A5.5 Realm Translation Table
+- [A5.5 Realm Translation Table](rmm-A5.5.md)
 
 ## B3.59 RttEntryFromDescriptor function
 
@@ -816,7 +816,7 @@ integer
 
 See also:
 
-- A5.5 Realm Translation Table
+- [A5.5 Realm Translation Table](rmm-A5.5.md)
 
 ## B3.61 RttEntryState function
 
@@ -842,7 +842,7 @@ func RttFold( rtt : RmmRtt) =>
 
 See also:
 
-- A5.5.6 RTT folding
+- [A5.5.6 RTT folding](rmm-A5.5.md#a556-rtt-folding)
 
 ## B3.63 RttIsHomogeneous function
 
@@ -858,7 +858,7 @@ boolean
 
 See also:
 
-- A5.5.6 RTT folding
+- [A5.5.6 RTT folding](rmm-A5.5.md#a556-rtt-folding)
 
 ## B3.64 RttIsLive function
 
@@ -874,8 +874,8 @@ boolean
 
 ## See also:
 
-- A5.5.8 RTTE liveness and RTT liveness
-- A5.5.9 RTT destruction
+- [A5.5.8 RTTE liveness and RTT liveness](rmm-A5.5.md#a558-rtte-liveness-and-rtt-liveness)
+- [A5.5.9 RTT destruction](rmm-A5.5.md#a559-rtt-destruction)
 
 ## B3.65 RttLevelIsBlockOrPage function
 
@@ -887,7 +887,7 @@ func RttLevelIsBlockOrPage( rd : Address, level : integer) =>
 
 See also:
 
-- A5.5 Realm Translation Table
+- [A5.5 Realm Translation Table](rmm-A5.5.md)
 
 ## B3.66 RttLevelIsStarting function
 
@@ -927,7 +927,7 @@ boolean
 
 ## See also:
 
-- A5.5 Realm Translation Table
+- [A5.5 Realm Translation Table](rmm-A5.5.md)
 
 ## B3.68 RttLevelSize function
 
@@ -945,7 +945,7 @@ integer
 
 ## See also:
 
-- A5.5 Realm Translation Table
+- [A5.5 Realm Translation Table](rmm-A5.5.md)
 
 ## B3.69 RttsAllProtectedEntriesRipas function
 
@@ -1057,7 +1057,7 @@ func RttSkipNonLiveEntries( rtt : RmmRtt, level : integer, ipa : Address) => Add
 
 ## See also:
 
-- A5.5.8 RTTE liveness and RTT liveness
+- [A5.5.8 RTTE liveness and RTT liveness](rmm-A5.5.md#a558-rtte-liveness-and-rtt-liveness)
 
 ## B3.77 RttsStateEqual function
 
@@ -1085,7 +1085,7 @@ func RttWalk( rd : Address, addr : Address) => RmmRttWalkResult func RttWalk( rd
 
 See also:
 
-- A5.5.10 RTT walk
+- [A5.5.10 RTT walk](rmm-A5.5.md#a5510-rtt-walk)
 
 ## B3.79 ToAddress function
 

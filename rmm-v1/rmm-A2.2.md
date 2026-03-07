@@ -22,8 +22,8 @@ In a typical implementation, all memory which is presented to the Host as RAM is
 
 ## See also:
 
-- A2.2.1 Granule attributes
-- A2.2.3 Granule lifecycle
+- [A2.2.1 Granule attributes](rmm-A2.2.md#a221-granule-attributes)
+- [A2.2.3 Granule lifecycle](rmm-A2.2.md#a223-granule-lifecycle)
 
 ## A2.2.1 Granule attributes
 
@@ -41,11 +41,11 @@ The attributes of a Granule are summarized in the following table.
 
 ## See also:
 
-- A2.1 Realm
-- A2.1.7 Realm Descriptor
-- A2.2.3 Granule lifecycle
-- B3.20 GranuleAccessPermitted function
-- C1.6 RmmGranule type
+- [A2.1 Realm](rmm-A2.1.md)
+- [A2.1.7 Realm Descriptor](rmm-A2.1.md#a217-realm-descriptor)
+- [A2.2.3 Granule lifecycle](rmm-A2.2.md#a223-granule-lifecycle)
+- [B3.20 GranuleAccessPermitted function](rmm-B3.md#b320-granuleaccesspermitted-function)
+- [C1.6 RmmGranule type](rmm-C1.md#c16-rmmgranule-type)
 
 ## A2.2.2 Granule ownership
 
@@ -65,15 +65,15 @@ A Granule whose state is RTT is one of the following:
 
 See also:
 
-- A2.1 Realm
-- A2.1.7 Realm Descriptor
-- A2.3 Realm Execution Context
-- A5.2.1 Realm IPA space
-- A5.5 Realm Translation Table
-- B4.3.1 RMI\_DATA\_CREATE command
-- B4.3.2 RMI\_DATA\_CREATE\_UNKNOWN command
-- B4.3.12 RMI\_REC\_CREATE command
-- B4.3.15 RMI\_RTT\_CREATE command
+- [A2.1 Realm](rmm-A2.1.md)
+- [A2.1.7 Realm Descriptor](rmm-A2.1.md#a217-realm-descriptor)
+- [A2.3 Realm Execution Context](rmm-A2.3.md)
+- [A5.2.1 Realm IPA space](rmm-A5.1.md#a521-realm-ipa-space)
+- [A5.5 Realm Translation Table](rmm-A5.5.md)
+- [B4.3.1 RMI\_DATA\_CREATE command](rmm-B4.3.1.md)
+- [B4.3.2 RMI\_DATA\_CREATE\_UNKNOWN command](rmm-B4.3.2.md)
+- [B4.3.12 RMI\_REC\_CREATE command](rmm-B4.3.12.md)
+- [B4.3.15 RMI\_RTT\_CREATE command](rmm-B4.3.15.md)
 
 ## A2.2.3 Granule lifecycle
 
@@ -127,17 +127,17 @@ Figure A2.2: Granule state transitions
 
 See also:
 
-- B4.3.1 RMI\_DATA\_CREATE command
-- B4.3.2 RMI\_DATA\_CREATE\_UNKNOWN command
-- B4.3.3 RMI\_DATA\_DESTROY command
-- B4.3.5 RMI\_GRANULE\_DELEGATE command
-- B4.3.6 RMI\_GRANULE\_UNDELEGATE command
-- B4.3.9 RMI\_REALM\_CREATE command
-- B4.3.10 RMI\_REALM\_DESTROY command
-- B4.3.12 RMI\_REC\_CREATE command
-- B4.3.13 RMI\_REC\_DESTROY command
-- B4.3.15 RMI\_RTT\_CREATE command
-- B4.3.16 RMI\_RTT\_DESTROY command
+- [B4.3.1 RMI\_DATA\_CREATE command](rmm-B4.3.1.md)
+- [B4.3.2 RMI\_DATA\_CREATE\_UNKNOWN command](rmm-B4.3.2.md)
+- [B4.3.3 RMI\_DATA\_DESTROY command](rmm-B4.3.3.md)
+- [B4.3.5 RMI\_GRANULE\_DELEGATE command](rmm-B4.3.5.md)
+- [B4.3.6 RMI\_GRANULE\_UNDELEGATE command](rmm-B4.3.6.md)
+- [B4.3.9 RMI\_REALM\_CREATE command](rmm-B4.3.9.md)
+- [B4.3.10 RMI\_REALM\_DESTROY command](rmm-B4.3.10.md)
+- [B4.3.12 RMI\_REC\_CREATE command](rmm-B4.3.12.md)
+- [B4.3.13 RMI\_REC\_DESTROY command](rmm-B4.3.13.md)
+- [B4.3.15 RMI\_RTT\_CREATE command](rmm-B4.3.15.md)
+- [B4.3.16 RMI\_RTT\_DESTROY command](rmm-B4.3.16.md)
 
 ## A2.2.4 Granule wiping
 
@@ -151,5 +151,5 @@ See also:
 See also:
 
 - Arm CCA Security model [4]
-- B4.3.2 RMI\_DATA\_CREATE\_UNKNOWN command
-- B4.3.6 RMI\_GRANULE\_UNDELEGATE command
+- [B4.3.2 RMI\_DATA\_CREATE\_UNKNOWN command](rmm-B4.3.2.md)
+- [B4.3.6 RMI\_GRANULE\_UNDELEGATE command](rmm-B4.3.6.md)

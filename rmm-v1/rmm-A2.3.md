@@ -10,8 +10,8 @@ A REC object is an RMM data structure which is used to store the register state 
 
 See also:
 
-- A2.1.2 Realm execution environment
-- Chapter A4 Realm exception model
+- [A2.1.2 Realm execution environment](rmm-A2.1.md#a212-realm-execution-environment)
+- [Chapter A4 Realm exception model](rmm-A4.md)
 
 ## A2.3.2 REC attributes
 
@@ -71,13 +71,13 @@ The sysregs attribute of a REC is the set of system register values which are sa
 
 See also:
 
-- A2.3.3 REC index and MPIDR value
-- A2.3.4 REC lifecycle
-- A4.3.4.3 REC exit due to Data Abort
-- B4.3.14 RMI\_REC\_ENTER command
-- B6.3.2 PSCI\_CPU\_OFF command
-- B6.3.3 PSCI\_CPU\_ON command
-- C1.19 RmmRec type
+- [A2.3.3 REC index and MPIDR value](rmm-A2.3.md#a233-rec-index-and-mpidr-value)
+- [A2.3.4 REC lifecycle](rmm-A2.3.md#a234-rec-lifecycle)
+- [A4.3.4.3 REC exit due to Data Abort](rmm-A4.3.md#a4343-rec-exit-due-to-data-abort)
+- [B4.3.14 RMI\_REC\_ENTER command](rmm-B4.3.14.md)
+- [B6.3.2 PSCI\_CPU\_OFF command](rmm-B6.3.2.md)
+- [B6.3.3 PSCI\_CPU\_ON command](rmm-B6.3.3.md)
+- [C1.19 RmmRec type](rmm-C1.md#c119-rmmrec-type)
 
 ## A2.3.3 REC index and MPIDR value
 
@@ -113,9 +113,9 @@ When creating the n th REC in a Realm, the Host is required to use the MPIDR cor
 
 ## See also:
 
-- B3.38 RecIndex function
-- B4.3.12 RMI\_REC\_CREATE command
-- B4.4.18 RmiRecMpidr type
+- [B3.38 RecIndex function](rmm-B3.md#b338-recindex-function)
+- [B4.3.12 RMI\_REC\_CREATE command](rmm-B4.3.12.md)
+- [B4.4.18 RmiRecMpidr type](rmm-B4.4.md#b4418-rmirecmpidr-type)
 
 ## A2.3.4 REC lifecycle
 
@@ -155,10 +155,10 @@ The maximum number of RECs per Realm is an IMPLEMENTATION DEFINED value which is
 
 See also:
 
-- B4.3.12 RMI\_REC\_CREATE command
-- B4.3.13 RMI\_REC\_DESTROY command
-- B4.3.14 RMI\_REC\_ENTER command
+- [B4.3.12 RMI\_REC\_CREATE command](rmm-B4.3.12.md)
+- [B4.3.13 RMI\_REC\_DESTROY command](rmm-B4.3.13.md)
+- [B4.3.14 RMI\_REC\_ENTER command](rmm-B4.3.14.md)
 
 See also:
 
-- B4.3.4 RMI\_FEATURES command
+- [B4.3.4 RMI\_FEATURES command](rmm-B4.3.4.md)

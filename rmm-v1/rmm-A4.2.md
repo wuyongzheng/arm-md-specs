@@ -4,8 +4,8 @@ This section describes REC entry.
 
 ## See also:
 
-- A4.3 REC exit
-- B4.3.14 RMI\_REC\_ENTER command
+- [A4.3 REC exit](rmm-A4.3.md)
+- [B4.3.14 RMI\_REC\_ENTER command](rmm-B4.3.14.md)
 
 ## A4.2.1 RmiRecEnter object
 
@@ -78,10 +78,10 @@ On REC entry, all enter fields are ignored unless specified otherwise.
 
 See also:
 
-- A2.3 Realm Execution Context
-- A4.3.1 RmiRecExit object
-- Chapter A6 Realm interrupts and timers
-- B4.4.14 RmiRecEnter type
+- [A2.3 Realm Execution Context](rmm-A2.3.md)
+- [A4.3.1 RmiRecExit object](rmm-A4.3.md#a431-rmirecexit-object)
+- [Chapter A6 Realm interrupts and timers](rmm-A6.md)
+- [B4.4.14 RmiRecEnter type](rmm-B4.4.md#b4414-rmirecenter-type)
 
 ## A4.2.2 General purpose registers restored on REC entry
 
@@ -96,11 +96,11 @@ See also:
 
 See also:
 
-- A4.3.3 General purpose registers saved on REC exit
-- A4.3.4.3 REC exit due to Data Abort
-- A4.3.7 REC exit due to PSCI
-- A4.3.9 REC exit due to Host call
-- A4.5 Host call
+- [A4.3.3 General purpose registers saved on REC exit](rmm-A4.3.md#a433-general-purpose-registers-saved-on-rec-exit)
+- [A4.3.4.3 REC exit due to Data Abort](rmm-A4.3.md#a4343-rec-exit-due-to-data-abort)
+- [A4.3.7 REC exit due to PSCI](rmm-A4.3.md#a437-rec-exit-due-to-psci)
+- [A4.3.9 REC exit due to Host call](rmm-A4.3.md#a439-rec-exit-due-to-host-call)
+- [A4.5 Host call](rmm-A4.4.md#a45-host-call)
 
 ## A4.2.3 REC entry following REC exit due to Data Abort
 
@@ -112,7 +112,7 @@ See also:
 
 See also:
 
-- A4.3.4.3 REC exit due to Data Abort
-- A4.4 Emulated Data Aborts
-- A5.2.6 Realm access to an Unprotected IPA
-- A5.2.7 Synchronous External Aborts
+- [A4.3.4.3 REC exit due to Data Abort](rmm-A4.3.md#a4343-rec-exit-due-to-data-abort)
+- [A4.4 Emulated Data Aborts](rmm-A4.4.md)
+- [A5.2.6 Realm access to an Unprotected IPA](rmm-A5.2.md#a526-realm-access-to-an-unprotected-ipa)
+- [A5.2.7 Synchronous External Aborts](rmm-A5.2.md#a527-synchronous-external-aborts)

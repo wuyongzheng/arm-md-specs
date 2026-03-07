@@ -4,7 +4,7 @@ Get VDEV measurements.
 
 See also:
 
-- A9.6.1 Realm retrieval of device attestation evidence
+- [A9.6.1 Realm retrieval of device attestation evidence](rmm-A9.6.md#a961-realm-retrieval-of-device-attestation-evidence)
 
 ## B4.5.85.1 Interface
 

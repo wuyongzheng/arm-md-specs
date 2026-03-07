@@ -29,8 +29,8 @@ The size of a CCA attestation token may be greater than the RSI Granule size.
 
 See also:
 
-- A7.1.1 Realm Initial Measurement
-- A7.1.2 Realm Extensible Measurement
+- [A7.1.1 Realm Initial Measurement](rmm-A7.1.md#a711-realm-initial-measurement)
+- [A7.1.2 Realm Extensible Measurement](rmm-A7.1.md#a712-realm-extensible-measurement)
 
 ## A7.2.2 Attestation token generation
 
@@ -71,14 +71,14 @@ On the next entry to the REC:
 
 ## See also:
 
-- A4.3.5 REC exit due to IRQ
-- A6.1 Realm interrupts
+- [A4.3.5 REC exit due to IRQ](rmm-A4.3.md#a435-rec-exit-due-to-irq)
+- [A6.1 Realm interrupts](rmm-A6.1.md)
 
-- A7.2.3.1.1 Realm challenge claim
-- B5.4.2 RSI\_ATTESTATION\_TOKEN\_CONTINUE command
-- B5.4.3 RSI\_ATTESTATION\_TOKEN\_INIT command
-- D1.7.1 Attestation token generation flow
-- D1.7.2 Handling interrupts during attestation token generation flow
+- [A7.2.3.1.1 Realm challenge claim](rmm-A7.2.3.1.md#a72311-realm-challenge-claim)
+- [B5.4.2 RSI\_ATTESTATION\_TOKEN\_CONTINUE command](rmm-B5.4.2.md)
+- [B5.4.3 RSI\_ATTESTATION\_TOKEN\_INIT command](rmm-B5.4.3.md)
+- [D1.7.1 Attestation token generation flow](rmm-D1.7.md#d171-attestation-token-generation-flow)
+- [D1.7.2 Handling interrupts during attestation token generation flow](rmm-D1.7.md#d172-handling-interrupts-during-attestation-token-generation-flow)
 
 ## A7.2.3 Attestation token format
 
@@ -124,9 +124,9 @@ The composition of the CCA attestation token is summarised in the following figu
 - Concise Binary Object Representation (CBOR) [9]
 - CBOR Object Signing and Encryption (COSE) [10]
 - Entity Attestation Token (EAT) [11]
-- A7.2.3.1 Realm claims
-- A7.2.3.2 CCA device claims
-- A7.2.3.3 CCA platform claims
+- [A7.2.3.1 Realm claims](rmm-A7.2.3.1.md)
+- [A7.2.3.2 CCA device claims](rmm-A7.2.3.2.md)
+- [A7.2.3.3 CCA platform claims](rmm-A7.2.3.3.md)
 
 Figure A7.1: Attestation token format
 

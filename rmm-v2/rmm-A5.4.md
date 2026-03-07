@@ -18,7 +18,7 @@ Output values from the RSI command indicate:
 
 ## See also:
 
-- A5.2.2 Realm IPA state
+- [A5.2.2 Realm IPA state](rmm-A5.1.md#a522-realm-ipa-state)
 
 ## A5.4.1 Realm view of RIPAS change
 
@@ -51,9 +51,9 @@ The RIPAS change process, together with the Realm Initial Measurement ensures th
 
 ## See also:
 
-- A7.1.1 Realm Initial Measurement
-- B5.4.7 RSI\_IPA\_STATE\_SET command
-- B5.4.21 RSI\_VDEV\_VALIDATE\_MAPPING command
+- [A7.1.1 Realm Initial Measurement](rmm-A7.1.md#a711-realm-initial-measurement)
+- [B5.4.7 RSI\_IPA\_STATE\_SET command](rmm-B5.4.7.md)
+- [B5.4.21 RSI\_VDEV\_VALIDATE\_MAPPING command](rmm-B5.4.21.md)
 
 ## A5.4.2 Host view of RIPAS change to RIPAS\_EMPTY or RIPAS\_RAM
 
@@ -82,10 +82,10 @@ Otherwise, the output value of RSI\_IPA\_STATE\_SET indicates 'Host accepted the
 
 ## See also:
 
-- A4.3.8 REC exit due to RIPAS change pending
-- B4.5.51 RMI\_REC\_ENTER command
-- B4.5.75 RMI\_RTT\_SET\_RIPAS command
-- D1.5.3 RIPAS change flow
+- [A4.3.8 REC exit due to RIPAS change pending](rmm-A4.3.md#a438-rec-exit-due-to-ripas-change-pending)
+- [B4.5.51 RMI\_REC\_ENTER command](rmm-B4.5.51.md)
+- [B4.5.75 RMI\_RTT\_SET\_RIPAS command](rmm-B4.5.75.md)
+- [D1.5.3 RIPAS change flow](rmm-D1.5.md#d153-ripas-change-flow)
 
 ## A5.4.3 Host view of RIPAS change to RIPAS\_DEV
 
@@ -94,11 +94,11 @@ Otherwise, the output value of RSI\_IPA\_STATE\_SET indicates 'Host accepted the
 
 See also:
 
-- A4.3.13 REC exit due to VDEV mapping validation
-- A5.5 VDEV mapping validation
-- A9.6.2 Realm validation of device memory mappings
-- B4.5.51 RMI\_REC\_ENTER command
-- B4.5.71 RMI\_RTT\_DEV\_VALIDATE command
-- D1.5.3 RIPAS change flow
+- [A4.3.13 REC exit due to VDEV mapping validation](rmm-A4.3.md#a4313-rec-exit-due-to-vdev-mapping-validation)
+- [A5.5 VDEV mapping validation](rmm-A5.5.md)
+- [A9.6.2 Realm validation of device memory mappings](rmm-A9.6.md#a962-realm-validation-of-device-memory-mappings)
+- [B4.5.51 RMI\_REC\_ENTER command](rmm-B4.5.51.md)
+- [B4.5.71 RMI\_RTT\_DEV\_VALIDATE command](rmm-B4.5.71.md)
+- [D1.5.3 RIPAS change flow](rmm-D1.5.md#d153-ripas-change-flow)
 
 <!-- image -->

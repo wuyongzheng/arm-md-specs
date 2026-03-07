@@ -4,8 +4,8 @@ This section describes REC exit.
 
 ## See also:
 
-- A4.2 REC entry
-- B4.5.51 RMI\_REC\_ENTER command
+- [A4.2 REC entry](rmm-A4.2.md)
+- [B4.5.51 RMI\_REC\_ENTER command](rmm-B4.5.51.md)
 
 ## A4.3.1 RmiRecExit object
 
@@ -55,12 +55,12 @@ On REC exit, all rec\_exit fields are zero unless specified otherwise.
 
 See also:
 
-- A2.4 Realm Execution Context
-- A4.2.1 RmiRecEnter object
-- A4.5 Host call
-- Chapter A6 Realm interrupts and timers
-- Chapter A8 Realm debug and performance monitoring
-- B4.6.66 RmiRecExit type
+- [A2.4 Realm Execution Context](rmm-A2.4.md)
+- [A4.2.1 RmiRecEnter object](rmm-A4.2.md#a421-rmirecenter-object)
+- [A4.5 Host call](rmm-A4.4.md#a45-host-call)
+- [Chapter A6 Realm interrupts and timers](rmm-A6.md)
+- [Chapter A8 Realm debug and performance monitoring](rmm-A8.md)
+- [B4.6.66 RmiRecExit type](rmm-B4.6.md#b4666-rmirecexit-type)
 
 ## A4.3.2 Realm exit reason
 
@@ -68,7 +68,7 @@ On return from the RMI\_REC\_ENTER command, the reason for the REC exit is indic
 
 ## See also:
 
-- B4.6.67 RmiRecExitReason type
+- [B4.6.67 RmiRecExitReason type](rmm-B4.6.md#b4667-rmirecexitreason-type)
 
 ## A4.3.3 General purpose registers saved on REC exit
 
@@ -93,9 +93,9 @@ On REC exit, if RMM access to rec\_exit causes a GPF then the RMI\_REC\_ENTER co
 
 See also:
 
-- A4.2.2 General purpose registers restored on REC entry
-- A4.3.7 REC exit due to PSCI
-- A4.3.9 REC exit due to Host call
+- [A4.2.2 General purpose registers restored on REC entry](rmm-A4.2.md#a422-general-purpose-registers-restored-on-rec-entry)
+- [A4.3.7 REC exit due to PSCI](rmm-A4.3.md#a437-rec-exit-due-to-psci)
+- [A4.3.9 REC exit due to Host call](rmm-A4.3.md#a439-rec-exit-due-to-host-call)
 
 ## A4.3.4 REC exit due to synchronous exception
 
@@ -121,8 +121,8 @@ Realm execution of an SMC which is not part of one of the following ABIs results
 
 See also:
 
-- A4.5 Host call
-- A10.2.3 Plane exit
+- [A4.5 Host call](rmm-A4.4.md#a45-host-call)
+- [A10.2.3 Plane exit](rmm-A10.2.md#a1023-plane-exit)
 - Chapter B5 Realm Services Interface
 - Chapter B6 Power State Control Interface
 
@@ -149,9 +149,9 @@ On REC exit due to WFI or WFE, if the exit was caused by WFET or WFIT instructio
 
 ## See also:
 
-- A6.1 Realm interrupts
-- A6.2 Realm timers
-- A8.1 Realm PMU
+- [A6.1 Realm interrupts](rmm-A6.1.md)
+- [A6.2 Realm timers](rmm-A6.2.md)
+- [A8.1 Realm PMU](rmm-A8.md#a81-realm-pmu)
 
 ## A4.3.4.2 REC exit due to Instruction Abort
 
@@ -177,12 +177,12 @@ Low bits of HPFAR\_EL2.FIPA are set to zero in order to align the address to the
 
 ## See also:
 
-- A5.2.2 Realm IPA state
-- A5.2.3 Realm access to a Protected IPA
-- A6.1 Realm interrupts
-- A6.2 Realm timers
-- A8.1 Realm PMU
-- A10.3.1 Auxiliary RTT
+- [A5.2.2 Realm IPA state](rmm-A5.1.md#a522-realm-ipa-state)
+- [A5.2.3 Realm access to a Protected IPA](rmm-A5.1.md#a523-realm-access-to-a-protected-ipa)
+- [A6.1 Realm interrupts](rmm-A6.1.md)
+- [A6.2 Realm timers](rmm-A6.2.md)
+- [A8.1 Realm PMU](rmm-A8.md#a81-realm-pmu)
+- [A10.3.1 Auxiliary RTT](rmm-A10.3.md#a1031-auxiliary-rtt)
 
 ## A4.3.4.3 REC exit due to Data Abort
 
@@ -263,7 +263,7 @@ On REC exit due to System register access, all of the following are true:
 
 ## See also:
 
-- A6.1 Realm interrupts
+- [A6.1 Realm interrupts](rmm-A6.1.md)
 
 ## A4.3.5 REC exit due to IRQ
 
@@ -278,7 +278,7 @@ is RMI\_EXIT\_IRQ.
 
 See also:
 
-- Chapter A6 Realm interrupts and timers
+- [Chapter A6 Realm interrupts and timers](rmm-A6.md)
 
 ## A4.3.6 REC exit due to FIQ
 
@@ -290,7 +290,7 @@ See also:
 
 See also:
 
-- Chapter A6 Realm interrupts and timers
+- [Chapter A6 Realm interrupts and timers](rmm-A6.md)
 
 ## A4.3.7 REC exit due to PSCI
 
@@ -364,8 +364,8 @@ apply RIPAS change within the bounds of the RIPAS change request, and to report 
 
 ## See also:
 
-- A2.4.2 REC attributes
-- A5.4 RIPAS change
+- [A2.4.2 REC attributes](rmm-A2.4.md#a242-rec-attributes)
+- [A5.4 RIPAS change](rmm-A5.4.md)
 
 ## A4.3.9 REC exit due to Host call
 
@@ -382,11 +382,11 @@ On REC exit due to Host call, all of the following are true:
 
 ## See also:
 
-- A4.5 Host call
-- A6.1 Realm interrupts
-- A6.2 Realm timers
-- A8.1 Realm PMU
-- B5.4.5 RSI\_HOST\_CALL command
+- [A4.5 Host call](rmm-A4.4.md#a45-host-call)
+- [A6.1 Realm interrupts](rmm-A6.1.md)
+- [A6.2 Realm timers](rmm-A6.2.md)
+- [A8.1 Realm PMU](rmm-A8.md#a81-realm-pmu)
+- [B5.4.5 RSI\_HOST\_CALL command](rmm-B5.4.5.md)
 
 ## A4.3.10 REC exit due to SError
 
@@ -408,9 +408,9 @@ On REC exit due to SError, all of the following occur:
 
 ## See also:
 
-- A6.1 Realm interrupts
-- A6.2 Realm timers
-- A8.1 Realm PMU
+- [A6.1 Realm interrupts](rmm-A6.1.md)
+- [A6.2 Realm timers](rmm-A6.2.md)
+- [A8.1 Realm PMU](rmm-A8.md#a81-realm-pmu)
 
 ## A4.3.11 REC exit due to S2AP change pending
 
@@ -440,8 +440,8 @@ On REC exit due to RIPAS change pending:
 
 ## See also:
 
-- A2.4.2 REC attributes
-- A10.3.2.3 Stage 2 Access Permissions change within a multi-Plane Realm
+- [A2.4.2 REC attributes](rmm-A2.4.md#a242-rec-attributes)
+- [A10.3.2.3 Stage 2 Access Permissions change within a multi-Plane Realm](rmm-A10.3.md#a10323-stage-2-access-permissions-change-within-a-multi-plane-realm)
 
 ## A4.3.12 REC exit due to VDEV request
 
@@ -463,8 +463,8 @@ In the call to RMI\_VDEV\_COMPLETE, the Host provides the target VDEV, which cor
 
 ## See also:
 
-- A9.4.4 Mapping from virtual device ID to VDEV object
-- B4.5.81 RMI\_VDEV\_COMPLETE command
+- [A9.4.4 Mapping from virtual device ID to VDEV object](rmm-A9.4.md#a944-mapping-from-virtual-device-id-to-vdev-object)
+- [B4.5.81 RMI\_VDEV\_COMPLETE command](rmm-B4.5.81.md)
 
 ## A4.3.13 REC exit due to VDEV mapping validation
 
@@ -492,10 +492,10 @@ On REC exit due to VDEV mapping validation, all of the following are true:
 
 ## See also:
 
-- A2.4.2 REC attributes
-- A5.5 VDEV mapping validation
-- A9.6.2 Realm validation of device memory mappings
-- B4.5.71 RMI\_RTT\_DEV\_VALIDATE command
+- [A2.4.2 REC attributes](rmm-A2.4.md#a242-rec-attributes)
+- [A5.5 VDEV mapping validation](rmm-A5.5.md)
+- [A9.6.2 Realm validation of device memory mappings](rmm-A9.6.md#a962-realm-validation-of-device-memory-mappings)
+- [B4.5.71 RMI\_RTT\_DEV\_VALIDATE command](rmm-B4.5.71.md)
 
 ## A4.3.14 REC exit due to VDEV P2P binding
 
@@ -515,10 +515,10 @@ The Realm can validate that the binding request was undertaken by executing RSI\
 
 ## See also:
 
-- A2.4.2 REC attributes
-- A9.10 Peer-to-peer device communication
-- B4.5.88 RMI\_VDEV\_P2P\_BIND command
-- B5.4.19 RSI\_VDEV\_GET\_INFO command
+- [A2.4.2 REC attributes](rmm-A2.4.md#a242-rec-attributes)
+- [A9.10 Peer-to-peer device communication](rmm-A9.10.md)
+- [B4.5.88 RMI\_VDEV\_P2P\_BIND command](rmm-B4.5.88.md)
+- [B5.4.19 RSI\_VDEV\_GET\_INFO command](rmm-B5.4.19.md)
 
 ## A4.3.15 REC exit due to VSMMU command
 

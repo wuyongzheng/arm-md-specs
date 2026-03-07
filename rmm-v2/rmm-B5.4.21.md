@@ -4,8 +4,8 @@ Validate Realm device memory mappings.
 
 See also:
 
-- A9.6.2 Realm validation of device memory mappings
-- B5.2.2.2 Range RSI operation which returns progress address
+- [A9.6.2 Realm validation of device memory mappings](rmm-A9.6.md#a962-realm-validation-of-device-memory-mappings)
+- [B5.2.2.2 Range RSI operation which returns progress address](rmm-B5.1.md#b5222-range-rsi-operation-which-returns-progress-address)
 
 ## B5.4.21.1 Interface
 

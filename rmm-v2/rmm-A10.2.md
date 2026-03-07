@@ -34,12 +34,12 @@ This causes a Plane exit to P0.
 
 See also:
 
-- A4.1 Realm exception model overview
-- A10.2.3.2 Plane exit due to IRQ
-- A10.2.3.3 Plane exit due to Host action
-- A10.4 Planes interrupts
-- B5.4.13 RSI\_PLANE\_ENTER command
-- B5.5.17 RsiPlaneRun type
+- [A4.1 Realm exception model overview](rmm-A4.1.md)
+- [A10.2.3.2 Plane exit due to IRQ](rmm-A10.2.md#a10232-plane-exit-due-to-irq)
+- [A10.2.3.3 Plane exit due to Host action](rmm-A10.2.md#a10233-plane-exit-due-to-host-action)
+- [A10.4 Planes interrupts](rmm-A10.4.md)
+- [B5.4.13 RSI\_PLANE\_ENTER command](rmm-B5.4.13.md)
+- [B5.5.17 RsiPlaneRun type](rmm-B5.5.md#b5517-rsiplanerun-type)
 
 ## A10.2.2 Plane entry
 
@@ -135,8 +135,8 @@ On Plane exit due to Synchronous Exception, all of the following are true:
 
 ## See also:
 
-- A4.3.9 REC exit due to Host call
-- A10.2.7 Pn usage of SIMD and SVE
+- [A4.3.9 REC exit due to Host call](rmm-A4.3.md#a439-rec-exit-due-to-host-call)
+- [A10.2.7 Pn usage of SIMD and SVE](rmm-A10.2.md#a1027-pn-usage-of-simd-and-sve)
 
 ## A10.2.3.2 Plane exit due to IRQ
 
@@ -147,7 +147,7 @@ On Plane exit due to IRQ, plane\_exit.exit\_reason
 
 ## See also:
 
-- A10.4 Planes interrupts
+- [A10.4 Planes interrupts](rmm-A10.4.md)
 
 ## A10.2.3.3 Plane exit due to Host action
 
@@ -162,7 +162,7 @@ On Plane exit due to Host action, all of the following are true:
 
 ## See also:
 
-- A4.2 REC entry
+- [A4.2 REC entry](rmm-A4.2.md)
 
 ## A10.2.4 REC exit from Pn
 
@@ -200,7 +200,7 @@ On Plane exit due to execution by Pn of an RSI command, possible actions taken b
 ## See also:
 
 - Chapter B5 Realm Services Interface
-- B5.4.5 RSI\_HOST\_CALL command
+- [B5.4.5 RSI\_HOST\_CALL command](rmm-B5.4.5.md)
 
 ## A10.2.6 Pn system registers
 
@@ -212,8 +212,8 @@ On Plane exit due to execution by Pn of an RSI command, possible actions taken b
 
 ## See also:
 
-- B5.4.14 RSI\_PLANE\_SYSREG\_READ command
-- B5.4.15 RSI\_PLANE\_SYSREG\_WRITE command
+- [B5.4.14 RSI\_PLANE\_SYSREG\_READ command](rmm-B5.4.14.md)
+- [B5.4.15 RSI\_PLANE\_SYSREG\_WRITE command](rmm-B5.4.15.md)
 
 ## A10.2.7 Pn usage of SIMD and SVE
 

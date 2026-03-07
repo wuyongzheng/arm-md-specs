@@ -5,8 +5,8 @@ This specification defines version 1.0 of the Realm Management Interface.
 
 See also:
 
-- Chapter B2 Interface versioning
-- B4.3.23 RMI\_VERSION command
+- [Chapter B2 Interface versioning](rmm-B2.md)
+- [B4.3.23 RMI\_VERSION command](rmm-B4.3.23.md)
 
 ## B4.2 RMI command return codes
 
@@ -44,4 +44,4 @@ If an input to an RMI command uses an invalid encoding then the command fails an
 
 ## See also:
 
-- B4.4.1 RmiCommandReturnCode type
+- [B4.4.1 RmiCommandReturnCode type](rmm-B4.4.md#b441-rmicommandreturncode-type)

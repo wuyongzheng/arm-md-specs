@@ -8,8 +8,8 @@ The RMI\_PSMMU\_DEACTIVATE command may initiate a memory-transferring RMI Operat
 
 ## See also:
 
-- A9.7 Physical SMMU
-- B4.5.39 RMI\_PSMMU\_ACTIVATE command
+- [A9.7 Physical SMMU](rmm-A9.7.md)
+- [B4.5.39 RMI\_PSMMU\_ACTIVATE command](rmm-B4.5.39.md)
 
 ## B4.5.40.1 Interface
 

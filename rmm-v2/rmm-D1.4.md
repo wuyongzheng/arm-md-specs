@@ -12,6 +12,6 @@ Figure D1.14: PSCI\_CPU\_ON flow
 
 See also:
 
-- B4.5.38 RMI\_PSCI\_COMPLETE command
-- B6.3.3 PSCI\_CPU\_ON command
+- [B4.5.38 RMI\_PSCI\_COMPLETE command](rmm-B4.5.38.md)
+- [B6.3.3 PSCI\_CPU\_ON command](rmm-B6.3.3.md)
 

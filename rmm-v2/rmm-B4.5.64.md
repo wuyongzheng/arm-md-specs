@@ -6,10 +6,10 @@ The RMI\_RTT\_CREATE command may initiate a Stateful RMI Operation.
 
 See also:
 
-- A5.6 Realm Translation Table
-- A5.6.7 RTT unfolding
-- B4.5.68 RMI\_RTT\_DESTROY command
-- B4.5.72 RMI\_RTT\_FOLD command
+- [A5.6 Realm Translation Table](rmm-A5.6.md)
+- [A5.6.7 RTT unfolding](rmm-A5.6.md#a567-rtt-unfolding)
+- [B4.5.68 RMI\_RTT\_DESTROY command](rmm-B4.5.68.md)
+- [B4.5.72 RMI\_RTT\_FOLD command](rmm-B4.5.72.md)
 
 ## B4.5.64.1 Interface
 

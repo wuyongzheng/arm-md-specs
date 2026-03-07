@@ -25,10 +25,10 @@ Interaction between the Host and a PDEV, VDEV and VSMMU objects is performed via
 
 See also:
 
-- A9.2 Physical device object
-- A9.4 Virtual device object
-- A9.7 Physical SMMU
-- A9.8 Virtual SMMU
+- [A9.2 Physical device object](rmm-A9.2.md)
+- [A9.4 Virtual device object](rmm-A9.4.md)
+- [A9.7 Physical SMMU](rmm-A9.7.md)
+- [A9.8 Virtual SMMU](rmm-A9.8.md)
 
 ## A9.1.2 Device properties
 
@@ -56,8 +56,8 @@ See also:
 
 - PCI Express 6.0 specification [16]
 - Secured Messages using SPDM Specification version 1.1.0 [17]
-- A9.5 Communication between RMM and a device
-- A9.11 Coherent memory devices
+- [A9.5 Communication between RMM and a device](rmm-A9.5.md)
+- [A9.11 Coherent memory devices](rmm-A9.11.md)
 
 ## A9.1.3 Device assignment flow
 

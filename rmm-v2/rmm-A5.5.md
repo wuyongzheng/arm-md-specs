@@ -67,15 +67,15 @@ Otherwise, the output value of RSI\_VDEV\_VALIDATE\_MAPPING indicates 'Host acce
 
 ## See also:
 
-- A2.4.2 REC attributes
-- A4.2 REC entry
-- A4.3.13 REC exit due to VDEV mapping validation
-- A5.2.2 Realm IPA state
-- A7.1.1 Realm Initial Measurement
-- Chapter A9 Realm device assignment
-- B3.105 RecDevMemResponseToRsi function
-- B4.5.51 RMI\_REC\_ENTER command
-- B4.5.71 RMI\_RTT\_DEV\_VALIDATE command
-- B5.4.21 RSI\_VDEV\_VALIDATE\_MAPPING command
-- D1.5.3 RIPAS change flow
+- [A2.4.2 REC attributes](rmm-A2.4.md#a242-rec-attributes)
+- [A4.2 REC entry](rmm-A4.2.md)
+- [A4.3.13 REC exit due to VDEV mapping validation](rmm-A4.3.md#a4313-rec-exit-due-to-vdev-mapping-validation)
+- [A5.2.2 Realm IPA state](rmm-A5.1.md#a522-realm-ipa-state)
+- [A7.1.1 Realm Initial Measurement](rmm-A7.1.md#a711-realm-initial-measurement)
+- [Chapter A9 Realm device assignment](rmm-A8.md#chapter-a9-realm-device-assignment)
+- [B3.105 RecDevMemResponseToRsi function](rmm-B3.md#b3105-recdevmemresponsetorsi-function)
+- [B4.5.51 RMI\_REC\_ENTER command](rmm-B4.5.51.md)
+- [B4.5.71 RMI\_RTT\_DEV\_VALIDATE command](rmm-B4.5.71.md)
+- [B5.4.21 RSI\_VDEV\_VALIDATE\_MAPPING command](rmm-B5.4.21.md)
+- [D1.5.3 RIPAS change flow](rmm-D1.5.md#d153-ripas-change-flow)
 

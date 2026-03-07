@@ -4,8 +4,8 @@ Mark CMEM address range as populated.
 
 See also:
 
-- A9.11 Coherent memory devices
-- B4.5.9 RMI\_CMEM\_UNPOPULATE command
+- [A9.11 Coherent memory devices](rmm-A9.11.md)
+- [B4.5.9 RMI\_CMEM\_UNPOPULATE command](rmm-B4.5.9.md)
 
 ## B4.5.5.1 Interface
 

@@ -18,5 +18,5 @@ This section describes the debug and performance monitoring features which are a
 
 See also:
 
-- A3.5 Realm support for self-hosted debug
+- [A3.5 Realm support for self-hosted debug](rmm-A3.md#a35-realm-support-for-self-hosted-debug)
 

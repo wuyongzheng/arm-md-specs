@@ -24,8 +24,8 @@ On a platform which implements FEAT\_MEC, MEC\_COUNT is expected to be computed 
 ## See also:
 
 - Arm Architecture Reference Manual Supplement, The Realm Management Extension (RME), for Armv9-A [2]
-- A3.15 Support for Realm memory encryption
-- B4.6.27 RmiFeatureRegister1 type
+- [A3.15 Support for Realm memory encryption](rmm-A3.md#a315-support-for-realm-memory-encryption)
+- [B4.6.27 RmiFeatureRegister1 type](rmm-B4.6.md#b4627-rmifeatureregister1-type)
 
 ## A11.1.1 MEC and Realms
 
@@ -41,8 +41,8 @@ On a platform which implements FEAT\_MEC, MEC\_COUNT is expected to be computed 
 
 ## See also:
 
-- A7.2.3.1.8 Realm MEC policy claim
-- B4.5.46 RMI\_REALM\_CREATE command
+- [A7.2.3.1.8 Realm MEC policy claim](rmm-A7.2.3.1.md#a72318-realm-mec-policy-claim)
+- [B4.5.46 RMI\_REALM\_CREATE command](rmm-B4.5.46.md)
 
 ## A11.1.2 MEC and CMEM devices
 
@@ -62,11 +62,11 @@ I0073 The following pseudocode illustrate the programming model for destroying a
 
 See also:
 
-- A9.5 Communication between RMM and a device
-- A9.11 Coherent memory devices
-- B3.24 CmemMecUpdateComplete function
-- B4.5.30 RMI\_PDEV\_MEC\_REFRESH command
-- B4.5.47 RMI\_REALM\_DESTROY command
+- [A9.5 Communication between RMM and a device](rmm-A9.5.md)
+- [A9.11 Coherent memory devices](rmm-A9.11.md)
+- [B3.24 CmemMecUpdateComplete function](rmm-B3.md#b324-cmemmecupdatecomplete-function)
+- [B4.5.30 RMI\_PDEV\_MEC\_REFRESH command](rmm-B4.5.30.md)
+- [B4.5.47 RMI\_REALM\_DESTROY command](rmm-B4.5.47.md)
 
 <!-- image -->
 

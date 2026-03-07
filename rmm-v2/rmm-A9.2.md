@@ -72,8 +72,8 @@ The following table summarizes the meaning of the pdev\_id and routing\_id attri
 
 - PCI Express 6.0 specification [16]
 - Compute eXpress Link specification [18]
-- A9.11 Coherent memory devices
-- B3.129 RmiPdevFlagsSupported function
+- [A9.11 Coherent memory devices](rmm-A9.11.md)
+- [B3.129 RmiPdevFlagsSupported function](rmm-B3.md#b3129-rmipdevflagssupported-function)
 
 ## A9.2.2 Physical device invariants
 
@@ -93,10 +93,10 @@ For an integrated PDEV the range (pdev.rid\_base, pdev.rid\_top] falls within th
 
 ## See also:
 
-- A2.3.2 Views of physical memory
-- A2.3.4 Granule tracking region
-- A9.4.2 Virtual device invariants
-- B4.5.27 RMI\_PDEV\_CREATE command
+- [A2.3.2 Views of physical memory](rmm-A2.3.md#a232-views-of-physical-memory)
+- [A2.3.4 Granule tracking region](rmm-A2.3.md#a234-granule-tracking-region)
+- [A9.4.2 Virtual device invariants](rmm-A9.4.md#a942-virtual-device-invariants)
+- [B4.5.27 RMI\_PDEV\_CREATE command](rmm-B4.5.27.md)
 
 ## A9.2.3 Physical device lifecycle
 
@@ -201,17 +201,17 @@ A transition from the pseudo-state NULL represents creation of a PDEV object. A 
 
 ## See also:
 
-- B4.5.25 RMI\_PDEV\_ABORT command
-- B4.5.26 RMI\_PDEV\_COMMUNICATE command
-- B4.5.27 RMI\_PDEV\_CREATE command
-- B4.5.28 RMI\_PDEV\_DESTROY command
-- B4.5.31 RMI\_PDEV\_SET\_PUBKEY command
-- B4.5.32 RMI\_PDEV\_STOP command
+- [B4.5.25 RMI\_PDEV\_ABORT command](rmm-B4.5.25.md)
+- [B4.5.26 RMI\_PDEV\_COMMUNICATE command](rmm-B4.5.26.md)
+- [B4.5.27 RMI\_PDEV\_CREATE command](rmm-B4.5.27.md)
+- [B4.5.28 RMI\_PDEV\_DESTROY command](rmm-B4.5.28.md)
+- [B4.5.31 RMI\_PDEV\_SET\_PUBKEY command](rmm-B4.5.31.md)
+- [B4.5.32 RMI\_PDEV\_STOP command](rmm-B4.5.32.md)
 
 ## See also:
 
 - PCI Express 6.0 specification [16]
-- A9.5 Communication between RMM and a device
+- [A9.5 Communication between RMM and a device](rmm-A9.5.md)
 
 
 ## A9.2.4 Physical device flows
@@ -238,9 +238,9 @@ Chapter A9. Realm device assignment A9.2. Physical device object
 See also:
 
 - PCI Express 6.0 specification [16]
-- A9.5 Communication between RMM and a device
-- B4.5.26 RMI\_PDEV\_COMMUNICATE command
-- B4.5.27 RMI\_PDEV\_CREATE command
-- B4.5.31 RMI\_PDEV\_SET\_PUBKEY command
+- [A9.5 Communication between RMM and a device](rmm-A9.5.md)
+- [B4.5.26 RMI\_PDEV\_COMMUNICATE command](rmm-B4.5.26.md)
+- [B4.5.27 RMI\_PDEV\_CREATE command](rmm-B4.5.27.md)
+- [B4.5.31 RMI\_PDEV\_SET\_PUBKEY command](rmm-B4.5.31.md)
 
 <!-- image -->

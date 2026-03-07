@@ -36,5 +36,5 @@ Invalid encodings include:
 
 See also:
 
-- B4.3.2 Stateful RMI operations
-- B4.6.73 RmiResult type
+- [B4.3.2 Stateful RMI operations](rmm-B4.3.md#b432-stateful-rmi-operations)
+- [B4.6.73 RmiResult type](rmm-B4.6.md#b4673-rmiresult-type)

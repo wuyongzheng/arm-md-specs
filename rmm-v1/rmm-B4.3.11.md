@@ -4,10 +4,10 @@ Get number of auxiliary Granules required for a REC.
 
 See also:
 
-- A2.3 Realm Execution Context
-- B4.3.12 RMI\_REC\_CREATE command
-- B4.4.19 RmiRecParams type
-- D1.2.4 REC creation flow
+- [A2.3 Realm Execution Context](rmm-A2.3.md)
+- [B4.3.12 RMI\_REC\_CREATE command](rmm-B4.3.12.md)
+- [B4.4.19 RmiRecParams type](rmm-B4.4.md#b4419-rmirecparams-type)
+- [D1.2.4 REC creation flow](rmm-D1.2.md#d124-rec-creation-flow)
 
 ## B4.3.11.1 Interface
 

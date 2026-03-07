@@ -8,8 +8,8 @@ The RMI\_VDEV\_DESTROY command may initiate a memory-transferring RMI Operation.
 
 ## See also:
 
-- Chapter A9 Realm device assignment
-- B4.3.4 Object creation and destruction
+- [Chapter A9 Realm device assignment](rmm-A8.md#chapter-a9-realm-device-assignment)
+- [B4.3.4 Object creation and destruction](rmm-B4.3.md#b434-object-creation-and-destruction)
 
 ## B4.5.83.1 Interface
 

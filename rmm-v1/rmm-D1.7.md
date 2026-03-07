@@ -12,9 +12,9 @@ The Realm then calls RSI\_ATTESTATION\_TOKEN\_CONTINUE, providing the address of
 
 ## See also:
 
-- A7.2.2 Attestation token generation
-- B5.3.1 RSI\_ATTESTATION\_TOKEN\_CONTINUE command
-- B5.3.2 RSI\_ATTESTATION\_TOKEN\_INIT command
+- [A7.2.2 Attestation token generation](rmm-A7.2.md#a722-attestation-token-generation)
+- [B5.3.1 RSI\_ATTESTATION\_TOKEN\_CONTINUE command](rmm-B5.3.1.md)
+- [B5.3.2 RSI\_ATTESTATION\_TOKEN\_INIT command](rmm-B5.3.2.md)
 
 ## D1.7.2 Handling interrupts during attestation token generation flow
 
@@ -30,11 +30,11 @@ Whether or not a virtual interrupt was taken, on return to the original thread, 
 
 ## See also:
 
-- A4.3.5 REC exit due to IRQ
-- A6.1 Realm interrupts
-- A7.2.2 Attestation token generation
-- B5.3.1 RSI\_ATTESTATION\_TOKEN\_CONTINUE command
-- B5.3.2 RSI\_ATTESTATION\_TOKEN\_INIT command
-- D1.3.1 Realm entry and exit flow
+- [A4.3.5 REC exit due to IRQ](rmm-A4.3.md#a435-rec-exit-due-to-irq)
+- [A6.1 Realm interrupts](rmm-A6.1.md)
+- [A7.2.2 Attestation token generation](rmm-A7.2.md#a722-attestation-token-generation)
+- [B5.3.1 RSI\_ATTESTATION\_TOKEN\_CONTINUE command](rmm-B5.3.1.md)
+- [B5.3.2 RSI\_ATTESTATION\_TOKEN\_INIT command](rmm-B5.3.2.md)
+- [D1.3.1 Realm entry and exit flow](rmm-D1.3.md#d131-realm-entry-and-exit-flow)
 
 <!-- image -->

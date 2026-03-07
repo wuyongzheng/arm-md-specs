@@ -4,8 +4,8 @@
 
 See also:
 
-- Chapter B2 Interface versioning
-- B5.4.22 RSI\_VERSION command
+- [Chapter B2 Interface versioning](rmm-B2.md)
+- [B5.4.22 RSI\_VERSION command](rmm-B5.4.22.md)
 
 ## B5.2 Programming models for RSI operations
 
@@ -13,7 +13,7 @@ See also:
 
 See also:
 
-- B5.2 Programming models for RSI operations
+- [B5.2 Programming models for RSI operations](rmm-B5.1.md#b52-programming-models-for-rsi-operations)
 
 ## B5.2.1 Properties of RSI operations
 
@@ -49,8 +49,8 @@ int rsi_long_running_non_range( uint64_t in_value_1, uint64_t in_value_2,
 
 ## See also:
 
-- B5.4.2 RSI\_ATTESTATION\_TOKEN\_CONTINUE command
-- B5.4.3 RSI\_ATTESTATION\_TOKEN\_INIT command
+- [B5.4.2 RSI\_ATTESTATION\_TOKEN\_CONTINUE command](rmm-B5.4.2.md)
+- [B5.4.3 RSI\_ATTESTATION\_TOKEN\_INIT command](rmm-B5.4.3.md)
 
 ## B5.2.2.2 Range RSI operation which returns progress address
 
@@ -81,9 +81,9 @@ When a range RSI operation returns out\_top , the state of objects in the range 
 
 See also:
 
-- B5.4.7 RSI\_IPA\_STATE\_SET command
-- B5.4.11 RSI\_MEM\_SET\_PERM\_INDEX command
-- B5.4.21 RSI\_VDEV\_VALIDATE\_MAPPING command
+- [B5.4.7 RSI\_IPA\_STATE\_SET command](rmm-B5.4.7.md)
+- [B5.4.11 RSI\_MEM\_SET\_PERM\_INDEX command](rmm-B5.4.11.md)
+- [B5.4.21 RSI\_VDEV\_VALIDATE\_MAPPING command](rmm-B5.4.21.md)
 
 ## B5.3 RSI command return codes
 
@@ -110,5 +110,5 @@ Invalid encodings include:
 
 ## See also:
 
-- B5.5.3 RsiCommandReturnCode type
+- [B5.5.3 RsiCommandReturnCode type](rmm-B5.5.md#b553-rsicommandreturncode-type)
 

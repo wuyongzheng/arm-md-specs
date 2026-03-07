@@ -4,10 +4,10 @@ Creates an RTT.
 
 See also:
 
-- A5.5 Realm Translation Table
-- A5.5.7 RTT unfolding
-- B4.3.16 RMI\_RTT\_DESTROY command
-- B4.3.17 RMI\_RTT\_FOLD command
+- [A5.5 Realm Translation Table](rmm-A5.5.md)
+- [A5.5.7 RTT unfolding](rmm-A5.5.md#a557-rtt-unfolding)
+- [B4.3.16 RMI\_RTT\_DESTROY command](rmm-B4.3.16.md)
+- [B4.3.17 RMI\_RTT\_FOLD command](rmm-B4.3.17.md)
 
 ## B4.3.15.1 Interface
 

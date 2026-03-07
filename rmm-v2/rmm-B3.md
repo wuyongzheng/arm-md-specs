@@ -6,7 +6,7 @@ This chapter describes functions which are used in command condition expressions
 
 See also:
 
-- B1.4 Command condition expressions
+- [B1.4 Command condition expressions](rmm-B1.2.md#b14-command-condition-expressions)
 
 
 ## B3.1 AddrInRange function
@@ -67,7 +67,7 @@ readonly func AddrIsRmiGranuleAligned( addr : Address) => boolean begin var rmm 
 
 See also:
 
-- A2.3.1 Granule size
+- [A2.3.1 Granule size](rmm-A2.3.md#a231-granule-size)
 
 ## B3.7 AddrIsRsiGranuleAligned function
 
@@ -205,9 +205,9 @@ readonly func AnyRecRunning( realm : RmmRealm) =>
 
 ## See also:
 
-- A2.4 Realm Execution Context
-- B4.5.48 RMI\_REALM\_TERMINATE command
-- D1.2.5 Realm destruction flow
+- [A2.4 Realm Execution Context](rmm-A2.4.md)
+- [B4.5.48 RMI\_REALM\_TERMINATE command](rmm-B4.5.48.md)
+- [D1.2.5 Realm destruction flow](rmm-D1.2.md#d125-realm-destruction-flow)
 
 ## B3.20 AttestationTokenMaxSize function
 
@@ -277,7 +277,7 @@ readonly impdef func CmemMecUpdateComplete( realm : RmmRealm) => boolean
 
 See also:
 
-- A11.1.2 MEC and CMEM devices
+- [A11.1.2 MEC and CMEM devices](rmm-A11.md#a1112-mec-and-cmem-devices)
 
 ## B3.25 CmemNumPdevs function
 
@@ -420,8 +420,8 @@ readonly func Gicv3ConfigIsValid() => boolean
 
 See also:
 
-- A6.1 Realm interrupts
-- B4.6.64 RmiRecEnter type
+- [A6.1 Realm interrupts](rmm-A6.1.md)
+- [B4.6.64 RmiRecEnter type](rmm-B4.6.md#b4664-rmirecenter-type)
 
 ```
 RSI_FEATURE_FALSE;
@@ -459,7 +459,7 @@ Chapter B3. Command condition functions B3.39. GranulesAllState function
 
 See also:
 
-- A2.3 Physical memory
+- [A2.3 Physical memory](rmm-A2.3.md)
 
 ## B3.39 GranulesAllState function
 
@@ -535,7 +535,7 @@ readonly func MecidAvailable( policy : RmiMecPolicy) =>
 
 See also:
 
-- Chapter A11 Realm memory encryption
+- [Chapter A11 Realm memory encryption](rmm-A11.md)
 
 ## B3.46 MemCategoryIsCompatible function
 
@@ -549,7 +549,7 @@ readonly impdef func MemCategoryIsCompatible( category : RmiMemCategory, addr : 
 
 See also:
 
-- A2.3.2 Views of physical memory
+- [A2.3.2 Views of physical memory](rmm-A2.3.md#a232-views-of-physical-memory)
 
 ## B3.47 MemPermLabelSupported function
 
@@ -607,7 +607,7 @@ readonly impdef func OperationCanCancel( handle : bits(64)) => RmmOpCanCancel
 
 See also:
 
-- B4.3.2 Stateful RMI operations
+- [B4.3.2 Stateful RMI operations](rmm-B4.3.md#b432-stateful-rmi-operations)
 
 ## B3.54 OperationIncomplete function
 
@@ -623,7 +623,7 @@ readonly impdef func handle : bits(64)) => boolean
 
 See also:
 
-- B4.3.2 Stateful RMI operations
+- [B4.3.2 Stateful RMI operations](rmm-B4.3.md#b432-stateful-rmi-operations)
 
 ## B3.55 PaAllDelegableConventional16 function
 
@@ -661,7 +661,7 @@ readonly impdef func addr : Address) => boolean
 
 ## See also:
 
-- A2.3.2 Views of physical memory
+- [A2.3.2 Views of physical memory](rmm-A2.3.md#a232-views-of-physical-memory)
 
 Chapter B3. Command condition functions B3.58. PaIsDelegable function
 
@@ -675,7 +675,7 @@ readonly func PaIsDelegable( addr : Address) => boolean begin return (PaIsDelega
 
 ## See also:
 
-- A2.3.5 Delegable physical memory
+- [A2.3.5 Delegable physical memory](rmm-A2.3.md#a235-delegable-physical-memory)
 
 ## B3.59 PaIsDelegableCohDevMem function
 
@@ -693,7 +693,7 @@ readonly func PaIsDelegableConventional( addr : Address) => boolean begin var re
 
 ## See also:
 
-- A2.3.5 Delegable physical memory
+- [A2.3.5 Delegable physical memory](rmm-A2.3.md#a235-delegable-physical-memory)
 
 ## B3.61 PaIsDelegableConventionalFine function
 
@@ -719,7 +719,7 @@ readonly func PaIsDelegableDevMem( addr : Address) => boolean begin return (PaIs
 
 ## See also:
 
-- A2.3.5 Delegable physical memory
+- [A2.3.5 Delegable physical memory](rmm-A2.3.md#a235-delegable-physical-memory)
 
 ## B3.63 PaIsDelegableNonCohDevMem function
 
@@ -731,7 +731,7 @@ readonly func addr : Address) => boolean begin return (PaIsNonCohDevMem(addr) &&
 
 ## See also:
 
-- A2.3.5 Delegable physical memory
+- [A2.3.5 Delegable physical memory](rmm-A2.3.md#a235-delegable-physical-memory)
 
 ## B3.64 PaIsDram function
 
@@ -747,7 +747,7 @@ readonly impdef func PaIsDram( addr : Address) => boolean
 
 ## See also:
 
-- A2.3.2 Views of physical memory
+- [A2.3.2 Views of physical memory](rmm-A2.3.md#a232-views-of-physical-memory)
 
 ## B3.65 PaIsNonCohDevMem function
 
@@ -765,7 +765,7 @@ readonly impdef func addr : Address) => boolean
 
 ## See also:
 
-- A2.3.2 Views of physical memory
+- [A2.3.2 Views of physical memory](rmm-A2.3.md#a232-views-of-physical-memory)
 
 ## B3.66 PaIsPopulated function
 
@@ -777,8 +777,8 @@ readonly func PaIsPopulated( addr : Address) =>
 
 ## See also:
 
-- A2.3.3 Populated physical memory
-- B3.67 PaIsTracked function
+- [A2.3.3 Populated physical memory](rmm-A2.3.md#a233-populated-physical-memory)
+- [B3.67 PaIsTracked function](rmm-B3.md#b367-paistracked-function)
 
 ## B3.67 PaIsTracked function
 
@@ -816,7 +816,7 @@ top : Address) => boolean
 
 See also:
 
-- A2.3.3 Populated physical memory
+- [A2.3.3 Populated physical memory](rmm-A2.3.md#a233-populated-physical-memory)
 
 ## B3.70 PaRangeIsUnpopulated function
 
@@ -832,7 +832,7 @@ readonly func base : Address, top : Address) => boolean
 
 See also:
 
-- A2.3.3 Populated physical memory
+- [A2.3.3 Populated physical memory](rmm-A2.3.md#a233-populated-physical-memory)
 
 ## B3.71 PdevAt function
 
@@ -942,7 +942,7 @@ readonly func PdevStreamsForVdev( pdev : RmmPdev) => boolean
 
 See also:
 
-- A9.3 Physical device stream object
+- [A9.3 Physical device stream object](rmm-A9.3.md)
 
 ## B3.82 PdevStreamTypeFromRmi function
 
@@ -1008,7 +1008,7 @@ readonly func PsciReturnCodePermitted( calling_rec : RmmRec, target_rec : RmmRec
 
 ## See also:
 
-- A4.3.7 REC exit due to PSCI
+- [A4.3.7 REC exit due to PSCI](rmm-A4.3.md#a437-rec-exit-due-to-psci)
 
 bits(64)
 
@@ -1075,7 +1075,7 @@ readonly func PsmmuL1StIsLive( psmmu : RmmPsmmu) => boolean
 
 ## See also:
 
-- A9.7.4 PSMMU Stream Tables
+- [A9.7.4 PSMMU Stream Tables](rmm-A9.7.md#a974-psmmu-stream-tables)
 
 ## B3.94 PsmmuL2StIsLive function
 
@@ -1087,7 +1087,7 @@ readonly func PsmmuL2StIsLive( psmmu : RmmPsmmu, sid : bits(64)) => boolean
 
 ## See also:
 
-- A9.7.4 PSMMU Stream Tables
+- [A9.7.4 PSMMU Stream Tables](rmm-A9.7.md#a974-psmmu-stream-tables)
 
 ## B3.95 PsmmuStWalk function
 
@@ -1119,7 +1119,7 @@ readonly func RealmAt( addr : Address) =>
 
 See also:
 
-- A2.2 Realm
+- [A2.2 Realm](rmm-A2.2.md)
 
 ## B3.98 RealmIpaRangeAllRipasIf function
 
@@ -1147,7 +1147,7 @@ readonly func RealmIsLive( addr : Address) =>
 
 ## See also:
 
-- A2.2.4 Realm liveness
+- [A2.2.4 Realm liveness](rmm-A2.2.md#a224-realm-liveness)
 
 ## B3.100 RealmMeasurementEncode function
 
@@ -1179,8 +1179,8 @@ if (params.hash_algo == RMI_HASH_SHA_384 && rmm.static.feat_sha_384 != FEATURE_T
 
 ## See also:
 
-- A2.2.6 Realm parameters
-- Chapter A3 Feature discovery and configuration
+- [A2.2.6 Realm parameters](rmm-A2.2.md#a226-realm-parameters)
+- [Chapter A3 Feature discovery and configuration](rmm-A3.md)
 
 ## B3.102 RealmRttBaseEqual function
 
@@ -1214,7 +1214,7 @@ RmmRec
 
 ## See also:
 
-- A2.4 Realm Execution Context
+- [A2.4 Realm Execution Context](rmm-A2.4.md)
 
 ## B3.104 RecAuxCount function
 
@@ -1266,7 +1266,7 @@ pure func RecIndex( mpidr : RmiRecMpidr) => integer begin return (UInt(mpidr.aff
 
 See also:
 
-- A2.4.3 REC index and MPIDR value
+- [A2.4.3 REC index and MPIDR value](rmm-A2.4.md#a243-rec-index-and-mpidr-value)
 
 ## B3.108 RecRipasResponseToRsi function
 
@@ -1284,7 +1284,7 @@ readonly func RecS2APResponseToRsi( rec : RmmRec) => RsiResponse begin if ((rec.
 
 ## See also:
 
-- A10.3.2.3 Stage 2 Access Permissions change within a multi-Plane Realm
+- [A10.3.2.3 Stage 2 Access Permissions change within a multi-Plane Realm](rmm-A10.3.md#a10323-stage-2-access-permissions-change-within-a-multi-plane-realm)
 
 ## B3.110 RemExtend function
 
@@ -1306,7 +1306,7 @@ readonly func RemExtend( hash_algo : RmmHashAlgorithm, old_value : RmmRealmMeasu
 
 ## See also:
 
-- A7.1.2 Realm Extensible Measurement
+- [A7.1.2 Realm Extensible Measurement](rmm-A7.1.md#a712-realm-extensible-measurement)
 
 ## B3.111 RimExtendData function
 
@@ -1330,7 +1330,7 @@ readonly func RimExtendRec( realm : RmmRealm, params : RmiRecParams) =>
 
 See also:
 
-- B4.5.49.4 RMI\_REC\_CREATE extension of RIM
+- [B4.5.49.4 RMI\_REC\_CREATE extension of RIM](rmm-B4.5.49.md#b45494-rmi_rec_create-extension-of-rim)
 
 ## B3.113 RipasToRmi function
 
@@ -1460,7 +1460,7 @@ readonly func addr : Address) => boolean
 
 ## See also:
 
-- A9.11.3 Coherent memory device invariants
+- [A9.11.3 Coherent memory device invariants](rmm-A9.11.md#a9113-coherent-memory-device-invariants)
 
 ## B3.123 RmiCmemPdevParamsAt function
 
@@ -1548,7 +1548,7 @@ readonly func RmiPdevFlagsSupported( flags : RmiPdevFlags) => boolean begin var 
 
 ## See also:
 
-- A9.2.1 Physical device attributes
+- [A9.2.1 Physical device attributes](rmm-A9.2.md#a921-physical-device-attributes)
 
 ## B3.130 RmiPdevParamsAt function
 
@@ -1653,7 +1653,7 @@ readonly func RmiRealmParamsAt( addr : Address) =>
 
 See also:
 
-- A2.2.6 Realm parameters
+- [A2.2.6 Realm parameters](rmm-A2.2.md#a226-realm-parameters)
 
 ## B3.137 RmiRealmParamsIsValid function
 
@@ -1691,8 +1691,8 @@ readonly func RmiRecRunAt( addr : Address) =>
 
 ## See also:
 
-- A4.2 REC entry
-- A4.3 REC exit
+- [A4.2 REC entry](rmm-A4.2.md)
+- [A4.3 REC exit](rmm-A4.3.md)
 
 ## B3.140 RmiRmmConfigAt function
 
@@ -1774,8 +1774,8 @@ readonly func RmiVersionHigherIsSupported( version : RmiInterfaceVersion) =>
 
 ## See also:
 
-- Chapter B2 Interface versioning
-- B4.5.92 RMI\_VERSION command
+- [Chapter B2 Interface versioning](rmm-B2.md)
+- [B4.5.92 RMI\_VERSION command](rmm-B4.5.92.md)
 
 ## B3.146 RmiVersionHighest function
 
@@ -1787,8 +1787,8 @@ readonly func RmiVersionHighest() => RmiInterfaceVersion
 
 ## See also:
 
-- Chapter B2 Interface versioning
-- B4.5.92 RMI\_VERSION command
+- [Chapter B2 Interface versioning](rmm-B2.md)
+- [B4.5.92 RMI\_VERSION command](rmm-B4.5.92.md)
 
 ## B3.147 RmiVersionHighestBelow function
 
@@ -1800,8 +1800,8 @@ readonly func RmiVersionHighestBelow( version : RmiInterfaceVersion) => RmiInter
 
 ## See also:
 
-- Chapter B2 Interface versioning
-- B4.5.92 RMI\_VERSION command
+- [Chapter B2 Interface versioning](rmm-B2.md)
+- [B4.5.92 RMI\_VERSION command](rmm-B4.5.92.md)
 
 ## B3.148 RmiVersionIsSupported function
 
@@ -1817,8 +1817,8 @@ version : RmiInterfaceVersion) => boolean
 
 See also:
 
-- Chapter B2 Interface versioning
-- B4.5.92 RMI\_VERSION command
+- [Chapter B2 Interface versioning](rmm-B2.md)
+- [B4.5.92 RMI\_VERSION command](rmm-B4.5.92.md)
 
 ## B3.149 RmiVersionLowerIsSupported function
 
@@ -1830,8 +1830,8 @@ readonly func RmiVersionLowerIsSupported( version : RmiInterfaceVersion) =>
 
 See also:
 
-- Chapter B2 Interface versioning
-- B4.5.92 RMI\_VERSION command
+- [Chapter B2 Interface versioning](rmm-B2.md)
+- [B4.5.92 RMI\_VERSION command](rmm-B4.5.92.md)
 
 ## B3.150 RmiVsmmuParamsAt function
 
@@ -1845,7 +1845,7 @@ readonly func RmiVsmmuParamsAt( addr : Address) =>
 
 See also:
 
-- A9.8.3 VSMMU liveness
+- [A9.8.3 VSMMU liveness](rmm-A9.8.md#a983-vsmmu-liveness)
 
 ## B3.151 RmiVsmmuParamsIsValid function
 
@@ -1867,7 +1867,7 @@ readonly func RmiVsmmuParamsIsValid( addr : Address) => boolean
 See also:
 
 - Arm System Memory Management Unit Architecture Specification [22]
-- A9.8 Virtual SMMU
+- [A9.8 Virtual SMMU](rmm-A9.8.md)
 
 ## B3.152 Rmm function
 
@@ -1970,7 +1970,7 @@ readonly func RsiVersionHigherIsSupported( version : RsiInterfaceVersion) =>
 
 See also:
 
-- Chapter B2 Interface versioning
+- [Chapter B2 Interface versioning](rmm-B2.md)
 
 ```
 boolean
@@ -1990,8 +1990,8 @@ readonly func RsiVersionHighest() => RsiInterfaceVersion
 
 ## See also:
 
-- Chapter B2 Interface versioning
-- B5.4.22 RSI\_VERSION command
+- [Chapter B2 Interface versioning](rmm-B2.md)
+- [B5.4.22 RSI\_VERSION command](rmm-B5.4.22.md)
 
 ## B3.162 RsiVersionHighestBelow function
 
@@ -2003,8 +2003,8 @@ readonly func RsiVersionHighestBelow( version : RsiInterfaceVersion) =>
 
 ## See also:
 
-- Chapter B2 Interface versioning
-- B5.4.22 RSI\_VERSION command
+- [Chapter B2 Interface versioning](rmm-B2.md)
+- [B5.4.22 RSI\_VERSION command](rmm-B5.4.22.md)
 
 ## B3.163 RsiVersionIsSupported function
 
@@ -2016,8 +2016,8 @@ readonly func RsiVersionIsSupported( version : RsiInterfaceVersion) =>
 
 ## See also:
 
-- Chapter B2 Interface versioning
-- B5.4.22 RSI\_VERSION command
+- [Chapter B2 Interface versioning](rmm-B2.md)
+- [B5.4.22 RSI\_VERSION command](rmm-B5.4.22.md)
 
 ```
 RsiInterfaceVersion
@@ -2039,8 +2039,8 @@ version : RsiInterfaceVersion) => boolean
 
 ## See also:
 
-- Chapter B2 Interface versioning
-- B5.4.22 RSI\_VERSION command
+- [Chapter B2 Interface versioning](rmm-B2.md)
+- [B5.4.22 RSI\_VERSION command](rmm-B5.4.22.md)
 
 ## B3.165 RttAllEntriesContiguous function
 
@@ -2056,7 +2056,7 @@ readonly func rtt : RmmRtt, addr : Address, level : integer) => boolean
 
 See also:
 
-- A5.6 Realm Translation Table
+- [A5.6 Realm Translation Table](rmm-A5.6.md)
 
 ## B3.166 RttAllEntriesMemAttr function
 
@@ -2092,7 +2092,7 @@ readonly func RttAllEntriesState( rtt : RmmRtt, state : RmmRttEntryState) =>
 
 See also:
 
-- A5.6 Realm Translation Table
+- [A5.6 Realm Translation Table](rmm-A5.6.md)
 
 ## B3.170 RttAt function
 
@@ -2221,7 +2221,7 @@ Chapter B3. Command condition functions
 
 ## See also:
 
-- A5.6 Realm Translation Table
+- [A5.6 Realm Translation Table](rmm-A5.6.md)
 
 ## B3.180 RttEntryIndex function
 
@@ -2233,7 +2233,7 @@ readonly func RttEntryIndex( addr : Address, level : integer) =>
 
 ## See also:
 
-- A5.6 Realm Translation Table
+- [A5.6 Realm Translation Table](rmm-A5.6.md)
 
 ## B3.181 RttEntryStateToRmi function
 
@@ -2253,7 +2253,7 @@ pure func RttFold( rtt : RmmRtt) =>
 
 ## See also:
 
-- A5.6.6 RTT folding
+- [A5.6.6 RTT folding](rmm-A5.6.md#a566-rtt-folding)
 
 ## B3.183 RttIsHomogeneous function
 
@@ -2265,7 +2265,7 @@ pure func RttIsHomogeneous( rtt : RmmRtt) => boolean
 
 ## See also:
 
-- A5.6.6 RTT folding
+- [A5.6.6 RTT folding](rmm-A5.6.md#a566-rtt-folding)
 
 ```
 RmmRttEntry
@@ -2291,8 +2291,8 @@ boolean
 
 ## See also:
 
-- A5.6.8 RTTE liveness and RTT liveness
-- A5.6.9 RTT destruction
+- [A5.6.8 RTTE liveness and RTT liveness](rmm-A5.6.md#a568-rtte-liveness-and-rtt-liveness)
+- [A5.6.9 RTT destruction](rmm-A5.6.md#a569-rtt-destruction)
 
 ## B3.185 RttLevelIsStarting function
 
@@ -2304,7 +2304,7 @@ pure func RttLevelIsStarting( realm : RmmRealm, level : integer) =>
 
 ## See also:
 
-- A5.6 Realm Translation Table
+- [A5.6 Realm Translation Table](rmm-A5.6.md)
 
 ## B3.186 RttLevelIsValid function
 
@@ -2316,7 +2316,7 @@ pure func RttLevelIsValid( realm : RmmRealm, level : integer) =>
 
 ## See also:
 
-- A5.6 Realm Translation Table
+- [A5.6 Realm Translation Table](rmm-A5.6.md)
 
 ## B3.187 RttLevelSize function
 
@@ -2338,7 +2338,7 @@ readonly func RttLevelSize( level : integer) =>
 
 ## See also:
 
-- A5.6 Realm Translation Table
+- [A5.6 Realm Translation Table](rmm-A5.6.md)
 
 ## B3.188 RttMemAttrEqual function
 
@@ -2648,7 +2648,7 @@ readonly func RttWalk( realm : RmmRealm, addr : Address, level : integer, tree :
 
 ## See also:
 
-- A5.6.10 RTT walk
+- [A5.6.10 RTT walk](rmm-A5.6.md#a5610-rtt-walk)
 
 ## B3.212 RttWalkAnyNotAligned function
 
@@ -2888,7 +2888,7 @@ ver1 : PsciInterfaceVersion, ver2 : PsciInterfaceVersion) => boolean pure func V
 
 ## See also:
 
-- Chapter B2 Interface versioning
+- [Chapter B2 Interface versioning](rmm-B2.md)
 
 ## B3.231 VmidsAvailable function
 
@@ -2900,7 +2900,7 @@ readonly func VmidsAvailable( count : integer) => boolean
 
 ## See also:
 
-- A5.6.2 RTT structure and configuration
+- [A5.6.2 RTT structure and configuration](rmm-A5.6.md#a562-rtt-structure-and-configuration)
 
 ## B3.232 VsidIsFree function
 
@@ -2924,7 +2924,7 @@ readonly func VsmmuAt( addr : Address) => RmmVsmmu
 
 ## See also:
 
-- A9.8 Virtual SMMU
+- [A9.8 Virtual SMMU](rmm-A9.8.md)
 
 ## B3.234 VsmmuFeaturesAt function
 
@@ -2952,5 +2952,5 @@ boolean
 
 See also:
 
-- A9.8.3 VSMMU liveness
+- [A9.8.3 VSMMU liveness](rmm-A9.8.md#a983-vsmmu-liveness)
 

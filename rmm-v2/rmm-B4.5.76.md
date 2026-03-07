@@ -6,8 +6,8 @@ The RMI\_RTT\_SET\_S2AP command may initiate a Stateful RMI Operation.
 
 See also:
 
-- A10.3.2.3 Stage 2 Access Permissions change within a multi-Plane Realm
-- B4.3.5 Range RMI operations
+- [A10.3.2.3 Stage 2 Access Permissions change within a multi-Plane Realm](rmm-A10.3.md#a10323-stage-2-access-permissions-change-within-a-multi-plane-realm)
+- [B4.3.5 Range RMI operations](rmm-B4.3.md#b435-range-rmi-operations)
 
 ## B4.5.76.1 Interface
 

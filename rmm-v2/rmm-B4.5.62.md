@@ -6,9 +6,9 @@ The RMI\_RTT\_AUX\_UNPROT\_MAP command may initiate a Stateful RMI Operation.
 
 ## See also:
 
-- A5.3.15 Create mappings within Unprotected IPA space in auxiliary RTT tree
-- A10.3.1 Auxiliary RTT
-- B4.5.63 RMI\_RTT\_AUX\_UNPROT\_UNMAP command
+- [A5.3.15 Create mappings within Unprotected IPA space in auxiliary RTT tree](rmm-A5.3.md#a5315-create-mappings-within-unprotected-ipa-space-in-auxiliary-rtt-tree)
+- [A10.3.1 Auxiliary RTT](rmm-A10.3.md#a1031-auxiliary-rtt)
+- [B4.5.63 RMI\_RTT\_AUX\_UNPROT\_UNMAP command](rmm-B4.5.63.md)
 
 ## B4.5.62.1 Interface
 

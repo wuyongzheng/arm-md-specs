@@ -4,7 +4,7 @@ Reads an RTTE.
 
 See also:
 
-- A5.5 Realm Translation Table
+- [A5.5 Realm Translation Table](rmm-A5.5.md)
 
 ## B4.3.20.1 Interface
 
@@ -43,7 +43,7 @@ The layout and encoding of fields in the rtte output value match 'Attribute fiel
 ## See also:
 
 - Arm Architecture Reference Manual for A-Profile architecture [3]
-- A5.5.11 RTT entry attributes
+- [A5.5.11 RTT entry attributes](rmm-A5.5.md#a5511-rtt-entry-attributes)
 
 ## ID
 

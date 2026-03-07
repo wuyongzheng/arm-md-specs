@@ -12,10 +12,10 @@
 See also:
 
 - Arm Power State Coordination Interface (PSCI) [16]
-- A2.3.2 REC attributes
-- A4.3.7 REC exit due to PSCI
-- A4.5 Host call
-- D1.4 PSCI flows
+- [A2.3.2 REC attributes](rmm-A2.3.md#a232-rec-attributes)
+- [A4.3.7 REC exit due to PSCI](rmm-A4.3.md#a437-rec-exit-due-to-psci)
+- [A4.5 Host call](rmm-A4.4.md#a45-host-call)
+- [D1.4 PSCI flows](rmm-D1.4.md)
 
 ## B6.2 PSCI version
 
@@ -23,4 +23,4 @@ See also:
 
 See also:
 
-- B6.3.8 PSCI\_VERSION command
+- [B6.3.8 PSCI\_VERSION command](rmm-B6.3.8.md)

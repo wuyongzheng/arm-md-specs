@@ -8,8 +8,8 @@ From the Host's point of view, Realm memory management involves manipulating the
 
 See also:
 
-- A5.2 Realm view of memory management
-- A5.3 Host view of memory management
+- [A5.2 Realm view of memory management](rmm-A5.2.md)
+- [A5.3 Host view of memory management](rmm-A5.3.md)
 
 ## A5.2 Realm view of memory management
 
@@ -24,8 +24,8 @@ This section describes memory management from the Realm's point of view.
 
 See also:
 
-- A2.1.3 Realm attributes
-- A3.1.2 Realm LPA2 and IPA width
+- [A2.1.3 Realm attributes](rmm-A2.1.md#a213-realm-attributes)
+- [A3.1.2 Realm LPA2 and IPA width](rmm-A3.md#a312-realm-lpa2-and-ipa-width)
 
 ## A5.2.2 Realm IPA state
 

@@ -4,8 +4,8 @@ Removes a mapping at an Unprotected IPA.
 
 ## See also:
 
-- A5.5 Realm Translation Table
-- B4.3.19 RMI\_RTT\_MAP\_UNPROTECTED command
+- [A5.5 Realm Translation Table](rmm-A5.5.md)
+- [B4.3.19 RMI\_RTT\_MAP\_UNPROTECTED command](rmm-B4.3.19.md)
 
 ## B4.3.22.1 Interface
 
@@ -46,7 +46,7 @@ The values of the result and top output values for different command outcomes ar
 
 ## See also:
 
-- A5.5.8 RTTE liveness and RTT liveness
+- [A5.5.8 RTTE liveness and RTT liveness](rmm-A5.5.md#a558-rtte-liveness-and-rtt-liveness)
 
 ## B4.3.22.2 Failure conditions
 

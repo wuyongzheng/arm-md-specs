@@ -84,7 +84,7 @@ The following table shows how each of a set of example scenarios maps onto the a
 
 ## See also:
 
-- B4.1 RMI version
-- B4.3.23 RMI\_VERSION command
-- B5.1 RSI version
-- B5.3.10 RSI\_VERSION command
+- [B4.1 RMI version](rmm-B4.1.md)
+- [B4.3.23 RMI\_VERSION command](rmm-B4.3.23.md)
+- [B5.1 RSI version](rmm-B5.1.md)
+- [B5.3.10 RSI\_VERSION command](rmm-B5.3.10.md)

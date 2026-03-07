@@ -4,7 +4,7 @@ Continue a stateful RMI operation.
 
 See also:
 
-- B4.3.2 Stateful RMI operations
+- [B4.3.2 Stateful RMI operations](rmm-B4.3.md#b432-stateful-rmi-operations)
 
 ## B4.5.22.1 Interface
 

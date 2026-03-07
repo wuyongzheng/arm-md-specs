@@ -2,8 +2,8 @@ The Realm can query the RIPAS of an IPA range by executing RSI\_IPA\_STATE\_GET.
 
 See also:
 
-- A5.5 Realm Translation Table
-- B5.3.5 RSI\_IPA\_STATE\_GET command
+- [A5.5 Realm Translation Table](rmm-A5.5.md)
+- [B5.3.5 RSI\_IPA\_STATE\_GET command](rmm-B5.3.5.md)
 
 ## A5.2.3 Realm access to a Protected IPA
 
@@ -18,9 +18,9 @@ See also:
 
 See also:
 
-- A4.3.4.2 REC exit due to Instruction Abort
-- A4.3.4.3 REC exit due to Data Abort
-- A5.2.7 Synchronous External Aborts
+- [A4.3.4.2 REC exit due to Instruction Abort](rmm-A4.3.md#a4342-rec-exit-due-to-instruction-abort)
+- [A4.3.4.3 REC exit due to Data Abort](rmm-A4.3.md#a4343-rec-exit-due-to-data-abort)
+- [A5.2.7 Synchronous External Aborts](rmm-A5.2.md#a527-synchronous-external-aborts)
 
 ## A5.2.4 Changes to RIPAS while Realm state is REALM\_NEW
 
@@ -33,11 +33,11 @@ This section describes how the RIPAS of a Protected IPA can change while the Rea
 
 See also:
 
-- A5.4 RIPAS change
-- A7.1.1 Realm Initial Measurement
-- B4.3.3 RMI\_DATA\_DESTROY command
-- B4.3.16 RMI\_RTT\_DESTROY command
-- B4.3.18 RMI\_RTT\_INIT\_RIPAS command
+- [A5.4 RIPAS change](rmm-A5.4.md)
+- [A7.1.1 Realm Initial Measurement](rmm-A7.1.md#a711-realm-initial-measurement)
+- [B4.3.3 RMI\_DATA\_DESTROY command](rmm-B4.3.3.md)
+- [B4.3.16 RMI\_RTT\_DESTROY command](rmm-B4.3.16.md)
+- [B4.3.18 RMI\_RTT\_INIT\_RIPAS command](rmm-B4.3.18.md)
 
 ## A5.2.5 Changes to RIPAS while Realm state is REALM\_ACTIVE
 
@@ -72,13 +72,13 @@ The following diagram summarizes RIPAS changes which can occur when the Realm st
 
 ## See also:
 
-- A5.4 RIPAS change
-- B4.3.1 RMI\_DATA\_CREATE command
-- B4.3.2 RMI\_DATA\_CREATE\_UNKNOWN command
-- B4.3.3 RMI\_DATA\_DESTROY command
-- B4.3.16 RMI\_RTT\_DESTROY command
-- B4.3.18 RMI\_RTT\_INIT\_RIPAS command
-- B5.3.6 RSI\_IPA\_STATE\_SET command
+- [A5.4 RIPAS change](rmm-A5.4.md)
+- [B4.3.1 RMI\_DATA\_CREATE command](rmm-B4.3.1.md)
+- [B4.3.2 RMI\_DATA\_CREATE\_UNKNOWN command](rmm-B4.3.2.md)
+- [B4.3.3 RMI\_DATA\_DESTROY command](rmm-B4.3.3.md)
+- [B4.3.16 RMI\_RTT\_DESTROY command](rmm-B4.3.16.md)
+- [B4.3.18 RMI\_RTT\_INIT\_RIPAS command](rmm-B4.3.18.md)
+- [B5.3.6 RSI\_IPA\_STATE\_SET command](rmm-B5.3.6.md)
 
 ## A5.2.6 Realm access to an Unprotected IPA
 
@@ -100,10 +100,10 @@ Realm data access to an Unprotected IPA which caused ESR\_EL2.ISS.ISV to be set 
 
 ## See also:
 
-- A4.2.3 REC entry following REC exit due to Data Abort
-- A4.3.4.3 REC exit due to Data Abort
-- A4.4 Emulated Data Aborts
-- A5.2.7 Synchronous External Aborts
+- [A4.2.3 REC entry following REC exit due to Data Abort](rmm-A4.2.md#a423-rec-entry-following-rec-exit-due-to-data-abort)
+- [A4.3.4.3 REC exit due to Data Abort](rmm-A4.3.md#a4343-rec-exit-due-to-data-abort)
+- [A4.4 Emulated Data Aborts](rmm-A4.4.md)
+- [A5.2.7 Synchronous External Aborts](rmm-A5.2.md#a527-synchronous-external-aborts)
 
 ## A5.2.7 Synchronous External Aborts
 
@@ -128,7 +128,7 @@ The following table summarizes the properties of Realm IPA space.
 
 ## See also:
 
-- A4.2.3 REC entry following REC exit due to Data Abort
+- [A4.2.3 REC entry following REC exit due to Data Abort](rmm-A4.2.md#a423-rec-entry-following-rec-exit-due-to-data-abort)
 
 ## A5.2.10 Cache maintenance operations
 

@@ -6,10 +6,10 @@ This command causes a REC exit due to PSCI.
 
 ## See also:
 
-- A2.4.2 REC attributes
-- A4.3.7 REC exit due to PSCI
-- B6.3.3 PSCI\_CPU\_ON command
-- B6.3.4 PSCI\_CPU\_SUSPEND command
+- [A2.4.2 REC attributes](rmm-A2.4.md#a242-rec-attributes)
+- [A4.3.7 REC exit due to PSCI](rmm-A4.3.md#a437-rec-exit-due-to-psci)
+- [B6.3.3 PSCI\_CPU\_ON command](rmm-B6.3.3.md)
+- [B6.3.4 PSCI\_CPU\_SUSPEND command](rmm-B6.3.4.md)
 
 ## B6.3.2.1 Interface
 

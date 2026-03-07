@@ -6,9 +6,9 @@ The RMI\_REALM\_TERMINATE command may initiate a Stateful RMI Operation.
 
 See also:
 
-- A2.2 Realm
-- B4.5.45 RMI\_REALM\_ACTIVATE command
-- D1.2.5 Realm destruction flow
+- [A2.2 Realm](rmm-A2.2.md)
+- [B4.5.45 RMI\_REALM\_ACTIVATE command](rmm-B4.5.45.md)
+- [D1.2.5 Realm destruction flow](rmm-D1.2.md#d125-realm-destruction-flow)
 
 ## B4.5.48.1 Interface
 

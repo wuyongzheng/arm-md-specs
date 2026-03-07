@@ -4,8 +4,8 @@ Set the RIPAS of a target IPA range to RAM, for a Realm in the REALM\_NEW state.
 
 See also:
 
-- A5.2.2 Realm IPA state
-- D1.2.3 Initialize memory of New Realm flow
+- [A5.2.2 Realm IPA state](rmm-A5.1.md#a522-realm-ipa-state)
+- [D1.2.3 Initialize memory of New Realm flow](rmm-D1.2.md#d123-initialize-memory-of-new-realm-flow)
 
 ## B4.3.18.1 Interface
 
@@ -109,9 +109,9 @@ On successful execution of RMI\_RTT\_INIT\_RIPAS, the new RIM value of the targe
 
 ## See also:
 
-- A7.1.1 Realm Initial Measurement
-- B3.46 RimExtendRipas function
-- C1.13 RmmMeasurementDescriptorRipas type
+- [A7.1.1 Realm Initial Measurement](rmm-A7.1.md#a711-realm-initial-measurement)
+- [B3.46 RimExtendRipas function](rmm-B3.md#b346-rimextendripas-function)
+- [C1.13 RmmMeasurementDescriptorRipas type](rmm-C1.md#c113-rmmmeasurementdescriptorripas-type)
 
 ## B4.3.18.5 Footprint
 

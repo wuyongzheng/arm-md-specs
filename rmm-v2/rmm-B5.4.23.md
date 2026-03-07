@@ -4,7 +4,7 @@ Get information of a VSMMU.
 
 See also:
 
-- A9.8.4 VSMMU validation
+- [A9.8.4 VSMMU validation](rmm-A9.8.md#a984-vsmmu-validation)
 
 ## B5.4.23.1 Interface
 

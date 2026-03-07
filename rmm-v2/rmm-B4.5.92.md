@@ -23,8 +23,8 @@ The status code and lower revision output values indicate which of the following
 
 ## See also:
 
-- Chapter B2 Interface versioning
-- B4.1 RMI version
+- [Chapter B2 Interface versioning](rmm-B2.md)
+- [B4.1 RMI version](rmm-B4.1.md)
 
 ## B4.5.92.1 Interface
 

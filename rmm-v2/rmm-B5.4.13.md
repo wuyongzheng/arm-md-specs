@@ -4,8 +4,8 @@ Enter a Plane.
 
 See also:
 
-- A5.2.4 RSI command access to a Protected IPA
-- A10.2 Planes exception model
+- [A5.2.4 RSI command access to a Protected IPA](rmm-A5.1.md#a524-rsi-command-access-to-a-protected-ipa)
+- [A10.2 Planes exception model](rmm-A10.2.md)
 
 ## B5.4.13.1 Interface
 

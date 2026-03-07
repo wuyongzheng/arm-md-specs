@@ -4,9 +4,9 @@ Enter a REC.
 
 ## See also:
 
-- A2.4 Realm Execution Context
+- [A2.4 Realm Execution Context](rmm-A2.4.md)
 - Chapter A4 Realm exception model
-- D1.3.1 Realm entry and exit flow
+- [D1.3.1 Realm entry and exit flow](rmm-D1.3.md#d131-realm-entry-and-exit-flow)
 
 ## B4.5.51.1 Interface
 

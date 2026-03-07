@@ -8,9 +8,9 @@ The RMI\_VDEV\_CREATE command may initiate a memory-transferring RMI Operation.
 
 ## See also:
 
-- Chapter A9 Realm device assignment
-- A9.4.2 Virtual device invariants
-- B4.3.4 Object creation and destruction
+- [Chapter A9 Realm device assignment](rmm-A8.md#chapter-a9-realm-device-assignment)
+- [A9.4.2 Virtual device invariants](rmm-A9.4.md#a942-virtual-device-invariants)
+- [B4.3.4 Object creation and destruction](rmm-B4.3.md#b434-object-creation-and-destruction)
 
 ## B4.5.82.1 Interface
 

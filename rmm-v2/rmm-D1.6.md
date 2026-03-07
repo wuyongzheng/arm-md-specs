@@ -11,7 +11,7 @@ Figure D1.19: Interrupt injection flow
 
 See also:
 
-- A6.1 Realm interrupts
+- [A6.1 Realm interrupts](rmm-A6.1.md)
 
 ## D1.6.2 Timer interrupt delivery flow
 
@@ -25,4 +25,4 @@ Figure D1.20: Timer interrupt delivery flow
 
 ## See also:
 
-- A6.2 Realm timers
+- [A6.2 Realm timers](rmm-A6.2.md)

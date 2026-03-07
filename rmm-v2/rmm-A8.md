@@ -29,9 +29,9 @@ Figure A8.1: Realm PMU overflow
 
 ## See also:
 
-- A3.6 Realm support for Performance Monitors Extension
-- A4.3 REC exit
-- B4.6.66 RmiRecExit type
+- [A3.6 Realm support for Performance Monitors Extension](rmm-A3.md#a36-realm-support-for-performance-monitors-extension)
+- [A4.3 REC exit](rmm-A4.3.md)
+- [B4.6.66 RmiRecExit type](rmm-B4.6.md#b4666-rmirecexit-type)
 
 ## Chapter A9 Realm device assignment
 

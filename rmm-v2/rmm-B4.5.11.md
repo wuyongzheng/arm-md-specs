@@ -8,7 +8,7 @@ The RMI\_DPT\_L0\_DESTROY command may initiate a memory-transferring RMI Operati
 
 See also:
 
-- A9.7.5 Device Permission Table
+- [A9.7.5 Device Permission Table](rmm-A9.7.md#a975-device-permission-table)
 
 ## B4.5.11.1 Interface
 

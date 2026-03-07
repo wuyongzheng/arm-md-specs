@@ -4,10 +4,10 @@ Request RIPAS of a target IPA range to be changed to a specified value.
 
 See also:
 
-- A5.2 Realm view of memory management
-- A5.4 RIPAS change
-- B5.2.2.2 Range RSI operation which returns progress address
-- B5.4.6 RSI\_IPA\_STATE\_GET command
+- [A5.2 Realm view of memory management](rmm-A5.1.md#a52-realm-view-of-memory-management)
+- [A5.4 RIPAS change](rmm-A5.4.md)
+- [B5.2.2.2 Range RSI operation which returns progress address](rmm-B5.1.md#b5222-range-rsi-operation-which-returns-progress-address)
+- [B5.4.6 RSI\_IPA\_STATE\_GET command](rmm-B5.4.6.md)
 
 ## B5.4.7.1 Interface
 

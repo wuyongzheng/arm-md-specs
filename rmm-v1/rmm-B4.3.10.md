@@ -4,9 +4,9 @@ Destroys a Realm.
 
 See also:
 
-- A2.1 Realm
-- B4.3.9 RMI\_REALM\_CREATE command
-- D1.2.5 Realm destruction flow
+- [A2.1 Realm](rmm-A2.1.md)
+- [B4.3.9 RMI\_REALM\_CREATE command](rmm-B4.3.9.md)
+- [D1.2.5 Realm destruction flow](rmm-D1.2.md#d125-realm-destruction-flow)
 
 ## B4.3.10.1 Interface
 

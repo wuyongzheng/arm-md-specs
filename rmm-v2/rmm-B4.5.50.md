@@ -8,10 +8,10 @@ The RMI\_REC\_DESTROY command may initiate a memory-transferring RMI Operation.
 
 ## See also:
 
-- A2.4 Realm Execution Context
-- B4.3.4 Object creation and destruction
-- B4.5.49 RMI\_REC\_CREATE command
-- D1.2.5 Realm destruction flow
+- [A2.4 Realm Execution Context](rmm-A2.4.md)
+- [B4.3.4 Object creation and destruction](rmm-B4.3.md#b434-object-creation-and-destruction)
+- [B4.5.49 RMI\_REC\_CREATE command](rmm-B4.5.49.md)
+- [D1.2.5 Realm destruction flow](rmm-D1.2.md#d125-realm-destruction-flow)
 
 ## B4.5.50.1 Interface
 

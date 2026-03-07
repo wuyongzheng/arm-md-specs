@@ -8,11 +8,11 @@ The RMI\_REC\_CREATE command may initiate a memory-transferring RMI Operation.
 
 ## See also:
 
-- A2.4 Realm Execution Context
-- A2.4.3 REC index and MPIDR value
-- B4.3.4 Object creation and destruction
-- B4.5.50 RMI\_REC\_DESTROY command
-- D1.2.4 REC creation flow
+- [A2.4 Realm Execution Context](rmm-A2.4.md)
+- [A2.4.3 REC index and MPIDR value](rmm-A2.4.md#a243-rec-index-and-mpidr-value)
+- [B4.3.4 Object creation and destruction](rmm-B4.3.md#b434-object-creation-and-destruction)
+- [B4.5.50 RMI\_REC\_DESTROY command](rmm-B4.5.50.md)
+- [D1.2.4 REC creation flow](rmm-D1.2.md#d124-rec-creation-flow)
 
 ## B4.5.49.1 Interface
 
@@ -144,10 +144,10 @@ params)
 
 ## See also:
 
-- A7.1.1 Realm Initial Measurement
-- B3.112 RimExtendRec function
-- B4.6.69 RmiRecParams type
-- C2.28 RmmMeasurementDescriptorRec type
+- [A7.1.1 Realm Initial Measurement](rmm-A7.1.md#a711-realm-initial-measurement)
+- [B3.112 RimExtendRec function](rmm-B3.md#b3112-rimextendrec-function)
+- [B4.6.69 RmiRecParams type](rmm-B4.6.md#b4669-rmirecparams-type)
+- [C2.28 RmmMeasurementDescriptorRec type](rmm-C2.md#c228-rmmmeasurementdescriptorrec-type)
 
 ## B4.5.49.5 Footprint
 

@@ -8,9 +8,9 @@ The RMI\_VSMMU\_CREATE command may initiate a memory-transferring RMI Operation.
 
 ## See also:
 
-- A9.8 Virtual SMMU
-- B4.3.4 Object creation and destruction
-- B4.5.96 RMI\_VSMMU\_DESTROY command
+- [A9.8 Virtual SMMU](rmm-A9.8.md)
+- [B4.3.4 Object creation and destruction](rmm-B4.3.md#b434-object-creation-and-destruction)
+- [B4.5.96 RMI\_VSMMU\_DESTROY command](rmm-B4.5.96.md)
 
 ## B4.5.95.1 Interface
 

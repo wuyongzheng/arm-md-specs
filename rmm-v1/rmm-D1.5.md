@@ -4,7 +4,7 @@ This section contains flows which relate to management of Realm memory.
 
 ## See also:
 
-- Chapter A5 Realm memory management
+- [Chapter A5 Realm memory management](rmm-A5.md)
 
 ## D1.5.1 Add memory to Active Realm flow
 
@@ -22,10 +22,10 @@ Once a given Protected IPA has been populated with unknown content, it cannot be
 
 ## See also:
 
-- A2.1.5 Realm lifecycle
-- Chapter A5 Realm memory management
-- B4.3.2 RMI\_DATA\_CREATE\_UNKNOWN command
-- B4.3.5 RMI\_GRANULE\_DELEGATE command
+- [A2.1.5 Realm lifecycle](rmm-A2.1.md#a215-realm-lifecycle)
+- [Chapter A5 Realm memory management](rmm-A5.md)
+- [B4.3.2 RMI\_DATA\_CREATE\_UNKNOWN command](rmm-B4.3.2.md)
+- [B4.3.5 RMI\_GRANULE\_DELEGATE command](rmm-B4.3.5.md)
 
 ## D1.5.2 NS memory flow
 
@@ -35,10 +35,10 @@ The following diagram describes how NS memory can be mapped into a Realm.
 
 ## See also:
 
-- Chapter A5 Realm memory management
-- B4.3.19 RMI\_RTT\_MAP\_UNPROTECTED command
+- [Chapter A5 Realm memory management](rmm-A5.md)
+- [B4.3.19 RMI\_RTT\_MAP\_UNPROTECTED command](rmm-B4.3.19.md)
 
-- B4.3.22 RMI\_RTT\_UNMAP\_UNPROTECTED command
+- [B4.3.22 RMI\_RTT\_UNMAP\_UNPROTECTED command](rmm-B4.3.22.md)
 
 ## D1.5.3 RIPAS change flow
 
@@ -59,8 +59,8 @@ The Realm observes in X1 the top of the region for which the RIPAS change was ap
 
 ## See also:
 
-- A5.4 RIPAS change
-- B4.3.14 RMI\_REC\_ENTER command
-- B4.3.21 RMI\_RTT\_SET\_RIPAS command
-- B5.3.6 RSI\_IPA\_STATE\_SET command
-- D2.2 Realm shared memory protocol flow
+- [A5.4 RIPAS change](rmm-A5.4.md)
+- [B4.3.14 RMI\_REC\_ENTER command](rmm-B4.3.14.md)
+- [B4.3.21 RMI\_RTT\_SET\_RIPAS command](rmm-B4.3.21.md)
+- [B5.3.6 RSI\_IPA\_STATE\_SET command](rmm-B5.3.6.md)
+- [D2.2 Realm shared memory protocol flow](rmm-D2.md#d22-realm-shared-memory-protocol-flow)

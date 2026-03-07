@@ -4,8 +4,8 @@ Read measurement for the current Realm.
 
 See also:
 
-- A7.1 Realm measurements
-- D1.2.1 Realm creation flow
+- [A7.1 Realm measurements](rmm-A7.1.md)
+- [D1.2.1 Realm creation flow](rmm-D1.2.md#d121-realm-creation-flow)
 
 ## B5.3.8.1 Interface
 

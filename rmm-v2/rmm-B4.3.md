@@ -20,9 +20,9 @@
 
 See also:
 
-- B4.3.2 Stateful RMI operations
-- B4.3.3 RMI operations which can lead to an intermediate state
-- B4.3.5 Range RMI operations
+- [B4.3.2 Stateful RMI operations](rmm-B4.3.md#b432-stateful-rmi-operations)
+- [B4.3.3 RMI operations which can lead to an intermediate state](rmm-B4.3.md#b433-rmi-operations-which-can-lead-to-an-intermediate-state)
+- [B4.3.5 Range RMI operations](rmm-B4.3.md#b435-range-rmi-operations)
 
 
 ## B4.3.2 Stateful RMI operations
@@ -143,12 +143,12 @@ Operations which can be memory-transferring include the following:
 ## See also:
 
 - ?? ?? ??
-- A2.3.4 Granule tracking region
-- A9.7.1.2 PSMMU lifecycle
-- B3.53 OperationCanCancel function
-- B3.54 OperationIncomplete function
-- B4.3.4 Object creation and destruction
-- B4.6.73 RmiResult type
+- [A2.3.4 Granule tracking region](rmm-A2.3.md#a234-granule-tracking-region)
+- [A9.7.1.2 PSMMU lifecycle](rmm-A9.7.md#a9712-psmmu-lifecycle)
+- [B3.53 OperationCanCancel function](rmm-B3.md#b353-operationcancancel-function)
+- [B3.54 OperationIncomplete function](rmm-B3.md#b354-operationincomplete-function)
+- [B4.3.4 Object creation and destruction](rmm-B4.3.md#b434-object-creation-and-destruction)
+- [B4.6.73 RmiResult type](rmm-B4.6.md#b4673-rmiresult-type)
 
 ## B4.3.2.1 Continuing an SRO
 
@@ -185,9 +185,9 @@ On execution of RMI\_OP\_CONTINUE, if the SRO has completed with an error then a
 
 ## See also:
 
-- B4.3.2.2 Donating memory to an SRO
-- B4.3.2.3 Reclaiming memory from an SRO
-- B4.5.22 RMI\_OP\_CONTINUE command
+- [B4.3.2.2 Donating memory to an SRO](rmm-B4.3.md#b4322-donating-memory-to-an-sro)
+- [B4.3.2.3 Reclaiming memory from an SRO](rmm-B4.3.md#b4323-reclaiming-memory-from-an-sro)
+- [B4.5.22 RMI\_OP\_CONTINUE command](rmm-B4.5.22.md)
 
 ## B4.3.2.2 Donating memory to an SRO
 
@@ -229,10 +229,10 @@ If an SRO requires memory to be donated before it can continue then all of the f
 
 See also:
 
-- B4.3.2.1 Continuing an SRO
-- B4.4 RMI Address Range Descriptor
-- B4.5.23 RMI\_OP\_MEM\_DONATE command
-- B4.6.41 RmiOpMemDonateReq type
+- [B4.3.2.1 Continuing an SRO](rmm-B4.3.md#b4321-continuing-an-sro)
+- [B4.4 RMI Address Range Descriptor](rmm-B4.3.md#b44-rmi-address-range-descriptor)
+- [B4.5.23 RMI\_OP\_MEM\_DONATE command](rmm-B4.5.23.md)
+- [B4.6.41 RmiOpMemDonateReq type](rmm-B4.6.md#b4641-rmiopmemdonatereq-type)
 
 ## B4.3.2.3 Reclaiming memory from an SRO
 
@@ -266,9 +266,9 @@ If RMI\_OP\_MEM\_RECLAIM returns an RmiResult::status value which is RMI\_ERROR\
 
 See also:
 
-- B4.3.2.1 Continuing an SRO
-- B4.4 RMI Address Range Descriptor
-- B4.5.24 RMI\_OP\_MEM\_RECLAIM command
+- [B4.3.2.1 Continuing an SRO](rmm-B4.3.md#b4321-continuing-an-sro)
+- [B4.4 RMI Address Range Descriptor](rmm-B4.3.md#b44-rmi-address-range-descriptor)
+- [B4.5.24 RMI\_OP\_MEM\_RECLAIM command](rmm-B4.5.24.md)
 
 ## B4.3.2.4 Cancelling an SRO
 
@@ -295,8 +295,8 @@ If an SRO cannot be cancelled then execution of RMI\_OP\_CONTINUE is required to
 
 See also:
 
-- B4.3.2.3 Reclaiming memory from an SRO
-- B4.5.21 RMI\_OP\_CANCEL command
+- [B4.3.2.3 Reclaiming memory from an SRO](rmm-B4.3.md#b4323-reclaiming-memory-from-an-sro)
+- [B4.5.21 RMI\_OP\_CANCEL command](rmm-B4.5.21.md)
 
 
 
@@ -322,7 +322,7 @@ The following pseudocode shows the programming model for using an SRO, taking RM
 
 See also:
 
-- B4.3.2 Stateful RMI operations
+- [B4.3.2 Stateful RMI operations](rmm-B4.3.md#b432-stateful-rmi-operations)
 
 ## B4.3.4 Object creation and destruction
 
@@ -349,16 +349,16 @@ The following sequence illustrates how memory reclamation is used during RMM obj
 
 ## See also:
 
-- A2.2 Realm
-- A2.4 Realm Execution Context
-- A9.2 Physical device object
-- A9.4 Virtual device object
-- A9.8 Virtual SMMU
-- A9.11 Coherent memory devices
+- [A2.2 Realm](rmm-A2.2.md)
+- [A2.4 Realm Execution Context](rmm-A2.4.md)
+- [A9.2 Physical device object](rmm-A9.2.md)
+- [A9.4 Virtual device object](rmm-A9.4.md)
+- [A9.8 Virtual SMMU](rmm-A9.8.md)
+- [A9.11 Coherent memory devices](rmm-A9.11.md)
 
 
-- B4.3.2.2 Donating memory to an SRO
-- B4.3.2.3 Reclaiming memory from an SRO
+- [B4.3.2.2 Donating memory to an SRO](rmm-B4.3.md#b4322-donating-memory-to-an-sro)
+- [B4.3.2.3 Reclaiming memory from an SRO](rmm-B4.3.md#b4323-reclaiming-memory-from-an-sro)
 
 ## B4.3.5 Range RMI operations
 
@@ -392,34 +392,34 @@ When a Range RMI operation returns RMI\_INCOMPLETE, the Host passes a flag to RM
 
 ## See also:
 
-- B4.3.2 Stateful RMI operations
-- B4.5.10 RMI\_DPT\_L0\_CREATE command
-- B4.5.11 RMI\_DPT\_L0\_DESTROY command
-- B4.5.12 RMI\_DPT\_L1\_CREATE command
-- B4.5.13 RMI\_DPT\_L1\_DESTROY command
-- B4.5.15 RMI\_GPT\_L1\_CREATE command
-- B4.5.16 RMI\_GPT\_L1\_DESTROY command
-- B4.5.17 RMI\_GRANULE\_RANGE\_DELEGATE command
-- B4.5.18 RMI\_GRANULE\_RANGE\_UNDELEGATE command
-- B4.5.22 RMI\_OP\_CONTINUE command
-- B4.5.55 RMI\_RTT\_ARCH\_DEV\_MAP command
-- B4.5.56 RMI\_RTT\_ARCH\_DEV\_UNMAP command
-- B4.5.60 RMI\_RTT\_AUX\_PROT\_MAP command
-- B4.5.61 RMI\_RTT\_AUX\_PROT\_UNMAP command
+- [B4.3.2 Stateful RMI operations](rmm-B4.3.md#b432-stateful-rmi-operations)
+- [B4.5.10 RMI\_DPT\_L0\_CREATE command](rmm-B4.5.10.md)
+- [B4.5.11 RMI\_DPT\_L0\_DESTROY command](rmm-B4.5.11.md)
+- [B4.5.12 RMI\_DPT\_L1\_CREATE command](rmm-B4.5.12.md)
+- [B4.5.13 RMI\_DPT\_L1\_DESTROY command](rmm-B4.5.13.md)
+- [B4.5.15 RMI\_GPT\_L1\_CREATE command](rmm-B4.5.15.md)
+- [B4.5.16 RMI\_GPT\_L1\_DESTROY command](rmm-B4.5.16.md)
+- [B4.5.17 RMI\_GRANULE\_RANGE\_DELEGATE command](rmm-B4.5.17.md)
+- [B4.5.18 RMI\_GRANULE\_RANGE\_UNDELEGATE command](rmm-B4.5.18.md)
+- [B4.5.22 RMI\_OP\_CONTINUE command](rmm-B4.5.22.md)
+- [B4.5.55 RMI\_RTT\_ARCH\_DEV\_MAP command](rmm-B4.5.55.md)
+- [B4.5.56 RMI\_RTT\_ARCH\_DEV\_UNMAP command](rmm-B4.5.56.md)
+- [B4.5.60 RMI\_RTT\_AUX\_PROT\_MAP command](rmm-B4.5.60.md)
+- [B4.5.61 RMI\_RTT\_AUX\_PROT\_UNMAP command](rmm-B4.5.61.md)
 
-- B4.5.62 RMI\_RTT\_AUX\_UNPROT\_MAP command
-- B4.5.63 RMI\_RTT\_AUX\_UNPROT\_UNMAP command
-- B4.5.65 RMI\_RTT\_DATA\_MAP command
-- B4.5.66 RMI\_RTT\_DATA\_MAP\_INIT command
-- B4.5.67 RMI\_RTT\_DATA\_UNMAP command
-- B4.5.69 RMI\_RTT\_DEV\_MAP command
-- B4.5.70 RMI\_RTT\_DEV\_UNMAP command
-- B4.5.71 RMI\_RTT\_DEV\_VALIDATE command
-- B4.5.73 RMI\_RTT\_INIT\_RIPAS command
-- B4.5.75 RMI\_RTT\_SET\_RIPAS command
-- B4.5.76 RMI\_RTT\_SET\_S2AP command
-- B4.5.77 RMI\_RTT\_UNPROT\_MAP command
-- B4.5.78 RMI\_RTT\_UNPROT\_UNMAP command
+- [B4.5.62 RMI\_RTT\_AUX\_UNPROT\_MAP command](rmm-B4.5.62.md)
+- [B4.5.63 RMI\_RTT\_AUX\_UNPROT\_UNMAP command](rmm-B4.5.63.md)
+- [B4.5.65 RMI\_RTT\_DATA\_MAP command](rmm-B4.5.65.md)
+- [B4.5.66 RMI\_RTT\_DATA\_MAP\_INIT command](rmm-B4.5.66.md)
+- [B4.5.67 RMI\_RTT\_DATA\_UNMAP command](rmm-B4.5.67.md)
+- [B4.5.69 RMI\_RTT\_DEV\_MAP command](rmm-B4.5.69.md)
+- [B4.5.70 RMI\_RTT\_DEV\_UNMAP command](rmm-B4.5.70.md)
+- [B4.5.71 RMI\_RTT\_DEV\_VALIDATE command](rmm-B4.5.71.md)
+- [B4.5.73 RMI\_RTT\_INIT\_RIPAS command](rmm-B4.5.73.md)
+- [B4.5.75 RMI\_RTT\_SET\_RIPAS command](rmm-B4.5.75.md)
+- [B4.5.76 RMI\_RTT\_SET\_S2AP command](rmm-B4.5.76.md)
+- [B4.5.77 RMI\_RTT\_UNPROT\_MAP command](rmm-B4.5.77.md)
+- [B4.5.78 RMI\_RTT\_UNPROT\_UNMAP command](rmm-B4.5.78.md)
 
 ## B4.4 RMI Address Range Descriptor
 
@@ -438,8 +438,8 @@ The encoding of an RMI Address Range Descriptor depends on the RMI Granule size,
 ## See also:
 
 
-- A2.3.1 Granule size
-- A5.3.3 Range-based memory operations
-- B4.3.2.2 Donating memory to an SRO
-- B4.3.2.3 Reclaiming memory from an SRO
-- B4.6.3 RmiAddrRangeDesc type
+- [A2.3.1 Granule size](rmm-A2.3.md#a231-granule-size)
+- [A5.3.3 Range-based memory operations](rmm-A5.3.md#a533-range-based-memory-operations)
+- [B4.3.2.2 Donating memory to an SRO](rmm-B4.3.md#b4322-donating-memory-to-an-sro)
+- [B4.3.2.3 Reclaiming memory from an SRO](rmm-B4.3.md#b4323-reclaiming-memory-from-an-sro)
+- [B4.6.3 RmiAddrRangeDesc type](rmm-B4.6.md#b463-rmiaddrrangedesc-type)

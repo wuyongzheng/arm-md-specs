@@ -12,9 +12,9 @@ It is anticipated that the Monitor software will be required to use synchronizat
 
 See also:
 
-- A2.3.6 Granule state
-- B4.5.17 RMI\_GRANULE\_RANGE\_DELEGATE command
-- D1.1.2 Granule undelegation flow
+- [A2.3.6 Granule state](rmm-A2.3.md#a236-granule-state)
+- [B4.5.17 RMI\_GRANULE\_RANGE\_DELEGATE command](rmm-B4.5.17.md)
+- [D1.1.2 Granule undelegation flow](rmm-D1.1.md#d112-granule-undelegation-flow)
 
 ## D1.1.2 Granule undelegation flow
 
@@ -28,9 +28,9 @@ Figure D1.1: Granule delegation flow
 
 ## See also:
 
-- A2.3.6 Granule state
-- B4.5.18 RMI\_GRANULE\_RANGE\_UNDELEGATE command
-- D1.1.1 Granule delegation flow
+- [A2.3.6 Granule state](rmm-A2.3.md#a236-granule-state)
+- [B4.5.18 RMI\_GRANULE\_RANGE\_UNDELEGATE command](rmm-B4.5.18.md)
+- [D1.1.1 Granule delegation flow](rmm-D1.1.md#d111-granule-delegation-flow)
 
 Figure D1.2: Granule undelegation flow
 

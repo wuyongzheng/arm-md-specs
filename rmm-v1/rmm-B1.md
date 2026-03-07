@@ -35,9 +35,9 @@ On a CCA platform which implements FEAT\_SME, SMCCC version &gt;= 1.4 is require
 
 See also:
 
-- Chapter B4 Realm Management Interface
-- Chapter B5 Realm Services Interface
-- Chapter B6 Power State Control Interface
+- [Chapter B4 Realm Management Interface](rmm-B4.md)
+- [Chapter B5 Realm Services Interface](rmm-B5.md)
+- [Chapter B6 Power State Control Interface](rmm-B6.md)
 
 ## B1.2 Command definition
 
@@ -191,7 +191,7 @@ An in-memory value is a context value.
 
 See also:
 
-- B4.3.9 RMI\_REALM\_CREATE command
+- [B4.3.9 RMI\_REALM\_CREATE command](rmm-B4.3.9.md)
 
 ## B1.6 Command failure conditions
 
@@ -265,7 +265,7 @@ A command failure condition or success condition may need to test for logical eq
 
 See also:
 
-- B3.17 Equal function
+- [B3.17 Equal function](rmm-B3.md#b317-equal-function)
 
 ## B1.9 Command footprint
 

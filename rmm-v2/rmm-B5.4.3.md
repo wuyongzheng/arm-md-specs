@@ -4,9 +4,9 @@ Initialize the operation to retrieve an attestation token.
 
 See also:
 
-- A7.2 Realm attestation
-- B5.2.2.1 Long-running non-range RSI operation
-- B5.4.2 RSI\_ATTESTATION\_TOKEN\_CONTINUE command
+- [A7.2 Realm attestation](rmm-A7.2.md)
+- [B5.2.2.1 Long-running non-range RSI operation](rmm-B5.1.md#b5221-long-running-non-range-rsi-operation)
+- [B5.4.2 RSI\_ATTESTATION\_TOKEN\_CONTINUE command](rmm-B5.4.2.md)
 
 ## B5.4.3.1 Interface
 

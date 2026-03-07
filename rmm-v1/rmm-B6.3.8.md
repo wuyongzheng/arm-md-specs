@@ -18,7 +18,7 @@ Query the version of PSCI implemented.
 
 ## See also:
 
-- B6.2 PSCI version
+- [B6.2 PSCI version](rmm-B6.1.md#b62-psci-version)
 
 ## B6.3.8.2 Failure conditions
 

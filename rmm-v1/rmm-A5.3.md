@@ -40,7 +40,7 @@ Each TTD.X column refers to the value of the corresponding 'X' field in the arch
 
 ## See also:
 
-- A5.5 Realm Translation Table
+- [A5.5 Realm Translation Table](rmm-A5.5.md)
 
 ## A5.3.2 Changes to HIPAS while Realm state is REALM\_NEW
 
@@ -52,10 +52,10 @@ This section describes how the HIPAS of a Protected IPA can change while the Rea
 
 ## See also:
 
-- B4.3.1 RMI\_DATA\_CREATE command
-- B4.3.2 RMI\_DATA\_CREATE\_UNKNOWN command
-- B4.3.3 RMI\_DATA\_DESTROY command
-- B4.3.16 RMI\_RTT\_DESTROY command
+- [B4.3.1 RMI\_DATA\_CREATE command](rmm-B4.3.1.md)
+- [B4.3.2 RMI\_DATA\_CREATE\_UNKNOWN command](rmm-B4.3.2.md)
+- [B4.3.3 RMI\_DATA\_DESTROY command](rmm-B4.3.3.md)
+- [B4.3.16 RMI\_RTT\_DESTROY command](rmm-B4.3.16.md)
 
 ## A5.3.3 Changes to HIPAS while Realm state is REALM\_ACTIVE
 
@@ -67,9 +67,9 @@ The following diagram summarizes HIPAS changes at a Protected IPA which can occu
 
 ## See also:
 
-- B4.3.2 RMI\_DATA\_CREATE\_UNKNOWN command
-- B4.3.3 RMI\_DATA\_DESTROY command
-- B4.3.16 RMI\_RTT\_DESTROY command
+- [B4.3.2 RMI\_DATA\_CREATE\_UNKNOWN command](rmm-B4.3.2.md)
+- [B4.3.3 RMI\_DATA\_DESTROY command](rmm-B4.3.3.md)
+- [B4.3.16 RMI\_RTT\_DESTROY command](rmm-B4.3.16.md)
 
 ## A5.3.4 Summary of changes to HIPAS and RIPAS of a Protected IPA
 
@@ -85,12 +85,12 @@ The following diagram summarizes HIPAS and RIPAS changes at a Protected IPA whic
 
 ## See also:
 
-- B4.3.1 RMI\_DATA\_CREATE command
-- B4.3.2 RMI\_DATA\_CREATE\_UNKNOWN command
-- B4.3.3 RMI\_DATA\_DESTROY command
-- B4.3.16 RMI\_RTT\_DESTROY command
-- B4.3.18 RMI\_RTT\_INIT\_RIPAS command
-- B4.3.21 RMI\_RTT\_SET\_RIPAS command
+- [B4.3.1 RMI\_DATA\_CREATE command](rmm-B4.3.1.md)
+- [B4.3.2 RMI\_DATA\_CREATE\_UNKNOWN command](rmm-B4.3.2.md)
+- [B4.3.3 RMI\_DATA\_DESTROY command](rmm-B4.3.3.md)
+- [B4.3.16 RMI\_RTT\_DESTROY command](rmm-B4.3.16.md)
+- [B4.3.18 RMI\_RTT\_INIT\_RIPAS command](rmm-B4.3.18.md)
+- [B4.3.21 RMI\_RTT\_SET\_RIPAS command](rmm-B4.3.21.md)
 
 ## A5.3.5 Dependency of RMI command execution on RIPAS and HIPAS values
 

@@ -4,7 +4,7 @@ Creates a P2P binding between two VDEVs.
 
 See also:
 
-- A9.10 Peer-to-peer device communication
+- [A9.10 Peer-to-peer device communication](rmm-A9.10.md)
 
 ## B5.4.20.1 Interface
 

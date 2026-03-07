@@ -6,9 +6,9 @@ The RMI\_GRANULE\_RANGE\_DELEGATE command may initiate a Stateful RMI Operation.
 
 ## See also:
 
-- A2.3.6.2 Granule delegation
-- B4.3.5 Range RMI operations
-- B4.5.18 RMI\_GRANULE\_RANGE\_UNDELEGATE command
+- [A2.3.6.2 Granule delegation](rmm-A2.3.md#a2362-granule-delegation)
+- [B4.3.5 Range RMI operations](rmm-B4.3.md#b435-range-rmi-operations)
+- [B4.5.18 RMI\_GRANULE\_RANGE\_UNDELEGATE command](rmm-B4.5.18.md)
 
 ## B4.5.17.1 Interface
 

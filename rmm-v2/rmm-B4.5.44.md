@@ -8,7 +8,7 @@ The RMI\_PSMMU\_ST\_L2\_DESTROY command may initiate a memory-transferring RMI O
 
 See also:
 
-- A9.7.4 PSMMU Stream Tables
+- [A9.7.4 PSMMU Stream Tables](rmm-A9.7.md#a974-psmmu-stream-tables)
 
 ## B4.5.44.1 Interface
 

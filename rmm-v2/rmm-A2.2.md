@@ -21,9 +21,9 @@ This section describes the concept of a Realm.
 
 See also:
 
-- A2.4 Realm Execution Context
-- A4.5 Host call
-- B4.5.46 RMI\_REALM\_CREATE command
+- [A2.4 Realm Execution Context](rmm-A2.4.md)
+- [A4.5 Host call](rmm-A4.4.md#a45-host-call)
+- [B4.5.46 RMI\_REALM\_CREATE command](rmm-B4.5.46.md)
 
 ## A2.2.2.2 Realm memory
 
@@ -34,7 +34,7 @@ See also:
 
 See also:
 
-- A5.2.1 Realm IPA space
+- [A5.2.1 Realm IPA space](rmm-A5.1.md#a521-realm-ipa-space)
 
 ## A2.2.2.3 Realm processor features
 
@@ -43,7 +43,7 @@ See also:
 
 See also:
 
-- Chapter A3 Feature discovery and configuration
+- [Chapter A3 Feature discovery and configuration](rmm-A3.md)
 
 ## A2.2.2.4 IMPDEF system registers
 
@@ -99,17 +99,17 @@ This section describes the attributes of a Realm.
 
 See also:
 
-- A2.2.5 Realm lifecycle
-- A2.4 Realm Execution Context
-- A3.3 Realm LPA2 and IPA width
-- A5.2.1 Realm IPA space
-- A5.6 Realm Translation Table
-- A7.1 Realm measurements
-- A7.2.3.1.4 Realm Personalization Value claim
-- B4.5.82 RMI\_VDEV\_CREATE command
-- B5.4.4 RSI\_FEATURES command
-- B5.4.16 RSI\_REALM\_CONFIG command
-- C2.49 RmmRealm type
+- [A2.2.5 Realm lifecycle](rmm-A2.2.md#a225-realm-lifecycle)
+- [A2.4 Realm Execution Context](rmm-A2.4.md)
+- [A3.3 Realm LPA2 and IPA width](rmm-A3.md#a33-realm-lpa2-and-ipa-width)
+- [A5.2.1 Realm IPA space](rmm-A5.1.md#a521-realm-ipa-space)
+- [A5.6 Realm Translation Table](rmm-A5.6.md)
+- [A7.1 Realm measurements](rmm-A7.1.md)
+- [A7.2.3.1.4 Realm Personalization Value claim](rmm-A7.2.3.1.md#a72314-realm-personalization-value-claim)
+- [B4.5.82 RMI\_VDEV\_CREATE command](rmm-B4.5.82.md)
+- [B5.4.4 RSI\_FEATURES command](rmm-B5.4.4.md)
+- [B5.4.16 RSI\_REALM\_CONFIG command](rmm-B5.4.16.md)
+- [C2.49 RmmRealm type](rmm-C2.md#c249-rmmrealm-type)
 
 ## A2.2.4 Realm liveness
 
@@ -127,23 +127,23 @@ See also:
 
 ## See also:
 
-- A2.2.5 Realm lifecycle
-- A2.3.6 Granule state
-- A2.3.7 Granule ownership
-- A2.4 Realm Execution Context
-- A5.6.8 RTTE liveness and RTT liveness
-- A9.4 Virtual device object
-- A9.8 Virtual SMMU
-- B3.99 RealmIsLive function
-- B4.5.47 RMI\_REALM\_DESTROY command
-- B4.5.48 RMI\_REALM\_TERMINATE command
+- [A2.2.5 Realm lifecycle](rmm-A2.2.md#a225-realm-lifecycle)
+- [A2.3.6 Granule state](rmm-A2.3.md#a236-granule-state)
+- [A2.3.7 Granule ownership](rmm-A2.3.md#a237-granule-ownership)
+- [A2.4 Realm Execution Context](rmm-A2.4.md)
+- [A5.6.8 RTTE liveness and RTT liveness](rmm-A5.6.md#a568-rtte-liveness-and-rtt-liveness)
+- [A9.4 Virtual device object](rmm-A9.4.md)
+- [A9.8 Virtual SMMU](rmm-A9.8.md)
+- [B3.99 RealmIsLive function](rmm-B3.md#b399-realmislive-function)
+- [B4.5.47 RMI\_REALM\_DESTROY command](rmm-B4.5.47.md)
+- [B4.5.48 RMI\_REALM\_TERMINATE command](rmm-B4.5.48.md)
 
 ## A2.2.5 Realm lifecycle
 
 See also:
 
-- Chapter A3 Feature discovery and configuration
-- D1.2 Realm lifecycle flows
+- [Chapter A3 Feature discovery and configuration](rmm-A3.md)
+- [D1.2 Realm lifecycle flows](rmm-D1.2.md)
 
 ## A2.2.5.1 States
 
@@ -187,12 +187,12 @@ Figure A2.2: Realm state transitions
 
 ## See also:
 
-- B6.3.6 PSCI\_SYSTEM\_OFF command
-- B6.3.7 PSCI\_SYSTEM\_RESET command
-- B4.5.45 RMI\_REALM\_ACTIVATE command
-- B4.5.46 RMI\_REALM\_CREATE command
-- B4.5.47 RMI\_REALM\_DESTROY command
-- B4.5.48 RMI\_REALM\_TERMINATE command
+- [B6.3.6 PSCI\_SYSTEM\_OFF command](rmm-B6.3.6.md)
+- [B6.3.7 PSCI\_SYSTEM\_RESET command](rmm-B6.3.7.md)
+- [B4.5.45 RMI\_REALM\_ACTIVATE command](rmm-B4.5.45.md)
+- [B4.5.46 RMI\_REALM\_CREATE command](rmm-B4.5.46.md)
+- [B4.5.47 RMI\_REALM\_DESTROY command](rmm-B4.5.47.md)
+- [B4.5.48 RMI\_REALM\_TERMINATE command](rmm-B4.5.48.md)
 
 ## A2.2.6 Realm parameters
 
@@ -200,11 +200,11 @@ A Realm parameter is a value which is provided by the Host during Realm creation
 
 See also:
 
-- A2.2.3 Realm attributes
-- Chapter A3 Feature discovery and configuration
-- B3.136 RmiRealmParamsAt function
-- B4.5.46 RMI\_REALM\_CREATE command
-- B4.6.62 RmiRealmParams type
+- [A2.2.3 Realm attributes](rmm-A2.2.md#a223-realm-attributes)
+- [Chapter A3 Feature discovery and configuration](rmm-A3.md)
+- [B3.136 RmiRealmParamsAt function](rmm-B3.md#b3136-rmirealmparamsat-function)
+- [B4.5.46 RMI\_REALM\_CREATE command](rmm-B4.5.46.md)
+- [B4.6.62 RmiRealmParams type](rmm-B4.6.md#b4662-rmirealmparams-type)
 
 ## A2.2.7 Realm Descriptor
 
@@ -213,7 +213,7 @@ See also:
 
 See also:
 
-- A2.2.3 Realm attributes
-- A2.3.6 Granule state
+- [A2.2.3 Realm attributes](rmm-A2.2.md#a223-realm-attributes)
+- [A2.3.6 Granule state](rmm-A2.3.md#a236-granule-state)
 
 <!-- image -->

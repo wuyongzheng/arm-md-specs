@@ -41,7 +41,7 @@ The Host provides the VSMMU register IPA range when executing RMI\_VSMMU\_CREATE
 
 See also:
 
-- B4.5.95 RMI\_VSMMU\_CREATE command
+- [B4.5.95 RMI\_VSMMU\_CREATE command](rmm-B4.5.95.md)
 
 ## A9.8.2 VSMMU lifecycle
 
@@ -81,10 +81,10 @@ A transition from the pseudo-state NULL represents creation of a VSMMU object. A
 
 ## See also:
 
-- B4.5.56 RMI\_RTT\_ARCH\_DEV\_UNMAP command
-- B4.5.95 RMI\_VSMMU\_CREATE command
-- B4.5.96 RMI\_VSMMU\_DESTROY command
-- B5.4.1 RSI\_ARCH\_DEV\_ACTIVATE command
+- [B4.5.56 RMI\_RTT\_ARCH\_DEV\_UNMAP command](rmm-B4.5.56.md)
+- [B4.5.95 RMI\_VSMMU\_CREATE command](rmm-B4.5.95.md)
+- [B4.5.96 RMI\_VSMMU\_DESTROY command](rmm-B4.5.96.md)
+- [B5.4.1 RSI\_ARCH\_DEV\_ACTIVATE command](rmm-B5.4.1.md)
 
 ## A9.8.3 VSMMU liveness
 
@@ -96,9 +96,9 @@ If a VSMMU is live, it cannot be destroyed.
 
 ## See also:
 
-- A9.8.2 VSMMU lifecycle
-- B3.235 VsmmuIsLive function
-- B4.5.96 RMI\_VSMMU\_DESTROY command
+- [A9.8.2 VSMMU lifecycle](rmm-A9.8.md#a982-vsmmu-lifecycle)
+- [B3.235 VsmmuIsLive function](rmm-B3.md#b3235-vsmmuislive-function)
+- [B4.5.96 RMI\_VSMMU\_DESTROY command](rmm-B4.5.96.md)
 
 ## A9.8.4 VSMMU validation
 
@@ -130,12 +130,12 @@ RSI\_VDEV\_GET\_INFO reports to the Realm whether the VDEV is associated with a 
 
 See also:
 
-- A9.8.2 VSMMU lifecycle
+- [A9.8.2 VSMMU lifecycle](rmm-A9.8.md#a982-vsmmu-lifecycle)
 
 
-- B5.4.1 RSI\_ARCH\_DEV\_ACTIVATE command
-- B5.4.19 RSI\_VDEV\_GET\_INFO command
-- B5.4.23 RSI\_VSMMU\_GET\_INFO command
+- [B5.4.1 RSI\_ARCH\_DEV\_ACTIVATE command](rmm-B5.4.1.md)
+- [B5.4.19 RSI\_VDEV\_GET\_INFO command](rmm-B5.4.19.md)
+- [B5.4.23 RSI\_VSMMU\_GET\_INFO command](rmm-B5.4.23.md)
 
 ## A9.8.5 VSMMU commands
 
@@ -171,9 +171,9 @@ If the 'irq' flag is set then the Host injects a vIRQ into the Realm.
 
 ## See also:
 
-- A4.3.15 REC exit due to VSMMU command
-- B4.5.93 RMI\_VSMMU\_CMD\_COMPLETE command
-- B4.5.94 RMI\_VSMMU\_CMD\_GET command
+- [A4.3.15 REC exit due to VSMMU command](rmm-A4.3.md#a4315-rec-exit-due-to-vsmmu-command)
+- [B4.5.93 RMI\_VSMMU\_CMD\_COMPLETE command](rmm-B4.5.93.md)
+- [B4.5.94 RMI\_VSMMU\_CMD\_GET command](rmm-B4.5.94.md)
 
 ## A9.8.6 Page Request Interface events
 
@@ -279,12 +279,12 @@ Figure A9.19: Delivery and handling of a PRI event (part 1 of 2)
 
 ## See also:
 
-- A4.3.15 REC exit due to VSMMU command
-- B4.5.41 RMI\_PSMMU\_EVENT\_DISCARD command
-- B4.5.42 RMI\_PSMMU\_IRQ\_NOTIFY command
-- B4.5.51 RMI\_REC\_ENTER command
-- B4.5.97 RMI\_VSMMU\_EVENT\_COMPLETE command
-- B4.5.98 RMI\_VSMMU\_EVENT\_NOTIFY command
+- [A4.3.15 REC exit due to VSMMU command](rmm-A4.3.md#a4315-rec-exit-due-to-vsmmu-command)
+- [B4.5.41 RMI\_PSMMU\_EVENT\_DISCARD command](rmm-B4.5.41.md)
+- [B4.5.42 RMI\_PSMMU\_IRQ\_NOTIFY command](rmm-B4.5.42.md)
+- [B4.5.51 RMI\_REC\_ENTER command](rmm-B4.5.51.md)
+- [B4.5.97 RMI\_VSMMU\_EVENT\_COMPLETE command](rmm-B4.5.97.md)
+- [B4.5.98 RMI\_VSMMU\_EVENT\_NOTIFY command](rmm-B4.5.98.md)
 
 Figure A9.20: Delivery and handling of a PRI event (part 2 of 2)
 

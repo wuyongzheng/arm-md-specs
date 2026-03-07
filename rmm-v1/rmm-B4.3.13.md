@@ -4,9 +4,9 @@ Destroys a REC.
 
 See also:
 
-- A2.3 Realm Execution Context
-- B4.3.12 RMI\_REC\_CREATE command
-- D1.2.5 Realm destruction flow
+- [A2.3 Realm Execution Context](rmm-A2.3.md)
+- [B4.3.12 RMI\_REC\_CREATE command](rmm-B4.3.12.md)
+- [D1.2.5 Realm destruction flow](rmm-D1.2.md#d125-realm-destruction-flow)
 
 ## B4.3.13.1 Interface
 

@@ -4,12 +4,12 @@ Query whether a specific PSCI feature is implemented.
 
 See also:
 
-- B6.3.1 PSCI\_AFFINITY\_INFO command
-- B6.3.2 PSCI\_CPU\_OFF command
-- B6.3.3 PSCI\_CPU\_ON command
-- B6.3.4 PSCI\_CPU\_SUSPEND command
-- B6.3.6 PSCI\_SYSTEM\_OFF command
-- B6.3.7 PSCI\_SYSTEM\_RESET command
+- [B6.3.1 PSCI\_AFFINITY\_INFO command](rmm-B6.3.1.md)
+- [B6.3.2 PSCI\_CPU\_OFF command](rmm-B6.3.2.md)
+- [B6.3.3 PSCI\_CPU\_ON command](rmm-B6.3.3.md)
+- [B6.3.4 PSCI\_CPU\_SUSPEND command](rmm-B6.3.4.md)
+- [B6.3.6 PSCI\_SYSTEM\_OFF command](rmm-B6.3.6.md)
+- [B6.3.7 PSCI\_SYSTEM\_RESET command](rmm-B6.3.7.md)
 
 ## B6.3.5.1 Interface
 

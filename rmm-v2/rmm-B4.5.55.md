@@ -4,9 +4,9 @@ Create mappings to an architectural device within a target Protected IPA range.
 
 See also:
 
-- A5.3.9 Create mappings from Protected IPA space to an architectural device
-- A9.8 Virtual SMMU
-- B4.5.56 RMI\_RTT\_ARCH\_DEV\_UNMAP command
+- [A5.3.9 Create mappings from Protected IPA space to an architectural device](rmm-A5.3.md#a539-create-mappings-from-protected-ipa-space-to-an-architectural-device)
+- [A9.8 Virtual SMMU](rmm-A9.8.md)
+- [B4.5.56 RMI\_RTT\_ARCH\_DEV\_UNMAP command](rmm-B4.5.56.md)
 
 ## B4.5.55.1 Interface
 

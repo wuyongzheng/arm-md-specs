@@ -82,7 +82,7 @@ The RmmGptEntry enumeration is an abstract type.
 
 See also:
 
-- B3.20 GranuleAccessPermitted function
+- [B3.20 GranuleAccessPermitted function](rmm-B3.md#b320-granuleaccesspermitted-function)
 
 The values of the RmmGptEntry enumeration are shown in the following table.
 
@@ -176,7 +176,7 @@ The width of the RmmMeasurementDescriptorData structure is 256 ( 0x100 ) bytes.
 
 See also:
 
-- B4.3.1.4 RMI\_DATA\_CREATE extension of RIM
+- [B4.3.1.4 RMI\_DATA\_CREATE extension of RIM](rmm-B4.3.1.md#b4314-rmi_data_create-extension-of-rim)
 
 The members of the RmmMeasurementDescriptorData structure are shown in the following table.
 
@@ -201,7 +201,7 @@ The width of the RmmMeasurementDescriptorRec structure is 256 ( 0x100 ) bytes.
 
 See also:
 
-- B4.3.12.4 RMI\_REC\_CREATE extension of RIM
+- [B4.3.12.4 RMI\_REC\_CREATE extension of RIM](rmm-B4.3.12.md#b43124-rmi_rec_create-extension-of-rim)
 
 The members of the RmmMeasurementDescriptorRec structure are shown in the following table.
 
@@ -224,7 +224,7 @@ The width of the RmmMeasurementDescriptorRipas structure is 256 ( 0x100 ) bytes.
 
 See also:
 
-- B4.3.18.4 RMI\_RTT\_INIT\_RIPAS extension of RIM
+- [B4.3.18.4 RMI\_RTT\_INIT\_RIPAS extension of RIM](rmm-B4.3.18.md#b43184-rmi_rtt_init_ripas-extension-of-rim)
 
 The members of the RmmMeasurementDescriptorRipas structure are shown in the following table.
 
@@ -246,7 +246,7 @@ The RmmPhysicalAddressSpace enumeration is an abstract type.
 
 See also:
 
-- B3.20 GranuleAccessPermitted function
+- [B3.20 GranuleAccessPermitted function](rmm-B3.md#b320-granuleaccesspermitted-function)
 
 The values of the RmmPhysicalAddressSpace enumeration are shown in the following table.
 
@@ -278,7 +278,7 @@ The RmmRealm structure is an abstract type.
 
 See also:
 
-- A2.1 Realm
+- [A2.1 Realm](rmm-A2.1.md)
 
 The members of the RmmRealm structure are shown in the following table.
 
@@ -330,7 +330,7 @@ The RmmRec structure is an abstract type.
 
 See also:
 
-- A2.3 Realm Execution Context
+- [A2.3 Realm Execution Context](rmm-A2.3.md)
 
 The members of the RmmRec structure are shown in the following table.
 
@@ -486,7 +486,7 @@ The RmmRttEntry structure is an abstract type.
 
 See also:
 
-- A5.5 Realm Translation Table
+- [A5.5 Realm Translation Table](rmm-A5.5.md)
 
 The members of the RmmRttEntry structure are shown in the following table.
 
@@ -522,7 +522,7 @@ The RmmRttWalkResult structure is an abstract type.
 
 See also:
 
-- A5.5.10 RTT walk
+- [A5.5.10 RTT walk](rmm-A5.5.md#a5510-rtt-walk)
 
 The members of the RmmRttWalkResult structure are shown in the following table.
 

@@ -60,7 +60,7 @@ The width of the RmiAddrRangeDesc fieldset is 64 bits.
 
 See also:
 
-- B4.4 RMI Address Range Descriptor
+- [B4.4 RMI Address Range Descriptor](rmm-B4.3.md#b44-rmi-address-range-descriptor)
 
 The fields of the RmiAddrRangeDesc fieldset are shown in the following diagram.
 
@@ -403,7 +403,7 @@ The width of the RmiDevCommEnter structure is 256 ( 0x100 ) bytes.
 
 See also:
 
-- A9.5.2.2 Device communication enter data structure
+- [A9.5.2.2 Device communication enter data structure](rmm-A9.5.md#a9522-device-communication-enter-data-structure)
 
 The members of the RmiDevCommEnter structure are shown in the following table.
 
@@ -430,7 +430,7 @@ The width of the RmiDevCommExit structure is 256 ( 0x100 ) bytes.
 
 See also:
 
-- A9.5.2.1 Device communication exit data structure
+- [A9.5.2.1 Device communication exit data structure](rmm-A9.5.md#a9521-device-communication-exit-data-structure)
 
 The members of the RmiDevCommExit structure are shown in the following table.
 
@@ -613,8 +613,8 @@ The width of the RmiFeatureRegister0 fieldset is 64 bits.
 
 See also:
 
-- Chapter A3 Feature discovery and configuration
-- B4.5.14 RMI\_FEATURES command
+- [Chapter A3 Feature discovery and configuration](rmm-A3.md)
+- [B4.5.14 RMI\_FEATURES command](rmm-B4.5.14.md)
 
 The fields of the RmiFeatureRegister0 fieldset are shown in the following diagram.
 
@@ -643,10 +643,10 @@ The width of the RmiFeatureRegister1 fieldset is 64 bits.
 
 See also:
 
-- Chapter A3 Feature discovery and configuration
+- [Chapter A3 Feature discovery and configuration](rmm-A3.md)
 
-- Chapter A11 Realm memory encryption
-- B4.5.14 RMI\_FEATURES command
+- [Chapter A11 Realm memory encryption](rmm-A11.md)
+- [B4.5.14 RMI\_FEATURES command](rmm-B4.5.14.md)
 
 The fields of the RmiFeatureRegister1 fieldset are shown in the following diagram.
 
@@ -675,8 +675,8 @@ The width of the RmiFeatureRegister2 fieldset is 64 bits.
 
 See also:
 
-- Chapter A3 Feature discovery and configuration
-- B4.5.14 RMI\_FEATURES command
+- [Chapter A3 Feature discovery and configuration](rmm-A3.md)
+- [B4.5.14 RMI\_FEATURES command](rmm-B4.5.14.md)
 
 The fields of the RmiFeatureRegister2 fieldset are shown in the following diagram.
 
@@ -711,8 +711,8 @@ The width of the RmiFeatureRegister3 fieldset is 64 bits.
 
 See also:
 
-- Chapter A3 Feature discovery and configuration
-- B4.5.14 RMI\_FEATURES command
+- [Chapter A3 Feature discovery and configuration](rmm-A3.md)
+- [B4.5.14 RMI\_FEATURES command](rmm-B4.5.14.md)
 
 The fields of the RmiFeatureRegister3 fieldset are shown in the following diagram.
 
@@ -738,8 +738,8 @@ The width of the RmiFeatureRegister4 fieldset is 64 bits.
 
 See also:
 
-- Chapter A3 Feature discovery and configuration
-- B4.5.14 RMI\_FEATURES command
+- [Chapter A3 Feature discovery and configuration](rmm-A3.md)
+- [B4.5.14 RMI\_FEATURES command](rmm-B4.5.14.md)
 
 The fields of the RmiFeatureRegister4 fieldset are shown in the following diagram.
 
@@ -846,8 +846,8 @@ The width of the RmiInterfaceVersion fieldset is 64 bits.
 
 See also:
 
-- B4.1 RMI version
-- B4.5.92 RMI\_VERSION command
+- [B4.1 RMI version](rmm-B4.1.md)
+- [B4.5.92 RMI\_VERSION command](rmm-B4.5.92.md)
 
 The fields of the RmiInterfaceVersion fieldset are shown in the following diagram.
 
@@ -872,7 +872,7 @@ The width of the RmiLfaPolicy enumeration is 2 bits.
 
 See also:
 
-- A3.14 Live Firmware Activation
+- [A3.14 Live Firmware Activation](rmm-A3.md#a314-live-firmware-activation)
 
 The values of the RmiLfaPolicy enumeration are shown in the following table.
 
@@ -958,7 +958,7 @@ The width of the RmiOpMemContig enumeration is 1 bits.
 
 See also:
 
-- B4.3.2 Stateful RMI operations
+- [B4.3.2 Stateful RMI operations](rmm-B4.3.md#b432-stateful-rmi-operations)
 
 The values of the RmiOpMemContig enumeration are shown in the following table.
 
@@ -982,7 +982,7 @@ The width of the RmiOpMemDonateReq fieldset is 64 bits.
 
 See also:
 
-- B4.3.2 Stateful RMI operations
+- [B4.3.2 Stateful RMI operations](rmm-B4.3.md#b432-stateful-rmi-operations)
 
 The fields of the RmiOpMemDonateReq fieldset are shown in the following diagram.
 
@@ -1010,7 +1010,7 @@ The width of the RmiOpMemReq enumeration is 2 bits.
 
 See also:
 
-- B4.3.2 Stateful RMI operations
+- [B4.3.2 Stateful RMI operations](rmm-B4.3.md#b432-stateful-rmi-operations)
 
 The values of the RmiOpMemReq enumeration are shown in the following table.
 
@@ -1084,8 +1084,8 @@ The width of the RmiPdevFlags fieldset is 64 bits.
 
 See also:
 
-- A9.2.1 Physical device attributes
-- B3.129 RmiPdevFlagsSupported function
+- [A9.2.1 Physical device attributes](rmm-A9.2.md#a921-physical-device-attributes)
+- [B3.129 RmiPdevFlagsSupported function](rmm-B3.md#b3129-rmipdevflagssupported-function)
 
 The fields of the RmiPdevFlags fieldset are shown in the following diagram.
 
@@ -1141,7 +1141,7 @@ The width of the RmiPdevSpdm enumeration is 1 bits.
 
 See also:
 
-- A9.1.2 Device properties
+- [A9.1.2 Device properties](rmm-A9.1.md#a912-device-properties)
 
 The values of the RmiPdevSpdm enumeration are shown in the following table.
 
@@ -1485,8 +1485,8 @@ The width of the RmiRealmParams structure is 4096 ( 0x1000 ) bytes.
 
 See also:
 
-- A2.2.6 Realm parameters
-- B4.5.46 RMI\_REALM\_CREATE command
+- [A2.2.6 Realm parameters](rmm-A2.2.md#a226-realm-parameters)
+- [B4.5.46 RMI\_REALM\_CREATE command](rmm-B4.5.46.md)
 
 The members of the RmiRealmParams structure are shown in the following table.
 
@@ -1546,9 +1546,9 @@ The width of the RmiRecEnter structure is 2048 ( 0x800 ) bytes.
 
 ## See also:
 
-- A4.2.1 RmiRecEnter object
-- B4.5.51 RMI\_REC\_ENTER command
-- B4.6.66 RmiRecExit type
+- [A4.2.1 RmiRecEnter object](rmm-A4.2.md#a421-rmirecenter-object)
+- [B4.5.51 RMI\_REC\_ENTER command](rmm-B4.5.51.md)
+- [B4.6.66 RmiRecExit type](rmm-B4.6.md#b4666-rmirecexit-type)
 
 The members of the RmiRecEnter structure are shown in the following table.
 
@@ -1603,9 +1603,9 @@ The width of the RmiRecExit structure is 2048 ( 0x800 ) bytes.
 
 See also:
 
-- A4.3.1 RmiRecExit object
-- B4.5.51 RMI\_REC\_ENTER command
-- B4.6.64 RmiRecEnter type
+- [A4.3.1 RmiRecExit object](rmm-A4.3.md#a431-rmirecexit-object)
+- [B4.5.51 RMI\_REC\_ENTER command](rmm-B4.5.51.md)
+- [B4.6.64 RmiRecEnter type](rmm-B4.6.md#b4664-rmirecenter-type)
 
 The members of the RmiRecExit structure are shown in the following table.
 
@@ -1683,8 +1683,8 @@ The width of the RmiRecMpidr fieldset is 64 bits.
 
 ## See also:
 
-- A2.4.3 REC index and MPIDR value
-- B4.5.49 RMI\_REC\_CREATE command
+- [A2.4.3 REC index and MPIDR value](rmm-A2.4.md#a243-rec-index-and-mpidr-value)
+- [B4.5.49 RMI\_REC\_CREATE command](rmm-B4.5.49.md)
 
 The fields of the RmiRecMpidr fieldset are shown in the following diagram.
 
@@ -1735,10 +1735,10 @@ The width of the RmiRecRun structure is 4096 ( 0x1000 ) bytes.
 
 See also:
 
-- A4.2.1 RmiRecEnter object
-- A4.3.1 RmiRecExit object
+- [A4.2.1 RmiRecEnter object](rmm-A4.2.md#a421-rmirecenter-object)
+- [A4.3.1 RmiRecExit object](rmm-A4.3.md#a431-rmirecexit-object)
 
-- B4.5.51 RMI\_REC\_ENTER command
+- [B4.5.51 RMI\_REC\_ENTER command](rmm-B4.5.51.md)
 
 The members of the RmiRecRun structure are shown in the following table.
 
@@ -2064,7 +2064,7 @@ The width of the RmiRttPlaneFeature enumeration is 2 bits.
 
 See also:
 
-- A3.12 Support for auxiliary Planes
+- [A3.12 Support for auxiliary Planes](rmm-A3.md#a312-support-for-auxiliary-planes)
 
 The values of the RmiRttPlaneFeature enumeration are shown in the following table.
 
@@ -2134,7 +2134,7 @@ The width of the RmiRttS2APEncoding enumeration is 1 bits.
 
 See also:
 
-- A3.13 Support for Stage 2 Access Permissions indirect encoding
+- [A3.13 Support for Stage 2 Access Permissions indirect encoding](rmm-A3.md#a313-support-for-stage-2-access-permissions-indirect-encoding)
 
 The values of the RmiRttS2APEncoding enumeration are shown in the following table.
 
@@ -2226,8 +2226,8 @@ The width of the RmiStatusCode enumeration is 8 bits.
 
 See also:
 
-- B1.3 Command registers
-- B1.5 Command context values
+- [B1.3 Command registers](rmm-B1.2.md#b13-command-registers)
+- [B1.5 Command context values](rmm-B1.2.md#b15-command-context-values)
 
 The values of the RmiStatusCode enumeration are shown in the following table.
 
@@ -2329,7 +2329,7 @@ The width of the RmiVdevMeasureFlags fieldset is 64 bits.
 
 ## See also:
 
-- A9.5.5 Device measurement retrieval
+- [A9.5.5 Device measurement retrieval](rmm-A9.5.md#a955-device-measurement-retrieval)
 
 The fields of the RmiVdevMeasureFlags fieldset are shown in the following diagram.
 
@@ -2359,7 +2359,7 @@ The width of the RmiVdevMeasureParams structure is 4096 ( 0x1000 ) bytes.
 
 See also:
 
-- A9.5.5 Device measurement retrieval
+- [A9.5.5 Device measurement retrieval](rmm-A9.5.md#a955-device-measurement-retrieval)
 
 The members of the RmiVdevMeasureParams structure are shown in the following table.
 
@@ -2381,7 +2381,7 @@ The width of the RmiVdevMeasureRaw enumeration is 1 bits.
 
 See also:
 
-- A9.5.5 Device measurement retrieval
+- [A9.5.5 Device measurement retrieval](rmm-A9.5.md#a955-device-measurement-retrieval)
 
 The values of the RmiVdevMeasureRaw enumeration are shown in the following table.
 

@@ -6,10 +6,10 @@ The RMI\_RTT\_DESTROY command may initiate a Stateful RMI Operation.
 
 ## See also:
 
-- A5.6 Realm Translation Table
-- A5.6.9 RTT destruction
-- B4.5.64 RMI\_RTT\_CREATE command
-- B4.5.72 RMI\_RTT\_FOLD command
+- [A5.6 Realm Translation Table](rmm-A5.6.md)
+- [A5.6.9 RTT destruction](rmm-A5.6.md#a569-rtt-destruction)
+- [B4.5.64 RMI\_RTT\_CREATE command](rmm-B4.5.64.md)
+- [B4.5.72 RMI\_RTT\_FOLD command](rmm-B4.5.72.md)
 
 ## B4.5.68.1 Interface
 
@@ -58,7 +58,7 @@ The values of the result and top output values for different command outcomes ar
 
 ## See also:
 
-- A5.6.8 RTTE liveness and RTT liveness
+- [A5.6.8 RTTE liveness and RTT liveness](rmm-A5.6.md#a568-rtte-liveness-and-rtt-liveness)
 
 ## B4.5.68.2 Failure conditions
 

@@ -4,7 +4,7 @@ This section describes how the RMM communicates management requests to the devic
 
 See also:
 
-- A9.1.2 Device properties
+- [A9.1.2 Device properties](rmm-A9.1.md#a912-device-properties)
 
 ## A9.5.1 Device requests and responses
 
@@ -46,7 +46,7 @@ See also:
 ## See also:
 
 - Secured Messages using SPDM Specification version 1.1.0 [17]
-- B4.6.20 RmiDevCommExitFlags type
+- [B4.6.20 RmiDevCommExitFlags type](rmm-B4.6.md#b4620-rmidevcommexitflags-type)
 
 While the device communication state of a PDEV is either DEV\_COMM\_PENDING or DEV\_COMM\_ACTIVE, the Host can either:
 
@@ -80,8 +80,8 @@ When the Host receives RMI\_BUSY from RMI\_VDEV\_COMMUNICATE, it can choose to e
 ## See also:
 
 - Realm Host Interface specification [20]
-- B4.5.26 RMI\_PDEV\_COMMUNICATE command
-- B4.5.80 RMI\_VDEV\_COMMUNICATE command
+- [B4.5.26 RMI\_PDEV\_COMMUNICATE command](rmm-B4.5.26.md)
+- [B4.5.80 RMI\_VDEV\_COMMUNICATE command](rmm-B4.5.80.md)
 
 ## A9.5.2 Device communication data structures
 
@@ -155,10 +155,10 @@ As a result, the Host is expected to measure the time taken by the SPDM request 
 
 ## See also:
 
-- A9.3 Physical device stream object
-- B4.5.26 RMI\_PDEV\_COMMUNICATE command
-- B4.5.80 RMI\_VDEV\_COMMUNICATE command
-- B4.6.19 RmiDevCommExit type
+- [A9.3 Physical device stream object](rmm-A9.3.md)
+- [B4.5.26 RMI\_PDEV\_COMMUNICATE command](rmm-B4.5.26.md)
+- [B4.5.80 RMI\_VDEV\_COMMUNICATE command](rmm-B4.5.80.md)
+- [B4.6.19 RmiDevCommExit type](rmm-B4.6.md#b4619-rmidevcommexit-type)
 
 ## · B4.6.20 RmiDevCommExitFlags type
 
@@ -190,9 +190,9 @@ The attributes of an RmiDevCommEnter object are summarized in the following tabl
 
 ## See also:
 
-- B4.5.26 RMI\_PDEV\_COMMUNICATE command
-- B4.5.80 RMI\_VDEV\_COMMUNICATE command
-- B4.6.18 RmiDevCommEnter type
+- [B4.5.26 RMI\_PDEV\_COMMUNICATE command](rmm-B4.5.26.md)
+- [B4.5.80 RMI\_VDEV\_COMMUNICATE command](rmm-B4.5.80.md)
+- [B4.6.18 RmiDevCommEnter type](rmm-B4.6.md#b4618-rmidevcommenter-type)
 
 ## A9.5.3 Host-side device communication flow
 
@@ -254,8 +254,8 @@ The implementation should set the SPDM DataTransferSize to a value which allows 
 See also:
 
 - PCI Express 6.0 specification [16]
-- B4.5.26 RMI\_PDEV\_COMMUNICATE command
-- B4.5.80 RMI\_VDEV\_COMMUNICATE command
+- [B4.5.26 RMI\_PDEV\_COMMUNICATE command](rmm-B4.5.26.md)
+- [B4.5.80 RMI\_VDEV\_COMMUNICATE command](rmm-B4.5.80.md)
 
 ## A9.5.3.2 Communication flow for devices which do not use SPDM
 
@@ -313,10 +313,10 @@ The RMM stores a digest of the measurement data which it requests the Host to ca
 
 See also:
 
-- A9.5.3 Host-side device communication flow
-- B4.5.80 RMI\_VDEV\_COMMUNICATE command
-- B4.5.85 RMI\_VDEV\_GET\_MEASUREMENTS command
-- B5.4.19 RSI\_VDEV\_GET\_INFO command
+- [A9.5.3 Host-side device communication flow](rmm-A9.5.md#a953-host-side-device-communication-flow)
+- [B4.5.80 RMI\_VDEV\_COMMUNICATE command](rmm-B4.5.80.md)
+- [B4.5.85 RMI\_VDEV\_GET\_MEASUREMENTS command](rmm-B4.5.85.md)
+- [B5.4.19 RSI\_VDEV\_GET\_INFO command](rmm-B5.4.19.md)
 
 ## A9.5.5.2 Retrieval of device measurements from a device which uses SPDM
 
@@ -353,4 +353,4 @@ Validate measurement buffer received from Host against measurement digest receiv
 
 ## See also:
 
-- A9.5.3 Host-side device communication flow
+- [A9.5.3 Host-side device communication flow](rmm-A9.5.md#a953-host-side-device-communication-flow)

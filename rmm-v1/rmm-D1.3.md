@@ -4,7 +4,7 @@ This section contains flows which relate to the Realm exception model.
 
 See also:
 
-- Chapter A4 Realm exception model
+- [Chapter A4 Realm exception model](rmm-A4.md)
 
 ## D1.3.1 Realm entry and exit flow
 
@@ -19,10 +19,10 @@ A REC is entered using the RMI\_REC\_ENTER command. The parameters to this comma
 
 ## See also:
 
-- Chapter A4 Realm exception model
-- D1.3.2 Host call flow
-- D1.3.3 REC exit due to Data Abort fault flow
-- D1.3.4 MMIO emulation flow
+- [Chapter A4 Realm exception model](rmm-A4.md)
+- [D1.3.2 Host call flow](rmm-D1.3.md#d132-host-call-flow)
+- [D1.3.3 REC exit due to Data Abort fault flow](rmm-D1.3.md#d133-rec-exit-due-to-data-abort-fault-flow)
+- [D1.3.4 MMIO emulation flow](rmm-D1.3.md#d134-mmio-emulation-flow)
 
 ## D1.3.2 Host call flow
 
@@ -39,7 +39,7 @@ On execution of RSI\_HOST\_CALL, arguments are copied from the RsiHostCall objec
 
 See also:
 
-- A4.5 Host call
+- [A4.5 Host call](rmm-A4.4.md#a45-host-call)
 
 ## D1.3.3 REC exit due to Data Abort fault flow
 
@@ -56,7 +56,7 @@ A REC is entered using the RMI\_REC\_ENTER command. The parameters to this comma
 
 See also:
 
-- Chapter A4 Realm exception model
+- [Chapter A4 Realm exception model](rmm-A4.md)
 
 ## D1.3.4 MMIO emulation flow
 
@@ -70,4 +70,4 @@ Chapter D1. Flows
 
 ## See also:
 
-- Chapter A4 Realm exception model
+- [Chapter A4 Realm exception model](rmm-A4.md)

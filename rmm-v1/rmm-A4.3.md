@@ -4,8 +4,8 @@ This section describes REC exit.
 
 ## See also:
 
-- A4.2 REC entry
-- B4.3.14 RMI\_REC\_ENTER command
+- [A4.2 REC entry](rmm-A4.2.md)
+- [B4.3.14 RMI\_REC\_ENTER command](rmm-B4.3.14.md)
 
 ## A4.3.1 RmiRecExit object
 
@@ -95,12 +95,12 @@ On REC exit, all exit fields are zero unless specified otherwise.
 
 See also:
 
-- A2.3 Realm Execution Context
-- A4.2.1 RmiRecEnter object
-- A4.5 Host call
-- Chapter A6 Realm interrupts and timers
-- Chapter A8 Realm debug and performance monitoring
-- B4.4.16 RmiRecExit type
+- [A2.3 Realm Execution Context](rmm-A2.3.md)
+- [A4.2.1 RmiRecEnter object](rmm-A4.2.md#a421-rmirecenter-object)
+- [A4.5 Host call](rmm-A4.4.md#a45-host-call)
+- [Chapter A6 Realm interrupts and timers](rmm-A6.md)
+- [Chapter A8 Realm debug and performance monitoring](rmm-A8.md)
+- [B4.4.16 RmiRecExit type](rmm-B4.4.md#b4416-rmirecexit-type)
 
 ## A4.3.2 Realm exit reason
 
@@ -108,7 +108,7 @@ See also:
 
 See also:
 
-- B4.4.17 RmiRecExitReason type
+- [B4.4.17 RmiRecExitReason type](rmm-B4.4.md#b4417-rmirecexitreason-type)
 
 ## A4.3.3 General purpose registers saved on REC exit
 
@@ -127,9 +127,9 @@ On REC exit, if RMM access to exit causes a GPF then the RMI\_REC\_ENTER command
 
 ## See also:
 
-- A4.2.2 General purpose registers restored on REC entry
-- A4.3.7 REC exit due to PSCI
-- A4.3.9 REC exit due to Host call
+- [A4.2.2 General purpose registers restored on REC entry](rmm-A4.2.md#a422-general-purpose-registers-restored-on-rec-entry)
+- [A4.3.7 REC exit due to PSCI](rmm-A4.3.md#a437-rec-exit-due-to-psci)
+- [A4.3.9 REC exit due to Host call](rmm-A4.3.md#a439-rec-exit-due-to-host-call)
 
 ## A4.3.4 REC exit due to synchronous exception
 
@@ -152,9 +152,9 @@ Realm execution of an SMC which is not part of one of the following ABIs results
 
 ## See also:
 
-- A4.5 Host call
-- Chapter B5 Realm Services Interface
-- Chapter B6 Power State Control Interface
+- [A4.5 Host call](rmm-A4.4.md#a45-host-call)
+- [Chapter B5 Realm Services Interface](rmm-B5.md)
+- [Chapter B6 Power State Control Interface](rmm-B6.md)
 
 ## A4.3.4.1 REC exit due to WFI or WFE
 
@@ -176,9 +176,9 @@ On REC exit due to WFI or WFE, if the exit was caused by WFET or WFIT instructio
 
 ## See also:
 
-- A6.1 Realm interrupts
-- A6.2 Realm timers
-- A8.1 Realm PMU
+- [A6.1 Realm interrupts](rmm-A6.1.md)
+- [A6.2 Realm timers](rmm-A6.2.md)
+- [A8.1 Realm PMU](rmm-A8.md#a81-realm-pmu)
 
 ## A4.3.4.2 REC exit due to Instruction Abort
 
@@ -199,11 +199,11 @@ On REC exit due to Instruction Abort, all of the following are true:
 
 ## See also:
 
-- A5.2.2 Realm IPA state
-- A5.2.3 Realm access to a Protected IPA
-- A6.1 Realm interrupts
-- A6.2 Realm timers
-- A8.1 Realm PMU
+- [A5.2.2 Realm IPA state](rmm-A5.1.md#a522-realm-ipa-state)
+- [A5.2.3 Realm access to a Protected IPA](rmm-A5.2.md#a523-realm-access-to-a-protected-ipa)
+- [A6.1 Realm interrupts](rmm-A6.1.md)
+- [A6.2 Realm timers](rmm-A6.2.md)
+- [A8.1 Realm PMU](rmm-A8.md#a81-realm-pmu)
 
 ## A4.3.4.3 REC exit due to Data Abort
 
@@ -255,14 +255,14 @@ On REC exit not due to Emulatable Data Abort, rec.emulatable\_abort is NOT\_EMUL
 
 See also:
 
-- A4.2.3 REC entry following REC exit due to Data Abort
-- A4.4 Emulated Data Aborts
-- A5.2.1 Realm IPA space
-- A5.2.3 Realm access to a Protected IPA
-- A5.2.6 Realm access to an Unprotected IPA
-- A6.1 Realm interrupts
-- A6.2 Realm timers
-- A8.1 Realm PMU
+- [A4.2.3 REC entry following REC exit due to Data Abort](rmm-A4.2.md#a423-rec-entry-following-rec-exit-due-to-data-abort)
+- [A4.4 Emulated Data Aborts](rmm-A4.4.md)
+- [A5.2.1 Realm IPA space](rmm-A5.1.md#a521-realm-ipa-space)
+- [A5.2.3 Realm access to a Protected IPA](rmm-A5.2.md#a523-realm-access-to-a-protected-ipa)
+- [A5.2.6 Realm access to an Unprotected IPA](rmm-A5.2.md#a526-realm-access-to-an-unprotected-ipa)
+- [A6.1 Realm interrupts](rmm-A6.1.md)
+- [A6.2 Realm timers](rmm-A6.2.md)
+- [A8.1 Realm PMU](rmm-A8.md#a81-realm-pmu)
 
 ## A4.3.5 REC exit due to IRQ
 
@@ -272,7 +272,7 @@ See also:
 
 See also:
 
-- Chapter A6 Realm interrupts and timers
+- [Chapter A6 Realm interrupts and timers](rmm-A6.md)
 
 ## A4.3.6 REC exit due to FIQ
 
@@ -282,7 +282,7 @@ See also:
 
 See also:
 
-- Chapter A6 Realm interrupts and timers
+- [Chapter A6 Realm interrupts and timers](rmm-A6.md)
 
 ## A4.3.7 REC exit due to PSCI
 
@@ -325,14 +325,14 @@ In the call to RMI\_PSCI\_COMPLETE, the Host provides a PSCI status value, which
 
 ## See also:
 
-- A4.3.3 General purpose registers saved on REC exit
-- B3.27 PsciReturnCodePermitted function
-- B4.3.7 RMI\_PSCI\_COMPLETE command
-- Chapter B6 Power State Control Interface
+- [A4.3.3 General purpose registers saved on REC exit](rmm-A4.3.md#a433-general-purpose-registers-saved-on-rec-exit)
+- [B3.27 PsciReturnCodePermitted function](rmm-B3.md#b327-pscireturncodepermitted-function)
+- [B4.3.7 RMI\_PSCI\_COMPLETE command](rmm-B4.3.7.md)
+- [Chapter B6 Power State Control Interface](rmm-B6.md)
 
 
 
-- D1.4 PSCI flows
+- [D1.4 PSCI flows](rmm-D1.4.md)
 
 ## A4.3.8 REC exit due to RIPAS change pending
 
@@ -358,8 +358,8 @@ On REC exit not due to RIPAS change pending, all of the following are true:
 
 ## See also:
 
-- A2.3.2 REC attributes
-- A5.4 RIPAS change
+- [A2.3.2 REC attributes](rmm-A2.3.md#a232-rec-attributes)
+- [A5.4 RIPAS change](rmm-A5.4.md)
 
 ## A4.3.9 REC exit due to Host call
 
@@ -374,11 +374,11 @@ A REC exit due to Host call is a REC exit due to RSI\_HOST\_CALL execution in a 
 
 ## See also:
 
-- A4.5 Host call
-- A6.1 Realm interrupts
-- A6.2 Realm timers
-- A8.1 Realm PMU
-- B5.3.4 RSI\_HOST\_CALL command
+- [A4.5 Host call](rmm-A4.4.md#a45-host-call)
+- [A6.1 Realm interrupts](rmm-A6.1.md)
+- [A6.2 Realm timers](rmm-A6.2.md)
+- [A8.1 Realm PMU](rmm-A8.md#a81-realm-pmu)
+- [B5.3.4 RSI\_HOST\_CALL command](rmm-B5.3.4.md)
 
 ## A4.3.10 REC exit due to SError
 
@@ -396,6 +396,6 @@ A REC exit due to Host call is a REC exit due to RSI\_HOST\_CALL execution in a 
 
 ## See also:
 
-- A6.1 Realm interrupts
-- A6.2 Realm timers
-- A8.1 Realm PMU
+- [A6.1 Realm interrupts](rmm-A6.1.md)
+- [A6.2 Realm timers](rmm-A6.2.md)
+- [A8.1 Realm PMU](rmm-A8.md#a81-realm-pmu)

@@ -11,22 +11,22 @@ cca-realm-claims = (cca-realm-claim-map) cca-realm-claim-map = { cca-realm-chall
 ## See also:
 
 - Concise Data Definition Language (CDDL) [12]
-- A7.2.3.1.1 Realm challenge claim
-- A7.2.3.1.2 Realm profile claim
-- A7.2.3.1.3 Realm Instance ID claim
-- A7.2.3.1.4 Realm Personalization Value claim
-- A7.2.3.1.5 Realm Initial Measurement claim
-- A7.2.3.1.6 Realm Extensible Measurements claim
+- [A7.2.3.1.1 Realm challenge claim](rmm-A7.2.3.1.md#a72311-realm-challenge-claim)
+- [A7.2.3.1.2 Realm profile claim](rmm-A7.2.3.1.md#a72312-realm-profile-claim)
+- [A7.2.3.1.3 Realm Instance ID claim](rmm-A7.2.3.1.md#a72313-realm-instance-id-claim)
+- [A7.2.3.1.4 Realm Personalization Value claim](rmm-A7.2.3.1.md#a72314-realm-personalization-value-claim)
+- [A7.2.3.1.5 Realm Initial Measurement claim](rmm-A7.2.3.1.md#a72315-realm-initial-measurement-claim)
+- [A7.2.3.1.6 Realm Extensible Measurements claim](rmm-A7.2.3.1.md#a72316-realm-extensible-measurements-claim)
 - A7.2.3.1.7 Realm hash algorithm ID claim
-- A7.2.3.1.8 Realm MEC policy claim
-- A7.2.3.1.9 Realm LFA policy claim
-- A7.2.3.1.10 Realm public key claim
-- A7.2.3.1.11 Realm public key hash algorithm identifier claim
+- [A7.2.3.1.8 Realm MEC policy claim](rmm-A7.2.3.1.md#a72318-realm-mec-policy-claim)
+- [A7.2.3.1.9 Realm LFA policy claim](rmm-A7.2.3.1.md#a72319-realm-lfa-policy-claim)
+- [A7.2.3.1.10 Realm public key claim](rmm-A7.2.3.1.md#a723110-realm-public-key-claim)
+- [A7.2.3.1.11 Realm public key hash algorithm identifier claim](rmm-A7.2.3.1.md#a723111-realm-public-key-hash-algorithm-identifier-claim)
 
 
-- A7.2.3.1.12 Realm devices token hash claim
-- A7.2.3.1.13 Collated CDDL for Realm claims
-- A7.2.3.1.14 Example Realm claims
+- [A7.2.3.1.12 Realm devices token hash claim](rmm-A7.2.3.1.md#a723112-realm-devices-token-hash-claim)
+- [A7.2.3.1.13 Collated CDDL for Realm claims](rmm-A7.2.3.1.md#a723113-collated-cddl-for-realm-claims)
+- [A7.2.3.1.14 Example Realm claims](rmm-A7.2.3.1.md#a723114-example-realm-claims)
 
 ## A7.2.3.1.1 Realm challenge claim
 
@@ -99,7 +99,7 @@ cca-realm-personalization-value-label = 44235 cca-realm-personalization-value-ty
 
 ## See also:
 
-- A2.2.3 Realm attributes
+- [A2.2.3 Realm attributes](rmm-A2.2.md#a223-realm-attributes)
 
 ## A7.2.3.1.5 Realm Initial Measurement claim
 
@@ -115,8 +115,8 @@ cca-realm-measurement-type = bytes .size 32 / bytes .size 48 / bytes .size 64 cc
 
 ## See also:
 
-- A7.1 Realm measurements
-- A7.2.3.1.6 Realm Extensible Measurements claim
+- [A7.1 Realm measurements](rmm-A7.1.md)
+- [A7.2.3.1.6 Realm Extensible Measurements claim](rmm-A7.2.3.1.md#a72316-realm-extensible-measurements-claim)
 
 ## A7.2.3.1.6 Realm Extensible Measurements claim
 
@@ -165,7 +165,7 @@ cca-realm-mec-policy-label = 44243 cca-realm-mec-policy-shared = 0 cca-realm-mec
 
 ## See also:
 
-- Chapter A11 Realm memory encryption
+- [Chapter A11 Realm memory encryption](rmm-A11.md)
 
 ## A7.2.3.1.9 Realm LFA policy claim
 
@@ -184,7 +184,7 @@ cca-realm-lfa-policy-label = 44244 cca-realm-lfa-policy-disallow = 0 cca-realm-l
 
 ## See also:
 
-- A3.14 Live Firmware Activation
+- [A3.14 Live Firmware Activation](rmm-A3.md#a314-live-firmware-activation)
 
 ## A7.2.3.1.10 Realm public key claim
 
@@ -210,7 +210,7 @@ The value of the Realm public key claim is a CBOR bstr of a COSE\_Key structure.
 ## See also:
 
 - SEC 1: Elliptic Curve Cryptography, version 2.0 [14]
-- A7.2.3.1.11 Realm public key hash algorithm identifier claim
+- [A7.2.3.1.11 Realm public key hash algorithm identifier claim](rmm-A7.2.3.1.md#a723111-realm-public-key-hash-algorithm-identifier-claim)
 
 ```
 /
@@ -234,8 +234,8 @@ cca-realm-public-key-hash-algo-id-label = 44240 cca-realm-public-key-hash-algo-i
 ## See also:
 
 - SEC 1: Elliptic Curve Cryptography, version 2.0 [14]
-- A7.2.3.1.10 Realm public key claim
-- A7.2.3.3.2 CCA platform challenge claim
+- [A7.2.3.1.10 Realm public key claim](rmm-A7.2.3.1.md#a723110-realm-public-key-claim)
+- [A7.2.3.3.2 CCA platform challenge claim](rmm-A7.2.3.3.md#a72332-cca-platform-challenge-claim)
 
 ## A7.2.3.1.12 Realm devices token hash claim
 
@@ -251,7 +251,7 @@ cca-realm-devices-token-hash-label = 44257 cca-realm-devices-token-hash = ( cca-
 
 ## See also:
 
-- A7.2.3.2 CCA device claims
+- [A7.2.3.2 CCA device claims](rmm-A7.2.3.2.md)
 
 ```
 cca-hash-type

@@ -12,7 +12,7 @@ The width of the RmiCommandReturnCode fieldset is 64 bits.
 
 See also:
 
-- Chapter B1 Commands
+- [Chapter B1 Commands](rmm-B1.md)
 
 The fields of the RmiCommandReturnCode fieldset are shown in the following diagram.
 
@@ -109,8 +109,8 @@ The width of the RmiFeatureRegister0 fieldset is 64 bits.
 
 ## See also:
 
-- A3.1 Realm feature discovery and selection
-- B4.3.4 RMI\_FEATURES command
+- [A3.1 Realm feature discovery and selection](rmm-A3.md#a31-realm-feature-discovery-and-selection)
+- [B4.3.4 RMI\_FEATURES command](rmm-B4.3.4.md)
 
 The fields of the RmiFeatureRegister0 fieldset are shown in the following diagram.
 
@@ -178,8 +178,8 @@ The width of the RmiInterfaceVersion fieldset is 64 bits.
 
 See also:
 
-- B4.1 RMI version
-- B4.3.23 RMI\_VERSION command
+- [B4.1 RMI version](rmm-B4.1.md)
+- [B4.3.23 RMI\_VERSION command](rmm-B4.3.23.md)
 
 The fields of the RmiInterfaceVersion fieldset are shown in the following diagram.
 
@@ -247,8 +247,8 @@ The width of the RmiRealmParams structure is 4096 ( 0x1000 ) bytes.
 
 ## See also:
 
-- A2.1.6 Realm parameters
-- B4.3.9 RMI\_REALM\_CREATE command
+- [A2.1.6 Realm parameters](rmm-A2.1.md#a216-realm-parameters)
+- [B4.3.9 RMI\_REALM\_CREATE command](rmm-B4.3.9.md)
 
 The members of the RmiRealmParams structure are shown in the following table.
 
@@ -301,9 +301,9 @@ The width of the RmiRecEnter structure is 2048 ( 0x800 ) bytes.
 
 See also:
 
-- A4.2.1 RmiRecEnter object
-- B4.3.14 RMI\_REC\_ENTER command
-- B4.4.16 RmiRecExit type
+- [A4.2.1 RmiRecEnter object](rmm-A4.2.md#a421-rmirecenter-object)
+- [B4.3.14 RMI\_REC\_ENTER command](rmm-B4.3.14.md)
+- [B4.4.16 RmiRecExit type](rmm-B4.4.md#b4416-rmirecexit-type)
 
 The members of the RmiRecEnter structure are shown in the following table.
 
@@ -397,9 +397,9 @@ The width of the RmiRecExit structure is 2048 ( 0x800 ) bytes.
 
 ## See also:
 
-- A4.3.1 RmiRecExit object
-- B4.3.14 RMI\_REC\_ENTER command
-- B4.4.14 RmiRecEnter type
+- [A4.3.1 RmiRecExit object](rmm-A4.3.md#a431-rmirecexit-object)
+- [B4.3.14 RMI\_REC\_ENTER command](rmm-B4.3.14.md)
+- [B4.4.14 RmiRecEnter type](rmm-B4.4.md#b4414-rmirecenter-type)
 
 The members of the RmiRecExit structure are shown in the following table.
 
@@ -509,8 +509,8 @@ The width of the RmiRecMpidr fieldset is 64 bits.
 
 See also:
 
-- A2.3.3 REC index and MPIDR value
-- B4.3.12 RMI\_REC\_CREATE command
+- [A2.3.3 REC index and MPIDR value](rmm-A2.3.md#a233-rec-index-and-mpidr-value)
+- [B4.3.12 RMI\_REC\_CREATE command](rmm-B4.3.12.md)
 
 The fields of the RmiRecMpidr fieldset are shown in the following diagram.
 
@@ -539,7 +539,7 @@ The number of valid entries in the aux array is determined by the return value f
 
 ## See also:
 
-- B4.3.11 RMI\_REC\_AUX\_COUNT command
+- [B4.3.11 RMI\_REC\_AUX\_COUNT command](rmm-B4.3.11.md)
 
 The members of the RmiRecParams structure are shown in the following table.
 
@@ -586,9 +586,9 @@ The width of the RmiRecRun structure is 4096 ( 0x1000 ) bytes.
 
 See also:
 
-- A4.2.1 RmiRecEnter object
-- A4.3.1 RmiRecExit object
-- B4.3.14 RMI\_REC\_ENTER command
+- [A4.2.1 RmiRecEnter object](rmm-A4.2.md#a421-rmirecenter-object)
+- [A4.3.1 RmiRecExit object](rmm-A4.3.md#a431-rmirecexit-object)
+- [B4.3.14 RMI\_REC\_ENTER command](rmm-B4.3.14.md)
 
 The members of the RmiRecRun structure are shown in the following table.
 
@@ -673,8 +673,8 @@ The width of the RmiStatusCode enumeration is 8 bits.
 
 See also:
 
-- B1.3 Command registers
-- B1.5 Command context values
+- [B1.3 Command registers](rmm-B1.md#b13-command-registers)
+- [B1.5 Command context values](rmm-B1.md#b15-command-context-values)
 
 The values of the RmiStatusCode enumeration are shown in the following table.
 

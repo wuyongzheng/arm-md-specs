@@ -4,7 +4,7 @@ Discard a PSMMU event.
 
 See also:
 
-- A9.8.6 Page Request Interface events
+- [A9.8.6 Page Request Interface events](rmm-A9.8.md#a986-page-request-interface-events)
 
 ## B4.5.41.1 Interface
 

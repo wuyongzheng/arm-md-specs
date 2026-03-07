@@ -38,4 +38,4 @@ Figure D2.1: Realm shared memory protocol flow
 
 See also:
 
-- D1.5.3 RIPAS change flow
+- [D1.5.3 RIPAS change flow](rmm-D1.5.md#d153-ripas-change-flow)

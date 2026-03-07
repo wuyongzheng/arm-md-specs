@@ -36,11 +36,11 @@ Realm access to ICC\_*\_EL1 except for the following registers results in a REC 
 ## See also:
 
 - Arm Generic Interrupt Controller (GIC) Architecture Specification version 3 and version 4 [6]
-- A4.2 REC entry
-- A4.3 REC exit
-- A10.4 Planes interrupts
-- B4.5.14 RMI\_FEATURES command
-- B4.5.51 RMI\_REC\_ENTER command
-- B4.6.64 RmiRecEnter type
-- B4.6.66 RmiRecExit type
-- D1.6.1 Interrupt flow
+- [A4.2 REC entry](rmm-A4.2.md)
+- [A4.3 REC exit](rmm-A4.3.md)
+- [A10.4 Planes interrupts](rmm-A10.4.md)
+- [B4.5.14 RMI\_FEATURES command](rmm-B4.5.14.md)
+- [B4.5.51 RMI\_REC\_ENTER command](rmm-B4.5.51.md)
+- [B4.6.64 RmiRecEnter type](rmm-B4.6.md#b4664-rmirecenter-type)
+- [B4.6.66 RmiRecExit type](rmm-B4.6.md#b4666-rmirecexit-type)
+- [D1.6.1 Interrupt flow](rmm-D1.6.md#d161-interrupt-flow)

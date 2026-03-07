@@ -4,7 +4,7 @@ This section contains flows which relate to the Realm lifecycle.
 
 See also:
 
-- A2.2.5 Realm lifecycle
+- [A2.2.5 Realm lifecycle](rmm-A2.2.md#a225-realm-lifecycle)
 
 ## D1.2.1 Realm creation flow
 
@@ -23,10 +23,10 @@ Figure D1.3: Realm creation flow
 
 ## See also:
 
-- B4.3.4 Object creation and destruction
-- B4.5.17 RMI\_GRANULE\_RANGE\_DELEGATE command
-- B4.5.46 RMI\_REALM\_CREATE command
-- D1.2.5 Realm destruction flow
+- [B4.3.4 Object creation and destruction](rmm-B4.3.md#b434-object-creation-and-destruction)
+- [B4.5.17 RMI\_GRANULE\_RANGE\_DELEGATE command](rmm-B4.5.17.md)
+- [B4.5.46 RMI\_REALM\_CREATE command](rmm-B4.5.46.md)
+- [D1.2.5 Realm destruction flow](rmm-D1.2.md#d125-realm-destruction-flow)
 
 ## D1.2.2 Realm Translation Table creation flow
 
@@ -43,10 +43,10 @@ Figure D1.4: RTT creation flow
 
 See also:
 
-- Chapter A5 Realm memory management
-- B4.5.64 RMI\_RTT\_CREATE command
-- D1.2.1 Realm creation flow
-- D1.2.3 Initialize memory of New Realm flow
+- [Chapter A5 Realm memory management](rmm-A5.md)
+- [B4.5.64 RMI\_RTT\_CREATE command](rmm-B4.5.64.md)
+- [D1.2.1 Realm creation flow](rmm-D1.2.md#d121-realm-creation-flow)
+- [D1.2.3 Initialize memory of New Realm flow](rmm-D1.2.md#d123-initialize-memory-of-new-realm-flow)
 
 ## D1.2.3 Initialize memory of New Realm flow
 
@@ -77,17 +77,17 @@ Once the Data Granule has been created, the src Granule can be reallocated by th
 
 ## See also:
 
-- A2.3.6 Granule state
-- A5.2.2 Realm IPA state
+- [A2.3.6 Granule state](rmm-A2.3.md#a236-granule-state)
+- [A5.2.2 Realm IPA state](rmm-A5.1.md#a522-realm-ipa-state)
 
 
-- A7.1.1 Realm Initial Measurement
-- B4.5.17 RMI\_GRANULE\_RANGE\_DELEGATE command
-- B4.5.66 RMI\_RTT\_DATA\_MAP\_INIT command
-- B4.5.73 RMI\_RTT\_INIT\_RIPAS command
-- D1.2.1 Realm creation flow
-- D1.2.2 Realm Translation Table creation flow
-- D1.2.5 Realm destruction flow
+- [A7.1.1 Realm Initial Measurement](rmm-A7.1.md#a711-realm-initial-measurement)
+- [B4.5.17 RMI\_GRANULE\_RANGE\_DELEGATE command](rmm-B4.5.17.md)
+- [B4.5.66 RMI\_RTT\_DATA\_MAP\_INIT command](rmm-B4.5.66.md)
+- [B4.5.73 RMI\_RTT\_INIT\_RIPAS command](rmm-B4.5.73.md)
+- [D1.2.1 Realm creation flow](rmm-D1.2.md#d121-realm-creation-flow)
+- [D1.2.2 Realm Translation Table creation flow](rmm-D1.2.md#d122-realm-translation-table-creation-flow)
+- [D1.2.5 Realm destruction flow](rmm-D1.2.md#d125-realm-destruction-flow)
 
 ## D1.2.4 REC creation flow
 
@@ -105,11 +105,11 @@ Figure D1.7: REC creation flow
 
 ## See also:
 
-- B4.3.4 Object creation and destruction
-- B4.5.17 RMI\_GRANULE\_RANGE\_DELEGATE command
-- B4.5.49 RMI\_REC\_CREATE command
-- D1.2.1 Realm creation flow
-- D1.2.5 Realm destruction flow
+- [B4.3.4 Object creation and destruction](rmm-B4.3.md#b434-object-creation-and-destruction)
+- [B4.5.17 RMI\_GRANULE\_RANGE\_DELEGATE command](rmm-B4.5.17.md)
+- [B4.5.49 RMI\_REC\_CREATE command](rmm-B4.5.49.md)
+- [D1.2.1 Realm creation flow](rmm-D1.2.md#d121-realm-creation-flow)
+- [D1.2.5 Realm destruction flow](rmm-D1.2.md#d125-realm-destruction-flow)
 
 ## D1.2.5 Realm destruction flow
 
@@ -142,19 +142,19 @@ Figure D1.8: Realm destruction flow (part 1 of 2)
 
 ## See also:
 
-- A2.2.4 Realm liveness
-- A11.1.2 MEC and CMEM devices
-- B4.3.2 Stateful RMI operations
-- B4.3.4 Object creation and destruction
-- B4.5.18 RMI\_GRANULE\_RANGE\_UNDELEGATE command
-- B4.5.47 RMI\_REALM\_DESTROY command
-- B4.5.48 RMI\_REALM\_TERMINATE command
-- B4.5.50 RMI\_REC\_DESTROY command
-- B4.5.67 RMI\_RTT\_DATA\_UNMAP command
-- B4.5.68 RMI\_RTT\_DESTROY command
-- B4.5.83 RMI\_VDEV\_DESTROY command
-- B4.5.96 RMI\_VSMMU\_DESTROY command
-- D1.2.1 Realm creation flow
+- [A2.2.4 Realm liveness](rmm-A2.2.md#a224-realm-liveness)
+- [A11.1.2 MEC and CMEM devices](rmm-A11.md#a1112-mec-and-cmem-devices)
+- [B4.3.2 Stateful RMI operations](rmm-B4.3.md#b432-stateful-rmi-operations)
+- [B4.3.4 Object creation and destruction](rmm-B4.3.md#b434-object-creation-and-destruction)
+- [B4.5.18 RMI\_GRANULE\_RANGE\_UNDELEGATE command](rmm-B4.5.18.md)
+- [B4.5.47 RMI\_REALM\_DESTROY command](rmm-B4.5.47.md)
+- [B4.5.48 RMI\_REALM\_TERMINATE command](rmm-B4.5.48.md)
+- [B4.5.50 RMI\_REC\_DESTROY command](rmm-B4.5.50.md)
+- [B4.5.67 RMI\_RTT\_DATA\_UNMAP command](rmm-B4.5.67.md)
+- [B4.5.68 RMI\_RTT\_DESTROY command](rmm-B4.5.68.md)
+- [B4.5.83 RMI\_VDEV\_DESTROY command](rmm-B4.5.83.md)
+- [B4.5.96 RMI\_VSMMU\_DESTROY command](rmm-B4.5.96.md)
+- [D1.2.1 Realm creation flow](rmm-D1.2.md#d121-realm-creation-flow)
 
 Figure D1.9: Realm destruction flow (part 2 of 2)
 

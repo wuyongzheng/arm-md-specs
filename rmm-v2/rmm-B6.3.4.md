@@ -6,9 +6,9 @@ This command causes a REC exit due to PSCI.
 
 ## See also:
 
-- A4.3.7 REC exit due to PSCI
-- B6.3.2 PSCI\_CPU\_OFF command
-- B6.3.3 PSCI\_CPU\_ON command
+- [A4.3.7 REC exit due to PSCI](rmm-A4.3.md#a437-rec-exit-due-to-psci)
+- [B6.3.2 PSCI\_CPU\_OFF command](rmm-B6.3.2.md)
+- [B6.3.3 PSCI\_CPU\_ON command](rmm-B6.3.3.md)
 
 ## B6.3.4.1 Interface
 

@@ -15,9 +15,9 @@
 
 See also:
 
-- A2.4.2 REC attributes
-- A4.1 Realm exception model overview
-- A6.1 Realm interrupts
-- A10.2.3.2 Plane exit due to IRQ
-- B5.4.13 RSI\_PLANE\_ENTER command
-- B5.4.16 RSI\_REALM\_CONFIG command
+- [A2.4.2 REC attributes](rmm-A2.4.md#a242-rec-attributes)
+- [A4.1 Realm exception model overview](rmm-A4.1.md)
+- [A6.1 Realm interrupts](rmm-A6.1.md)
+- [A10.2.3.2 Plane exit due to IRQ](rmm-A10.2.md#a10232-plane-exit-due-to-irq)
+- [B5.4.13 RSI\_PLANE\_ENTER command](rmm-B5.4.13.md)
+- [B5.4.16 RSI\_REALM\_CONFIG command](rmm-B5.4.16.md)

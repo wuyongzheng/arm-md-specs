@@ -4,7 +4,7 @@ Propagate a MEC refresh to a CMEM device.
 
 See also:
 
-- A11.1.2 MEC and CMEM devices
+- [A11.1.2 MEC and CMEM devices](rmm-A11.md#a1112-mec-and-cmem-devices)
 
 ## B4.5.30.1 Interface
 

@@ -36,10 +36,10 @@ Chapter A4. Realm exception model A4.1. Realm exception model overview
 
 See also:
 
-- A4.2 REC entry
-- A4.3 REC exit
-- A10.2 Planes exception model
-- B4.5.51 RMI\_REC\_ENTER command
-- B4.6.70 RmiRecRun type
+- [A4.2 REC entry](rmm-A4.2.md)
+- [A4.3 REC exit](rmm-A4.3.md)
+- [A10.2 Planes exception model](rmm-A10.2.md)
+- [B4.5.51 RMI\_REC\_ENTER command](rmm-B4.5.51.md)
+- [B4.6.70 RmiRecRun type](rmm-B4.6.md#b4670-rmirecrun-type)
 
 <!-- image -->

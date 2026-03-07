@@ -6,9 +6,9 @@ The RMI\_RTT\_DATA\_MAP\_INIT command may initiate a Stateful RMI Operation.
 
 ## See also:
 
-- A5.3.4 Mapping initial Realm image in Protected IPA space
-- B4.5.67 RMI\_RTT\_DATA\_UNMAP command
-- D1.2.3 Initialize memory of New Realm flow
+- [A5.3.4 Mapping initial Realm image in Protected IPA space](rmm-A5.3.md#a534-mapping-initial-realm-image-in-protected-ipa-space)
+- [B4.5.67 RMI\_RTT\_DATA\_UNMAP command](rmm-B4.5.67.md)
+- [D1.2.3 Initialize memory of New Realm flow](rmm-D1.2.md#d123-initialize-memory-of-new-realm-flow)
 
 ## B4.5.66.1 Interface
 
@@ -133,9 +133,9 @@ activated
 
 ## See also:
 
-- A7.1.1 Realm Initial Measurement
-- B3.111 RimExtendData function
-- C2.27 RmmMeasurementDescriptorData type
+- [A7.1.1 Realm Initial Measurement](rmm-A7.1.md#a711-realm-initial-measurement)
+- [B3.111 RimExtendData function](rmm-B3.md#b3111-rimextenddata-function)
+- [C2.27 RmmMeasurementDescriptorData type](rmm-C2.md#c227-rmmmeasurementdescriptordata-type)
 
 ## B4.5.66.5 Footprint
 

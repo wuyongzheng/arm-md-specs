@@ -6,9 +6,9 @@ The RMI\_RTT\_DEV\_MAP command may initiate a Stateful RMI Operation.
 
 ## See also:
 
-- A5.3.7 Create mappings from Protected IPA space to device memory
-- Chapter A9 Realm device assignment
-- B4.5.70 RMI\_RTT\_DEV\_UNMAP command
+- [A5.3.7 Create mappings from Protected IPA space to device memory](rmm-A5.3.md#a537-create-mappings-from-protected-ipa-space-to-device-memory)
+- [Chapter A9 Realm device assignment](rmm-A8.md#chapter-a9-realm-device-assignment)
+- [B4.5.70 RMI\_RTT\_DEV\_UNMAP command](rmm-B4.5.70.md)
 
 ## B4.5.69.1 Interface
 

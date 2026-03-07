@@ -43,7 +43,7 @@ This is referred to as the active Plane of the VPE.
 
 ## See also:
 
-- A3.12 Support for auxiliary Planes
-- A10.2 Planes exception model
-- A10.3 Planes memory management
-- A10.4 Planes interrupts
+- [A3.12 Support for auxiliary Planes](rmm-A3.md#a312-support-for-auxiliary-planes)
+- [A10.2 Planes exception model](rmm-A10.2.md)
+- [A10.3 Planes memory management](rmm-A10.3.md)
+- [A10.4 Planes interrupts](rmm-A10.4.md)

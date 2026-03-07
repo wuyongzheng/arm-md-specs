@@ -4,7 +4,7 @@ Perform device communication associated with a VDEV.
 
 See also:
 
-- Chapter A9 Realm device assignment
+- [Chapter A9 Realm device assignment](rmm-A8.md#chapter-a9-realm-device-assignment)
 
 ## B4.5.80.1 Interface
 

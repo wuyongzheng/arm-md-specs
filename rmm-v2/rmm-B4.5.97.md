@@ -4,8 +4,8 @@ Complete a VSMMU event.
 
 ## See also:
 
-- A9.8.6 Page Request Interface events
-- B4.5.98 RMI\_VSMMU\_EVENT\_NOTIFY command
+- [A9.8.6 Page Request Interface events](rmm-A9.8.md#a986-page-request-interface-events)
+- [B4.5.98 RMI\_VSMMU\_EVENT\_NOTIFY command](rmm-B4.5.98.md)
 
 ## B4.5.97.1 Interface
 

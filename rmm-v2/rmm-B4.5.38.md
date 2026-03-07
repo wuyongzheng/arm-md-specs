@@ -4,10 +4,10 @@ Completes a pending PSCI command which was called with an MPIDR argument, by pro
 
 ## See also:
 
-- A4.3.7 REC exit due to PSCI
-- B6.3.1 PSCI\_AFFINITY\_INFO command
-- B6.3.3 PSCI\_CPU\_ON command
-- D1.4 PSCI flows
+- [A4.3.7 REC exit due to PSCI](rmm-A4.3.md#a437-rec-exit-due-to-psci)
+- [B6.3.1 PSCI\_AFFINITY\_INFO command](rmm-B6.3.1.md)
+- [B6.3.3 PSCI\_CPU\_ON command](rmm-B6.3.3.md)
+- [D1.4 PSCI flows](rmm-D1.4.md)
 
 ## B4.5.38.1 Interface
 

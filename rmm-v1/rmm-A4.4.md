@@ -10,9 +10,9 @@ On taking the REC exit, the Host can either
 
 ## See also:
 
-- A4.2.3 REC entry following REC exit due to Data Abort
-- A4.3.4.3 REC exit due to Data Abort
-- A5.2.1 Realm IPA space
+- [A4.2.3 REC entry following REC exit due to Data Abort](rmm-A4.2.md#a423-rec-entry-following-rec-exit-due-to-data-abort)
+- [A4.3.4.3 REC exit due to Data Abort](rmm-A4.3.md#a4343-rec-exit-due-to-data-abort)
+- [A5.2.1 Realm IPA space](rmm-A5.1.md#a521-realm-ipa-space)
 
 ## A4.5 Host call
 
@@ -24,7 +24,7 @@ This section describes the programming model for Realm communication with the Ho
 
 See also:
 
-- A4.2.2 General purpose registers restored on REC entry
-- A4.3.9 REC exit due to Host call
-- B5.3.4 RSI\_HOST\_CALL command
-- D1.3.2 Host call flow
+- [A4.2.2 General purpose registers restored on REC entry](rmm-A4.2.md#a422-general-purpose-registers-restored-on-rec-entry)
+- [A4.3.9 REC exit due to Host call](rmm-A4.3.md#a439-rec-exit-due-to-host-call)
+- [B5.3.4 RSI\_HOST\_CALL command](rmm-B5.3.4.md)
+- [D1.3.2 Host call flow](rmm-D1.3.md#d132-host-call-flow)

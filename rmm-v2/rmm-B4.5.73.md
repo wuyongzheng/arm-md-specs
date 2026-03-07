@@ -6,9 +6,9 @@ The RMI\_RTT\_INIT\_RIPAS command may initiate a Stateful RMI Operation.
 
 ## See also:
 
-- A5.2.2 Realm IPA state
-- B4.3.5 Range RMI operations
-- D1.2.3 Initialize memory of New Realm flow
+- [A5.2.2 Realm IPA state](rmm-A5.1.md#a522-realm-ipa-state)
+- [B4.3.5 Range RMI operations](rmm-B4.3.md#b435-range-rmi-operations)
+- [D1.2.3 Initialize memory of New Realm flow](rmm-D1.2.md#d123-initialize-memory-of-new-realm-flow)
 
 ## B4.5.73.1 Interface
 

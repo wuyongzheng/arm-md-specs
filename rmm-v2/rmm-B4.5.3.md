@@ -8,9 +8,9 @@ The RMI\_CMEM\_CREATE command may initiate a memory-transferring RMI Operation.
 
 ## See also:
 
-- A9.11 Coherent memory devices
-- B4.3.4 Object creation and destruction
-- B4.5.4 RMI\_CMEM\_DESTROY command
+- [A9.11 Coherent memory devices](rmm-A9.11.md)
+- [B4.3.4 Object creation and destruction](rmm-B4.3.md#b434-object-creation-and-destruction)
+- [B4.5.4 RMI\_CMEM\_DESTROY command](rmm-B4.5.4.md)
 
 ## B4.5.3.1 Interface
 

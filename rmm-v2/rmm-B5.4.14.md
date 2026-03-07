@@ -4,7 +4,7 @@ Read a Plane register.
 
 See also:
 
-- A10.2.6 Pn system registers
+- [A10.2.6 Pn system registers](rmm-A10.2.md#a1026-pn-system-registers)
 
 ## B5.4.14.1 Interface
 

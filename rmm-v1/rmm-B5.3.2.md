@@ -4,8 +4,8 @@ Initialize the operation to retrieve an attestation token.
 
 ## See also:
 
-- A7.2 Realm attestation
-- B5.3.1 RSI\_ATTESTATION\_TOKEN\_CONTINUE command
+- [A7.2 Realm attestation](rmm-A7.2.md)
+- [B5.3.1 RSI\_ATTESTATION\_TOKEN\_CONTINUE command](rmm-B5.3.1.md)
 
 ## B5.3.2.1 Interface
 

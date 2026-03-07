@@ -4,8 +4,8 @@ Activates a Realm.
 
 ## See also:
 
-- A2.2 Realm
-- B4.5.48 RMI\_REALM\_TERMINATE command
+- [A2.2 Realm](rmm-A2.2.md)
+- [B4.5.48 RMI\_REALM\_TERMINATE command](rmm-B4.5.48.md)
 
 ## B4.5.45.1 Interface
 

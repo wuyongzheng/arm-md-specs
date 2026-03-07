@@ -8,5 +8,5 @@ The following diagram shows how one Realm VPE can set the 'runnable' flag in ano
 
 See also:
 
-- B4.3.7 RMI\_PSCI\_COMPLETE command
-- B6.3.3 PSCI\_CPU\_ON command
+- [B4.3.7 RMI\_PSCI\_COMPLETE command](rmm-B4.3.7.md)
+- [B6.3.3 PSCI\_CPU\_ON command](rmm-B6.3.3.md)

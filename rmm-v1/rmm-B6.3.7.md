@@ -6,9 +6,9 @@ This command causes a REC exit due to PSCI.
 
 See also:
 
-- A2.3.2 REC attributes
-- A4.3.7 REC exit due to PSCI
-- B6.3.6 PSCI\_SYSTEM\_OFF command
+- [A2.3.2 REC attributes](rmm-A2.3.md#a232-rec-attributes)
+- [A4.3.7 REC exit due to PSCI](rmm-A4.3.md#a437-rec-exit-due-to-psci)
+- [B6.3.6 PSCI\_SYSTEM\_OFF command](rmm-B6.3.6.md)
 
 ## B6.3.7.1 Interface
 

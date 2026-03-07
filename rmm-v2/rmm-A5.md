@@ -8,7 +8,7 @@ This section describes how Realm memory is managed. This includes:
 
 See also:
 
-- A2.2.2 Realm execution environment
-- D1.5 Realm memory management flows
-- Chapter D2 Realm shared memory protocol
+- [A2.2.2 Realm execution environment](rmm-A2.2.md#a222-realm-execution-environment)
+- [D1.5 Realm memory management flows](rmm-D1.5.md)
+- [Chapter D2 Realm shared memory protocol](rmm-D2.md)
 

@@ -14,7 +14,7 @@
 ## See also:
 
 - Compute eXpress Link specification [18]
-- A9.2 Physical device object
+- [A9.2 Physical device object](rmm-A9.2.md)
 
 ## A9.11.2 Coherent memory device attributes
 
@@ -55,9 +55,9 @@ If the platform requires Target-Side Encryption in coherent memory devices then 
 
 ## See also:
 
-- A2.3.2 Views of physical memory
-- A3.11 Support for coherent memory devices
-- A9.2 Physical device object
+- [A2.3.2 Views of physical memory](rmm-A2.3.md#a232-views-of-physical-memory)
+- [A3.11 Support for coherent memory devices](rmm-A3.md#a311-support-for-coherent-memory-devices)
+- [A9.2 Physical device object](rmm-A9.2.md)
 
 ## A9.11.4 Coherent memory device lifecycle
 
@@ -89,10 +89,10 @@ A transition from the pseudo-state NULL represents creation of a CMEM object. A 
 
 ## See also:
 
-- B4.5.3 RMI\_CMEM\_CREATE command
-- B4.5.4 RMI\_CMEM\_DESTROY command
-- B4.5.7 RMI\_CMEM\_START command
-- B4.5.8 RMI\_CMEM\_STOP command
+- [B4.5.3 RMI\_CMEM\_CREATE command](rmm-B4.5.3.md)
+- [B4.5.4 RMI\_CMEM\_DESTROY command](rmm-B4.5.4.md)
+- [B4.5.7 RMI\_CMEM\_START command](rmm-B4.5.7.md)
+- [B4.5.8 RMI\_CMEM\_STOP command](rmm-B4.5.8.md)
 
 ## A9.11.5 Coherent memory device flows
 
@@ -138,18 +138,18 @@ To mark a PA range within the address range of a CMEM as populated, the Host exe
 
 ## See also:
 
-- A2.3.3 Populated physical memory
-- A2.3.4 Granule tracking region
-- A2.3.5 Delegable physical memory
-- A9.5 Communication between RMM and a device
-- Chapter A11 Realm memory encryption
-- B4.5.2 RMI\_CMEM\_ADD\_PDEV command
-- B4.5.3 RMI\_CMEM\_CREATE command
-- B4.5.5 RMI\_CMEM\_POPULATE command
+- [A2.3.3 Populated physical memory](rmm-A2.3.md#a233-populated-physical-memory)
+- [A2.3.4 Granule tracking region](rmm-A2.3.md#a234-granule-tracking-region)
+- [A2.3.5 Delegable physical memory](rmm-A2.3.md#a235-delegable-physical-memory)
+- [A9.5 Communication between RMM and a device](rmm-A9.5.md)
+- [Chapter A11 Realm memory encryption](rmm-A11.md)
+- [B4.5.2 RMI\_CMEM\_ADD\_PDEV command](rmm-B4.5.2.md)
+- [B4.5.3 RMI\_CMEM\_CREATE command](rmm-B4.5.3.md)
+- [B4.5.5 RMI\_CMEM\_POPULATE command](rmm-B4.5.5.md)
 
 
-- B4.5.26 RMI\_PDEV\_COMMUNICATE command
-- B4.5.27 RMI\_PDEV\_CREATE command
+- [B4.5.26 RMI\_PDEV\_COMMUNICATE command](rmm-B4.5.26.md)
+- [B4.5.27 RMI\_PDEV\_CREATE command](rmm-B4.5.27.md)
 
 ## A9.11.6 Coherent memory device encryption
 
@@ -179,12 +179,12 @@ For details of extending PAT with CMEM devices, refer to Firmware Interfaces for
 
 ## See also:
 
-- A2.1.2 RMMlifecycle
-- A7.2.3.3.12 CCA platform extension
-- B4.5.1 RMI\_ATTEST\_PLAT\_TOKEN\_REFRESH command
-- B4.5.7 RMI\_CMEM\_START command
-- B4.5.8 RMI\_CMEM\_STOP command
-- B4.5.46 RMI\_REALM\_CREATE command
+- [A2.1.2 RMMlifecycle](rmm-A2.1.md#a212-rmm-lifecycle)
+- [A7.2.3.3.12 CCA platform extension](rmm-A7.2.3.3.md#a723312-cca-platform-extension)
+- [B4.5.1 RMI\_ATTEST\_PLAT\_TOKEN\_REFRESH command](rmm-B4.5.1.md)
+- [B4.5.7 RMI\_CMEM\_START command](rmm-B4.5.7.md)
+- [B4.5.8 RMI\_CMEM\_STOP command](rmm-B4.5.8.md)
+- [B4.5.46 RMI\_REALM\_CREATE command](rmm-B4.5.46.md)
 
 I0068
 

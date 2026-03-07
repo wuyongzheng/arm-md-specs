@@ -4,9 +4,9 @@ Creates a Data Granule, copying contents from a Non-secure Granule provided by t
 
 See also:
 
-- Chapter A5 Realm memory management
-- B4.3.3 RMI\_DATA\_DESTROY command
-- D1.2.3 Initialize memory of New Realm flow
+- [Chapter A5 Realm memory management](rmm-A5.md)
+- [B4.3.3 RMI\_DATA\_DESTROY command](rmm-B4.3.3.md)
+- [D1.2.3 Initialize memory of New Realm flow](rmm-D1.2.md#d123-initialize-memory-of-new-realm-flow)
 
 ## B4.3.1.1 Interface
 
@@ -127,9 +127,9 @@ On successful execution of RMI\_DATA\_CREATE, the new RIM value of the target Re
 
 ## See also:
 
-- A7.1.1 Realm Initial Measurement
-- B3.44 RimExtendData function
-- C1.11 RmmMeasurementDescriptorData type
+- [A7.1.1 Realm Initial Measurement](rmm-A7.1.md#a711-realm-initial-measurement)
+- [B3.44 RimExtendData function](rmm-B3.md#b344-rimextenddata-function)
+- [C1.11 RmmMeasurementDescriptorData type](rmm-C1.md#c111-rmmmeasurementdescriptordata-type)
 
 ## B4.3.1.5 Footprint
 

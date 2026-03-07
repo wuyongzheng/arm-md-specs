@@ -26,12 +26,12 @@ Creation of a VDEV is conditional on a sufficient set of PDEV streams having fir
 
 ## See also:
 
-- A9.2 Physical device object
-- A9.4 Virtual device object
-- A9.10 Peer-to-peer device communication
-- B3.81 PdevStreamsForVdev function
-- B4.5.34 RMI\_PDEV\_STREAM\_CONNECT command
-- B4.5.82 RMI\_VDEV\_CREATE command
+- [A9.2 Physical device object](rmm-A9.2.md)
+- [A9.4 Virtual device object](rmm-A9.4.md)
+- [A9.10 Peer-to-peer device communication](rmm-A9.10.md)
+- [B3.81 PdevStreamsForVdev function](rmm-B3.md#b381-pdevstreamsforvdev-function)
+- [B4.5.34 RMI\_PDEV\_STREAM\_CONNECT command](rmm-B4.5.34.md)
+- [B4.5.82 RMI\_VDEV\_CREATE command](rmm-B4.5.82.md)
 
 ## A9.3.1 Physical device stream attributes
 
@@ -98,9 +98,9 @@ For a stream whose type is NCOH or NCOH\_P2P the ide\_sid does not match any exi
 
 ## See also:
 
-- A2.3.2 Views of physical memory
-- A2.3.4 Granule tracking region
-- B4.5.34 RMI\_PDEV\_STREAM\_CONNECT command
+- [A2.3.2 Views of physical memory](rmm-A2.3.md#a232-views-of-physical-memory)
+- [A2.3.4 Granule tracking region](rmm-A2.3.md#a234-granule-tracking-region)
+- [B4.5.34 RMI\_PDEV\_STREAM\_CONNECT command](rmm-B4.5.34.md)
 
 ## A9.3.3 Physical device stream lifecycle
 
@@ -166,9 +166,9 @@ On successful execution of RMI\_PDEV\_STREAM\_CONNECT, all of the following are 
 See also:
 
 - Firmware Interfaces for RME (FIRME) specification [19]
-- A9.5 Communication between RMM and a device
-- B4.5.33 RMI\_PDEV\_STREAM\_COMPLETE command
-- B4.5.34 RMI\_PDEV\_STREAM\_CONNECT command
+- [A9.5 Communication between RMM and a device](rmm-A9.5.md)
+- [B4.5.33 RMI\_PDEV\_STREAM\_COMPLETE command](rmm-B4.5.33.md)
+- [B4.5.34 RMI\_PDEV\_STREAM\_CONNECT command](rmm-B4.5.34.md)
 
 ## A9.3.3.2.2 Stream disconnection
 
@@ -185,8 +185,8 @@ See also:
 
 See also:
 
-- B4.5.33 RMI\_PDEV\_STREAM\_COMPLETE command
-- B4.5.35 RMI\_PDEV\_STREAM\_DISCONNECT command
+- [B4.5.33 RMI\_PDEV\_STREAM\_COMPLETE command](rmm-B4.5.33.md)
+- [B4.5.35 RMI\_PDEV\_STREAM\_DISCONNECT command](rmm-B4.5.35.md)
 
 ## A9.3.3.2.3 Stream key refresh
 
@@ -203,10 +203,10 @@ On successful execution of RMI\_PDEV\_STREAM\_KEY\_REFRESH, all of the following
 
 See also:
 
-- A9.4.3 Virtual device lifecycle
-- B4.5.14 RMI\_FEATURES command
-- B4.5.33 RMI\_PDEV\_STREAM\_COMPLETE command
-- B4.5.37 RMI\_PDEV\_STREAM\_KEY\_REFRESH command
+- [A9.4.3 Virtual device lifecycle](rmm-A9.4.md#a943-virtual-device-lifecycle)
+- [B4.5.14 RMI\_FEATURES command](rmm-B4.5.14.md)
+- [B4.5.33 RMI\_PDEV\_STREAM\_COMPLETE command](rmm-B4.5.33.md)
+- [B4.5.37 RMI\_PDEV\_STREAM\_KEY\_REFRESH command](rmm-B4.5.37.md)
 
 ## A9.3.3.2.4 Stream key purge
 
@@ -223,10 +223,10 @@ See also:
 
 See also:
 
-- A9.4.3 Virtual device lifecycle
-- B4.5.14 RMI\_FEATURES command
-- B4.5.33 RMI\_PDEV\_STREAM\_COMPLETE command
-- B4.5.36 RMI\_PDEV\_STREAM\_KEY\_PURGE command
+- [A9.4.3 Virtual device lifecycle](rmm-A9.4.md#a943-virtual-device-lifecycle)
+- [B4.5.14 RMI\_FEATURES command](rmm-B4.5.14.md)
+- [B4.5.33 RMI\_PDEV\_STREAM\_COMPLETE command](rmm-B4.5.33.md)
+- [B4.5.36 RMI\_PDEV\_STREAM\_KEY\_PURGE command](rmm-B4.5.36.md)
 
 ## A9.3.3.3 Physical device stream setup flow
 

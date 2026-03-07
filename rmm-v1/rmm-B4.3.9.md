@@ -4,10 +4,10 @@ Creates a Realm.
 
 See also:
 
-- A2.1 Realm
-- A2.1.6 Realm parameters
-- B4.3.10 RMI\_REALM\_DESTROY command
-- D1.2.1 Realm creation flow
+- [A2.1 Realm](rmm-A2.1.md)
+- [A2.1.6 Realm parameters](rmm-A2.1.md#a216-realm-parameters)
+- [B4.3.10 RMI\_REALM\_DESTROY command](rmm-B4.3.10.md)
+- [D1.2.1 Realm creation flow](rmm-D1.2.md#d121-realm-creation-flow)
 
 ## B4.3.9.1 Interface
 
@@ -136,9 +136,9 @@ On successful execution of RMI\_REALM\_CREATE, the initial RIM value of the targ
 
 ## See also:
 
-- A7.1.1 Realm Initial Measurement
-- B3.48 RimInit function
-- B4.4.12 RmiRealmParams type
+- [A7.1.1 Realm Initial Measurement](rmm-A7.1.md#a711-realm-initial-measurement)
+- [B3.48 RimInit function](rmm-B3.md#b348-riminit-function)
+- [B4.4.12 RmiRealmParams type](rmm-B4.4.md#b4412-rmirealmparams-type)
 
 ## B4.3.9.5 Footprint
 

@@ -47,16 +47,16 @@ This invariant is preserved by blocking any actions which would make the primary
 
 See also:
 
-- A5.6.8 RTTE liveness and RTT liveness
-- B4.5.57 RMI\_RTT\_AUX\_CREATE command
-- B4.5.58 RMI\_RTT\_AUX\_DESTROY command
-- B4.5.59 RMI\_RTT\_AUX\_FOLD command
-- B4.5.60 RMI\_RTT\_AUX\_PROT\_MAP command
-- B4.5.61 RMI\_RTT\_AUX\_PROT\_UNMAP command
-- B4.5.62 RMI\_RTT\_AUX\_UNPROT\_MAP command
-- B4.5.63 RMI\_RTT\_AUX\_UNPROT\_UNMAP command
-- B4.5.67 RMI\_RTT\_DATA\_UNMAP command
-- B4.5.75 RMI\_RTT\_SET\_RIPAS command
+- [A5.6.8 RTTE liveness and RTT liveness](rmm-A5.6.md#a568-rtte-liveness-and-rtt-liveness)
+- [B4.5.57 RMI\_RTT\_AUX\_CREATE command](rmm-B4.5.57.md)
+- [B4.5.58 RMI\_RTT\_AUX\_DESTROY command](rmm-B4.5.58.md)
+- [B4.5.59 RMI\_RTT\_AUX\_FOLD command](rmm-B4.5.59.md)
+- [B4.5.60 RMI\_RTT\_AUX\_PROT\_MAP command](rmm-B4.5.60.md)
+- [B4.5.61 RMI\_RTT\_AUX\_PROT\_UNMAP command](rmm-B4.5.61.md)
+- [B4.5.62 RMI\_RTT\_AUX\_UNPROT\_MAP command](rmm-B4.5.62.md)
+- [B4.5.63 RMI\_RTT\_AUX\_UNPROT\_UNMAP command](rmm-B4.5.63.md)
+- [B4.5.67 RMI\_RTT\_DATA\_UNMAP command](rmm-B4.5.67.md)
+- [B4.5.75 RMI\_RTT\_SET\_RIPAS command](rmm-B4.5.75.md)
 
 ## A10.3.2 Stage 2 Access Permissions within a multi-Plane Realm
 
@@ -78,7 +78,7 @@ On a platform which does not implement these architecture features, a separate R
 
 See also:
 
-- A5.6.11 Stage 2 Access Permissions
+- [A5.6.11 Stage 2 Access Permissions](rmm-A5.6.md#a5611-stage-2-access-permissions)
 
 ## A10.3.2.2 Stage 2 Access Permissions for a Protected IPA within a multi-Plane Realm
 
@@ -116,12 +116,12 @@ The RSI\_MEM\_SET\_PERM\_VALUE command can be used by P0 to change the mapping f
 
 ## See also:
 
-- Chapter A5 Realm memory management
-- A10.3.1 Auxiliary RTT
+- [Chapter A5 Realm memory management](rmm-A5.md)
+- [A10.3.1 Auxiliary RTT](rmm-A10.3.md#a1031-auxiliary-rtt)
 
 
-- B5.4.11 RSI\_MEM\_SET\_PERM\_INDEX command
-- B5.4.12 RSI\_MEM\_SET\_PERM\_VALUE command
+- [B5.4.11 RSI\_MEM\_SET\_PERM\_INDEX command](rmm-B5.4.11.md)
+- [B5.4.12 RSI\_MEM\_SET\_PERM\_VALUE command](rmm-B5.4.12.md)
 
 ## A10.3.2.3 Stage 2 Access Permissions change within a multi-Plane Realm
 
@@ -196,7 +196,7 @@ See also:
 
 See also:
 
-- A5.4 RIPAS change
+- [A5.4 RIPAS change](rmm-A5.4.md)
 
 ## A10.3.2.5 Stage 2 Access Permissions reset due to Realm action
 
@@ -206,4 +206,4 @@ Following a transition from RIPAS\_DEV to RIPAS\_EMPTY, in order to ensure that 
 
 See also:
 
-- B5.4.11 RSI\_MEM\_SET\_PERM\_INDEX command
+- [B5.4.11 RSI\_MEM\_SET\_PERM\_INDEX command](rmm-B5.4.11.md)

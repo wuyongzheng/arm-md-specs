@@ -29,10 +29,10 @@ See also:
 
 - PCI Express 6.0 specification [16]
 - Arm System Memory Management Unit Architecture Specification [22]
-- A2.2.3 Realm attributes
-- A5.2.3 Realm access to a Protected IPA
-- A9.4 Virtual device object
-- A9.7 Physical SMMU
-- Chapter A10 Planes
-- B5.4.16 RSI\_REALM\_CONFIG command
-- B5.4.18 RSI\_VDEV\_DMA\_ENABLE command
+- [A2.2.3 Realm attributes](rmm-A2.2.md#a223-realm-attributes)
+- [A5.2.3 Realm access to a Protected IPA](rmm-A5.1.md#a523-realm-access-to-a-protected-ipa)
+- [A9.4 Virtual device object](rmm-A9.4.md)
+- [A9.7 Physical SMMU](rmm-A9.7.md)
+- [Chapter A10 Planes](rmm-A9.11.md#chapter-a10-planes)
+- [B5.4.16 RSI\_REALM\_CONFIG command](rmm-B5.4.16.md)
+- [B5.4.18 RSI\_VDEV\_DMA\_ENABLE command](rmm-B5.4.18.md)

@@ -48,9 +48,9 @@ The states of a PSMMU are listed below.
 
 See also:
 
-- A9.7.5 Device Permission Table
-- B4.3.2.2 Donating memory to an SRO
-- B4.5.39 RMI\_PSMMU\_ACTIVATE command
+- [A9.7.5 Device Permission Table](rmm-A9.7.md#a975-device-permission-table)
+- [B4.3.2.2 Donating memory to an SRO](rmm-B4.3.md#b4322-donating-memory-to-an-sro)
+- [B4.5.39 RMI\_PSMMU\_ACTIVATE command](rmm-B4.5.39.md)
 
 ## A9.7.3 PSMMU deactivation
 
@@ -58,9 +58,9 @@ See also:
 
 See also:
 
-- A9.7.5 Device Permission Table
-- B4.3.2.3 Reclaiming memory from an SRO
-- B4.5.40 RMI\_PSMMU\_DEACTIVATE command
+- [A9.7.5 Device Permission Table](rmm-A9.7.md#a975-device-permission-table)
+- [B4.3.2.3 Reclaiming memory from an SRO](rmm-B4.3.md#b4323-reclaiming-memory-from-an-sro)
+- [B4.5.40 RMI\_PSMMU\_DEACTIVATE command](rmm-B4.5.40.md)
 
 ## A9.7.4 PSMMU Stream Tables
 
@@ -85,15 +85,15 @@ See also:
 
 See also:
 
-- A9.7.2 PSMMU activation
-- A9.7.3 PSMMU deactivation
-- B3.93 PsmmuL1StIsLive function
-- B3.94 PsmmuL2StIsLive function
-- B4.3.2.2 Donating memory to an SRO
-- B4.3.2.3 Reclaiming memory from an SRO
-- B4.5.43 RMI\_PSMMU\_ST\_L2\_CREATE command
-- B4.5.44 RMI\_PSMMU\_ST\_L2\_DESTROY command
-- B4.5.82 RMI\_VDEV\_CREATE command
+- [A9.7.2 PSMMU activation](rmm-A9.7.md#a972-psmmu-activation)
+- [A9.7.3 PSMMU deactivation](rmm-A9.7.md#a973-psmmu-deactivation)
+- [B3.93 PsmmuL1StIsLive function](rmm-B3.md#b393-psmmul1stislive-function)
+- [B3.94 PsmmuL2StIsLive function](rmm-B3.md#b394-psmmul2stislive-function)
+- [B4.3.2.2 Donating memory to an SRO](rmm-B4.3.md#b4322-donating-memory-to-an-sro)
+- [B4.3.2.3 Reclaiming memory from an SRO](rmm-B4.3.md#b4323-reclaiming-memory-from-an-sro)
+- [B4.5.43 RMI\_PSMMU\_ST\_L2\_CREATE command](rmm-B4.5.43.md)
+- [B4.5.44 RMI\_PSMMU\_ST\_L2\_DESTROY command](rmm-B4.5.44.md)
+- [B4.5.82 RMI\_VDEV\_CREATE command](rmm-B4.5.82.md)
 
 ## A9.7.5 Device Permission Table
 
@@ -119,15 +119,15 @@ See also:
 See also:
 
 - Arm System Memory Management Unit Architecture Specification [22]
-- B4.3.2.2 Donating memory to an SRO
-- B4.3.2.3 Reclaiming memory from an SRO
-- B4.5.10 RMI\_DPT\_L0\_CREATE command
-- B4.5.11 RMI\_DPT\_L0\_DESTROY command
+- [B4.3.2.2 Donating memory to an SRO](rmm-B4.3.md#b4322-donating-memory-to-an-sro)
+- [B4.3.2.3 Reclaiming memory from an SRO](rmm-B4.3.md#b4323-reclaiming-memory-from-an-sro)
+- [B4.5.10 RMI\_DPT\_L0\_CREATE command](rmm-B4.5.10.md)
+- [B4.5.11 RMI\_DPT\_L0\_DESTROY command](rmm-B4.5.11.md)
 
-- B4.5.12 RMI\_DPT\_L1\_CREATE command
-- B4.5.13 RMI\_DPT\_L1\_DESTROY command
-- B4.5.65 RMI\_RTT\_DATA\_MAP command
-- B4.5.66 RMI\_RTT\_DATA\_MAP\_INIT command
+- [B4.5.12 RMI\_DPT\_L1\_CREATE command](rmm-B4.5.12.md)
+- [B4.5.13 RMI\_DPT\_L1\_DESTROY command](rmm-B4.5.13.md)
+- [B4.5.65 RMI\_RTT\_DATA\_MAP command](rmm-B4.5.65.md)
+- [B4.5.66 RMI\_RTT\_DATA\_MAP\_INIT command](rmm-B4.5.66.md)
 
 ## A9.7.6 PSMMU interrupts
 
@@ -138,7 +138,7 @@ See also:
 
 See also:
 
-- A9.8.2 VSMMU lifecycle
-- B4.5.39 RMI\_PSMMU\_ACTIVATE command
-- B4.5.42 RMI\_PSMMU\_IRQ\_NOTIFY command
+- [A9.8.2 VSMMU lifecycle](rmm-A9.8.md#a982-vsmmu-lifecycle)
+- [B4.5.39 RMI\_PSMMU\_ACTIVATE command](rmm-B4.5.39.md)
+- [B4.5.42 RMI\_PSMMU\_IRQ\_NOTIFY command](rmm-B4.5.42.md)
 

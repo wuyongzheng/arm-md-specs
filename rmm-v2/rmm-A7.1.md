@@ -10,10 +10,10 @@ The RHA used by a Realm is selected via the hash\_algo attribute.
 
 See also:
 
-- A2.2.3 Realm attributes
-- A3.2 Realm hash algorithm
-- A7.2.3.1.5 Realm Initial Measurement claim
-- A7.2.3.1.6 Realm Extensible Measurements claim
+- [A2.2.3 Realm attributes](rmm-A2.2.md#a223-realm-attributes)
+- [A3.2 Realm hash algorithm](rmm-A3.md#a32-realm-hash-algorithm)
+- [A7.2.3.1.5 Realm Initial Measurement claim](rmm-A7.2.3.1.md#a72315-realm-initial-measurement-claim)
+- [A7.2.3.1.6 Realm Extensible Measurements claim](rmm-A7.2.3.1.md#a72316-realm-extensible-measurements-claim)
 
 ## A7.1.1 Realm Initial Measurement
 
@@ -41,10 +41,10 @@ The value of a RIM can be read using the RSI\_MEASUREMENT\_READ command.
 
 See also:
 
-- B4.5.46.4 RMI\_REALM\_CREATE initialization of RIM
-- B4.5.49.4 RMI\_REC\_CREATE extension of RIM
+- [B4.5.46.4 RMI\_REALM\_CREATE initialization of RIM](rmm-B4.5.46.md#b45464-rmi_realm_create-initialization-of-rim)
+- [B4.5.49.4 RMI\_REC\_CREATE extension of RIM](rmm-B4.5.49.md#b45494-rmi_rec_create-extension-of-rim)
 - B4.5.66.4 RMI\_RTT\_DATA\_MAP\_INIT extension of RIM
-- B5.4.9 RSI\_MEASUREMENT\_READ command
+- [B5.4.9 RSI\_MEASUREMENT\_READ command](rmm-B5.4.9.md)
 
 ## A7.1.2 Realm Extensible Measurement
 
@@ -62,7 +62,7 @@ The initial value of a REM is zero.
 
 See also:
 
-- B5.4.8 RSI\_MEASUREMENT\_EXTEND command
-- B5.4.9 RSI\_MEASUREMENT\_READ command
+- [B5.4.8 RSI\_MEASUREMENT\_EXTEND command](rmm-B5.4.8.md)
+- [B5.4.9 RSI\_MEASUREMENT\_READ command](rmm-B5.4.9.md)
 
 <!-- image -->

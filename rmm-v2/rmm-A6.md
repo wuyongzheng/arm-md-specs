@@ -22,7 +22,7 @@ On every REC exit, the EL1 timer state is exposed to the Host. The RMM guarantee
 See also:
 
 - Arm Generic Interrupt Controller (GIC) Architecture Specification version 3 and version 4 [6]
-- A5.2.1 Realm IPA space
-- D1.6 Realm interrupts and timers flows
+- [A5.2.1 Realm IPA space](rmm-A5.1.md#a521-realm-ipa-space)
+- [D1.6 Realm interrupts and timers flows](rmm-D1.6.md)
 
 <!-- image -->

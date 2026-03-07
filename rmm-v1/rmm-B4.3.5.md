@@ -4,9 +4,9 @@ Delegates a Granule.
 
 See also:
 
-- A2.2 Granule
-- B4.3.6 RMI\_GRANULE\_UNDELEGATE command
-- D1.2.1 Realm creation flow
+- [A2.2 Granule](rmm-A2.2.md)
+- [B4.3.6 RMI\_GRANULE\_UNDELEGATE command](rmm-B4.3.6.md)
+- [D1.2.1 Realm creation flow](rmm-D1.2.md#d121-realm-creation-flow)
 
 ## B4.3.5.1 Interface
 

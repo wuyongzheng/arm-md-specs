@@ -4,10 +4,10 @@ Creates a Data Granule with unknown contents.
 
 See also:
 
-- A2.2.4 Granule wiping
-- Chapter A5 Realm memory management
-- B4.3.3 RMI\_DATA\_DESTROY command
-- D1.5.1 Add memory to Active Realm flow
+- [A2.2.4 Granule wiping](rmm-A2.2.md#a224-granule-wiping)
+- [Chapter A5 Realm memory management](rmm-A5.md)
+- [B4.3.3 RMI\_DATA\_DESTROY command](rmm-B4.3.3.md)
+- [D1.5.1 Add memory to Active Realm flow](rmm-D1.5.md#d151-add-memory-to-active-realm-flow)
 
 ## B4.3.2.1 Interface
 

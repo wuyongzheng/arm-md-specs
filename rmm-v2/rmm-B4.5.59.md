@@ -6,10 +6,10 @@ The RMI\_RTT\_AUX\_FOLD command may initiate a Stateful RMI Operation.
 
 See also:
 
-- A5.6.6 RTT folding
-- A10.3.1 Auxiliary RTT
-- B4.5.57 RMI\_RTT\_AUX\_CREATE command
-- B4.5.58 RMI\_RTT\_AUX\_DESTROY command
+- [A5.6.6 RTT folding](rmm-A5.6.md#a566-rtt-folding)
+- [A10.3.1 Auxiliary RTT](rmm-A10.3.md#a1031-auxiliary-rtt)
+- [B4.5.57 RMI\_RTT\_AUX\_CREATE command](rmm-B4.5.57.md)
+- [B4.5.58 RMI\_RTT\_AUX\_DESTROY command](rmm-B4.5.58.md)
 
 ## B4.5.59.1 Interface
 

@@ -11,10 +11,10 @@ This section defines the format of the CCA device token claim map. The format is
 ## See also:
 
 - Concise Data Definition Language (CDDL) [12]
-- A7.2.3.2.1 CCA device profile claim
-- A7.2.3.2.2 CCA devices claim
-- A7.2.3.2.3 Collated CDDL for CCA device claims
-- A7.2.3.2.4 Example Device claims
+- [A7.2.3.2.1 CCA device profile claim](rmm-A7.2.3.2.md#a72321-cca-device-profile-claim)
+- [A7.2.3.2.2 CCA devices claim](rmm-A7.2.3.2.md#a72322-cca-devices-claim)
+- [A7.2.3.2.3 Collated CDDL for CCA device claims](rmm-A7.2.3.2.md#a72323-collated-cddl-for-cca-device-claims)
+- [A7.2.3.2.4 Example Device claims](rmm-A7.2.3.2.md#a72324-example-device-claims)
 
 ## A7.2.3.2.1 CCA device profile claim
 

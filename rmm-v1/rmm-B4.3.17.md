@@ -4,10 +4,10 @@ Destroys a homogeneous RTT.
 
 See also:
 
-- A5.5 Realm Translation Table
-- A5.5.6 RTT folding
-- B4.3.15 RMI\_RTT\_CREATE command
-- B4.3.16 RMI\_RTT\_DESTROY command
+- [A5.5 Realm Translation Table](rmm-A5.5.md)
+- [A5.5.6 RTT folding](rmm-A5.5.md#a556-rtt-folding)
+- [B4.3.15 RMI\_RTT\_CREATE command](rmm-B4.3.15.md)
+- [B4.3.16 RMI\_RTT\_DESTROY command](rmm-B4.3.16.md)
 
 ## B4.3.17.1 Interface
 

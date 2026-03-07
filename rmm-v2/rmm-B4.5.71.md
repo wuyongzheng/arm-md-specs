@@ -6,9 +6,9 @@ The RMI\_RTT\_DEV\_VALIDATE command may initiate a Stateful RMI Operation.
 
 ## See also:
 
-- A5.5 VDEV mapping validation
-- A9.6.2 Realm validation of device memory mappings
-- B4.3.5 Range RMI operations
+- [A5.5 VDEV mapping validation](rmm-A5.5.md)
+- [A9.6.2 Realm validation of device memory mappings](rmm-A9.6.md#a962-realm-validation-of-device-memory-mappings)
+- [B4.3.5 Range RMI operations](rmm-B4.3.md#b435-range-rmi-operations)
 
 ## B4.5.71.1 Interface
 

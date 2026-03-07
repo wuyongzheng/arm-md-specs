@@ -7,9 +7,9 @@ The RMI\_RTT\_DATA\_MAP command may initiate a Stateful RMI Operation.
 ## See also:
 
 - A2.3.8 Granule wiping
-- A5.3.5 Create mappings from Protected IPA space to wiped conventional memory
-- B4.5.67 RMI\_RTT\_DATA\_UNMAP command
-- D1.5.1 Add memory to Active Realm flow
+- [A5.3.5 Create mappings from Protected IPA space to wiped conventional memory](rmm-A5.3.md#a535-create-mappings-from-protected-ipa-space-to-wiped-conventional-memory)
+- [B4.5.67 RMI\_RTT\_DATA\_UNMAP command](rmm-B4.5.67.md)
+- [D1.5.1 Add memory to Active Realm flow](rmm-D1.5.md#d151-add-memory-to-active-realm-flow)
 
 ## B4.5.65.1 Interface
 

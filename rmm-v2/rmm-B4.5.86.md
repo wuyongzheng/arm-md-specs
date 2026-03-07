@@ -4,7 +4,7 @@ Get state of a VDEV.
 
 See also:
 
-- Chapter A9 Realm device assignment
+- [Chapter A9 Realm device assignment](rmm-A8.md#chapter-a9-realm-device-assignment)
 
 ## B4.5.86.1 Interface
 

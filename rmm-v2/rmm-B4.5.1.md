@@ -4,7 +4,7 @@ Refresh platform attestation token.
 
 See also:
 
-- A9.11.7 Coherent memory device attestation
+- [A9.11.7 Coherent memory device attestation](rmm-A9.11.md#a9117-coherent-memory-device-attestation)
 
 ## B4.5.1.1 Interface
 

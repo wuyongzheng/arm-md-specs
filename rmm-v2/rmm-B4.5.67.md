@@ -6,9 +6,9 @@ The RMI\_RTT\_DATA\_UNMAP command may initiate a Stateful RMI Operation.
 
 ## See also:
 
-- A5.3.6 Remove mappings from Protected IPA space to conventional memory
-- B4.5.65 RMI\_RTT\_DATA\_MAP command
-- D1.5.1 Add memory to Active Realm flow
+- [A5.3.6 Remove mappings from Protected IPA space to conventional memory](rmm-A5.3.md#a536-remove-mappings-from-protected-ipa-space-to-conventional-memory)
+- [B4.5.65 RMI\_RTT\_DATA\_MAP command](rmm-B4.5.65.md)
+- [D1.5.1 Add memory to Active Realm flow](rmm-D1.5.md#d151-add-memory-to-active-realm-flow)
 
 ## B4.5.67.1 Interface
 

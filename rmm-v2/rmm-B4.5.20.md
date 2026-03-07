@@ -8,8 +8,8 @@ The RMI\_GRANULE\_TRACKING\_SET command may initiate a memory-transferring RMI O
 
 ## See also:
 
-- A2.3.4 Granule tracking region
-- B4.5.19 RMI\_GRANULE\_TRACKING\_GET command
+- [A2.3.4 Granule tracking region](rmm-A2.3.md#a234-granule-tracking-region)
+- [B4.5.19 RMI\_GRANULE\_TRACKING\_GET command](rmm-B4.5.19.md)
 
 ## B4.5.20.1 Interface
 

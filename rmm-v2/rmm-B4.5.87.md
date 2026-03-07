@@ -4,7 +4,7 @@ Lock VDEV.
 
 See also:
 
-- A9.4.3 Virtual device lifecycle
+- [A9.4.3 Virtual device lifecycle](rmm-A9.4.md#a943-virtual-device-lifecycle)
 
 ## B4.5.87.1 Interface
 

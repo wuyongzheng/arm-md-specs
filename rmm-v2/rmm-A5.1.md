@@ -8,8 +8,8 @@ From the Host's point of view, Realm memory management involves manipulating the
 
 See also:
 
-- A5.2 Realm view of memory management
-- A5.3 Host view of memory management
+- [A5.2 Realm view of memory management](rmm-A5.1.md#a52-realm-view-of-memory-management)
+- [A5.3 Host view of memory management](rmm-A5.3.md)
 
 ## A5.2 Realm view of memory management
 
@@ -24,10 +24,10 @@ This section describes memory management from the Realm's point of view.
 
 See also:
 
-- A2.2.3 Realm attributes
+- [A2.2.3 Realm attributes](rmm-A2.2.md#a223-realm-attributes)
 
 
-- A3.3 Realm LPA2 and IPA width
+- [A3.3 Realm LPA2 and IPA width](rmm-A3.md#a33-realm-lpa2-and-ipa-width)
 
 ## A5.2.2 Realm IPA state
 
@@ -48,9 +48,9 @@ The Realm can query the RIPAS of an IPA range by executing RSI\_IPA\_STATE\_GET.
 
 See also:
 
-- A5.6 Realm Translation Table
-- Chapter A9 Realm device assignment
-- B5.4.6 RSI\_IPA\_STATE\_GET command
+- [A5.6 Realm Translation Table](rmm-A5.6.md)
+- [Chapter A9 Realm device assignment](rmm-A8.md#chapter-a9-realm-device-assignment)
+- [B5.4.6 RSI\_IPA\_STATE\_GET command](rmm-B5.4.6.md)
 
 ## A5.2.3 Realm access to a Protected IPA
 
@@ -69,11 +69,11 @@ See also:
 
 See also:
 
-- A4.3.4.2 REC exit due to Instruction Abort
-- A4.3.4.3 REC exit due to Data Abort
-- A5.2.4 RSI command access to a Protected IPA
-- A5.2.8 Synchronous External Aborts
-- A9.9.1 Device access to a Protected IPA
+- [A4.3.4.2 REC exit due to Instruction Abort](rmm-A4.3.md#a4342-rec-exit-due-to-instruction-abort)
+- [A4.3.4.3 REC exit due to Data Abort](rmm-A4.3.md#a4343-rec-exit-due-to-data-abort)
+- [A5.2.4 RSI command access to a Protected IPA](rmm-A5.1.md#a524-rsi-command-access-to-a-protected-ipa)
+- [A5.2.8 Synchronous External Aborts](rmm-A5.1.md#a528-synchronous-external-aborts)
+- [A9.9.1 Device access to a Protected IPA](rmm-A9.9.md#a991-device-access-to-a-protected-ipa)
 
 ## A5.2.4 RSI command access to a Protected IPA
 
@@ -82,7 +82,7 @@ See also:
 
 See also:
 
-- A5.2.3 Realm access to a Protected IPA
+- [A5.2.3 Realm access to a Protected IPA](rmm-A5.1.md#a523-realm-access-to-a-protected-ipa)
 
 ## A5.2.5 Changes to RIPAS while Realm state is REALM\_NEW
 
@@ -95,11 +95,11 @@ This section describes how the RIPAS of a Protected IPA can change while the Rea
 
 See also:
 
-- A5.4 RIPAS change
-- A7.1.1 Realm Initial Measurement
-- B4.5.67 RMI\_RTT\_DATA\_UNMAP command
-- B4.5.68 RMI\_RTT\_DESTROY command
-- B4.5.73 RMI\_RTT\_INIT\_RIPAS command
+- [A5.4 RIPAS change](rmm-A5.4.md)
+- [A7.1.1 Realm Initial Measurement](rmm-A7.1.md#a711-realm-initial-measurement)
+- [B4.5.67 RMI\_RTT\_DATA\_UNMAP command](rmm-B4.5.67.md)
+- [B4.5.68 RMI\_RTT\_DESTROY command](rmm-B4.5.68.md)
+- [B4.5.73 RMI\_RTT\_INIT\_RIPAS command](rmm-B4.5.73.md)
 
 ## A5.2.6 Changes to RIPAS while Realm state is REALM\_ACTIVE
 
@@ -133,16 +133,16 @@ Figure A5.1: RIPAS changes which can occur when the Realm state is REALM\_ACTIVE
 
 ## See also:
 
-- A5.4 RIPAS change
-- A5.5 VDEV mapping validation
-- B4.5.65 RMI\_RTT\_DATA\_MAP command
-- B4.5.66 RMI\_RTT\_DATA\_MAP\_INIT command
-- B4.5.67 RMI\_RTT\_DATA\_UNMAP command
-- B4.5.68 RMI\_RTT\_DESTROY command
-- B4.5.71 RMI\_RTT\_DEV\_VALIDATE command
-- B4.5.73 RMI\_RTT\_INIT\_RIPAS command
-- B5.4.7 RSI\_IPA\_STATE\_SET command
-- B5.4.21 RSI\_VDEV\_VALIDATE\_MAPPING command
+- [A5.4 RIPAS change](rmm-A5.4.md)
+- [A5.5 VDEV mapping validation](rmm-A5.5.md)
+- [B4.5.65 RMI\_RTT\_DATA\_MAP command](rmm-B4.5.65.md)
+- [B4.5.66 RMI\_RTT\_DATA\_MAP\_INIT command](rmm-B4.5.66.md)
+- [B4.5.67 RMI\_RTT\_DATA\_UNMAP command](rmm-B4.5.67.md)
+- [B4.5.68 RMI\_RTT\_DESTROY command](rmm-B4.5.68.md)
+- [B4.5.71 RMI\_RTT\_DEV\_VALIDATE command](rmm-B4.5.71.md)
+- [B4.5.73 RMI\_RTT\_INIT\_RIPAS command](rmm-B4.5.73.md)
+- [B5.4.7 RSI\_IPA\_STATE\_SET command](rmm-B5.4.7.md)
+- [B5.4.21 RSI\_VDEV\_VALIDATE\_MAPPING command](rmm-B5.4.21.md)
 
 ## A5.2.7 Realm access to an Unprotected IPA
 
@@ -183,7 +183,7 @@ The following table summarizes the properties of Realm IPA space.
 
 ## See also:
 
-- A4.2.3 REC entry following REC exit due to Data Abort
+- [A4.2.3 REC entry following REC exit due to Data Abort](rmm-A4.2.md#a423-rec-entry-following-rec-exit-due-to-data-abort)
 
 ## A5.2.11 Cache maintenance operations
 

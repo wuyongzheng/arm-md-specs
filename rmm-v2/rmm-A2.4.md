@@ -11,7 +11,7 @@ A REC object is an RMM data structure which is used to store the register state 
 
 ## See also:
 
-- A2.2.2 Realm execution environment
+- [A2.2.2 Realm execution environment](rmm-A2.2.md#a222-realm-execution-environment)
 - Chapter A4 Realm exception model
 
 ## A2.4.2 REC attributes
@@ -115,9 +115,9 @@ When creating the n th REC in a Realm, the Host is required to use the MPIDR cor
 
 ## See also:
 
-- B3.107 RecIndex function
-- B4.5.49 RMI\_REC\_CREATE command
-- B4.6.68 RmiRecMpidr type
+- [B3.107 RecIndex function](rmm-B3.md#b3107-recindex-function)
+- [B4.5.49 RMI\_REC\_CREATE command](rmm-B4.5.49.md)
+- [B4.6.68 RmiRecMpidr type](rmm-B4.6.md#b4668-rmirecmpidr-type)
 
 ## A2.4.4 REC lifecycle
 
@@ -158,10 +158,10 @@ The maximum number of RECs per Realm is an IMPLEMENTATION DEFINED value which is
 
 ## See also:
 
-- B4.5.49 RMI\_REC\_CREATE command
-- B4.5.50 RMI\_REC\_DESTROY command
-- B4.5.51 RMI\_REC\_ENTER command
+- [B4.5.49 RMI\_REC\_CREATE command](rmm-B4.5.49.md)
+- [B4.5.50 RMI\_REC\_DESTROY command](rmm-B4.5.50.md)
+- [B4.5.51 RMI\_REC\_ENTER command](rmm-B4.5.51.md)
 
 ## See also:
 
-- B4.5.14 RMI\_FEATURES command
+- [B4.5.14 RMI\_FEATURES command](rmm-B4.5.14.md)

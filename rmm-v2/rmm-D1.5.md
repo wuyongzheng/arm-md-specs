@@ -4,7 +4,7 @@ This section contains flows which relate to management of Realm memory.
 
 See also:
 
-- Chapter A5 Realm memory management
+- [Chapter A5 Realm memory management](rmm-A5.md)
 
 ## D1.5.1 Add memory to Active Realm flow
 
@@ -25,10 +25,10 @@ Figure D1.15: Add memory to active Realm flow
 
 ## See also:
 
-- A2.2.5 Realm lifecycle
-- Chapter A5 Realm memory management
-- B4.5.17 RMI\_GRANULE\_RANGE\_DELEGATE command
-- B4.5.65 RMI\_RTT\_DATA\_MAP command
+- [A2.2.5 Realm lifecycle](rmm-A2.2.md#a225-realm-lifecycle)
+- [Chapter A5 Realm memory management](rmm-A5.md)
+- [B4.5.17 RMI\_GRANULE\_RANGE\_DELEGATE command](rmm-B4.5.17.md)
+- [B4.5.65 RMI\_RTT\_DATA\_MAP command](rmm-B4.5.65.md)
 
 ## D1.5.2 NS memory flow
 
@@ -40,10 +40,10 @@ Figure D1.16: NS memory mapping flow
 
 ## See also:
 
-- Chapter A5 Realm memory management
+- [Chapter A5 Realm memory management](rmm-A5.md)
 
-- B4.5.77 RMI\_RTT\_UNPROT\_MAP command
-- B4.5.78 RMI\_RTT\_UNPROT\_UNMAP command
+- [B4.5.77 RMI\_RTT\_UNPROT\_MAP command](rmm-B4.5.77.md)
+- [B4.5.78 RMI\_RTT\_UNPROT\_UNMAP command](rmm-B4.5.78.md)
 
 ## D1.5.3 RIPAS change flow
 
@@ -66,11 +66,11 @@ Figure D1.17: RIPAS change flow
 
 ## See also:
 
-- A5.4 RIPAS change
-- B4.5.51 RMI\_REC\_ENTER command
-- B4.5.75 RMI\_RTT\_SET\_RIPAS command
-- B5.4.7 RSI\_IPA\_STATE\_SET command
-- D2.2 Realm shared memory protocol flow
+- [A5.4 RIPAS change](rmm-A5.4.md)
+- [B4.5.51 RMI\_REC\_ENTER command](rmm-B4.5.51.md)
+- [B4.5.75 RMI\_RTT\_SET\_RIPAS command](rmm-B4.5.75.md)
+- [B5.4.7 RSI\_IPA\_STATE\_SET command](rmm-B5.4.7.md)
+- [D2.2 Realm shared memory protocol flow](rmm-D2.md#d22-realm-shared-memory-protocol-flow)
 
 ## D1.5.4 S2AP change flow
 
@@ -93,7 +93,7 @@ Figure D1.18: S2AP change flow
 
 ## See also:
 
-- A10.3.2.3 Stage 2 Access Permissions change within a multi-Plane Realm
-- B4.5.51 RMI\_REC\_ENTER command
-- B4.5.76 RMI\_RTT\_SET\_S2AP command
-- B5.4.11 RSI\_MEM\_SET\_PERM\_INDEX command
+- [A10.3.2.3 Stage 2 Access Permissions change within a multi-Plane Realm](rmm-A10.3.md#a10323-stage-2-access-permissions-change-within-a-multi-plane-realm)
+- [B4.5.51 RMI\_REC\_ENTER command](rmm-B4.5.51.md)
+- [B4.5.76 RMI\_RTT\_SET\_S2AP command](rmm-B4.5.76.md)
+- [B5.4.11 RSI\_MEM\_SET\_PERM\_INDEX command](rmm-B5.4.11.md)

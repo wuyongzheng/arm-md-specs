@@ -11,22 +11,22 @@ cca-platform-claims = (cca-platform-claim-map) cca-platform-claim-map = { cca-pl
 ## See also:
 
 - Concise Data Definition Language (CDDL) [12]
-- A7.2.3.3.1 CCA platform profile claim
-- A7.2.3.3.2 CCA platform challenge claim
-- A7.2.3.3.3 CCA platform Implementation ID claim
-- A7.2.3.3.4 CCA platform Instance ID claim
-- A7.2.3.3.5 CCA platform config claim
-- A7.2.3.3.6 CCA platform manufacturing config claim
-- A7.2.3.3.7 CCA platform lifecycle claim
-- A7.2.3.3.8 CCA platform software components claim
-- A7.2.3.3.9 CCA platform verification service claim
-- A7.2.3.3.10 CCA platform hash algorithm ID claim
-- A7.2.3.3.11 CCA platform client ID claim
+- [A7.2.3.3.1 CCA platform profile claim](rmm-A7.2.3.3.md#a72331-cca-platform-profile-claim)
+- [A7.2.3.3.2 CCA platform challenge claim](rmm-A7.2.3.3.md#a72332-cca-platform-challenge-claim)
+- [A7.2.3.3.3 CCA platform Implementation ID claim](rmm-A7.2.3.3.md#a72333-cca-platform-implementation-id-claim)
+- [A7.2.3.3.4 CCA platform Instance ID claim](rmm-A7.2.3.3.md#a72334-cca-platform-instance-id-claim)
+- [A7.2.3.3.5 CCA platform config claim](rmm-A7.2.3.3.md#a72335-cca-platform-config-claim)
+- [A7.2.3.3.6 CCA platform manufacturing config claim](rmm-A7.2.3.3.md#a72336-cca-platform-manufacturing-config-claim)
+- [A7.2.3.3.7 CCA platform lifecycle claim](rmm-A7.2.3.3.md#a72337-cca-platform-lifecycle-claim)
+- [A7.2.3.3.8 CCA platform software components claim](rmm-A7.2.3.3.md#a72338-cca-platform-software-components-claim)
+- [A7.2.3.3.9 CCA platform verification service claim](rmm-A7.2.3.3.md#a72339-cca-platform-verification-service-claim)
+- [A7.2.3.3.10 CCA platform hash algorithm ID claim](rmm-A7.2.3.3.md#a723310-cca-platform-hash-algorithm-id-claim)
+- [A7.2.3.3.11 CCA platform client ID claim](rmm-A7.2.3.3.md#a723311-cca-platform-client-id-claim)
 
 
-- A7.2.3.3.12 CCA platform extension
-- A7.2.3.3.13 Collated CDDL for CCA platform claims
-- A7.2.3.3.14 Example CCA platform claims
+- [A7.2.3.3.12 CCA platform extension](rmm-A7.2.3.3.md#a723312-cca-platform-extension)
+- [A7.2.3.3.13 Collated CDDL for CCA platform claims](rmm-A7.2.3.3.md#a723313-collated-cddl-for-cca-platform-claims)
+- [A7.2.3.3.14 Example CCA platform claims](rmm-A7.2.3.3.md#a723314-example-cca-platform-claims)
 
 ## A7.2.3.3.1 CCA platform profile claim
 
@@ -62,7 +62,7 @@ cca-hash-type = bytes .size 32 / bytes .size 48 / bytes .size 64 cca-platform-ch
 
 ## See also:
 
-- A7.2.3.1.10 Realm public key claim
+- [A7.2.3.1.10 Realm public key claim](rmm-A7.2.3.1.md#a723110-realm-public-key-claim)
 
 ## A7.2.3.3.3 CCA platform Implementation ID claim
 
@@ -77,7 +77,7 @@ The value of the CCA platform Implementation ID claim can be used by a verificat
 ## See also:
 
 - Arm CCA Security model [4]
-- A7.2.3.3.4 CCA platform Instance ID claim
+- [A7.2.3.3.4 CCA platform Instance ID claim](rmm-A7.2.3.3.md#a72334-cca-platform-instance-id-claim)
 
 ## A7.2.3.3.4 CCA platform Instance ID claim
 
@@ -109,7 +109,7 @@ cca-platform-instance-id-label = 256 ; EAT ueid ; EAT UEIDs need to be 7 -33 byt
 ## See also:
 
 - Arm CCA Security model [4]
-- A7.2.3.3.3 CCA platform Implementation ID claim
+- [A7.2.3.3.3 CCA platform Implementation ID claim](rmm-A7.2.3.3.md#a72333-cca-platform-implementation-id-claim)
 
 ## A7.2.3.3.5 CCA platform config claim
 
@@ -256,7 +256,7 @@ The CCA platform software component hash algorithm ID is optional in a CCA platf
 
 See also:
 
-- A3.14 Live Firmware Activation
+- [A3.14 Live Firmware Activation](rmm-A3.md#a314-live-firmware-activation)
 - CCA platform software component countersigner ID list The CCA platform software component countersigner ID list contains hashes of public keys which identify signing authorities that provides additional trustworthiness information for the software component. These signatures are provided in addition to the primary signature, which is identified by the CCA platform software component signer ID. UWXFDW Example use cases for CCA platform software component countersignatures include: · An indication of approval for the component, provided by the owner of the CCA platform · An indication of approval for the component, provided by a third party auditor UZCPJJ The order of multiple entries within the countersigner ID list may imply a hierarchy. The existence and meaning of any such hierarchy is IMPLEMENTATION DEFINED.
 
 ## A7.2.3.3.9 CCA platform verification service claim
@@ -324,8 +324,8 @@ cca-platform-extension-device-common = ( ? 1 => text, ; hash algorithm identifie
 
 ## See also:
 
-- A7.2.3.3.10 CCA platform hash algorithm ID claim
-- A9.11 Coherent memory devices
+- [A7.2.3.3.10 CCA platform hash algorithm ID claim](rmm-A7.2.3.3.md#a723310-cca-platform-hash-algorithm-id-claim)
+- [A9.11 Coherent memory devices](rmm-A9.11.md)
 
 ## A7.2.3.3.13 Collated CDDL for CCA platform claims
 

@@ -31,6 +31,6 @@ Chapter A6. Realm interrupts and timers A6.2. Realm timers
 
 See also:
 
-- A4.3 REC exit
-- B4.4.16 RmiRecExit type
-- D1.6.2 Timer interrupt delivery flow
+- [A4.3 REC exit](rmm-A4.3.md)
+- [B4.4.16 RmiRecExit type](rmm-B4.4.md#b4416-rmirecexit-type)
+- [D1.6.2 Timer interrupt delivery flow](rmm-D1.6.md#d162-timer-interrupt-delivery-flow)

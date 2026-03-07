@@ -8,7 +8,7 @@ The RMI\_PSMMU\_ST\_L2\_CREATE command may initiate a memory-transferring RMI Op
 
 See also:
 
-- A9.7.4 PSMMU Stream Tables
+- [A9.7.4 PSMMU Stream Tables](rmm-A9.7.md#a974-psmmu-stream-tables)
 
 ## B4.5.43.1 Interface
 

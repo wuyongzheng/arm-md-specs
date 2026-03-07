@@ -6,7 +6,7 @@ In the current version of the interface, this command returns zero regardless of
 
 See also:
 
-- A3.1 Realm feature discovery and selection
+- [A3.1 Realm feature discovery and selection](rmm-A3.md#a31-realm-feature-discovery-and-selection)
 
 ## B5.3.3.1 Interface
 

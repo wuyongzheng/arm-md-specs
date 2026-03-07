@@ -21,9 +21,9 @@ This section describes the concept of a Realm.
 
 See also:
 
-- A2.3 Realm Execution Context
-- A4.5 Host call
-- B4.3.9 RMI\_REALM\_CREATE command
+- [A2.3 Realm Execution Context](rmm-A2.3.md)
+- [A4.5 Host call](rmm-A4.4.md#a45-host-call)
+- [B4.3.9 RMI\_REALM\_CREATE command](rmm-B4.3.9.md)
 
 ## A2.1.2.2 Realm memory
 
@@ -33,7 +33,7 @@ See also:
 
 See also:
 
-- A5.2.1 Realm IPA space
+- [A5.2.1 Realm IPA space](rmm-A5.1.md#a521-realm-ipa-space)
 
 ## A2.1.2.3 Realm processor features
 
@@ -42,7 +42,7 @@ See also:
 
 See also:
 
-- A3.1 Realm feature discovery and selection
+- [A3.1 Realm feature discovery and selection](rmm-A3.md#a31-realm-feature-discovery-and-selection)
 
 ## A2.1.2.4 IMPDEF system registers
 
@@ -90,16 +90,16 @@ Possible uses of the RPV include:
 
 See also:
 
-- A2.1.5 Realm lifecycle
-- A2.3 Realm Execution Context
-- A3.1.2 Realm LPA2 and IPA width
-- A5.2.1 Realm IPA space
-- A5.5 Realm Translation Table
-- A7.1 Realm measurements
-- A7.2.3.1.3 Realm Personalization Value claim
-- B5.3.3 RSI\_FEATURES command
-- B5.3.9 RSI\_REALM\_CONFIG command
-- C1.16 RmmRealm type
+- [A2.1.5 Realm lifecycle](rmm-A2.1.md#a215-realm-lifecycle)
+- [A2.3 Realm Execution Context](rmm-A2.3.md)
+- [A3.1.2 Realm LPA2 and IPA width](rmm-A3.md#a312-realm-lpa2-and-ipa-width)
+- [A5.2.1 Realm IPA space](rmm-A5.1.md#a521-realm-ipa-space)
+- [A5.5 Realm Translation Table](rmm-A5.5.md)
+- [A7.1 Realm measurements](rmm-A7.1.md)
+- [A7.2.3.1.3 Realm Personalization Value claim](rmm-A7.2.md#a72313-realm-personalization-value-claim)
+- [B5.3.3 RSI\_FEATURES command](rmm-B5.3.3.md)
+- [B5.3.9 RSI\_REALM\_CONFIG command](rmm-B5.3.9.md)
+- [C1.16 RmmRealm type](rmm-C1.md#c116-rmmrealm-type)
 
 ## A2.1.4 Realm liveness
 
@@ -112,20 +112,20 @@ See also:
 
 See also:
 
-- A2.1.5 Realm lifecycle
-- A2.2.2 Granule ownership
-- A2.2.3 Granule lifecycle
-- A2.3 Realm Execution Context
-- A5.5.8 RTTE liveness and RTT liveness
-- B3.32 RealmIsLive function
-- B4.3.10 RMI\_REALM\_DESTROY command
+- [A2.1.5 Realm lifecycle](rmm-A2.1.md#a215-realm-lifecycle)
+- [A2.2.2 Granule ownership](rmm-A2.2.md#a222-granule-ownership)
+- [A2.2.3 Granule lifecycle](rmm-A2.2.md#a223-granule-lifecycle)
+- [A2.3 Realm Execution Context](rmm-A2.3.md)
+- [A5.5.8 RTTE liveness and RTT liveness](rmm-A5.5.md#a558-rtte-liveness-and-rtt-liveness)
+- [B3.32 RealmIsLive function](rmm-B3.md#b332-realmislive-function)
+- [B4.3.10 RMI\_REALM\_DESTROY command](rmm-B4.3.10.md)
 
 ## A2.1.5 Realm lifecycle
 
 See also:
 
-- Chapter A3 Realm creation
-- D1.2 Realm lifecycle flows
+- [Chapter A3 Realm creation](rmm-A3.md)
+- [D1.2 Realm lifecycle flows](rmm-D1.2.md)
 
 ## A2.1.5.1 States
 
@@ -138,9 +138,9 @@ The states of a Realm are listed below.
 
 ## See also:
 
-- B6.3.6 PSCI\_SYSTEM\_OFF command
-- B6.3.7 PSCI\_SYSTEM\_RESET command
-- B4.3.8 RMI\_REALM\_ACTIVATE command
+- [B6.3.6 PSCI\_SYSTEM\_OFF command](rmm-B6.3.6.md)
+- [B6.3.7 PSCI\_SYSTEM\_RESET command](rmm-B6.3.7.md)
+- [B4.3.8 RMI\_REALM\_ACTIVATE command](rmm-B4.3.8.md)
 
 | State            | Description                                             |
 |------------------|---------------------------------------------------------|
@@ -181,11 +181,11 @@ A Realm parameter is a value which is provided by the Host during Realm creation
 
 See also:
 
-- A2.1.3 Realm attributes
-- A3.1 Realm feature discovery and selection
-- B3.33 RealmParams function
-- B4.3.9 RMI\_REALM\_CREATE command
-- B4.4.12 RmiRealmParams type
+- [A2.1.3 Realm attributes](rmm-A2.1.md#a213-realm-attributes)
+- [A3.1 Realm feature discovery and selection](rmm-A3.md#a31-realm-feature-discovery-and-selection)
+- [B3.33 RealmParams function](rmm-B3.md#b333-realmparams-function)
+- [B4.3.9 RMI\_REALM\_CREATE command](rmm-B4.3.9.md)
+- [B4.4.12 RmiRealmParams type](rmm-B4.4.md#b4412-rmirealmparams-type)
 
 ## A2.1.7 Realm Descriptor
 
@@ -194,5 +194,5 @@ See also:
 
 See also:
 
-- A2.1.3 Realm attributes
-- A2.2.3 Granule lifecycle
+- [A2.1.3 Realm attributes](rmm-A2.1.md#a213-realm-attributes)
+- [A2.2.3 Granule lifecycle](rmm-A2.2.md#a223-granule-lifecycle)

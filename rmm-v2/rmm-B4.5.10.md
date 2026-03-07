@@ -8,7 +8,7 @@ The RMI\_DPT\_L0\_CREATE command may initiate a memory-transferring RMI Operatio
 
 See also:
 
-- A9.7.5 Device Permission Table
+- [A9.7.5 Device Permission Table](rmm-A9.7.md#a975-device-permission-table)
 
 ## B4.5.10.1 Interface
 

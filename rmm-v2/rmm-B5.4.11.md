@@ -4,8 +4,8 @@ Set overlay permission index for a specified IPA range.
 
 See also:
 
-- A10.3.2 Stage 2 Access Permissions within a multi-Plane Realm
-- B5.2.2.2 Range RSI operation which returns progress address
+- [A10.3.2 Stage 2 Access Permissions within a multi-Plane Realm](rmm-A10.3.md#a1032-stage-2-access-permissions-within-a-multi-plane-realm)
+- [B5.2.2.2 Range RSI operation which returns progress address](rmm-B5.1.md#b5222-range-rsi-operation-which-returns-progress-address)
 
 ## B5.4.11.1 Interface
 

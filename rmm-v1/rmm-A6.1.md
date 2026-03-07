@@ -67,9 +67,9 @@ All other fields contain zero.
 See also:
 
 - Arm Generic Interrupt Controller (GIC) Architecture Specification version 3 and version 4 [5]
-- A4.2 REC entry
-- A4.3 REC exit
-- B4.3.14 RMI\_REC\_ENTER command
-- B4.4.14 RmiRecEnter type
-- B4.4.16 RmiRecExit type
-- D1.6.1 Interrupt flow
+- [A4.2 REC entry](rmm-A4.2.md)
+- [A4.3 REC exit](rmm-A4.3.md)
+- [B4.3.14 RMI\_REC\_ENTER command](rmm-B4.3.14.md)
+- [B4.4.14 RmiRecEnter type](rmm-B4.4.md#b4414-rmirecenter-type)
+- [B4.4.16 RmiRecExit type](rmm-B4.4.md#b4416-rmirecexit-type)
+- [D1.6.1 Interrupt flow](rmm-D1.6.md#d161-interrupt-flow)

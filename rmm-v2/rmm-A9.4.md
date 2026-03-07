@@ -67,9 +67,9 @@ All entries in vdev.addr\_range have the following properties:
 
 ## See also:
 
-- A9.2.2 Physical device invariants
-- B4.5.82 RMI\_VDEV\_CREATE command
-- B4.5.83 RMI\_VDEV\_DESTROY command
+- [A9.2.2 Physical device invariants](rmm-A9.2.md#a922-physical-device-invariants)
+- [B4.5.82 RMI\_VDEV\_CREATE command](rmm-B4.5.82.md)
+- [B4.5.83 RMI\_VDEV\_DESTROY command](rmm-B4.5.83.md)
 
 ## A9.4.3 Virtual device lifecycle
 
@@ -96,8 +96,8 @@ violations of confidentiality or integrity, which could arise if those transacti
 
 See also:
 
-- A9.3.3.2.3 Stream key refresh
-- A9.3.3.2.4 Stream key purge
+- [A9.3.3.2.3 Stream key refresh](rmm-A9.3.md#a93323-stream-key-refresh)
+- [A9.3.3.2.4 Stream key purge](rmm-A9.3.md#a93324-stream-key-purge)
 
 ## A9.4.3.2 State transitions
 
@@ -181,20 +181,20 @@ A transition from the pseudo-state NULL represents creation of a VDEV object. A 
 
 ## See also:
 
-- B4.5.79 RMI\_VDEV\_ABORT command
-- B4.5.80 RMI\_VDEV\_COMMUNICATE command
-- B4.5.82 RMI\_VDEV\_CREATE command
-- B4.5.83 RMI\_VDEV\_DESTROY command
+- [B4.5.79 RMI\_VDEV\_ABORT command](rmm-B4.5.79.md)
+- [B4.5.80 RMI\_VDEV\_COMMUNICATE command](rmm-B4.5.80.md)
+- [B4.5.82 RMI\_VDEV\_CREATE command](rmm-B4.5.82.md)
+- [B4.5.83 RMI\_VDEV\_DESTROY command](rmm-B4.5.83.md)
 
 ## See also:
 
-- A9.3.3.2.3 Stream key refresh
-- A9.3.3.2.4 Stream key purge
-- B4.5.14 RMI\_FEATURES command
-- B4.5.80 RMI\_VDEV\_COMMUNICATE command
-- B4.5.87 RMI\_VDEV\_LOCK command
-- B4.5.90 RMI\_VDEV\_START command
-- B4.5.91 RMI\_VDEV\_UNLOCK command
+- [A9.3.3.2.3 Stream key refresh](rmm-A9.3.md#a93323-stream-key-refresh)
+- [A9.3.3.2.4 Stream key purge](rmm-A9.3.md#a93324-stream-key-purge)
+- [B4.5.14 RMI\_FEATURES command](rmm-B4.5.14.md)
+- [B4.5.80 RMI\_VDEV\_COMMUNICATE command](rmm-B4.5.80.md)
+- [B4.5.87 RMI\_VDEV\_LOCK command](rmm-B4.5.87.md)
+- [B4.5.90 RMI\_VDEV\_START command](rmm-B4.5.90.md)
+- [B4.5.91 RMI\_VDEV\_UNLOCK command](rmm-B4.5.91.md)
 
 ## A9.4.4 Mapping from virtual device ID to VDEV object
 
@@ -210,9 +210,9 @@ Figure A9.9: Mapping from virtual device ID to VDEV
 
 See also:
 
-- A4.3.12 REC exit due to VDEV request
-- B4.5.81 RMI\_VDEV\_COMPLETE command
-- B5.4.19 RSI\_VDEV\_GET\_INFO command
+- [A4.3.12 REC exit due to VDEV request](rmm-A4.3.md#a4312-rec-exit-due-to-vdev-request)
+- [B4.5.81 RMI\_VDEV\_COMPLETE command](rmm-B4.5.81.md)
+- [B5.4.19 RSI\_VDEV\_GET\_INFO command](rmm-B5.4.19.md)
 
 ## A9.4.4.1 Relationship between VDEV state and TDISP TDI state
 
@@ -250,7 +250,7 @@ Figure A9.11: VDEV teardown (part 2 of 2)
 
 ## See also:
 
-- B4.5.70 RMI\_RTT\_DEV\_UNMAP command
-- B4.5.80 RMI\_VDEV\_COMMUNICATE command
-- B4.5.83 RMI\_VDEV\_DESTROY command
-- B4.5.91 RMI\_VDEV\_UNLOCK command
+- [B4.5.70 RMI\_RTT\_DEV\_UNMAP command](rmm-B4.5.70.md)
+- [B4.5.80 RMI\_VDEV\_COMMUNICATE command](rmm-B4.5.80.md)
+- [B4.5.83 RMI\_VDEV\_DESTROY command](rmm-B4.5.83.md)
+- [B4.5.91 RMI\_VDEV\_UNLOCK command](rmm-B4.5.91.md)

@@ -4,8 +4,8 @@ This section describes the process of creating a Realm.
 
 See also:
 
-- A2.1 Realm
-- D1.2 Realm lifecycle flows
+- [A2.1 Realm](rmm-A2.1.md)
+- [D1.2 Realm lifecycle flows](rmm-D1.2.md)
 
 ## A3.1 Realm feature discovery and selection
 
@@ -18,11 +18,11 @@ See also:
 
 See also:
 
-- A2.1.6 Realm parameters
-- A7.1.1 Realm Initial Measurement
-- B4.3.4 RMI\_FEATURES command
-- B4.3.9 RMI\_REALM\_CREATE command
-- B5.3.3 RSI\_FEATURES command
+- [A2.1.6 Realm parameters](rmm-A2.1.md#a216-realm-parameters)
+- [A7.1.1 Realm Initial Measurement](rmm-A7.1.md#a711-realm-initial-measurement)
+- [B4.3.4 RMI\_FEATURES command](rmm-B4.3.4.md)
+- [B4.3.9 RMI\_REALM\_CREATE command](rmm-B4.3.9.md)
+- [B5.3.3 RSI\_FEATURES command](rmm-B5.3.3.md)
 
 ## A3.1.1 Realm hash algorithm
 
@@ -31,9 +31,9 @@ See also:
 
 See also:
 
-- A7.1 Realm measurements
-- B4.3.9 RMI\_REALM\_CREATE command
-- B4.4.6 RmiFeatureRegister0 type
+- [A7.1 Realm measurements](rmm-A7.1.md)
+- [B4.3.9 RMI\_REALM\_CREATE command](rmm-B4.3.9.md)
+- [B4.4.6 RmiFeatureRegister0 type](rmm-B4.4.md#b446-rmifeatureregister0-type)
 
 ## A3.1.2 Realm LPA2 and IPA width
 
@@ -56,10 +56,10 @@ If LPA2 is not enabled for a Realm then passing a PA greater than or equal to 2^
 
 ## See also:
 
-- A5.2.1 Realm IPA space
-- B4.3.9 RMI\_REALM\_CREATE command
-- B4.4.6 RmiFeatureRegister0 type
-- B5.3.9 RSI\_REALM\_CONFIG command
+- [A5.2.1 Realm IPA space](rmm-A5.1.md#a521-realm-ipa-space)
+- [B4.3.9 RMI\_REALM\_CREATE command](rmm-B4.3.9.md)
+- [B4.4.6 RmiFeatureRegister0 type](rmm-B4.4.md#b446-rmifeatureregister0-type)
+- [B5.3.9 RSI\_REALM\_CONFIG command](rmm-B5.3.9.md)
 
 ## A3.1.3 Realm support for Scalable Vector Extension
 
@@ -74,8 +74,8 @@ If LPA2 is not enabled for a Realm then passing a PA greater than or equal to 2^
 
 See also:
 
-- B4.3.9 RMI\_REALM\_CREATE command
-- B4.4.6 RmiFeatureRegister0 type
+- [B4.3.9 RMI\_REALM\_CREATE command](rmm-B4.3.9.md)
+- [B4.4.6 RmiFeatureRegister0 type](rmm-B4.4.md#b446-rmifeatureregister0-type)
 
 ## A3.1.4 Realm support for self-hosted debug
 
@@ -86,7 +86,7 @@ See also:
 
 See also:
 
-- B4.3.9 RMI\_REALM\_CREATE command
+- [B4.3.9 RMI\_REALM\_CREATE command](rmm-B4.3.9.md)
 
 ## A3.1.5 Realm support for Performance Monitors Extension
 
@@ -97,9 +97,9 @@ See also:
 
 See also:
 
-- A8.1 Realm PMU
-- B4.3.9 RMI\_REALM\_CREATE command
-- B4.4.6 RmiFeatureRegister0 type
+- [A8.1 Realm PMU](rmm-A8.md#a81-realm-pmu)
+- [B4.3.9 RMI\_REALM\_CREATE command](rmm-B4.3.9.md)
+- [B4.4.6 RmiFeatureRegister0 type](rmm-B4.4.md#b446-rmifeatureregister0-type)
 
 ## A3.1.6 Realm support for Activity Monitors Extension
 
@@ -122,5 +122,5 @@ See also:
 
 See also:
 
-- B4.3.14 RMI\_REC\_ENTER command
-- B4.4.6 RmiFeatureRegister0 type
+- [B4.3.14 RMI\_REC\_ENTER command](rmm-B4.3.14.md)
+- [B4.4.6 RmiFeatureRegister0 type](rmm-B4.4.md#b446-rmifeatureregister0-type)

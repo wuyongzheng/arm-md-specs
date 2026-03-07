@@ -4,7 +4,7 @@ Completes a request made by the Realm to change the RIPAS of a target IPA range.
 
 See also:
 
-- A5.4 RIPAS change
+- [A5.4 RIPAS change](rmm-A5.4.md)
 
 ## B4.3.21.1 Interface
 

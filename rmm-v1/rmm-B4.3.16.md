@@ -4,10 +4,10 @@ Destroys an RTT.
 
 See also:
 
-- A5.5 Realm Translation Table
-- A5.5.9 RTT destruction
-- B4.3.15 RMI\_RTT\_CREATE command
-- B4.3.17 RMI\_RTT\_FOLD command
+- [A5.5 Realm Translation Table](rmm-A5.5.md)
+- [A5.5.9 RTT destruction](rmm-A5.5.md#a559-rtt-destruction)
+- [B4.3.15 RMI\_RTT\_CREATE command](rmm-B4.3.15.md)
+- [B4.3.17 RMI\_RTT\_FOLD command](rmm-B4.3.17.md)
 
 ## B4.3.16.1 Interface
 
@@ -54,7 +54,7 @@ The values of the result and top output values for different command outcomes ar
 
 ## See also:
 
-- A5.5.8 RTTE liveness and RTT liveness
+- [A5.5.8 RTTE liveness and RTT liveness](rmm-A5.5.md#a558-rtte-liveness-and-rtt-liveness)
 
 ## B4.3.16.2 Failure conditions
 

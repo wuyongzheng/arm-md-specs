@@ -4,7 +4,7 @@ Get state of a PDEV.
 
 See also:
 
-- Chapter A9 Realm device assignment
+- [Chapter A9 Realm device assignment](rmm-A8.md#chapter-a9-realm-device-assignment)
 
 ## B4.5.29.1 Interface
 

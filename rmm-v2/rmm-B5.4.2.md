@@ -4,10 +4,10 @@ Continue the operation to retrieve an attestation token.
 
 See also:
 
-- A5.2.4 RSI command access to a Protected IPA
-- A7.2 Realm attestation
-- B5.2.2.1 Long-running non-range RSI operation
-- B5.4.3 RSI\_ATTESTATION\_TOKEN\_INIT command
+- [A5.2.4 RSI command access to a Protected IPA](rmm-A5.1.md#a524-rsi-command-access-to-a-protected-ipa)
+- [A7.2 Realm attestation](rmm-A7.2.md)
+- [B5.2.2.1 Long-running non-range RSI operation](rmm-B5.1.md#b5221-long-running-non-range-rsi-operation)
+- [B5.4.3 RSI\_ATTESTATION\_TOKEN\_INIT command](rmm-B5.4.3.md)
 
 ## B5.4.2.1 Interface
 

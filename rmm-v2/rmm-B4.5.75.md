@@ -6,7 +6,7 @@ The RMI\_RTT\_SET\_RIPAS command may initiate a Stateful RMI Operation.
 
 See also:
 
-- A5.4 RIPAS change
+- [A5.4 RIPAS change](rmm-A5.4.md)
 
 ## B4.5.75.1 Interface
 

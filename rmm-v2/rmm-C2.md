@@ -289,7 +289,7 @@ The RmmFeature enumeration is an abstract type.
 
 See also:
 
-- Chapter A3 Feature discovery and configuration
+- [Chapter A3 Feature discovery and configuration](rmm-A3.md)
 
 The values of the RmmFeature enumeration are shown in the following table.
 
@@ -345,7 +345,7 @@ The RmmGlobalStatic structure is an abstract type.
 
 See also:
 
-- Chapter A3 Feature discovery and configuration
+- [Chapter A3 Feature discovery and configuration](rmm-A3.md)
 
 The members of the RmmGlobalStatic structure are shown in the following table.
 
@@ -556,7 +556,7 @@ The width of the RmmMeasurementDescriptorRec structure is 256 ( 0x100 ) bytes.
 
 See also:
 
-- B4.5.49.4 RMI\_REC\_CREATE extension of RIM
+- [B4.5.49.4 RMI\_REC\_CREATE extension of RIM](rmm-B4.5.49.md#b45494-rmi_rec_create-extension-of-rim)
 
 The members of the RmmMeasurementDescriptorRec structure are shown in the following table.
 
@@ -744,7 +744,7 @@ The RmmPdevSpdm enumeration is an abstract type.
 
 See also:
 
-- A9.1.2 Device properties
+- [A9.1.2 Device properties](rmm-A9.1.md#a912-device-properties)
 
 The values of the RmmPdevSpdm enumeration are shown in the following table.
 
@@ -974,7 +974,7 @@ The RmmRealm structure is an abstract type.
 
 See also:
 
-- A2.2 Realm
+- [A2.2 Realm](rmm-A2.2.md)
 
 The members of the RmmRealm structure are shown in the following table.
 
@@ -1044,7 +1044,7 @@ The RmmRec structure is an abstract type.
 
 See also:
 
-- A2.4 Realm Execution Context
+- [A2.4 Realm Execution Context](rmm-A2.4.md)
 
 The members of the RmmRec structure are shown in the following table.
 
@@ -1261,7 +1261,7 @@ The RmmRttEntry structure is an abstract type.
 
 See also:
 
-- A5.6 Realm Translation Table
+- [A5.6 Realm Translation Table](rmm-A5.6.md)
 
 The members of the RmmRttEntry structure are shown in the following table.
 
@@ -1336,7 +1336,7 @@ The RmmRttPlaneFeature enumeration is an abstract type.
 
 See also:
 
-- A3.12 Support for auxiliary Planes
+- [A3.12 Support for auxiliary Planes](rmm-A3.md#a312-support-for-auxiliary-planes)
 
 The values of the RmmRttPlaneFeature enumeration are shown in the following table.
 
@@ -1409,7 +1409,7 @@ The RmmRttS2APEncoding enumeration is an abstract type.
 
 See also:
 
-- A3.13 Support for Stage 2 Access Permissions indirect encoding
+- [A3.13 Support for Stage 2 Access Permissions indirect encoding](rmm-A3.md#a313-support-for-stage-2-access-permissions-indirect-encoding)
 
 The values of the RmmRttS2APEncoding enumeration are shown in the following table.
 
@@ -1481,7 +1481,7 @@ The RmmRttWalkResult structure is an abstract type.
 
 See also:
 
-- A5.6.10 RTT walk
+- [A5.6.10 RTT walk](rmm-A5.6.md#a5610-rtt-walk)
 
 The members of the RmmRttWalkResult structure are shown in the following table.
 

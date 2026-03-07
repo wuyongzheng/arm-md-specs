@@ -25,8 +25,8 @@ The size of a CCA attestation token may be greater than 4KB.
 
 See also:
 
-- A7.1.1 Realm Initial Measurement
-- A7.1.2 Realm Extensible Measurement
+- [A7.1.1 Realm Initial Measurement](rmm-A7.1.md#a711-realm-initial-measurement)
+- [A7.1.2 Realm Extensible Measurement](rmm-A7.1.md#a712-realm-extensible-measurement)
 
 ## A7.2.2 Attestation token generation
 
@@ -67,14 +67,14 @@ On the next entry to the REC:
 
 ## See also:
 
-- A4.3.5 REC exit due to IRQ
-- A6.1 Realm interrupts
+- [A4.3.5 REC exit due to IRQ](rmm-A4.3.md#a435-rec-exit-due-to-irq)
+- [A6.1 Realm interrupts](rmm-A6.1.md)
 
-- A7.2.3.1.1 Realm challenge claim
-- B5.3.1 RSI\_ATTESTATION\_TOKEN\_CONTINUE command
-- B5.3.2 RSI\_ATTESTATION\_TOKEN\_INIT command
-- D1.7.1 Attestation token generation flow
-- D1.7.2 Handling interrupts during attestation token generation flow
+- [A7.2.3.1.1 Realm challenge claim](rmm-A7.2.md#a72311-realm-challenge-claim)
+- [B5.3.1 RSI\_ATTESTATION\_TOKEN\_CONTINUE command](rmm-B5.3.1.md)
+- [B5.3.2 RSI\_ATTESTATION\_TOKEN\_INIT command](rmm-B5.3.2.md)
+- [D1.7.1 Attestation token generation flow](rmm-D1.7.md#d171-attestation-token-generation-flow)
+- [D1.7.2 Handling interrupts during attestation token generation flow](rmm-D1.7.md#d172-handling-interrupts-during-attestation-token-generation-flow)
 
 ## A7.2.3 Attestation token format
 
@@ -98,8 +98,8 @@ cca-token = #6.399(cca-token-collection) ; CMW Collection ; (draft-ietf-rats-msg
 - Concise Binary Object Representation (CBOR) [6]
 - CBOR Object Signing and Encryption (COSE) [7]
 - Entity Attestation Token (EAT) [8]
-- A7.2.3.1 Realm claims
-- A7.2.3.2 CCA platform claims
+- [A7.2.3.1 Realm claims](rmm-A7.2.md#a7231-realm-claims)
+- [A7.2.3.2 CCA platform claims](rmm-A7.2.md#a7232-cca-platform-claims)
 
 Figure A7.1: Attestation token format
 
@@ -119,16 +119,16 @@ cca-realm-claims = (cca-realm-claim-map) cca-realm-claim-map = { cca-realm-chall
 ## See also:
 
 - Concise Data Definition Language (CDDL) [9]
-- A7.2.3.1.1 Realm challenge claim
-- A7.2.3.1.2 Realm profile claim
-- A7.2.3.1.3 Realm Personalization Value claim
-- A7.2.3.1.4 Realm Initial Measurement claim
-- A7.2.3.1.5 Realm Extensible Measurements claim
-- A7.2.3.1.6 Realm hash algorithm ID claim
-- A7.2.3.1.7 Realm public key claim
-- A7.2.3.1.8 Realm public key hash algorithm identifier claim
-- A7.2.3.1.9 Collated CDDL for Realm claims
-- A7.2.3.1.10 Example Realm claims
+- [A7.2.3.1.1 Realm challenge claim](rmm-A7.2.md#a72311-realm-challenge-claim)
+- [A7.2.3.1.2 Realm profile claim](rmm-A7.2.md#a72312-realm-profile-claim)
+- [A7.2.3.1.3 Realm Personalization Value claim](rmm-A7.2.md#a72313-realm-personalization-value-claim)
+- [A7.2.3.1.4 Realm Initial Measurement claim](rmm-A7.2.md#a72314-realm-initial-measurement-claim)
+- [A7.2.3.1.5 Realm Extensible Measurements claim](rmm-A7.2.md#a72315-realm-extensible-measurements-claim)
+- [A7.2.3.1.6 Realm hash algorithm ID claim](rmm-A7.2.md#a72316-realm-hash-algorithm-id-claim)
+- [A7.2.3.1.7 Realm public key claim](rmm-A7.2.md#a72317-realm-public-key-claim)
+- [A7.2.3.1.8 Realm public key hash algorithm identifier claim](rmm-A7.2.md#a72318-realm-public-key-hash-algorithm-identifier-claim)
+- [A7.2.3.1.9 Collated CDDL for Realm claims](rmm-A7.2.md#a72319-collated-cddl-for-realm-claims)
+- [A7.2.3.1.10 Example Realm claims](rmm-A7.2.md#a723110-example-realm-claims)
 
 ## A7.2.3.1.1 Realm challenge claim
 
@@ -152,8 +152,8 @@ cca-realm-challenge-label = 10 cca-realm-challenge-type = bytes .size 64 cca-rea
 
 ## See also:
 
-- A7.2.2 Attestation token generation
-- B5.3.2 RSI\_ATTESTATION\_TOKEN\_INIT command
+- [A7.2.2 Attestation token generation](rmm-A7.2.md#a722-attestation-token-generation)
+- [B5.3.2 RSI\_ATTESTATION\_TOKEN\_INIT command](rmm-B5.3.2.md)
 
 ## A7.2.3.1.2 Realm profile claim
 
@@ -190,7 +190,7 @@ cca-realm-personalization-value-label = 44235 cca-realm-personalization-value-ty
 
 ## See also:
 
-- A2.1.3 Realm attributes
+- [A2.1.3 Realm attributes](rmm-A2.1.md#a213-realm-attributes)
 
 ## A7.2.3.1.4 Realm Initial Measurement claim
 
@@ -208,8 +208,8 @@ cca-realm-measurement-type = bytes .size 32 / bytes .size 48 / bytes .size 64 cc
 
 ## See also:
 
-- A7.1 Realm measurements
-- A7.2.3.1.5 Realm Extensible Measurements claim
+- [A7.1 Realm measurements](rmm-A7.1.md)
+- [A7.2.3.1.5 Realm Extensible Measurements claim](rmm-A7.2.md#a72315-realm-extensible-measurements-claim)
 
 ## A7.2.3.1.5 Realm Extensible Measurements claim
 
@@ -230,8 +230,8 @@ cca-realm-measurement-type = bytes .size 32 / bytes .size 48 / bytes .size 64 cc
 
 ## See also:
 
-- A7.1 Realm measurements
-- A7.2.3.1.4 Realm Initial Measurement claim
+- [A7.1 Realm measurements](rmm-A7.1.md)
+- [A7.2.3.1.4 Realm Initial Measurement claim](rmm-A7.2.md#a72314-realm-initial-measurement-claim)
 
 ## A7.2.3.1.6 Realm hash algorithm ID claim
 
@@ -268,8 +268,8 @@ cca-realm-public-key-label = 44237 cca-realm-public-key-type = bstr .cbor COSE_K
 ## See also:
 
 - SEC 1: Elliptic Curve Cryptography, version 2.0 [11]
-- A7.2.3.1.8 Realm public key hash algorithm identifier claim
-- A7.2.3.2.2 CCA platform challenge claim
+- [A7.2.3.1.8 Realm public key hash algorithm identifier claim](rmm-A7.2.md#a72318-realm-public-key-hash-algorithm-identifier-claim)
+- [A7.2.3.2.2 CCA platform challenge claim](rmm-A7.2.md#a72322-cca-platform-challenge-claim)
 
 ## A7.2.3.1.8 Realm public key hash algorithm identifier claim
 
@@ -288,8 +288,8 @@ cca-realm-public-key-hash-algo-id-label = 44240 cca-realm-public-key-hash-algo-i
 ## See also:
 
 - SEC 1: Elliptic Curve Cryptography, version 2.0 [11]
-- A7.2.3.1.7 Realm public key claim
-- A7.2.3.2.2 CCA platform challenge claim
+- [A7.2.3.1.7 Realm public key claim](rmm-A7.2.md#a72317-realm-public-key-claim)
+- [A7.2.3.2.2 CCA platform challenge claim](rmm-A7.2.md#a72322-cca-platform-challenge-claim)
 
 ```
 text
@@ -334,17 +334,17 @@ cca-platform-claims = cca-platform-claim-map = { cca-platform-profile cca-platfo
 ## See also:
 
 - Concise Data Definition Language (CDDL) [9]
-- A7.2.3.2.1 CCA platform profile claim
-- A7.2.3.2.2 CCA platform challenge claim
-- A7.2.3.2.3 CCA platform Implementation ID claim
-- A7.2.3.2.4 CCA platform Instance ID claim
-- A7.2.3.2.5 CCA platform config claim
-- A7.2.3.2.6 CCA platform lifecycle claim
-- A7.2.3.2.7 CCA platform software components claim
-- A7.2.3.2.8 CCA platform verification service claim
-- A7.2.3.2.9 CCA platform hash algorithm ID claim
-- A7.2.3.2.10 Collated CDDL for CCA platform claims
-- A7.2.3.2.11 Example CCA platform claims
+- [A7.2.3.2.1 CCA platform profile claim](rmm-A7.2.md#a72321-cca-platform-profile-claim)
+- [A7.2.3.2.2 CCA platform challenge claim](rmm-A7.2.md#a72322-cca-platform-challenge-claim)
+- [A7.2.3.2.3 CCA platform Implementation ID claim](rmm-A7.2.md#a72323-cca-platform-implementation-id-claim)
+- [A7.2.3.2.4 CCA platform Instance ID claim](rmm-A7.2.md#a72324-cca-platform-instance-id-claim)
+- [A7.2.3.2.5 CCA platform config claim](rmm-A7.2.md#a72325-cca-platform-config-claim)
+- [A7.2.3.2.6 CCA platform lifecycle claim](rmm-A7.2.md#a72326-cca-platform-lifecycle-claim)
+- [A7.2.3.2.7 CCA platform software components claim](rmm-A7.2.md#a72327-cca-platform-software-components-claim)
+- [A7.2.3.2.8 CCA platform verification service claim](rmm-A7.2.md#a72328-cca-platform-verification-service-claim)
+- [A7.2.3.2.9 CCA platform hash algorithm ID claim](rmm-A7.2.md#a72329-cca-platform-hash-algorithm-id-claim)
+- [A7.2.3.2.10 Collated CDDL for CCA platform claims](rmm-A7.2.md#a723210-collated-cddl-for-cca-platform-claims)
+- [A7.2.3.2.11 Example CCA platform claims](rmm-A7.2.md#a723211-example-cca-platform-claims)
 
 ## A7.2.3.2.1 CCA platform profile claim
 
@@ -380,7 +380,7 @@ cca-hash-type = bytes .size 32 / bytes .size 48 / bytes .size 64 cca-platform-ch
 
 ## See also:
 
-- A7.2.3.1.7 Realm public key claim
+- [A7.2.3.1.7 Realm public key claim](rmm-A7.2.md#a72317-realm-public-key-claim)
 
 ## A7.2.3.2.3 CCA platform Implementation ID claim
 
@@ -403,7 +403,7 @@ cca-platform-implementation-id-label = 2396 ; PSA implementation ID cca-platform
 ## See also:
 
 - Arm CCA Security model [4]
-- A7.2.3.2.4 CCA platform Instance ID claim
+- [A7.2.3.2.4 CCA platform Instance ID claim](rmm-A7.2.md#a72324-cca-platform-instance-id-claim)
 
 ## A7.2.3.2.4 CCA platform Instance ID claim
 
@@ -424,7 +424,7 @@ cca-platform-instance-id-label = 256 ; EAT ueid ; TODO: require that the first b
 ## See also:
 
 - Arm CCA Security model [4]
-- A7.2.3.2.3 CCA platform Implementation ID claim
+- [A7.2.3.2.3 CCA platform Implementation ID claim](rmm-A7.2.md#a72323-cca-platform-implementation-id-claim)
 
 ## A7.2.3.2.5 CCA platform config claim
 

@@ -4,7 +4,7 @@ Initiate disconnection of a PDEV stream.
 
 See also:
 
-- A9.3 Physical device stream object
+- [A9.3 Physical device stream object](rmm-A9.3.md)
 
 ## B4.5.35.1 Interface
 

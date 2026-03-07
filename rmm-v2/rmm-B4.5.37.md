@@ -4,7 +4,7 @@ Initiate key refresh of a PDEV stream.
 
 See also:
 
-- A9.3 Physical device stream object
+- [A9.3 Physical device stream object](rmm-A9.3.md)
 
 ## B4.5.37.1 Interface
 

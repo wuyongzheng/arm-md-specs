@@ -4,10 +4,10 @@ Destroys a Data Granule.
 
 See also:
 
-- Chapter A5 Realm memory management
-- B4.3.1 RMI\_DATA\_CREATE command
-- B4.3.2 RMI\_DATA\_CREATE\_UNKNOWN command
-- D1.2.5 Realm destruction flow
+- [Chapter A5 Realm memory management](rmm-A5.md)
+- [B4.3.1 RMI\_DATA\_CREATE command](rmm-B4.3.1.md)
+- [B4.3.2 RMI\_DATA\_CREATE\_UNKNOWN command](rmm-B4.3.2.md)
+- [D1.2.5 Realm destruction flow](rmm-D1.2.md#d125-realm-destruction-flow)
 
 ## B4.3.3.1 Interface
 
@@ -52,7 +52,7 @@ The values of the result and top output values for different command outcomes ar
 
 ## See also:
 
-- A5.5.8 RTTE liveness and RTT liveness
+- [A5.5.8 RTTE liveness and RTT liveness](rmm-A5.5.md#a558-rtte-liveness-and-rtt-liveness)
 
 ## B4.3.3.2 Failure conditions
 

@@ -4,8 +4,8 @@ Completes a pending VDEV request.
 
 ## See also:
 
-- A4.3.12 REC exit due to VDEV request
-- A9.4.4 Mapping from virtual device ID to VDEV object
+- [A4.3.12 REC exit due to VDEV request](rmm-A4.3.md#a4312-rec-exit-due-to-vdev-request)
+- [A9.4.4 Mapping from virtual device ID to VDEV object](rmm-A9.4.md#a944-mapping-from-virtual-device-id-to-vdev-object)
 
 ## B4.5.81.1 Interface
 

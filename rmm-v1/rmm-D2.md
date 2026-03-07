@@ -4,7 +4,7 @@ This section describes a protocol for management of memory which is shared betwe
 
 See also:
 
-- Chapter A5 Realm memory management
+- [Chapter A5 Realm memory management](rmm-A5.md)
 
 ## D2.1 Realm shared memory protocol description
 
@@ -23,9 +23,9 @@ The initial RIPAS for every page in the Realm's memory footprint is described to
 
 See also:
 
-- A5.2.1 Realm IPA space
-- A5.2.2 Realm IPA state
-- A5.4 RIPAS change
+- [A5.2.1 Realm IPA space](rmm-A5.1.md#a521-realm-ipa-space)
+- [A5.2.2 Realm IPA state](rmm-A5.1.md#a522-realm-ipa-state)
+- [A5.4 RIPAS change](rmm-A5.4.md)
 
 ## D2.2 Realm shared memory protocol flow
 
@@ -39,4 +39,4 @@ Figure D2.1: Realm shared memory protocol flow
 
 ## See also:
 
-- D1.5.3 RIPAS change flow
+- [D1.5.3 RIPAS change flow](rmm-D1.5.md#d153-ripas-change-flow)

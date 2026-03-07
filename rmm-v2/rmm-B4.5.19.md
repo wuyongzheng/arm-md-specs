@@ -4,8 +4,8 @@ Get configuration of a Granule tracking region.
 
 See also:
 
-- A2.3.4 Granule tracking region
-- B4.5.20 RMI\_GRANULE\_TRACKING\_SET command
+- [A2.3.4 Granule tracking region](rmm-A2.3.md#a234-granule-tracking-region)
+- [B4.5.20 RMI\_GRANULE\_TRACKING\_SET command](rmm-B4.5.20.md)
 
 ## B4.5.19.1 Interface
 

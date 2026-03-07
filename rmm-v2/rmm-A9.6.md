@@ -6,7 +6,7 @@ This section describes interaction between a Realm and the RMM to manage an assi
 
 See also:
 
-- A9.4 Virtual device object
+- [A9.4 Virtual device object](rmm-A9.4.md)
 
 ## A9.6.1 Realm retrieval of device attestation evidence
 
@@ -15,9 +15,9 @@ See also:
 
 See also:
 
-- A9.5.4 Host caching of device attestation evidence
-- B5.4.5 RSI\_HOST\_CALL command
-- B5.4.19 RSI\_VDEV\_GET\_INFO command
+- [A9.5.4 Host caching of device attestation evidence](rmm-A9.5.md#a954-host-caching-of-device-attestation-evidence)
+- [B5.4.5 RSI\_HOST\_CALL command](rmm-B5.4.5.md)
+- [B5.4.19 RSI\_VDEV\_GET\_INFO command](rmm-B5.4.19.md)
 
 ## A9.6.2 Realm validation of device memory mappings
 
@@ -86,10 +86,10 @@ Figure A9.16: Creation and validation of device memory mappings
 See also:
 
 - PCI Express 6.0 specification [16]
-- A5.5 VDEV mapping validation
-- A5.6.12 Memory attributes
-- B4.5.71 RMI\_RTT\_DEV\_VALIDATE command
-- B5.4.21 RSI\_VDEV\_VALIDATE\_MAPPING command
+- [A5.5 VDEV mapping validation](rmm-A5.5.md)
+- [A5.6.12 Memory attributes](rmm-A5.6.md#a5612-memory-attributes)
+- [B4.5.71 RMI\_RTT\_DEV\_VALIDATE command](rmm-B4.5.71.md)
+- [B5.4.21 RSI\_VDEV\_VALIDATE\_MAPPING command](rmm-B5.4.21.md)
 
 
 ## A9.6.3 Realm enablement of device DMA
@@ -100,6 +100,6 @@ See also:
 
 See also:
 
-- B5.4.18 RSI\_VDEV\_DMA\_ENABLE command
+- [B5.4.18 RSI\_VDEV\_DMA\_ENABLE command](rmm-B5.4.18.md)
 
 <!-- image -->

@@ -24,8 +24,8 @@ It is only when a change in the hardware timer output means that the correspondi
 
 See also:
 
-- A4.3 REC exit
-- A10.5 Planes timers
-- B4.6.66 RmiRecExit type
-- D1.6.2 Timer interrupt delivery flow
+- [A4.3 REC exit](rmm-A4.3.md)
+- [A10.5 Planes timers](rmm-A10.5.md)
+- [B4.6.66 RmiRecExit type](rmm-B4.6.md#b4666-rmirecexit-type)
+- [D1.6.2 Timer interrupt delivery flow](rmm-D1.6.md#d162-timer-interrupt-delivery-flow)
 

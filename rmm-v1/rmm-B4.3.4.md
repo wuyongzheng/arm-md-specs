@@ -10,7 +10,7 @@ The following table indicates which feature register is returned depending on th
 
 ## See also:
 
-- A3.1 Realm feature discovery and selection
+- [A3.1 Realm feature discovery and selection](rmm-A3.md#a31-realm-feature-discovery-and-selection)
 
 ## B4.3.4.1 Interface
 

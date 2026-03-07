@@ -100,7 +100,7 @@ Following expansion of macros, a condition expression
 ## See also:
 
 - Arm Specification Language Reference Manual [24]
-- Chapter B3 Command condition functions
+- [Chapter B3 Command condition functions](rmm-B3.md)
 
 ## B1.5 Command context values
 
@@ -153,7 +153,7 @@ Granule(rtt\_base).state == GRAN\_DELEGATED
 
 See also:
 
-- B4.5.46 RMI\_REALM\_CREATE command
+- [B4.5.46 RMI\_REALM\_CREATE command](rmm-B4.5.46.md)
 
 ## B1.6 Command failure conditions
 
@@ -238,7 +238,7 @@ A command failure condition or success condition may need to test for logical eq
 
 See also:
 
-- B3.32 Equal function
+- [B3.32 Equal function](rmm-B3.md#b332-equal-function)
 
 ## B1.9 Command footprint
 

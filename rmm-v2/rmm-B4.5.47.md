@@ -8,10 +8,10 @@ The RMI\_REALM\_DESTROY command may initiate a memory-transferring RMI Operation
 
 ## See also:
 
-- A2.2 Realm
-- B4.3.4 Object creation and destruction
-- B4.5.46 RMI\_REALM\_CREATE command
-- D1.2.5 Realm destruction flow
+- [A2.2 Realm](rmm-A2.2.md)
+- [B4.3.4 Object creation and destruction](rmm-B4.3.md#b434-object-creation-and-destruction)
+- [B4.5.46 RMI\_REALM\_CREATE command](rmm-B4.5.46.md)
+- [D1.2.5 Realm destruction flow](rmm-D1.2.md#d125-realm-destruction-flow)
 
 ## B4.5.47.1 Interface
 

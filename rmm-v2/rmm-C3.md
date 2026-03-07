@@ -4,12 +4,12 @@ This section defines types which are shared between RMM interfaces and descripti
 
 See also:
 
-- B4.6 RMI types
-- B5.5 RSI types
+- [B4.6 RMI types](rmm-B4.6.md)
+- [B5.5 RSI types](rmm-B5.5.md)
 
 
-- B6.4 PSCI types
-- Chapter C2 RMMtypes
+- [B6.4 PSCI types](rmm-B6.4.md)
+- [Chapter C2 RMMtypes](rmm-C2.md)
 
 ## C3.1 Address type
 

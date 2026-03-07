@@ -6,10 +6,10 @@ Device configuration information, including digests of attestation evidence for 
 
 ## See also:
 
-- A5.2.4 RSI command access to a Protected IPA
-- A9.6.1 Realm retrieval of device attestation evidence
-- B5.4.16 RSI\_REALM\_CONFIG command
-- B5.5.28 RsiVdevInfo type
+- [A5.2.4 RSI command access to a Protected IPA](rmm-A5.1.md#a524-rsi-command-access-to-a-protected-ipa)
+- [A9.6.1 Realm retrieval of device attestation evidence](rmm-A9.6.md#a961-realm-retrieval-of-device-attestation-evidence)
+- [B5.4.16 RSI\_REALM\_CONFIG command](rmm-B5.4.16.md)
+- [B5.5.28 RsiVdevInfo type](rmm-B5.5.md#b5528-rsivdevinfo-type)
 
 ## B5.4.19.1 Interface
 

@@ -30,8 +30,8 @@ This section introduces the stage 2 translation table used by a Realm.
 
 ## See also:
 
-- A2.1.3 Realm attributes
-- A3.1.2 Realm LPA2 and IPA width
+- [A2.1.3 Realm attributes](rmm-A2.1.md#a213-realm-attributes)
+- [A3.1.2 Realm LPA2 and IPA width](rmm-A3.md#a312-realm-lpa2-and-ipa-width)
 
 ## A5.5.3 RTT starting level
 
@@ -44,7 +44,7 @@ The RTT base attribute is set when a Realm is created.
 
 See also:
 
-- A2.1.3 Realm attributes
+- [A2.1.3 Realm attributes](rmm-A2.1.md#a213-realm-attributes)
 
 ## A5.5.4 RTT entry
 
@@ -78,8 +78,8 @@ The function AddrIsRttLevelAligned() is used to evaluate whether an address is a
 
 ## See also:
 
-- A5.3.1 Host IPA state
-- B1.4 Command condition expressions
+- [A5.3.1 Host IPA state](rmm-A5.3.md#a531-host-ipa-state)
+- [B1.4 Command condition expressions](rmm-B1.md#b14-command-condition-expressions)
 
 ## A5.5.5 RTT reading
 
@@ -87,7 +87,7 @@ Attributes of an RTTE, including the RTTE state, can be read by calling the RMI\
 
 See also:
 
-- B4.3.20 RMI\_RTT\_READ\_ENTRY command
+- [B4.3.20 RMI\_RTT\_READ\_ENTRY command](rmm-B4.3.20.md)
 
 ## A5.5.6 RTT folding
 
@@ -127,7 +127,7 @@ On RTT folding, if the state of the parent RTTE is ASSIGNED or ASSIGNED\_NS then
 
 See also:
 
-- A5.5.9 RTT destruction
+- [A5.5.9 RTT destruction](rmm-A5.5.md#a559-rtt-destruction)
 
 ASSIGNED\_NS
 
@@ -143,7 +143,7 @@ ASSIGNED\_NS
 
 See also:
 
-- B4.3.15 RMI\_RTT\_CREATE command
+- [B4.3.15 RMI\_RTT\_CREATE command](rmm-B4.3.15.md)
 
 ## A5.5.8 RTTE liveness and RTT liveness
 
@@ -160,12 +160,12 @@ See also:
 
 See also:
 
-- A5.5.9 RTT destruction
-- B3.64 RttIsLive function
-- B3.76 RttSkipNonLiveEntries function
-- B4.3.3 RMI\_DATA\_DESTROY command
-- B4.3.16 RMI\_RTT\_DESTROY command
-- B4.3.22 RMI\_RTT\_UNMAP\_UNPROTECTED command
+- [A5.5.9 RTT destruction](rmm-A5.5.md#a559-rtt-destruction)
+- [B3.64 RttIsLive function](rmm-B3.md#b364-rttislive-function)
+- [B3.76 RttSkipNonLiveEntries function](rmm-B3.md#b376-rttskipnonliveentries-function)
+- [B4.3.3 RMI\_DATA\_DESTROY command](rmm-B4.3.3.md)
+- [B4.3.16 RMI\_RTT\_DESTROY command](rmm-B4.3.16.md)
+- [B4.3.22 RMI\_RTT\_UNMAP\_UNPROTECTED command](rmm-B4.3.22.md)
 
 ## A5.5.9 RTT destruction
 
@@ -178,10 +178,10 @@ See also:
 
 ## See also:
 
-- A5.2 Realm view of memory management
-- A5.5.6 RTT folding
-- A5.5.8 RTTE liveness and RTT liveness
-- B4.3.16 RMI\_RTT\_DESTROY command
+- [A5.2 Realm view of memory management](rmm-A5.2.md)
+- [A5.5.6 RTT folding](rmm-A5.5.md#a556-rtt-folding)
+- [A5.5.8 RTTE liveness and RTT liveness](rmm-A5.5.md#a558-rtte-liveness-and-rtt-liveness)
+- [B4.3.16 RMI\_RTT\_DESTROY command](rmm-B4.3.16.md)
 
 ## A5.5.10 RTT walk
 
@@ -253,7 +253,7 @@ The cacheability attributes of an RTT entry which corresponds to a Protected IPA
 
 See also:
 
-- A5.2.1 Realm IPA space
-- B3.56 RttDescriptorIsValidForUnprotected function
-- B4.3.19 RMI\_RTT\_MAP\_UNPROTECTED command
-- B4.3.20 RMI\_RTT\_READ\_ENTRY command
+- [A5.2.1 Realm IPA space](rmm-A5.1.md#a521-realm-ipa-space)
+- [B3.56 RttDescriptorIsValidForUnprotected function](rmm-B3.md#b356-rttdescriptorisvalidforunprotected-function)
+- [B4.3.19 RMI\_RTT\_MAP\_UNPROTECTED command](rmm-B4.3.19.md)
+- [B4.3.20 RMI\_RTT\_READ\_ENTRY command](rmm-B4.3.20.md)

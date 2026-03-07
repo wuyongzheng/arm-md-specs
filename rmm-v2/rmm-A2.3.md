@@ -27,11 +27,11 @@ This section describes the granularities at which physical memory may be address
 
 See also:
 
-- A2.3.2 Views of physical memory
-- A2.3.4 Granule tracking region
-- B4.5.14 RMI\_FEATURES command
-- B4.5.53 RMI\_RMM\_CONFIG\_GET command
-- B4.5.54 RMI\_RMM\_CONFIG\_SET command
+- [A2.3.2 Views of physical memory](rmm-A2.3.md#a232-views-of-physical-memory)
+- [A2.3.4 Granule tracking region](rmm-A2.3.md#a234-granule-tracking-region)
+- [B4.5.14 RMI\_FEATURES command](rmm-B4.5.14.md)
+- [B4.5.53 RMI\_RMM\_CONFIG\_GET command](rmm-B4.5.53.md)
+- [B4.5.54 RMI\_RMM\_CONFIG\_SET command](rmm-B4.5.54.md)
 
 ## A2.3.2 Views of physical memory
 
@@ -90,8 +90,8 @@ Figure A2.4: Example memory population view
 
 ## See also:
 
-- A2.3.2 Views of physical memory
-- Chapter A9 Realm device assignment
+- [A2.3.2 Views of physical memory](rmm-A2.3.md#a232-views-of-physical-memory)
+- [Chapter A9 Realm device assignment](rmm-A8.md#chapter-a9-realm-device-assignment)
 
 ## A2.3.4 Granule tracking region
 
@@ -157,14 +157,14 @@ On execution of RMI\_GRANULE\_TRACKING\_SET, if the implementation requires memo
 
 See also:
 
-- A2.1 RMM
-- A2.3.1 Granule size
-- B3.67 PaIsTracked function
-- B4.3.2.2 Donating memory to an SRO
-- B4.3.2.3 Reclaiming memory from an SRO
+- [A2.1 RMM](rmm-A2.1.md)
+- [A2.3.1 Granule size](rmm-A2.3.md#a231-granule-size)
+- [B3.67 PaIsTracked function](rmm-B3.md#b367-paistracked-function)
+- [B4.3.2.2 Donating memory to an SRO](rmm-B4.3.md#b4322-donating-memory-to-an-sro)
+- [B4.3.2.3 Reclaiming memory from an SRO](rmm-B4.3.md#b4323-reclaiming-memory-from-an-sro)
 
-- B4.5.19 RMI\_GRANULE\_TRACKING\_GET command
-- B4.5.20 RMI\_GRANULE\_TRACKING\_SET command
+- [B4.5.19 RMI\_GRANULE\_TRACKING\_GET command](rmm-B4.5.19.md)
+- [B4.5.20 RMI\_GRANULE\_TRACKING\_SET command](rmm-B4.5.20.md)
 
 ## A2.3.5 Delegable physical memory
 
@@ -203,13 +203,13 @@ U = UNDELEGATED
 
 ## See also:
 
-- A2.3.2 Views of physical memory
-- A2.3.4 Granule tracking region
-- B3.58 PaIsDelegable function
-- B3.59 PaIsDelegableCohDevMem function
-- B3.60 PaIsDelegableConventional function
-- B3.62 PaIsDelegableDevMem function
-- B3.63 PaIsDelegableNonCohDevMem function
+- [A2.3.2 Views of physical memory](rmm-A2.3.md#a232-views-of-physical-memory)
+- [A2.3.4 Granule tracking region](rmm-A2.3.md#a234-granule-tracking-region)
+- [B3.58 PaIsDelegable function](rmm-B3.md#b358-paisdelegable-function)
+- [B3.59 PaIsDelegableCohDevMem function](rmm-B3.md#b359-paisdelegablecohdevmem-function)
+- [B3.60 PaIsDelegableConventional function](rmm-B3.md#b360-paisdelegableconventional-function)
+- [B3.62 PaIsDelegableDevMem function](rmm-B3.md#b362-paisdelegabledevmem-function)
+- [B3.63 PaIsDelegableNonCohDevMem function](rmm-B3.md#b363-paisdelegablenoncohdevmem-function)
 
 ## A2.3.6 Granule state
 
@@ -242,7 +242,7 @@ An NS Granule is a Granule whose GPT entry is GPT\_NS.
 
 See also:
 
-- A2.3.5 Delegable physical memory
+- [A2.3.5 Delegable physical memory](rmm-A2.3.md#a235-delegable-physical-memory)
 
 ## A2.3.6.1 Granule state transitions
 
@@ -287,27 +287,27 @@ Figure A2.9: Granule state transitions for Delegable device memory
 
 See also:
 
-- B4.5.3 RMI\_CMEM\_CREATE command
-- B4.5.4 RMI\_CMEM\_DESTROY command
-- B4.5.17 RMI\_GRANULE\_RANGE\_DELEGATE command
-- B4.5.18 RMI\_GRANULE\_RANGE\_UNDELEGATE command
-- B4.5.27 RMI\_PDEV\_CREATE command
-- B4.5.28 RMI\_PDEV\_DESTROY command
-- B4.5.46 RMI\_REALM\_CREATE command
-- B4.5.47 RMI\_REALM\_DESTROY command
-- B4.5.49 RMI\_REC\_CREATE command
-- B4.5.50 RMI\_REC\_DESTROY command
-- B4.5.64 RMI\_RTT\_CREATE command
-- B4.5.65 RMI\_RTT\_DATA\_MAP command
-- B4.5.66 RMI\_RTT\_DATA\_MAP\_INIT command
-- B4.5.67 RMI\_RTT\_DATA\_UNMAP command
-- B4.5.68 RMI\_RTT\_DESTROY command
-- B4.5.69 RMI\_RTT\_DEV\_MAP command
-- B4.5.70 RMI\_RTT\_DEV\_UNMAP command
-- B4.5.82 RMI\_VDEV\_CREATE command
-- B4.5.83 RMI\_VDEV\_DESTROY command
-- B4.5.95 RMI\_VSMMU\_CREATE command
-- B4.5.96 RMI\_VSMMU\_DESTROY command
+- [B4.5.3 RMI\_CMEM\_CREATE command](rmm-B4.5.3.md)
+- [B4.5.4 RMI\_CMEM\_DESTROY command](rmm-B4.5.4.md)
+- [B4.5.17 RMI\_GRANULE\_RANGE\_DELEGATE command](rmm-B4.5.17.md)
+- [B4.5.18 RMI\_GRANULE\_RANGE\_UNDELEGATE command](rmm-B4.5.18.md)
+- [B4.5.27 RMI\_PDEV\_CREATE command](rmm-B4.5.27.md)
+- [B4.5.28 RMI\_PDEV\_DESTROY command](rmm-B4.5.28.md)
+- [B4.5.46 RMI\_REALM\_CREATE command](rmm-B4.5.46.md)
+- [B4.5.47 RMI\_REALM\_DESTROY command](rmm-B4.5.47.md)
+- [B4.5.49 RMI\_REC\_CREATE command](rmm-B4.5.49.md)
+- [B4.5.50 RMI\_REC\_DESTROY command](rmm-B4.5.50.md)
+- [B4.5.64 RMI\_RTT\_CREATE command](rmm-B4.5.64.md)
+- [B4.5.65 RMI\_RTT\_DATA\_MAP command](rmm-B4.5.65.md)
+- [B4.5.66 RMI\_RTT\_DATA\_MAP\_INIT command](rmm-B4.5.66.md)
+- [B4.5.67 RMI\_RTT\_DATA\_UNMAP command](rmm-B4.5.67.md)
+- [B4.5.68 RMI\_RTT\_DESTROY command](rmm-B4.5.68.md)
+- [B4.5.69 RMI\_RTT\_DEV\_MAP command](rmm-B4.5.69.md)
+- [B4.5.70 RMI\_RTT\_DEV\_UNMAP command](rmm-B4.5.70.md)
+- [B4.5.82 RMI\_VDEV\_CREATE command](rmm-B4.5.82.md)
+- [B4.5.83 RMI\_VDEV\_DESTROY command](rmm-B4.5.83.md)
+- [B4.5.95 RMI\_VSMMU\_CREATE command](rmm-B4.5.95.md)
+- [B4.5.96 RMI\_VSMMU\_DESTROY command](rmm-B4.5.96.md)
 
 ## A2.3.6.2 Granule delegation
 
@@ -345,12 +345,12 @@ If none of the above checks failed then the operation starts to operate on the t
 
 See also:
 
-- B4.3.2 Stateful RMI operations
-- B4.3.5 Range RMI operations
+- [B4.3.2 Stateful RMI operations](rmm-B4.3.md#b432-stateful-rmi-operations)
+- [B4.3.5 Range RMI operations](rmm-B4.3.md#b435-range-rmi-operations)
 
 
-- B4.5.17 RMI\_GRANULE\_RANGE\_DELEGATE command
-- B4.5.18 RMI\_GRANULE\_RANGE\_UNDELEGATE command
+- [B4.5.17 RMI\_GRANULE\_RANGE\_DELEGATE command](rmm-B4.5.17.md)
+- [B4.5.18 RMI\_GRANULE\_RANGE\_UNDELEGATE command](rmm-B4.5.18.md)
 
 ## A2.3.7 Granule ownership
 
@@ -380,14 +380,14 @@ A VDEV has an 'owner' attribute which points to the RD of the owning Realm.
 
 See also:
 
-- A2.2 Realm
-- A2.2.7 Realm Descriptor
-- A2.4 Realm Execution Context
-- A5.2.1 Realm IPA space
-- A5.6 Realm Translation Table
-- Chapter A9 Realm device assignment
-- B4.5.49 RMI\_REC\_CREATE command
-- B4.5.64 RMI\_RTT\_CREATE command
+- [A2.2 Realm](rmm-A2.2.md)
+- [A2.2.7 Realm Descriptor](rmm-A2.2.md#a227-realm-descriptor)
+- [A2.4 Realm Execution Context](rmm-A2.4.md)
+- [A5.2.1 Realm IPA space](rmm-A5.1.md#a521-realm-ipa-space)
+- [A5.6 Realm Translation Table](rmm-A5.6.md)
+- [Chapter A9 Realm device assignment](rmm-A8.md#chapter-a9-realm-device-assignment)
+- [B4.5.49 RMI\_REC\_CREATE command](rmm-B4.5.49.md)
+- [B4.5.64 RMI\_RTT\_CREATE command](rmm-B4.5.64.md)
 - Wiping is an operation which changes the observable value of a memory location from X to Y , such that the value X cannot be determined from the value Y .
 - · B4.5.65 RMI\_RTT\_DATA\_MAP command · B4.5.66 RMI\_RTT\_DATA\_MAP\_INIT command A2.3.8 Granule wiping RTMGSL When the state of a Granule has transitioned from P to GRAN\_DELEGATED and then to any other state, any content associated with P has been wiped . XCTGQZ Any sequence of Granule state transitions which passes through the GRAN\_DELEGATED state causes the Granule contents to be wiped. This is necessary to ensure that information does not leak from one Realm to another, or from a Realm to the Host. Note that no agent can observe the contents of a Granule while its state is GRAN\_DELEGATED.
 - Wiping of a memory location does not reveal, directly or indirectly, any confidential Realm data.
@@ -400,8 +400,8 @@ See also:
 See also:
 
 - Arm CCA Security model [4]
-- A2.3.6 Granule state
-- B4.5.65 RMI\_RTT\_DATA\_MAP command
+- [A2.3.6 Granule state](rmm-A2.3.md#a236-granule-state)
+- [B4.5.65 RMI\_RTT\_DATA\_MAP command](rmm-B4.5.65.md)
 
 ## A2.3.9 Granule Protection Table management
 
@@ -436,10 +436,10 @@ An L1GPT is homogeneous if all its entries have the same GPI value.
 See also:
 
 
-- A5.6.6 RTT folding
-- A5.6.7 RTT unfolding
-- B3.37 GptL1IsHomogeneous function
-- B4.3.2.2 Donating memory to an SRO
-- B4.3.2.3 Reclaiming memory from an SRO
-- B4.5.15 RMI\_GPT\_L1\_CREATE command
-- B4.5.16 RMI\_GPT\_L1\_DESTROY command
+- [A5.6.6 RTT folding](rmm-A5.6.md#a566-rtt-folding)
+- [A5.6.7 RTT unfolding](rmm-A5.6.md#a567-rtt-unfolding)
+- [B3.37 GptL1IsHomogeneous function](rmm-B3.md#b337-gptl1ishomogeneous-function)
+- [B4.3.2.2 Donating memory to an SRO](rmm-B4.3.md#b4322-donating-memory-to-an-sro)
+- [B4.3.2.3 Reclaiming memory from an SRO](rmm-B4.3.md#b4323-reclaiming-memory-from-an-sro)
+- [B4.5.15 RMI\_GPT\_L1\_CREATE command](rmm-B4.5.15.md)
+- [B4.5.16 RMI\_GPT\_L1\_DESTROY command](rmm-B4.5.16.md)

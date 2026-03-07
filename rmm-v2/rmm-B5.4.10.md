@@ -4,7 +4,7 @@ Get overlay permission value for a specified (plane index, overlay permission in
 
 See also:
 
-- A10.3.2 Stage 2 Access Permissions within a multi-Plane Realm
+- [A10.3.2 Stage 2 Access Permissions within a multi-Plane Realm](rmm-A10.3.md#a1032-stage-2-access-permissions-within-a-multi-plane-realm)
 
 ## B5.4.10.1 Interface
 

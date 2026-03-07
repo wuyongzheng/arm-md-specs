@@ -4,9 +4,9 @@ Undelegates a Granule.
 
 ## See also:
 
-- A2.2 Granule
-- B4.3.5 RMI\_GRANULE\_DELEGATE command
-- D1.2.5 Realm destruction flow
+- [A2.2 Granule](rmm-A2.2.md)
+- [B4.3.5 RMI\_GRANULE\_DELEGATE command](rmm-B4.3.5.md)
+- [D1.2.5 Realm destruction flow](rmm-D1.2.md#d125-realm-destruction-flow)
 
 ## B4.3.6.1 Interface
 
@@ -50,7 +50,7 @@ The RMI\_GRANULE\_UNDELEGATE command does not have any failure condition orderin
 
 ## See also:
 
-- A2.2.4 Granule wiping
+- [A2.2.4 Granule wiping](rmm-A2.2.md#a224-granule-wiping)
 
 ## B4.3.6.4 Footprint
 

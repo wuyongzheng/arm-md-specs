@@ -6,12 +6,12 @@ This command causes a REC exit due to PSCI. In response, the Host should provide
 
 ## See also:
 
-- A2.3.2 REC attributes
-- A4.3.7 REC exit due to PSCI
-- B4.3.7 RMI\_PSCI\_COMPLETE command
-- B6.3.2 PSCI\_CPU\_OFF command
-- B6.3.4 PSCI\_CPU\_SUSPEND command
-- D1.4.1 PSCI\_CPU\_ON flow
+- [A2.3.2 REC attributes](rmm-A2.3.md#a232-rec-attributes)
+- [A4.3.7 REC exit due to PSCI](rmm-A4.3.md#a437-rec-exit-due-to-psci)
+- [B4.3.7 RMI\_PSCI\_COMPLETE command](rmm-B4.3.7.md)
+- [B6.3.2 PSCI\_CPU\_OFF command](rmm-B6.3.2.md)
+- [B6.3.4 PSCI\_CPU\_SUSPEND command](rmm-B6.3.4.md)
+- [D1.4.1 PSCI\_CPU\_ON flow](rmm-D1.4.md#d141-psci_cpu_on-flow)
 
 ## B6.3.3.1 Interface
 

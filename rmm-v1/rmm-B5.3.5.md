@@ -4,8 +4,8 @@ Get RIPAS of a target IPA range.
 
 See also:
 
-- A5.2 Realm view of memory management
-- B5.3.6 RSI\_IPA\_STATE\_SET command
+- [A5.2 Realm view of memory management](rmm-A5.2.md)
+- [B5.3.6 RSI\_IPA\_STATE\_SET command](rmm-B5.3.6.md)
 
 ## B5.3.5.1 Interface
 
@@ -45,7 +45,7 @@ Note that the RIPAS of a Protected IPA can change at any time to DESTROYED witho
 
 See also:
 
-- A5.2.5 Changes to RIPAS while Realm state is REALM\_ACTIVE
+- [A5.2.5 Changes to RIPAS while Realm state is REALM\_ACTIVE](rmm-A5.2.md#a525-changes-to-ripas-while-realm-state-is-realm_active)
 
 ## B5.3.5.2 Failure conditions
 

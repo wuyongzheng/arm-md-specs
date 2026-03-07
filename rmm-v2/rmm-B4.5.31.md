@@ -4,7 +4,7 @@ Provide public key associated with a PDEV.
 
 See also:
 
-- Chapter A9 Realm device assignment
+- [Chapter A9 Realm device assignment](rmm-A8.md#chapter-a9-realm-device-assignment)
 
 ## B4.5.31.1 Interface
 
