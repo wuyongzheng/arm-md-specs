@@ -43,63 +43,119 @@ The RMI\_VDEV\_P2P\_UNBIND command operates on the following context.
 
 ## B4.5.89.2 Failure conditions
 
-ID
-
-## Condition
-
-```
-feat pre: Rmm().static.feat_p2p != FEATURE_TRUE post: result.status == RMI_ERROR_NOT_SUPPORTED rd_align pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPUT rd_bound pre: !PaIsTracked(rd) post: result.status == RMI_ERROR_INPUT rd_state pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_INPUT stream_valid pre: stream_result.valid != RMM_TRUE post: result.status == RMI_ERROR_INPUT stream_type pre: stream.stream_type != PDEV_STREAM_NCOH_P2P post: result.status == RMI_ERROR_INPUT pdev_1_align pre: !AddrIsRmiGranuleAligned(pdev_1_ptr) post: result.status == RMI_ERROR_INPUT pdev_1_bound pre: !PaIsTracked(pdev_1_ptr) post: result.status == RMI_ERROR_INPUT pdev_1_gran_sta te pre: GranuleAt(pdev_1_ptr).state != GRAN_PDEV post: result.status == RMI_ERROR_INPUT pdev_2_align pre: !AddrIsRmiGranuleAligned(pdev_2_ptr) post: result.status == RMI_ERROR_INPUT pdev_2_bound pre: !PaIsTracked(pdev_2_ptr) post: result.status == RMI_ERROR_INPUT pdev_2_gran_sta te pre: GranuleAt(pdev_2_ptr).state != GRAN_PDEV post: result.status == RMI_ERROR_INPUT vdev_1_align pre: !AddrIsRmiGranuleAligned(vdev_1_ptr) post: result.status == RMI_ERROR_INPUT vdev_1_bound pre: !PaIsTracked(vdev_1_ptr) post: result.status == RMI_ERROR_INPUT vdev_1_gran_sta te pre: GranuleAt(vdev_1_ptr).state != GRAN_VDEV post: result.status == RMI_ERROR_INPUT vdev_1_realm pre: vdev_1.realm != rd post: result.status == RMI_ERROR_INPUT vdev_1_pdev pre: vdev_1.pdev != pdev_1_ptr post: result.status == RMI_ERROR_INPUT vdev_1_state pre: vdev_1.vdev_state != VDEV_STARTED post: result.status == RMI_ERROR_DEVICE vdev_1_comm pre: vdev_1.comm_state != DEV_COMM_IDLE post: result.status == RMI_ERROR_DEVICE vdev_1_p2p_boun d pre: vdev_1.p2p_bound != FEATURE_TRUE post: result.status == RMI_ERROR_DEVICE vdev_1_p2p_peer pre: vdev_1.p2p_peer != vdev_2.vdev_id post: result.status == RMI_ERROR_DEVICE vdev_2_align pre: !AddrIsRmiGranuleAligned(vdev_2_ptr) post: result.status == RMI_ERROR_INPUT vdev_2_bound pre: !PaIsTracked(vdev_2_ptr) post: result.status == RMI_ERROR_INPUT
-```
-
-## ID
-
-## Condition
-
-| vdev_2_gran_sta te   | pre: post:   | GranuleAt(vdev_2_ptr).state != GRAN_VDEV result.status == RMI_ERROR_INPUT   |
-|----------------------|--------------|-----------------------------------------------------------------------------|
-| vdev_2_realm         | pre: post:   | vdev_2.realm != rd result.status == RMI_ERROR_INPUT                         |
-| vdev_2_pdev          | pre: post:   | vdev_2.pdev != pdev_2_ptr result.status == RMI_ERROR_INPUT                  |
-| vdev_2_state         | pre: post:   | vdev_2.vdev_state != VDEV_STARTED result.status == RMI_ERROR_DEVICE         |
-| vdev_2_comm          | pre: post:   | vdev_2.comm_state != DEV_COMM_IDLE result.status == RMI_ERROR_DEVICE        |
-| vdev_2_p2p_boun d    | pre: post:   | vdev_2.p2p_bound != FEATURE_TRUE result.status == RMI_ERROR_DEVICE          |
-| vdev_2_p2p_peer      | pre: post:   | vdev_2.p2p_peer != vdev_1.vdev_id result.status == RMI_ERROR_DEVICE         |
+* vdev_2_gran_state
+  * pre: GranuleAt(vdev_2_ptr).state != GRAN_VDEV
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_2_realm
+  * pre: vdev_2.realm != rd
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_2_pdev
+  * pre: vdev_2.pdev != pdev_2_ptr
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_2_state
+  * pre: vdev_2.vdev_state != VDEV_STARTED
+  * post: result.status == RMI_ERROR_DEVICE
+* vdev_2_comm
+  * pre: vdev_2.comm_state != DEV_COMM_IDLE
+  * post: result.status == RMI_ERROR_DEVICE
+* vdev_2_p2p_bound
+  * pre: vdev_2.p2p_bound != FEATURE_TRUE
+  * post: result.status == RMI_ERROR_DEVICE
+* vdev_2_p2p_peer
+  * pre: vdev_2.p2p_peer != vdev_1.vdev_id
+  * post: result.status == RMI_ERROR_DEVICE
+* feat
+  * pre: Rmm().static.feat_p2p != FEATURE_TRUE
+  * post: result.status == RMI_ERROR_NOT_SUPPORTED
+* rd_align
+  * pre: !AddrIsRmiGranuleAligned(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_bound
+  * pre: !PaIsTracked(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_state
+  * pre: GranuleAt(rd).state != GRAN_RD
+  * post: result.status == RMI_ERROR_INPUT
+* stream_valid
+  * pre: stream_result.valid != RMM_TRUE
+  * post: result.status == RMI_ERROR_INPUT
+* stream_type
+  * pre: stream.stream_type != PDEV_STREAM_NCOH_P2P
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_1_align
+  * pre: !AddrIsRmiGranuleAligned(pdev_1_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_1_bound
+  * pre: !PaIsTracked(pdev_1_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_1_gran_state
+  * pre: GranuleAt(pdev_1_ptr).state != GRAN_PDEV
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_2_align
+  * pre: !AddrIsRmiGranuleAligned(pdev_2_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_2_bound
+  * pre: !PaIsTracked(pdev_2_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_2_gran_state
+  * pre: GranuleAt(pdev_2_ptr).state != GRAN_PDEV
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_1_align
+  * pre: !AddrIsRmiGranuleAligned(vdev_1_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_1_bound
+  * pre: !PaIsTracked(vdev_1_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_1_gran_state
+  * pre: GranuleAt(vdev_1_ptr).state != GRAN_VDEV
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_1_realm
+  * pre: vdev_1.realm !=
+* rd
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_1_pdev
+  * pre: vdev_1.pdev !=
+* pdev_1_ptr
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_1_state
+  * pre: vdev_1.vdev_state != VDEV_STARTED
+  * post: result.status == RMI_ERROR_DEVICE
+* vdev_1_comm
+  * pre: vdev_1.comm_state != DEV_COMM_IDLE
+  * post: result.status == RMI_ERROR_DEVICE
+* vdev_1_p2p_bound
+  * pre: vdev_1.p2p_bound != FEATURE_TRUE
+  * post: result.status == RMI_ERROR_DEVICE
+* vdev_1_p2p_peer
+  * pre: vdev_1.p2p_peer != vdev_2.
+* vdev_id
+  * post: result.status == RMI_ERROR_DEVICE
+* vdev_2_align
+  * pre: !AddrIsRmiGranuleAligned(vdev_2_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_2_bound
+  * pre: !PaIsTracked(vdev_2_ptr)
+  * post: result.status == RMI_ERROR_INPUT
 
 ## B4.5.89.2.1 Failure condition ordering
 
 vdev\_2\_realm
 
-## [feat] &lt; [rd\_align, rd\_bound, rd\_state, pdev\_1\_align, pdev\_1\_bound, pdev\_1\_gran\_state, pdev\_2\_align, pdev\_2\_bound, pdev\_2\_gran\_state, vdev\_1\_align, vdev\_1\_bound, vdev\_1\_gran\_state, vdev\_1\_realm, vdev\_1\_pdev, vdev\_1\_state, vdev\_1\_comm, vdev\_1\_p2p\_bound, vdev\_1\_p2p\_peer, vdev\_2\_align, vdev\_2\_bound, vdev\_2\_gran\_state, vdev\_2\_realm, vdev\_2\_pdev, vdev\_2\_state, vdev\_2\_comm, vdev\_2\_p2p\_bound, vdev\_2\_p2p\_peer] vdev\_2\_pdev vdev\_2\_state vdev\_2\_comm vdev\_2\_p2p\_bound vdev\_2\_p2p\_peer B4.5.89.3 Success conditions
+## [feat] &lt; [rd\_align, rd\_bound, rd\_state, pdev\_1\_align, pdev\_1\_bound, pdev\_1\_gran\_state, pdev\_2\_align, pdev\_2\_bound, pdev\_2\_gran\_state, vdev\_1\_align, vdev\_1\_bound, vdev\_1\_gran\_state, vdev\_1\_realm, vdev\_1\_pdev, vdev\_1\_state, vdev\_1\_comm, vdev\_1\_p2p\_bound, vdev\_1\_p2p\_peer, vdev\_2\_align, vdev\_2\_bound, vdev\_2\_gran\_state, vdev\_2\_realm, vdev\_2\_pdev, vdev\_2\_state, vdev\_2\_comm, vdev\_2\_p2p\_bound, vdev\_2\_p2p\_peer] vdev\_2\_pdev vdev\_2\_state vdev\_2\_comm vdev\_2\_p2p\_bound vdev\_2\_p2p\_peer
+## B4.5.89.3 Success conditions
 
-feat rd\_align
-
-rd\_bound rd\_state
-
-pdev\_1\_align pdev\_1\_bound
-
-pdev\_1\_gran\_state pdev\_2\_align
-
-pdev\_2\_bound pdev\_2\_gran\_state
-
-vdev\_1\_align vdev\_1\_bound
-
-vdev\_1\_gran\_state vdev\_1\_realm
-
-vdev\_1\_pdev vdev\_1\_state
-
-vdev\_1\_comm vdev\_1\_p2p\_bound
-
-vdev\_1\_p2p\_peer vdev\_2\_align
-
-vdev\_2\_bound vdev\_2\_gran\_state
-
-| ID               | Condition                                   |
-|------------------|---------------------------------------------|
-| vdev_1_op        | post: vdev_1.op == VDEV_OP_P2P_UNBIND       |
-| vdev_1_comm      | post: vdev_1.comm_state == DEV_COMM_PENDING |
-| vdev_1_p2p_bound | post: vdev_1.p2p_bound == FEATURE_FALSE     |
-| vdev_2_op        | post: vdev_2.op == VDEV_OP_P2P_UNBIND       |
-| vdev_2_comm      | post: vdev_2.comm_state == DEV_COMM_PENDING |
-| vdev_2_p2p_bound | post: vdev_2.p2p_bound == FEATURE_FALSE     |
+* vdev_1_op
+  * post: vdev_1.op == VDEV_OP_P2P_UNBIND
+* vdev_1_comm
+  * post: vdev_1.comm_state == DEV_COMM_PENDING
+* vdev_1_p2p_bound
+  * post: vdev_1.p2p_bound == FEATURE_FALSE
+* vdev_2_op
+  * post: vdev_2.op == VDEV_OP_P2P_UNBIND
+* vdev_2_comm
+  * post: vdev_2.comm_state == DEV_COMM_PENDING
+* vdev_2_p2p_bound
+  * post: vdev_2.p2p_bound == FEATURE_FALSE
 
 ## B4.5.89.4 Footprint
 

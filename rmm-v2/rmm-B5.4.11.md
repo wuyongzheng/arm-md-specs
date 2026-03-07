@@ -42,15 +42,38 @@ The following unused bits of RSI\_MEM\_SET\_PERM\_INDEX output values MBZ: X2[63
 
 ## B5.4.11.2 Failure conditions
 
-## ID Condition realm)
-
-```
-base_align pre: !AddrIsRsiGranuleAligned(base) post: result == RSI_ERROR_INPUT top_align pre: !AddrIsRsiGranuleAligned(top) post: result == RSI_ERROR_INPUT size_valid pre: UInt(top) <= UInt(base) post: result == RSI_ERROR_INPUT rgn_bound pre: !AddrRangeIsProtected(base, top, post: result == RSI_ERROR_INPUT perm_bound pre: perm_index >= RMM_NUM_PERM_OVERLAY_INDICES post: result == RSI_ERROR_INPUT handle pre: Handle is invalid post: result == RSI_ERROR_INPUT
-```
+* base_align
+  * pre: !AddrIsRsiGranuleAligned(base)
+  * post: result == RSI_ERROR_INPUT
+* top_align
+  * pre: !AddrIsRsiGranuleAligned(top)
+  * post: result == RSI_ERROR_INPUT
+* size_valid
+  * pre: UInt(top) <= UInt(base)
+  * post: result == RSI_ERROR_INPUT
+* rgn_bound
+  * pre: !AddrRangeIsProtected(base, top,
+  * post: result == RSI_ERROR_INPUT
+* perm_bound
+  * pre: perm_index >= RMM_NUM_PERM_OVERLAY_INDICES
+  * post: result == RSI_ERROR_INPUT
+* handle
+  * pre: Handle is invalid
+  * post: result == RSI_ERROR_INPUT
 
 ## B5.4.11.2.1 Failure condition ordering
 
-The RSI\_MEM\_SET\_PERM\_INDEX command does not have any failure condition orderings. B5.4.11.3 Success conditions ID Condition locked post: realm.overlay\_locked[[perm\_index]] == MEM\_PERM\_LOCKED new\_base post: new\_base == rec.s2ap\_addr response post: response == RecS2APResponseToRsi(rec) new\_handle post: New handle is generated
+The RSI\_MEM\_SET\_PERM\_INDEX command does not have any failure condition orderings.
+## B5.4.11.3 Success conditions
+
+* locked
+  * post: realm.overlay_locked[[perm_index]] == MEM_PERM_LOCKED
+* new_base
+  * post: new_base == rec.s2ap_addr
+* response
+  * post: response == RecS2APResponseToRsi(rec)
+* new_handle
+  * post: New handle is generated
 
 ## B5.4.11.4 Footprint
 

@@ -37,12 +37,18 @@ The RMI\_PSMMU\_DEACTIVATE command operates on the following context.
 
 ## B4.5.40.2 Failure conditions
 
-| ID          | Condition                                                                                |
-|-------------|------------------------------------------------------------------------------------------|
-| feat        | pre: Rmm().static.feat_da != FEATURE_TRUE post: result.status == RMI_ERROR_NOT_SUPPORTED |
-| psmmu_valid | pre: !PsmmuAddrIsValid(psmmu_ptr) post: result.status == RMI_ERROR_INPUT                 |
-| psmmu_state | pre: psmmu.state != PSMMU_ACTIVE post: result.status == RMI_ERROR_INPUT                  |
-| psmmu_live  | pre: PsmmuL1StIsLive(psmmu) post: result.status == RMI_ERROR_INPUT                       |
+* feat
+  * pre: Rmm().static.feat_da != FEATURE_TRUE
+  * post: result.status == RMI_ERROR_NOT_SUPPORTED
+* psmmu_valid
+  * pre: !PsmmuAddrIsValid(psmmu_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* psmmu_state
+  * pre: psmmu.state != PSMMU_ACTIVE
+  * post: result.status == RMI_ERROR_INPUT
+* psmmu_live
+  * pre: PsmmuL1StIsLive(psmmu)
+  * post: result.status == RMI_ERROR_INPUT
 
 ## B4.5.40.2.1 Failure condition ordering
 
@@ -50,9 +56,8 @@ The RMI\_PSMMU\_DEACTIVATE command does not have any failure condition orderings
 
 ## B4.5.40.3 Success conditions
 
-| ID    | Condition                           |
-|-------|-------------------------------------|
-| state | post: psmmu.state == PSMMU_INACTIVE |
+* state
+  * post: psmmu.state == PSMMU_INACTIVE
 
 ## B4.5.40.4 Footprint
 

@@ -25,12 +25,18 @@ See also:
 
 ## B4.3.5.2 Failure conditions
 
-| ID         | Condition                                                                          |
-|------------|------------------------------------------------------------------------------------|
-| gran_align | pre: !AddrIsGranuleAligned(addr) post: ResultEqual(result, RMI_ERROR_INPUT)        |
-| gran_bound | pre: !PaIsDelegable(addr) post: ResultEqual(result, RMI_ERROR_INPUT)               |
-| gran_state | pre: Granule(addr).state != UNDELEGATED post: ResultEqual(result, RMI_ERROR_INPUT) |
-| gran_gpt   | pre: Granule(addr).gpt != GPT_NS post: ResultEqual(result, RMI_ERROR_INPUT)        |
+* gran_align
+  * pre: !AddrIsGranuleAligned(addr)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* gran_bound
+  * pre: !PaIsDelegable(addr)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* gran_state
+  * pre: Granule(addr).state != UNDELEGATED
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* gran_gpt
+  * pre: Granule(addr).gpt != GPT_NS
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
 
 ## B4.3.5.2.1 Failure condition ordering
 
@@ -38,10 +44,10 @@ The RMI\_GRANULE\_DELEGATE command does not have any failure condition orderings
 
 ## B4.3.5.3 Success conditions
 
-| ID         | Condition                        |
-|------------|----------------------------------|
-| gran_state | Granule(addr).state == DELEGATED |
-| gran_gpt   | Granule(addr).gpt == GPT_REALM   |
+* gran_state
+  * Granule(addr).state == DELEGATED
+* gran_gpt
+  * Granule(addr).gpt == GPT_REALM
 
 ## B4.3.5.4 Footprint
 

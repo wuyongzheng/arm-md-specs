@@ -33,13 +33,21 @@ The RMI\_RMM\_CONFIG\_SET command operates on the following context.
 
 ## B4.5.54.2 Failure conditions
 
-| ID        | Condition                                                                        |
-|-----------|----------------------------------------------------------------------------------|
-| rmm_state | pre: rmm.dynamic.state != RMM_STATE_INIT post: result.status == RMI_ERROR_GLOBAL |
-| cfg_align | pre: !AddrIsRmiGranuleAligned(cfg_ptr) post: result.status == RMI_ERROR_INPUT    |
-| cfg_pas   | pre: !NonSecureAccessPermitted(cfg_ptr) post: result.status == RMI_ERROR_INPUT   |
-| cfg_supp  | pre: !RmmConfigIsSupported(cfg) post: result.status == RMI_ERROR_INPUT           |
-| tracked   | pre: rmm.dynamic.num_tracked != 0 post: result.status == RMI_ERROR_INPUT         |
+* rmm_state
+  * pre: rmm.dynamic.state != RMM_STATE_INIT
+  * post: result.status == RMI_ERROR_GLOBAL
+* cfg_align
+  * pre: !AddrIsRmiGranuleAligned(cfg_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* cfg_pas
+  * pre: !NonSecureAccessPermitted(cfg_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* cfg_supp
+  * pre: !RmmConfigIsSupported(cfg)
+  * post: result.status == RMI_ERROR_INPUT
+* tracked
+  * pre: rmm.dynamic.num_tracked != 0
+  * post: result.status == RMI_ERROR_INPUT
 
 ## B4.5.54.2.1 Failure condition ordering
 
@@ -47,10 +55,10 @@ The RMI\_RMM\_CONFIG\_SET command does not have any failure condition orderings.
 
 ## B4.5.54.3 Success conditions
 
-| ID                   | Condition                                                                                                            |
-|----------------------|----------------------------------------------------------------------------------------------------------------------|
-| rmi_granule_size     | post: rmm.dynamic.rmi_granule_size == GranuleSizeFromRmi( cfg.rmi_granule_size)                                      |
-| tracking_region_size | post: rmm.dynamic.tracking_region_size == TrackingRegionSizeFromRmi( cfg.rmi_granule_size, cfg.tracking_region_size) |
+* rmi_granule_size
+  * post: rmm.dynamic.rmi_granule_size == GranuleSizeFromRmi( cfg.rmi_granule_size)
+* tracking_region_size
+  * post: rmm.dynamic.tracking_region_size == TrackingRegionSizeFromRmi( cfg.rmi_granule_size, cfg.tracking_region_size)
 
 ## B4.5.54.4 Footprint
 

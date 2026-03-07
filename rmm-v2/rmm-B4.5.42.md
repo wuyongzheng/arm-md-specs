@@ -41,11 +41,15 @@ The RMI\_PSMMU\_IRQ\_NOTIFY command operates on the following context.
 
 ## B4.5.42.2 Failure conditions
 
-| ID          | Condition                                                                                |
-|-------------|------------------------------------------------------------------------------------------|
-| feat        | pre: Rmm().static.feat_da != FEATURE_TRUE post: result.status == RMI_ERROR_NOT_SUPPORTED |
-| psmmu_valid | pre: !PsmmuAddrIsValid(psmmu_ptr) post: result.status == RMI_ERROR_INPUT                 |
-| psmmu_state | pre: psmmu.state != PSMMU_ACTIVE post: result.status == RMI_ERROR_INPUT                  |
+* feat
+  * pre: Rmm().static.feat_da != FEATURE_TRUE
+  * post: result.status == RMI_ERROR_NOT_SUPPORTED
+* psmmu_valid
+  * pre: !PsmmuAddrIsValid(psmmu_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* psmmu_state
+  * pre: psmmu.state != PSMMU_ACTIVE
+  * post: result.status == RMI_ERROR_INPUT
 
 ## B4.5.42.2.1 Failure condition ordering
 

@@ -40,11 +40,49 @@ ID
 
 ## B4.5.56.2 Failure conditions
 
-## Condition
-
-```
-rd_align pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPUT rd_bound pre: !PaIsTracked(rd) post: result.status == RMI_ERROR_INPUT rd_state pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_INPUT dev_align pre: !AddrIsRmiGranuleAligned(dev_ptr) post: result.status == RMI_ERROR_INPUT dev_bound pre: !PaIsTracked(dev_ptr) post: result.status == RMI_ERROR_INPUT dev_state pre: GranuleAt(dev_ptr).state != GRAN_VSMMU post: result.status == RMI_ERROR_INPUT dev_realm pre: vsmmu.realm != rd post: result.status == RMI_ERROR_INPUT base_align pre: !AddrIsRmiGranuleAligned(base) post: result.status == RMI_ERROR_INPUT top_align pre: !AddrIsRmiGranuleAligned(top) post: result.status == RMI_ERROR_INPUT size_valid pre: UInt(top) <= UInt(base) post: result.status == RMI_ERROR_INPUT ipa_bound pre: !AddrRangeIsProtected(base, top, realm) post: result.status == RMI_ERROR_INPUT rtte_state pre: walk.rtte.state != RTTE_ARCH_DEV post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) rtte_addr pre: (walk.rtte.state == RTTE_NARCH_DEV && walk.rtte.addr != dev_ptr) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) rtte_size pre: (walk.rtte.state == RTTE_NARCH_DEV && RttLevelSize(walk.level) > size) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level)
-```
+* rd_align
+  * pre: !AddrIsRmiGranuleAligned(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_bound
+  * pre: !PaIsTracked(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_state
+  * pre: GranuleAt(rd).state != GRAN_RD
+  * post: result.status == RMI_ERROR_INPUT
+* dev_align
+  * pre: !AddrIsRmiGranuleAligned(dev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* dev_bound
+  * pre: !PaIsTracked(dev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* dev_state
+  * pre: GranuleAt(dev_ptr).state != GRAN_VSMMU
+  * post: result.status == RMI_ERROR_INPUT
+* dev_realm
+  * pre: vsmmu.realm !=
+* rd
+  * post: result.status == RMI_ERROR_INPUT
+* base_align
+  * pre: !AddrIsRmiGranuleAligned(base)
+  * post: result.status == RMI_ERROR_INPUT
+* top_align
+  * pre: !AddrIsRmiGranuleAligned(top)
+  * post: result.status == RMI_ERROR_INPUT
+* size_valid
+  * pre: UInt(top) <= UInt(base)
+  * post: result.status == RMI_ERROR_INPUT
+* ipa_bound
+  * pre: !AddrRangeIsProtected(base, top, realm)
+  * post: result.status == RMI_ERROR_INPUT
+* rtte_state
+  * pre: walk.rtte.state != RTTE_ARCH_DEV
+  * post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level)
+* rtte_addr
+  * pre: (walk.rtte.state == RTTE_NARCH_DEV && walk.rtte.addr != dev_ptr)
+  * post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level)
+* rtte_size
+  * pre: (walk.rtte.state == RTTE_NARCH_DEV && RttLevelSize(walk.level) > size)
+  * post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level)
 
 ## B4.5.56.2.1 Failure condition ordering
 
@@ -52,21 +90,14 @@ The RMI\_RTT\_ARCH\_DEV\_UNMAP command does not have any failure condition order
 
 ## B4.5.56.3 Success conditions
 
-```
-ID Condition RMM_RTT_TREE_PRIMARY,
-```
-
-```
-state post: RttTreeRangeAllState( realm, base, out_top, RTTE_VOID)
-```
-
-```
-ID Condition RIPAS_DESTROYED)
-```
-
-```
-ripas post: RealmIpaRangeAllRipasIf( realm_pre, realm, base, out_top, RIPAS_DEV, dev_state post: vsmmu.state == VSMMU_INACTIVE result post: result.status == RMI_SUCCESS
-```
+* state
+  * post: RttTreeRangeAllState( realm, base, out_top, RTTE_VOID)
+* ripas
+  * post: RealmIpaRangeAllRipasIf( realm_pre, realm, base, out_top, RIPAS_DEV,
+* dev_state
+  * post: vsmmu.state == VSMMU_INACTIVE
+* result
+  * post: result.status == RMI_SUCCESS
 
 ## B4.5.56.4 Footprint
 

@@ -37,20 +37,53 @@ The RMI\_PDEV\_STREAM\_KEY\_PURGE command operates on the following context.
 
 ## B4.5.36.2 Failure conditions
 
-## ID Condition
-
-| feat         | pre: Rmm().static.feat_da != FEATURE_TRUE                                          |
-|--------------|------------------------------------------------------------------------------------|
-| stream_valid | pre: stream_result.valid != RMM_TRUE post: result.status == RMI_ERROR_INPUT        |
-| stream_state | pre: stream.state != PDEV_STREAM_CONNECTED post: result.status == RMI_ERROR_DEVICE |
-
-## ID
-
-## Condition
-
-```
-stream_type pre: !stream.stream_type IN { PDEV_STREAM_NCOH_SYS, PDEV_STREAM_COH_SYS } post: result.status == RMI_ERROR_DEVICE pdev_1_align pre: !AddrIsRmiGranuleAligned(pdev_1_ptr) post: result.status == RMI_ERROR_INPUT pdev_1_bound pre: !PaIsTracked(pdev_1_ptr) post: result.status == RMI_ERROR_INPUT pdev_1_gran_sta te pre: GranuleAt(pdev_1_ptr).state != GRAN_PDEV post: result.status == RMI_ERROR_INPUT pdev_1_state pre: pdev_1.state != PDEV_READY post: result.status == RMI_ERROR_INPUT pdev_1_op pre: pdev_1.op != PDEV_OP_NONE post: result.status == RMI_ERROR_INPUT pdev_1_comm_sta te pre: pdev_1.comm_state != DEV_COMM_IDLE post: result.status == RMI_ERROR_INPUT pdev_2_align pre: (PdevStreamPdev2Required(stream.stream_type) && !AddrIsRmiGranuleAligned(pdev_2_ptr)) post: result.status == RMI_ERROR_INPUT pdev_2_bound pre: (PdevStreamPdev2Required(stream.stream_type) && !PaIsTracked(pdev_2_ptr)) post: result.status == RMI_ERROR_INPUT pdev_2_gran_sta te pre: (PdevStreamPdev2Required(stream.stream_type) && GranuleAt(pdev_2_ptr).state != GRAN_PDEV) post: result.status == RMI_ERROR_INPUT pdev_2_state pre: (PdevStreamPdev2Required(stream.stream_type) && pdev_2.state != PDEV_READY) post: result.status == RMI_ERROR_INPUT pdev_2_op pre: (PdevStreamPdev2Required(stream.stream_type) && pdev_2.op != PDEV_OP_NONE) post: result.status == RMI_ERROR_INPUT pdev_2_comm_sta te pre: (PdevStreamPdev2Required(stream.stream_type) && pdev_2.comm_state != DEV_COMM_IDLE) post: result.status == RMI_ERROR_INPUT
-```
+* feat
+  * pre: Rmm().static.feat_da != FEATURE_TRUE
+* stream_valid
+  * pre: stream_result.valid != RMM_TRUE
+  * post: result.status == RMI_ERROR_INPUT
+* stream_state
+  * pre: stream.state != PDEV_STREAM_CONNECTED
+  * post: result.status == RMI_ERROR_DEVICE
+* stream_type
+  * pre: !stream.stream_type IN { PDEV_STREAM_NCOH_SYS, PDEV_STREAM_COH_SYS }
+  * post: result.status == RMI_ERROR_DEVICE
+* pdev_1_align
+  * pre: !AddrIsRmiGranuleAligned(pdev_1_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_1_bound
+  * pre: !PaIsTracked(pdev_1_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_1_gran_state
+  * pre: GranuleAt(pdev_1_ptr).state != GRAN_PDEV
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_1_state
+  * pre: pdev_1.state != PDEV_READY
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_1_op
+  * pre: pdev_1.op != PDEV_OP_NONE
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_1_comm_state
+  * pre: pdev_1.comm_state != DEV_COMM_IDLE
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_2_align
+  * pre: (PdevStreamPdev2Required(stream.stream_type) && !AddrIsRmiGranuleAligned(pdev_2_ptr))
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_2_bound
+  * pre: (PdevStreamPdev2Required(stream.stream_type) && !PaIsTracked(pdev_2_ptr))
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_2_gran_state
+  * pre: (PdevStreamPdev2Required(stream.stream_type) && GranuleAt(pdev_2_ptr).state != GRAN_PDEV)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_2_state
+  * pre: (PdevStreamPdev2Required(stream.stream_type) && pdev_2.state != PDEV_READY)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_2_op
+  * pre: (PdevStreamPdev2Required(stream.stream_type) && pdev_2.op != PDEV_OP_NONE)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_2_comm_state
+  * pre: (PdevStreamPdev2Required(stream.stream_type) && pdev_2.comm_state != DEV_COMM_IDLE)
+  * post: result.status == RMI_ERROR_INPUT
 
 ## B4.5.36.2.1 Failure condition ordering
 
@@ -58,16 +91,18 @@ The RMI\_PDEV\_STREAM\_KEY\_PURGE command does not have any failure condition or
 
 ## B4.5.36.3 Success conditions
 
-| ID                | Condition                                                                             |
-|-------------------|---------------------------------------------------------------------------------------|
-| state             | post: stream.state == PDEV_STREAM_KEY_PURGING                                         |
-| pdev_1_op         | post: pdev_1.op == PDEV_OP_KEY_PURGE                                                  |
-| pdev_1_comm_state | post: pdev_1.comm_state == DEV_COMM_PENDING                                           |
-| pdev_2_op         | pre: PdevStreamPdev2Required(stream.stream_type) post: pdev_2.op == PDEV_OP_KEY_PURGE |
-
-| ID                | Condition                                                                                    |
-|-------------------|----------------------------------------------------------------------------------------------|
-| pdev_2_comm_state | pre: PdevStreamPdev2Required(stream.stream_type) post: pdev_2.comm_state == DEV_COMM_PENDING |
+* state
+  * post: stream.state == PDEV_STREAM_KEY_PURGING
+* pdev_1_op
+  * post: pdev_1.op == PDEV_OP_KEY_PURGE
+* pdev_1_comm_state
+  * post: pdev_1.comm_state == DEV_COMM_PENDING
+* pdev_2_op
+  * pre: PdevStreamPdev2Required(stream.stream_type)
+  * post: pdev_2.op == PDEV_OP_KEY_PURGE
+* pdev_2_comm_state
+  * pre: PdevStreamPdev2Required(stream.stream_type)
+  * post: pdev_2.comm_state == DEV_COMM_PENDING
 
 ## B4.5.36.4 Footprint
 

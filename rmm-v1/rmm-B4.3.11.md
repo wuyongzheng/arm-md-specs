@@ -27,11 +27,15 @@ See also:
 
 ## B4.3.11.2 Failure conditions
 
-| ID       | Condition                                                                 |
-|----------|---------------------------------------------------------------------------|
-| rd_align | pre: !AddrIsGranuleAligned(rd) post: ResultEqual(result, RMI_ERROR_INPUT) |
-| rd_bound | pre: !PaIsDelegable(rd) post: ResultEqual(result, RMI_ERROR_INPUT)        |
-| rd_state | pre: Granule(rd).state != RD post: ResultEqual(result, RMI_ERROR_INPUT)   |
+* rd_align
+  * pre: !AddrIsGranuleAligned(rd)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_bound
+  * pre: !PaIsDelegable(rd)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_state
+  * pre: Granule(rd).state != RD
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
 
 ## B4.3.11.2.1 Failure condition ordering
 
@@ -39,9 +43,8 @@ The RMI\_REC\_AUX\_COUNT command does not have any failure condition orderings.
 
 ## B4.3.11.3 Success conditions
 
-| ID        | Condition                    |
-|-----------|------------------------------|
-| aux_count | aux_count == RecAuxCount(rd) |
+* aux_count
+  * aux_count == RecAuxCount(rd)
 
 ## B4.3.11.4 Footprint
 

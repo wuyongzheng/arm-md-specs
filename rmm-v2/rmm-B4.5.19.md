@@ -38,10 +38,12 @@ The following unused bits of RMI\_GRANULE\_TRACKING\_GET output values MBZ: X1[6
 
 ## B4.5.19.2 Failure conditions
 
-| ID         | Condition                                                                      |
-|------------|--------------------------------------------------------------------------------|
-| addr_align | pre: !AddrIsTrackingRegionAligned(addr) post: result.status == RMI_ERROR_INPUT |
-| addr_bound | pre: UInt(addr) > rmm.static.pasz post: result.status == RMI_ERROR_INPUT       |
+* addr_align
+  * pre: !AddrIsTrackingRegionAligned(addr)
+  * post: result.status == RMI_ERROR_INPUT
+* addr_bound
+  * pre: UInt(addr) > rmm.static.pasz
+  * post: result.status == RMI_ERROR_INPUT
 
 ## B4.5.19.2.1 Failure condition ordering
 
@@ -49,10 +51,10 @@ The RMI\_GRANULE\_TRACKING\_GET command does not have any failure condition orde
 
 ## B4.5.19.3 Success conditions
 
-| ID       | Condition                              |
-|----------|----------------------------------------|
-| state    | post: Equal(state, region.state)       |
-| category | post: Equal(category, region.category) |
+* state
+  * post: Equal(state, region.state)
+* category
+  * post: Equal(category, region.category)
 
 ## B4.5.19.4 Footprint
 

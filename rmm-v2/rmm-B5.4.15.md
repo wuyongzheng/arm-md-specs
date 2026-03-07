@@ -42,12 +42,12 @@ The RSI\_PLANE\_SYSREG\_WRITE command operates on the following context.
 
 ## B5.4.15.2 Failure conditions
 
-| ID           | Condition                                                                    |
-|--------------|------------------------------------------------------------------------------|
-| idx_bound    | pre: plane_idx > realm.num_aux_planes post: result == RSI_ERROR_INPUT        |
-| sysreg_valid | pre: !PlaneSysregValid(rec, addr, RMM_WRITE) post: result == RSI_ERROR_INPUT |
-
-ID
+* idx_bound
+  * pre: plane_idx > realm.num_aux_planes
+  * post: result == RSI_ERROR_INPUT
+* sysreg_valid
+  * pre: !PlaneSysregValid(rec, addr, RMM_WRITE)
+  * post: result == RSI_ERROR_INPUT
 
 ## B5.4.15.2.1 Failure condition ordering
 
@@ -55,11 +55,11 @@ The RSI\_PLANE\_SYSREG\_WRITE command does not have any failure condition orderi
 
 ## B5.4.15.3 Success conditions
 
-## Condition
-
-```
-value_low post: PlaneSysregValue(rec, plane_idx, addr)[63:0] == value_low value_high pre: addr.d128 == RSI_TRUE post: PlaneSysregValue(rec, plane_idx, addr)[127:64] == value_high
-```
+* value_low
+  * post: PlaneSysregValue(rec, plane_idx, addr)[63:0] == value_low
+* value_high
+  * pre: addr.d128 == RSI_TRUE
+  * post: PlaneSysregValue(rec, plane_idx, addr)[127:64] == value_high
 
 ## B5.4.15.4 Footprint
 

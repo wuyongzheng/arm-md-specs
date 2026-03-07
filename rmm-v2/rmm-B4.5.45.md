@@ -33,13 +33,17 @@ The RMI\_REALM\_ACTIVATE command operates on the following context.
 
 ## B4.5.45.2 Failure conditions
 
-## ID Condition
-
-| rd_align    | pre:       | !AddrIsRmiGranuleAligned(rd)                                    |
-|-------------|------------|-----------------------------------------------------------------|
-| rd_bound    | pre: post: | !PaIsTracked(rd) result.status == RMI_ERROR_INPUT               |
-| rd_state    | pre: post: | GranuleAt(rd).state != GRAN_RD result.status == RMI_ERROR_INPUT |
-| realm_state | pre: post: | realm.state != REALM_NEW result.status == RMI_ERROR_REALM       |
+* rd_align
+  * pre: !AddrIsRmiGranuleAligned(rd)
+* rd_bound
+  * pre: !PaIsTracked(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_state
+  * pre: GranuleAt(rd).state != GRAN_RD
+  * post: result.status == RMI_ERROR_INPUT
+* realm_state
+  * pre: realm.state != REALM_NEW
+  * post: result.status == RMI_ERROR_REALM
 
 ## B4.5.45.2.1 Failure condition ordering
 
@@ -49,10 +53,8 @@ The RMI\_REALM\_ACTIVATE command operates on the following context.
 
 ## B4.5.45.3 Success conditions
 
-| ID          | Condition                         |
-|-------------|-----------------------------------|
-| realm_state | post: realm.state == REALM_ACTIVE |
-|             | Footprint                         |
-| ID          | Value                             |
-| realm_state | realm.state                       |
+* realm_state
+  * post: realm.state == REALM_ACTIVE
+* realm_state
+  * realm.state
 

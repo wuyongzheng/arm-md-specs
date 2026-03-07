@@ -46,13 +46,12 @@ The status code and lower revision output values indicate which of the following
 
 ## B5.4.22.2 Failure conditions
 
-ID
-
-## Condition
-
-```
-incompat_lower pre: (!RsiVersionIsSupported(req) && RsiVersionLowerIsSupported(req)) post: (result == RSI_ERROR_INPUT && VersionEqual(lower, RsiVersionHighestBelow(req)) && VersionEqual(higher, RsiVersionHighest())) incompat_higher pre: (!RsiVersionIsSupported(req) && !RsiVersionLowerIsSupported(req) && RsiVersionHigherIsSupported(req)) post: (result == RSI_ERROR_INPUT && VersionEqual(lower, higher) && VersionEqual(higher, RsiVersionHighest()))
-```
+* incompat_lower
+  * pre: (!RsiVersionIsSupported(req) && RsiVersionLowerIsSupported(req))
+  * post: (result == RSI_ERROR_INPUT && VersionEqual(lower, RsiVersionHighestBelow(req)) && VersionEqual(higher, RsiVersionHighest()))
+* incompat_higher
+  * pre: (!RsiVersionIsSupported(req) && !RsiVersionLowerIsSupported(req) && RsiVersionHigherIsSupported(req))
+  * post: (result == RSI_ERROR_INPUT && VersionEqual(lower, higher) && VersionEqual(higher, RsiVersionHighest()))
 
 ## B5.4.22.2.1 Failure condition ordering
 
@@ -60,4 +59,11 @@ The RSI\_VERSION command does not have any failure condition orderings.
 
 ## B5.4.22.3 Success conditions
 
-ID Condition lower post: VersionEqual(lower, req) higher post: VersionEqual(higher, RsiVersionHighest()) B5.4.22.4 Footprint The RSI\_VERSION command does not have any footprint.
+* lower
+  * post: VersionEqual(lower, req)
+* higher
+  * post: VersionEqual(higher, RsiVersionHighest())
+
+## B5.4.22.4 Footprint
+
+The RSI\_VERSION command does not have any footprint.

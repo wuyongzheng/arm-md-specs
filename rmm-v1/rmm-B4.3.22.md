@@ -50,16 +50,30 @@ The values of the result and top output values for different command outcomes ar
 
 ## B4.3.22.2 Failure conditions
 
-| ID          | Condition                                                                                                                             |
-|-------------|---------------------------------------------------------------------------------------------------------------------------------------|
-| rd_align    | pre: !AddrIsGranuleAligned(rd) post: ResultEqual(result, RMI_ERROR_INPUT)                                                             |
-| rd_bound    | pre: !PaIsDelegable(rd) post: ResultEqual(result, RMI_ERROR_INPUT)                                                                    |
-| rd_state    | pre: Granule(rd).state != RD post: ResultEqual(result, RMI_ERROR_INPUT)                                                               |
-| level_bound | pre: !RttLevelIsBlockOrPage(rd, level) post: ResultEqual(result, RMI_ERROR_INPUT)                                                     |
-| ipa_align   | pre: !AddrIsRttLevelAligned(ipa, level) post: ResultEqual(result, RMI_ERROR_INPUT)                                                    |
-| ipa_bound   | pre: (UInt(ipa) >= (2 ^ Realm(rd).ipa_width) &#124;&#124; AddrIsProtected(ipa, Realm(rd))) post: ResultEqual(result, RMI_ERROR_INPUT) |
-| rtt_walk    | pre: walk.level < level post: (ResultEqual(result, RMI_ERROR_RTT, walk.level) && (top == walk_top))                                   |
-| rtte_state  | pre: walk.rtte.state != ASSIGNED_NS post: (ResultEqual(result, RMI_ERROR_RTT, walk.level) && (top == walk_top))                       |
+* rd_align
+  * pre: !AddrIsGranuleAligned(rd)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_bound
+  * pre: !PaIsDelegable(rd)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_state
+  * pre: Granule(rd).state != RD
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* level_bound
+  * pre: !RttLevelIsBlockOrPage(rd, level)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* ipa_align
+  * pre: !AddrIsRttLevelAligned(ipa, level)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* ipa_bound
+  * pre: (UInt(ipa) >= (2 ^ Realm(rd).ipa_width) || AddrIsProtected(ipa, Realm(rd)))
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rtt_walk
+  * pre: walk.level < level
+  * post: (ResultEqual(result, RMI_ERROR_RTT, walk.level) && (top == walk_top))
+* rtte_state
+  * pre: walk.rtte.state != ASSIGNED_NS
+  * post: (ResultEqual(result, RMI_ERROR_RTT, walk.level) && (top == walk_top))
 
 ## B4.3.22.2.1 Failure condition ordering
 
@@ -71,10 +85,10 @@ The values of the result and top output values for different command outcomes ar
 
 ## B4.3.22.3 Success conditions
 
-| ID         | Condition                        |
-|------------|----------------------------------|
-| rtte_state | walk.rtte.state == UNASSIGNED_NS |
-| top        | top == walk_top                  |
+* rtte_state
+  * walk.rtte.state == UNASSIGNED_NS
+* top
+  * top == walk_top
 
 ## B4.3.22.4 Footprint
 

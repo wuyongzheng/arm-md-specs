@@ -26,9 +26,8 @@ The PSCI\_VERSION command does not have any failure conditions.
 
 ## B6.3.8.3 Success conditions
 
-| ID      | Condition                                 |
-|---------|-------------------------------------------|
-| version | post: VersionEqual(result, PsciVersion()) |
+* version
+  * post: VersionEqual(result, PsciVersion())
 
 ## B6.3.8.4 Footprint
 

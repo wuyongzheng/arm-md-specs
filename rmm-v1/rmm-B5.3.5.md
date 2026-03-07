@@ -49,12 +49,18 @@ See also:
 
 ## B5.3.5.2 Failure conditions
 
-| ID         | Condition                                                                    |
-|------------|------------------------------------------------------------------------------|
-| base_align | pre: !AddrIsGranuleAligned(base) post: result == RSI_ERROR_INPUT             |
-| end_align  | pre: !AddrIsGranuleAligned(top) post: result == RSI_ERROR_INPUT              |
-| size_valid | pre: UInt(top) <= UInt(base) post: result == RSI_ERROR_INPUT                 |
-| rgn_bound  | pre: !AddrRangeIsProtected(base, top, realm) post: result == RSI_ERROR_INPUT |
+* base_align
+  * pre: !AddrIsGranuleAligned(base)
+  * post: result == RSI_ERROR_INPUT
+* end_align
+  * pre: !AddrIsGranuleAligned(top)
+  * post: result == RSI_ERROR_INPUT
+* size_valid
+  * pre: UInt(top) <= UInt(base)
+  * post: result == RSI_ERROR_INPUT
+* rgn_bound
+  * pre: !AddrRangeIsProtected(base, top, realm)
+  * post: result == RSI_ERROR_INPUT
 
 ## B5.3.5.2.1 Failure condition ordering
 

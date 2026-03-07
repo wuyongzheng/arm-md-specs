@@ -34,9 +34,9 @@ The RMI\_FEATURES command does not have any failure conditions.
 
 ## B4.3.4.3 Success conditions
 
-| ID    | Condition                              |
-|-------|----------------------------------------|
-| index | pre: index != 0 post: value == Zeros() |
+* index
+  * pre: index != 0
+  * post: value == Zeros()
 
 ## B4.3.4.4 Footprint
 

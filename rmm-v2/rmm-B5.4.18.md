@@ -36,22 +36,21 @@ The RSI\_VDEV\_DMA\_ENABLE command operates on the following context.
 
 ## B5.4.18.2 Failure conditions
 
-| ID      | Condition                                                          |
-|---------|--------------------------------------------------------------------|
-| da_en   | pre: realm.feat_da != FEATURE_TRUE post: result == RSI_ERROR_STATE |
-| vdev_id | pre: VdevIdIsFree(realm, vdev_id) post: result == RSI_ERROR_INPUT  |
-
-## ID
-
-## Condition
-
-```
-non_ats_plane pre: (non_ats_plane == 0 || non_ats_plane > post: result == RSI_ERROR_INPUT attest_info pre: !VdevAttestInfoEqual( lock_nonce, meas_nonce, report_nonce, vdev.attest_info) post: result == RSI_ERROR_DEVICE vdev_state pre: vdev.vdev_state != VDEV_STARTED post: result == RSI_ERROR_DEVICE
-```
-
-```
-realm.num_aux_planes)
-```
+* da_en
+  * pre: realm.feat_da != FEATURE_TRUE
+  * post: result == RSI_ERROR_STATE
+* vdev_id
+  * pre: VdevIdIsFree(realm, vdev_id)
+  * post: result == RSI_ERROR_INPUT
+* non_ats_plane
+  * pre: (non_ats_plane == 0 || non_ats_plane >
+  * post: result == RSI_ERROR_INPUT
+* attest_info
+  * pre: !VdevAttestInfoEqual( lock_nonce, meas_nonce, report_nonce, vdev.attest_info)
+  * post: result == RSI_ERROR_DEVICE
+* vdev_state
+  * pre: vdev.vdev_state != VDEV_STARTED
+  * post: result == RSI_ERROR_DEVICE realm.num_aux_planes)
 
 ## B5.4.18.2.1 Failure condition ordering
 
@@ -61,9 +60,10 @@ realm.num_aux_planes)
 
 ## B5.4.18.3 Success conditions
 
-```
-ID Condition dma_state post: vdev.dma_state == VDEV_DMA_ENABLED non_ats_plane post: vdev.non_ats_plane == non_ats_plane
-```
+* dma_state
+  * post: vdev.dma_state == VDEV_DMA_ENABLED
+* non_ats_plane
+  * post: vdev.non_ats_plane == non_ats_plane
 
 ## B5.4.18.4 Footprint
 

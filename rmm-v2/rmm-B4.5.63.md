@@ -47,11 +47,36 @@ ID
 
 ## B4.5.63.2 Failure conditions
 
-Condition
-
-```
-rd_align pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPUT rd_bound pre: !PaIsTracked(rd) post: result.status == RMI_ERROR_INPUT rd_state pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_INPUT base_align pre: !AddrIsAligned( base, RttLevelSize(walk_pri.level)) post: result.status == RMI_ERROR_INPUT top_align pre: !AddrIsRmiGranuleAligned(top) post: result.status == RMI_ERROR_INPUT size_valid pre: UInt(top) <= UInt(base) post: result.status == RMI_ERROR_INPUT ipa_bound pre: AddrIsProtected(base, realm) post: result.status == RMI_ERROR_INPUT index_bound pre: (realm.rtt_tree_per_plane == FEATURE_FALSE || flags.tree_index == RMM_RTT_TREE_PRIMARY || flags.tree_index > realm.num_aux_planes) post: result.status == RMI_ERROR_INPUT aux_state pre: walk_aux.rtte.state != RTTE_MAPPED_NS post: (result.status == RMI_ERROR_RTT_AUX && result.data.level.level == walk_aux.level) aux_size pre: (walk_aux.rtte.state == RTTE_UNMAPPED_NS && RttLevelSize(walk_aux.level) > size) post: (result.status == RMI_ERROR_RTT_AUX && result.data.level.level == walk_aux.level)
-```
+* rd_align
+  * pre: !AddrIsRmiGranuleAligned(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_bound
+  * pre: !PaIsTracked(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_state
+  * pre: GranuleAt(rd).state != GRAN_RD
+  * post: result.status == RMI_ERROR_INPUT
+* base_align
+  * pre: !AddrIsAligned( base, RttLevelSize(walk_pri.level))
+  * post: result.status == RMI_ERROR_INPUT
+* top_align
+  * pre: !AddrIsRmiGranuleAligned(top)
+  * post: result.status == RMI_ERROR_INPUT
+* size_valid
+  * pre: UInt(top) <= UInt(base)
+  * post: result.status == RMI_ERROR_INPUT
+* ipa_bound
+  * pre: AddrIsProtected(base, realm)
+  * post: result.status == RMI_ERROR_INPUT
+* index_bound
+  * pre: (realm.rtt_tree_per_plane == FEATURE_FALSE || flags.tree_index == RMM_RTT_TREE_PRIMARY || flags.tree_index > realm.num_aux_planes)
+  * post: result.status == RMI_ERROR_INPUT
+* aux_state
+  * pre: walk_aux.rtte.state != RTTE_MAPPED_NS
+  * post: (result.status == RMI_ERROR_RTT_AUX && result.data.level.level == walk_aux.level)
+* aux_size
+  * pre: (walk_aux.rtte.state == RTTE_UNMAPPED_NS && RttLevelSize(walk_aux.level) > size)
+  * post: (result.status == RMI_ERROR_RTT_AUX && result.data.level.level == walk_aux.level)
 
 ## B4.5.63.2.1 Failure condition ordering
 
@@ -59,15 +84,10 @@ The RMI\_RTT\_AUX\_UNPROT\_UNMAP command does not have any failure condition ord
 
 ## B4.5.63.3 Success conditions
 
-```
-ID Condition RTTE_UNMAPPED_NS)
-```
-
-```
-state post: RttTreeRangeAllState( realm, flags.tree_index, base, out_top, result post: result.status == RMI_SUCCESS
-```
-
-Chapter B4. Realm Management Interface B4.5. RMI commands
+* state
+  * post: RttTreeRangeAllState( realm, flags.tree_index, base, out_top,
+* result
+  * post: result.status == RMI_SUCCESS Chapter B4. Realm Management Interface B4.5. RMI commands
 
 ## B4.5.63.4 Footprint
 

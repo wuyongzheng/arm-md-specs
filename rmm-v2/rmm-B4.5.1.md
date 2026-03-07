@@ -30,16 +30,14 @@ The RMI\_ATTEST\_PLAT\_TOKEN\_REFRESH command operates on the following context.
 
 ## B4.5.1.2 Failure conditions
 
-
-| ID        | Condition                                                                          |
-|-----------|------------------------------------------------------------------------------------|
-| rmm_state | pre: rmm.dynamic.state != RMM_STATE_ACTIVE post: result.status == RMI_ERROR_GLOBAL |
+* rmm_state
+  * pre: rmm.dynamic.state != RMM_STATE_ACTIVE
+  * post: result.status == RMI_ERROR_GLOBAL
 
 ## B4.5.1.3 Success conditions
 
-| ID        | Condition                               |
-|-----------|-----------------------------------------|
-| pat_valid | post: rmm.dynamic.pat_valid == RMM_TRUE |
+* pat_valid
+  * post: rmm.dynamic.pat_valid == RMM_TRUE
 
 ## B4.5.1.4 Footprint
 

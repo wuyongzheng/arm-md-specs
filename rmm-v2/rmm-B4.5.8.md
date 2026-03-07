@@ -34,22 +34,27 @@ The RMI\_CMEM\_STOP command operates on the following context.
 
 ## B4.5.8.2 Failure conditions
 
-| ID              | Condition                                                                                      |
-|-----------------|------------------------------------------------------------------------------------------------|
-| feat            | pre: Rmm().static.feat_cmem_cxl != FEATURE_TRUE post: result.status == RMI_ERROR_NOT_SUPPORTED |
-| live            | pre: rmm.dynamic.num_realms != 0 post: result.status == RMI_ERROR_GLOBAL                       |
-| cmem_align      | pre: !AddrIsRmiGranuleAligned(cmem_ptr) post: result.status == RMI_ERROR_INPUT                 |
-| cmem_bound      | pre: !PaIsTracked(cmem_ptr) post: result.status == RMI_ERROR_INPUT                             |
-| cmem_gran_state | pre: GranuleAt(cmem_ptr).state != GRAN_CMEM post: result.status == RMI_ERROR_INPUT             |
-| cmem_state      | pre: cmem.state != CMEM_STARTED post: result.status == RMI_ERROR_DEVICE                        |
-
-```
-ID Condition
-```
-
-```
-cmem_pop pre: !PaRangeIsUnpopulated( cmem.addr_range.base, cmem.addr_range.top) post: result.status == RMI_ERROR_DEVICE
-```
+* feat
+  * pre: Rmm().static.feat_cmem_cxl != FEATURE_TRUE
+  * post: result.status == RMI_ERROR_NOT_SUPPORTED
+* live
+  * pre: rmm.dynamic.num_realms != 0
+  * post: result.status == RMI_ERROR_GLOBAL
+* cmem_align
+  * pre: !AddrIsRmiGranuleAligned(cmem_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* cmem_bound
+  * pre: !PaIsTracked(cmem_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* cmem_gran_state
+  * pre: GranuleAt(cmem_ptr).state != GRAN_CMEM
+  * post: result.status == RMI_ERROR_INPUT
+* cmem_state
+  * pre: cmem.state != CMEM_STARTED
+  * post: result.status == RMI_ERROR_DEVICE
+* cmem_pop
+  * pre: !PaRangeIsUnpopulated( cmem.addr_range.base, cmem.addr_range.top)
+  * post: result.status == RMI_ERROR_DEVICE
 
 ## B4.5.8.2.1 Failure condition ordering
 
@@ -61,11 +66,9 @@ cmem_pop pre: !PaRangeIsUnpopulated( cmem.addr_range.base, cmem.addr_range.top) 
 
 ## B4.5.8.3 Success conditions
 
-## Condition
 
-```
+
 post: cmem.state == CMEM_STOPPED post: rmm.dynamic.pat_valid == RMM_FALSE
-```
 
 ## B4.5.8.4 Footprint
 

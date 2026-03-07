@@ -40,21 +40,43 @@ The RSI\_ATTESTATION\_TOKEN\_CONTINUE command operates on the following context.
 
 ## B5.4.2.2 Failure conditions
 
-## ID
+* addr_align
+  * pre: !AddrIsRsiGranuleAligned(addr)
+  * post: result == RSI_ERROR_INPUT
+* addr_bound
+  * pre: !AddrIsProtected(addr, realm)
+  * post: result == RSI_ERROR_INPUT
+* addr_empty
+  * pre: walk.rtte.ripas == RIPAS_EMPTY
+  * post: result == RSI_ERROR_INPUT
+* offset_bound
+  * pre: offset >= RSI_GRANULE_SIZE
+  * post: result == RSI_ERROR_INPUT
+* size_overflow
+  * pre: offset + size <
+* offset
+  * post: result == RSI_ERROR_INPUT
+* size_bound
+  * pre: offset + size > RSI_GRANULE_SIZE
+  * post: result == RSI_ERROR_INPUT
+* state
+  * pre: rec.attest_state != ATTEST_IN_PROGRESS
+  * post: result == RSI_ERROR_STATE
+* unknown
+  * pre: Token generation failed for an unknown or IMPDEF reason.
+  * post: result == RSI_ERROR_UNKNOWN The RSI_ATTESTATION_TOKEN_CONTINUE command does not have any failure condition orderings.
+* len
+  * post: len == AttestationTokenWrite(addr, offset, size)
+* incomplete
+  * pre: Token generation is not complete.
+  * post: result == RSI_INCOMPLETE
+* complete
+  * pre: Token generation is complete.
+  * post: rec.attest_state == NO_ATTEST_IN_PROGRESS
 
-## Condition
+## B5.4.2.2.1 Failure condition ordering
+## B5.4.2.3 Success conditions
 
-```
-addr_align pre: !AddrIsRsiGranuleAligned(addr) post: result == RSI_ERROR_INPUT addr_bound pre: !AddrIsProtected(addr, realm) post: result == RSI_ERROR_INPUT addr_empty pre: walk.rtte.ripas == RIPAS_EMPTY post: result == RSI_ERROR_INPUT offset_bound pre: offset >= RSI_GRANULE_SIZE post: result == RSI_ERROR_INPUT size_overflow pre: offset + size < offset post: result == RSI_ERROR_INPUT size_bound pre: offset + size > RSI_GRANULE_SIZE post: result == RSI_ERROR_INPUT state pre: rec.attest_state != ATTEST_IN_PROGRESS post: result == RSI_ERROR_STATE unknown pre: Token generation failed for an unknown or IMPDEF reason. post: result == RSI_ERROR_UNKNOWN
-```
-
-The RSI\_ATTESTATION\_TOKEN\_CONTINUE command does not have any failure condition orderings.
-
-```
-len post: len == AttestationTokenWrite(addr, offset, size) incomplete pre: Token generation is not complete. post: result == RSI_INCOMPLETE complete pre: Token generation is complete. post: rec.attest_state == NO_ATTEST_IN_PROGRESS
-```
-
-## B5.4.2.2.1 Failure condition ordering B5.4.2.3 Success conditions ID Condition
 
 ## B5.4.2.4 Footprint
 

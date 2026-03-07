@@ -42,10 +42,12 @@ The RSI\_PLANE\_SYSREG\_READ command operates on the following context.
 
 ## B5.4.14.2 Failure conditions
 
-| ID           | Condition                                                                   |
-|--------------|-----------------------------------------------------------------------------|
-| idx_bound    | pre: plane_idx > realm.num_aux_planes post: result == RSI_ERROR_INPUT       |
-| sysreg_valid | pre: !PlaneSysregValid(rec, addr, RMM_READ) post: result == RSI_ERROR_INPUT |
+* idx_bound
+  * pre: plane_idx > realm.num_aux_planes
+  * post: result == RSI_ERROR_INPUT
+* sysreg_valid
+  * pre: !PlaneSysregValid(rec, addr, RMM_READ)
+  * post: result == RSI_ERROR_INPUT
 
 ## B5.4.14.2.1 Failure condition ordering
 
@@ -53,9 +55,12 @@ The RSI\_PLANE\_SYSREG\_READ command does not have any failure condition orderin
 
 ## B5.4.14.3 Success conditions
 
-```
-ID Condition value_64 pre: addr.d128 == RSI_FALSE post: (Zeros{64}() :: value_low) == PlaneSysregValue(rec, plane_idx, addr) value_128 pre: addr.d128 == RSI_TRUE post: (value_high :: value_low) == PlaneSysregValue(rec, plane_idx, addr)
-```
+* value_64
+  * pre: addr.d128 == RSI_FALSE
+  * post: (Zeros{64}() :: value_low) == PlaneSysregValue(rec, plane_idx, addr)
+* value_128
+  * pre: addr.d128 == RSI_TRUE
+  * post: (value_high :: value_low) == PlaneSysregValue(rec, plane_idx, addr)
 
 ## B5.4.14.4 Footprint
 

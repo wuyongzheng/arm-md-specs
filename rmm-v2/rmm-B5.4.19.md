@@ -44,14 +44,21 @@ The RSI\_VDEV\_GET\_INFO command operates on the following context.
 
 ## B5.4.19.2 Failure conditions
 
-## Condition
-
-| da_en      | pre: post:   | realm.feat_da != FEATURE_TRUE result == RSI_ERROR_STATE   |
-|------------|--------------|-----------------------------------------------------------|
-| vdev_id    | pre: post:   | VdevIdIsFree(realm, vdev_id) result == RSI_ERROR_INPUT    |
-| addr_align | pre: post:   | !AddrIsAligned(addr, 512) result == RSI_ERROR_INPUT       |
-| addr_bound | pre: post:   | !AddrIsProtected(addr, realm) result == RSI_ERROR_INPUT   |
-| addr_empty | pre: post:   | walk.rtte.ripas == RIPAS_EMPTY result == RSI_ERROR_INPUT  |
+* da_en
+  * pre: realm.feat_da != FEATURE_TRUE
+  * post: result == RSI_ERROR_STATE
+* vdev_id
+  * pre: VdevIdIsFree(realm, vdev_id)
+  * post: result == RSI_ERROR_INPUT
+* addr_align
+  * pre: !AddrIsAligned(addr, 512)
+  * post: result == RSI_ERROR_INPUT
+* addr_bound
+  * pre: !AddrIsProtected(addr, realm)
+  * post: result == RSI_ERROR_INPUT
+* addr_empty
+  * pre: walk.rtte.ripas == RIPAS_EMPTY
+  * post: result == RSI_ERROR_INPUT
 
 ## B5.4.19.2.1 Failure condition ordering
 
@@ -64,18 +71,22 @@ The RSI\_VDEV\_GET\_INFO command operates on the following context.
 
 ## B5.4.19.3 Success conditions
 
-## Condition
-
-## ID
-
-```
-hash_algo post: Equal(cfg.hash_algo, pdev.hash_algo) p2p_enabled post: Equal(cfg.flags.p2p_enabled, pdev.p2p_enabled) p2p_bound post: Equal(cfg.flags.p2p_bound, vdev.p2p_bound) attest_info post: VdevAttestInfoEqual( cfg.lock_nonce, cfg.meas_nonce, cfg.report_nonce, vdev.attest_info) negotiation_data_digest post: cfg.negotiation_data_digest == pdev.negotiation_data_digest meas_digest post: cfg.meas_digest == vdev.meas_digest
-```
-
-| ID            | Condition                                          |
-|---------------|----------------------------------------------------|
-| report_digest | post: cfg.report_digest == vdev.report_digest      |
-| state         | post: cfg.state == VdevStateToRsi(vdev.vdev_state) |
+* report_digest
+  * post: cfg.report_digest == vdev.report_digest
+* state
+  * post: cfg.state == VdevStateToRsi(vdev.vdev_state)
+* hash_algo
+  * post: Equal(cfg.hash_algo, pdev.hash_algo)
+* p2p_enabled
+  * post: Equal(cfg.flags.p2p_enabled, pdev.p2p_enabled)
+* p2p_bound
+  * post: Equal(cfg.flags.p2p_bound, vdev.p2p_bound)
+* attest_info
+  * post: VdevAttestInfoEqual( cfg.lock_nonce, cfg.meas_nonce, cfg.report_nonce, vdev.attest_info)
+* negotiation_data_digest
+  * post: cfg.negotiation_data_digest == pdev.negotiation_data_digest
+* meas_digest
+  * post: cfg.meas_digest == vdev.meas_digest
 
 ## B5.4.19.4 Footprint
 

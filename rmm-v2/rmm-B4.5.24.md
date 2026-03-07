@@ -26,12 +26,15 @@ See also:
 
 ## B4.5.24.2 Failure conditions
 
-| ID         | Condition                                                                        |
-|------------|----------------------------------------------------------------------------------|
-| complete   | pre: !OperationIncomplete(handle) post: result.status == RMI_ERROR_INPUT         |
-| list_align | pre: !AddrIsAligned(list_addr, 8) post: result.status == RMI_ERROR_INPUT         |
-| list_pas   | pre: !NonSecureAccessPermitted(list_addr) post: result.status == RMI_ERROR_INPUT |
-
+* complete
+  * pre: !OperationIncomplete(handle)
+  * post: result.status == RMI_ERROR_INPUT
+* list_align
+  * pre: !AddrIsAligned(list_addr, 8)
+  * post: result.status == RMI_ERROR_INPUT
+* list_pas
+  * pre: !NonSecureAccessPermitted(list_addr)
+  * post: result.status == RMI_ERROR_INPUT
 
 ## B4.5.24.2.1 Failure condition ordering
 
@@ -39,9 +42,8 @@ The RMI\_OP\_MEM\_RECLAIM command does not have any failure condition orderings.
 
 ## B4.5.24.3 Success conditions
 
-| ID         | Condition                                                                                                         |
-|------------|-------------------------------------------------------------------------------------------------------------------|
-| gran_state | post: State of Granules described by first list_count entries in RMI Address List is the state prior to donation. |
+* gran_state
+  * post: State of Granules described by first list_count entries in RMI Address List is the state prior to donation.
 
 ## B4.5.24.4 Footprint
 

@@ -32,14 +32,24 @@ The RMI\_PDEV\_STOP command operates on the following context.
 
 ## B4.5.32.2 Failure conditions
 
-| ID              | Condition                                                                                |
-|-----------------|------------------------------------------------------------------------------------------|
-| feat            | pre: Rmm().static.feat_da != FEATURE_TRUE post: result.status == RMI_ERROR_NOT_SUPPORTED |
-| pdev_align      | pre: !AddrIsRmiGranuleAligned(pdev_ptr) post: result.status == RMI_ERROR_INPUT           |
-| pdev_bound      | pre: !PaIsTracked(pdev_ptr) post: result.status == RMI_ERROR_INPUT                       |
-| pdev_gran_state | pre: GranuleAt(pdev_ptr).state != GRAN_PDEV post: result.status == RMI_ERROR_INPUT       |
-| comm_state      | pre: pdev.comm_state != DEV_COMM_IDLE post: result.status == RMI_ERROR_DEVICE            |
-| num_vdevs       | pre: pdev.num_vdevs != 0 post: result.status == RMI_ERROR_DEVICE                         |
+* feat
+  * pre: Rmm().static.feat_da != FEATURE_TRUE
+  * post: result.status == RMI_ERROR_NOT_SUPPORTED
+* pdev_align
+  * pre: !AddrIsRmiGranuleAligned(pdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_bound
+  * pre: !PaIsTracked(pdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_gran_state
+  * pre: GranuleAt(pdev_ptr).state != GRAN_PDEV
+  * post: result.status == RMI_ERROR_INPUT
+* comm_state
+  * pre: pdev.comm_state != DEV_COMM_IDLE
+  * post: result.status == RMI_ERROR_DEVICE
+* num_vdevs
+  * pre: pdev.num_vdevs != 0
+  * post: result.status == RMI_ERROR_DEVICE
 
 ## B4.5.32.2.1 Failure condition ordering
 
@@ -49,10 +59,10 @@ The RMI\_PDEV\_STOP command operates on the following context.
 
 ## B4.5.32.3 Success conditions
 
-| ID         | Condition                                 |
-|------------|-------------------------------------------|
-| op         | post: pdev.op == PDEV_OP_STOP             |
-| comm_state | post: pdev.comm_state == DEV_COMM_PENDING |
+* op
+  * post: pdev.op == PDEV_OP_STOP
+* comm_state
+  * post: pdev.comm_state == DEV_COMM_PENDING
 
 ## B4.5.32.4 Footprint
 

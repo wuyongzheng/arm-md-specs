@@ -37,146 +37,39 @@ The RMI\_REC\_ENTER command operates on the following context.
 
 ## B4.5.51.2 Failure conditions
 
-| ID        | Condition                                                                      |
-|-----------|--------------------------------------------------------------------------------|
-| run_align | pre: !AddrIsRmiGranuleAligned(run_ptr) post: result.status == RMI_ERROR_INPUT  |
-| run_pas   | pre: !NonSecureAccessPermitted(run_ptr) post: result.status == RMI_ERROR_INPUT |
-| rec_align | pre: !AddrIsRmiGranuleAligned(rec_ptr) post: result.status == RMI_ERROR_INPUT  |
-| rec_bound | pre: !PaIsTracked(rec_ptr) post: result.status == RMI_ERROR_INPUT              |
-
-## ID
-
-## Condition
-
-rec\_gran\_state
-
-pre:
-
-GranuleAt(rec\_ptr).state
-
-!=
-
-GRAN\_REC
-
-post:
-
-result.status
-
-==
-
-RMI\_ERROR\_INPUT
-
-realm\_state
-
-pre:
-
-realm.state
-
-!=
-
-REALM\_ACTIVE
-
-post:
-
-result.status
-
-==
-
-RMI\_ERROR\_REALM
-
-rec\_state
-
-pre:
-
-rec.state
-
-==
-
-REC\_RUNNING
-
-post:
-
-result.status
-
-==
-
-RMI\_ERROR\_REC
-
-rec\_runnable
-
-pre:
-
-rec.flags.runnable
-
-==
-
-NOT\_RUNNABLE
-
-post:
-
-result.status
-
-==
-
-RMI\_ERROR\_REC
-
-rec\_mmio
-
-pre:
-
-(run.enter.flags.emul\_mmio
-
-==
-
-RMI\_EMULATED\_MMIO
-
-&amp;&amp;
-
-rec.emulatable\_abort
-
-!=
-
-EMULATABLE\_ABORT)
-
-post:
-
-result.status
-
-==
-
-RMI\_ERROR\_REC
-
-rec\_gicv3
-
-pre:
-
-!Gicv3ConfigIsValid()
-
-post:
-
-result.status
-
-==
-
-RMI\_ERROR\_REC
-
-rec\_pending
-
-pre:
-
-rec.pending
-
-==
-
-REC\_PENDING\_PSCI
-
-post:
-
-result.status
-
-==
-
-RMI\_ERROR\_REC
+* run_align
+  * pre: !AddrIsRmiGranuleAligned(run_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* run_pas
+  * pre: !NonSecureAccessPermitted(run_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* rec_align
+  * pre: !AddrIsRmiGranuleAligned(rec_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* rec_bound
+  * pre: !PaIsTracked(rec_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* rec_gran_state
+  * pre: GranuleAt(rec_ptr).state != GRAN_REC
+  * post: result.status == RMI_ERROR_INPUT
+* realm_state
+  * pre: realm.state != REALM_ACTIVE
+  * post: result.status == RMI_ERROR_REALM
+* rec_state
+  * pre: rec.state == REC_RUNNING
+  * post: result.status == RMI_ERROR_REC
+* rec_runnable
+  * pre: rec.flags.runnable == NOT_RUNNABLE
+  * post: result.status == RMI_ERROR_REC
+* rec_mmio
+  * pre: (run.enter.flags.emul_mmio == RMI_EMULATED_MMIO && rec.emulatable_abort != EMULATABLE_ABORT)
+  * post: result.status == RMI_ERROR_REC
+* rec_gicv3
+  * pre: !Gicv3ConfigIsValid()
+  * post: result.status == RMI_ERROR_REC
+* rec_pending
+  * pre: rec.pending == REC_PENDING_PSCI
+  * post: result.status == RMI_ERROR_REC
 
 ## B4.5.51.2.1 Failure condition ordering
 
@@ -187,17 +80,10 @@ RMI\_ERROR\_REC
 
 ## B4.5.51.3 Success conditions
 
-## ID
-
-## Condition
-
-rec\_exit
-
-post: run.exit contains Realm exit syndrome information.
-
-rec\_emul\_abt
-
-post: rec.emulatable\_abort is updated.
+* rec_exit
+  * post: run.exit contains Realm exit syndrome information.
+* rec_emul_abt
+  * post: rec.emulatable_abort is updated.
 
 ## B4.5.51.4 Footprint
 

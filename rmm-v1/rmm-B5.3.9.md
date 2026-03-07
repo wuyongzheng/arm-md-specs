@@ -28,10 +28,12 @@ The RSI\_REALM\_CONFIG command operates on the following context.
 
 ## B5.3.9.2 Failure conditions
 
-| ID         | Condition                                                          |
-|------------|--------------------------------------------------------------------|
-| addr_align | pre: !AddrIsGranuleAligned(addr) post: result == RSI_ERROR_INPUT   |
-| addr_bound | pre: !AddrIsProtected(addr, realm) post: result == RSI_ERROR_INPUT |
+* addr_align
+  * pre: !AddrIsGranuleAligned(addr)
+  * post: result == RSI_ERROR_INPUT
+* addr_bound
+  * pre: !AddrIsProtected(addr, realm)
+  * post: result == RSI_ERROR_INPUT
 
 ## B5.3.9.2.1 Failure condition ordering
 
@@ -39,10 +41,10 @@ The RSI\_REALM\_CONFIG command does not have any failure condition orderings.
 
 ## B5.3.9.3 Success conditions
 
-| ID        | Condition                             |
-|-----------|---------------------------------------|
-| ipa_width | cfg.ipa_width == realm.ipa_width      |
-| hash_algo | Equal(cfg.hash_algo, realm.hash_algo) |
+* ipa_width
+  * cfg.ipa_width == realm.ipa_width
+* hash_algo
+  * Equal(cfg.hash_algo, realm.hash_algo)
 
 ## B5.3.9.4 Footprint
 

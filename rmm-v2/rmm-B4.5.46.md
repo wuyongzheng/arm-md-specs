@@ -44,17 +44,52 @@ The RMI\_REALM\_CREATE command operates on the following context.
 
 ## B4.5.46.2 Failure conditions
 
-| ID        | Condition                                                                      |
-|-----------|--------------------------------------------------------------------------------|
-| pat_valid | pre: rmm.dynamic.pat_valid != RMM_TRUE post: result.status == RMI_ERROR_GLOBAL |
-
-## ID
-
-## Condition
-
-```
-params_align pre: !AddrIsRmiGranuleAligned(params_ptr) post: result.status == RMI_ERROR_INPUT params_pas pre: !NonSecureAccessPermitted(params_ptr) post: result.status == RMI_ERROR_INPUT params_valid pre: !RmiRealmParamsIsValid(params_ptr) post: result.status == RMI_ERROR_INPUT params_supp pre: !RealmParamsSupported(params) post: result.status == RMI_ERROR_INPUT alias pre: AddrInRange(rd, params.rtt_base, (params.rtt_num_start -1) * rmm.dynamic.rmi_granule_size) post: result.status == RMI_ERROR_INPUT rd_align pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPUT rd_bound pre: !PaIsDelegableConventionalFine(rd) post: result.status == RMI_ERROR_INPUT rd_state pre: GranuleAt(rd).state != GRAN_DELEGATED post: result.status == RMI_ERROR_INPUT rtt_align pre: !AddrIsAligned(params.rtt_base, params.rtt_num_start * rmm.dynamic.rmi_granule_size) post: result.status == RMI_ERROR_INPUT rtt_num_level pre: !RttConfigIsValid( params.s2sz, params.rtt_level_start, params.rtt_num_start) post: result.status == RMI_ERROR_INPUT rtt_state pre: !RttsStateEqual( params.rtt_base, params.rtt_num_start, GRAN_DELEGATED) post: result.status == RMI_ERROR_INPUT ats_plane pre: params.ats_plane > params.num_aux_planes post: result.status == RMI_ERROR_INPUT vmid pre: !VmidsAvailable(params.num_aux_planes + 1) post: result.status == RMI_ERROR_GLOBAL mec_policy pre: !MecidAvailable(params.flags0.mec_policy) post: result.status == RMI_ERROR_GLOBAL
-```
+* pat_valid
+  * pre: rmm.dynamic.pat_valid != RMM_TRUE
+  * post: result.status == RMI_ERROR_GLOBAL
+* params_align
+  * pre: !AddrIsRmiGranuleAligned(params_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* params_pas
+  * pre: !NonSecureAccessPermitted(params_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* params_valid
+  * pre: !RmiRealmParamsIsValid(params_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* params_supp
+  * pre: !RealmParamsSupported(params)
+  * post: result.status == RMI_ERROR_INPUT
+* alias
+  * pre: AddrInRange(rd, params.rtt_base, (params.rtt_num_start -1) * rmm.dynamic.rmi_granule_size)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_align
+  * pre: !AddrIsRmiGranuleAligned(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_bound
+  * pre: !PaIsDelegableConventionalFine(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_state
+  * pre: GranuleAt(rd).state != GRAN_DELEGATED
+  * post: result.status == RMI_ERROR_INPUT
+* rtt_align
+  * pre: !AddrIsAligned(params.rtt_base, params.rtt_num_start * rmm.dynamic.rmi_granule_size)
+  * post: result.status == RMI_ERROR_INPUT
+* rtt_num_level
+  * pre: !RttConfigIsValid( params.s2sz, params.rtt_level_start, params.rtt_num_start)
+  * post: result.status == RMI_ERROR_INPUT
+* rtt_state
+  * pre: !RttsStateEqual( params.rtt_base, params.rtt_num_start, GRAN_DELEGATED)
+  * post: result.status == RMI_ERROR_INPUT
+* ats_plane
+  * pre: params.ats_plane > params.
+* num_aux_planes
+  * post: result.status == RMI_ERROR_INPUT
+* vmid
+  * pre: !VmidsAvailable(params.num_aux_planes + 1)
+  * post: result.status == RMI_ERROR_GLOBAL
+* mec_policy
+  * pre: !MecidAvailable(params.flags0.mec_policy)
+  * post: result.status == RMI_ERROR_GLOBAL
 
 ## B4.5.46.2.1 Failure condition ordering
 
@@ -62,21 +97,62 @@ The RMI\_REALM\_CREATE command does not have any failure condition orderings.
 
 ## B4.5.46.3 Success conditions
 
-## Condition
-
-## ID
-
-```
-num_realms post: rmm.dynamic.num_realms == rmm_pre.dynamic.num_realms + 1 rd_state post: GranuleAt(rd).state == GRAN_RD realm_state post: realm.state == REALM_NEW rec_index post: realm.rec_index == 0
-```
-
-ID
-
-## Condition
-
-```
-rtt_base post: RealmRttBaseEqual( realm, params.rtt_base, params.aux_rtt_base) rtt_state post: RttsStateEqual( realm.rtt_base[[0]], realm.rtt_num_start, GRAN_RTT) rtte_p_states post: RttsAllProtectedEntriesState( realm.rtt_base[[0]], realm.rtt_num_start, RTTE_VOID) rtte_up_states post: RttsAllUnprotectedEntriesState( realm.rtt_base[[0]], realm.rtt_num_start, RTTE_UNMAPPED_NS) rtte_ripas post: RttsAllProtectedEntriesRipas( realm.rtt_base[[0]], realm.rtt_num_start, RIPAS_EMPTY) lpa2 post: Equal(realm.feat_lpa2, params.flags0.lpa2) ipa_width post: realm.ipa_width == params.s2sz hash_algo post: Equal(realm.hash_algo, params.hash_algo) rim post: realm.rim == Zeros{ RMM_REALM_MEASUREMENT_WIDTH}() rem post: (realm.rem[[0]] == Zeros{ RMM_REALM_MEASUREMENT_WIDTH}() && realm.rem[[1]] == Zeros{ RMM_REALM_MEASUREMENT_WIDTH}() && realm.rem[[2]] == Zeros{ RMM_REALM_MEASUREMENT_WIDTH}() && realm.rem[[3]] == Zeros{ RMM_REALM_MEASUREMENT_WIDTH}()) rtt_level post: realm.rtt_level_start == params.rtt_level_start rtt_num post: realm.rtt_num_start == params.rtt_num_start rpv post: realm.rpv == params.rpv da post: Equal(realm.feat_da, params.flags0.da) ats post: Equal(realm.feat_ats, params.flags1.ats) ats_plane post: realm.ats_plane == params.ats_plane rtt_tree_per_plane post: Equal(realm.rtt_tree_per_plane, params.flags1.rtt_tree_per_plane) num_aux_planes post: realm.num_aux_planes == params.num_aux_planes rtt_s2ap_encoding post: Equal(realm.rtt_s2ap_encoding, params.flags1.rtt_s2ap_encoding) lfa_policy post: Equal(realm.lfa_policy, params.flags0.lfa_policy) mec_policy post: Equal(realm.mec_policy, params.flags0.mec_policy) num_recs post: realm.num_recs == 0 num_vdevs post: realm.num_vdevs == 0 num_vsmmus post: realm.num_vsmmus == 0
-```
+* num_realms
+  * post: rmm.dynamic.num_realms == rmm_pre.dynamic.num_realms + 1
+* rd_state
+  * post: GranuleAt(rd).state == GRAN_RD
+* realm_state
+  * post: realm.state == REALM_NEW
+* rec_index
+  * post: realm.rec_index == 0
+* rtt_base
+  * post: RealmRttBaseEqual( realm, params.rtt_base, params.aux_rtt_base)
+* rtt_state
+  * post: RttsStateEqual( realm.rtt_base[[0]], realm.rtt_num_start, GRAN_RTT)
+* rtte_p_states
+  * post: RttsAllProtectedEntriesState( realm.rtt_base[[0]], realm.rtt_num_start, RTTE_VOID)
+* rtte_up_states
+  * post: RttsAllUnprotectedEntriesState( realm.rtt_base[[0]], realm.rtt_num_start, RTTE_UNMAPPED_NS)
+* rtte_ripas
+  * post: RttsAllProtectedEntriesRipas( realm.rtt_base[[0]], realm.rtt_num_start, RIPAS_EMPTY)
+* lpa2
+  * post: Equal(realm.feat_lpa2, params.flags0.lpa2)
+* ipa_width
+  * post: realm.ipa_width == params.s2sz
+* hash_algo
+  * post: Equal(realm.hash_algo, params.hash_algo)
+* rim
+  * post: realm.rim == Zeros{ RMM_REALM_MEASUREMENT_WIDTH}()
+* rem
+  * post: (realm.rem[[0]] == Zeros{ RMM_REALM_MEASUREMENT_WIDTH}() && realm.rem[[1]] == Zeros{ RMM_REALM_MEASUREMENT_WIDTH}() && realm.rem[[2]] == Zeros{ RMM_REALM_MEASUREMENT_WIDTH}() && realm.rem[[3]] == Zeros{ RMM_REALM_MEASUREMENT_WIDTH}())
+* rtt_level
+  * post: realm.rtt_level_start == params.rtt_level_start
+* rtt_num
+  * post: realm.rtt_num_start == params.
+* rtt_num_startrpv
+  * post: realm.rpv == params.
+* rpvda
+  * post: Equal(realm.feat_da, params.flags0.da)
+* ats
+  * post: Equal(realm.feat_ats, params.flags1.ats)
+* ats_plane
+  * post: realm.ats_plane == params.ats_plane
+* rtt_tree_per_plane
+  * post: Equal(realm.rtt_tree_per_plane, params.flags1.rtt_tree_per_plane)
+* num_aux_planes
+  * post: realm.num_aux_planes == params.num_aux_planes
+* rtt_s2ap_encoding
+  * post: Equal(realm.rtt_s2ap_encoding, params.flags1.rtt_s2ap_encoding)
+* lfa_policy
+  * post: Equal(realm.lfa_policy, params.flags0.lfa_policy)
+* mec_policy
+  * post: Equal(realm.mec_policy, params.flags0.mec_policy)
+* num_recs
+  * post: realm.num_recs == 0
+* num_vdevs
+  * post: realm.num_vdevs == 0
+* num_vsmmus
+  * post: realm.num_vsmmus == 0
 
 ## B4.5.46.4 RMI\_REALM\_CREATE initialization of RIM
 

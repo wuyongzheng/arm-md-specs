@@ -40,13 +40,42 @@ The RMI\_RTT\_CREATE command operates on the following context.
 
 ## B4.3.15.2 Failure conditions
 
-ID
-
-## Condition
-
-```
-rd_align pre: !AddrIsGranuleAligned(rd) post: ResultEqual(result, RMI_ERROR_INPUT) rd_bound pre: !PaIsDelegable(rd) post: ResultEqual(result, RMI_ERROR_INPUT) rd_state pre: Granule(rd).state != RD post: ResultEqual(result, RMI_ERROR_INPUT) level_bound pre: (!RttLevelIsValid(rd, level) || RttLevelIsStarting(rd, level)) post: ResultEqual(result, RMI_ERROR_INPUT) ipa_align pre: !AddrIsRttLevelAligned(ipa, level -1) post: ResultEqual(result, RMI_ERROR_INPUT) ipa_bound pre: UInt(ipa) >= (2 ^ Realm(rd).ipa_width) post: ResultEqual(result, RMI_ERROR_INPUT) rtt_align pre: !AddrIsGranuleAligned(rtt) post: ResultEqual(result, RMI_ERROR_INPUT) rtt_bound pre: !PaIsDelegable(rtt) post: ResultEqual(result, RMI_ERROR_INPUT) rtt_state pre: Granule(rtt).state != DELEGATED post: ResultEqual(result, RMI_ERROR_INPUT) rtt_bound2 pre: ((realm.feat_lpa2 == FEATURE_FALSE) && (UInt(rtt) >= 2^48)) post: ResultEqual(result, RMI_ERROR_INPUT) rtt_walk pre: walk.level < level -1 post: ResultEqual(result, RMI_ERROR_RTT, walk.level) rtte_state pre: walk.rtte.state == TABLE post: ResultEqual(result, RMI_ERROR_RTT, walk.level)
-```
+* rd_align
+  * pre: !AddrIsGranuleAligned(rd)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_bound
+  * pre: !PaIsDelegable(rd)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_state
+  * pre: Granule(rd).state != RD
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* level_bound
+  * pre: (!RttLevelIsValid(rd, level) || RttLevelIsStarting(rd, level))
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* ipa_align
+  * pre: !AddrIsRttLevelAligned(ipa, level -1)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* ipa_bound
+  * pre: UInt(ipa) >= (2 ^ Realm(rd).ipa_width)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rtt_align
+  * pre: !AddrIsGranuleAligned(rtt)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rtt_bound
+  * pre: !PaIsDelegable(rtt)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rtt_state
+  * pre: Granule(rtt).state != DELEGATED
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rtt_bound2
+  * pre: ((realm.feat_lpa2 == FEATURE_FALSE) && (UInt(rtt) >= 2^48))
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rtt_walk
+  * pre: walk.level < level -1
+  * post: ResultEqual(result, RMI_ERROR_RTT, walk.level)
+* rtte_state
+  * pre: walk.rtte.state == TABLE
+  * post: ResultEqual(result, RMI_ERROR_RTT, walk.level)
 
 ## B4.3.15.2.1 Failure condition ordering
 
@@ -58,37 +87,10 @@ rd_align pre: !AddrIsGranuleAligned(rd) post: ResultEqual(result, RMI_ERROR_INPU
 
 ## B4.3.15.3 Success conditions
 
-Condition
-
-Granule(rtt).state walk.rtte.state
-
-==
-
-walk.rtte.addr
-
-==
-
-ID
-
-rtt\_state rtte\_state
-
-rtte\_addr
-
-==
-
-RTT
-
-TABLE
-
-rtt
-
-ID
-
-## Condition
-
-```
-rtte_c_ripas pre: AddrIsProtected(ipa, realm) post: RttAllEntriesRipas(Rtt(rtt), unfold.ripas) rtte_c_state RttAllEntriesState(Rtt(rtt), unfold.state) rtte_c_addr pre: (unfold.state != UNASSIGNED && unfold.state != UNASSIGNED_NS) post: RttAllEntriesContiguous(Rtt(rtt), unfold.addr, level)
-```
+* rtte_addr
+  * == == RTT TABLE
+* rtt
+  * rtte_c_ripas pre: AddrIsProtected(ipa, realm) post: RttAllEntriesRipas(Rtt(rtt), unfold.ripas) rtte_c_state RttAllEntriesState(Rtt(rtt), unfold.state) rtte_c_addr pre: (unfold.state != UNASSIGNED && unfold.state != UNASSIGNED_NS) post: RttAllEntriesContiguous(Rtt(rtt), unfold.addr, level)
 
 ## B4.3.15.4 Footprint
 

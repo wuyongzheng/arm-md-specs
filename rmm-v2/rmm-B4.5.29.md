@@ -35,12 +35,18 @@ The following unused bits of RMI\_PDEV\_GET\_STATE output values MBZ: X1[63:8].
 
 ## B4.5.29.2 Failure conditions
 
-| ID              | Condition                                                                                |
-|-----------------|------------------------------------------------------------------------------------------|
-| feat            | pre: Rmm().static.feat_da != FEATURE_TRUE post: result.status == RMI_ERROR_NOT_SUPPORTED |
-| pdev_align      | pre: !AddrIsRmiGranuleAligned(pdev_ptr) post: result.status == RMI_ERROR_INPUT           |
-| pdev_bound      | pre: !PaIsTracked(pdev_ptr) post: result.status == RMI_ERROR_INPUT                       |
-| pdev_gran_state | pre: GranuleAt(pdev_ptr).state != GRAN_PDEV post: result.status == RMI_ERROR_INPUT       |
+* feat
+  * pre: Rmm().static.feat_da != FEATURE_TRUE
+  * post: result.status == RMI_ERROR_NOT_SUPPORTED
+* pdev_align
+  * pre: !AddrIsRmiGranuleAligned(pdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_bound
+  * pre: !PaIsTracked(pdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_gran_state
+  * pre: GranuleAt(pdev_ptr).state != GRAN_PDEV
+  * post: result.status == RMI_ERROR_INPUT
 
 ## B4.5.29.2.1 Failure condition ordering
 
@@ -50,13 +56,8 @@ The following unused bits of RMI\_PDEV\_GET\_STATE output values MBZ: X1[63:8].
 
 ## B4.5.29.3 Success conditions
 
-ID
-
-Condition
-
-state
-
-post: Equal(state, pdev.state)
+* state
+  * post: Equal(state, pdev.state)
 
 ## B4.5.29.4 Footprint
 

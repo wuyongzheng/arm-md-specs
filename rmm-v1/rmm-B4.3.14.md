@@ -40,27 +40,45 @@ The RMI\_REC\_ENTER command operates on the following context.
 
 ## B4.3.14.2 Failure conditions
 
-| ID        | Condition                                                                                |
-|-----------|------------------------------------------------------------------------------------------|
-| run_align | pre: !AddrIsGranuleAligned(run_ptr) post: ResultEqual(result, RMI_ERROR_INPUT)           |
-| run_bound | pre: !PaIsDelegable(run_ptr) post: ResultEqual(result, RMI_ERROR_INPUT)                  |
-| run_pas   | pre: !GranuleAccessPermitted(run_ptr, PAS_NS) post: ResultEqual(result, RMI_ERROR_INPUT) |
-
-ID
-
-## Condition
-
-| rec_align      | pre: post:   | !AddrIsGranuleAligned(rec) ResultEqual(result, RMI_ERROR_INPUT)                                                                      |
-|----------------|--------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| rec_bound      | pre: post:   | !PaIsDelegable(rec) ResultEqual(result, RMI_ERROR_INPUT)                                                                             |
-| rec_gran_state | pre: post:   | Granule(rec).state != REC ResultEqual(result, RMI_ERROR_INPUT)                                                                       |
-| realm_new      | pre: post:   | Realm(Rec(rec).owner).state == REALM_NEW ResultEqual(result, RMI_ERROR_REALM, 0)                                                     |
-| system_off     | pre: post:   | Realm(Rec(rec).owner).state == REALM_SYSTEM_OFF ResultEqual(result, RMI_ERROR_REALM, 1)                                              |
-| rec_state      | pre: post:   | Rec(rec).state == REC_RUNNING ResultEqual(result, RMI_ERROR_REC)                                                                     |
-| rec_runnable   | pre: post:   | Rec(rec).flags.runnable == NOT_RUNNABLE ResultEqual(result, RMI_ERROR_REC)                                                           |
-| rec_mmio       | pre: post:   | (run.enter.flags.emul_mmio == RMI_EMULATED_MMIO && Rec(rec).emulatable_abort != EMULATABLE_ABORT) ResultEqual(result, RMI_ERROR_REC) |
-| rec_gicv3      | pre: post:   | !Gicv3ConfigIsValid( run.enter.gicv3_hcr, run.enter.gicv3_lrs) ResultEqual(result, RMI_ERROR_REC)                                    |
-| rec_psci       | pre: post:   | Rec(rec).psci_pending == PSCI_REQUEST_PENDING ResultEqual(result, RMI_ERROR_REC)                                                     |
+* run_align
+  * pre: !AddrIsGranuleAligned(run_ptr)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* run_bound
+  * pre: !PaIsDelegable(run_ptr)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* run_pas
+  * pre: !GranuleAccessPermitted(run_ptr, PAS_NS)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rec_align
+  * pre: !AddrIsGranuleAligned(rec)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rec_bound
+  * pre: !PaIsDelegable(rec)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rec_gran_state
+  * pre: Granule(rec).state != REC
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* realm_new
+  * pre: Realm(Rec(rec).owner).state == REALM_NEW
+  * post: ResultEqual(result, RMI_ERROR_REALM, 0)
+* system_off
+  * pre: Realm(Rec(rec).owner).state == REALM_SYSTEM_OFF
+  * post: ResultEqual(result, RMI_ERROR_REALM, 1)
+* rec_state
+  * pre: Rec(rec).state == REC_RUNNING
+  * post: ResultEqual(result, RMI_ERROR_REC)
+* rec_runnable
+  * pre: Rec(rec).flags.runnable == NOT_RUNNABLE
+  * post: ResultEqual(result, RMI_ERROR_REC)
+* rec_mmio
+  * pre: (run.enter.flags.emul_mmio == RMI_EMULATED_MMIO && Rec(rec).emulatable_abort != EMULATABLE_ABORT)
+  * post: ResultEqual(result, RMI_ERROR_REC)
+* rec_gicv3
+  * pre: !Gicv3ConfigIsValid( run.enter.gicv3_hcr, run.enter.gicv3_lrs)
+  * post: ResultEqual(result, RMI_ERROR_REC)
+* rec_psci
+  * pre: Rec(rec).psci_pending == PSCI_REQUEST_PENDING
+  * post: ResultEqual(result, RMI_ERROR_REC)
 
 ## B4.3.14.2.1 Failure condition ordering
 
@@ -72,10 +90,10 @@ ID
 
 ## B4.3.14.3 Success conditions
 
-| ID           | Condition                                          |
-|--------------|----------------------------------------------------|
-| rec_exit     | run.exit contains Realm exit syndrome information. |
-| rec_emul_abt | rec.emulatable_abort is updated.                   |
+* rec_exit
+  * run.exit contains Realm exit syndrome information.
+* rec_emul_abt
+  * rec.emulatable_abort is updated.
 
 ## B4.3.14.4 Footprint
 

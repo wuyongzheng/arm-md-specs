@@ -43,9 +43,8 @@ The RSI\_FEATURES command does not have any failure conditions.
 
 ## B5.4.4.3 Success conditions
 
-| ID    | Condition                                             |
-|-------|-------------------------------------------------------|
-| value | post: value == RsiFeatureRegisterEncode(realm, index) |
+* value
+  * post: value == RsiFeatureRegisterEncode(realm, index)
 
 ## B5.4.4.4 Footprint
 

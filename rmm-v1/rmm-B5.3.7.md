@@ -37,27 +37,13 @@ The RSI\_MEASUREMENT\_EXTEND command operates on the following context.
 
 ## B5.3.7.2 Failure conditions
 
-| ID          | Condition                                                             |
-|-------------|-----------------------------------------------------------------------|
-| index_bound | pre: index < 1 &#124;&#124; index > 4 post: result == RSI_ERROR_INPUT |
-
-ID
-
-## Condition
-
-size\_bound
-
-pre:
-
-size &gt; 64
-
-post:
-
-result
-
-==
-
-RSI\_ERROR\_INPUT
+* index_bound
+  * pre: index < 1 || index > 4
+  * post: result == RSI_ERROR_INPUT
+* size_bound
+  * pre: size > 64
+* result
+  * == RSI_ERROR_INPUT
 
 ## B5.3.7.2.1 Failure condition ordering
 
@@ -65,13 +51,8 @@ The RSI\_MEASUREMENT\_EXTEND command does not have any failure condition orderin
 
 ## B5.3.7.3 Success conditions
 
-Condition
-
-ID
-
-```
-realm_meas realm.measurements[index] == RemExtend( realm.hash_algo, meas_old, [value_0, value_1, value_2, value_3, value_4, value_5, value_6, value_7][ (RMM_REALM_MEASUREMENT_WIDTH-1):0], size)
-```
+* realm_meas
+  * realm.measurements[index] == RemExtend( realm.hash_algo, meas_old, [value_0, value_1, value_2, value_3, value_4, value_5, value_6, value_7][ (RMM_REALM_MEASUREMENT_WIDTH-1):0], size)
 
 ## B5.3.7.4 Footprint
 

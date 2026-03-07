@@ -43,11 +43,50 @@ ID
 
 ## B4.3.21.2 Failure conditions
 
-## Condition
-
-```
-rd_align pre: !AddrIsGranuleAligned(rd) post: ResultEqual(result, RMI_ERROR_INPUT) rd_bound pre: !PaIsDelegable(rd) post: ResultEqual(result, RMI_ERROR_INPUT) rd_state pre: Granule(rd).state != RD post: ResultEqual(result, RMI_ERROR_INPUT) rec_align pre: !AddrIsGranuleAligned(rec_ptr) post: ResultEqual(result, RMI_ERROR_INPUT) rec_bound pre: !PaIsDelegable(rec_ptr) post: ResultEqual(result, RMI_ERROR_INPUT) rec_gran_state pre: Granule(rec_ptr).state != REC post: ResultEqual(result, RMI_ERROR_INPUT) rec_state pre: rec.state == REC_RUNNING post: ResultEqual(result, RMI_ERROR_REC) rec_owner pre: rec.owner != rd post: ResultEqual(result, RMI_ERROR_REC) size_valid pre: UInt(top) <= UInt(base) post: ResultEqual(result, RMI_ERROR_INPUT) base_bound pre: base != rec.ripas_addr post: ResultEqual(result, RMI_ERROR_INPUT) top_bound pre: UInt(top) > UInt(rec.ripas_top) post: ResultEqual(result, RMI_ERROR_INPUT) base_align pre: (!AddrIsRttLevelAligned(base, walk.level) && ripas != rec.ripas_value) post: ResultEqual(result, RMI_ERROR_RTT, walk.level) top_gran_align pre: !AddrIsGranuleAligned(top) post: ResultEqual(result, RMI_ERROR_INPUT) no_progress pre: (UInt(base) == UInt(walk_top) && ripas != rec.ripas_value) post: ResultEqual(result, RMI_ERROR_RTT, walk.level)
-```
+* rd_align
+  * pre: !AddrIsGranuleAligned(rd)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_bound
+  * pre: !PaIsDelegable(rd)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_state
+  * pre: Granule(rd).state != RD
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rec_align
+  * pre: !AddrIsGranuleAligned(rec_ptr)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rec_bound
+  * pre: !PaIsDelegable(rec_ptr)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rec_gran_state
+  * pre: Granule(rec_ptr).state != REC
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rec_state
+  * pre: rec.state == REC_RUNNING
+  * post: ResultEqual(result, RMI_ERROR_REC)
+* rec_owner
+  * pre: rec.owner !=
+* rd
+  * post: ResultEqual(result, RMI_ERROR_REC)
+* size_valid
+  * pre: UInt(top) <= UInt(base)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* base_bound
+  * pre: base != rec.
+* ripas_addr
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* top_bound
+  * pre: UInt(top) > UInt(rec.ripas_top)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* base_align
+  * pre: (!AddrIsRttLevelAligned(base, walk.level) && ripas != rec.ripas_value)
+  * post: ResultEqual(result, RMI_ERROR_RTT, walk.level)
+* top_gran_align
+  * pre: !AddrIsGranuleAligned(top)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* no_progress
+  * pre: (UInt(base) == UInt(walk_top) && ripas != rec.ripas_value)
+  * post: ResultEqual(result, RMI_ERROR_RTT, walk.level)
 
 ## B4.3.21.2.1 Failure condition ordering
 
@@ -61,11 +100,12 @@ ID
 
 ## B4.3.21.3 Success conditions
 
-## Condition
-
-```
-rtte_ripas RttEntriesInRangeRipas( Rtt(walk.rtt_addr), walk.level, base, walk_top, rec.ripas_value) ripas_addr rec.ripas_addr == MinAddress(top, walk_top) out_top out_top == MinAddress(top, walk_top)
-```
+* out_top
+  * out_top == MinAddress(top, walk_top)
+* rtte_ripas
+  * RttEntriesInRangeRipas( Rtt(walk.rtt_addr), walk.level, base, walk_top, rec.ripas_value)
+* ripas_addr
+  * rec.ripas_addr == MinAddress(top, walk_top)
 
 ## B4.3.21.4 Footprint
 

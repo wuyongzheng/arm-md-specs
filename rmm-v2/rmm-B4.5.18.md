@@ -32,17 +32,21 @@ If result is RMI\_INCOMPLETE then the value of out\_top is UNKNOWN.
 
 ## B4.5.18.2 Failure conditions
 
-Condition
-
-| base_align   | pre: post:   | !AddrIsRmiGranuleAligned(base) result.status == RMI_ERROR_INPUT                                                                          |
-|--------------|--------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| top_align    | pre: post:   | !AddrIsRmiGranuleAligned(top) result.status == RMI_ERROR_INPUT                                                                           |
-| top_bound    | pre: post:   | UInt(top) <= UInt(base) result.status == RMI_ERROR_INPUT                                                                                 |
-| tracking     | pre: post:   | While processing the target range, the RMM was unable to proceed due to the state of a tracking region. result.status == RMI_ERROR_INPUT |
-| state        | pre: post:   | While processing the target range, the RMM encountered a Granule whose state is not GRAN_DELEGATED. result.status == RMI_ERROR_INPUT     |
-
-
-ID
+* base_align
+  * pre: !AddrIsRmiGranuleAligned(base)
+  * post: result.status == RMI_ERROR_INPUT
+* top_align
+  * pre: !AddrIsRmiGranuleAligned(top)
+  * post: result.status == RMI_ERROR_INPUT
+* top_bound
+  * pre: UInt(top) <= UInt(base)
+  * post: result.status == RMI_ERROR_INPUT
+* tracking
+  * pre: While processing the target range, the RMM was unable to proceed due to the state of a tracking region.
+  * post: result.status == RMI_ERROR_INPUT
+* state
+  * pre: While processing the target range, the RMM encountered a Granule whose state is not GRAN_DELEGATED.
+  * post: result.status == RMI_ERROR_INPUT
 
 ## B4.5.18.2.1 Failure condition ordering
 
@@ -50,11 +54,12 @@ The RMI\_GRANULE\_RANGE\_UNDELEGATE command does not have any failure condition 
 
 ## B4.5.18.3 Success conditions
 
-| ID      | Condition                                                      |
-|---------|----------------------------------------------------------------|
-| state   | post: GranulesAllState(base, out_top, GRAN_UNDELEGATED)        |
-| content | post: Contents of Granules in range [base, out_top) are wiped. |
-| result  | post: result.status == RMI_SUCCESS                             |
+* state
+  * post: GranulesAllState(base, out_top, GRAN_UNDELEGATED)
+* content
+  * post: Contents of Granules in range [base, out_top) are wiped.
+* result
+  * post: result.status == RMI_SUCCESS
 
 ## B4.5.18.4 Footprint
 

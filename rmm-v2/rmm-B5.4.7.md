@@ -55,14 +55,34 @@ ID
 
 ## B5.4.7.2 Failure conditions
 
-## Condition
-
-```
-base_align pre: !AddrIsRsiGranuleAligned(base) post: result == RSI_ERROR_INPUT top_align pre: !AddrIsRsiGranuleAligned(top) post: result == RSI_ERROR_INPUT size_valid pre: UInt(top) <= UInt(base) post: result == RSI_ERROR_INPUT rgn_bound pre: !AddrRangeIsProtected(base, top, realm) post: result == RSI_ERROR_INPUT ripas_valid pre: (ripas != RSI_RIPAS_EMPTY) && (ripas != RSI_RIPAS_RAM) post: result == RSI_ERROR_INPUT
-```
+* base_align
+  * pre: !AddrIsRsiGranuleAligned(base)
+  * post: result == RSI_ERROR_INPUT
+* top_align
+  * pre: !AddrIsRsiGranuleAligned(top)
+  * post: result == RSI_ERROR_INPUT
+* size_valid
+  * pre: UInt(top) <= UInt(base)
+  * post: result == RSI_ERROR_INPUT
+* rgn_bound
+  * pre: !AddrRangeIsProtected(base, top, realm)
+  * post: result == RSI_ERROR_INPUT
+* ripas_valid
+  * pre: (ripas != RSI_RIPAS_EMPTY) && (ripas != RSI_RIPAS_RAM)
+  * post: result == RSI_ERROR_INPUT
 
 ## B5.4.7.2.1 Failure condition ordering
 
 The RSI\_IPA\_STATE\_SET command does not have any failure condition orderings.
+## B5.4.7.3 Success conditions
 
-B5.4.7.3 Success conditions ID Condition ripas post: RIPAS of address range [base, new\_base) is equal to ripas. new\_base post: new\_base == rec.ripas\_addr response post: response == RecRipasResponseToRsi(rec) B5.4.7.4 Footprint The RSI\_IPA\_STATE\_SET command does not have any footprint.
+* ripas
+  * post: RIPAS of address range [base, new_base) is equal to ripas.
+* new_base
+  * post: new_base == rec.ripas_addr
+* response
+  * post: response == RecRipasResponseToRsi(rec)
+
+## B5.4.7.4 Footprint
+
+The RSI\_IPA\_STATE\_SET command does not have any footprint.

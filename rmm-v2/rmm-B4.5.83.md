@@ -46,13 +46,47 @@ The RMI\_VDEV\_DESTROY command operates on the following context.
 
 ## B4.5.83.2 Failure conditions
 
-ID
-
-## Condition
-
-```
-feat pre: Rmm().static.feat_da != FEATURE_TRUE post: result.status == RMI_ERROR_NOT_SUPPORTED rd_align pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPUT rd_bound pre: !PaIsTracked(rd) post: result.status == RMI_ERROR_INPUT rd_gran_state pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_INPUT pdev_align pre: !AddrIsRmiGranuleAligned(pdev_ptr) post: result.status == RMI_ERROR_INPUT pdev_bound pre: !PaIsTracked(pdev_ptr) post: result.status == RMI_ERROR_INPUT pdev_gran_state pre: GranuleAt(pdev_ptr).state != GRAN_PDEV post: result.status == RMI_ERROR_INPUT vdev_align pre: !AddrIsRmiGranuleAligned(vdev_ptr) post: result.status == RMI_ERROR_INPUT vdev_tracking pre: !PaIsTrackedFine(vdev_ptr) post: result.status == RMI_ERROR_INPUT vdev_gran_state pre: GranuleAt(vdev_ptr).state != GRAN_VDEV post: result.status == RMI_ERROR_INPUT vdev_realm pre: vdev_pre.realm != rd post: result.status == RMI_ERROR_DEVICE vdev_pdev pre: vdev_pre.pdev != pdev_ptr post: result.status == RMI_ERROR_DEVICE vdev_state pre: (vdev_pre.vdev_state != VDEV_NEW && vdev_pre.vdev_state != VDEV_UNLOCKED && vdev_pre.vdev_state != VDEV_ERROR) post: result.status == RMI_ERROR_DEVICE
-```
+* feat
+  * pre: Rmm().static.feat_da != FEATURE_TRUE
+  * post: result.status == RMI_ERROR_NOT_SUPPORTED
+* rd_align
+  * pre: !AddrIsRmiGranuleAligned(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_bound
+  * pre: !PaIsTracked(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_gran_state
+  * pre: GranuleAt(rd).state != GRAN_RD
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_align
+  * pre: !AddrIsRmiGranuleAligned(pdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_bound
+  * pre: !PaIsTracked(pdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_gran_state
+  * pre: GranuleAt(pdev_ptr).state != GRAN_PDEV
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_align
+  * pre: !AddrIsRmiGranuleAligned(vdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_tracking
+  * pre: !PaIsTrackedFine(vdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_gran_state
+  * pre: GranuleAt(vdev_ptr).state != GRAN_VDEV
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_realm
+  * pre: vdev_pre.realm !=
+* rd
+  * post: result.status == RMI_ERROR_DEVICE
+* vdev_pdev
+  * pre: vdev_pre.pdev !=
+* pdev_ptr
+  * post: result.status == RMI_ERROR_DEVICE
+* vdev_state
+  * pre: (vdev_pre.vdev_state != VDEV_NEW && vdev_pre.vdev_state != VDEV_UNLOCKED && vdev_pre.vdev_state != VDEV_ERROR)
+  * post: result.status == RMI_ERROR_DEVICE
 
 ## B4.5.83.2.1 Failure condition ordering
 
@@ -64,15 +98,21 @@ feat pre: Rmm().static.feat_da != FEATURE_TRUE post: result.status == RMI_ERROR_
 
 ## B4.5.83.3 Success conditions
 
-| ID              | Condition                                                                                          |
-|-----------------|----------------------------------------------------------------------------------------------------|
-| gran_state      | post: GranuleAt(vdev_ptr).state == GRAN_DELEGATED                                                  |
-| vdev_id_free    | post: VdevIdIsFree(realm, vdev_pre.vdev_id)                                                        |
-| tdi_id_free     | post: TdiIdIsFree(vdev_pre.tdi_id, pdev_pre.routing_id)                                            |
-| realm_num_vdevs | post: realm.num_vdevs == realm_pre.num_vdevs - 1                                                   |
-| pdev_num_vdevs  | post: pdev.num_vdevs == pdev_pre.num_vdevs - 1                                                     |
-| vsid_free       | pre: vdev_pre.vsmmu == FEATURE_TRUE post: VsidIsFree( VsmmuAt(vdev_pre.vsmmu_addr), vdev_pre.vsid) |
-| ste_state       | post: st_walk.ste.state == PSMMU_ST_ENTRY_INVALID                                                  |
+* gran_state
+  * post: GranuleAt(vdev_ptr).state == GRAN_DELEGATED
+* vdev_id_free
+  * post: VdevIdIsFree(realm, vdev_pre.vdev_id)
+* tdi_id_free
+  * post: TdiIdIsFree(vdev_pre.tdi_id, pdev_pre.routing_id)
+* realm_num_vdevs
+  * post: realm.num_vdevs == realm_pre.num_vdevs - 1
+* pdev_num_vdevs
+  * post: pdev.num_vdevs == pdev_pre.num_vdevs - 1
+* vsid_free
+  * pre: vdev_pre.vsmmu == FEATURE_TRUE
+  * post: VsidIsFree( VsmmuAt(vdev_pre.vsmmu_addr), vdev_pre.vsid)
+* ste_state
+  * post: st_walk.ste.state == PSMMU_ST_ENTRY_INVALID
 
 ## B4.5.83.4 Footprint
 

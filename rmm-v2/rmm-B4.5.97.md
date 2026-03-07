@@ -38,35 +38,51 @@ The RMI\_VSMMU\_EVENT\_COMPLETE command operates on the following context.
 
 ## B4.5.97.2 Failure conditions
 
-| ID          | Condition                                                                                   |
-|-------------|---------------------------------------------------------------------------------------------|
-| feat        | pre: Rmm().static.feat_vsmmu != FEATURE_TRUE post: result.status == RMI_ERROR_NOT_SUPPORTED |
-| psmmu_valid | pre: !PsmmuAddrIsValid(psmmu_ptr) post: result.status == RMI_ERROR_INPUT                    |
-| rd_align    | pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPUT                    |
-
-ID
-
-## Condition
-
-| rd_bound       | pre: post:   | !PaIsTracked(rd) result.status == RMI_ERROR_INPUT                         |
-|----------------|--------------|---------------------------------------------------------------------------|
-| rd_state       | pre: post:   | GranuleAt(rd).state != GRAN_RD result.status == RMI_ERROR_INPUT           |
-| realm_state    | pre: post:   | realm.state != REALM_NEW result.status == RMI_ERROR_REALM                 |
-| rec_align      | pre: post:   | !AddrIsRmiGranuleAligned(rec_ptr) result.status == RMI_ERROR_INPUT        |
-| rec_bound      | pre: post:   | !PaIsTracked(rec_ptr) result.status == RMI_ERROR_INPUT                    |
-| rec_gran_state | pre: post:   | GranuleAt(rec_ptr).state != GRAN_REC result.status == RMI_ERROR_INPUT     |
-| rec_realm      | pre: post:   | rec.owner != rd result.status == RMI_ERROR_INPUT                          |
-| rec_state      | pre: post:   | rec.state == REC_RUNNING result.status == RMI_ERROR_REC                   |
-| pending        | pre: post:   | rec.pending != REC_PENDING_VSMMU_COMMAND result.status == RMI_ERROR_INPUT |
-| q_full         | pre: post:   | PsmmuCmdQueueFull(psmmu) result.status == RMI_BUSY                        |
-
-<!-- image -->
+* feat
+  * pre: Rmm().static.feat_vsmmu != FEATURE_TRUE
+  * post: result.status == RMI_ERROR_NOT_SUPPORTED
+* psmmu_valid
+  * pre: !PsmmuAddrIsValid(psmmu_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_align
+  * pre: !AddrIsRmiGranuleAligned(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_bound
+  * pre: !PaIsTracked(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_state
+  * pre: GranuleAt(rd).state != GRAN_RD
+  * post: result.status == RMI_ERROR_INPUT
+* realm_state
+  * pre: realm.state != REALM_NEW
+  * post: result.status == RMI_ERROR_REALM
+* rec_align
+  * pre: !AddrIsRmiGranuleAligned(rec_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* rec_bound
+  * pre: !PaIsTracked(rec_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* rec_gran_state
+  * pre: GranuleAt(rec_ptr).state != GRAN_REC
+  * post: result.status == RMI_ERROR_INPUT
+* rec_realm
+  * pre: rec.owner != rd
+  * post: result.status == RMI_ERROR_INPUT
+* rec_state
+  * pre: rec.state == REC_RUNNING
+  * post: result.status == RMI_ERROR_REC
+* pending
+  * pre: rec.pending != REC_PENDING_VSMMU_COMMAND
+  * post: result.status == RMI_ERROR_INPUT
+* q_full
+  * pre: PsmmuCmdQueueFull(psmmu)
+  * post: result.status == RMI_BUSY
 
 ## rd\_bound pre: !PaIsTracked(rd) post: result.status == RMI\_ERROR\_INPUT rd\_state pre: GranuleAt(rd).state != GRAN\_RD post: result.status == RMI\_ERROR\_INPUT realm\_state pre: realm.state != REALM\_NEW post: result.status == RMI\_ERROR\_REALM rec\_align pre: !AddrIsRmiGranuleAligned(rec\_ptr) post: result.status == RMI\_ERROR\_INPUT rec\_bound pre: !PaIsTracked(rec\_ptr) post: result.status == RMI\_ERROR\_INPUT rec\_gran\_state pre: GranuleAt(rec\_ptr).state != GRAN\_REC post: result.status == RMI\_ERROR\_INPUT rec\_realm pre: rec.owner != rd post: result.status == RMI\_ERROR\_INPUT rec\_state pre: rec.state == REC\_RUNNING post: result.status == RMI\_ERROR\_REC pending pre: rec.pending != REC\_PENDING\_VSMMU\_COMMAND post: result.status == RMI\_ERROR\_INPUT q\_full pre: PsmmuCmdQueueFull(psmmu) post: result.status == RMI\_BUSY B4.5.97.2.1 Failure condition ordering [rd\_bound, rd\_state] &lt; [realm\_state] feat psmmu\_valid
 
 ## B4.5.97.3 Success conditions
 
-## Condition
+
 
 post: rec.pending == REC\_PENDING\_VSMMU\_COMPLETE
 

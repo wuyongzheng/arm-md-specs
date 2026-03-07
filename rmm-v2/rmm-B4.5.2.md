@@ -39,30 +39,54 @@ The RMI\_CMEM\_ADD\_PDEV command operates on the following context.
 
 ## B4.5.2.2 Failure conditions
 
-| ID         | Condition                                                                                      |
-|------------|------------------------------------------------------------------------------------------------|
-| feat       | pre: Rmm().static.feat_cmem_cxl != FEATURE_TRUE post: result.status == RMI_ERROR_NOT_SUPPORTED |
-| cmem_align | pre: !AddrIsRmiGranuleAligned(cmem_ptr) post: result.status == RMI_ERROR_INPUT                 |
-
-ID
-
-## Condition
-
-| cmem_bound      | pre: post:   | !PaIsTracked(cmem_ptr) result.status == RMI_ERROR_INPUT                                                             |
-|-----------------|--------------|---------------------------------------------------------------------------------------------------------------------|
-| cmem_gran_state | pre: post:   | GranuleAt(cmem_ptr).state != GRAN_CMEM result.status == RMI_ERROR_INPUT                                             |
-| pdev_align      | pre: post:   | !AddrIsRmiGranuleAligned(pdev_ptr) result.status == RMI_ERROR_INPUT                                                 |
-| pdev_bound      | pre: post:   | !PaIsTracked(pdev_ptr) result.status == RMI_ERROR_INPUT                                                             |
-| pdev_gran_state | pre: post:   | GranuleAt(pdev_ptr).state != GRAN_PDEV result.status == RMI_ERROR_INPUT                                             |
-| index_bound     | pre: post:   | index >= cmem.ilv_ways result.status == RMI_ERROR_INPUT                                                             |
-| pdev_state      | pre: post:   | pdev.state != PDEV_READY result.status == RMI_ERROR_DEVICE                                                          |
-| pdev_category   | pre: post:   | pdev.category != PDEV_ENDPOINT_CMEM result.status == RMI_ERROR_DEVICE                                               |
-| tse             | pre: post:   | (Rmm().static.feat_cmem_tse_req == FEATURE_TRUE && pdev.feat_tse != FEATURE_TRUE) result.status == RMI_ERROR_DEVICE |
-| dev_hdm_dec     | pre: post:   | !HdmDecoderIsFree(pdev, params.dev_hdm_id) result.status == RMI_ERROR_DEVICE                                        |
-| cmem_state      | pre: post:   | cmem.state != CMEM_STOPPED result.status == RMI_ERROR_DEVICE                                                        |
-| index_free      | pre: post:    cmem.pdev[[index]].valid != RMM_FALSE result.status == RMI_ERROR_DEVICE                                       |
-| pdev_attr       | pre: post:   | PDEV attributes are not consistent with CMEM attributes. result.status == RMI_ERROR_DEVICE                          |
-| cxl_attr        | pre: post:   | Parameters are not consistent with CMEM attributes. result.status == RMI_ERROR_DEVICE                               |
+* feat
+  * pre: Rmm().static.feat_cmem_cxl != FEATURE_TRUE
+  * post: result.status == RMI_ERROR_NOT_SUPPORTED
+* cmem_align
+  * pre: !AddrIsRmiGranuleAligned(cmem_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* cmem_bound
+  * pre: !PaIsTracked(cmem_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* cmem_gran_state
+  * pre: GranuleAt(cmem_ptr).state != GRAN_CMEM
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_align
+  * pre: !AddrIsRmiGranuleAligned(pdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_bound
+  * pre: !PaIsTracked(pdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_gran_state
+  * pre: GranuleAt(pdev_ptr).state != GRAN_PDEV
+  * post: result.status == RMI_ERROR_INPUT
+* index_bound
+  * pre: index >= cmem.ilv_ways
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_state
+  * pre: pdev.state != PDEV_READY
+  * post: result.status == RMI_ERROR_DEVICE
+* pdev_category
+  * pre: pdev.category != PDEV_ENDPOINT_CMEM
+  * post: result.status == RMI_ERROR_DEVICE
+* tse
+  * pre: (Rmm().static.feat_cmem_tse_req == FEATURE_TRUE && pdev.feat_tse != FEATURE_TRUE)
+  * post: result.status == RMI_ERROR_DEVICE
+* dev_hdm_dec
+  * pre: !HdmDecoderIsFree(pdev, params.dev_hdm_id)
+  * post: result.status == RMI_ERROR_DEVICE
+* cmem_state
+  * pre: cmem.state != CMEM_STOPPED
+  * post: result.status == RMI_ERROR_DEVICE
+* index_free
+  * pre: cmem.pdev[[index]].valid != RMM_FALSE
+  * post: result.status == RMI_ERROR_DEVICE
+* pdev_attr
+  * pre: PDEV attributes are not consistent with CMEM attributes.
+  * post: result.status == RMI_ERROR_DEVICE
+* cxl_attr
+  * pre: Parameters are not consistent with CMEM attributes.
+  * post: result.status == RMI_ERROR_DEVICE
 
 ## B4.5.2.2.1 Failure condition ordering
 
@@ -74,13 +98,16 @@ ID
 
 ## B4.5.2.3 Success conditions
 
-| ID          | Condition                                                |
-|-------------|----------------------------------------------------------|
-| pdev_valid  | post: cmem.pdev[[index]].valid == RMM_TRUE               |
-| pdev_addr   | post: cmem.pdev[[index]].pdev_addr == pdev_ptr           |
-| pdev_id     | post: cmem.pdev[[index]].dev_hdm_id == params.dev_hdm_id |
-| dev_hdm_dec | post: !HdmDecoderIsFree(pdev, params.dev_hdm_id)         |
-| cmem_count  | post: pdev.cmem_count == pdev_pre.cmem_count + 1         |
+* pdev_valid
+  * post: cmem.pdev[[index]].valid == RMM_TRUE
+* pdev_addr
+  * post: cmem.pdev[[index]].pdev_addr == pdev_ptr
+* pdev_id
+  * post: cmem.pdev[[index]].dev_hdm_id == params.dev_hdm_id
+* dev_hdm_dec
+  * post: !HdmDecoderIsFree(pdev, params.dev_hdm_id)
+* cmem_count
+  * post: pdev.cmem_count == pdev_pre.cmem_count + 1
 
 ## B4.5.2.4 Footprint
 

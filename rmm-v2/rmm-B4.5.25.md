@@ -33,13 +33,21 @@ The RMI\_PDEV\_ABORT command operates on the following context.
 
 ## B4.5.25.2 Failure conditions
 
-| ID              | Condition                                                                                |
-|-----------------|------------------------------------------------------------------------------------------|
-| feat            | pre: Rmm().static.feat_da != FEATURE_TRUE post: result.status == RMI_ERROR_NOT_SUPPORTED |
-| pdev_align      | pre: !AddrIsRmiGranuleAligned(pdev_ptr) post: result.status == RMI_ERROR_INPUT           |
-| pdev_bound      | pre: !PaIsTracked(pdev_ptr) post: result.status == RMI_ERROR_INPUT                       |
-| pdev_gran_state | pre: GranuleAt(pdev_ptr).state != GRAN_PDEV post: result.status == RMI_ERROR_INPUT       |
-| comm_state      | pre: pdev.comm_state == DEV_COMM_IDLE post: result.status == RMI_ERROR_DEVICE            |
+* feat
+  * pre: Rmm().static.feat_da != FEATURE_TRUE
+  * post: result.status == RMI_ERROR_NOT_SUPPORTED
+* pdev_align
+  * pre: !AddrIsRmiGranuleAligned(pdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_bound
+  * pre: !PaIsTracked(pdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_gran_state
+  * pre: GranuleAt(pdev_ptr).state != GRAN_PDEV
+  * post: result.status == RMI_ERROR_INPUT
+* comm_state
+  * pre: pdev.comm_state == DEV_COMM_IDLE
+  * post: result.status == RMI_ERROR_DEVICE
 
 ## B4.5.25.2.1 Failure condition ordering
 
@@ -49,14 +57,10 @@ The RMI\_PDEV\_ABORT command operates on the following context.
 
 ## B4.5.25.3 Success conditions
 
-ID
-
-comm\_state
-
-Condition post: pdev.comm\_state == DEV\_COMM\_IDLE
+* comm_state
+  * Condition post: pdev.comm_state == DEV_COMM_IDLE
 
 ## B4.5.25.4 Footprint
-
 
 | ID         | Value           |
 |------------|-----------------|

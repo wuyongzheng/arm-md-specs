@@ -41,17 +41,12 @@ The PSCI\_AFFINITY\_INFO command operates on the following context.
 
 ## B6.3.1.2 Failure conditions
 
-| ID           | Condition                                                               |
-|--------------|-------------------------------------------------------------------------|
-| target_bound | pre: lowest_affinity_level != 0 post: result == PSCI_INVALID_PARAMETERS |
-
-ID
-
-## Condition
-
-```
-target_match pre: !MpidrIsUsed(target_affinity) post: result == PSCI_INVALID_PARAMETERS
-```
+* target_bound
+  * pre: lowest_affinity_level != 0
+  * post: result == PSCI_INVALID_PARAMETERS
+* target_match
+  * pre: !MpidrIsUsed(target_affinity)
+  * post: result == PSCI_INVALID_PARAMETERS
 
 ## B6.3.1.2.1 Failure condition ordering
 
@@ -59,13 +54,12 @@ The PSCI\_AFFINITY\_INFO command does not have any failure condition orderings.
 
 ## B6.3.1.3 Success conditions
 
-## Condition
-
-ID
-
-```
-runnable pre: target_rec.flags.runnable == RUNNABLE post: result == PSCI_SUCCESS not_runnable pre: target_rec.flags.runnable == NOT_RUNNABLE post: result == PSCI_OFF
-```
+* runnable
+  * pre: target_rec.flags.runnable == RUNNABLE
+  * post: result == PSCI_SUCCESS
+* not_runnable
+  * pre: target_rec.flags.runnable == NOT_RUNNABLE
+  * post: result == PSCI_OFF
 
 ## B6.3.1.4 Footprint
 

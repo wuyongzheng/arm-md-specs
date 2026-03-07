@@ -47,11 +47,36 @@ The rtt output value is valid only when the command result is RMI\_SUCCESS.
 
 ## B4.5.72.2 Failure conditions
 
-## Condition
-
-```
-rd_align pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPUT rd_bound pre: !PaIsTracked(rd) post: result.status == RMI_ERROR_INPUT rd_state pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_INPUT level_bound pre: (!RttLevelIsValid(realm, level) || RttLevelIsStarting(realm, level)) post: result.status == RMI_ERROR_INPUT ipa_align pre: !AddrIsRttLevelAligned(ipa, level -1) post: result.status == RMI_ERROR_INPUT ipa_bound pre: UInt(ipa) >= (2 ^ realm.ipa_width) post: result.status == RMI_ERROR_INPUT rtt_walk pre: walk.level < level -1 post: (result.status == RMI_ERROR_RTT && result.data.level.level == rtte_state pre: walk.rtte.state != RTTE_TABLE post: (result.status == RMI_ERROR_RTT && result.data.level.level == rtt_homo pre: !RttIsHomogeneous(RttAt(walk.rtte.addr)) post: (result.status == RMI_ERROR_RTT && result.data.level.level == level) aux_ref pre: AddrIsAuxRef(ipa, realm) post: (result.status == RMI_ERROR_RTT && result.data.level.level ==
-```
+* rd_align
+  * pre: !AddrIsRmiGranuleAligned(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_bound
+  * pre: !PaIsTracked(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_state
+  * pre: GranuleAt(rd).state != GRAN_RD
+  * post: result.status == RMI_ERROR_INPUT
+* level_bound
+  * pre: (!RttLevelIsValid(realm, level) || RttLevelIsStarting(realm, level))
+  * post: result.status == RMI_ERROR_INPUT
+* ipa_align
+  * pre: !AddrIsRttLevelAligned(ipa, level -1)
+  * post: result.status == RMI_ERROR_INPUT
+* ipa_bound
+  * pre: UInt(ipa) >= (2 ^ realm.ipa_width)
+  * post: result.status == RMI_ERROR_INPUT
+* rtt_walk
+  * pre: walk.level < level -1
+  * post: (result.status == RMI_ERROR_RTT && result.data.level.level ==
+* rtte_state
+  * pre: walk.rtte.state != RTTE_TABLE
+  * post: (result.status == RMI_ERROR_RTT && result.data.level.level ==
+* rtt_homo
+  * pre: !RttIsHomogeneous(RttAt(walk.rtte.addr))
+  * post: (result.status == RMI_ERROR_RTT && result.data.level.level == level)
+* aux_ref
+  * pre: AddrIsAuxRef(ipa, realm)
+  * post: (result.status == RMI_ERROR_RTT && result.data.level.level ==
 
 ## B4.5.72.2.1 Failure condition ordering
 
@@ -67,13 +92,26 @@ walk.level) walk.level) walk.level)
 
 ## B4.5.72.3 Success conditions
 
-ID
-
-## Condition
-
-```
-rtt post: rtt == walk.rtte.addr result post: result.status == RMI_SUCCESS rtte_state post: walk.rtte.state == fold_pre.state rtte_addr pre: fold_pre.state != RTTE_VOID && fold_pre.state != RTTE_UNMAPPED_NS post: walk.rtte.addr == fold_pre.addr rtte_attr_prot pre: fold_pre.state == RTTE_DATA post: (RttMemAttrEqual( walk.rtte, fold_pre, RTT_PROTECTED) && RttS2APEqual( walk.rtte, fold_pre, S2AP_INDIRECT)) rtte_attr_unprot pre: fold_pre.state == RTTE_MAPPED_NS post: (RttMemAttrEqual( walk.rtte, fold_pre, RTT_UNPROTECTED) && RttS2APEqual( walk.rtte, fold_pre, realm.rtt_s2ap_encoding)) rtte_ripas pre: AddrIsProtected(ipa, realm) post: walk.rtte.ripas == fold_pre.ripas rtt_state post: GranuleAt(walk.rtte.addr).state ==
-```
+* rtt
+  * post: rtt == walk.rtte.addr
+* result
+  * post: result.status == RMI_SUCCESS
+* rtte_state
+  * post: walk.rtte.state == fold_pre.state
+* rtte_addr
+  * pre: fold_pre.state != RTTE_VOID && fold_pre.state != RTTE_UNMAPPED_NS
+  * post: walk.rtte.addr == fold_pre.addr
+* rtte_attr_prot
+  * pre: fold_pre.state == RTTE_DATA
+  * post: (RttMemAttrEqual( walk.rtte, fold_pre, RTT_PROTECTED) && RttS2APEqual( walk.rtte, fold_pre, S2AP_INDIRECT))
+* rtte_attr_unprot
+  * pre: fold_pre.state == RTTE_MAPPED_NS
+  * post: (RttMemAttrEqual( walk.rtte, fold_pre, RTT_UNPROTECTED) && RttS2APEqual( walk.rtte, fold_pre, realm.rtt_s2ap_encoding))
+* rtte_ripas
+  * pre: AddrIsProtected(ipa, realm)
+  * post: walk.rtte.ripas == fold_pre.ripas
+* rtt_state
+  * post: GranuleAt(walk.rtte.addr).state ==
 
 ## B4.5.72.4 Footprint
 

@@ -30,19 +30,27 @@ The contents of the RMI Address List are not modified by execution of RMI\_OP\_M
 
 ## B4.5.23.2 Failure conditions
 
-| ID         | Condition                                                                                                                                        |
-|------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
-| complete   | pre: !OperationIncomplete(handle) post: result.status == RMI_ERROR_INPUT                                                                         |
-| list_align | pre: !AddrIsAligned(list_addr, 8) post: result.status == RMI_ERROR_INPUT                                                                         |
-| list_pas   | pre: !NonSecureAccessPermitted(list_addr) post: result.status == RMI_ERROR_INPUT                                                                 |
-| mem_gt     | pre: Amount of memory described by RMI Address List is greater than amount required by the RMI operation. post: result.status == RMI_ERROR_INPUT |
-| mem_contig | pre: Memory described by RMI Address List does not meet contiguity requirement. post: result.status == RMI_ERROR_INPUT                           |
-
-
-| ID        | Condition                                                                                                                   |
-|-----------|-----------------------------------------------------------------------------------------------------------------------------|
-| mem_align | pre: Memory described by RMI Address List does not meet alignment requirement. post: result.status == RMI_ERROR_INPUT       |
-| mem_state | pre: State of a Granule described by RMI Address List does not match expected state. post: result.status == RMI_ERROR_INPUT |
+* complete
+  * pre: !OperationIncomplete(handle)
+  * post: result.status == RMI_ERROR_INPUT
+* list_align
+  * pre: !AddrIsAligned(list_addr, 8)
+  * post: result.status == RMI_ERROR_INPUT
+* list_pas
+  * pre: !NonSecureAccessPermitted(list_addr)
+  * post: result.status == RMI_ERROR_INPUT
+* mem_gt
+  * pre: Amount of memory described by RMI Address List is greater than amount required by the RMI operation.
+  * post: result.status == RMI_ERROR_INPUT
+* mem_contig
+  * pre: Memory described by RMI Address List does not meet contiguity requirement.
+  * post: result.status == RMI_ERROR_INPUT
+* mem_align
+  * pre: Memory described by RMI Address List does not meet alignment requirement.
+  * post: result.status == RMI_ERROR_INPUT
+* mem_state
+  * pre: State of a Granule described by RMI Address List does not match expected state.
+  * post: result.status == RMI_ERROR_INPUT
 
 ## B4.5.23.2.1 Failure condition ordering
 
@@ -50,9 +58,8 @@ The RMI\_OP\_MEM\_DONATE command does not have any failure condition orderings.
 
 ## B4.5.23.3 Success conditions
 
-| ID         | Condition                                                                                       |
-|------------|-------------------------------------------------------------------------------------------------|
-| gran_state | post: State of the first donated_count Granules described by RMI Address List is GRAN_INTERNAL. |
+* gran_state
+  * post: State of the first donated_count Granules described by RMI Address List is GRAN_INTERNAL.
 
 ## B4.5.23.4 Footprint
 

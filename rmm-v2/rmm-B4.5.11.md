@@ -35,10 +35,12 @@ The RMI\_DPT\_L0\_DESTROY command operates on the following context.
 
 ## B4.5.11.2 Failure conditions
 
-| ID          | Condition                                                                                 |
-|-------------|-------------------------------------------------------------------------------------------|
-| feat        | pre: Rmm().static.feat_ats != FEATURE_TRUE post: result.status == RMI_ERROR_NOT_SUPPORTED |
-| l0dpt_state | pre: l0dpt.state == DPT_L0_INVALID post: result.status == RMI_ERROR_INPUT                 |
+* feat
+  * pre: Rmm().static.feat_ats != FEATURE_TRUE
+  * post: result.status == RMI_ERROR_NOT_SUPPORTED
+* l0dpt_state
+  * pre: l0dpt.state == DPT_L0_INVALID
+  * post: result.status == RMI_ERROR_INPUT
 
 ## B4.5.11.2.1 Failure condition ordering
 
@@ -46,10 +48,10 @@ The RMI\_DPT\_L0\_DESTROY command does not have any failure condition orderings.
 
 ## B4.5.11.3 Success conditions
 
-| ID     | Condition                           |
-|--------|-------------------------------------|
-| result | post: result.status == RMI_SUCCESS  |
-| state  | post: l0dpt.state == DPT_L0_INVALID |
+* result
+  * post: result.status == RMI_SUCCESS
+* state
+  * post: l0dpt.state == DPT_L0_INVALID
 
 ## B4.5.11.4 Footprint
 

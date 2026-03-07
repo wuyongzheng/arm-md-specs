@@ -43,11 +43,36 @@ When the out\_top output value is valid, it is aligned to the size of the addres
 
 ## B4.3.18.2 Failure conditions
 
-## Condition
-
-```
-rd_align pre: !AddrIsGranuleAligned(rd) post: ResultEqual(result, RMI_ERROR_INPUT) rd_bound pre: !PaIsDelegable(rd) post: ResultEqual(result, RMI_ERROR_INPUT) rd_state pre: Granule(rd).state != RD post: ResultEqual(result, RMI_ERROR_INPUT) size_valid pre: UInt(top) <= UInt(base) post: ResultEqual(result, RMI_ERROR_INPUT) top_bound pre: !AddrIsProtected( ToAddress(UInt(top) -RMM_GRANULE_SIZE), realm) post: ResultEqual(result, RMI_ERROR_INPUT) realm_state pre: realm.state != REALM_NEW post: ResultEqual(result, RMI_ERROR_REALM) base_align pre: !AddrIsRttLevelAligned(base, walk.level) post: ResultEqual(result, RMI_ERROR_RTT, walk.level) rtte_state pre: walk.rtte.state != UNASSIGNED post: ResultEqual(result, RMI_ERROR_RTT, walk.level) top_gran_align pre: !AddrIsGranuleAligned(top) post: ResultEqual(result, RMI_ERROR_INPUT) no_progress pre: UInt(base) == UInt(walk_top) post: ResultEqual(result, RMI_ERROR_RTT, walk.level)
-```
+* rd_align
+  * pre: !AddrIsGranuleAligned(rd)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_bound
+  * pre: !PaIsDelegable(rd)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_state
+  * pre: Granule(rd).state != RD
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* size_valid
+  * pre: UInt(top) <= UInt(base)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* top_bound
+  * pre: !AddrIsProtected( ToAddress(UInt(top) -RMM_GRANULE_SIZE), realm)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* realm_state
+  * pre: realm.state != REALM_NEW
+  * post: ResultEqual(result, RMI_ERROR_REALM)
+* base_align
+  * pre: !AddrIsRttLevelAligned(base, walk.level)
+  * post: ResultEqual(result, RMI_ERROR_RTT, walk.level)
+* rtte_state
+  * pre: walk.rtte.state != UNASSIGNED
+  * post: ResultEqual(result, RMI_ERROR_RTT, walk.level)
+* top_gran_align
+  * pre: !AddrIsGranuleAligned(top)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* no_progress
+  * pre: UInt(base) == UInt(walk_top)
+  * post: ResultEqual(result, RMI_ERROR_RTT, walk.level)
 
 ## B4.3.18.2.1 Failure condition ordering
 
@@ -59,17 +84,12 @@ rd_align pre: !AddrIsGranuleAligned(rd) post: ResultEqual(result, RMI_ERROR_INPU
 
 ## B4.3.18.3 Success conditions
 
-ID
-
-## Condition
-
-```
-rtte_ripas RttEntriesInRangeRipas( Rtt(walk.rtt_addr), walk.level, base, walk_top, RAM) rim Realm(rd).measurements[0] == realm, base, walk_top, walk.level) out_top out_top == walk_top
-```
-
-```
-RimExtendRipas(
-```
+* out_top
+  * out_top == walk_top
+* rtte_ripas
+  * RttEntriesInRangeRipas( Rtt(walk.rtt_addr), walk.level, base, walk_top, RAM)
+* rim
+  * Realm(rd).measurements[0] == RimExtendRipas(realm, base, walk_top, walk.level)
 
 ## B4.3.18.4 RMI\_RTT\_INIT\_RIPAS extension of RIM
 

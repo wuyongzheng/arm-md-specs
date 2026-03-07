@@ -36,23 +36,10 @@ If the size of the measurement value is smaller than 512 bits, the output values
 
 ## B5.3.8.2 Failure conditions
 
-ID
-
-## Condition
-
-index\_bound
-
-pre:
-
-index &gt; 4
-
-post:
-
-result
-
-==
-
-RSI\_ERROR\_INPUT
+* index_bound
+  * pre: index > 4
+* result
+  * == RSI_ERROR_INPUT
 
 ## B5.3.8.3 Success conditions
 

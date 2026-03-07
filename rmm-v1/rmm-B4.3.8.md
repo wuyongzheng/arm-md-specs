@@ -23,12 +23,18 @@ See also:
 
 ## B4.3.8.2 Failure conditions
 
-| ID          | Condition                                                                    |
-|-------------|------------------------------------------------------------------------------|
-| rd_align    | pre: !AddrIsGranuleAligned(rd) post: ResultEqual(result, RMI_ERROR_INPUT)    |
-| rd_bound    | pre: !PaIsDelegable(rd) post: ResultEqual(result, RMI_ERROR_INPUT)           |
-| rd_state    | pre: Granule(rd).state != RD post: ResultEqual(result, RMI_ERROR_INPUT)      |
-| realm_state | pre: Realm(rd).state != REALM_NEW post: ResultEqual(result, RMI_ERROR_REALM) |
+* rd_align
+  * pre: !AddrIsGranuleAligned(rd)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_bound
+  * pre: !PaIsDelegable(rd)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_state
+  * pre: Granule(rd).state != RD
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* realm_state
+  * pre: Realm(rd).state != REALM_NEW
+  * post: ResultEqual(result, RMI_ERROR_REALM)
 
 ## B4.3.8.2.1 Failure condition ordering
 
@@ -40,9 +46,6 @@ See also:
 
 ## B4.3.8.3 Success conditions
 
-| ID          | Condition                       |
-|-------------|---------------------------------|
-| realm_state | Realm(rd).state == REALM_ACTIVE |
-| B4.3.8.4    | Footprint                       |
-| ID          | Value                           |
-| realm_state | Realm(rd).state                 |
+* realm_state
+  * Realm(rd).state == REALM_ACTIVE
+

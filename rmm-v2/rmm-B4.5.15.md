@@ -38,16 +38,21 @@ The RMI\_GPT\_L1\_CREATE command operates on the following context.
 
 ## B4.5.15.2 Failure conditions
 
-| ID            | Condition                                                                            |
-|---------------|--------------------------------------------------------------------------------------|
-| addr_bound    | pre: UInt(addr) >= rmm.static.pasz post: result.status == RMI_ERROR_INPUT            |
-| addr_align    | pre: !AddrIsAligned(addr, rmm.static.l0gptsz) post: result.status == RMI_ERROR_INPUT |
-| entry_state   | pre: l0gpt_entry.state == GPT_L0_ENTRY_TABLE post: result.status == RMI_ERROR_GPT    |
-| unfold_denied | pre: Unfolding of this L0GPT is denied. post: result.status == RMI_ERROR_GLOBAL      |
-
-| ID   | Condition                                                                                                                                                            |
-|------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| gran | pre: The RMM encountered a Granule within the memory donated for the L1GPT whose PAS is not NS or whose category is not DRAM. post: result.status == RMI_ERROR_INPUT |
+* addr_bound
+  * pre: UInt(addr) >= rmm.static.pasz
+  * post: result.status == RMI_ERROR_INPUT
+* addr_align
+  * pre: !AddrIsAligned(addr, rmm.static.l0gptsz)
+  * post: result.status == RMI_ERROR_INPUT
+* entry_state
+  * pre: l0gpt_entry.state == GPT_L0_ENTRY_TABLE
+  * post: result.status == RMI_ERROR_GPT
+* unfold_denied
+  * pre: Unfolding of this L0GPT is denied.
+  * post: result.status == RMI_ERROR_GLOBAL
+* gran
+  * pre: The RMM encountered a Granule within the memory donated for the L1GPT whose PAS is not NS or whose category is not DRAM.
+  * post: result.status == RMI_ERROR_INPUT
 
 ## B4.5.15.2.1 Failure condition ordering
 
@@ -55,10 +60,10 @@ The RMI\_GPT\_L1\_CREATE command does not have any failure condition orderings.
 
 ## B4.5.15.3 Success conditions
 
-| ID     | Condition                                     |
-|--------|-----------------------------------------------|
-| result | post: result.status == RMI_SUCCESS            |
-| state  | post: l0gpt_entry.state == GPT_L0_ENTRY_TABLE |
+* result
+  * post: result.status == RMI_SUCCESS
+* state
+  * post: l0gpt_entry.state == GPT_L0_ENTRY_TABLE
 
 ## B4.5.15.4 Footprint
 

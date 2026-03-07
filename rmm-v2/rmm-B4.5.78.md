@@ -49,28 +49,52 @@ The RMI\_RTT\_UNPROT\_UNMAP command operates on the following context.
 
 ## B4.5.78.2 Failure conditions
 
-| ID         | Condition                                                                  |
-|------------|----------------------------------------------------------------------------|
-| rd_align   | pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPUT   |
-| rd_bound   | pre: !PaIsTracked(rd) post: result.status == RMI_ERROR_INPUT               |
-| rd_state   | pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_INPUT |
-| base_align | pre: !AddrIsRmiGranuleAligned(base) post: result.status == RMI_ERROR_INPUT |
-| top_align  | pre: !AddrIsRmiGranuleAligned(top) post: result.status == RMI_ERROR_INPUT  |
-| size_valid | pre: UInt(top) <= UInt(base) post: result.status == RMI_ERROR_INPUT        |
+* rd_align
+  * pre: !AddrIsRmiGranuleAligned(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_bound
+  * pre: !PaIsTracked(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_state
+  * pre: GranuleAt(rd).state != GRAN_RD
+  * post: result.status == RMI_ERROR_INPUT
+* base_align
+  * pre: !AddrIsRmiGranuleAligned(base)
+  * post: result.status == RMI_ERROR_INPUT
+* top_align
+  * pre: !AddrIsRmiGranuleAligned(top)
+  * post: result.status == RMI_ERROR_INPUT
+* size_valid
+  * pre: UInt(top) <= UInt(base)
+  * post: result.status == RMI_ERROR_INPUT
+* ipa_bound
+  * pre: AddrIsProtected(base, realm)
+  * post: result.status == RMI_ERROR_INPUT
+* oaddr_align
+  * pre: (flags.oaddr_type == RMI_ADDR_TYPE_LIST && !AddrIsAligned(oaddr.data.list_addr.addr, 8))
+  * post: result.status == RMI_ERROR_INPUT
+* oaddr_list_pas
+  * pre: (flags.oaddr_type == RMI_ADDR_TYPE_LIST && !NonSecureAccessPermitted( oaddr.data.list_addr.addr))
+  * post: result.status == RMI_ERROR_INPUT
+* rtte_state
+  * pre: walk.rtte.state != RTTE_MAPPED_NS
+  * post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level)
+* rtte_size
+  * pre: (walk.rtte.state == RTTE_MAPPED_NS && RttLevelSize(walk.level) > size)
+  * post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) B4.5.78.2.1 Failure condition ordering The RMI_RTT_UNPROT_UNMAP command does not have any failure condition orderings.
 
-## ID
+## B4.5.78.3 Success conditions
 
-## Condition
-
-```
-ipa_bound pre: AddrIsProtected(base, realm) post: result.status == RMI_ERROR_INPUT oaddr_align pre: (flags.oaddr_type == RMI_ADDR_TYPE_LIST && !AddrIsAligned(oaddr.data.list_addr.addr, 8)) post: result.status == RMI_ERROR_INPUT oaddr_list_pas pre: (flags.oaddr_type == RMI_ADDR_TYPE_LIST && !NonSecureAccessPermitted( oaddr.data.list_addr.addr)) post: result.status == RMI_ERROR_INPUT rtte_state pre: walk.rtte.state != RTTE_MAPPED_NS post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) rtte_size pre: (walk.rtte.state == RTTE_MAPPED_NS && RttLevelSize(walk.level) > size) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level)
-```
-
-B4.5.78.2.1 Failure condition ordering The RMI\_RTT\_UNPROT\_UNMAP command does not have any failure condition orderings. B4.5.78.3 Success conditions ID Condition walk\_pre.rtte.addr
-
-```
-state post: RttTreeRangeAllState( realm, RMM_RTT_TREE_PRIMARY, base, out_top, RTTE_UNMAPPED_NS) addr_single pre: flags.oaddr_type == RMI_ADDR_TYPE_SINGLE post: out_range.data.addr == addr_list pre: flags.oaddr_type == RMI_ADDR_TYPE_LIST post: RttTreeRangeAllOaddrList( realm, RMM_RTT_TREE_PRIMARY, base, oaddr.data.list_addr.addr, progress) result post: result.status == RMI_SUCCESS
-```
+* state
+  * post: RttTreeRangeAllState( realm, RMM_RTT_TREE_PRIMARY, base, out_top, RTTE_UNMAPPED_NS)
+* addr_single
+  * pre: flags.oaddr_type == RMI_ADDR_TYPE_SINGLE
+  * post: out_range.data.addr ==
+* addr_list
+  * pre: flags.oaddr_type == RMI_ADDR_TYPE_LIST
+  * post: RttTreeRangeAllOaddrList( realm, RMM_RTT_TREE_PRIMARY, base, oaddr.data.list_addr.addr, progress)
+* result
+  * post: result.status == RMI_SUCCESS
 
 ## B4.5.78.4 Footprint
 

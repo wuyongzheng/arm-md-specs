@@ -37,12 +37,18 @@ The RMI\_DPT\_L1\_DESTROY command operates on the following context.
 
 ## B4.5.13.2 Failure conditions
 
-| ID          | Condition                                                                                 |
-|-------------|-------------------------------------------------------------------------------------------|
-| feat        | pre: Rmm().static.feat_ats != FEATURE_TRUE post: result.status == RMI_ERROR_NOT_SUPPORTED |
-| addr_bound  | pre: UInt(addr) >= rmm.static.dptps post: result.status == RMI_ERROR_INPUT                |
-| addr_align  | pre: !AddrIsAligned(addr, rmm.static.l0dptsz) post: result.status == RMI_ERROR_INPUT      |
-| entry_state | pre: l0dpt_entry.state == DPT_L0_ENTRY_BLOCK post: result.status == RMI_ERROR_INPUT       |
+* feat
+  * pre: Rmm().static.feat_ats != FEATURE_TRUE
+  * post: result.status == RMI_ERROR_NOT_SUPPORTED
+* addr_bound
+  * pre: UInt(addr) >= rmm.static.dptps
+  * post: result.status == RMI_ERROR_INPUT
+* addr_align
+  * pre: !AddrIsAligned(addr, rmm.static.l0dptsz)
+  * post: result.status == RMI_ERROR_INPUT
+* entry_state
+  * pre: l0dpt_entry.state == DPT_L0_ENTRY_BLOCK
+  * post: result.status == RMI_ERROR_INPUT
 
 ## B4.5.13.2.1 Failure condition ordering
 
@@ -50,10 +56,10 @@ The RMI\_DPT\_L1\_DESTROY command does not have any failure condition orderings.
 
 ## B4.5.13.3 Success conditions
 
-| ID     | Condition                                     |
-|--------|-----------------------------------------------|
-| result | post: result.status == RMI_SUCCESS            |
-| state  | post: l0dpt_entry.state == DPT_L0_ENTRY_BLOCK |
+* result
+  * post: result.status == RMI_SUCCESS
+* state
+  * post: l0dpt_entry.state == DPT_L0_ENTRY_BLOCK
 
 ## B4.5.13.4 Footprint
 

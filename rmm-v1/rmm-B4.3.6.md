@@ -25,11 +25,15 @@ Undelegates a Granule.
 
 ## B4.3.6.2 Failure conditions
 
-| ID         | Condition                                                                        |
-|------------|----------------------------------------------------------------------------------|
-| gran_align | pre: !AddrIsGranuleAligned(addr) post: ResultEqual(result, RMI_ERROR_INPUT)      |
-| gran_bound | pre: !PaIsDelegable(addr) post: ResultEqual(result, RMI_ERROR_INPUT)             |
-| gran_state | pre: Granule(addr).state != DELEGATED post: ResultEqual(result, RMI_ERROR_INPUT) |
+* gran_align
+  * pre: !AddrIsGranuleAligned(addr)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* gran_bound
+  * pre: !PaIsDelegable(addr)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* gran_state
+  * pre: Granule(addr).state != DELEGATED
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
 
 ## B4.3.6.2.1 Failure condition ordering
 
@@ -37,11 +41,12 @@ The RMI\_GRANULE\_UNDELEGATE command does not have any failure condition orderin
 
 ## B4.3.6.3 Success conditions
 
-| ID           | Condition                             |
-|--------------|---------------------------------------|
-| gran_gpt     | Granule(addr).gpt == GPT_NS           |
-| gran_state   | Granule(addr).state == UNDELEGATED    |
-| gran_content | Contents of target Granule are wiped. |
+* gran_gpt
+  * Granule(addr).gpt == GPT_NS
+* gran_state
+  * Granule(addr).state == UNDELEGATED
+* gran_content
+  * Contents of target Granule are wiped.
 
 ## See also:
 

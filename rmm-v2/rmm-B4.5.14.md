@@ -39,9 +39,8 @@ The RMI\_FEATURES command does not have any failure conditions.
 
 ## B4.5.14.3 Success conditions
 
-| ID    | Condition                                      |
-|-------|------------------------------------------------|
-| value | post: value == RmiFeatureRegisterEncode(index) |
+* value
+  * post: value == RmiFeatureRegisterEncode(index)
 
 ## B4.5.14.4 Footprint
 

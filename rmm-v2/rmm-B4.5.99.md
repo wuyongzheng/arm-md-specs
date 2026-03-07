@@ -27,11 +27,12 @@ The RMI\_VSMMU\_FEATURES command operates on the following context.
 
 ## B4.5.99.2 Failure conditions
 
-| ID             | Condition                                                                           |
-|----------------|-------------------------------------------------------------------------------------|
-| features_align | pre: !AddrIsAligned(features_ptr, 0x100) post: result.status == RMI_ERROR_INPUT     |
-| features_pas   | pre: !NonSecureAccessPermitted(features_ptr) post: result.status == RMI_ERROR_INPUT |
-
+* features_align
+  * pre: !AddrIsAligned(features_ptr, 0x100)
+  * post: result.status == RMI_ERROR_INPUT
+* features_pas
+  * pre: !NonSecureAccessPermitted(features_ptr)
+  * post: result.status == RMI_ERROR_INPUT
 
 ## B4.5.99.2.1 Failure condition ordering
 
@@ -39,9 +40,8 @@ The RMI\_VSMMU\_FEATURES command does not have any failure condition orderings.
 
 ## B4.5.99.3 Success conditions
 
-| ID       | Condition                                                             |
-|----------|-----------------------------------------------------------------------|
-| features | post: features is populated with VSMMU features supported by the RMM. |
+* features
+  * post: features is populated with VSMMU features supported by the RMM.
 
 ## B4.5.99.4 Footprint
 

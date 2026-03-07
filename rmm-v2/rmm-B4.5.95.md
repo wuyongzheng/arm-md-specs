@@ -43,21 +43,44 @@ The RMI\_VSMMU\_CREATE command operates on the following context.
 
 ## B4.5.95.2 Failure conditions
 
-Condition
-
-ID
-
-| feat   | pre: Rmm().static.feat_vsmmu != FEATURE_TRUE   |
-|--------|------------------------------------------------|
-|        | post: result.status == RMI_ERROR_NOT_SUPPORTED |
-
-## ID
-
-## Condition
-
-```
-rd_align pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPUT rd_bound pre: !PaIsTracked(rd) post: result.status == RMI_ERROR_INPUT rd_state pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_INPUT realm_state pre: realm.state != REALM_NEW post: result.status == RMI_ERROR_REALM vsmmu_align pre: !AddrIsRmiGranuleAligned(vsmmu_ptr) post: result.status == RMI_ERROR_INPUT vsmmu_bound pre: !PaIsDelegableConventionalFine(vsmmu_ptr) post: result.status == RMI_ERROR_INPUT vsmmu_state pre: GranuleAt(vsmmu_ptr).state != GRAN_DELEGATED post: result.status == RMI_ERROR_INPUT params_align pre: !AddrIsRmiGranuleAligned(params_ptr) post: result.status == RMI_ERROR_INPUT params_pas pre: !NonSecureAccessPermitted(params_ptr) post: result.status == RMI_ERROR_INPUT params_valid pre: !RmiVsmmuParamsIsValid(params_ptr) post: result.status == RMI_ERROR_INPUT reg_align pre: (!AddrIsRmiGranuleAligned(params.reg_base) || !AddrIsRmiGranuleAligned(params.reg_top)) post: result.status == RMI_ERROR_INPUT reg_bound pre: (!AddrIsProtected(params.reg_base, realm) || !AddrIsProtected(params.reg_top, realm) || UInt(params.reg_top) <= UInt(params.reg_base)) post: result.status == RMI_ERROR_INPUT
-```
+* feat
+  * pre: Rmm().static.feat_vsmmu != FEATURE_TRUE
+* rd_align
+  * pre: !AddrIsRmiGranuleAligned(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_bound
+  * pre: !PaIsTracked(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_state
+  * pre: GranuleAt(rd).state != GRAN_RD
+  * post: result.status == RMI_ERROR_INPUT
+* realm_state
+  * pre: realm.state != REALM_NEW
+  * post: result.status == RMI_ERROR_REALM
+* vsmmu_align
+  * pre: !AddrIsRmiGranuleAligned(vsmmu_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* vsmmu_bound
+  * pre: !PaIsDelegableConventionalFine(vsmmu_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* vsmmu_state
+  * pre: GranuleAt(vsmmu_ptr).state != GRAN_DELEGATED
+  * post: result.status == RMI_ERROR_INPUT
+* params_align
+  * pre: !AddrIsRmiGranuleAligned(params_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* params_pas
+  * pre: !NonSecureAccessPermitted(params_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* params_valid
+  * pre: !RmiVsmmuParamsIsValid(params_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* reg_align
+  * pre: (!AddrIsRmiGranuleAligned(params.reg_base) || !AddrIsRmiGranuleAligned(params.reg_top))
+  * post: result.status == RMI_ERROR_INPUT
+* reg_bound
+  * pre: (!AddrIsProtected(params.reg_base, realm) || !AddrIsProtected(params.reg_top, realm) || UInt(params.reg_top) <= UInt(params.reg_base))
+  * post: result.status == RMI_ERROR_INPUT
 
 ## B4.5.95.2.1 Failure condition ordering
 
@@ -69,8 +92,8 @@ rd_align pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPU
 
 ## B4.5.95.3 Success conditions
 
-```
-ID Condition gran_state post: GranuleAt(vsmmu_ptr).state == GRAN_VSMMU state post: vsmmu.state == VSMMU_INACTIVE
-```
+* gran_state
+  * post: GranuleAt(vsmmu_ptr).state == GRAN_VSMMU
+* state
+  * post: vsmmu.state == VSMMU_INACTIVE
 
-<!-- image -->

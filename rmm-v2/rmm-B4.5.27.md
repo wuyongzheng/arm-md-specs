@@ -41,19 +41,33 @@ The RMI\_PDEV\_CREATE command operates on the following context.
 
 ## B4.5.27.2 Failure conditions
 
-| ID         | Condition                                                                                |
-|------------|------------------------------------------------------------------------------------------|
-| feat       | pre: Rmm().static.feat_da != FEATURE_TRUE post: result.status == RMI_ERROR_NOT_SUPPORTED |
-| pdev_align | pre: !AddrIsRmiGranuleAligned(pdev_ptr) post: result.status == RMI_ERROR_INPUT           |
-| pdev_bound | pre: !PaIsDelegableConventionalFine(pdev_ptr) post: result.status == RMI_ERROR_INPUT     |
-
-ID
-
-## Condition
-
-```
-pdev_state pre: GranuleAt(pdev_ptr).state != GRAN_DELEGATED post: result.status == RMI_ERROR_INPUT params_align pre: !AddrIsRmiGranuleAligned(params_ptr) post: result.status == RMI_ERROR_INPUT params_pas pre: !NonSecureAccessPermitted(params_ptr) post: result.status == RMI_ERROR_INPUT params_valid pre: !RmiPdevParamsIsValid(params_ptr) post: result.status == RMI_ERROR_INPUT flags_supp pre: !RmiPdevFlagsSupported(params.flags) post: result.status == RMI_ERROR_INPUT max_num_vdevs pre: params.max_vdevs_order > post: result.status == RMI_ERROR_INPUT
-```
+* feat
+  * pre: Rmm().static.feat_da != FEATURE_TRUE
+  * post: result.status == RMI_ERROR_NOT_SUPPORTED
+* pdev_align
+  * pre: !AddrIsRmiGranuleAligned(pdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_bound
+  * pre: !PaIsDelegableConventionalFine(pdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_state
+  * pre: GranuleAt(pdev_ptr).state != GRAN_DELEGATED
+  * post: result.status == RMI_ERROR_INPUT
+* params_align
+  * pre: !AddrIsRmiGranuleAligned(params_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* params_pas
+  * pre: !NonSecureAccessPermitted(params_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* params_valid
+  * pre: !RmiPdevParamsIsValid(params_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* flags_supp
+  * pre: !RmiPdevFlagsSupported(params.flags)
+  * post: result.status == RMI_ERROR_INPUT
+* max_num_vdevs
+  * pre: params.max_vdevs_order >
+  * post: result.status == RMI_ERROR_INPUT
 
 ## B4.5.27.2.1 Failure condition ordering
 
@@ -69,22 +83,40 @@ pdev_state pre: GranuleAt(pdev_ptr).state != GRAN_DELEGATED post: result.status 
 
 ## B4.5.27.3 Success conditions
 
-```
-ID Condition gran_state post: GranuleAt(pdev_ptr).state == GRAN_PDEV category post: Equal(pdev.category, params.flags.category) pdev_id post: pdev.pdev_id == params.pdev_id routing_id post: pdev.routing_id == params.routing_id rid_base post: pdev.rid_base == params.rid_base rid_top post: pdev.rid_top == params.rid_top id_index post: pdev.id_index == params.id_index hash_algo post: Equal(pdev.hash_algo, params.hash_algo) spdm post: Equal(pdev.spdm, params.flags.spdm) state post: pdev.state == PDEV_NEW op post: pdev.op == PDEV_OP_NONE comm_state post: pdev.comm_state == DEV_COMM_PENDING max_num_vdevs post: pdev.max_num_vdevs == (2 ^ params.max_vdevs_order) -1 num_vdevs post: pdev.num_vdevs == 0
-```
-
-
-```
-rmm.static.max_vdevs_order
-```
-
-```
-ID Condition params.flags.p2p)
-```
-
-```
-p2p_enabled post: Equal(pdev.p2p_enabled, pdev_stream_live post: !PdevStreamLive(pdev) cmem_count post: pdev.cmem_count == 0
-```
+* gran_state
+  * post: GranuleAt(pdev_ptr).state == GRAN_PDEV
+* category
+  * post: Equal(pdev.category, params.flags.category)
+* pdev_id
+  * post: pdev.pdev_id == params.pdev_id
+* routing_id
+  * post: pdev.routing_id == params.routing_id
+* rid_base
+  * post: pdev.rid_base == params.rid_base
+* rid_top
+  * post: pdev.rid_top == params.rid_top
+* id_index
+  * post: pdev.id_index == params.id_index
+* hash_algo
+  * post: Equal(pdev.hash_algo, params.hash_algo)
+* spdm
+  * post: Equal(pdev.spdm, params.flags.spdm)
+* state
+  * post: pdev.state == PDEV_NEW
+* op
+  * post: pdev.op == PDEV_OP_NONE
+* comm_state
+  * post: pdev.comm_state == DEV_COMM_PENDING
+* max_num_vdevs
+  * post: pdev.max_num_vdevs == (2 ^ params.max_vdevs_order) -1
+* num_vdevs
+  * post: pdev.num_vdevs == 0 rmm.static.max_vdevs_order
+* p2p_enabled
+  * post: Equal(pdev.p2p_enabled,
+* pdev_stream_live
+  * post: !PdevStreamLive(pdev)
+* cmem_count
+  * post: pdev.cmem_count == 0
 
 ## B4.5.27.4 Footprint
 

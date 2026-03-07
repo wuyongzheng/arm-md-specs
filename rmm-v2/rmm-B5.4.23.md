@@ -34,12 +34,18 @@ The RSI\_VSMMU\_GET\_INFO command operates on the following context.
 
 ## B5.4.23.2 Failure conditions
 
-| ID         | Condition                                                                     |
-|------------|-------------------------------------------------------------------------------|
-| addr_align | pre: !AddrIsRsiGranuleAligned(addr) post: result == RSI_ERROR_INPUT           |
-| addr_bound | pre: !AddrIsProtected(addr, realm) post: result == RSI_ERROR_INPUT            |
-| rtte_state | pre: walk.rtte.state != RTTE_ARCH_DEV post: result == RSI_ERROR_INPUT         |
-| vsmmu_base | pre: addr != VsmmuAt(walk.rtte.addr).reg_base post: result == RSI_ERROR_INPUT |
+* addr_align
+  * pre: !AddrIsRsiGranuleAligned(addr)
+  * post: result == RSI_ERROR_INPUT
+* addr_bound
+  * pre: !AddrIsProtected(addr, realm)
+  * post: result == RSI_ERROR_INPUT
+* rtte_state
+  * pre: walk.rtte.state != RTTE_ARCH_DEV
+  * post: result == RSI_ERROR_INPUT
+* vsmmu_base
+  * pre: addr != VsmmuAt(walk.rtte.addr).reg_base
+  * post: result == RSI_ERROR_INPUT
 
 ## B5.4.23.2.1 Failure condition ordering
 
@@ -47,9 +53,8 @@ The RSI\_VSMMU\_GET\_INFO command does not have any failure condition orderings.
 
 ## B5.4.23.3 Success conditions
 
-| ID         | Condition                                    |
-|------------|----------------------------------------------|
-| vsmmu_base | post: top == VsmmuAt(walk.rtte.addr).reg_top |
+* vsmmu_base
+  * post: top == VsmmuAt(walk.rtte.addr).reg_top
 
 ## B5.4.23.4 Footprint
 

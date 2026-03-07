@@ -40,19 +40,27 @@ If result is RMI\_INCOMPLETE then the value of out\_top is UNKNOWN.
 
 ## B4.5.17.2 Failure conditions
 
-| ID         | Condition                                                                          |
-|------------|------------------------------------------------------------------------------------|
-| rmm_state  | pre: rmm.dynamic.state != RMM_STATE_ACTIVE post: result.status == RMI_ERROR_GLOBAL |
-| base_align | pre: !AddrIsRmiGranuleAligned(base) post: result.status == RMI_ERROR_INPUT         |
-| top_align  | pre: !AddrIsRmiGranuleAligned(top) post: result.status == RMI_ERROR_INPUT          |
-
-
-| ID        | Condition                                                                                                                                           |
-|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| top_bound | pre: UInt(top) <= UInt(base) post: result.status == RMI_ERROR_INPUT                                                                                 |
-| populated | pre: While processing the target range, the RMM was unable to proceed due to memory being unpopulated. post: result.status == RMI_ERROR_INPUT       |
-| tracking  | pre: While processing the target range, the RMM was unable to proceed due to the state of a tracking region. post: result.status == RMI_ERROR_INPUT |
-| state     | pre: While processing the target range, the RMM encountered a Granule whose state is not GRAN_UNDELEGATED. post: result.status == RMI_ERROR_INPUT   |
+* rmm_state
+  * pre: rmm.dynamic.state != RMM_STATE_ACTIVE
+  * post: result.status == RMI_ERROR_GLOBAL
+* base_align
+  * pre: !AddrIsRmiGranuleAligned(base)
+  * post: result.status == RMI_ERROR_INPUT
+* top_align
+  * pre: !AddrIsRmiGranuleAligned(top)
+  * post: result.status == RMI_ERROR_INPUT
+* top_bound
+  * pre: UInt(top) <= UInt(base)
+  * post: result.status == RMI_ERROR_INPUT
+* populated
+  * pre: While processing the target range, the RMM was unable to proceed due to memory being unpopulated.
+  * post: result.status == RMI_ERROR_INPUT
+* tracking
+  * pre: While processing the target range, the RMM was unable to proceed due to the state of a tracking region.
+  * post: result.status == RMI_ERROR_INPUT
+* state
+  * pre: While processing the target range, the RMM encountered a Granule whose state is not GRAN_UNDELEGATED.
+  * post: result.status == RMI_ERROR_INPUT
 
 ## B4.5.17.2.1 Failure condition ordering
 
@@ -60,10 +68,8 @@ The RMI\_GRANULE\_RANGE\_DELEGATE command does not have any failure condition or
 
 ## B4.5.17.3 Success conditions
 
-| ID         | Condition                                                   |
-|------------|-------------------------------------------------------------|
-| state       post: GranulesAllState(base, out_top, GRAN_DELEGATED) |
-| result     | post: result.status == RMI_SUCCESS                          |
-| B4.5.17.4  | Footprint                                                   |
-| ID         | Value                                                       |
-| gran_state | State of Granules in range [base, top)                      |
+* state
+  * post: GranulesAllState(base, out_top, GRAN_DELEGATED)
+* result
+  * post: result.status == RMI_SUCCESS
+

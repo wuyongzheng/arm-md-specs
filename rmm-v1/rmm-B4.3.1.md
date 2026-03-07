@@ -39,13 +39,51 @@ The RMI\_DATA\_CREATE command operates on the following context.
 
 ## B4.3.1.2 Failure conditions
 
-| ID        | Condition                                                                  |
-|-----------|----------------------------------------------------------------------------|
-| src_align | pre: !AddrIsGranuleAligned(src) post: ResultEqual(result, RMI_ERROR_INPUT) |
-
-```
-ID Condition src_bound pre: !PaIsDelegable(src) post: ResultEqual(result, RMI_ERROR_INPUT) src_pas pre: !GranuleAccessPermitted(src, PAS_NS) post: ResultEqual(result, RMI_ERROR_INPUT) data_align pre: !AddrIsGranuleAligned(data) post: ResultEqual(result, RMI_ERROR_INPUT) data_bound pre: !PaIsDelegable(data) post: ResultEqual(result, RMI_ERROR_INPUT) data_state pre: Granule(data).state != DELEGATED post: ResultEqual(result, RMI_ERROR_INPUT) data_bound2 pre: ((realm.feat_lpa2 == FEATURE_FALSE) && (UInt(data) >= 2^48)) post: ResultEqual(result, RMI_ERROR_INPUT) rd_align pre: !AddrIsGranuleAligned(rd) post: ResultEqual(result, RMI_ERROR_INPUT) rd_bound pre: !PaIsDelegable(rd) post: ResultEqual(result, RMI_ERROR_INPUT) rd_state pre: Granule(rd).state != RD post: ResultEqual(result, RMI_ERROR_INPUT) ipa_align pre: !AddrIsGranuleAligned(ipa) post: ResultEqual(result, RMI_ERROR_INPUT) ipa_bound pre: !AddrIsProtected(ipa, realm) post: ResultEqual(result, RMI_ERROR_INPUT) realm_state pre: realm.state != REALM_NEW post: ResultEqual(result, RMI_ERROR_REALM) rtt_walk pre: walk.level < RMM_RTT_PAGE_LEVEL post: ResultEqual(result, RMI_ERROR_RTT, walk.level) rtte_state pre: walk.rtte.state != UNASSIGNED post: ResultEqual(result, RMI_ERROR_RTT, walk.level)
-```
+* src_align
+  * pre: !AddrIsGranuleAligned(src)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* src_bound
+  * pre: !PaIsDelegable(src)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* src_pas
+  * pre: !GranuleAccessPermitted(src, PAS_NS)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* data_align
+  * pre: !AddrIsGranuleAligned(data)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* data_bound
+  * pre: !PaIsDelegable(data)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* data_state
+  * pre: Granule(data).state != DELEGATED
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* data_bound2
+  * pre: ((realm.feat_lpa2 == FEATURE_FALSE) && (UInt(data) >= 2^48))
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_align
+  * pre: !AddrIsGranuleAligned(rd)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_bound
+  * pre: !PaIsDelegable(rd)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_state
+  * pre: Granule(rd).state != RD
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* ipa_align
+  * pre: !AddrIsGranuleAligned(ipa)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* ipa_bound
+  * pre: !AddrIsProtected(ipa, realm)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* realm_state
+  * pre: realm.state != REALM_NEW
+  * post: ResultEqual(result, RMI_ERROR_REALM)
+* rtt_walk
+  * pre: walk.level < RMM_RTT_PAGE_LEVEL
+  * post: ResultEqual(result, RMI_ERROR_RTT, walk.level)
+* rtte_state
+  * pre: walk.rtte.state != UNASSIGNED
+  * post: ResultEqual(result, RMI_ERROR_RTT, walk.level)
 
 ## B4.3.1.2.1 Failure condition ordering
 
@@ -61,20 +99,16 @@ rtte_state]
 
 ## B4.3.1.3 Success conditions
 
-## Condition
-
-Granule(data).state == DATA
-
-ID
-
-data\_state
-
-| ID         | Condition                                                            |
-|------------|----------------------------------------------------------------------|
-| rtte_state | walk.rtte.state == ASSIGNED                                          |
-| rtte_ripas | walk.rtte.ripas == RAM                                               |
-| rtte_addr  | walk.rtte.addr == data                                               |
-| rim        | Realm(rd).measurements[0] == RimExtendData( realm, ipa, data, flags) |
+* rtte_state
+  * walk.rtte.state == ASSIGNED
+* rtte_ripas
+  * walk.rtte.ripas == RAM
+* rtte_addr
+  * walk.rtte.addr == data
+* rim
+  * Realm(rd).measurements[0] == RimExtendData( realm, ipa, data, flags)
+* data_state
+  * Granule(data).state == DATA
 
 ## B4.3.1.4 RMI\_DATA\_CREATE extension of RIM
 

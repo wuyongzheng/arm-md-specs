@@ -36,12 +36,18 @@ The RMI\_REALM\_TERMINATE command operates on the following context.
 
 ## B4.5.48.2 Failure conditions
 
-| ID          | Condition                                                                  |
-|-------------|----------------------------------------------------------------------------|
-| rd_align    | pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPUT   |
-| rd_tracking | pre: !PaIsTrackedFine(rd) post: result.status == RMI_ERROR_INPUT           |
-| rd_state    | pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_INPUT |
-| rec_running | pre: AnyRecRunning(realm) post: result.status == RMI_ERROR_REALM           |
+* rd_align
+  * pre: !AddrIsRmiGranuleAligned(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_tracking
+  * pre: !PaIsTrackedFine(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_state
+  * pre: GranuleAt(rd).state != GRAN_RD
+  * post: result.status == RMI_ERROR_INPUT
+* rec_running
+  * pre: AnyRecRunning(realm)
+  * post: result.status == RMI_ERROR_REALM
 
 ## B4.5.48.2.1 Failure condition ordering
 
@@ -51,13 +57,12 @@ The RMI\_REALM\_TERMINATE command operates on the following context.
 
 ## B4.5.48.3 Success conditions
 
-| ID          | Condition                          |
-|-------------|------------------------------------|
-| realm_state | post: realm.state == REALM_ZOMBIE  |
-| result      | post: result.status == RMI_SUCCESS |
+* realm_state
+  * post: realm.state == REALM_ZOMBIE
+* result
+  * post: result.status == RMI_SUCCESS
 
 ## B4.5.48.4 Footprint
-
 
 | ID          | Value       |
 |-------------|-------------|

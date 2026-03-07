@@ -49,19 +49,52 @@ See also:
 
 ## B4.5.74.2 Failure conditions
 
-```
-ID Condition rd_align pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPUT rd_bound pre: !PaIsTracked(rd) post: result.status == RMI_ERROR_INPUT rd_state pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_INPUT level_bound pre: !RttLevelIsValid(realm, level) post: result.status == RMI_ERROR_INPUT ipa_align pre: !AddrIsRttLevelAligned(ipa, level) post: result.status == RMI_ERROR_INPUT ipa_bound pre: UInt(ipa) >= (2 ^ realm.ipa_width) post: result.status == RMI_ERROR_INPUT
-```
+* rd_align
+  * pre: !AddrIsRmiGranuleAligned(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_bound
+  * pre: !PaIsTracked(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_state
+  * pre: GranuleAt(rd).state != GRAN_RD
+  * post: result.status == RMI_ERROR_INPUT
+* level_bound
+  * pre: !RttLevelIsValid(realm, level)
+  * post: result.status == RMI_ERROR_INPUT
+* ipa_align
+  * pre: !AddrIsRttLevelAligned(ipa, level)
+  * post: result.status == RMI_ERROR_INPUT
+* ipa_bound
+  * pre: UInt(ipa) >= (2 ^ realm.ipa_width)
+  * post: result.status == RMI_ERROR_INPUT B4.5.74.2.1 Failure condition ordering The RMI_RTT_READ_ENTRY command does not have any failure condition orderings.
 
-B4.5.74.2.1 Failure condition ordering The RMI\_RTT\_READ\_ENTRY command does not have any failure condition orderings. B4.5.74.3 Success conditions ID Condition walk\_level post: walk\_level == walk.level state post: state == RttEntryStateToRmi(walk.rtte.state) state\_invalid pre: (walk.rtte.state == RTTE\_VOID || walk.rtte.state == RTTE\_UNMAPPED\_NS) post: (rtte.attr\_unprot == Zeros{3}() &amp;&amp; rtte.s2ap\_indirect.base\_index == S2AP\_NO\_ACCESS &amp;&amp; rtte.s2ap\_indirect.overlay\_index == 0 &amp;&amp; rtte.s2ap\_direct.read == RMM\_FALSE &amp;&amp; rtte.s2ap\_direct.write == RMM\_FALSE &amp;&amp; rtte.addr == Zeros{ADDRESS\_WIDTH}()) state\_prot pre: (walk.rtte.state == RTTE\_DATA || walk.rtte.state == RTTE\_NARCH\_DEV || walk.rtte.state == RTTE\_ARCH\_DEV || walk.rtte.state == RTTE\_TABLE) post: (rtte.attr\_unprot == Zeros{3}() &amp;&amp; rtte.s2ap\_indirect.base\_index == S2AP\_NO\_ACCESS &amp;&amp; rtte.s2ap\_indirect.overlay\_index == 0 &amp;&amp; rtte.s2ap\_direct.read == RMM\_FALSE &amp;&amp; rtte.s2ap\_direct.write == RMM\_FALSE &amp;&amp; rtte.addr == walk.rtte.addr)
+## B4.5.74.3 Success conditions
 
-## ID
-
-## Condition
-
-```
-state_unprot pre: walk.rtte.state == RTTE_MAPPED_NS post: (rtte.attr_unprot == walk.rtte.attr_unprot && rtte.s2ap_indirect.base_index == walk.rtte.s2ap_indirect.base_index && rtte.s2ap_indirect.overlay_index == 0 && rtte.s2ap_direct.read == walk.rtte.s2ap_direct.read && rtte.s2ap_direct.write == walk.rtte.s2ap_direct.write && rtte.addr == walk.rtte.addr) state_io pre: walk.rtte.state == RTTE_NARCH_DEV post: (rtte.attr_unprot == Zeros{3}() && rtte.s2ap_indirect.base_index == S2AP_NO_ACCESS && rtte.s2ap_indirect.overlay_index == 0 && rtte.s2ap_direct.read == RMM_FALSE && rtte.s2ap_direct.write == RMM_FALSE && rtte.addr == walk.rtte.addr) state_vsmmu pre: walk.rtte.state == RTTE_ARCH_DEV post: (rtte.attr_unprot == Zeros{3}() && rtte.s2ap_indirect.base_index == S2AP_NO_ACCESS && rtte.s2ap_indirect.overlay_index == 0 && rtte.s2ap_direct.read == RMM_FALSE && rtte.s2ap_direct.write == RMM_FALSE && rtte.addr == walk.rtte.addr) ripas_prot pre: (walk.rtte.state == RTTE_VOID || walk.rtte.state == RTTE_DATA) post: ripas == RipasToRmi(walk.rtte.ripas) ripas_unprot pre: (walk.rtte.state == RTTE_UNMAPPED_NS || walk.rtte.state == RTTE_MAPPED_NS) post: ripas == RMI_RIPAS_EMPTY
-```
+* walk_level
+  * post: walk_level == walk.level
+* state
+  * post: state == RttEntryStateToRmi(walk.rtte.state)
+* state_invalid
+  * pre: (walk.rtte.state == RTTE_VOID || walk.rtte.state == RTTE_UNMAPPED_NS)
+  * post: (rtte.attr_unprot == Zeros{3}() && rtte.s2ap_indirect.base_index == S2AP_NO_ACCESS && rtte.s2ap_indirect.overlay_index == 0 && rtte.s2ap_direct.read == RMM_FALSE && rtte.s2ap_direct.write == RMM_FALSE && rtte.addr == Zeros{ADDRESS_WIDTH}())
+* state_prot
+  * pre: (walk.rtte.state == RTTE_DATA || walk.rtte.state == RTTE_NARCH_DEV || walk.rtte.state == RTTE_ARCH_DEV || walk.rtte.state == RTTE_TABLE)
+  * post: (rtte.attr_unprot == Zeros{3}() && rtte.s2ap_indirect.base_index == S2AP_NO_ACCESS && rtte.s2ap_indirect.overlay_index == 0 && rtte.s2ap_direct.read == RMM_FALSE && rtte.s2ap_direct.write == RMM_FALSE && rtte.addr == walk.rtte.addr)
+* state_unprot
+  * pre: walk.rtte.state == RTTE_MAPPED_NS
+  * post: (rtte.attr_unprot == walk.rtte.attr_unprot && rtte.s2ap_indirect.base_index == walk.rtte.s2ap_indirect.base_index && rtte.s2ap_indirect.overlay_index == 0 && rtte.s2ap_direct.read == walk.rtte.s2ap_direct.read && rtte.s2ap_direct.write == walk.rtte.s2ap_direct.write && rtte.addr == walk.rtte.addr)
+* state_io
+  * pre: walk.rtte.state == RTTE_NARCH_DEV
+  * post: (rtte.attr_unprot == Zeros{3}() && rtte.s2ap_indirect.base_index == S2AP_NO_ACCESS && rtte.s2ap_indirect.overlay_index == 0 && rtte.s2ap_direct.read == RMM_FALSE && rtte.s2ap_direct.write == RMM_FALSE && rtte.addr == walk.rtte.addr)
+* state_vsmmu
+  * pre: walk.rtte.state == RTTE_ARCH_DEV
+  * post: (rtte.attr_unprot == Zeros{3}() && rtte.s2ap_indirect.base_index == S2AP_NO_ACCESS && rtte.s2ap_indirect.overlay_index == 0 && rtte.s2ap_direct.read == RMM_FALSE && rtte.s2ap_direct.write == RMM_FALSE && rtte.addr == walk.rtte.addr)
+* ripas_prot
+  * pre: (walk.rtte.state == RTTE_VOID || walk.rtte.state == RTTE_DATA)
+  * post: ripas == RipasToRmi(walk.rtte.ripas)
+* ripas_unprot
+  * pre: (walk.rtte.state == RTTE_UNMAPPED_NS || walk.rtte.state == RTTE_MAPPED_NS)
+  * post: ripas == RMI_RIPAS_EMPTY
 
 ## B4.5.74.4 Footprint
 

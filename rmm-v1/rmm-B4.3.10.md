@@ -33,12 +33,18 @@ The RMI\_REALM\_DESTROY command operates on the following context.
 
 ## B4.3.10.2 Failure conditions
 
-| ID         | Condition                                                                 |
-|------------|---------------------------------------------------------------------------|
-| rd_align   | pre: !AddrIsGranuleAligned(rd) post: ResultEqual(result, RMI_ERROR_INPUT) |
-| rd_bound   | pre: !PaIsDelegable(rd) post: ResultEqual(result, RMI_ERROR_INPUT)        |
-| rd_state   | pre: Granule(rd).state != RD post: ResultEqual(result, RMI_ERROR_INPUT)   |
-| realm_live | pre: RealmIsLive(rd) post: ResultEqual(result, RMI_ERROR_REALM)           |
+* rd_align
+  * pre: !AddrIsGranuleAligned(rd)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_bound
+  * pre: !PaIsDelegable(rd)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_state
+  * pre: Granule(rd).state != RD
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* realm_live
+  * pre: RealmIsLive(rd)
+  * post: ResultEqual(result, RMI_ERROR_REALM)
 
 ## B4.3.10.2.1 Failure condition ordering
 
@@ -48,11 +54,12 @@ The RMI\_REALM\_DESTROY command operates on the following context.
 
 ## B4.3.10.3 Success conditions
 
-| ID        | Condition                                                       |
-|-----------|-----------------------------------------------------------------|
-| rtt_state | RttsStateEqual( realm.rtt_base, realm.rtt_num_start, DELEGATED) |
-| rd_state  | Granule(rd).state == DELEGATED                                  |
-| vmid      | VmidIsFree(realm.vmid)                                          |
+* rtt_state
+  * RttsStateEqual( realm.rtt_base, realm.rtt_num_start, DELEGATED)
+* rd_state
+  * Granule(rd).state == DELEGATED
+* vmid
+  * VmidIsFree(realm.vmid)
 
 ## B4.3.10.4 Footprint
 

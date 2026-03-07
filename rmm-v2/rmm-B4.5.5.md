@@ -36,20 +36,27 @@ The RMI\_CMEM\_POPULATE command operates on the following context.
 
 ## B4.5.5.2 Failure conditions
 
-| ID              | Condition                                                                                      |
-|-----------------|------------------------------------------------------------------------------------------------|
-| feat            | pre: Rmm().static.feat_cmem_cxl != FEATURE_TRUE post: result.status == RMI_ERROR_NOT_SUPPORTED |
-| cmem_align      | pre: !AddrIsRmiGranuleAligned(cmem_ptr) post: result.status == RMI_ERROR_INPUT                 |
-| cmem_bound      | pre: !PaIsTracked(cmem_ptr) post: result.status == RMI_ERROR_INPUT                             |
-| cmem_gran_state | pre: GranuleAt(cmem_ptr).state != GRAN_CMEM post: result.status == RMI_ERROR_INPUT             |
-
-```
-ID Condition UInt(cmem.addr_range.top))
-```
-
-```
-cmem_state pre: cmem.state != CMEM_STARTED post: result.status == RMI_ERROR_DEVICE base_bound pre: (UInt(base) < UInt(cmem.addr_range.base) || UInt(base) > post: result.status == RMI_ERROR_DEVICE top_bound pre: (UInt(top) <= UInt(base) || UInt(top) < UInt(cmem.addr_range.base) || UInt(top) > UInt(cmem.addr_range.top)) post: result.status == RMI_ERROR_DEVICE
-```
+* feat
+  * pre: Rmm().static.feat_cmem_cxl != FEATURE_TRUE
+  * post: result.status == RMI_ERROR_NOT_SUPPORTED
+* cmem_align
+  * pre: !AddrIsRmiGranuleAligned(cmem_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* cmem_bound
+  * pre: !PaIsTracked(cmem_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* cmem_gran_state
+  * pre: GranuleAt(cmem_ptr).state != GRAN_CMEM
+  * post: result.status == RMI_ERROR_INPUT
+* cmem_state
+  * pre: cmem.state != CMEM_STARTED
+  * post: result.status == RMI_ERROR_DEVICE
+* base_bound
+  * pre: (UInt(base) < UInt(cmem.addr_range.base) || UInt(base) >
+  * post: result.status == RMI_ERROR_DEVICE
+* top_bound
+  * pre: (UInt(top) <= UInt(base) || UInt(top) < UInt(cmem.addr_range.base) || UInt(top) > UInt(cmem.addr_range.top))
+  * post: result.status == RMI_ERROR_DEVICE
 
 ## B4.5.5.2.1 Failure condition ordering
 
@@ -65,13 +72,10 @@ top_bound]
 
 ## B4.5.5.3 Success conditions
 
-## Condition
-
-## ID
-
-```
-pop post: PaRangeIsPopulated(base, out_top) state post: GranulesAllState( base, out_top, GRAN_UNDELEGATED)
-```
+* pop
+  * post: PaRangeIsPopulated(base, out_top)
+* state
+  * post: GranulesAllState( base, out_top, GRAN_UNDELEGATED)
 
 ## B4.5.5.4 Footprint
 

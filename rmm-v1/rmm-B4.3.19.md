@@ -48,11 +48,40 @@ ID
 
 ## B4.3.19.2 Failure conditions
 
-## Condition
-
-```
-attr_valid pre: !RttDescriptorIsValidForUnprotected(desc) post: ResultEqual(result, RMI_ERROR_INPUT) rd_align pre: !AddrIsGranuleAligned(rd) post: ResultEqual(result, RMI_ERROR_INPUT) rd_bound pre: !PaIsDelegable(rd) post: ResultEqual(result, RMI_ERROR_INPUT) rd_state pre: Granule(rd).state != RD post: ResultEqual(result, RMI_ERROR_INPUT) level_bound pre: !RttLevelIsBlockOrPage(rd, level) post: ResultEqual(result, RMI_ERROR_INPUT) addr_align pre: !AddrIsRttLevelAligned(rtte.addr, level) post: ResultEqual(result, RMI_ERROR_INPUT) addr_bound pre: ((realm.feat_lpa2 == FEATURE_FALSE) && (UInt(rtte.addr) >= 2^48)) post: ResultEqual(result, RMI_ERROR_INPUT) ipa_align pre: !AddrIsRttLevelAligned(ipa, level) post: ResultEqual(result, RMI_ERROR_INPUT) ipa_bound pre: (UInt(ipa) >= (2 ^ Realm(rd).ipa_width) || AddrIsProtected(ipa, Realm(rd))) post: ResultEqual(result, RMI_ERROR_INPUT) rtt_walk pre: walk.level < level post: ResultEqual(result, RMI_ERROR_RTT, rtte_state pre: walk.rtte.state != UNASSIGNED_NS post: ResultEqual(result, RMI_ERROR_RTT,
-```
+* attr_valid
+  * pre: !RttDescriptorIsValidForUnprotected(desc)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_align
+  * pre: !AddrIsGranuleAligned(rd)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_bound
+  * pre: !PaIsDelegable(rd)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_state
+  * pre: Granule(rd).state != RD
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* level_bound
+  * pre: !RttLevelIsBlockOrPage(rd, level)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* addr_align
+  * pre: !AddrIsRttLevelAligned(rtte.addr, level)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* addr_bound
+  * pre: ((realm.feat_lpa2 == FEATURE_FALSE) && (UInt(rtte.addr) >= 2^48))
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* ipa_align
+  * pre: !AddrIsRttLevelAligned(ipa, level)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* ipa_bound
+  * pre: (UInt(ipa) >= (2 ^ Realm(rd).ipa_width) || AddrIsProtected(ipa, Realm(rd)))
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rtt_walk
+  * pre: walk.level <
+* level
+  * post: ResultEqual(result, RMI_ERROR_RTT,
+* rtte_state
+  * pre: walk.rtte.state != UNASSIGNED_NS
+  * post: ResultEqual(result, RMI_ERROR_RTT,
 
 ## B4.3.19.2.1 Failure condition ordering
 
@@ -68,13 +97,10 @@ rtte_state]
 
 ## B4.3.19.3 Success conditions
 
-```
-ID Condition rtte_state walk.rtte.state == ASSIGNED_NS rtte_contents (walk.rtte.MemAttr == rtte.MemAttr && walk.rtte.S2AP == rtte.S2AP && walk.rtte.addr == rtte.addr)
-```
-
-```
-walk.level) walk.level)
-```
+* rtte_state
+  * walk.rtte.state == ASSIGNED_NS
+* rtte_contents
+  * (walk.rtte.MemAttr == rtte.MemAttr && walk.rtte.S2AP == rtte.S2AP && walk.rtte.addr == rtte.addr) walk.level) walk.level)
 
 ## B4.3.19.4 Footprint
 

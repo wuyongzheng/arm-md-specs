@@ -36,10 +36,12 @@ The RMI\_DPT\_L0\_CREATE command operates on the following context.
 
 ## B4.5.10.2 Failure conditions
 
-| ID          | Condition                                                                                 |
-|-------------|-------------------------------------------------------------------------------------------|
-| feat        | pre: Rmm().static.feat_ats != FEATURE_TRUE post: result.status == RMI_ERROR_NOT_SUPPORTED |
-| l0dpt_state | pre: l0dpt.state == DPT_L0_VALID post: result.status == RMI_ERROR_INPUT                   |
+* feat
+  * pre: Rmm().static.feat_ats != FEATURE_TRUE
+  * post: result.status == RMI_ERROR_NOT_SUPPORTED
+* l0dpt_state
+  * pre: l0dpt.state == DPT_L0_VALID
+  * post: result.status == RMI_ERROR_INPUT
 
 ## B4.5.10.2.1 Failure condition ordering
 
@@ -47,10 +49,10 @@ The RMI\_DPT\_L0\_CREATE command does not have any failure condition orderings.
 
 ## B4.5.10.3 Success conditions
 
-| ID     | Condition                          |
-|--------|------------------------------------|
-| result | post: result.status == RMI_SUCCESS |
-| state  | post: l0dpt.state == DPT_L0_VALID  |
+* result
+  * post: result.status == RMI_SUCCESS
+* state
+  * post: l0dpt.state == DPT_L0_VALID
 
 ## B4.5.10.4 Footprint
 

@@ -38,11 +38,8 @@ The PSCI\_SYSTEM\_RESET command does not have any failure conditions.
 
 ## B6.3.7.3 Success conditions
 
-| ID    | Condition                       |
-|-------|---------------------------------|
-| state | realm.state == REALM_SYSTEM_OFF |
-
-Following execution of PSCI\_SYSTEM\_RESET, control does not return to the caller.
+* state
+  * realm.state == REALM_SYSTEM_OFF
 
 ## B6.3.7.4 Footprint
 

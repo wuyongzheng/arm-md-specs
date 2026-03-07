@@ -43,11 +43,15 @@ The PSCI\_CPU\_ON command operates on the following context.
 
 ## B6.3.3.2 Failure conditions
 
-| ID       | Condition                                                                              |
-|----------|----------------------------------------------------------------------------------------|
-| entry    | pre: !AddrIsProtected(entry_point_address, realm) post: result == PSCI_INVALID_ADDRESS |
-| mpidr    | pre: !MpidrIsUsed(target_cpu) post: result == PSCI_INVALID_PARAMETERS                  |
-| runnable | pre: target_rec.flags.runnable == RUNNABLE post: result == PSCI_ALREADY_ON             |
+* entry
+  * pre: !AddrIsProtected(entry_point_address, realm)
+  * post: result == PSCI_INVALID_ADDRESS
+* mpidr
+  * pre: !MpidrIsUsed(target_cpu)
+  * post: result == PSCI_INVALID_PARAMETERS
+* runnable
+  * pre: target_rec.flags.runnable == RUNNABLE
+  * post: result == PSCI_ALREADY_ON
 
 ## B6.3.3.2.1 Failure condition ordering
 
@@ -55,10 +59,10 @@ The PSCI\_CPU\_ON command does not have any failure condition orderings.
 
 ## B6.3.3.3 Success conditions
 
-| ID       | Condition                                            |
-|----------|------------------------------------------------------|
-| entry    | target_rec.pc == ToBits64(UInt(entry_point_address)) |
-| runnable | target_rec.flags.runnable == RUNNABLE                |
+* entry
+  * target_rec.pc == ToBits64(UInt(entry_point_address))
+* runnable
+  * target_rec.flags.runnable == RUNNABLE
 
 ## B6.3.3.4 Footprint
 

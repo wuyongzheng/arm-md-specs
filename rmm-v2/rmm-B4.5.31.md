@@ -34,25 +34,38 @@ The RMI\_PDEV\_SET\_PUBKEY command operates on the following context.
 
 ## B4.5.31.2 Failure conditions
 
-| ID              | Condition                                                                                |
-|-----------------|------------------------------------------------------------------------------------------|
-| feat            | pre: Rmm().static.feat_da != FEATURE_TRUE post: result.status == RMI_ERROR_NOT_SUPPORTED |
-| pdev_align      | pre: !AddrIsRmiGranuleAligned(pdev_ptr) post: result.status == RMI_ERROR_INPUT           |
-| pdev_bound      | pre: !PaIsTracked(pdev_ptr) post: result.status == RMI_ERROR_INPUT                       |
-| pdev_gran_state | pre: GranuleAt(pdev_ptr).state != GRAN_PDEV post: result.status == RMI_ERROR_INPUT       |
-| params_align    | pre: !AddrIsRmiGranuleAligned(params_ptr) post: result.status == RMI_ERROR_INPUT         |
-
-ID
-
-## Condition
-
-| params_pas          | pre: post:   | !NonSecureAccessPermitted(params_ptr) result.status == RMI_ERROR_INPUT                                                 |
-|---------------------|--------------|------------------------------------------------------------------------------------------------------------------------|
-| key_len_oflow       | pre: post:   | params.key_len > 1024 result.status == RMI_ERROR_INPUT                                                                 |
-| metadata_len_of low | pre: post:   | params.metadata_len > 1024 result.status == RMI_ERROR_INPUT                                                            |
-| key_invalid         | pre:         | Key is invalid, for example length is invalid for specified signature algorithm.                                       |
-| metadata_invali d   | pre: post:   | Metadata is invalid, for example length is invalid for specified signature algorithm. result.status == RMI_ERROR_INPUT |
-| pdev_state          | pre: post:   | pdev.state != PDEV_NEEDS_KEY result.status == RMI_ERROR_DEVICE                                                         |
+* feat
+  * pre: Rmm().static.feat_da != FEATURE_TRUE
+  * post: result.status == RMI_ERROR_NOT_SUPPORTED
+* pdev_align
+  * pre: !AddrIsRmiGranuleAligned(pdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_bound
+  * pre: !PaIsTracked(pdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_gran_state
+  * pre: GranuleAt(pdev_ptr).state != GRAN_PDEV
+  * post: result.status == RMI_ERROR_INPUT
+* params_align
+  * pre: !AddrIsRmiGranuleAligned(params_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* params_pas
+  * pre: !NonSecureAccessPermitted(params_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* key_len_oflow
+  * pre: params.key_len > 1024
+  * post: result.status == RMI_ERROR_INPUT
+* metadata_len_oflow
+  * pre: params.metadata_len > 1024
+  * post: result.status == RMI_ERROR_INPUT
+* key_invalid
+  * pre: Key is invalid, for example length is invalid for specified signature algorithm.
+* metadata_invalid
+  * pre: Metadata is invalid, for example length is invalid for specified signature algorithm.
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_state
+  * pre: pdev.state != PDEV_NEEDS_KEY
+  * post: result.status == RMI_ERROR_DEVICE
 
 ## B4.5.31.2.1 Failure condition ordering
 
@@ -64,25 +77,8 @@ ID
 
 ## B4.5.31.3 Success conditions
 
-```
-params_align, metadata_len_oflow,
-```
-
-## Condition
-
-ID
-
-state comm\_state
-
-post:
-
-pdev.state
-
-==
-
-PDEV\_HAS\_KEY
-
-post: pdev.comm\_state == DEV\_COMM\_PENDING
+* comm_state
+  * post: pdev.state == PDEV_HAS_KEY pdev.comm_state == DEV_COMM_PENDING
 
 ## B4.5.31.4 Footprint
 

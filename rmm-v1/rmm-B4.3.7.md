@@ -28,24 +28,40 @@ See also:
 
 ## B4.3.7.2 Failure conditions
 
-| ID            | Condition                                                                                             |
-|---------------|-------------------------------------------------------------------------------------------------------|
-| alias         | pre: calling_rec == target_rec post: ResultEqual(result, RMI_ERROR_INPUT)                             |
-| calling_align | pre: !AddrIsGranuleAligned(calling_rec) post: ResultEqual(result, RMI_ERROR_INPUT)                    |
-| calling_bound | pre: !PaIsDelegable(calling_rec) post: ResultEqual(result, RMI_ERROR_INPUT)                           |
-| calling_state | pre: Granule(calling_rec).state != REC post: ResultEqual(result, RMI_ERROR_INPUT)                     |
-| target_align  | pre: !AddrIsGranuleAligned(target_rec) post: ResultEqual(result, RMI_ERROR_INPUT)                     |
-| target_bound  | pre: !PaIsDelegable(target_rec) post: ResultEqual(result, RMI_ERROR_INPUT)                            |
-| target_state  | pre: Granule(target_rec).state != REC post: ResultEqual(result, RMI_ERROR_INPUT)                      |
-| pending       | pre: Rec(calling_rec).psci_pending != PSCI_REQUEST_PENDING post: ResultEqual(result, RMI_ERROR_INPUT) |
-
-## ID
-
-## Condition
-
-```
-owner pre: Rec(target_rec).owner != Rec(calling_rec).owner post: ResultEqual(result, RMI_ERROR_INPUT) target pre: Rec(target_rec).mpidr != Rec(calling_rec).gprs[1] post: ResultEqual(result, RMI_ERROR_INPUT) status pre: !PsciReturnCodePermitted( Rec(calling_rec), Rec(target_rec), status) post: ResultEqual(result, RMI_ERROR_INPUT)
-```
+* alias
+  * pre: calling_rec == target_rec
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* calling_align
+  * pre: !AddrIsGranuleAligned(calling_rec)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* calling_bound
+  * pre: !PaIsDelegable(calling_rec)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* calling_state
+  * pre: Granule(calling_rec).state != REC
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* target_align
+  * pre: !AddrIsGranuleAligned(target_rec)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* target_bound
+  * pre: !PaIsDelegable(target_rec)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* target_state
+  * pre: Granule(target_rec).state != REC
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* pending
+  * pre: Rec(calling_rec).psci_pending != PSCI_REQUEST_PENDING
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* owner
+  * pre: Rec(target_rec).owner != Rec(calling_rec).
+* owner
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* target
+  * pre: Rec(target_rec).mpidr != Rec(calling_rec).gprs[1]
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* status
+  * pre: !PsciReturnCodePermitted( Rec(calling_rec), Rec(target_rec), status)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
 
 ## B4.3.7.2.1 Failure condition ordering
 
@@ -53,21 +69,23 @@ The RMI\_PSCI\_COMPLETE command does not have any failure condition orderings.
 
 ## B4.3.7.3 Success conditions
 
-## Condition
-
-## ID
-
-```
-pending Rec(calling_rec).psci_pending == NO_PSCI_REQUEST_PENDING on_already pre: (status == PSCI_SUCCESS && Rec(calling_rec).gprs[0] == FID_PSCI_CPU_ON && Rec(target_rec).flags.runnable == RUNNABLE) post: (Rec(calling_rec).gprs[0] == PsciReturnCodeEncode(PSCI_ALREADY_ON))
-```
-
-ID
-
-## Condition
-
-```
-on_success pre: (status == PSCI_SUCCESS && Rec(calling_rec).gprs[0] == FID_PSCI_CPU_ON && Rec(target_rec).flags.runnable != RUNNABLE) post: (Rec(target_rec).gprs[0] == Rec(calling_rec).gprs[3] && Rec(target_rec).gprs[1] == Zeros() && Rec(target_rec).gprs[2] == Zeros() && Rec(target_rec).gprs[3] == Zeros() && Rec(target_rec).gprs[4] == Zeros() && Rec(target_rec).gprs[5] == Zeros() && Rec(target_rec).gprs[6] == Zeros() && Rec(target_rec).gprs[7] == Zeros() && Rec(target_rec).gprs[8] == Zeros() && Rec(target_rec).gprs[9] == Zeros() && Rec(target_rec).gprs[10] == Zeros() && Rec(target_rec).gprs[11] == Zeros() && Rec(target_rec).gprs[12] == Zeros() && Rec(target_rec).gprs[13] == Zeros() && Rec(target_rec).gprs[14] == Zeros() && Rec(target_rec).gprs[15] == Zeros() && Rec(target_rec).gprs[16] == Zeros() && Rec(target_rec).gprs[17] == Zeros() && Rec(target_rec).gprs[18] == Zeros() && Rec(target_rec).gprs[19] == Zeros() && Rec(target_rec).gprs[20] == Zeros() && Rec(target_rec).gprs[21] == Zeros() && Rec(target_rec).gprs[22] == Zeros() && Rec(target_rec).gprs[23] == Zeros() && Rec(target_rec).gprs[24] == Zeros() && Rec(target_rec).gprs[25] == Zeros() && Rec(target_rec).gprs[26] == Zeros() && Rec(target_rec).gprs[27] == Zeros() && Rec(target_rec).gprs[28] == Zeros() && Rec(target_rec).gprs[29] == Zeros() && Rec(target_rec).gprs[30] == Zeros() && Rec(target_rec).gprs[31] == Zeros() && Rec(target_rec).pc == Rec(calling_rec).gprs[2] && Rec(target_rec).flags.runnable == RUNNABLE && Rec(calling_rec).gprs[0] == PsciReturnCodeEncode(PSCI_SUCCESS)) affinity_on pre: (status == PSCI_SUCCESS && Rec(calling_rec).gprs[0] == FID_PSCI_AFFINITY_INFO && Rec(target_rec).flags.runnable == RUNNABLE) post: (Rec(calling_rec).gprs[0] == PsciReturnCodeEncode(PSCI_SUCCESS)) affinity_off pre: (status == PSCI_SUCCESS && Rec(calling_rec).gprs[0] == FID_PSCI_AFFINITY_INFO && Rec(target_rec).flags.runnable != RUNNABLE) post: (Rec(calling_rec).gprs[0] == PsciReturnCodeEncode(PSCI_OFF)) status pre: status != PSCI_SUCCESS post: (Rec(calling_rec).gprs[0] == PsciReturnCodeEncode(status)) args (Rec(calling_rec).gprs[1] == Zeros() && Rec(calling_rec).gprs[2] == Zeros() && Rec(calling_rec).gprs[3] == Zeros())
-```
+* on_already
+  * pre: (status == PSCI_SUCCESS && Rec(calling_rec).gprs[0] == FID_PSCI_CPU_ON && Rec(target_rec).flags.runnable == RUNNABLE)
+  * post: (Rec(calling_rec).gprs[0] == PsciReturnCodeEncode(PSCI_ALREADY_ON))
+* on_success
+  * pre: (status == PSCI_SUCCESS && Rec(calling_rec).gprs[0] == FID_PSCI_CPU_ON && Rec(target_rec).flags.runnable != RUNNABLE)
+  * post: (Rec(target_rec).gprs[0] == Rec(calling_rec).gprs[3] && Rec(target_rec).gprs[1] == Zeros() && Rec(target_rec).gprs[2] == Zeros() && Rec(target_rec).gprs[3] == Zeros() && Rec(target_rec).gprs[4] == Zeros() && Rec(target_rec).gprs[5] == Zeros() && Rec(target_rec).gprs[6] == Zeros() && Rec(target_rec).gprs[7] == Zeros() && Rec(target_rec).gprs[8] == Zeros() && Rec(target_rec).gprs[9] == Zeros() && Rec(target_rec).gprs[10] == Zeros() && Rec(target_rec).gprs[11] == Zeros() && Rec(target_rec).gprs[12] == Zeros() && Rec(target_rec).gprs[13] == Zeros() && Rec(target_rec).gprs[14] == Zeros() && Rec(target_rec).gprs[15] == Zeros() && Rec(target_rec).gprs[16] == Zeros() && Rec(target_rec).gprs[17] == Zeros() && Rec(target_rec).gprs[18] == Zeros() && Rec(target_rec).gprs[19] == Zeros() && Rec(target_rec).gprs[20] == Zeros() && Rec(target_rec).gprs[21] == Zeros() && Rec(target_rec).gprs[22] == Zeros() && Rec(target_rec).gprs[23] == Zeros() && Rec(target_rec).gprs[24] == Zeros() && Rec(target_rec).gprs[25] == Zeros() && Rec(target_rec).gprs[26] == Zeros() && Rec(target_rec).gprs[27] == Zeros() && Rec(target_rec).gprs[28] == Zeros() && Rec(target_rec).gprs[29] == Zeros() && Rec(target_rec).gprs[30] == Zeros() && Rec(target_rec).gprs[31] == Zeros() && Rec(target_rec).pc == Rec(calling_rec).gprs[2] && Rec(target_rec).flags.runnable == RUNNABLE && Rec(calling_rec).gprs[0] == PsciReturnCodeEncode(PSCI_SUCCESS))
+* affinity_on
+  * pre: (status == PSCI_SUCCESS && Rec(calling_rec).gprs[0] == FID_PSCI_AFFINITY_INFO && Rec(target_rec).flags.runnable == RUNNABLE)
+  * post: (Rec(calling_rec).gprs[0] == PsciReturnCodeEncode(PSCI_SUCCESS))
+* affinity_off
+  * pre: (status == PSCI_SUCCESS && Rec(calling_rec).gprs[0] == FID_PSCI_AFFINITY_INFO && Rec(target_rec).flags.runnable != RUNNABLE)
+  * post: (Rec(calling_rec).gprs[0] == PsciReturnCodeEncode(PSCI_OFF))
+* status
+  * pre: status != PSCI_SUCCESS
+  * post: (Rec(calling_rec).gprs[0] == PsciReturnCodeEncode(status)) args (Rec(calling_rec).gprs[1] == Zeros() && Rec(calling_rec).gprs[2] == Zeros() && Rec(calling_rec).gprs[3] == Zeros())
+* pending
+  * Rec(calling_rec).psci_pending == NO_PSCI_REQUEST_PENDING
 
 ## B4.3.7.4 Footprint
 

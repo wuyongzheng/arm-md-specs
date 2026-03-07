@@ -23,12 +23,12 @@ See also:
 
 ## B4.5.21.2 Failure conditions
 
-| ID         | Condition                                                                                   |
-|------------|---------------------------------------------------------------------------------------------|
-| complete   | pre: !OperationIncomplete(handle) post: result.status == RMI_ERROR_INPUT                    |
-| can_cancel | pre: OperationCanCancel(handle) != RMM_OP_CAN_CANCEL post: result.status == RMI_ERROR_INPUT |
-
-!OperationIncomplete(handle)
+* complete
+  * pre: !OperationIncomplete(handle)
+  * post: result.status == RMI_ERROR_INPUT
+* can_cancel
+  * pre: OperationCanCancel(handle) != RMM_OP_CAN_CANCEL
+  * post: result.status == RMI_ERROR_INPUT
 
 ## B4.5.21.2.1 Failure condition ordering
 

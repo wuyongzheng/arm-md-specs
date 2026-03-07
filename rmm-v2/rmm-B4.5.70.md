@@ -55,18 +55,45 @@ B4.5. RMI commands
 
 ## B4.5.70.2 Failure conditions
 
-| ID       | Condition                                                                |
-|----------|--------------------------------------------------------------------------|
-| rd_align | pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPUT |
-| rd_bound | pre: !PaIsTracked(rd) post: result.status == RMI_ERROR_INPUT             |
-
-## ID
-
-## Condition
-
-```
-rd_state pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_INPUT base_align pre: !AddrIsRmiGranuleAligned(base) post: result.status == RMI_ERROR_INPUT top_align pre: !AddrIsRmiGranuleAligned(top) post: result.status == RMI_ERROR_INPUT size_valid pre: UInt(top) <= UInt(base) post: result.status == RMI_ERROR_INPUT ipa_bound pre: !AddrRangeIsProtected(base, top, realm) post: result.status == RMI_ERROR_INPUT oaddr_align pre: (flags.oaddr_type == RMI_ADDR_TYPE_LIST && !AddrIsAligned(oaddr.data.list_addr.addr, 8)) post: result.status == RMI_ERROR_INPUT oaddr_list_pas pre: (flags.oaddr_type == RMI_ADDR_TYPE_LIST && !NonSecureAccessPermitted( oaddr.data.list_addr.addr)) post: result.status == RMI_ERROR_INPUT rtte_state pre: walk.rtte.state != RTTE_NARCH_DEV post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) rtte_size pre: (walk.rtte.state == RTTE_NARCH_DEV && RttLevelSize(walk.level) > size) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) trk_gran pre: (TrackingRegionIsTracked(region) && TrackingRegionGranularity(region) > size) post: result.status == RMI_ERROR_TRACKING dpt_gran pre: (realm.feat_ats == FEATURE_TRUE && !DptEntryCanDescribe(oaddr_first, size)) post: result.status == RMI_ERROR_DPT
-```
+* rd_align
+  * pre: !AddrIsRmiGranuleAligned(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_bound
+  * pre: !PaIsTracked(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_state
+  * pre: GranuleAt(rd).state != GRAN_RD
+  * post: result.status == RMI_ERROR_INPUT
+* base_align
+  * pre: !AddrIsRmiGranuleAligned(base)
+  * post: result.status == RMI_ERROR_INPUT
+* top_align
+  * pre: !AddrIsRmiGranuleAligned(top)
+  * post: result.status == RMI_ERROR_INPUT
+* size_valid
+  * pre: UInt(top) <= UInt(base)
+  * post: result.status == RMI_ERROR_INPUT
+* ipa_bound
+  * pre: !AddrRangeIsProtected(base, top, realm)
+  * post: result.status == RMI_ERROR_INPUT
+* oaddr_align
+  * pre: (flags.oaddr_type == RMI_ADDR_TYPE_LIST && !AddrIsAligned(oaddr.data.list_addr.addr, 8))
+  * post: result.status == RMI_ERROR_INPUT
+* oaddr_list_pas
+  * pre: (flags.oaddr_type == RMI_ADDR_TYPE_LIST && !NonSecureAccessPermitted( oaddr.data.list_addr.addr))
+  * post: result.status == RMI_ERROR_INPUT
+* rtte_state
+  * pre: walk.rtte.state != RTTE_NARCH_DEV
+  * post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level)
+* rtte_size
+  * pre: (walk.rtte.state == RTTE_NARCH_DEV && RttLevelSize(walk.level) > size)
+  * post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level)
+* trk_gran
+  * pre: (TrackingRegionIsTracked(region) && TrackingRegionGranularity(region) > size)
+  * post: result.status == RMI_ERROR_TRACKING
+* dpt_gran
+  * pre: (realm.feat_ats == FEATURE_TRUE && !DptEntryCanDescribe(oaddr_first, size))
+  * post: result.status == RMI_ERROR_DPT
 
 ## B4.5.70.2.1 Failure condition ordering
 
@@ -74,21 +101,24 @@ The RMI\_RTT\_DEV\_UNMAP command does not have any failure condition orderings.
 
 ## B4.5.70.3 Success conditions
 
-## Condition
-
-ID
-
-```
-state post: RttTreeRangeAllState( realm, RMM_RTT_TREE_PRIMARY, base, out_top, RTTE_VOID) ripas post: RealmIpaRangeAllRipasIf( realm_pre, realm, base, out_top, RIPAS_DEV, RIPAS_DESTROYED) addr_single pre: flags.oaddr_type == RMI_ADDR_TYPE_SINGLE post: out_range.data.addr == walk_pre.rtte.addr
-```
-
-```
-ID Condition
-```
-
-```
-addr_list pre: flags.oaddr_type == RMI_ADDR_TYPE_LIST post: RttTreeRangeAllOaddrList( realm, RMM_RTT_TREE_PRIMARY, base, oaddr.data.list_addr.addr, progress) gran_state_contig pre: flags.oaddr_type == RMI_ADDR_TYPE_SINGLE post: GranulesAllState( RmiAddrRangeDescDecode(oaddr.data.single).base, progress, GRAN_DELEGATED) gran_state_list pre: flags.oaddr_type == RMI_ADDR_TYPE_LIST post: GranulesAllStateList( oaddr.data.list_addr.addr, progress, GRAN_DELEGATED) result post: result.status == RMI_SUCCESS
-```
+* state
+  * post: RttTreeRangeAllState( realm, RMM_RTT_TREE_PRIMARY, base, out_top, RTTE_VOID)
+* ripas
+  * post: RealmIpaRangeAllRipasIf( realm_pre, realm, base, out_top, RIPAS_DEV, RIPAS_DESTROYED)
+* addr_single
+  * pre: flags.oaddr_type == RMI_ADDR_TYPE_SINGLE
+  * post: out_range.data.addr == walk_pre.rtte.addr
+* addr_list
+  * pre: flags.oaddr_type == RMI_ADDR_TYPE_LIST
+  * post: RttTreeRangeAllOaddrList( realm, RMM_RTT_TREE_PRIMARY, base, oaddr.data.list_addr.addr, progress)
+* gran_state_contig
+  * pre: flags.oaddr_type == RMI_ADDR_TYPE_SINGLE
+  * post: GranulesAllState( RmiAddrRangeDescDecode(oaddr.data.single).base, progress, GRAN_DELEGATED)
+* gran_state_list
+  * pre: flags.oaddr_type == RMI_ADDR_TYPE_LIST
+  * post: GranulesAllStateList( oaddr.data.list_addr.addr, progress, GRAN_DELEGATED)
+* result
+  * post: result.status == RMI_SUCCESS
 
 ## B4.5.70.4 Footprint
 

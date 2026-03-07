@@ -36,12 +36,18 @@ The RMI\_REC\_DESTROY command operates on the following context.
 
 ## B4.3.13.2 Failure conditions
 
-| ID             | Condition                                                                      |
-|----------------|--------------------------------------------------------------------------------|
-| rec_align      | pre: !AddrIsGranuleAligned(rec_ptr) post: ResultEqual(result, RMI_ERROR_INPUT) |
-| rec_bound      | pre: !PaIsDelegable(rec_ptr) post: ResultEqual(result, RMI_ERROR_INPUT)        |
-| rec_gran_state | pre: Granule(rec_ptr).state != REC post: ResultEqual(result, RMI_ERROR_INPUT)  |
-| rec_state      | pre: rec.state == REC_RUNNING post: ResultEqual(result, RMI_ERROR_REC)         |
+* rec_align
+  * pre: !AddrIsGranuleAligned(rec_ptr)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rec_bound
+  * pre: !PaIsDelegable(rec_ptr)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rec_gran_state
+  * pre: Granule(rec_ptr).state != REC
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rec_state
+  * pre: rec.state == REC_RUNNING
+  * post: ResultEqual(result, RMI_ERROR_REC)
 
 ## B4.3.13.2.1 Failure condition ordering
 
@@ -53,11 +59,12 @@ The RMI\_REC\_DESTROY command operates on the following context.
 
 ## B4.3.13.3 Success conditions
 
-| ID             | Condition                                           |
-|----------------|-----------------------------------------------------|
-| rec_gran_state | Granule(rec_ptr).state == DELEGATED                 |
-| rec_aux_state  | AuxStateEqual( rec.aux, RecAuxCount(rd), DELEGATED) |
-| num_recs       | realm.num_recs == realm_pre.num_recs - 1            |
+* rec_gran_state
+  * Granule(rec_ptr).state == DELEGATED
+* rec_aux_state
+  * AuxStateEqual( rec.aux, RecAuxCount(rd), DELEGATED)
+* num_recs
+  * realm.num_recs == realm_pre.num_recs - 1
 
 ## B4.3.13.4 Footprint
 

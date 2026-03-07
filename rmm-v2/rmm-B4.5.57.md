@@ -45,11 +45,45 @@ ID
 
 ## B4.5.57.2 Failure conditions
 
-## Condition
-
-```
-rd_align pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPUT rd_bound pre: !PaIsTracked(rd) post: result.status == RMI_ERROR_INPUT rd_state pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_INPUT level_bound pre: (!RttLevelIsValid(realm, level) || RttLevelIsStarting(realm, level)) post: result.status == RMI_ERROR_INPUT ipa_align pre: !AddrIsRttLevelAligned(ipa, level -1) post: result.status == RMI_ERROR_INPUT ipa_bound pre: !AddrIsProtected(ipa, realm) post: result.status == RMI_ERROR_INPUT index_bound pre: (realm.rtt_tree_per_plane == FEATURE_FALSE || index == RMM_RTT_TREE_PRIMARY || index > realm.num_aux_planes) post: result.status == RMI_ERROR_INPUT rtt_align pre: !AddrIsRmiGranuleAligned(rtt) post: result.status == RMI_ERROR_INPUT rtt_bound pre: !PaIsDelegableConventionalFine(rtt) post: result.status == RMI_ERROR_INPUT rtt_state pre: GranuleAt(rtt).state != GRAN_DELEGATED post: result.status == RMI_ERROR_INPUT rtt_bound2 pre: ((realm.feat_lpa2 == FEATURE_FALSE) && (UInt(rtt) >= 2^48)) post: result.status == RMI_ERROR_INPUT rtt_walk pre: walk.level < level -1 post: (result.status == RMI_ERROR_RTT_AUX && result.data.level.level == rtte_state pre: walk.rtte.state == RTTE_TABLE post: (result.status == RMI_ERROR_RTT_AUX && result.data.level.level ==
-```
+* rd_align
+  * pre: !AddrIsRmiGranuleAligned(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_bound
+  * pre: !PaIsTracked(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_state
+  * pre: GranuleAt(rd).state != GRAN_RD
+  * post: result.status == RMI_ERROR_INPUT
+* level_bound
+  * pre: (!RttLevelIsValid(realm, level) || RttLevelIsStarting(realm, level))
+  * post: result.status == RMI_ERROR_INPUT
+* ipa_align
+  * pre: !AddrIsRttLevelAligned(ipa, level -1)
+  * post: result.status == RMI_ERROR_INPUT
+* ipa_bound
+  * pre: !AddrIsProtected(ipa, realm)
+  * post: result.status == RMI_ERROR_INPUT
+* index_bound
+  * pre: (realm.rtt_tree_per_plane == FEATURE_FALSE || index == RMM_RTT_TREE_PRIMARY || index > realm.num_aux_planes)
+  * post: result.status == RMI_ERROR_INPUT
+* rtt_align
+  * pre: !AddrIsRmiGranuleAligned(rtt)
+  * post: result.status == RMI_ERROR_INPUT
+* rtt_bound
+  * pre: !PaIsDelegableConventionalFine(rtt)
+  * post: result.status == RMI_ERROR_INPUT
+* rtt_state
+  * pre: GranuleAt(rtt).state != GRAN_DELEGATED
+  * post: result.status == RMI_ERROR_INPUT
+* rtt_bound2
+  * pre: ((realm.feat_lpa2 == FEATURE_FALSE) && (UInt(rtt) >= 2^48))
+  * post: result.status == RMI_ERROR_INPUT
+* rtt_walk
+  * pre: walk.level < level -1
+  * post: (result.status == RMI_ERROR_RTT_AUX && result.data.level.level ==
+* rtte_state
+  * pre: walk.rtte.state == RTTE_TABLE
+  * post: (result.status == RMI_ERROR_RTT_AUX && result.data.level.level ==
 
 ## B4.5.57.2.1 Failure condition ordering
 
@@ -61,13 +95,22 @@ rd_align pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPU
 
 ## B4.5.57.3 Success conditions
 
-```
-walk.level) walk.level)
-```
-
-```
-ID Condition rtt_state post: GranuleAt(rtt).state == GRAN_RTT rtte_addr post: walk.rtte.addr == rtt result post: result.status == RMI_SUCCESS rtte_state post: walk.rtte.state == RTTE_TABLE rtte_c_ripas pre: AddrIsProtected(ipa, realm) post: RttAllEntriesRipas(RttAt(rtt), unfold.ripas) rtte_c_state post: RttAllEntriesState(RttAt(rtt), unfold.state) rtte_c_addr pre: unfold.state != RTTE_VOID post: RttAllEntriesContiguous(RttAt(rtt), unfold.addr, level)
-```
+* rtt_state
+  * post: GranuleAt(rtt).state == GRAN_RTT
+* rtte_addr
+  * post: walk.rtte.addr == rtt
+* result
+  * post: result.status == RMI_SUCCESS
+* rtte_state
+  * post: walk.rtte.state == RTTE_TABLE
+* rtte_c_ripas
+  * pre: AddrIsProtected(ipa, realm)
+  * post: RttAllEntriesRipas(RttAt(rtt), unfold.ripas)
+* rtte_c_state
+  * post: RttAllEntriesState(RttAt(rtt), unfold.state)
+* rtte_c_addr
+  * pre: unfold.state != RTTE_VOID
+  * post: RttAllEntriesContiguous(RttAt(rtt), unfold.addr, level)
 
 ## B4.5.57.4 Footprint
 

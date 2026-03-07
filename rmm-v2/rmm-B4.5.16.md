@@ -38,12 +38,18 @@ The RMI\_GPT\_L1\_DESTROY command operates on the following context.
 
 ## B4.5.16.2 Failure conditions
 
-| ID          | Condition                                                                            |
-|-------------|--------------------------------------------------------------------------------------|
-| addr_bound  | pre: UInt(addr) >= rmm.static.pasz post: result.status == RMI_ERROR_INPUT            |
-| addr_align  | pre: !AddrIsAligned(addr, rmm.static.l0gptsz) post: result.status == RMI_ERROR_INPUT |
-| entry_state | pre: l0gpt_entry.state == GPT_L0_ENTRY_BLOCK post: result.status == RMI_ERROR_INPUT  |
-| gpt_l1_homo | pre: !GptL1IsHomogeneous(addr) post: result.status == RMI_ERROR_INPUT                |
+* addr_bound
+  * pre: UInt(addr) >= rmm.static.pasz
+  * post: result.status == RMI_ERROR_INPUT
+* addr_align
+  * pre: !AddrIsAligned(addr, rmm.static.l0gptsz)
+  * post: result.status == RMI_ERROR_INPUT
+* entry_state
+  * pre: l0gpt_entry.state == GPT_L0_ENTRY_BLOCK
+  * post: result.status == RMI_ERROR_INPUT
+* gpt_l1_homo
+  * pre: !GptL1IsHomogeneous(addr)
+  * post: result.status == RMI_ERROR_INPUT
 
 ## B4.5.16.2.1 Failure condition ordering
 
@@ -51,10 +57,10 @@ The RMI\_GPT\_L1\_DESTROY command does not have any failure condition orderings.
 
 ## B4.5.16.3 Success conditions
 
-| ID     | Condition                                     |
-|--------|-----------------------------------------------|
-| result | post: result.status == RMI_SUCCESS            |
-| state  | post: l0gpt_entry.state == GPT_L0_ENTRY_BLOCK |
+* result
+  * post: result.status == RMI_SUCCESS
+* state
+  * post: l0gpt_entry.state == GPT_L0_ENTRY_BLOCK
 
 ## B4.5.16.4 Footprint
 

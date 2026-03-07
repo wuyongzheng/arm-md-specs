@@ -41,13 +41,33 @@ The rtt output value is valid only when the command result is RMI\_SUCCESS.
 
 ## B4.3.17.2 Failure conditions
 
-ID
-
-## Condition
-
-```
-rd_align pre: !AddrIsGranuleAligned(rd) post: ResultEqual(result, RMI_ERROR_INPUT) rd_bound pre: !PaIsDelegable(rd) post: ResultEqual(result, RMI_ERROR_INPUT) rd_state pre: Granule(rd).state != RD post: ResultEqual(result, RMI_ERROR_INPUT) level_bound pre: (!RttLevelIsValid(rd, level) || RttLevelIsStarting(rd, level)) post: ResultEqual(result, RMI_ERROR_INPUT) ipa_align pre: !AddrIsRttLevelAligned(ipa, level -1) post: ResultEqual(result, RMI_ERROR_INPUT) ipa_bound pre: UInt(ipa) >= (2 ^ Realm(rd).ipa_width) post: ResultEqual(result, RMI_ERROR_INPUT) rtt_walk pre: walk.level < level -1 post: ResultEqual(result, RMI_ERROR_RTT, walk.level) rtte_state pre: walk.rtte.state != TABLE post: ResultEqual(result, RMI_ERROR_RTT, walk.level) rtt_homo pre: !RttIsHomogeneous(Rtt(walk.rtte.addr)) post: ResultEqual(result, RMI_ERROR_RTT, level)
-```
+* rd_align
+  * pre: !AddrIsGranuleAligned(rd)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_bound
+  * pre: !PaIsDelegable(rd)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_state
+  * pre: Granule(rd).state != RD
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* level_bound
+  * pre: (!RttLevelIsValid(rd, level) || RttLevelIsStarting(rd, level))
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* ipa_align
+  * pre: !AddrIsRttLevelAligned(ipa, level -1)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* ipa_bound
+  * pre: UInt(ipa) >= (2 ^ Realm(rd).ipa_width)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rtt_walk
+  * pre: walk.level < level -1
+  * post: ResultEqual(result, RMI_ERROR_RTT, walk.level)
+* rtte_state
+  * pre: walk.rtte.state != TABLE
+  * post: ResultEqual(result, RMI_ERROR_RTT, walk.level)
+* rtt_homo
+  * pre: !RttIsHomogeneous(Rtt(walk.rtte.addr))
+  * post: ResultEqual(result, RMI_ERROR_RTT, level)
 
 ## B4.3.17.2.1 Failure condition ordering
 
@@ -59,20 +79,21 @@ rd_align pre: !AddrIsGranuleAligned(rd) post: ResultEqual(result, RMI_ERROR_INPU
 
 ## B4.3.17.3 Success conditions
 
-## Condition
-
-ID
-
-```
-rtte_state walk.rtte.state == fold.state rtte_addr pre: (fold.state != UNASSIGNED && fold.state != UNASSIGNED_NS) post: walk.rtte.addr == fold.addr
-```
-
-| ID         | Condition                                                                                                     |
-|------------|---------------------------------------------------------------------------------------------------------------|
-| rtte_attr  | pre: (fold.state == ASSIGNED &#124;&#124; fold.state == ASSIGNED_NS) post: (walk.rtte.MemAttr == fold.MemAttr |
-| rtte_ripas | pre: AddrIsProtected(ipa, Realm(rd)) post: walk.rtte.ripas == fold.ripas                                      |
-| rtt_state  | Granule(walk.rtte.addr).state == DELEGATED                                                                    |
-| rtt        | rtt == walk.rtte.addr                                                                                         |
+* rtte_attr
+  * pre: (fold.state == ASSIGNED || fold.state == ASSIGNED_NS)
+  * post: (walk.rtte.MemAttr == fold.MemAttr
+* rtte_ripas
+  * pre: AddrIsProtected(ipa, Realm(rd))
+  * post: walk.rtte.ripas == fold.ripas
+* rtt_state
+  * Granule(walk.rtte.addr).state == DELEGATED
+* rtt
+  * rtt == walk.rtte.addr
+* rtte_addr
+  * pre: (fold.state != UNASSIGNED && fold.state != UNASSIGNED_NS)
+  * post: walk.rtte.addr == fold.addr
+* rtte_state
+  * walk.rtte.state == fold.state
 
 ## B4.3.17.4 Footprint
 

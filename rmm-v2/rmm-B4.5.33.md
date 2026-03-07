@@ -37,21 +37,47 @@ The RMI\_PDEV\_STREAM\_COMPLETE command operates on the following context.
 
 ## B4.5.33.2 Failure conditions
 
-## Condition
-
-ID
-
-| feat         | pre: Rmm().static.feat_da != FEATURE_TRUE                                   |
-|--------------|-----------------------------------------------------------------------------|
-| stream_valid | pre: stream_result.valid != RMM_TRUE post: result.status == RMI_ERROR_INPUT |
-
-## ID
-
-## Condition
-
-```
-stream_state pre: !(stream.state IN { PDEV_STREAM_CONNECTING, PDEV_STREAM_DISCONNECTING, PDEV_STREAM_KEY_REFRESHING, PDEV_STREAM_KEY_PURGING }) post: result.status == RMI_ERROR_DEVICE pdev_1_align pre: !AddrIsRmiGranuleAligned(pdev_1_ptr) post: result.status == RMI_ERROR_INPUT pdev_1_bound pre: !PaIsTracked(pdev_1_ptr) post: result.status == RMI_ERROR_INPUT pdev_1_gran_sta te pre: GranuleAt(pdev_1_ptr).state != GRAN_PDEV post: result.status == RMI_ERROR_INPUT pdev_1_state pre: pdev_1.state != PDEV_READY post: result.status == RMI_ERROR_INPUT pdev_1_comm_sta te pre: pdev_1.comm_state != DEV_COMM_IDLE post: result.status == RMI_ERROR_INPUT pdev_2_align pre: (PdevStreamPdev2Required(stream.stream_type) && !AddrIsRmiGranuleAligned(pdev_2_ptr)) post: result.status == RMI_ERROR_INPUT pdev_2_bound pre: (PdevStreamPdev2Required(stream.stream_type) && !PaIsTracked(pdev_2_ptr)) post: result.status == RMI_ERROR_INPUT pdev_2_gran_sta te pre: (PdevStreamPdev2Required(stream.stream_type) && GranuleAt(pdev_2_ptr).state != GRAN_PDEV) post: result.status == RMI_ERROR_INPUT pdev_2_state pre: (PdevStreamPdev2Required(stream.stream_type) && pdev_2.state != PDEV_READY) post: result.status == RMI_ERROR_INPUT pdev_2_comm_sta te pre: (PdevStreamPdev2Required(stream.stream_type) && pdev_2.comm_state != DEV_COMM_IDLE) post: result.status == RMI_ERROR_INPUT complete pre: (pdev_1.op != PDEV_OP_STREAM_COMPLETE) || (PdevStreamPdev2Required(stream.stream_type) && (pdev_2.op != PDEV_OP_STREAM_COMPLETE)) post: result.status == RMI_ERROR_DEVICE
-```
+* feat
+  * pre: Rmm().static.feat_da != FEATURE_TRUE
+* stream_valid
+  * pre: stream_result.valid != RMM_TRUE
+  * post: result.status == RMI_ERROR_INPUT
+* stream_state
+  * pre: !(stream.state IN { PDEV_STREAM_CONNECTING, PDEV_STREAM_DISCONNECTING, PDEV_STREAM_KEY_REFRESHING, PDEV_STREAM_KEY_PURGING })
+  * post: result.status == RMI_ERROR_DEVICE
+* pdev_1_align
+  * pre: !AddrIsRmiGranuleAligned(pdev_1_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_1_bound
+  * pre: !PaIsTracked(pdev_1_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_1_gran_state
+  * pre: GranuleAt(pdev_1_ptr).state != GRAN_PDEV
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_1_state
+  * pre: pdev_1.state != PDEV_READY
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_1_comm_state
+  * pre: pdev_1.comm_state != DEV_COMM_IDLE
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_2_align
+  * pre: (PdevStreamPdev2Required(stream.stream_type) && !AddrIsRmiGranuleAligned(pdev_2_ptr))
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_2_bound
+  * pre: (PdevStreamPdev2Required(stream.stream_type) && !PaIsTracked(pdev_2_ptr))
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_2_gran_state
+  * pre: (PdevStreamPdev2Required(stream.stream_type) && GranuleAt(pdev_2_ptr).state != GRAN_PDEV)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_2_state
+  * pre: (PdevStreamPdev2Required(stream.stream_type) && pdev_2.state != PDEV_READY)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_2_comm_state
+  * pre: (PdevStreamPdev2Required(stream.stream_type) && pdev_2.comm_state != DEV_COMM_IDLE)
+  * post: result.status == RMI_ERROR_INPUT
+* complete
+  * pre: (pdev_1.op != PDEV_OP_STREAM_COMPLETE) || (PdevStreamPdev2Required(stream.stream_type) && (pdev_2.op != PDEV_OP_STREAM_COMPLETE))
+  * post: result.status == RMI_ERROR_DEVICE
 
 ## B4.5.33.2.1 Failure condition ordering
 
@@ -59,20 +85,23 @@ The RMI\_PDEV\_STREAM\_COMPLETE command does not have any failure condition orde
 
 ## B4.5.33.3 Success conditions
 
-```
-ID Condition PDEV_STREAM_DISCONNECTING
-```
-
-```
-connected pre: stream.state == PDEV_STREAM_CONNECTING post: stream.state == PDEV_STREAM_CONNECTED disconnected pre: stream.state == post: stream.state == PDEV_STREAM_DISCONNECTED
-```
-
-| ID            | Condition                                                                                   |
-|---------------|---------------------------------------------------------------------------------------------|
-| key_refreshed | pre: stream.state == PDEV_STREAM_KEY_REFRESHING post: stream.state == PDEV_STREAM_CONNECTED |
-| key_purged    | pre: stream.state == PDEV_STREAM_KEY_PURGING post: stream.state == PDEV_STREAM_CONNECTED    |
-| pdev_1_op     | post: pdev_1.op == PDEV_OP_NONE                                                             |
-| pdev_2_op     | pre: PdevStreamPdev2Required(stream.stream_type) post: pdev_2.op == PDEV_OP_NONE            |
+* key_refreshed
+  * pre: stream.state == PDEV_STREAM_KEY_REFRESHING
+  * post: stream.state == PDEV_STREAM_CONNECTED
+* key_purged
+  * pre: stream.state == PDEV_STREAM_KEY_PURGING
+  * post: stream.state == PDEV_STREAM_CONNECTED
+* pdev_1_op
+  * post: pdev_1.op == PDEV_OP_NONE
+* pdev_2_op
+  * pre: PdevStreamPdev2Required(stream.stream_type)
+  * post: pdev_2.op == PDEV_OP_NONE
+* connected
+  * pre: stream.state == PDEV_STREAM_CONNECTING
+  * post: stream.state == PDEV_STREAM_CONNECTED
+* disconnected
+  * pre: stream.state ==
+  * post: stream.state == PDEV_STREAM_DISCONNECTED
 
 ## B4.5.33.4 Footprint
 

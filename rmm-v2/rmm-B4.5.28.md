@@ -37,37 +37,28 @@ The RMI\_PDEV\_DESTROY command operates on the following context.
 
 ## B4.5.28.2 Failure conditions
 
-| ID              | Condition                                                                                |
-|-----------------|------------------------------------------------------------------------------------------|
-| feat            | pre: Rmm().static.feat_da != FEATURE_TRUE post: result.status == RMI_ERROR_NOT_SUPPORTED |
-| pdev_align      | pre: !AddrIsRmiGranuleAligned(pdev_ptr) post: result.status == RMI_ERROR_INPUT           |
-| pdev_tracking   | pre: !PaIsTrackedFine(pdev_ptr) post: result.status == RMI_ERROR_INPUT                   |
-| pdev_gran_state | pre: GranuleAt(pdev_ptr).state != GRAN_PDEV post: result.status == RMI_ERROR_INPUT       |
-| pdev_state      | pre: pdev_pre.state != PDEV_STOPPED post: result.status == RMI_ERROR_DEVICE              |
-
-## ID
-
-## Condition
-
-pdev\_stream\_liv e
-
-pre:
-
-PdevStreamLive(pdev\_pre)
-
-post:
-
-result.status == RMI\_ERROR\_DEVICE
-
-cmem\_count
-
-pre:
-
-pdev\_pre.cmem\_count != 0
-
-post:
-
-result.status == RMI\_ERROR\_DEVICE
+* feat
+  * pre: Rmm().static.feat_da != FEATURE_TRUE
+  * post: result.status == RMI_ERROR_NOT_SUPPORTED
+* pdev_align
+  * pre: !AddrIsRmiGranuleAligned(pdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_tracking
+  * pre: !PaIsTrackedFine(pdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_gran_state
+  * pre: GranuleAt(pdev_ptr).state != GRAN_PDEV
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_state
+  * pre: pdev_pre.state != PDEV_STOPPED
+  * post: result.status == RMI_ERROR_DEVICE
+* cmem_count
+  * pre: pdev_pre.cmem_count != 0
+  * post: result.status == RMI_ERROR_DEVICE
+  * result.status == RMI_ERROR_DEVICE
+* pdev_stream_live
+  * pre: PdevStreamLive(pdev_pre)
+  * post: result.status == RMI_ERROR_DEVICE
 
 ## B4.5.28.2.1 Failure condition ordering
 

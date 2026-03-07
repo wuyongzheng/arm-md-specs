@@ -45,16 +45,18 @@ The RMI\_REC\_DESTROY command operates on the following context.
 
 ## B4.5.50.2 Failure conditions
 
-| ID           | Condition                                                                     |
-|--------------|-------------------------------------------------------------------------------|
-| rec_align    | pre: !AddrIsRmiGranuleAligned(rec_ptr) post: result.status == RMI_ERROR_INPUT |
-| rec_tracking | pre: !PaIsTrackedFine(rec_ptr) post: result.status == RMI_ERROR_INPUT         |
-
-## ID
-
-## Condition
-
-rec\_gran\_state pre: GranuleAt(rec\_ptr).state != GRAN\_REC post: result.status == RMI\_ERROR\_INPUT rec\_state pre: rec.state == REC\_RUNNING post: result.status == RMI\_ERROR\_REC
+* rec_align
+  * pre: !AddrIsRmiGranuleAligned(rec_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* rec_tracking
+  * pre: !PaIsTrackedFine(rec_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* rec_gran_state
+  * pre: GranuleAt(rec_ptr).state != GRAN_REC
+  * post: result.status == RMI_ERROR_INPUT
+* rec_state
+  * pre: rec.state == REC_RUNNING
+  * post: result.status == RMI_ERROR_REC
 
 ## B4.5.50.2.1 Failure condition ordering
 
@@ -64,22 +66,10 @@ rec\_gran\_state pre: GranuleAt(rec\_ptr).state != GRAN\_REC post: result.status
 
 ## B4.5.50.3 Success conditions
 
-## Condition
-
-
-## ID
-
-rec\_gran\_state
-
-post:
-
-GranuleAt(rec\_ptr).state == GRAN\_DELEGATED
-
-num\_recs
-
-post:
-
-realm.num\_recs == realm\_pre.num\_recs - 1
+* rec_gran_state
+  * post: GranuleAt(rec_ptr).state == GRAN_DELEGATED
+* num_recs
+  * post: realm.num_recs == realm_pre.num_recs - 1
 
 ## B4.5.50.4 Footprint
 

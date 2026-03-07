@@ -36,19 +36,28 @@ The RSI\_ATTESTATION\_TOKEN\_CONTINUE command operates on the following context.
 
 ## B5.3.1.2 Failure conditions
 
-| ID           | Condition                                                          |
-|--------------|--------------------------------------------------------------------|
-| addr_align   | pre: !AddrIsGranuleAligned(addr) post: result == RSI_ERROR_INPUT   |
-| addr_bound   | pre: !AddrIsProtected(addr, realm) post: result == RSI_ERROR_INPUT |
-| offset_bound | pre: offset >= RMM_GRANULE_SIZE post: result == RSI_ERROR_INPUT    |
-
-ID
-
-## Condition
-
-```
-size_overflow pre: offset + size < offset post: result == RSI_ERROR_INPUT size_bound pre: offset + size > RMM_GRANULE_SIZE post: result == RSI_ERROR_INPUT state pre: rec.attest_state != ATTEST_IN_PROGRESS post: result == RSI_ERROR_STATE unknown pre: Token generation failed for an unknown or IMPDEF reason. post: result == RSI_ERROR_UNKNOWN
-```
+* addr_align
+  * pre: !AddrIsGranuleAligned(addr)
+  * post: result == RSI_ERROR_INPUT
+* addr_bound
+  * pre: !AddrIsProtected(addr, realm)
+  * post: result == RSI_ERROR_INPUT
+* offset_bound
+  * pre: offset >= RMM_GRANULE_SIZE
+  * post: result == RSI_ERROR_INPUT
+* size_overflow
+  * pre: offset + size <
+* offset
+  * post: result == RSI_ERROR_INPUT
+* size_bound
+  * pre: offset + size > RMM_GRANULE_SIZE
+  * post: result == RSI_ERROR_INPUT
+* state
+  * pre: rec.attest_state != ATTEST_IN_PROGRESS
+  * post: result == RSI_ERROR_STATE
+* unknown
+  * pre: Token generation failed for an unknown or IMPDEF reason.
+  * post: result == RSI_ERROR_UNKNOWN
 
 ## B5.3.1.2.1 Failure condition ordering
 
@@ -56,13 +65,12 @@ The RSI\_ATTESTATION\_TOKEN\_CONTINUE command does not have any failure conditio
 
 ## B5.3.1.3 Success conditions
 
-## Condition
-
-## ID
-
-```
-incomplete pre: Token generation is not complete. post: result == RSI_INCOMPLETE complete pre: Token generation is complete. post: rec.attest_state == NO_ATTEST_IN_PROGRESS
-```
+* incomplete
+  * pre: Token generation is not complete.
+  * post: result == RSI_INCOMPLETE
+* complete
+  * pre: Token generation is complete.
+  * post: rec.attest_state == NO_ATTEST_IN_PROGRESS
 
 ## B5.3.1.4 Footprint
 

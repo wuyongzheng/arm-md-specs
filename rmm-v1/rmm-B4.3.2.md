@@ -38,18 +38,39 @@ The RMI\_DATA\_CREATE\_UNKNOWN command operates on the following context.
 
 ## B4.3.2.2 Failure conditions
 
-| ID         | Condition                                                                   |
-|------------|-----------------------------------------------------------------------------|
-| data_align | pre: !AddrIsGranuleAligned(data) post: ResultEqual(result, RMI_ERROR_INPUT) |
-| data_bound | pre: !PaIsDelegable(data) post: ResultEqual(result, RMI_ERROR_INPUT)        |
-
-ID
-
-## Condition
-
-```
-data_state pre: Granule(data).state != DELEGATED post: ResultEqual(result, RMI_ERROR_INPUT) data_bound2 pre: ((realm.feat_lpa2 == FEATURE_FALSE) && (UInt(data) >= 2^48)) post: ResultEqual(result, RMI_ERROR_INPUT) rd_align pre: !AddrIsGranuleAligned(rd) post: ResultEqual(result, RMI_ERROR_INPUT) rd_bound pre: !PaIsDelegable(rd) post: ResultEqual(result, RMI_ERROR_INPUT) rd_state pre: Granule(rd).state != RD post: ResultEqual(result, RMI_ERROR_INPUT) ipa_align pre: !AddrIsGranuleAligned(ipa) post: ResultEqual(result, RMI_ERROR_INPUT) ipa_bound pre: !AddrIsProtected(ipa, Realm(rd)) post: ResultEqual(result, RMI_ERROR_INPUT) rtt_walk pre: walk.level < RMM_RTT_PAGE_LEVEL post: ResultEqual(result, RMI_ERROR_RTT, walk.level) rtte_state pre: walk.rtte.state != UNASSIGNED post: ResultEqual(result, RMI_ERROR_RTT, walk.level)
-```
+* data_align
+  * pre: !AddrIsGranuleAligned(data)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* data_bound
+  * pre: !PaIsDelegable(data)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* data_state
+  * pre: Granule(data).state != DELEGATED
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* data_bound2
+  * pre: ((realm.feat_lpa2 == FEATURE_FALSE) && (UInt(data) >= 2^48))
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_align
+  * pre: !AddrIsGranuleAligned(rd)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_bound
+  * pre: !PaIsDelegable(rd)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_state
+  * pre: Granule(rd).state != RD
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* ipa_align
+  * pre: !AddrIsGranuleAligned(ipa)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* ipa_bound
+  * pre: !AddrIsProtected(ipa, Realm(rd))
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rtt_walk
+  * pre: walk.level < RMM_RTT_PAGE_LEVEL
+  * post: ResultEqual(result, RMI_ERROR_RTT, walk.level)
+* rtte_state
+  * pre: walk.rtte.state != UNASSIGNED
+  * post: ResultEqual(result, RMI_ERROR_RTT, walk.level)
 
 ## B4.3.2.2.1 Failure condition ordering
 
@@ -61,23 +82,10 @@ data_state pre: Granule(data).state != DELEGATED post: ResultEqual(result, RMI_E
 
 ## B4.3.2.3 Success conditions
 
-## Condition
-
-ID
-
-data\_state data\_content
-
-rtte\_state rtte\_addr
-
-Granule(data).state
-
-Contents of
-
-target walk.rtte.state
-
-==
-
-walk.rtte.addr
+* rtte_state
+  * rtte_addr Granule(data).state Contents
+* of
+  * target walk.rtte.state == walk.rtte.addr
 
 ## B4.3.2.4 Footprint
 

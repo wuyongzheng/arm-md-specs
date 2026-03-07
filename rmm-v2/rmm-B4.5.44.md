@@ -39,19 +39,25 @@ The RMI\_PSMMU\_ST\_L2\_DESTROY command operates on the following context.
 
 ## B4.5.44.2 Failure conditions
 
-| ID          | Condition                                                                                |
-|-------------|------------------------------------------------------------------------------------------|
-| feat        | pre: Rmm().static.feat_da != FEATURE_TRUE post: result.status == RMI_ERROR_NOT_SUPPORTED |
-| psmmu_valid | pre: !PsmmuAddrIsValid(psmmu_ptr) post: result.status == RMI_ERROR_INPUT                 |
-| sid_bound   | pre: UInt(sid) >= 2^psmmu.sid_size post: result.status == RMI_ERROR_INPUT                |
-
-```
-ID Condition L2ST.
-```
-
-```
-sid_align pre: sid identifies the first entry in an post: result.status == RMI_ERROR_INPUT st_entry pre: walk.ste.state == PSMMU_ST_ENTRY_INVALID post: result.status == RMI_ERROR_INPUT l2st_live pre: PsmmuL2StIsLive(psmmu, sid) post: result.status == RMI_ERROR_INPUT
-```
+* feat
+  * pre: Rmm().static.feat_da != FEATURE_TRUE
+  * post: result.status == RMI_ERROR_NOT_SUPPORTED
+* psmmu_valid
+  * pre: !PsmmuAddrIsValid(psmmu_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* sid_bound
+  * pre: UInt(sid) >= 2^psmmu.sid_size
+  * post: result.status == RMI_ERROR_INPUT
+* sid_align
+  * pre: sid identifies the first entry
+* inan
+  * post: result.status == RMI_ERROR_INPUT
+* st_entry
+  * pre: walk.ste.state == PSMMU_ST_ENTRY_INVALID
+  * post: result.status == RMI_ERROR_INPUT
+* l2st_live
+  * pre: PsmmuL2StIsLive(psmmu, sid)
+  * post: result.status == RMI_ERROR_INPUT
 
 ## B4.5.44.2.1 Failure condition ordering
 
@@ -59,11 +65,8 @@ The RMI\_PSMMU\_ST\_L2\_DESTROY command does not have any failure condition orde
 
 ## B4.5.44.3 Success conditions
 
-| ID        | Condition                                      |
-|-----------|------------------------------------------------|
-| result    | post: result.status == RMI_SUCCESS             |
-| state     | post: walk.ste.state == PSMMU_ST_ENTRY_INVALID |
-| B4.5.44.4 | Footprint                                      |
-| ID        | Value                                          |
-| ste_state | walk.ste.state                                 |
+* result
+  * post: result.status == RMI_SUCCESS
+* state
+  * post: walk.ste.state == PSMMU_ST_ENTRY_INVALID
 

@@ -49,15 +49,18 @@ If the size of the measurement value is smaller than 512 bits, the output values
 
 ## B5.4.9.2 Failure conditions
 
-```
-ID Condition index_bound pre: index > 4 post: result == RSI_ERROR_INPUT
-```
+* index_bound
+  * pre: index > 4
+  * post: result == RSI_ERROR_INPUT
 
 ## B5.4.9.3 Success conditions
 
-```
-ID Condition sha_256 pre: realm.hash_algo == HASH_SHA_256 post: (value_0 == RealmMeasurementEncode(meas)[[0]] && value_1 == RealmMeasurementEncode(meas)[[1]] && value_2 == RealmMeasurementEncode(meas)[[2]] && value_3 == RealmMeasurementEncode(meas)[[3]] && value_4 == Zeros{64}() && value_5 == Zeros{64}() && value_6 == Zeros{64}() && value_7 == Zeros{64}()) sha_512 pre: realm.hash_algo == HASH_SHA_512 post: (value_0 == RealmMeasurementEncode(meas)[[0]] && value_1 == RealmMeasurementEncode(meas)[[1]] && value_2 == RealmMeasurementEncode(meas)[[2]] && value_3 == RealmMeasurementEncode(meas)[[3]] && value_4 == RealmMeasurementEncode(meas)[[4]] && value_5 == RealmMeasurementEncode(meas)[[5]] && value_6 == RealmMeasurementEncode(meas)[[6]] && value_7 == RealmMeasurementEncode(meas)[[7]])
-```
+* sha_256
+  * pre: realm.hash_algo == HASH_SHA_256
+  * post: (value_0 == RealmMeasurementEncode(meas)[[0]] && value_1 == RealmMeasurementEncode(meas)[[1]] && value_2 == RealmMeasurementEncode(meas)[[2]] && value_3 == RealmMeasurementEncode(meas)[[3]] && value_4 == Zeros{64}() && value_5 == Zeros{64}() && value_6 == Zeros{64}() && value_7 == Zeros{64}())
+* sha_512
+  * pre: realm.hash_algo == HASH_SHA_512
+  * post: (value_0 == RealmMeasurementEncode(meas)[[0]] && value_1 == RealmMeasurementEncode(meas)[[1]] && value_2 == RealmMeasurementEncode(meas)[[2]] && value_3 == RealmMeasurementEncode(meas)[[3]] && value_4 == RealmMeasurementEncode(meas)[[4]] && value_5 == RealmMeasurementEncode(meas)[[5]] && value_6 == RealmMeasurementEncode(meas)[[6]] && value_7 == RealmMeasurementEncode(meas)[[7]])
 
 ## B5.4.9.4 Footprint
 

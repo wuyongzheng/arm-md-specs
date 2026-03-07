@@ -43,19 +43,30 @@ The RMI\_VSMMU\_DESTROY command operates on the following context.
 
 ## B4.5.96.2 Failure conditions
 
-| ID       | Condition                                                                                   |
-|----------|---------------------------------------------------------------------------------------------|
-| feat     | pre: Rmm().static.feat_vsmmu != FEATURE_TRUE post: result.status == RMI_ERROR_NOT_SUPPORTED |
-| rd_align | pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPUT                    |
-| rd_bound | pre: !PaIsTracked(rd) post: result.status == RMI_ERROR_INPUT                                |
-
-## ID
-
-## Condition
-
-```
-rd_state pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_INPUT vsmmu_align pre: !AddrIsRmiGranuleAligned(vsmmu_ptr) post: result.status == RMI_ERROR_INPUT vsmmu_tracking pre: !PaIsTrackedFine(vsmmu_ptr) post: result.status == RMI_ERROR_INPUT vsmmu_state pre: GranuleAt(vsmmu_ptr).state != GRAN_VSMMU post: result.status == RMI_ERROR_INPUT vsmmu_live pre: VsmmuIsLive(vsmmu_ptr) post: result.status == RMI_ERROR_DEVICE
-```
+* feat
+  * pre: Rmm().static.feat_vsmmu != FEATURE_TRUE
+  * post: result.status == RMI_ERROR_NOT_SUPPORTED
+* rd_align
+  * pre: !AddrIsRmiGranuleAligned(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_bound
+  * pre: !PaIsTracked(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_state
+  * pre: GranuleAt(rd).state != GRAN_RD
+  * post: result.status == RMI_ERROR_INPUT
+* vsmmu_align
+  * pre: !AddrIsRmiGranuleAligned(vsmmu_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* vsmmu_tracking
+  * pre: !PaIsTrackedFine(vsmmu_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* vsmmu_state
+  * pre: GranuleAt(vsmmu_ptr).state != GRAN_VSMMU
+  * post: result.status == RMI_ERROR_INPUT
+* vsmmu_live
+  * pre: VsmmuIsLive(vsmmu_ptr)
+  * post: result.status == RMI_ERROR_DEVICE
 
 ## B4.5.96.2.1 Failure condition ordering
 
@@ -67,13 +78,10 @@ rd_state pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_IN
 
 ## B4.5.96.3 Success conditions
 
-## Condition
-
-## ID
-
-```
-gran_state post: GranuleAt(vsmmu_ptr).state == GRAN_DELEGATED num_vsmmus post: realm.num_vsmmus == realm_pre.num_vsmmus - 1
-```
+* gran_state
+  * post: GranuleAt(vsmmu_ptr).state == GRAN_DELEGATED
+* num_vsmmus
+  * post: realm.num_vsmmus == realm_pre.num_vsmmus - 1
 
 ## B4.5.96.4 Footprint
 

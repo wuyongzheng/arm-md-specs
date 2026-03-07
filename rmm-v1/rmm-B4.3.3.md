@@ -56,11 +56,27 @@ The values of the result and top output values for different command outcomes ar
 
 ## B4.3.3.2 Failure conditions
 
-## Condition
-
-```
-rd_align pre: !AddrIsGranuleAligned(rd) post: ResultEqual(result, RMI_ERROR_INPUT) rd_bound pre: !PaIsDelegable(rd) post: ResultEqual(result, RMI_ERROR_INPUT) rd_state pre: Granule(rd).state != RD post: ResultEqual(result, RMI_ERROR_INPUT) ipa_align pre: !AddrIsGranuleAligned(ipa) post: ResultEqual(result, RMI_ERROR_INPUT) ipa_bound pre: !AddrIsProtected(ipa, Realm(rd)) post: ResultEqual(result, RMI_ERROR_INPUT) rtt_walk pre: walk.level < RMM_RTT_PAGE_LEVEL post: (ResultEqual(result, RMI_ERROR_RTT, walk.level) && (top == walk_top)) rtte_state pre: walk.rtte.state != ASSIGNED post: (ResultEqual(result, RMI_ERROR_RTT, walk.level) && (top == walk_top))
-```
+* rd_align
+  * pre: !AddrIsGranuleAligned(rd)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_bound
+  * pre: !PaIsDelegable(rd)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_state
+  * pre: Granule(rd).state != RD
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* ipa_align
+  * pre: !AddrIsGranuleAligned(ipa)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* ipa_bound
+  * pre: !AddrIsProtected(ipa, Realm(rd))
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rtt_walk
+  * pre: walk.level < RMM_RTT_PAGE_LEVEL
+  * post: (ResultEqual(result, RMI_ERROR_RTT, walk.level) && (top == walk_top))
+* rtte_state
+  * pre: walk.rtte.state != ASSIGNED
+  * post: (ResultEqual(result, RMI_ERROR_RTT, walk.level) && (top == walk_top))
 
 ## B4.3.3.2.1 Failure condition ordering
 
@@ -74,33 +90,17 @@ rd_align pre: !AddrIsGranuleAligned(rd) post: ResultEqual(result, RMI_ERROR_INPU
 
 ## B4.3.3.3 Success conditions
 
-## Condition
-
-data\_state
-
-Granule(walk.rtte.addr).state == DELEGATED
-
-rtte\_state
-
-walk.rtte.state == UNASSIGNED
-
-ripas\_ram
-
-pre:
-
-walk.rtte.ripas == RAM
-
-post:
-
-walk.rtte.ripas == DESTROYED
-
-data
-
-data == walk.rtte.addr
-
-top
-
-top == walk\_top
+* data_state
+  * Granule(walk.rtte.addr).state == DELEGATED
+* rtte_state
+  * walk.rtte.state == UNASSIGNED
+* ripas_ram
+  * pre: walk.rtte.ripas == RAM
+  * post: walk.rtte.ripas == DESTROYED
+* data
+  * data == walk.rtte.addr
+* top
+  * top == walk_top
 
 ## B4.3.3.4 Footprint
 

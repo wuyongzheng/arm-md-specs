@@ -58,11 +58,33 @@ The values of the result and top output values for different command outcomes ar
 
 ## B4.3.16.2 Failure conditions
 
-Condition
-
-```
-rd_align pre: !AddrIsGranuleAligned(rd) post: ResultEqual(result, RMI_ERROR_INPUT) rd_bound pre: !PaIsDelegable(rd) post: ResultEqual(result, RMI_ERROR_INPUT) rd_state pre: Granule(rd).state != RD post: ResultEqual(result, RMI_ERROR_INPUT) level_bound pre: (!RttLevelIsValid(rd, level) || RttLevelIsStarting(rd, level)) post: ResultEqual(result, RMI_ERROR_INPUT) ipa_align pre: !AddrIsRttLevelAligned(ipa, level -1) post: ResultEqual(result, RMI_ERROR_INPUT) ipa_bound pre: UInt(ipa) >= (2 ^ Realm(rd).ipa_width) post: ResultEqual(result, RMI_ERROR_INPUT) rtt_walk pre: walk.level < level -1 post: (ResultEqual(result, RMI_ERROR_RTT, walk.level) && (top == walk_top)) rtte_state pre: walk.rtte.state != TABLE post: (ResultEqual(result, RMI_ERROR_RTT, walk.level) && (top == walk_top)) rtt_live pre: RttIsLive(Rtt(walk.rtte.addr)) post: (ResultEqual(result, RMI_ERROR_RTT, level) && (top == ipa))
-```
+* rd_align
+  * pre: !AddrIsGranuleAligned(rd)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_bound
+  * pre: !PaIsDelegable(rd)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_state
+  * pre: Granule(rd).state != RD
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* level_bound
+  * pre: (!RttLevelIsValid(rd, level) || RttLevelIsStarting(rd, level))
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* ipa_align
+  * pre: !AddrIsRttLevelAligned(ipa, level -1)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* ipa_bound
+  * pre: UInt(ipa) >= (2 ^ Realm(rd).ipa_width)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rtt_walk
+  * pre: walk.level < level -1
+  * post: (ResultEqual(result, RMI_ERROR_RTT, walk.level) && (top == walk_top))
+* rtte_state
+  * pre: walk.rtte.state != TABLE
+  * post: (ResultEqual(result, RMI_ERROR_RTT, walk.level) && (top == walk_top))
+* rtt_live
+  * pre: RttIsLive(Rtt(walk.rtte.addr))
+  * post: (ResultEqual(result, RMI_ERROR_RTT, level) && (top == ipa))
 
 ## B4.3.16.2.1 Failure condition ordering
 
@@ -74,13 +96,16 @@ rd_align pre: !AddrIsGranuleAligned(rd) post: ResultEqual(result, RMI_ERROR_INPU
 
 ## B4.3.16.3 Success conditions
 
-| ID         | Condition                                  |
-|------------|--------------------------------------------|
-| rtte_state | walk.rtte.state == UNASSIGNED              |
-| ripas      | walk.rtte.ripas == DESTROYED               |
-| rtt_state  | Granule(walk.rtte.addr).state == DELEGATED |
-| rtt        | rtt == walk.rtte.addr                      |
-| top        | top == walk_top                            |
+* rtte_state
+  * walk.rtte.state == UNASSIGNED
+* ripas
+  * walk.rtte.ripas == DESTROYED
+* rtt_state
+  * Granule(walk.rtte.addr).state == DELEGATED
+* rtt
+  * rtt == walk.rtte.addr
+* top
+  * top == walk_top
 
 ## B4.3.16.4 Footprint
 

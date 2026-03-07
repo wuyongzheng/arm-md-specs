@@ -44,21 +44,42 @@ ID
 
 ## B4.5.77.2 Failure conditions
 
-Condition
-
-| rd_align       | pre: post:   | !AddrIsRmiGranuleAligned(rd) result.status == RMI_ERROR_INPUT                                                                               |
-|----------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-| rd_bound       | pre: post:   | !PaIsTracked(rd) result.status == RMI_ERROR_INPUT                                                                                           |
-| rd_state       | pre: post:   | GranuleAt(rd).state != GRAN_RD result.status == RMI_ERROR_INPUT                                                                             |
-| base_align     | pre: post:   | !AddrIsRmiGranuleAligned(base) result.status == RMI_ERROR_INPUT                                                                             |
-| top_align      | pre: post:   | !AddrIsRmiGranuleAligned(top) result.status == RMI_ERROR_INPUT                                                                              |
-| size_valid     | pre: post:   | UInt(top) <= UInt(base) result.status == RMI_ERROR_INPUT                                                                                    |
-| ipa_bound      | pre: post:   | AddrIsProtected(base, realm) result.status == RMI_ERROR_INPUT                                                                               |
-| oaddr_type     | pre: post:    (flags.oaddr_type != RMI_ADDR_TYPE_SINGLE && flags.oaddr_type != RMI_ADDR_TYPE_LIST) result.status == RMI_ERROR_INPUT                 |
-| oaddr_align    | pre: post:   | (flags.oaddr_type == RMI_ADDR_TYPE_LIST && !AddrIsAligned(oaddr.data.list_addr.addr, 8)) result.status == RMI_ERROR_INPUT                   |
-| oaddr_list_pas | pre: post:   | (flags.oaddr_type == RMI_ADDR_TYPE_LIST && !NonSecureAccessPermitted( oaddr.data.list_addr.addr)) result.status == RMI_ERROR_INPUT          |
-| rtte_state     | pre: post:   | walk.rtte.state != RTTE_UNMAPPED_NS (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level)                               |
-| rtte_size      | pre: post:   | (walk.rtte.state == RTTE_VOID && RttLevelSize(walk.level) > size) (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) |
+* rd_align
+  * pre: !AddrIsRmiGranuleAligned(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_bound
+  * pre: !PaIsTracked(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_state
+  * pre: GranuleAt(rd).state != GRAN_RD
+  * post: result.status == RMI_ERROR_INPUT
+* base_align
+  * pre: !AddrIsRmiGranuleAligned(base)
+  * post: result.status == RMI_ERROR_INPUT
+* top_align
+  * pre: !AddrIsRmiGranuleAligned(top)
+  * post: result.status == RMI_ERROR_INPUT
+* size_valid
+  * pre: UInt(top) <= UInt(base)
+  * post: result.status == RMI_ERROR_INPUT
+* ipa_bound
+  * pre: AddrIsProtected(base, realm)
+  * post: result.status == RMI_ERROR_INPUT
+* oaddr_type
+  * pre: (flags.oaddr_type != RMI_ADDR_TYPE_SINGLE && flags.oaddr_type != RMI_ADDR_TYPE_LIST)
+  * post: result.status == RMI_ERROR_INPUT
+* oaddr_align
+  * pre: (flags.oaddr_type == RMI_ADDR_TYPE_LIST && !AddrIsAligned(oaddr.data.list_addr.addr, 8))
+  * post: result.status == RMI_ERROR_INPUT
+* oaddr_list_pas
+  * pre: (flags.oaddr_type == RMI_ADDR_TYPE_LIST && !NonSecureAccessPermitted( oaddr.data.list_addr.addr))
+  * post: result.status == RMI_ERROR_INPUT
+* rtte_state
+  * pre: walk.rtte.state != RTTE_UNMAPPED_NS (
+  * post: result.status == RMI_ERROR_RTT && result.data.level.level == walk.level)
+* rtte_size
+  * pre: (walk.rtte.state == RTTE_VOID && RttLevelSize(walk.level) > size) (
+  * post: result.status == RMI_ERROR_RTT && result.data.level.level == walk.level)
 
 ## B4.5.77.2.1 Failure condition ordering
 
@@ -66,13 +87,20 @@ The RMI\_RTT\_UNPROT\_MAP command does not have any failure condition orderings.
 
 ## B4.5.77.3 Success conditions
 
-## ID
-
-## Condition
-
-```
-state post: RttTreeRangeAllState( realm, RMM_RTT_TREE_PRIMARY, base, out_top, RTTE_MAPPED_NS) addr_contig pre: flags.oaddr_type == RMI_ADDR_TYPE_SINGLE post: RttTreeRangeAllOaddrContig( realm, RMM_RTT_TREE_PRIMARY, base, progress) addr_list pre: flags.oaddr_type == RMI_ADDR_TYPE_LIST post: RttTreeRangeAllOaddrList( realm, RMM_RTT_TREE_PRIMARY, base, oaddr.data.list_addr.addr, progress) memattr post: RttTreeRangeAllMemAttr( realm, RMM_RTT_TREE_PRIMARY, base, out_top, flags.memattr) s2ap post: RttTreeRangeAllS2AP( realm, RMM_RTT_TREE_PRIMARY, base, out_top, flags.s2ap) result post: result.status == RMI_SUCCESS
-```
+* state
+  * post: RttTreeRangeAllState( realm, RMM_RTT_TREE_PRIMARY, base, out_top, RTTE_MAPPED_NS)
+* addr_contig
+  * pre: flags.oaddr_type == RMI_ADDR_TYPE_SINGLE
+  * post: RttTreeRangeAllOaddrContig( realm, RMM_RTT_TREE_PRIMARY, base, progress)
+* addr_list
+  * pre: flags.oaddr_type == RMI_ADDR_TYPE_LIST
+  * post: RttTreeRangeAllOaddrList( realm, RMM_RTT_TREE_PRIMARY, base, oaddr.data.list_addr.addr, progress)
+* memattr
+  * post: RttTreeRangeAllMemAttr( realm, RMM_RTT_TREE_PRIMARY, base, out_top, flags.memattr)
+* s2ap
+  * post: RttTreeRangeAllS2AP( realm, RMM_RTT_TREE_PRIMARY, base, out_top, flags.s2ap)
+* result
+  * post: result.status == RMI_SUCCESS
 
 ## B4.5.77.4 Footprint
 

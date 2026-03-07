@@ -40,18 +40,55 @@ The RMI\_REC\_CREATE command operates on the following context.
 
 ## B4.3.12.2 Failure conditions
 
-| ID           | Condition                                                                         |
-|--------------|-----------------------------------------------------------------------------------|
-| params_align | pre: !AddrIsGranuleAligned(params_ptr) post: ResultEqual(result, RMI_ERROR_INPUT) |
-| params_bound | pre: !PaIsDelegable(params_ptr) post: ResultEqual(result, RMI_ERROR_INPUT)        |
-
-## ID
-
-## Condition
-
-```
-params_pas pre: !GranuleAccessPermitted(params_ptr, PAS_NS) post: ResultEqual(result, RMI_ERROR_INPUT) rec_align pre: !AddrIsGranuleAligned(rec) post: ResultEqual(result, RMI_ERROR_INPUT) rec_bound pre: !PaIsDelegable(rec) post: ResultEqual(result, RMI_ERROR_INPUT) rec_state pre: Granule(rec).state != DELEGATED post: ResultEqual(result, RMI_ERROR_INPUT) rd_align pre: !AddrIsGranuleAligned(rd) post: ResultEqual(result, RMI_ERROR_INPUT) rd_bound pre: !PaIsDelegable(rd) post: ResultEqual(result, RMI_ERROR_INPUT) rd_state pre: Granule(rd).state != RD post: ResultEqual(result, RMI_ERROR_INPUT) realm_state pre: realm.state != REALM_NEW post: ResultEqual(result, RMI_ERROR_REALM) num_recs pre: realm.num_recs == (2 ^ ImplFeatures().max_recs_order) -1 post: ResultEqual(result, RMI_ERROR_REALM) mpidr_index pre: RecIndex(params.mpidr) != realm.rec_index post: ResultEqual(result, RMI_ERROR_INPUT) num_aux pre: params.num_aux != RecAuxCount(rd) post: ResultEqual(result, RMI_ERROR_INPUT) aux_align pre: !AuxAligned(params.aux, params.num_aux) post: ResultEqual(result, RMI_ERROR_INPUT) aux_alias pre: AuxAlias(rec, params.aux, params.num_aux) post: ResultEqual(result, RMI_ERROR_INPUT) aux_state pre: !AuxStateEqual( params.aux, params.num_aux, DELEGATED) post: ResultEqual(result, RMI_ERROR_INPUT)
-```
+* params_align
+  * pre: !AddrIsGranuleAligned(params_ptr)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* params_bound
+  * pre: !PaIsDelegable(params_ptr)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* params_pas
+  * pre: !GranuleAccessPermitted(params_ptr, PAS_NS)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rec_align
+  * pre: !AddrIsGranuleAligned(rec)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rec_bound
+  * pre: !PaIsDelegable(rec)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rec_state
+  * pre: Granule(rec).state != DELEGATED
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_align
+  * pre: !AddrIsGranuleAligned(rd)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_bound
+  * pre: !PaIsDelegable(rd)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_state
+  * pre: Granule(rd).state != RD
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* realm_state
+  * pre: realm.state != REALM_NEW
+  * post: ResultEqual(result, RMI_ERROR_REALM)
+* num_recs
+  * pre: realm.num_recs == (2 ^ ImplFeatures().max_recs_order) -1
+  * post: ResultEqual(result, RMI_ERROR_REALM)
+* mpidr_index
+  * pre: RecIndex(params.mpidr) != realm.
+* rec_index
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* num_aux
+  * pre: params.num_aux != RecAuxCount(rd)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* aux_align
+  * pre: !AuxAligned(params.aux, params.num_aux)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* aux_alias
+  * pre: AuxAlias(rec, params.aux, params.num_aux)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* aux_state
+  * pre: !AuxStateEqual( params.aux, params.num_aux, DELEGATED)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
 
 ## B4.3.12.2.1 Failure condition ordering
 
@@ -63,25 +100,29 @@ params_pas pre: !GranuleAccessPermitted(params_ptr, PAS_NS) post: ResultEqual(re
 
 ## B4.3.12.3 Success conditions
 
-## Condition
-
-## ID
-
-```
-rec_index Realm(rd).rec_index == rec_index + 1 rec_gran_state Granule(rec).state == REC rec_owner Rec(rec).owner == rd
-```
-
-## ID
-
-## Condition
-
-```
-rec_attest Rec(rec).attest_state == NO_ATTEST_IN_PROGRESS rec_mpidr MpidrEqual(Rec(rec).mpidr, params.mpidr) rec_state Rec(rec).state == REC_READY runnable pre: params.flags.runnable == RMI_RUNNABLE post: Rec(rec).flags.runnable == RUNNABLE not_runnable pre: params.flags.runnable == RMI_NOT_RUNNABLE post: Rec(rec).flags.runnable == NOT_RUNNABLE rec_gprs (Rec(rec).gprs[0] == params.gprs[0] && Rec(rec).gprs[1] == params.gprs[1] && Rec(rec).gprs[2] == params.gprs[2] && Rec(rec).gprs[3] == params.gprs[3] && Rec(rec).gprs[4] == params.gprs[4] && Rec(rec).gprs[5] == params.gprs[5] && Rec(rec).gprs[6] == params.gprs[6] && Rec(rec).gprs[7] == params.gprs[7] && Rec(rec).gprs[8] == Zeros() && Rec(rec).gprs[9] == Zeros() && Rec(rec).gprs[10] == Zeros() && Rec(rec).gprs[11] == Zeros() && Rec(rec).gprs[12] == Zeros() && Rec(rec).gprs[13] == Zeros() && Rec(rec).gprs[14] == Zeros() && Rec(rec).gprs[15] == Zeros() && Rec(rec).gprs[16] == Zeros() && Rec(rec).gprs[17] == Zeros() && Rec(rec).gprs[18] == Zeros() && Rec(rec).gprs[19] == Zeros() && Rec(rec).gprs[20] == Zeros() && Rec(rec).gprs[21] == Zeros() && Rec(rec).gprs[22] == Zeros() && Rec(rec).gprs[23] == Zeros() && Rec(rec).gprs[24] == Zeros() && Rec(rec).gprs[25] == Zeros() && Rec(rec).gprs[26] == Zeros() && Rec(rec).gprs[27] == Zeros() && Rec(rec).gprs[28] == Zeros() && Rec(rec).gprs[29] == Zeros() && Rec(rec).gprs[30] == Zeros() && Rec(rec).gprs[31] == Zeros()) rec_pc Rec(rec).pc == params.pc rim pre: params.flags.runnable == RMI_RUNNABLE post: Realm(rd).measurements[0] == RimExtendRec( realm, params) rec_aux AuxEqual( Rec(rec).aux, params.aux, RecAuxCount(rd)) rec_aux_state AuxStateEqual( Rec(rec).aux, RecAuxCount(rd), REC_AUX) ripas_addr Rec(rec).ripas_addr == Zeros() ripas_top Rec(rec).ripas_top == Zeros() host_call Rec(rec).host_call_pending == NO_HOST_CALL_PENDING
-```
-
-| ID       | Condition                                |
-|----------|------------------------------------------|
-| num_recs | realm.num_recs == realm_pre.num_recs + 1 |
+* num_recs
+  * realm.num_recs == realm_pre.num_recs + 1
+* runnable
+  * pre: params.flags.runnable == RMI_RUNNABLE
+  * post: Rec(rec).flags.runnable == RUNNABLE
+* not_runnable
+  * pre: params.flags.runnable == RMI_NOT_RUNNABLE
+  * post: Rec(rec).flags.runnable == NOT_RUNNABLE rec_gprs (Rec(rec).gprs[0] == params.gprs[0] && Rec(rec).gprs[1] == params.gprs[1] && Rec(rec).gprs[2] == params.gprs[2] && Rec(rec).gprs[3] == params.gprs[3] && Rec(rec).gprs[4] == params.gprs[4] && Rec(rec).gprs[5] == params.gprs[5] && Rec(rec).gprs[6] == params.gprs[6] && Rec(rec).gprs[7] == params.gprs[7] && Rec(rec).gprs[8] == Zeros() && Rec(rec).gprs[9] == Zeros() && Rec(rec).gprs[10] == Zeros() && Rec(rec).gprs[11] == Zeros() && Rec(rec).gprs[12] == Zeros() && Rec(rec).gprs[13] == Zeros() && Rec(rec).gprs[14] == Zeros() && Rec(rec).gprs[15] == Zeros() && Rec(rec).gprs[16] == Zeros() && Rec(rec).gprs[17] == Zeros() && Rec(rec).gprs[18] == Zeros() && Rec(rec).gprs[19] == Zeros() && Rec(rec).gprs[20] == Zeros() && Rec(rec).gprs[21] == Zeros() && Rec(rec).gprs[22] == Zeros() && Rec(rec).gprs[23] == Zeros() && Rec(rec).gprs[24] == Zeros() && Rec(rec).gprs[25] == Zeros() && Rec(rec).gprs[26] == Zeros() && Rec(rec).gprs[27] == Zeros() && Rec(rec).gprs[28] == Zeros() && Rec(rec).gprs[29] == Zeros() && Rec(rec).gprs[30] == Zeros() && Rec(rec).gprs[31] == Zeros()) rec_pc Rec(rec).pc == params.
+* pcrim
+  * pre: params.flags.runnable == RMI_RUNNABLE
+  * post: Realm(rd).measurements[0] == RimExtendRec( realm, params) rec_aux AuxEqual( Rec(rec).aux, params.aux, RecAuxCount(rd)) rec_aux_state AuxStateEqual( Rec(rec).aux, RecAuxCount(rd), REC_AUX) ripas_addr Rec(rec).ripas_addr == Zeros() ripas_top Rec(rec).ripas_top == Zeros() host_call Rec(rec).host_call_pending == NO_HOST_CALL_PENDING
+* rec_index
+  * Realm(rd).rec_index ==
+* rec_gran_state
+  * Granule(rec).state == REC
+* rec_owner
+  * Rec(rec).owner ==
+* rd
+  * rec_attest Rec(rec).attest_state == NO_ATTEST_IN_PROGRESS
+* rec_mpidr
+  * MpidrEqual(Rec(rec).mpidr, params.mpidr)
+* rec_state
+  * Rec(rec).state == REC_READY
 
 ## B4.3.12.4 RMI\_REC\_CREATE extension of RIM
 

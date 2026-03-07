@@ -51,11 +51,33 @@ The following unused bits of RSI\_VDEV\_VALIDATE\_MAPPING output values MBZ: X2[
 
 ## B5.4.21.2 Failure conditions
 
-Condition
-
-```
-da_en pre: realm.feat_da != FEATURE_TRUE post: result == RSI_ERROR_STATE vdev_id pre: VdevIdIsFree(realm, vdev_id) post: result == RSI_ERROR_INPUT state pre: (vdev.vdev_state != VDEV_LOCKED && vdev.vdev_state != VDEV_STARTED) post: result == RSI_ERROR_INPUT ipa_base_align pre: !AddrIsRsiGranuleAligned(ipa_base) post: result == RSI_ERROR_INPUT ipa_top_align pre: !AddrIsRsiGranuleAligned(ipa_top) post: result == RSI_ERROR_INPUT pa_align pre: !AddrIsRsiGranuleAligned(pa_base) post: result == RSI_ERROR_INPUT size_valid pre: UInt(ipa_top) <= UInt(ipa_base) post: result == RSI_ERROR_INPUT rgn_bound pre: !AddrRangeIsProtected(ipa_base, ipa_top, post: result == RSI_ERROR_INPUT attest_info pre: !VdevAttestInfoEqual( lock_nonce, meas_nonce, report_nonce, vdev.attest_info) post: result == RSI_ERROR_DEVICE
-```
+* da_en
+  * pre: realm.feat_da != FEATURE_TRUE
+  * post: result == RSI_ERROR_STATE
+* vdev_id
+  * pre: VdevIdIsFree(realm, vdev_id)
+  * post: result == RSI_ERROR_INPUT
+* state
+  * pre: (vdev.vdev_state != VDEV_LOCKED && vdev.vdev_state != VDEV_STARTED)
+  * post: result == RSI_ERROR_INPUT
+* ipa_base_align
+  * pre: !AddrIsRsiGranuleAligned(ipa_base)
+  * post: result == RSI_ERROR_INPUT
+* ipa_top_align
+  * pre: !AddrIsRsiGranuleAligned(ipa_top)
+  * post: result == RSI_ERROR_INPUT
+* pa_align
+  * pre: !AddrIsRsiGranuleAligned(pa_base)
+  * post: result == RSI_ERROR_INPUT
+* size_valid
+  * pre: UInt(ipa_top) <= UInt(ipa_base)
+  * post: result == RSI_ERROR_INPUT
+* rgn_bound
+  * pre: !AddrRangeIsProtected(ipa_base, ipa_top,
+  * post: result == RSI_ERROR_INPUT
+* attest_info
+  * pre: !VdevAttestInfoEqual( lock_nonce, meas_nonce, report_nonce, vdev.attest_info)
+  * post: result == RSI_ERROR_DEVICE
 
 ## B5.4.21.2.1 Failure condition ordering
 
@@ -67,14 +89,10 @@ da_en pre: realm.feat_da != FEATURE_TRUE post: result == RSI_ERROR_STATE vdev_id
 
 ## B5.4.21.3 Success conditions
 
-```
-realm)
-```
-
-| ID           | Condition                                     |
-|--------------|-----------------------------------------------|
-| new_ipa_base | post: new_ipa_base == rec.dev_mem_addr        |
-| response     | post: response == RecDevMemResponseToRsi(rec) |
+* new_ipa_base
+  * post: new_ipa_base == rec.dev_mem_addr
+* response
+  * post: response == RecDevMemResponseToRsi(rec)
 
 ## B5.4.21.4 Footprint
 

@@ -51,34 +51,87 @@ The out\_top output value is valid only when the command result is RMI\_SUCCESS.
 
 ## B4.5.71.2 Failure conditions
 
-## ID Condition
-
-| rd_align        | pre: post:   | !AddrIsRmiGranuleAligned(rd) result.status == RMI_ERROR_INPUT               |
-|-----------------|--------------|-----------------------------------------------------------------------------|
-| rd_bound        | pre: post:   | !PaIsTracked(rd) result.status == RMI_ERROR_INPUT                           |
-| rd_state        | pre: post:   | GranuleAt(rd).state != GRAN_RD result.status == RMI_ERROR_INPUT             |
-| rec_align       | pre: post:   | !AddrIsRmiGranuleAligned(rec_ptr) result.status == RMI_ERROR_INPUT          |
-| rec_bound       | pre: post:   | !PaIsTracked(rec_ptr) result.status == RMI_ERROR_INPUT                      |
-| rec_gran_state  | pre: post:    GranuleAt(rec_ptr).state != GRAN_REC result.status == RMI_ERROR_INPUT |
-| rec_state       | pre: post:   | rec.state == REC_RUNNING result.status == RMI_ERROR_REC                     |
-| rec_owner       | pre: post:   | rec.owner != rd result.status == RMI_ERROR_REC                              |
-| pdev_align      | pre: post:   | !AddrIsRmiGranuleAligned(pdev_ptr) result.status == RMI_ERROR_INPUT         |
-| pdev_bound      | pre: post:   | !PaIsTracked(pdev_ptr) result.status == RMI_ERROR_INPUT                     |
-| pdev_gran_state | pre: post:   | GranuleAt(pdev_ptr).state != GRAN_PDEV result.status == RMI_ERROR_INPUT     |
-| vdev_align      | pre: post:   | !AddrIsRmiGranuleAligned(vdev_ptr) result.status == RMI_ERROR_INPUT         |
-| vdev_bound      | pre: post:   | !PaIsTracked(vdev_ptr) result.status == RMI_ERROR_INPUT                     |
-| vdev_gran_state | pre: post:   | GranuleAt(vdev_ptr).state != GRAN_VDEV result.status == RMI_ERROR_INPUT     |
-| vdev_pdev       | pre: post:   | vdev.pdev != pdev_ptr result.status == RMI_ERROR_DEVICE                     |
-| size_valid      | pre: post:   | UInt(top) <= UInt(base) result.status == RMI_ERROR_INPUT                    |
-| base_bound      | pre: post:   | base != rec.dev_mem_addr result.status == RMI_ERROR_INPUT                   |
-
-```
-ID Condition
-```
-
-```
-top_bound pre: UInt(top) > UInt(rec.dev_mem_top) post: result.status == RMI_ERROR_INPUT base_align pre: !AddrIsRttLevelAligned(base, walk.level) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) top_gran_align pre: !AddrIsRmiGranuleAligned(top) post: result.status == RMI_ERROR_INPUT no_progress pre: UInt(base) == UInt(walk_top_pre) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) ncoh_attr pre: (rec.dev_mem_flags.coh == DEV_MEM_NON_COHERENT && !RttEntriesInRangeMemAttr( RttAt(walk.rtt_addr), walk.level, base, walk_top_pre, MEMATTR_NON_CACHEABLE)) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) ncoh_pa pre: (rec.dev_mem_flags.coh == DEV_MEM_NON_COHERENT && !RttEntriesInRangeNonCohDevMem( RttAt(walk.rtt_addr), walk.level, base, walk_top_pre)) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) coh_attr pre: (rec.dev_mem_flags.coh == DEV_MEM_COHERENT && !RttEntriesInRangeMemAttr( RttAt(walk.rtt_addr), walk.level, base, walk_top_pre, MEMATTR_PASSTHROUGH)) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) coh_pa pre: (rec.dev_mem_flags.coh == DEV_MEM_COHERENT && !RttEntriesInRangeCohDevMem( RttAt(walk.rtt_addr), walk.level, base, walk_top_pre)) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) linear_map pre: !RttEntriesInRangeOutputContiguous( RttAt(walk.rtt_addr), walk.level, base, walk_top_pre, rec.dev_mem_pa) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level) aux_live pre: AddrRangeIsAuxLive(base, top, realm_pre) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level)
-```
+* rd_align
+  * pre: !AddrIsRmiGranuleAligned(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_bound
+  * pre: !PaIsTracked(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_state
+  * pre: GranuleAt(rd).state != GRAN_RD
+  * post: result.status == RMI_ERROR_INPUT
+* rec_align
+  * pre: !AddrIsRmiGranuleAligned(rec_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* rec_bound
+  * pre: !PaIsTracked(rec_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* rec_gran_state
+  * pre: GranuleAt(rec_ptr).state != GRAN_REC
+  * post: result.status == RMI_ERROR_INPUT
+* rec_state
+  * pre: rec.state == REC_RUNNING
+  * post: result.status == RMI_ERROR_REC
+* rec_owner
+  * pre: rec.owner != rd
+  * post: result.status == RMI_ERROR_REC
+* pdev_align
+  * pre: !AddrIsRmiGranuleAligned(pdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_bound
+  * pre: !PaIsTracked(pdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_gran_state
+  * pre: GranuleAt(pdev_ptr).state != GRAN_PDEV
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_align
+  * pre: !AddrIsRmiGranuleAligned(vdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_bound
+  * pre: !PaIsTracked(vdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_gran_state
+  * pre: GranuleAt(vdev_ptr).state != GRAN_VDEV
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_pdev
+  * pre: vdev.pdev != pdev_ptr
+  * post: result.status == RMI_ERROR_DEVICE
+* size_valid
+  * pre: UInt(top) <= UInt(base)
+  * post: result.status == RMI_ERROR_INPUT
+* base_bound
+  * pre: base != rec.dev_mem_addr
+  * post: result.status == RMI_ERROR_INPUT
+* top_bound
+  * pre: UInt(top) > UInt(rec.dev_mem_top)
+  * post: result.status == RMI_ERROR_INPUT
+* base_align
+  * pre: !AddrIsRttLevelAligned(base, walk.level)
+  * post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level)
+* top_gran_align
+  * pre: !AddrIsRmiGranuleAligned(top)
+  * post: result.status == RMI_ERROR_INPUT
+* no_progress
+  * pre: UInt(base) == UInt(walk_top_pre)
+  * post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level)
+* ncoh_attr
+  * pre: (rec.dev_mem_flags.coh == DEV_MEM_NON_COHERENT && !RttEntriesInRangeMemAttr( RttAt(walk.rtt_addr), walk.level, base, walk_top_pre, MEMATTR_NON_CACHEABLE))
+  * post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level)
+* ncoh_pa
+  * pre: (rec.dev_mem_flags.coh == DEV_MEM_NON_COHERENT && !RttEntriesInRangeNonCohDevMem( RttAt(walk.rtt_addr), walk.level, base, walk_top_pre))
+  * post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level)
+* coh_attr
+  * pre: (rec.dev_mem_flags.coh == DEV_MEM_COHERENT && !RttEntriesInRangeMemAttr( RttAt(walk.rtt_addr), walk.level, base, walk_top_pre, MEMATTR_PASSTHROUGH))
+  * post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level)
+* coh_pa
+  * pre: (rec.dev_mem_flags.coh == DEV_MEM_COHERENT && !RttEntriesInRangeCohDevMem( RttAt(walk.rtt_addr), walk.level, base, walk_top_pre))
+  * post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level)
+* linear_map
+  * pre: !RttEntriesInRangeOutputContiguous( RttAt(walk.rtt_addr), walk.level, base, walk_top_pre, rec.dev_mem_pa)
+  * post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level)
+* aux_live
+  * pre: AddrRangeIsAuxLive(base, top, realm_pre)
+  * post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level)
 
 ## B4.5.71.2.1 Failure condition ordering
 
@@ -92,11 +145,14 @@ top_bound pre: UInt(top) > UInt(rec.dev_mem_top) post: result.status == RMI_ERRO
 
 ## B4.5.71.3 Success conditions
 
-## Condition
-
-```
-rtte_ripas post: RttEntriesInRangeRipas( RttAt(walk.rtt_addr), walk.level, base, walk_top_pre, RIPAS_DEV) dev_mem_addr post: rec.dev_mem_addr == MinAddress(top, walk_top_pre) dev_mem_pa post: rec.dev_mem_pa == ToAddress( UInt(pa_pre) + (UInt(walk_top_pre) -out_top post: out_top == MinAddress(top, walk_top_pre)
-```
+* rtte_ripas
+  * post: RttEntriesInRangeRipas( RttAt(walk.rtt_addr), walk.level, base, walk_top_pre, RIPAS_DEV)
+* dev_mem_addr
+  * post: rec.dev_mem_addr == MinAddress(top, walk_top_pre)
+* dev_mem_pa
+  * post: rec.dev_mem_pa == ToAddress( UInt(pa_pre) + (UInt(walk_top_pre) -
+* out_top
+  * post: out_top == MinAddress(top, walk_top_pre)
 
 ## B4.5.71.4 Footprint
 

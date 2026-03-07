@@ -48,11 +48,12 @@ ID
 
 ## B4.5.92.2 Failure conditions
 
-Condition
-
-```
-incompat_lower pre: (!RmiVersionIsSupported(req) && RmiVersionLowerIsSupported(req)) post: (result.status == RMI_ERROR_INPUT && VersionEqual(lower, RmiVersionHighestBelow(req)) && VersionEqual(higher, RmiVersionHighest())) incompat_higher pre: (!RmiVersionIsSupported(req) && !RmiVersionLowerIsSupported(req) && RmiVersionHigherIsSupported(req)) post: (result.status == RMI_ERROR_INPUT && VersionEqual(lower, higher) && VersionEqual(higher, RmiVersionHighest()))
-```
+* incompat_lower
+  * pre: (!RmiVersionIsSupported(req) && RmiVersionLowerIsSupported(req))
+  * post: (result.status == RMI_ERROR_INPUT && VersionEqual(lower, RmiVersionHighestBelow(req)) && VersionEqual(higher, RmiVersionHighest()))
+* incompat_higher
+  * pre: (!RmiVersionIsSupported(req) && !RmiVersionLowerIsSupported(req) && RmiVersionHigherIsSupported(req))
+  * post: (result.status == RMI_ERROR_INPUT && VersionEqual(lower, higher) && VersionEqual(higher, RmiVersionHighest()))
 
 ## B4.5.92.2.1 Failure condition ordering
 
@@ -62,5 +63,13 @@ The RMI\_VERSION command does not have any failure condition orderings.
 |--------|-------------------------------------------------|
 | lower  | post: VersionEqual(lower, req)                  |
 | higher | post: VersionEqual(higher, RmiVersionHighest()) |
+## B4.5.92.3 Success conditions
 
-B4.5.92.3 Success conditions ID Condition lower post: VersionEqual(lower, req) higher post: VersionEqual(higher, RmiVersionHighest()) B4.5.92.4 Footprint The RMI\_VERSION command does not have any footprint.
+* lower
+  * post: VersionEqual(lower, req)
+* higher
+  * post: VersionEqual(higher, RmiVersionHighest())
+
+## B4.5.92.4 Footprint
+
+The RMI\_VERSION command does not have any footprint.

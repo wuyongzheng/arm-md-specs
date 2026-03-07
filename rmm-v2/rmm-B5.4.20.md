@@ -42,9 +42,18 @@ The RSI\_VDEV\_P2P\_BIND command operates on the following context.
 
 ## B5.4.20.2 Failure conditions
 
-```
-ID Condition da_en pre: realm.feat_da != FEATURE_TRUE post: result == RSI_ERROR_STATE vdev_id_1 pre: VdevIdIsFree(realm, vdev_id_1) post: result == RSI_ERROR_INPUT vdev_id_2 pre: VdevIdIsFree(realm, vdev_id_2) post: result == RSI_ERROR_INPUT p2p_stream_exis ts pre: PdevStreamFromType( pdev_1, pdev_2, PDEV_STREAM_NCOH_P2P).valid != RMM_TRUE post: result == RSI_ERROR_INPUT
-```
+* da_en
+  * pre: realm.feat_da != FEATURE_TRUE
+  * post: result == RSI_ERROR_STATE
+* vdev_id_1
+  * pre: VdevIdIsFree(realm, vdev_id_1)
+  * post: result == RSI_ERROR_INPUT
+* vdev_id_2
+  * pre: VdevIdIsFree(realm, vdev_id_2)
+  * post: result == RSI_ERROR_INPUT
+* p2p_stream_exists
+  * pre: PdevStreamFromType( pdev_1, pdev_2, PDEV_STREAM_NCOH_P2P).valid != RMM_TRUE
+  * post: result == RSI_ERROR_INPUT
 
 ## B5.4.20.2.1 Failure condition ordering
 

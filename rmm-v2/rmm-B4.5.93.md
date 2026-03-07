@@ -38,29 +38,60 @@ The RMI\_VSMMU\_CMD\_COMPLETE command operates on the following context.
 
 ## B4.5.93.2 Failure conditions
 
-ID
-
-## Condition
-
-| feat            | pre: post:   | Rmm().static.feat_vsmmu != FEATURE_TRUE result.status == RMI_ERROR_NOT_SUPPORTED   |
-|-----------------|--------------|------------------------------------------------------------------------------------|
-| rd_align        | pre: post:   | !AddrIsRmiGranuleAligned(rd) result.status == RMI_ERROR_INPUT                      |
-| rd_bound        | pre: post:   | !PaIsTracked(rd) result.status == RMI_ERROR_INPUT                                  |
-| rd_state        | pre: post:   | GranuleAt(rd).state != GRAN_RD result.status == RMI_ERROR_INPUT                    |
-| realm_state     | pre: post:   | realm.state != REALM_NEW result.status == RMI_ERROR_REALM                          |
-| vsmmu_align     | pre: post:   | !AddrIsRmiGranuleAligned(vsmmu_ptr) result.status == RMI_ERROR_INPUT               |
-| vsmmu_bound     | pre: post:   | !PaIsTracked(vsmmu_ptr) result.status == RMI_ERROR_INPUT                           |
-| vsmmu_state     | pre: post:   | GranuleAt(vsmmu_ptr).state != GRAN_VSMMU result.status == RMI_ERROR_INPUT          |
-| pdev_align      | pre: post:   | !AddrIsRmiGranuleAligned(pdev_ptr) result.status == RMI_ERROR_INPUT                |
-| pdev_bound      | pre: post:   | !PaIsTracked(pdev_ptr) result.status == RMI_ERROR_INPUT                            |
-| pdev_gran_state | pre: post:    GranuleAt(pdev_ptr).state != GRAN_PDEV result.status == RMI_ERROR_INPUT      |
-| vdev_align      | pre: post:   | !AddrIsRmiGranuleAligned(vdev_ptr) result.status == RMI_ERROR_INPUT                |
-| vdev_bound      | pre: post:   | !PaIsTracked(vdev_ptr) result.status == RMI_ERROR_INPUT                            |
-| vdev_gran_state | pre: post:   | GranuleAt(vdev_ptr).state != GRAN_VDEV result.status == RMI_ERROR_INPUT            |
-| vdev_realm      | pre: post:   | vdev.realm != rd result.status == RMI_ERROR_INPUT                                  |
-| vdev_vsmmu      | pre: post:   | vdev.vsmmu_addr != vsmmu_ptr result.status == RMI_ERROR_INPUT                      |
-| vsmmu_realm     | pre: post:   | vsmmu.realm != rd result.status == RMI_ERROR_INPUT                                 |
-| vdev_pdev       | pre: post:   | vdev.pdev != pdev_ptr result.status == RMI_ERROR_DEVICE                            |
+* feat
+  * pre: Rmm().static.feat_vsmmu != FEATURE_TRUE
+  * post: result.status == RMI_ERROR_NOT_SUPPORTED
+* rd_align
+  * pre: !AddrIsRmiGranuleAligned(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_bound
+  * pre: !PaIsTracked(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_state
+  * pre: GranuleAt(rd).state != GRAN_RD
+  * post: result.status == RMI_ERROR_INPUT
+* realm_state
+  * pre: realm.state != REALM_NEW
+  * post: result.status == RMI_ERROR_REALM
+* vsmmu_align
+  * pre: !AddrIsRmiGranuleAligned(vsmmu_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* vsmmu_bound
+  * pre: !PaIsTracked(vsmmu_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* vsmmu_state
+  * pre: GranuleAt(vsmmu_ptr).state != GRAN_VSMMU
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_align
+  * pre: !AddrIsRmiGranuleAligned(pdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_bound
+  * pre: !PaIsTracked(pdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_gran_state
+  * pre: GranuleAt(pdev_ptr).state != GRAN_PDEV
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_align
+  * pre: !AddrIsRmiGranuleAligned(vdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_bound
+  * pre: !PaIsTracked(vdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_gran_state
+  * pre: GranuleAt(vdev_ptr).state != GRAN_VDEV
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_realm
+  * pre: vdev.realm != rd
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_vsmmu
+  * pre: vdev.vsmmu_addr != vsmmu_ptr
+  * post: result.status == RMI_ERROR_INPUT
+* vsmmu_realm
+  * pre: vsmmu.realm != rd
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_pdev
+  * pre: vdev.pdev != pdev_ptr
+  * post: result.status == RMI_ERROR_DEVICE
 
 ## B4.5.93.2.1 Failure condition ordering
 

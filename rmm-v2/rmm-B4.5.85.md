@@ -35,14 +35,53 @@ See also:
 
 ## B4.5.85.2 Failure conditions
 
-
-ID
-
-## Condition
-
-```
-feat pre: Rmm().static.feat_da != FEATURE_TRUE post: result.status == RMI_ERROR_NOT_SUPPORTED rd_align pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPUT rd_bound pre: !PaIsTracked(rd) post: result.status == RMI_ERROR_INPUT rd_state pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_INPUT pdev_align pre: !AddrIsRmiGranuleAligned(pdev_ptr) post: result.status == RMI_ERROR_INPUT pdev_bound pre: !PaIsTracked(pdev_ptr) post: result.status == RMI_ERROR_INPUT pdev_gran_state pre: GranuleAt(pdev_ptr).state != GRAN_PDEV post: result.status == RMI_ERROR_INPUT vdev_align pre: !AddrIsRmiGranuleAligned(vdev_ptr) post: result.status == RMI_ERROR_INPUT vdev_bound pre: !PaIsTracked(vdev_ptr) post: result.status == RMI_ERROR_INPUT vdev_gran_state pre: GranuleAt(vdev_ptr).state != GRAN_VDEV post: result.status == RMI_ERROR_INPUT vdev_realm pre: vdev.realm != rd post: result.status == RMI_ERROR_INPUT vdev_pdev pre: vdev.pdev != pdev_ptr post: result.status == RMI_ERROR_DEVICE comm_state pre: vdev.comm_state != DEV_COMM_IDLE post: result.status == RMI_ERROR_DEVICE params_align pre: !AddrIsRmiGranuleAligned(params_ptr) post: result.status == RMI_ERROR_INPUT params_pas pre: !NonSecureAccessPermitted(params_ptr) post: result.status == RMI_ERROR_INPUT
-```
+* feat
+  * pre: Rmm().static.feat_da != FEATURE_TRUE
+  * post: result.status == RMI_ERROR_NOT_SUPPORTED
+* rd_align
+  * pre: !AddrIsRmiGranuleAligned(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_bound
+  * pre: !PaIsTracked(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_state
+  * pre: GranuleAt(rd).state != GRAN_RD
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_align
+  * pre: !AddrIsRmiGranuleAligned(pdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_bound
+  * pre: !PaIsTracked(pdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_gran_state
+  * pre: GranuleAt(pdev_ptr).state != GRAN_PDEV
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_align
+  * pre: !AddrIsRmiGranuleAligned(vdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_bound
+  * pre: !PaIsTracked(vdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_gran_state
+  * pre: GranuleAt(vdev_ptr).state != GRAN_VDEV
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_realm
+  * pre: vdev.realm !=
+* rd
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_pdev
+  * pre: vdev.pdev !=
+* pdev_ptr
+  * post: result.status == RMI_ERROR_DEVICE
+* comm_state
+  * pre: vdev.comm_state != DEV_COMM_IDLE
+  * post: result.status == RMI_ERROR_DEVICE
+* params_align
+  * pre: !AddrIsRmiGranuleAligned(params_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* params_pas
+  * pre: !NonSecureAccessPermitted(params_ptr)
+  * post: result.status == RMI_ERROR_INPUT
 
 ## B4.5.85.2.1 Failure condition ordering
 
@@ -56,13 +95,8 @@ feat
 
 ## B4.5.85.3 Success conditions
 
-| ID         | Condition                                 |
-|------------|-------------------------------------------|
-| op         | post: vdev.op == VDEV_OP_GET_MEAS         |
-| comm_state | post: vdev.comm_state == DEV_COMM_PENDING |
-| B4.5.85.4  | Footprint                                 |
-| ID         | Value                                     |
-| op         | vdev.op                                   |
-| comm_state | vdev.comm_state                           |
+* op
+  * post: vdev.op == VDEV_OP_GET_MEAS
+* comm_state
+  * post: vdev.comm_state == DEV_COMM_PENDING
 
-<!-- image -->

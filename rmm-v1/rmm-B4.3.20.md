@@ -49,11 +49,24 @@ The layout and encoding of fields in the rtte output value match 'Attribute fiel
 
 ## B4.3.20.2 Failure conditions
 
-## Condition
-
-```
-rd_align pre: !AddrIsGranuleAligned(rd) post: ResultEqual(result, RMI_ERROR_INPUT) rd_bound pre: !PaIsDelegable(rd) post: ResultEqual(result, RMI_ERROR_INPUT) rd_state pre: Granule(rd).state != RD post: ResultEqual(result, RMI_ERROR_INPUT) level_bound pre: !RttLevelIsValid(rd, level) post: ResultEqual(result, RMI_ERROR_INPUT) ipa_align pre: !AddrIsRttLevelAligned(ipa, level) post: ResultEqual(result, RMI_ERROR_INPUT) ipa_bound pre: UInt(ipa) >= (2 ^ Realm(rd).ipa_width) post: ResultEqual(result, RMI_ERROR_INPUT)
-```
+* rd_align
+  * pre: !AddrIsGranuleAligned(rd)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_bound
+  * pre: !PaIsDelegable(rd)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* rd_state
+  * pre: Granule(rd).state != RD
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* level_bound
+  * pre: !RttLevelIsValid(rd, level)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* ipa_align
+  * pre: !AddrIsRttLevelAligned(ipa, level)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
+* ipa_bound
+  * pre: UInt(ipa) >= (2 ^ Realm(rd).ipa_width)
+  * post: ResultEqual(result, RMI_ERROR_INPUT)
 
 ## B4.3.20.2.1 Failure condition ordering
 
@@ -61,13 +74,23 @@ The RMI\_RTT\_READ\_ENTRY command does not have any failure condition orderings.
 
 ## B4.3.20.3 Success conditions
 
-## Condition
-
-## ID
-
-```
-state state == RttEntryState(walk.rtte.state) state_invalid pre: (walk.rtte.state == UNASSIGNED || walk.rtte.state == UNASSIGNED_NS) post: (rtte.MemAttr == Zeros() && rtte.S2AP == Zeros() && rtte.addr == Zeros()) state_prot pre: (walk.rtte.state == ASSIGNED || walk.rtte.state == TABLE) post: (rtte.MemAttr == Zeros() && rtte.S2AP == Zeros() && rtte.addr == walk.rtte.addr) state_unprot pre: walk.rtte.state == ASSIGNED_NS post: (rtte.MemAttr == walk.rtte.MemAttr && rtte.S2AP == walk.rtte.S2AP && rtte.addr == walk.rtte.addr) ripas_prot pre: (walk.rtte.state == UNASSIGNED || walk.rtte.state == ASSIGNED) post: ripas == RipasToRmi(walk.rtte.ripas) ripas_unprot pre: (walk.rtte.state == UNASSIGNED_NS || walk.rtte.state == ASSIGNED_NS) post: ripas == RMI_EMPTY
-```
+* state_invalid
+  * pre: (walk.rtte.state == UNASSIGNED || walk.rtte.state == UNASSIGNED_NS)
+  * post: (rtte.MemAttr == Zeros() && rtte.S2AP == Zeros() && rtte.addr == Zeros())
+* state_prot
+  * pre: (walk.rtte.state == ASSIGNED || walk.rtte.state == TABLE)
+  * post: (rtte.MemAttr == Zeros() && rtte.S2AP == Zeros() && rtte.addr == walk.rtte.addr)
+* state_unprot
+  * pre: walk.rtte.state == ASSIGNED_NS
+  * post: (rtte.MemAttr == walk.rtte.MemAttr && rtte.S2AP == walk.rtte.S2AP && rtte.addr == walk.rtte.addr)
+* ripas_prot
+  * pre: (walk.rtte.state == UNASSIGNED || walk.rtte.state == ASSIGNED)
+  * post: ripas == RipasToRmi(walk.rtte.ripas)
+* ripas_unprot
+  * pre: (walk.rtte.state == UNASSIGNED_NS || walk.rtte.state == ASSIGNED_NS)
+  * post: ripas == RMI_EMPTY
+* state
+  * state == RttEntryState(walk.rtte.state)
 
 ## B4.3.20.4 Footprint
 

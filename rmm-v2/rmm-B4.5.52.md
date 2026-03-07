@@ -35,16 +35,16 @@ The RMI\_RMM\_ACTIVATE command operates on the following context.
 
 ## B4.5.52.2 Failure conditions
 
-| ID    | Condition                                                                        |
-|-------|----------------------------------------------------------------------------------|
-| state | pre: rmm.dynamic.state != RMM_STATE_INIT post: result.status == RMI_ERROR_GLOBAL |
+* state
+  * pre: rmm.dynamic.state != RMM_STATE_INIT
+  * post: result.status == RMI_ERROR_GLOBAL
 
 ## B4.5.52.3 Success conditions
 
-| ID     | Condition                                   |
-|--------|---------------------------------------------|
-| result | post: result.status == RMI_SUCCESS          |
-| state  | post: rmm.dynamic.state == RMM_STATE_ACTIVE |
+* result
+  * post: result.status == RMI_SUCCESS
+* state
+  * post: rmm.dynamic.state == RMM_STATE_ACTIVE
 
 ## B4.5.52.4 Footprint
 

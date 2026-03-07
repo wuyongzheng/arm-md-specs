@@ -36,34 +36,87 @@ The RMI\_PDEV\_COMMUNICATE command operates on the following context.
 
 ## B4.5.26.2 Failure conditions
 
-| ID              | Condition                                                                                |
-|-----------------|------------------------------------------------------------------------------------------|
-| feat            | pre: Rmm().static.feat_da != FEATURE_TRUE post: result.status == RMI_ERROR_NOT_SUPPORTED |
-| pdev_align      | pre: !AddrIsRmiGranuleAligned(pdev_ptr) post: result.status == RMI_ERROR_INPUT           |
-| pdev_bound      | pre: !PaIsTracked(pdev_ptr) post: result.status == RMI_ERROR_INPUT                       |
-| pdev_gran_state | pre: GranuleAt(pdev_ptr).state != GRAN_PDEV post: result.status == RMI_ERROR_INPUT       |
+* feat
+  * pre: Rmm().static.feat_da != FEATURE_TRUE
+  * post: result.status == RMI_ERROR_NOT_SUPPORTED
+* pdev_align
+  * pre: !AddrIsRmiGranuleAligned(pdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_bound
+  * pre: !PaIsTracked(pdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_gran_state
+  * pre: GranuleAt(pdev_ptr).state != GRAN_PDEV
+  * post: result.status == RMI_ERROR_INPUT
+* data_align
+  * pre: !AddrIsRmiGranuleAligned(data_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* data_pas
+  * pre: !NonSecureAccessPermitted(data_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* req_align
+  * pre: !AddrIsRmiGranuleAligned(data.enter.req_addr)
+  * post: result.status == RMI_ERROR_INPUT
+* req_pas
+  * pre: !NonSecureAccessPermitted(data.enter.req_addr)
+  * post: result.status == RMI_ERROR_INPUT
+* resp_align
+  * pre: !AddrIsRmiGranuleAligned(data.enter.rsp_addr)
+  * post: result.status == RMI_ERROR_INPUT
+* resp_pas
+  * pre: !NonSecureAccessPermitted(data.enter.rsp_addr)
+  * post: result.status == RMI_ERROR_INPUT
+* rsp_len
+  * pre: data.enter.rsp_len > rmm.dynamic.
+* rmi_granule_size
+  * post: result.status == RMI_ERROR_INPUT
+* comm_state
+  * pre: (pdev.comm_state == DEV_COMM_IDLE || pdev.comm_state == DEV_COMM_ERROR)
+  * post: result.status == RMI_ERROR_DEVICE
+* busy
+  * pre: PdevIsBusy(pdev)
+  * post: result.status == RMI_BUSY B4.5.26.2.1 Failure condition ordering [feat] < [pdev_align, pdev_bound, pdev_gran_state, data_align, data_pas, req_align, req_pas, resp_align, resp_pas, rsp_len] [pdev_gran_state] < [comm_state] feat pdev_align pdev_bound pdev_gran_state comm_state data_align data_pas req_align req_pas resp_align resp_pas rsp_len busy
 
-<!-- image -->
+## B4.5.26.3 Success conditions
 
-```
-ID Condition data_align pre: !AddrIsRmiGranuleAligned(data_ptr) post: result.status == RMI_ERROR_INPUT data_pas pre: !NonSecureAccessPermitted(data_ptr) post: result.status == RMI_ERROR_INPUT req_align pre: !AddrIsRmiGranuleAligned(data.enter.req_addr) post: result.status == RMI_ERROR_INPUT req_pas pre: !NonSecureAccessPermitted(data.enter.req_addr) post: result.status == RMI_ERROR_INPUT resp_align pre: !AddrIsRmiGranuleAligned(data.enter.rsp_addr) post: result.status == RMI_ERROR_INPUT resp_pas pre: !NonSecureAccessPermitted(data.enter.rsp_addr) post: result.status == RMI_ERROR_INPUT rsp_len pre: data.enter.rsp_len > rmm.dynamic.rmi_granule_size post: result.status == RMI_ERROR_INPUT comm_state pre: (pdev.comm_state == DEV_COMM_IDLE || pdev.comm_state == DEV_COMM_ERROR) post: result.status == RMI_ERROR_DEVICE busy pre: PdevIsBusy(pdev) post: result.status == RMI_BUSY B4.5.26.2.1 Failure condition ordering [feat] < [pdev_align, pdev_bound, pdev_gran_state, data_align, data_pas, req_align, req_pas, resp_align, resp_pas, rsp_len] [pdev_gran_state] < [comm_state] feat pdev_align pdev_bound pdev_gran_state comm_state data_align data_pas req_align req_pas resp_align resp_pas rsp_len busy B4.5.26.3 Success conditions
-```
-
-```
-ID Condition data)
-```
-
-```
-comm_state post: pdev.comm_state == DeviceCommunicate(pdev, error pre: DeviceCommunicate(pdev, data) == DEV_COMM_ERROR post: pdev.state == PDEV_ERROR new pre: (DeviceCommunicate(pdev, data) == DEV_COMM_IDLE && pdev_state_pre == PDEV_NEW) post: pdev.state == PDEV_NEEDS_KEY has_key pre: (DeviceCommunicate(pdev, data) == DEV_COMM_IDLE && pdev_state_pre == PDEV_HAS_KEY) post: pdev.state == PDEV_READY
-```
-
-## ID
-
-## Condition
-
-```
-ready_on_chip pre: (DeviceCommunicate(pdev, data) == DEV_COMM_IDLE && pdev_state_pre == PDEV_NEW && pdev.category == PDEV_ENDPOINT_ACCEL_ON_CHIP && pdev.spdm == SPDM_FALSE) post: pdev.state == PDEV_READY ready pre: (DeviceCommunicate(pdev, data) == DEV_COMM_IDLE && pdev_state_pre == PDEV_READY) post: pdev.state == PDEV_READY stop_state pre: (DeviceCommunicate(pdev, data) == DEV_COMM_IDLE && pdev.op == PDEV_OP_STOP) post: pdev.state == PDEV_STOPPED op_connect pre: (DeviceCommunicate(pdev, data) == DEV_COMM_IDLE && pdev.op == PDEV_OP_CONNECT) post: pdev.op == PDEV_OP_STREAM_COMPLETE op_disconnect pre: (DeviceCommunicate(pdev, data) == DEV_COMM_IDLE && pdev.op == PDEV_OP_DISCONNECT) post: pdev.op == PDEV_OP_STREAM_COMPLETE op_key_refresh pre: (DeviceCommunicate(pdev, data) == DEV_COMM_IDLE && pdev.op == PDEV_OP_KEY_REFRESH) post: pdev.op == PDEV_OP_STREAM_COMPLETE op_none pre: (DeviceCommunicate(pdev, data) == DEV_COMM_IDLE && pdev.op != PDEV_OP_CONNECT && pdev.op != PDEV_OP_DISCONNECT && pdev.op != PDEV_OP_KEY_REFRESH) post: pdev.op == PDEV_OP_NONE complete pre: DeviceCommunicate(pdev, data) == DEV_COMM_IDLE post: RmiDevCommComplete(data.exit.flags) incomplete pre: DeviceCommunicate(pdev, data) != DEV_COMM_IDLE post: !RmiDevCommComplete(data.exit.flags)
-```
+* comm_state
+  * post: pdev.comm_state == DeviceCommunicate(pdev,
+* error
+  * pre: DeviceCommunicate(pdev, data) == DEV_COMM_ERROR
+  * post: pdev.state == PDEV_ERROR
+* new
+  * pre: (DeviceCommunicate(pdev, data) == DEV_COMM_IDLE && pdev_state_pre == PDEV_NEW)
+  * post: pdev.state == PDEV_NEEDS_KEY
+* has_key
+  * pre: (DeviceCommunicate(pdev, data) == DEV_COMM_IDLE && pdev_state_pre == PDEV_HAS_KEY)
+  * post: pdev.state == PDEV_READY
+* ready_on_chip
+  * pre: (DeviceCommunicate(pdev, data) == DEV_COMM_IDLE && pdev_state_pre == PDEV_NEW && pdev.category == PDEV_ENDPOINT_ACCEL_ON_CHIP && pdev.spdm == SPDM_FALSE)
+  * post: pdev.state == PDEV_READY
+* ready
+  * pre: (DeviceCommunicate(pdev, data) == DEV_COMM_IDLE && pdev_state_pre == PDEV_READY)
+  * post: pdev.state == PDEV_READY
+* stop_state
+  * pre: (DeviceCommunicate(pdev, data) == DEV_COMM_IDLE && pdev.op == PDEV_OP_STOP)
+  * post: pdev.state == PDEV_STOPPED
+* op_connect
+  * pre: (DeviceCommunicate(pdev, data) == DEV_COMM_IDLE && pdev.op == PDEV_OP_CONNECT)
+  * post: pdev.op == PDEV_OP_STREAM_COMPLETE
+* op_disconnect
+  * pre: (DeviceCommunicate(pdev, data) == DEV_COMM_IDLE && pdev.op == PDEV_OP_DISCONNECT)
+  * post: pdev.op == PDEV_OP_STREAM_COMPLETE
+* op_key_refresh
+  * pre: (DeviceCommunicate(pdev, data) == DEV_COMM_IDLE && pdev.op == PDEV_OP_KEY_REFRESH)
+  * post: pdev.op == PDEV_OP_STREAM_COMPLETE
+* op_none
+  * pre: (DeviceCommunicate(pdev, data) == DEV_COMM_IDLE && pdev.op != PDEV_OP_CONNECT && pdev.op != PDEV_OP_DISCONNECT && pdev.op != PDEV_OP_KEY_REFRESH)
+  * post: pdev.op == PDEV_OP_NONE
+* complete
+  * pre: DeviceCommunicate(pdev, data) == DEV_COMM_IDLE
+  * post: RmiDevCommComplete(data.exit.flags)
+* incomplete
+  * pre: DeviceCommunicate(pdev, data) != DEV_COMM_IDLE
+  * post: !RmiDevCommComplete(data.exit.flags)
 
 ## B4.5.26.4 Footprint
 

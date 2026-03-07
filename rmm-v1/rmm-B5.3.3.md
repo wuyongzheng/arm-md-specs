@@ -30,9 +30,8 @@ The RSI\_FEATURES command does not have any failure conditions.
 
 ## B5.3.3.3 Success conditions
 
-| ID    | Condition        |
-|-------|------------------|
-| index | value == Zeros() |
+* index
+  * value == Zeros()
 
 ## B5.3.3.4 Footprint
 

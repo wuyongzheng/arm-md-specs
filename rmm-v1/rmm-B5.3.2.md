@@ -45,13 +45,10 @@ The RSI\_ATTESTATION\_TOKEN\_INIT command does not have any failure conditions.
 
 ## B5.3.2.3 Success conditions
 
-ID
-
-## Condition
-
-```
-state rec.attest_state == ATTEST_IN_PROGRESS challenge rec.attest_challenge == [ challenge_0, challenge_1, challenge_2, challenge_3, challenge_4, challenge_5, challenge_6, challenge_7 ]
-```
+* state
+  * rec.attest_state == ATTEST_IN_PROGRESS
+* challenge
+  * rec.attest_challenge == [ challenge_0, challenge_1, challenge_2, challenge_3, challenge_4, challenge_5, challenge_6, challenge_7 ]
 
 ## B5.3.2.4 Footprint
 

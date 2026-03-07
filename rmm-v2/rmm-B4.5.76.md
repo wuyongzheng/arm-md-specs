@@ -50,19 +50,50 @@ ID
 
 ## B4.5.76.2 Failure conditions
 
-## Condition
-
-```
-rd_align pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPUT rd_bound pre: !PaIsTracked(rd) post: result.status == RMI_ERROR_INPUT rd_state pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_INPUT rec_align pre: !AddrIsRmiGranuleAligned(rec_ptr) post: result.status == RMI_ERROR_INPUT rec_bound pre: !PaIsTracked(rec_ptr) post: result.status == RMI_ERROR_INPUT rec_gran_state pre: GranuleAt(rec_ptr).state != GRAN_REC post: result.status == RMI_ERROR_INPUT rec_state pre: rec.state == REC_RUNNING post: result.status == RMI_ERROR_REC rec_owner pre: rec.owner != rd post: result.status == RMI_ERROR_REC size_valid pre: UInt(top) <= UInt(base) post: result.status == RMI_ERROR_INPUT base_bound pre: base != rec.s2ap_addr post: result.status == RMI_ERROR_INPUT top_bound pre: UInt(top) > UInt(rec.s2ap_top) post: result.status == RMI_ERROR_INPUT top_gran_align pre: !AddrIsRmiGranuleAligned(top) post: result.status == RMI_ERROR_INPUT base_align_pri pre: (not_aligned.valid == RMM_TRUE && !AddrRangeIsWithin( base, top, AlignDownToRttLevel( not_aligned.addr, not_aligned.walk.level ), AlignUpToRttLevel( not_aligned.addr, not_aligned.walk.level )) && not_aligned.index == RMM_RTT_TREE_PRIMARY && not_aligned.walk.rtte.s2ap_indirect.overlay_index != rec.s2ap_overlay_index) post: (result.status == RMI_ERROR_RTT && result.data.level.level == not_aligned.walk.level)
-```
-
-ID
-
-## Condition
-
-```
-base_align_aux pre: (not_aligned.valid == RMM_TRUE && !AddrRangeIsWithin( base, top, AlignDownToRttLevel( not_aligned.addr, not_aligned.walk.level ), AlignUpToRttLevel( not_aligned.addr, not_aligned.walk.level )) && not_aligned.index != RMM_RTT_TREE_PRIMARY && not_aligned.walk.rtte.s2ap_indirect.overlay_index != rec.s2ap_overlay_index) post: (result.status == RMI_ERROR_RTT && result.data.level.level == not_aligned.walk.level)
-```
+* rd_align
+  * pre: !AddrIsRmiGranuleAligned(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_bound
+  * pre: !PaIsTracked(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_state
+  * pre: GranuleAt(rd).state != GRAN_RD
+  * post: result.status == RMI_ERROR_INPUT
+* rec_align
+  * pre: !AddrIsRmiGranuleAligned(rec_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* rec_bound
+  * pre: !PaIsTracked(rec_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* rec_gran_state
+  * pre: GranuleAt(rec_ptr).state != GRAN_REC
+  * post: result.status == RMI_ERROR_INPUT
+* rec_state
+  * pre: rec.state == REC_RUNNING
+  * post: result.status == RMI_ERROR_REC
+* rec_owner
+  * pre: rec.owner !=
+* rd
+  * post: result.status == RMI_ERROR_REC
+* size_valid
+  * pre: UInt(top) <= UInt(base)
+  * post: result.status == RMI_ERROR_INPUT
+* base_bound
+  * pre: base != rec.
+* s2ap_addr
+  * post: result.status == RMI_ERROR_INPUT
+* top_bound
+  * pre: UInt(top) > UInt(rec.s2ap_top)
+  * post: result.status == RMI_ERROR_INPUT
+* top_gran_align
+  * pre: !AddrIsRmiGranuleAligned(top)
+  * post: result.status == RMI_ERROR_INPUT
+* base_align_pri
+  * pre: (not_aligned.valid == RMM_TRUE && !AddrRangeIsWithin( base, top, AlignDownToRttLevel( not_aligned.addr, not_aligned.walk.level ), AlignUpToRttLevel( not_aligned.addr, not_aligned.walk.level )) && not_aligned.index == RMM_RTT_TREE_PRIMARY && not_aligned.walk.rtte.s2ap_indirect.overlay_index != rec.s2ap_overlay_index)
+  * post: (result.status == RMI_ERROR_RTT && result.data.level.level == not_aligned.walk.level)
+* base_align_aux
+  * pre: (not_aligned.valid == RMM_TRUE && !AddrRangeIsWithin( base, top, AlignDownToRttLevel( not_aligned.addr, not_aligned.walk.level ), AlignUpToRttLevel( not_aligned.addr, not_aligned.walk.level )) && not_aligned.index != RMM_RTT_TREE_PRIMARY && not_aligned.walk.rtte.s2ap_indirect.overlay_index != rec.s2ap_overlay_index)
+  * post: (result.status == RMI_ERROR_RTT && result.data.level.level == not_aligned.walk.level)
 
 ## B4.5.76.2.1 Failure condition ordering
 
@@ -70,9 +101,8 @@ The RMI\_RTT\_SET\_S2AP command does not have any failure condition orderings.
 
 ## B4.5.76.3 Success conditions
 
-| ID        | Condition                      |
-|-----------|--------------------------------|
-| s2ap_addr | post: rec.s2ap_addr == out_top |
+* s2ap_addr
+  * post: rec.s2ap_addr == out_top
 
 ## B4.5.76.4 Footprint
 

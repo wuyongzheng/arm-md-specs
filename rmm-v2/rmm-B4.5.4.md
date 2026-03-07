@@ -38,26 +38,24 @@ The RMI\_CMEM\_DESTROY command operates on the following context.
 
 ## B4.5.4.2 Failure conditions
 
-Condition
-
-ID
-
-| feat            | pre: post:   | Rmm().static.feat_cmem_cxl != FEATURE_TRUE result.status == RMI_ERROR_NOT_SUPPORTED   |
-|-----------------|--------------|---------------------------------------------------------------------------------------|
-| cmem_align      | pre: post:   | !AddrIsRmiGranuleAligned(cmem_ptr) result.status == RMI_ERROR_INPUT                   |
-| cmem_tracking   | pre: post:   | !PaIsTrackedFine(cmem_ptr) result.status == RMI_ERROR_INPUT                           |
-| cmem_gran_state | pre: post:   | GranuleAt(cmem_ptr).state != GRAN_CMEM result.status == RMI_ERROR_INPUT               |
-| cmem_state      | pre: post:   | cmem_pre.state != CMEM_STOPPED result.status == RMI_ERROR_DEVICE                      |
-
-ID
-
-## Condition
-
-```
-cmem_pdev pre: CmemNumPdevs(cmem_pre) != 0
-```
-
-post: result.status == RMI\_ERROR\_DEVICE
+* feat
+  * pre: Rmm().static.feat_cmem_cxl != FEATURE_TRUE
+  * post: result.status == RMI_ERROR_NOT_SUPPORTED
+* cmem_align
+  * pre: !AddrIsRmiGranuleAligned(cmem_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* cmem_tracking
+  * pre: !PaIsTrackedFine(cmem_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* cmem_gran_state
+  * pre: GranuleAt(cmem_ptr).state != GRAN_CMEM
+  * post: result.status == RMI_ERROR_INPUT
+* cmem_state
+  * pre: cmem_pre.state != CMEM_STOPPED
+  * post: result.status == RMI_ERROR_DEVICE
+* cmem_pdev
+  * pre: CmemNumPdevs(cmem_pre) != 0
+  * post: result.status == RMI_ERROR_DEVICE
 
 ## B4.5.4.2.1 Failure condition ordering
 
@@ -71,28 +69,12 @@ cmem\_state]
 
 ## B4.5.4.3 Success conditions
 
-## Condition
-
-
-ID
-
-gran\_state
-
-post:
-
-GranuleAt(cmem\_ptr).state == GRAN\_DELEGATED
-
-hb\_hdm\_dec
-
-post:
-
-HdmDecoderIsFree(cmem\_pre, cmem\_pre.hb\_hdm\_id)
-
-hb\_addr\_range
-
-post:
-
-HdmAddressRangeIsFree(cmem\_pre, cmem\_pre.addr\_range)
+* gran_state
+  * post: GranuleAt(cmem_ptr).state == GRAN_DELEGATED
+* hb_hdm_dec
+  * post: HdmDecoderIsFree(cmem_pre, cmem_pre.hb_hdm_id)
+* hb_addr_range
+  * post: HdmAddressRangeIsFree(cmem_pre, cmem_pre.addr_range)
 
 ## B4.5.4.4 Footprint
 

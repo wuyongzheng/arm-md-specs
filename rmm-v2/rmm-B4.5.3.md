@@ -40,19 +40,36 @@ The RMI\_CMEM\_CREATE command operates on the following context.
 
 ## B4.5.3.2 Failure conditions
 
-| ID         | Condition                                                                                      |
-|------------|------------------------------------------------------------------------------------------------|
-| feat       | pre: Rmm().static.feat_cmem_cxl != FEATURE_TRUE post: result.status == RMI_ERROR_NOT_SUPPORTED |
-| cmem_align | pre: !AddrIsRmiGranuleAligned(cmem_ptr) post: result.status == RMI_ERROR_INPUT                 |
-| cmem_bound | pre: !PaIsDelegableConventionalFine(cmem_ptr) post: result.status == RMI_ERROR_INPUT           |
-
-ID
-
-## Condition
-
-```
-cmem_state pre: GranuleAt(cmem_ptr).state != GRAN_DELEGATED post: result.status == RMI_ERROR_INPUT params_align pre: !AddrIsRmiGranuleAligned(params_ptr) post: result.status == RMI_ERROR_INPUT params_pas pre: !NonSecureAccessPermitted(params_ptr) post: result.status == RMI_ERROR_INPUT params_valid pre: !RmiCmemParamsIsValid(params_ptr) post: result.status == RMI_ERROR_INPUT flags_supp pre: !RmiCmemFlagsSupported(params.flags) post: result.status == RMI_ERROR_INPUT hb_hdm_dec pre: !HdmDecoderIsFree(cmem, params.hb_hdm_id) post: result.status == RMI_ERROR_DEVICE hb_addr_range pre: !HdmAddressRangeIsFree(cmem, params.addr_range) post: result.status == RMI_ERROR_DEVICE
-```
+* feat
+  * pre: Rmm().static.feat_cmem_cxl != FEATURE_TRUE
+  * post: result.status == RMI_ERROR_NOT_SUPPORTED
+* cmem_align
+  * pre: !AddrIsRmiGranuleAligned(cmem_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* cmem_bound
+  * pre: !PaIsDelegableConventionalFine(cmem_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* cmem_state
+  * pre: GranuleAt(cmem_ptr).state != GRAN_DELEGATED
+  * post: result.status == RMI_ERROR_INPUT
+* params_align
+  * pre: !AddrIsRmiGranuleAligned(params_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* params_pas
+  * pre: !NonSecureAccessPermitted(params_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* params_valid
+  * pre: !RmiCmemParamsIsValid(params_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* flags_supp
+  * pre: !RmiCmemFlagsSupported(params.flags)
+  * post: result.status == RMI_ERROR_INPUT
+* hb_hdm_dec
+  * pre: !HdmDecoderIsFree(cmem, params.hb_hdm_id)
+  * post: result.status == RMI_ERROR_DEVICE
+* hb_addr_range
+  * pre: !HdmAddressRangeIsFree(cmem, params.addr_range)
+  * post: result.status == RMI_ERROR_DEVICE
 
 ## B4.5.3.2.1 Failure condition ordering
 
@@ -64,10 +81,26 @@ cmem_state pre: GranuleAt(cmem_ptr).state != GRAN_DELEGATED post: result.status 
 
 ## B4.5.3.3 Success conditions
 
-
-```
-ID Condition gran_state post: GranuleAt(cmem_ptr).state == GRAN_CMEM chbcr_addr post: cmem.chbcr_addr == params.chbcr_addr hb_hdm_id post: cmem.hb_hdm_id == params.hb_hdm_id addr_range post: RmiAddrRangesEqual(cmem.addr_range, params.addr_range) ilv_gran post: cmem.ilv_gran == params.ilv_gran ilv_ways post: cmem.ilv_ways == params.ilv_ways state post: cmem.state == CMEM_STOPPED num_pdevs post: CmemNumPdevs(cmem) == 0 hb_hdm_dec post: !HdmDecoderIsFree(cmem, params.hb_hdm_id) hb_addr_range post: !HdmAddressRangeIsFree(cmem, params.addr_range)
-```
+* gran_state
+  * post: GranuleAt(cmem_ptr).state == GRAN_CMEM
+* chbcr_addr
+  * post: cmem.chbcr_addr == params.chbcr_addr
+* hb_hdm_id
+  * post: cmem.hb_hdm_id == params.hb_hdm_id
+* addr_range
+  * post: RmiAddrRangesEqual(cmem.addr_range, params.addr_range)
+* ilv_gran
+  * post: cmem.ilv_gran == params.ilv_gran
+* ilv_ways
+  * post: cmem.ilv_ways == params.ilv_ways
+* state
+  * post: cmem.state == CMEM_STOPPED
+* num_pdevs
+  * post: CmemNumPdevs(cmem) == 0
+* hb_hdm_dec
+  * post: !HdmDecoderIsFree(cmem, params.hb_hdm_id)
+* hb_addr_range
+  * post: !HdmAddressRangeIsFree(cmem, params.addr_range)
 
 ## B4.5.3.4 Footprint
 

@@ -44,21 +44,24 @@ The RMI\_REALM\_DESTROY command operates on the following context.
 
 ## B4.5.47.2 Failure conditions
 
-## Condition
-
-ID
-
-| rd_align    | pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPUT   |
-|-------------|----------------------------------------------------------------------------|
-| rd_tracking | pre: !PaIsTrackedFine(rd) post: result.status == RMI_ERROR_INPUT           |
-
-ID
-
-## Condition
-
-```
-rd_state pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_INPUT realm_state pre: realm.state != REALM_ZOMBIE post: result.status == RMI_ERROR_REALM realm_live pre: RealmIsLive(rd) post: result.status == RMI_ERROR_REALM cmem_mec_refres h pre: !CmemMecUpdateComplete(realm) post: result.status == RMI_ERROR_REALM
-```
+* rd_align
+  * pre: !AddrIsRmiGranuleAligned(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_tracking
+  * pre: !PaIsTrackedFine(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_state
+  * pre: GranuleAt(rd).state != GRAN_RD
+  * post: result.status == RMI_ERROR_INPUT
+* realm_state
+  * pre: realm.state != REALM_ZOMBIE
+  * post: result.status == RMI_ERROR_REALM
+* realm_live
+  * pre: RealmIsLive(rd)
+  * post: result.status == RMI_ERROR_REALM
+* cmem_mec_refresh
+  * pre: !CmemMecUpdateComplete(realm)
+  * post: result.status == RMI_ERROR_REALM
 
 ## B4.5.47.2.1 Failure condition ordering
 
@@ -70,14 +73,14 @@ rd_state pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_IN
 
 ## B4.5.47.3 Success conditions
 
-## Condition
-
-
-ID
-
-```
-result post: result.status == RMI_SUCCESS num_realms post: rmm.dynamic.num_realms == rmm_pre.dynamic.num_realms -1 rtt_state post: RttsStateEqual( realm_pre.rtt_base[[0]], realm_pre.rtt_num_start, GRAN_DELEGATED) rd_state post: GranuleAt(rd).state == GRAN_DELEGATED
-```
+* result
+  * post: result.status == RMI_SUCCESS
+* num_realms
+  * post: rmm.dynamic.num_realms == rmm_pre.dynamic.num_realms -1
+* rtt_state
+  * post: RttsStateEqual( realm_pre.rtt_base[[0]], realm_pre.rtt_num_start, GRAN_DELEGATED)
+* rd_state
+  * post: GranuleAt(rd).state == GRAN_DELEGATED
 
 ## B4.5.47.4 Footprint
 

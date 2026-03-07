@@ -36,19 +36,21 @@ The RSI\_PLANE\_ENTER command operates on the following context.
 
 ## B5.4.13.2 Failure conditions
 
-| ID        | Condition                                                                                           |
-|-----------|-----------------------------------------------------------------------------------------------------|
-| idx_bound | pre: (plane_idx == 0 &#124;&#124; plane_idx > realm.num_aux_planes) post: result == RSI_ERROR_INPUT |
-| run_align | pre: !AddrIsRsiGranuleAligned(run_ptr) post: result == RSI_ERROR_INPUT                              |
-| run_bound | pre: !AddrIsProtected(run_ptr, realm) post: result == RSI_ERROR_INPUT                               |
-
-ID
-
-## Condition
-
-```
-run_empty pre: walk.rtte.ripas == RIPAS_EMPTY post: result == RSI_ERROR_INPUT el pre: run.enter.pstate[3] == '1' post: result == RSI_ERROR_INPUT
-```
+* idx_bound
+  * pre: (plane_idx == 0 || plane_idx > realm.num_aux_planes)
+  * post: result == RSI_ERROR_INPUT
+* run_align
+  * pre: !AddrIsRsiGranuleAligned(run_ptr)
+  * post: result == RSI_ERROR_INPUT
+* run_bound
+  * pre: !AddrIsProtected(run_ptr, realm)
+  * post: result == RSI_ERROR_INPUT
+* run_empty
+  * pre: walk.rtte.ripas == RIPAS_EMPTY
+  * post: result == RSI_ERROR_INPUT
+* el
+  * pre: run.enter.pstate[3] == '1'
+  * post: result == RSI_ERROR_INPUT
 
 ## B5.4.13.2.1 Failure condition ordering
 
@@ -56,9 +58,8 @@ The RSI\_PLANE\_ENTER command does not have any failure condition orderings.
 
 ## B5.4.13.3 Success conditions
 
-| ID         | Condition                                                |
-|------------|----------------------------------------------------------|
-| plane_exit | post: run.exit contains Plane exit syndrome information. |
+* plane_exit
+  * post: run.exit contains Plane exit syndrome information.
 
 ## B5.4.13.4 Footprint
 

@@ -34,12 +34,18 @@ The RSI\_MEM\_SET\_PERM\_VALUE command operates on the following context.
 
 ## B5.4.12.2 Failure conditions
 
-| ID          | Condition                                                                                               |
-|-------------|---------------------------------------------------------------------------------------------------------|
-| plane_bound | pre: (plane_index == 0 &#124;&#124; plane_index > realm.num_aux_planes) post: result == RSI_ERROR_INPUT |
-| perm_bound  | pre: perm_index >= RMM_NUM_PERM_OVERLAY_INDICES post: result == RSI_ERROR_INPUT                         |
-| locked      | pre: realm.overlay_locked[[perm_index]] == MEM_PERM_LOCKED post: result == RSI_ERROR_INPUT              |
-| supported   | pre: !MemPermLabelSupported(value) post: result == RSI_ERROR_INPUT                                      |
+* plane_bound
+  * pre: (plane_index == 0 || plane_index > realm.num_aux_planes)
+  * post: result == RSI_ERROR_INPUT
+* perm_bound
+  * pre: perm_index >= RMM_NUM_PERM_OVERLAY_INDICES
+  * post: result == RSI_ERROR_INPUT
+* locked
+  * pre: realm.overlay_locked[[perm_index]] == MEM_PERM_LOCKED
+  * post: result == RSI_ERROR_INPUT
+* supported
+  * pre: !MemPermLabelSupported(value)
+  * post: result == RSI_ERROR_INPUT
 
 ## B5.4.12.2.1 Failure condition ordering
 
@@ -47,9 +53,8 @@ The RSI\_MEM\_SET\_PERM\_VALUE command does not have any failure condition order
 
 ## B5.4.12.3 Success conditions
 
-| ID    | Condition                                                              |
-|-------|------------------------------------------------------------------------|
-| label | post: realm.overlay_perms[[plane_index]].values[[perm_index]] == value |
+* label
+  * post: realm.overlay_perms[[plane_index]].values[[perm_index]] == value
 
 ## B5.4.12.4 Footprint
 

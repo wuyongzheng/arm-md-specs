@@ -33,10 +33,12 @@ The RSI\_HOST\_CALL command operates on the following context.
 
 ## B5.3.4.2 Failure conditions
 
-| ID         | Condition                                                          |
-|------------|--------------------------------------------------------------------|
-| addr_align | pre: !AddrIsAligned(addr, 256) post: result == RSI_ERROR_INPUT     |
-| addr_bound | pre: !AddrIsProtected(addr, realm) post: result == RSI_ERROR_INPUT |
+* addr_align
+  * pre: !AddrIsAligned(addr, 256)
+  * post: result == RSI_ERROR_INPUT
+* addr_bound
+  * pre: !AddrIsProtected(addr, realm)
+  * post: result == RSI_ERROR_INPUT
 
 ## B5.3.4.2.1 Failure condition ordering
 

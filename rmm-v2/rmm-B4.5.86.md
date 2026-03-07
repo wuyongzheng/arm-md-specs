@@ -35,16 +35,19 @@ The following unused bits of RMI\_VDEV\_GET\_STATE output values MBZ: X1[63:8].
 
 ## B4.5.86.2 Failure conditions
 
-| ID              | Condition                                                                                |
-|-----------------|------------------------------------------------------------------------------------------|
-| feat            | pre: Rmm().static.feat_da != FEATURE_TRUE post: result.status == RMI_ERROR_NOT_SUPPORTED |
-| vdev_align      | pre: !AddrIsRmiGranuleAligned(vdev_ptr) post: result.status == RMI_ERROR_INPUT           |
-| vdev_bound      | pre: !PaIsTracked(vdev_ptr) post: result.status == RMI_ERROR_INPUT                       |
-| vdev_gran_state | pre: GranuleAt(vdev_ptr).state != GRAN_VDEV post: result.status == RMI_ERROR_INPUT       |
-
-ID
-
-state
+* feat
+  * pre: Rmm().static.feat_da != FEATURE_TRUE
+  * post: result.status == RMI_ERROR_NOT_SUPPORTED
+* vdev_align
+  * pre: !AddrIsRmiGranuleAligned(vdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_bound
+  * pre: !PaIsTracked(vdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_gran_state
+  * pre: GranuleAt(vdev_ptr).state != GRAN_VDEV
+  * post: result.status == RMI_ERROR_INPUT
+* state
 
 ## B4.5.86.2.1 Failure condition ordering
 

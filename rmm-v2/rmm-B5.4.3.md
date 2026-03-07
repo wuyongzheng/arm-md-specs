@@ -45,15 +45,15 @@ The RSI\_ATTESTATION\_TOKEN\_INIT command operates on the following context.
 
 The RSI\_ATTESTATION\_TOKEN\_INIT command does not have any failure conditions.
 
-ID
 
 ## B5.4.3.3 Success conditions
 
-## Condition
-
-```
-state post: rec.attest_state == ATTEST_IN_PROGRESS challenge post: rec.attest_challenge == ( ((challenge_0 :: challenge_1) :: (challenge_2 :: challenge_3)) :: ((challenge_4 :: challenge_5) :: (challenge_6 :: challenge_7)) ) size post: size == AttestationTokenMaxSize(realm)
-```
+* state
+  * post: rec.attest_state == ATTEST_IN_PROGRESS
+* challenge
+  * post: rec.attest_challenge == ( ((challenge_0 :: challenge_1) :: (challenge_2 :: challenge_3)) :: ((challenge_4 :: challenge_5) :: (challenge_6 :: challenge_7)) )
+* size
+  * post: size == AttestationTokenMaxSize(realm)
 
 ## B5.4.3.4 Footprint
 

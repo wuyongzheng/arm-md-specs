@@ -34,26 +34,27 @@ The RMI\_CMEM\_START command operates on the following context.
 
 ## B4.5.7.2 Failure conditions
 
-| ID              | Condition                                                                                      |
-|-----------------|------------------------------------------------------------------------------------------------|
-| feat            | pre: Rmm().static.feat_cmem_cxl != FEATURE_TRUE post: result.status == RMI_ERROR_NOT_SUPPORTED |
-| live            | pre: rmm.dynamic.num_realms != 0 post: result.status == RMI_ERROR_GLOBAL                       |
-| cmem_align      | pre: !AddrIsRmiGranuleAligned(cmem_ptr) post: result.status == RMI_ERROR_INPUT                 |
-| cmem_bound      | pre: !PaIsTracked(cmem_ptr) post: result.status == RMI_ERROR_INPUT                             |
-| cmem_gran_state | pre: GranuleAt(cmem_ptr).state != GRAN_CMEM post: result.status == RMI_ERROR_INPUT             |
-| cmem_state      | pre: cmem.state != CMEM_STOPPED post: result.status == RMI_ERROR_DEVICE                        |
-
-ID
-
-## Condition
-
-```
-cmem_pdev cmem.ilv_ways
-```
-
-```
-pre: CmemNumPdevs(cmem) != post: result.status == RMI_ERROR_DEVICE
-```
+* feat
+  * pre: Rmm().static.feat_cmem_cxl != FEATURE_TRUE
+  * post: result.status == RMI_ERROR_NOT_SUPPORTED
+* live
+  * pre: rmm.dynamic.num_realms != 0
+  * post: result.status == RMI_ERROR_GLOBAL
+* cmem_align
+  * pre: !AddrIsRmiGranuleAligned(cmem_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* cmem_bound
+  * pre: !PaIsTracked(cmem_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* cmem_gran_state
+  * pre: GranuleAt(cmem_ptr).state != GRAN_CMEM
+  * post: result.status == RMI_ERROR_INPUT
+* cmem_state
+  * pre: cmem.state != CMEM_STOPPED
+  * post: result.status == RMI_ERROR_DEVICE
+* ilv_ways
+  * pre: CmemNumPdevs(cmem) !=
+  * post: result.status == RMI_ERROR_DEVICE
 
 ## B4.5.7.2.1 Failure condition ordering
 
@@ -65,19 +66,12 @@ pre: CmemNumPdevs(cmem) != post: result.status == RMI_ERROR_DEVICE
 
 ## B4.5.7.3 Success conditions
 
-| ID        | Condition                                |
-|-----------|------------------------------------------|
-| state     | post: cmem.state == CMEM_STARTED         |
-| pat_valid | post: rmm.dynamic.pat_valid == RMM_FALSE |
-
-I0074
-
-
-Following successful execution of RMI\_CMEM\_START, the number of MECs supported by the platform (reported by RMI\_FEATURES) may change.
-
-See also:
-
-- Chapter A11 Realm memory encryption
+* state
+  * post: cmem.state == CMEM_STARTED
+* pat_valid
+  * post: rmm.dynamic.pat_valid == RMM_FALSE
+* the
+  * platform (reported by RMI_FEATURES) may change. See also: - Chapter A11 Realm memory encryption
 
 ## B4.5.7.4 Footprint
 

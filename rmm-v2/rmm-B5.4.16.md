@@ -32,11 +32,15 @@ The RSI\_REALM\_CONFIG command operates on the following context.
 
 ## B5.4.16.2 Failure conditions
 
-| ID         | Condition                                                           |
-|------------|---------------------------------------------------------------------|
-| addr_align | pre: !AddrIsRsiGranuleAligned(addr) post: result == RSI_ERROR_INPUT |
-| addr_bound | pre: !AddrIsProtected(addr, realm) post: result == RSI_ERROR_INPUT  |
-| addr_empty | pre: walk.rtte.ripas == RIPAS_EMPTY post: result == RSI_ERROR_INPUT |
+* addr_align
+  * pre: !AddrIsRsiGranuleAligned(addr)
+  * post: result == RSI_ERROR_INPUT
+* addr_bound
+  * pre: !AddrIsProtected(addr, realm)
+  * post: result == RSI_ERROR_INPUT
+* addr_empty
+  * pre: walk.rtte.ripas == RIPAS_EMPTY
+  * post: result == RSI_ERROR_INPUT
 
 ## B5.4.16.2.1 Failure condition ordering
 
@@ -44,12 +48,14 @@ The RSI\_REALM\_CONFIG command does not have any failure condition orderings.
 
 ## B5.4.16.3 Success conditions
 
-| ID             | Condition                                        |
-|----------------|--------------------------------------------------|
-| ipa_width      | post: cfg.ipa_width == realm.ipa_width           |
-| hash_algo      | post: Equal(cfg.hash_algo, realm.hash_algo)      |
-| num_aux_planes | post: cfg.num_aux_planes == realm.num_aux_planes |
-| ats_plane      | post: cfg.ats_plane == realm.ats_plane           |
+* ipa_width
+  * post: cfg.ipa_width == realm.ipa_width
+* hash_algo
+  * post: Equal(cfg.hash_algo, realm.hash_algo)
+* num_aux_planes
+  * post: cfg.num_aux_planes == realm.num_aux_planes
+* ats_plane
+  * post: cfg.ats_plane == realm.ats_plane
 
 ## B5.4.16.4 Footprint
 

@@ -34,10 +34,12 @@ The PSCI\_FEATURES command does not have any failure conditions.
 
 ## B6.3.5.3 Success conditions
 
-| ID          | Condition                                                                              |
-|-------------|----------------------------------------------------------------------------------------|
-| func_ok     | pre: psci_func_id is a supported PSCI function. post: result == PSCI_SUCCESS           |
-| func_not_ok | pre: psci_func_id is not a supported PSCI function. post: result == PSCI_NOT_SUPPORTED |
+* func_ok
+  * pre: psci_func_id is a supported PSCI function.
+  * post: result == PSCI_SUCCESS
+* func_not_ok
+  * pre: psci_func_id is not a supported PSCI function.
+  * post: result == PSCI_NOT_SUPPORTED
 
 ## B6.3.5.4 Footprint
 

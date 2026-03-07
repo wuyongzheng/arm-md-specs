@@ -34,23 +34,39 @@ The RMI\_PDEV\_MEC\_REFRESH command operates on the following context.
 
 ## B4.5.30.2 Failure conditions
 
-## ID Condition
-
-| feat            | pre: post:   | Rmm().static.feat_cmem_cxl != FEATURE_TRUE result.status == RMI_ERROR_NOT_SUPPORTED   |
-|-----------------|--------------|---------------------------------------------------------------------------------------|
-| pdev_align      | pre: post:   | !AddrIsRmiGranuleAligned(pdev_ptr) result.status == RMI_ERROR_INPUT                   |
-| pdev_bound      | pre: post:   | !PaIsTracked(pdev_ptr) result.status == RMI_ERROR_INPUT                               |
-| pdev_gran_state | pre: post:   | GranuleAt(pdev_ptr).state != GRAN_PDEV result.status == RMI_ERROR_INPUT               |
-| pdev_category   | pre: post:   | pdev.category != PDEV_ENDPOINT_CMEM result.status == RMI_ERROR_DEVICE                 |
-| pdev_state      | pre: post:   | pdev.state != PDEV_READY result.status == RMI_ERROR_DEVICE                            |
-
-## ID
-
-## Condition
-
-```
-comm_state pre: pdev.comm_state != DEV_COMM_IDLE post: result.status == RMI_ERROR_DEVICE rd_align pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPUT rd_tracking pre: !PaIsTrackedFine(rd) post: result.status == RMI_ERROR_INPUT rd_state pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_INPUT realm_state pre: realm.state != REALM_ZOMBIE post: result.status == RMI_ERROR_REALM
-```
+* feat
+  * pre: Rmm().static.feat_cmem_cxl != FEATURE_TRUE
+  * post: result.status == RMI_ERROR_NOT_SUPPORTED
+* pdev_align
+  * pre: !AddrIsRmiGranuleAligned(pdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_bound
+  * pre: !PaIsTracked(pdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_gran_state
+  * pre: GranuleAt(pdev_ptr).state != GRAN_PDEV
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_category
+  * pre: pdev.category != PDEV_ENDPOINT_CMEM
+  * post: result.status == RMI_ERROR_DEVICE
+* pdev_state
+  * pre: pdev.state != PDEV_READY
+  * post: result.status == RMI_ERROR_DEVICE
+* comm_state
+  * pre: pdev.comm_state != DEV_COMM_IDLE
+  * post: result.status == RMI_ERROR_DEVICE
+* rd_align
+  * pre: !AddrIsRmiGranuleAligned(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_tracking
+  * pre: !PaIsTrackedFine(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_state
+  * pre: GranuleAt(rd).state != GRAN_RD
+  * post: result.status == RMI_ERROR_INPUT
+* realm_state
+  * pre: realm.state != REALM_ZOMBIE
+  * post: result.status == RMI_ERROR_REALM
 
 ## B4.5.30.2.1 Failure condition ordering
 
@@ -63,9 +79,10 @@ comm_state pre: pdev.comm_state != DEV_COMM_IDLE post: result.status == RMI_ERRO
 
 ## B4.5.30.3 Success conditions
 
-```
-ID Condition op post: pdev.op == PDEV_OP_MEC_REFRESH comm_state post: pdev.comm_state == DEV_COMM_PENDING
-```
+* op
+  * post: pdev.op == PDEV_OP_MEC_REFRESH
+* comm_state
+  * post: pdev.comm_state == DEV_COMM_PENDING
 
 ## B4.5.30.4 Footprint
 

@@ -39,19 +39,25 @@ The RMI\_PSMMU\_ST\_L2\_CREATE command operates on the following context.
 
 ## B4.5.43.2 Failure conditions
 
-| ID          | Condition                                                                                |
-|-------------|------------------------------------------------------------------------------------------|
-| feat        | pre: Rmm().static.feat_da != FEATURE_TRUE post: result.status == RMI_ERROR_NOT_SUPPORTED |
-| psmmu_valid | pre: !PsmmuAddrIsValid(psmmu_ptr) post: result.status == RMI_ERROR_INPUT                 |
-| psmmu_state | pre: psmmu.state != PSMMU_ACTIVE post: result.status == RMI_ERROR_INPUT                  |
-
-```
-ID Condition PSMMU_ST_ENTRY_TABLE)
-```
-
-```
-sid_bound pre: UInt(sid) >= 2^psmmu.sid_size post: result.status == RMI_ERROR_INPUT st_entry pre: (walk.level != 1 || walk.ste.state == post: result.status == RMI_ERROR_INPUT sid_align pre: sid identifies the first entry in an L2ST. post: result.status == RMI_ERROR_INPUT
-```
+* feat
+  * pre: Rmm().static.feat_da != FEATURE_TRUE
+  * post: result.status == RMI_ERROR_NOT_SUPPORTED
+* psmmu_valid
+  * pre: !PsmmuAddrIsValid(psmmu_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* psmmu_state
+  * pre: psmmu.state != PSMMU_ACTIVE
+  * post: result.status == RMI_ERROR_INPUT
+* sid_bound
+  * pre: UInt(sid) >= 2^psmmu.
+* sid_size
+  * post: result.status == RMI_ERROR_INPUT
+* st_entry
+  * pre: (walk.level != 1 || walk.ste.state ==
+  * post: result.status == RMI_ERROR_INPUT
+* sid_align
+  * pre: sid identifies the first entry in an L2ST.
+  * post: result.status == RMI_ERROR_INPUT
 
 ## B4.5.43.2.1 Failure condition ordering
 
@@ -59,13 +65,10 @@ The RMI\_PSMMU\_ST\_L2\_CREATE command does not have any failure condition order
 
 ## B4.5.43.3 Success conditions
 
-Condition
-
-ID
-
-```
-result post: result.status == RMI_SUCCESS state post: walk.ste.state == PSMMU_ST_ENTRY_TABLE
-```
+* result
+  * post: result.status == RMI_SUCCESS
+* state
+  * post: walk.ste.state == PSMMU_ST_ENTRY_TABLE
 
 ## B4.5.43.4 Footprint
 

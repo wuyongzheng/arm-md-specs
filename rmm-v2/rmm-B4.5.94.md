@@ -34,19 +34,34 @@ The RMI\_VSMMU\_CMD\_GET command operates on the following context.
 
 ## B4.5.94.2 Failure conditions
 
-| ID          | Condition                                                                                   |
-|-------------|---------------------------------------------------------------------------------------------|
-| feat        | pre: Rmm().static.feat_vsmmu != FEATURE_TRUE post: result.status == RMI_ERROR_NOT_SUPPORTED |
-| vsmmu_align | pre: !AddrIsRmiGranuleAligned(vsmmu_ptr) post: result.status == RMI_ERROR_INPUT             |
-| vsmmu_bound | pre: !PaIsTracked(vsmmu_ptr) post: result.status == RMI_ERROR_INPUT                         |
-
-## ID
-
-## Condition
-
-```
-vsmmu_state pre: GranuleAt(vsmmu_ptr).state != GRAN_VSMMU post: result.status == RMI_ERROR_INPUT rd_align pre: !AddrIsRmiGranuleAligned(rd) post: result.status == RMI_ERROR_INPUT rd_bound pre: !PaIsTracked(rd) post: result.status == RMI_ERROR_INPUT rd_state pre: GranuleAt(rd).state != GRAN_RD post: result.status == RMI_ERROR_INPUT vsmmu_owner pre: vsmmu.realm != rd post: result.status == RMI_ERROR_INPUT realm_state pre: realm.state != REALM_NEW post: result.status == RMI_ERROR_REALM
-```
+* feat
+  * pre: Rmm().static.feat_vsmmu != FEATURE_TRUE
+  * post: result.status == RMI_ERROR_NOT_SUPPORTED
+* vsmmu_align
+  * pre: !AddrIsRmiGranuleAligned(vsmmu_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* vsmmu_bound
+  * pre: !PaIsTracked(vsmmu_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* vsmmu_state
+  * pre: GranuleAt(vsmmu_ptr).state != GRAN_VSMMU
+  * post: result.status == RMI_ERROR_INPUT
+* rd_align
+  * pre: !AddrIsRmiGranuleAligned(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_bound
+  * pre: !PaIsTracked(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_state
+  * pre: GranuleAt(rd).state != GRAN_RD
+  * post: result.status == RMI_ERROR_INPUT
+* vsmmu_owner
+  * pre: vsmmu.realm !=
+* rd
+  * post: result.status == RMI_ERROR_INPUT
+* realm_state
+  * pre: realm.state != REALM_NEW
+  * post: result.status == RMI_ERROR_REALM
 
 ## B4.5.94.2.1 Failure condition ordering
 

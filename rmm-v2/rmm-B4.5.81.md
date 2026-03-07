@@ -35,21 +35,38 @@ The RMI\_VDEV\_COMPLETE command operates on the following context.
 
 ## B4.5.81.2 Failure conditions
 
-| ID         | Condition                                                                        |
-|------------|----------------------------------------------------------------------------------|
-| rec_align  | pre: !AddrIsRmiGranuleAligned(rec_ptr) post: result.status == RMI_ERROR_INPUT    |
-| rec_bound  | pre: !PaIsTracked(rec_ptr) post: result.status == RMI_ERROR_INPUT                |
-| recv_state | pre: GranuleAt(rec_ptr).state != GRAN_REC post: result.status == RMI_ERROR_INPUT |
-| vdev_align | pre: !AddrIsRmiGranuleAligned(vdev_ptr) post: result.status == RMI_ERROR_INPUT   |
-| vdev_bound | pre: !PaIsTracked(vdev_ptr) post: result.status == RMI_ERROR_INPUT               |
-
-ID
-
-## Condition
-
-```
-vdev_state pre: GranuleAt(vdev_ptr).state != GRAN_VDEV post: result.status == RMI_ERROR_INPUT pending pre: rec.pending != REC_PENDING_VDEV_REQUEST post: result.status == RMI_ERROR_INPUT owner pre: rec.owner != vdev.realm post: result.status == RMI_ERROR_INPUT vdev_id pre: rec.vdev_id_1 != vdev.vdev_id post: result.status == RMI_ERROR_INPUT comm_state pre: vdev.comm_state != DEV_COMM_IDLE post: result.status == RMI_ERROR_DEVICE
-```
+* rec_align
+  * pre: !AddrIsRmiGranuleAligned(rec_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* rec_bound
+  * pre: !PaIsTracked(rec_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* recv_state
+  * pre: GranuleAt(rec_ptr).state != GRAN_REC
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_align
+  * pre: !AddrIsRmiGranuleAligned(vdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_bound
+  * pre: !PaIsTracked(vdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_state
+  * pre: GranuleAt(vdev_ptr).state != GRAN_VDEV
+  * post: result.status == RMI_ERROR_INPUT
+* pending
+  * pre: rec.pending != REC_PENDING_VDEV_REQUEST
+  * post: result.status == RMI_ERROR_INPUT
+* owner
+  * pre: rec.owner != vdev.
+* realm
+  * post: result.status == RMI_ERROR_INPUT
+* vdev_id
+  * pre: rec.vdev_id_1 != vdev.
+* vdev_id
+  * post: result.status == RMI_ERROR_INPUT
+* comm_state
+  * pre: vdev.comm_state != DEV_COMM_IDLE
+  * post: result.status == RMI_ERROR_DEVICE
 
 ## B4.5.81.2.1 Failure condition ordering
 
@@ -57,11 +74,13 @@ The RMI\_VDEV\_COMPLETE command does not have any failure condition orderings.
 
 ## B4.5.81.3 Success conditions
 
-| ID         | Condition                                                                        |
-|------------|----------------------------------------------------------------------------------|
-| pending    | post: rec.pending == REC_PENDING_VDEV_COMPLETE                                   |
-| vdev_pa    | post: rec.vdev_pa_1 == vdev_ptr                                                  |
-| comm_state | pre: rec.vdev_comm_pending == RMM_TRUE post: vdev.comm_state == DEV_COMM_PENDING |
+* pending
+  * post: rec.pending == REC_PENDING_VDEV_COMPLETE
+* vdev_pa
+  * post: rec.vdev_pa_1 == vdev_ptr
+* comm_state
+  * pre: rec.vdev_comm_pending == RMM_TRUE
+  * post: vdev.comm_state == DEV_COMM_PENDING
 
 ## B4.5.81.4 Footprint
 

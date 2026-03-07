@@ -32,22 +32,41 @@ The RMI\_CMEM\_REMOVE\_PDEV command operates on the following context.
 
 ## B4.5.6.2 Failure conditions
 
-| ID              | Condition   | Condition                                                                           |
-|-----------------|-------------|-------------------------------------------------------------------------------------|
-| feat            | pre: post:  | Rmm().static.feat_cmem_cxl != FEATURE_TRUE result.status == RMI_ERROR_NOT_SUPPORTED |
-| cmem_align      | pre: post:  | !AddrIsRmiGranuleAligned(cmem_ptr) result.status == RMI_ERROR_INPUT                 |
-| cmem_bound      | pre: post:  | !PaIsTracked(cmem_ptr) result.status == RMI_ERROR_INPUT                             |
-| cmem_gran_state | pre: post:  | GranuleAt(cmem_ptr).state != GRAN_CMEM result.status == RMI_ERROR_INPUT             |
-| pdev_align      | pre: post:  | !AddrIsRmiGranuleAligned(pdev_ptr) result.status == RMI_ERROR_INPUT                 |
-| pdev_bound      | pre: post:  | !PaIsTracked(pdev_ptr) result.status == RMI_ERROR_INPUT                             |
-
-## ID
-
-## Condition
-
-```
-pdev_gran_state pre: GranuleAt(pdev_ptr).state != GRAN_PDEV post: result.status == RMI_ERROR_INPUT index_bound pre: index >= cmem.ilv_ways post: result.status == RMI_ERROR_INPUT cmem_state pre: cmem.state != CMEM_STOPPED post: result.status == RMI_ERROR_DEVICE index_free pre: cmem.pdev[[index]].valid != RMM_TRUE post: result.status == RMI_ERROR_DEVICE pdev_addr pre: cmem.pdev[[index]].pdev_addr != pdev_ptr post: result.status == RMI_ERROR_DEVICE
-```
+* feat
+  * pre: Rmm().static.feat_cmem_cxl != FEATURE_TRUE
+  * post: result.status == RMI_ERROR_NOT_SUPPORTED
+* cmem_align
+  * pre: !AddrIsRmiGranuleAligned(cmem_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* cmem_bound
+  * pre: !PaIsTracked(cmem_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* cmem_gran_state
+  * pre: GranuleAt(cmem_ptr).state != GRAN_CMEM
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_align
+  * pre: !AddrIsRmiGranuleAligned(pdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_bound
+  * pre: !PaIsTracked(pdev_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* pdev_gran_state
+  * pre: GranuleAt(pdev_ptr).state != GRAN_PDEV
+  * post: result.status == RMI_ERROR_INPUT
+* index_bound
+  * pre: index >= cmem.
+* ilv_ways
+  * post: result.status == RMI_ERROR_INPUT
+* cmem_state
+  * pre: cmem.state != CMEM_STOPPED
+  * post: result.status == RMI_ERROR_DEVICE
+* index_free
+  * pre: cmem.pdev[[index]].valid != RMM_TRUE
+  * post: result.status == RMI_ERROR_DEVICE
+* pdev_addr
+  * pre: cmem.pdev[[index]].pdev_addr !=
+* pdev_ptr
+  * post: result.status == RMI_ERROR_DEVICE
 
 ## B4.5.6.2.1 Failure condition ordering
 
@@ -59,14 +78,12 @@ pdev_gran_state pre: GranuleAt(pdev_ptr).state != GRAN_PDEV post: result.status 
 
 ## B4.5.6.3 Success conditions
 
-## Condition
-
-
-## ID
-
-```
-pdev_valid post: cmem.pdev[[index]].valid == RMM_FALSE dev_hdm_dec post: HdmDecoderIsFree(pdev, cmem.pdev[[index]].dev_hdm_id) cmem_count post: pdev.cmem_count == pdev_pre.cmem_count -1
-```
+* pdev_valid
+  * post: cmem.pdev[[index]].valid == RMM_FALSE
+* dev_hdm_dec
+  * post: HdmDecoderIsFree(pdev, cmem.pdev[[index]].dev_hdm_id)
+* cmem_count
+  * post: pdev.cmem_count == pdev_pre.cmem_count -1
 
 ## B4.5.6.4 Footprint
 

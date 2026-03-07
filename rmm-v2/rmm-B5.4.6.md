@@ -50,9 +50,18 @@ See also:
 
 ## B5.4.6.2 Failure conditions
 
-```
-ID Condition base_align pre: !AddrIsRsiGranuleAligned(base) post: result == RSI_ERROR_INPUT end_align pre: !AddrIsRsiGranuleAligned(top) post: result == RSI_ERROR_INPUT size_valid pre: UInt(top) <= UInt(base) post: result == RSI_ERROR_INPUT rgn_bound pre: !AddrRangeIsProtected(base, top, realm) post: result == RSI_ERROR_INPUT
-```
+* base_align
+  * pre: !AddrIsRsiGranuleAligned(base)
+  * post: result == RSI_ERROR_INPUT
+* end_align
+  * pre: !AddrIsRsiGranuleAligned(top)
+  * post: result == RSI_ERROR_INPUT
+* size_valid
+  * pre: UInt(top) <= UInt(base)
+  * post: result == RSI_ERROR_INPUT
+* rgn_bound
+  * pre: !AddrRangeIsProtected(base, top, realm)
+  * post: result == RSI_ERROR_INPUT
 
 ## B5.4.6.2.1 Failure condition ordering
 
@@ -60,13 +69,8 @@ The RSI\_IPA\_STATE\_GET command does not have any failure condition orderings.
 
 ## B5.4.6.3 Success conditions
 
-```
-ID Condition range
-```
-
-```
-ripas post: Value of out_top is such that RIPAS of address [base, out_top) is equal to ripas.
-```
+* ripas
+  * post: Value of out_top is such that RIPAS of address [base, out_top) is equal to ripas.
 
 ## B5.4.6.4 Footprint
 

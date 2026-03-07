@@ -62,26 +62,36 @@ The values of the result and top output values for different command outcomes ar
 
 ## B4.5.68.2 Failure conditions
 
-Condition
-
-| rd_align    | pre: post:   | !AddrIsRmiGranuleAligned(rd) result.status == RMI_ERROR_INPUT                                                              |
-|-------------|--------------|----------------------------------------------------------------------------------------------------------------------------|
-| rd_bound    | pre: post:   | !PaIsTracked(rd) result.status == RMI_ERROR_INPUT                                                                          |
-| rd_state    | pre: post:   | GranuleAt(rd).state != GRAN_RD result.status == RMI_ERROR_INPUT                                                            |
-| level_bound | pre: post:   | (!RttLevelIsValid(realm, level) &#124;&#124; RttLevelIsStarting(realm, level)) result.status == RMI_ERROR_INPUT            |
-| ipa_align   | pre: post:   | !AddrIsRttLevelAligned(ipa, level - 1) result.status == RMI_ERROR_INPUT                                                    |
-| ipa_bound   | pre: post:   | UInt(ipa) >= (2 ^ realm.ipa_width) result.status == RMI_ERROR_INPUT                                                        |
-| rtt_walk    | pre: post:   | walk.level < level - 1 (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level && top == walk_top)        |
-| rtte_state  | pre: post:   | walk.rtte.state != RTTE_TABLE (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level && top == walk_top) |
-
-
-## ID
-
-## Condition
-
-```
-rtt_live pre: RttIsLive(RttAt(walk.rtte.addr)) post: (result.status == RMI_ERROR_RTT && result.data.level.level == level && top == ipa) aux_ref pre: AddrIsAuxRef(ipa, realm) post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level)
-```
+* rd_align
+  * pre: !AddrIsRmiGranuleAligned(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_bound
+  * pre: !PaIsTracked(rd)
+  * post: result.status == RMI_ERROR_INPUT
+* rd_state
+  * pre: GranuleAt(rd).state != GRAN_RD
+  * post: result.status == RMI_ERROR_INPUT
+* level_bound
+  * pre: (!RttLevelIsValid(realm, level) || RttLevelIsStarting(realm, level))
+  * post: result.status == RMI_ERROR_INPUT
+* ipa_align
+  * pre: !AddrIsRttLevelAligned(ipa, level - 1)
+  * post: result.status == RMI_ERROR_INPUT
+* ipa_bound
+  * pre: UInt(ipa) >= (2 ^ realm.ipa_width)
+  * post: result.status == RMI_ERROR_INPUT
+* rtt_walk
+  * pre: walk.level < level - 1 (
+  * post: result.status == RMI_ERROR_RTT && result.data.level.level == walk.level && top == walk_top)
+* rtte_state
+  * pre: walk.rtte.state != RTTE_TABLE (
+  * post: result.status == RMI_ERROR_RTT && result.data.level.level == walk.level && top == walk_top)
+* rtt_live
+  * pre: RttIsLive(RttAt(walk.rtte.addr))
+  * post: (result.status == RMI_ERROR_RTT && result.data.level.level == level && top == ipa)
+* aux_ref
+  * pre: AddrIsAuxRef(ipa, realm)
+  * post: (result.status == RMI_ERROR_RTT && result.data.level.level == walk.level)
 
 ## B4.5.68.2.1 Failure condition ordering
 
@@ -93,16 +103,25 @@ rtt_live pre: RttIsLive(RttAt(walk.rtte.addr)) post: (result.status == RMI_ERROR
 
 ## B4.5.68.3 Success conditions
 
-## Condition
-
-## ID
-
-```
-rtt post: rtt == walk.rtte.addr top post: top == walk_top result post: result.status == RMI_SUCCESS state_prot pre: AddrIsProtected(ipa, realm) post: walk.rtte.state == RTTE_VOID ripas pre: AddrIsProtected(ipa, realm) post: walk.rtte.ripas == RIPAS_DESTROYED state_unprot pre: !AddrIsProtected(ipa, realm) post: walk.rtte.state == RTTE_UNMAPPED_NS rtt_state post: GranuleAt(walk.rtte.addr).state == GRAN_DELEGATED
-```
+* rtt
+  * post: rtt == walk.rtte.
+* addrtop
+  * post: top == walk_top
+* result
+  * post: result.status == RMI_SUCCESS
+* state_prot
+  * pre: AddrIsProtected(ipa, realm)
+  * post: walk.rtte.state == RTTE_VOID
+* ripas
+  * pre: AddrIsProtected(ipa, realm)
+  * post: walk.rtte.ripas == RIPAS_DESTROYED
+* state_unprot
+  * pre: !AddrIsProtected(ipa, realm)
+  * post: walk.rtte.state == RTTE_UNMAPPED_NS
+* rtt_state
+  * post: GranuleAt(walk.rtte.addr).state == GRAN_DELEGATED
 
 ## B4.5.68.4 Footprint
-
 
 | ID        | Value                                       |
 |-----------|---------------------------------------------|

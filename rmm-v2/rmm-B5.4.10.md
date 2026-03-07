@@ -34,29 +34,12 @@ The RSI\_MEM\_GET\_PERM\_VALUE command operates on the following context.
 
 ## B5.4.10.2 Failure conditions
 
-## ID Condition
-
-plane\_bound
-
-pre:
-
-plane\_index &gt; realm.num\_aux\_planes
-
-post:
-
-result == RSI\_ERROR\_INPUT
-
-perm\_bound
-
-pre:
-
-perm\_index &gt;=
-
-RMM\_NUM\_PERM\_OVERLAY\_INDICES
-
-post:
-
-result == RSI\_ERROR\_INPUT
+* plane_bound
+  * pre: plane_index > realm.num_aux_planes
+  * post: result == RSI_ERROR_INPUT
+* perm_bound
+  * pre: perm_index >= RMM_NUM_PERM_OVERLAY_INDICES
+  * post: result == RSI_ERROR_INPUT
 
 ## B5.4.10.2.1 Failure condition ordering
 
@@ -64,9 +47,8 @@ The RSI\_MEM\_GET\_PERM\_VALUE command does not have any failure condition order
 
 ## B5.4.10.3 Success conditions
 
-| ID    | Condition                                                              |
-|-------|------------------------------------------------------------------------|
-| label | post: value == realm.overlay_perms[[plane_index]].values[[perm_index]] |
+* label
+  * post: value == realm.overlay_perms[[plane_index]].values[[perm_index]]
 
 ## B5.4.10.4 Footprint
 

@@ -51,11 +51,21 @@ ID
 
 ## B5.3.6.2 Failure conditions
 
-## Condition
-
-```
-base_align pre: !AddrIsGranuleAligned(base) post: result == RSI_ERROR_INPUT top_align pre: !AddrIsGranuleAligned(top) post: result == RSI_ERROR_INPUT size_valid pre: UInt(top) <= UInt(base) post: result == RSI_ERROR_INPUT rgn_bound pre: !AddrRangeIsProtected(base, top, realm) post: result == RSI_ERROR_INPUT ripas_valid pre: (ripas != RSI_EMPTY) && (ripas != RSI_RAM) post: result == RSI_ERROR_INPUT
-```
+* base_align
+  * pre: !AddrIsGranuleAligned(base)
+  * post: result == RSI_ERROR_INPUT
+* top_align
+  * pre: !AddrIsGranuleAligned(top)
+  * post: result == RSI_ERROR_INPUT
+* size_valid
+  * pre: UInt(top) <= UInt(base)
+  * post: result == RSI_ERROR_INPUT
+* rgn_bound
+  * pre: !AddrRangeIsProtected(base, top, realm)
+  * post: result == RSI_ERROR_INPUT
+* ripas_valid
+  * pre: (ripas != RSI_EMPTY) && (ripas != RSI_RAM)
+  * post: result == RSI_ERROR_INPUT
 
 ## B5.3.6.2.1 Failure condition ordering
 
@@ -63,9 +73,10 @@ The RSI\_IPA\_STATE\_SET command does not have any failure condition orderings.
 
 ## B5.3.6.3 Success conditions
 
-```
-ID Condition new_base new_base == rec.ripas_addr response response == RecRipasChangeResponse(rec)
-```
+* new_base
+  * new_base == rec.ripas_addr
+* response
+  * response == RecRipasChangeResponse(rec)
 
 ## B5.3.6.4 Footprint
 

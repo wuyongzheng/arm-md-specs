@@ -35,45 +35,15 @@ The RMI\_PSMMU\_EVENT\_DISCARD command operates on the following context.
 
 ## B4.5.41.2 Failure conditions
 
-## ID Condition
-
-feat
-
-pre:
-
-Rmm().static.feat\_da != FEATURE\_TRUE
-
-post:
-
-result.status == RMI\_ERROR\_NOT\_SUPPORTED
-
-psmmu\_valid
-
-pre:
-
-!PsmmuAddrIsValid(psmmu\_ptr)
-
-post:
-
-result.status
-
-==
-
-RMI\_ERROR\_INPUT
-
-psmmu\_state
-
-pre:
-
-psmmu.state != PSMMU\_ACTIVE
-
-post:
-
-result.status
-
-==
-
-RMI\_ERROR\_INPUT
+* feat
+  * pre: Rmm().static.feat_da != FEATURE_TRUE
+  * post: result.status == RMI_ERROR_NOT_SUPPORTED
+* psmmu_valid
+  * pre: !PsmmuAddrIsValid(psmmu_ptr)
+  * post: result.status == RMI_ERROR_INPUT
+* psmmu_state
+  * pre: psmmu.state != PSMMU_ACTIVE
+  * post: result.status == RMI_ERROR_INPUT
 
 ## B4.5.41.2.1 Failure condition ordering
 
