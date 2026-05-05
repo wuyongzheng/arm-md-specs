@@ -1,0 +1,29 @@
+## C6.2.166 GCSPUSHX
+
+Guarded Control Stack push exception return record
+
+This instruction decrements the current Guarded Control Stack pointer register by the size of a Guarded Control Stack exception return record and stores an exception return record to the Guarded Control Stack.
+
+This is an alias of SYS. This means:
+
+- The encodings in this description are named to match the encodings of SYS.
+- The description of SYS gives the operational pseudocode, any CONSTRAINED UNPREDICTABLE behavior, and any operational information for this instruction.
+
+## System
+
+(FEAT\_GCS)
+
+<!-- image -->
+
+## Encoding
+
+| GCSPUSHX         | GCSPUSHX                           |
+|------------------|------------------------------------|
+| is equivalent to | is equivalent to                   |
+| SYS              | #<op1>, <Cn>, <Cm>, #<op2>{, <Xt>} |
+
+and is always the preferred disassembly.
+
+## Operation
+
+The description of SYS gives the operational pseudocode for this instruction.

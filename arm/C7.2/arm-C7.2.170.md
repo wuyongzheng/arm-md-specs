@@ -1,0 +1,142 @@
+## C7.2.170 FRECPE
+
+Floating-point reciprocal estimate
+
+This instruction finds an approximate reciprocal estimate for each vector element in the source SIMD&amp;FP register, places the result in a vector, and writes the vector to the destination SIMD&amp;FP register.
+
+This instruction can generate a floating-point exception. Depending on the settings in FPCR, the exception results in either a flag being set in FPSR or a synchronous exception being generated. For more information, see Floating-point exceptions and exception traps.
+
+Depending on the settings in the CPACR\_EL1, CPTR\_EL2, and CPTR\_EL3 registers, and the current Security state and Exception level, an attempt to execute the instruction might be trapped.
+
+It has encodings from 4 classes: Scalar half-precision, Scalar single-precision and double-precision, Vector half-precision, and Vector single-precision and double-precision
+
+## Scalar half-precision
+
+(FEAT\_AdvSIMD &amp;&amp; FEAT\_FP16)
+
+<!-- image -->
+
+## Encoding
+
+```
+FRECPE <Hd>, <Hn>
+```
+
+## Decode for this encoding
+
+```
+if !IsFeatureImplemented(FEAT_AdvSIMD) || !IsFeatureImplemented(FEAT_FP16) then EndOfDecode(Decode_UNDEF); constant integer d = UInt(Rd); constant integer n = UInt(Rn); constant integer esize = 16; constant integer datasize = esize; constant integer elements = 1;
+```
+
+## Scalar single-precision and double-precision
+
+(FEAT\_AdvSIMD)
+
+<!-- image -->
+
+## Encoding
+
+FRECPE
+
+&lt;V&gt;&lt;d&gt;, &lt;V&gt;&lt;n&gt;
+
+## Decode for this encoding
+
+```
+if !IsFeatureImplemented(FEAT_AdvSIMD) then EndOfDecode(Decode_UNDEF); constant integer d = UInt(Rd); constant integer n = UInt(Rn); constant integer esize = 32 << UInt(sz); constant integer datasize = esize; constant integer elements = 1;
+```
+
+## Vector half-precision
+
+(FEAT\_AdvSIMD &amp;&amp; FEAT\_FP16)
+
+<!-- image -->
+
+## Encoding
+
+```
+FRECPE <Vd>.<T>, <Vn>.<T>
+```
+
+## Decode for this encoding
+
+```
+if !IsFeatureImplemented(FEAT_AdvSIMD) || !IsFeatureImplemented(FEAT_FP16) then EndOfDecode(Decode_UNDEF); constant integer d = UInt(Rd); constant integer n = UInt(Rn); constant integer esize = 16; constant integer datasize = 64 << UInt(Q); constant integer elements = datasize DIV esize;
+```
+
+## Vector single-precision and double-precision
+
+(FEAT\_AdvSIMD)
+
+<!-- image -->
+
+## Encoding
+
+```
+FRECPE <Vd>.<T>, <Vn>.<T>
+```
+
+## Decode for this encoding
+
+```
+if !IsFeatureImplemented(FEAT_AdvSIMD) then EndOfDecode(Decode_UNDEF);
+```
+
+```
+constant integer d = UInt(Rd); constant integer n = UInt(Rn); if sz:Q == '10' then EndOfDecode(Decode_UNDEF); constant integer esize = 32 << UInt(sz); constant integer datasize = 64 << UInt(Q); constant integer elements = datasize DIV esize;
+```
+
+## Assembler Symbols
+
+&lt;Hd&gt;
+
+Is the 16-bit name of the SIMD&amp;FP destination register, encoded in the 'Rd' field.
+
+Is the 16-bit name of the SIMD&amp;FP source register, encoded in the 'Rn' field.
+
+Is a width specifier, encoded in 'sz':
+
+&lt;Hn&gt;
+
+&lt;V&gt;
+
+&lt;Vn&gt;
+
+|   sz | <V>   |
+|------|-------|
+|    0 | S     |
+|    1 | D     |
+
+- &lt;d&gt; Is the number of the SIMD&amp;FP destination register, encoded in the 'Rd' field.
+
+&lt;n&gt;
+
+- &lt;Vd&gt;
+
+Is the name of the SIMD&amp;FP destination register, encoded in the 'Rd' field.
+
+- &lt;T&gt; For the 'Vector half-precision' variant: is an arrangement specifier, encoded in 'Q':
+
+|   Q | <T>   |
+|-----|-------|
+|   0 | 4H    |
+|   1 | 8H    |
+
+For the 'Vector single-precision and double-precision' variant: is an arrangement specifier, encoded in 'sz:Q':
+
+|   sz |   Q | <T>      |
+|------|-----|----------|
+|    0 |   0 | 2S       |
+|    0 |   1 | 4S       |
+|    1 |   0 | RESERVED |
+|    1 |   1 | 2D       |
+
+Is the name of the SIMD&amp;FP source register, encoded in the 'Rn' field.
+
+Is the number of the SIMD&amp;FP source register, encoded in the 'Rn' field.
+
+## Operation
+
+```
+if elements == 1 then AArch64.CheckFPEnabled(); else AArch64.CheckFPAdvSIMDEnabled(); constant bits(datasize) operand = V[n, datasize]; constant boolean merge = elements == 1 && IsMerging(FPCR); bits(128) result = if merge then V[d, 128] else Zeros(128); for e = 0 to elements-1 constant bits(esize) element = Elem[operand, e, esize]; Elem[result, e, esize] = FPRecipEstimate(element, FPCR); V[d, 128] = result;
+```

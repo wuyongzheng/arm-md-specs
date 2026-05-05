@@ -1,0 +1,74 @@
+## C6.2.20 ASR (immediate)
+
+Arithmetic shift right (immediate)
+
+This instruction shifts a register value right by an immediate number of bits, shifting in copies of the sign bit in the upper bits and zeros in the lower bits, and writes the result to the destination register.
+
+This is an alias of SBFM. This means:
+
+- The encodings in this description are named to match the encodings of SBFM.
+- The description of SBFM gives the operational pseudocode, any CONSTRAINED UNPREDICTABLE behavior, and any operational information for this instruction.
+
+<!-- image -->
+
+## Encoding for the 32-bit variant
+
+Applies when (sf == 0 &amp;&amp; N == 0 &amp;&amp; imms == 011111)
+
+```
+ASR <Wd>, <Wn>, #<shift>
+```
+
+## is equivalent to
+
+```
+SBFM <Wd>, <Wn>, #<shift>, #31
+```
+
+and is always the preferred disassembly.
+
+## Encoding for the 64-bit variant
+
+```
+Applies when (sf == 1 && N == 1 && imms == 111111) ASR <Xd>, <Xn>, #<shift>
+```
+
+## is equivalent to
+
+```
+SBFM <Xd>, <Xn>, #<shift>, #63
+```
+
+and is always the preferred disassembly.
+
+## Assembler Symbols
+
+## &lt;Wd&gt;
+
+Is the 32-bit name of the general-purpose destination register, encoded in the 'Rd' field.
+
+## &lt;Wn&gt;
+
+Is the 32-bit name of the general-purpose source register, encoded in the 'Rn' field.
+
+## &lt;shift&gt;
+
+For the '32-bit' variant: is the shift amount, in the range 0 to 31, encoded in the 'immr' field.
+
+For the '64-bit' variant: is the shift amount, in the range 0 to 63, encoded in the 'immr' field.
+
+Is the 64-bit name of the general-purpose destination register, encoded in the 'Rd' field.
+
+Is the 64-bit name of the general-purpose source register, encoded in the 'Rn' field.
+
+## &lt;Xd&gt;
+
+## &lt;Xn&gt;
+
+## Operation
+
+The description of SBFM gives the operational pseudocode for this instruction.
+
+## Operational Information
+
+The description of SBFM gives the operational information for this instruction.

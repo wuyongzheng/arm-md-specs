@@ -1,0 +1,72 @@
+## C7.2.6 ADDV
+
+Add across vector
+
+This instruction adds every vector element in the source SIMD&amp;FP register together, and writes the scalar result to the destination SIMD&amp;FP register.
+
+Depending on the settings in the CPACR\_EL1, CPTR\_EL2, and CPTR\_EL3 registers, and the current Security state and Exception level, an attempt to execute the instruction might be trapped.
+
+## Advanced SIMD
+
+(FEAT\_AdvSIMD)
+
+<!-- image -->
+
+## Encoding
+
+```
+ADDV <V><d>, <Vn>.<T>
+```
+
+## Decode for this encoding
+
+```
+if !IsFeatureImplemented(FEAT_AdvSIMD) then EndOfDecode(Decode_UNDEF); if size:Q == '100' then EndOfDecode(Decode_UNDEF); if size == '11' then EndOfDecode(Decode_UNDEF); constant integer d = UInt(Rd); constant integer n = UInt(Rn); constant integer esize = 8 << UInt(size); constant integer datasize = 64 << UInt(Q);
+```
+
+## Assembler Symbols
+
+<!-- image -->
+
+&lt;V&gt;
+
+Is the destination width specifier, encoded in 'size':
+
+&lt;d&gt;
+
+&lt;Vn&gt;
+
+|   size | <V>      |
+|--------|----------|
+|     00 | B        |
+|     01 | H        |
+|     10 | S        |
+|     11 | RESERVED |
+
+Is the number of the SIMD&amp;FP destination register, encoded in the 'Rd' field.
+
+Is the name of the SIMD&amp;FP source register, encoded in the 'Rn' field.
+
+&lt;T&gt;
+
+Is an arrangement specifier, encoded in 'size:Q':
+
+|   size | Q   | <T>      |
+|--------|-----|----------|
+|     00 | 0   | 8B       |
+|     00 | 1   | 16B      |
+|     01 | 0   | 4H       |
+|     01 | 1   | 8H       |
+|     10 | 0   | RESERVED |
+|     10 | 1   | 4S       |
+|     11 | x   | RESERVED |
+
+## Operation
+
+```
+AArch64.CheckFPAdvSIMDEnabled(); constant bits(datasize) operand = V[n, datasize]; V[d, esize] = IntReduce(ReduceOp_ADD, operand, esize);
+```
+
+## Operational Information
+
+This instruction is a data-independent-time instruction as described in About PSTATE.DIT.
